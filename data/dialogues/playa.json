@@ -1,0 +1,39 @@
+{
+  "id": "playa",
+  "_nota": "Grupo de una noche: el autobús de vuelta de la playa de Ciudad Carmín para a merendar. Tentacool, la medusa veraneante (donde se mete, ponen la bandera roja); su madre Tentacruel, activista contra los hoteles en primera línea (en el anime, un Tentacruel gigante contra el hotel que destruía el arrecife), que revisa si la posada tiene «ecosistema» (solo tiene retrato Normal); Horsea, rotulista de pizarras de bar, que escribe con su tinta, y su padre Seadra, que cría solo (en los Seadra crían los machos) y tiene ojeras de serie (un retrato); Krabby, el sastre, que toma medidas con las pinzas, y su padre Kingler, que abre todos los tarros con su pinza de 10.000 caballos y no sabe cerrarlos. Remate: a Kingler se le cae el tarro de miel y Horsea escribe en la pizarra «Hoy: pan tostado con miel. Mucha miel». Tentacruel aprueba la posada porque se hizo alrededor del pino sin talarlo.",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Una noche · el autobús de la playa",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(A media tarde para en la puerta un autobús que huele a crema solar. Bajan seis, con toallas, una sombrilla y un cubo de arena.)", "sigue": "tic" },
+        "tic": { "quien": "manolo", "emocion": "Pain", "texto": "(Seis tipo agua de golpe. A Manolo se le cierra un ojo, luego el otro, y le caen seis gotas por la calva. Una por cabeza.)", "sigue": "tentacool" },
+        "tentacool": { "quien": "tentacool", "emocion": "Happy", "texto": "¡Hola! ¡Soy Tentacool! ¿Hay piscina? ¿Hay mar? Da igual: donde me meto, ponen la bandera roja. ¡Es mi firma!", "sigue": "tentacruel" },
+        "tentacruel": { "quien": "tentacruel", "emocion": "Normal", "texto": "(Su madre, Tentacruel, revisa el fregadero con un tentáculo.) ¿Aquí no hay ni un estanque? Mejor. Lo que no se construye, no se estropea.", "si_mejora": { "estanque": "tentacruel_e" }, "sigue": "manolo" },
+        "tentacruel_e": { "quien": "tentacruel", "emocion": "Normal", "texto": "(Su madre, Tentacruel, ya está midiendo el estanque con un tentáculo.) Antes de bañarnos: ¿esto tiene ecosistema? Ya lo diré yo.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Worried", "texto": "Usted dirá, señora. Pero ¿qué es usted, de Sanidad?", "sigue": "tentacruel2" },
+        "tentacruel2": { "quien": "tentacruel", "emocion": "Normal", "texto": "De la plataforma. Vengo de plantarme delante de un hotel que tapaba el arrecife. Me hice muy grande y se lo pensaron. No ponga esa cara: yo no tengo otra.", "sigue": "horsea" },
+        "horsea": { "quien": "horsea", "emocion": "Happy", "texto": "(Horsea ya ha cogido la pizarra del comedor y escribe con su tinta. Letra preciosa.) ¡Soy rotulista! Cuando me asusto, echo tinta. Así que la aprovecho.", "sigue": "seadra" },
+        "seadra": { "quien": "seadra", "emocion": "Normal", "texto": "(Su padre, Seadra, con ojeras hasta las aletas.) Perdone. Crío solo: en los Seadra crían los padres. No duermo desde que nació. Esta es mi cara de siempre.", "sigue": "krabby" },
+        "krabby": { "quien": "krabby", "emocion": "Happy", "texto": "¡Y yo, Krabby, sastre! (Ya le está tomando medidas a Charizard con las pinzas.) Alas, cola, barriga… ¡Le hago un bañador a medida!", "sigue": "barriga" },
+        "barriga": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard se deja medir muy quieto. Cuando Krabby le llega a la barriga, mete tripa. No sirve de nada. Krabby apunta «XXL» sin decir nada.", "sigue": "pop" },
+        "pop": { "quien": "kingler", "emocion": "Happy", "texto": "(En la cocina: ¡POP! ¡POP! ¡POP!) ¡Kingler, el padre! Les he abierto todos los tarros. Diez mil caballos de pinza. De nada.", "sigue": "manolo2" },
+        "manolo2": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Todos? ¿Y ahora quién los cierra?", "sigue": "kingler2" },
+        "kingler2": { "quien": "kingler", "emocion": "Worried", "texto": "Eso… cerrar no sé. La pinza pesa demasiado para dar vueltecitas. Abrir, de maravilla. Mi hijo cose; yo abro. Cada uno lo suyo.", "opciones": [
+          { "texto": "«Pues hoy se cena de lo que esté abierto»", "efectos": { "afinidad": 1 }, "sigue": "abierto" },
+          { "texto": "«Charizard, ciérralos tú, anda»", "sigue": "cerrar" }
+        ] },
+        "abierto": { "quien": "manolo", "emocion": "Happy", "texto": "(Aceitunas, pimientos, mermelada, guindillas… Media despensa abierta en la mesa. La cena más rara del año, y nadie se queja.)", "sigue": "miel" },
+        "cerrar": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard intenta enroscar una tapa con la garra. La tapa se funde y el tarro queda con forma de pato. Lo esconde detrás del pan.", "sigue": "miel" },
+        "miel": { "quien": "kingler", "emocion": "Pain", "texto": "(Kingler coge el tarro de miel para enseñar la fuerza. Se le escurre. Cae. La miel llega hasta la puerta.) …Ay. Este no lo cierra nadie.", "sigue": "pizarra" },
+        "pizarra": { "quien": "horsea", "emocion": "Happy", "texto": "(Horsea borra la pizarra sin decir nada y escribe con su mejor letra: «Hoy: pan tostado con miel. Mucha miel».)", "sigue": "bandera" },
+        "bandera": { "quien": "tentacool", "emocion": "Happy", "texto": "¡Bandera roja en la cocina! ¡Nadie se meta! ¡Zona de miel! (Se mete ella.)", "sigue": "pino" },
+        "pino": { "quien": "tentacruel", "emocion": "Normal", "texto": "(Tentacruel mira por la ventana el pino negro.) Hicieron la casa alrededor del árbol, sin talarlo. Aprobado. Lo firmo con los ochenta tentáculos.", "sigue": "seadra2" },
+        "seadra2": { "quien": "seadra", "emocion": "Normal", "texto": "(Mientras todos mojan pan, Seadra se queda dormido de pie, por primera vez en meses. Horsea le tapa con una toalla de playa.)", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "A medianoche el autobús baja hacia Carmín. Charizard se pasa un buen rato despegándose miel de las garras. En el mostrador se ha quedado una toalla de playa." }
+      }
+    }
+  ]
+}

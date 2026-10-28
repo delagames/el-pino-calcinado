@@ -1,0 +1,63 @@
+{
+  "id": "dratini",
+  "_nota": "Dratini, adolescente que muda la piel cada semana y con ella de estilo (rapera, gótica…); duerme en el estanque. En la v2 evoluciona en Dragonair y es la mujer del tiempo de la radio del valle, que nunca falla… porque cambia el tiempo para no fallar. En la v3 la recoge su padre, Dragonite (el repartidor; no habla, se narra), que llega tarde: ella le hace llover encima un poquito y, al irse, deja llover de verdad sin tocar nada. No llega a Dragonite: el 149 ya es el huésped propio. Bandera dratini_tiempo.",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · la piel de esta semana",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "Yo, yo, Manolo. Dratini, la MC de la montaña. Esta semana soy rapera. Lo de la semana pasada no lo cuento: eso era otra piel.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "(Una serpiente azul con la gorra del revés y una cadena de oro de chocolate. Charizard se acerca a oler la cadena.)", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Mudo la piel cada semana, ¿sabes? Y con cada piel, un estilo. Rapera, gótica, de campo… La que viene, ni idea. Depende de cómo me salga.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Worried", "texto": "Lo malo es que no sé cuál soy yo. Durante siglos creyeron que los Dratini éramos un mito. A veces me lo creo hasta yo.", "opciones": [
+          { "texto": "«Pues aquí te vemos, con gorra y sin ella»", "efectos": { "afinidad": 1 }, "sigue": "vemos" },
+          { "texto": "«¿Y no te cansas de tanto cambio?»", "sigue": "cansas" }
+        ] },
+        "vemos": { "quien": "huesped", "emocion": "Happy", "texto": "¿Me veis? ¿A la de la gorra? …Mola. Te dedico un tema. Se llama «Calva de oro». Es un homenaje, ¿eh? Con respeto.", "sigue": "fin" },
+        "cansas": { "quien": "huesped", "emocion": "Sad", "texto": "Un poco. Cada vez que mudo me quedo un rato sin estilo, sin nada. Y en ese rato no sé ni cómo hablar. Hablo raro. Como ahora.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard se come la cadena de chocolate cuando Dratini se mete en el estanque. Por la mañana flota en el agua una piel vieja, con la gorra puesta." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · el tiempo para mañana",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "Buenas tardes, Manolo. Previsión para mañana: sol radiante. Ni una nube. Máximas de veinticuatro. Se lo garantizo.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "(Ha evolucionado: larga, azul, con perlas en el cuello y una voz de telediario. Se ha mudado de piel y de oficio a la vez.)", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Ahora soy Dragonair. Y la mujer del tiempo de la radio del valle. Nunca fallo. Llevo cuarenta y dos días acertando. Seguidos.", "sigue": "noche" },
+        "noche": { "quien": "charizard", "emocion": "Surprised", "texto": "Esa noche Charizard la ve en el estanque con los ojos cerrados y las perlas brillando. Arriba, las nubes se apartan solas. Muy deprisa.", "sigue": "n3" },
+        "n3": { "quien": "manolo", "emocion": "Normal", "texto": "Oye, Dragonair… ¿Tú aciertas el tiempo o lo pones tú?", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Worried", "texto": "…Los Dragonair podemos cambiar el clima, sí. Solo un poquito. Lo justo para no fallar. Si fallo, ¿quién me va a escuchar?", "opciones": [
+          { "texto": "«Te escucharíamos aunque lloviera»", "efectos": { "afinidad": 1 }, "sigue": "lloviera" },
+          { "texto": "«¿Y el campo? Las plantas piden agua»", "sigue": "campo" }
+        ] },
+        "lloviera": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Aunque lloviera? …Pues mañana dejo una nube. Una pequeña. Para ver qué se siente al fallar.", "sigue": "fin" },
+        "campo": { "quien": "huesped", "emocion": "Sad", "texto": "Ay, las plantas. Ya decía yo que me miraban raro. Vale: el jueves, chaparrón. Pero lo anuncio antes, ¿eh? Que acierte.", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(A la mañana siguiente sale el sol. Luego, por un rincón, una nubecilla diminuta suelta cuatro gotas justo encima de la calva de Manolo.)" }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · que llueva",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Hoy viene a recogerme mi padre. Dragonite. Da la vuelta al mundo en dieciséis horas, así que llegará tarde. Siempre llega tarde.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Tu padre es Dragonite? ¿El grandullón naranja con cara de peluche?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Sad", "texto": "El mismo. Yo cambiaba de piel cada semana a ver si se fijaba. Lo único que nunca ha cambiado es que llega tarde.", "sigue": "espera" },
+        "espera": { "quien": "charizard", "emocion": "Normal", "texto": "Pasa una hora. Dos. Al atardecer aparece una mancha naranja por el valle, volando sin ninguna prisa.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Angry", "texto": "Tres horas, papá. (Las perlas de Dragonair se encienden. Encima de Dragonite, y solo encima de él, se pone a llover un poquito.)", "sigue": "n4" },
+        "n4": { "quien": "manolo", "emocion": "Happy", "texto": "(Dragonite aterriza empapado, con un ramo de flores del camino y cara de peluche mojado. No se enfada. Se ríe.)", "sigue": "n5" },
+        "n5": { "quien": "huesped", "emocion": "Normal", "texto": "Dice que ya no corre. Que ahora va a su paso, por eso llega tarde… pero que llega. Y que ha parado a coger las flores. Para mí.", "opciones": [
+          { "texto": "«Pues que llueva, que también hace falta»", "efectos": { "afinidad": 1, "flags": { "dratini_tiempo": "lluvia" } }, "sigue": "lluvia" },
+          { "texto": "«Sécale un poco, mujer, que viene de lejos»", "efectos": { "flags": { "dratini_tiempo": "sol" } }, "sigue": "sol" }
+        ] },
+        "lluvia": { "quien": "huesped", "emocion": "Happy", "texto": "Que llueva, sí. (Apaga las perlas. Cierra los ojos y no hace nada. Y llueve igual: esta vez, de verdad.)", "sigue": "fin" },
+        "sol": { "quien": "huesped", "emocion": "Happy", "texto": "Un solecito, solo para él. (Las perlas brillan una vez. Luego las apaga y deja que el cielo haga lo que quiera.)", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al irse empieza a llover de verdad, sin que nadie toque nada. Bajan juntos por el camino, muy despacio. Charizard les presta el paraguas de la entrada." }
+      }
+    }
+  ]
+}

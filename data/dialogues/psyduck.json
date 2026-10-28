@@ -1,6 +1,6 @@
 {
   "id": "psyduck",
-  "_nota": "Psyduck, opositor eterno: doce años preparando las oposiciones al Ayuntamiento de Ciudad Celeste, noventa temas subrayados en cuatro colores y un dolor de cabeza constante que a veces suelta poderes psíquicos que luego no recuerda. Arco en tres visitas: el temario, la noche de Jigglypuff y las cucharas dobladas, y la carta con la nota (bandera psyduck_apuntes).",
+  "_nota": "Psyduck, opositor eterno: doce años preparando las oposiciones al Ayuntamiento de Ciudad Celeste, noventa temas subrayados en cuatro colores y un dolor de cabeza constante que a veces suelta poderes psíquicos que luego no recuerda. Arco en cuatro visitas: el temario, la noche de Jigglypuff y las cucharas dobladas, la carta con la nota (bandera psyduck_apuntes) y, en la v4, ya funcionario y sin dolor de cabeza, evoluciona en Golduck (por nivel): pato zen, un poco soso, que echa de menos sus apuntes, trae el primer plazo de chistorra y prepara gratis a otros opositores los sábados (bandera psyduck_sabados).",
   "entradas": [
     {
       "id": "v1",
@@ -40,7 +40,6 @@
       "id": "v3",
       "cuando": { "visita_min": 3, "afinidad_min": 1 },
       "subtitulo": "Tercera visita · la carta",
-      "fin_arco": true,
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "Manolo… Ha llegado la carta con las notas. Doce años. Noventa temas. No me atrevo a abrirla. Me duele la cabeza solo de mirar el sobre.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "Trae, que la abro yo. Si es mala, hay chistorra. Si es buena, también.", "sigue": "carta" },
@@ -52,7 +51,30 @@
         ] },
         "biblioteca": { "quien": "huesped", "emocion": "Happy", "texto": "Para el siguiente pobre que oposite. Les pondré una nota en la primera página: «Tema 91: dormir también entra». Y unos tapones de regalo.", "sigue": "fin" },
         "hoguera": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard prende doce años de apuntes. Arden en cuatro colores. Psyduck mira el fuego y, por primera vez en una década, no le duele la cabeza.", "sigue": "fin" },
-        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "Gracias, Manolo. Me voy a Ciudad Celeste a tomar posesión. Con la primera nómina le mando una caja de chistorra. …Bueno, a plazos." }
+        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "Gracias, Manolo. Me voy a Ciudad Celeste a tomar posesión. Con la primera nómina le mando una caja de chistorra. …Bueno, a plazos. El primero se lo traigo yo." }
+      }
+    },
+    {
+      "id": "v4",
+      "cuando": { "visita_min": 4, "afinidad_min": 1 },
+      "subtitulo": "Cuarta visita · vacaciones pagadas",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Entra un pato azul, alto, de andares elegantes. Se sienta y se cruza de piernas.) Buenas tardes. Una habitación. La que sea: ya me da igual el ruido.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Pain", "texto": "(Tipo agua: se le cierra un ojo y le cae una gota.) Bienvenido, caballero. Perdone, ¿nos conocemos? Tiene usted cara de…", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "¡Soy Psyduck, Manolo! Bueno, Golduck. Sin examen no hay estrés; sin estrés, no hay dolor de cabeza. Y sin dolor de cabeza, el pato crece.", "sigue": "cuchara" },
+        "cuchara": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard le pone una cuchara delante, por probar. Golduck la mira. La cuchara no se dobla. Charizard se queda un poco decepcionado.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Ahora lo psíquico lo controlo: floto cuando quiero, no cuando me duele. Sello impresos de nueve a tres. Nadie flota. Nadie dobla nada.", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Sad", "texto": "Y me aburro, Manolo. Doce años deseando tener las tardes libres, y ahora no sé qué hacer con ellas. Echo de menos mis apuntes en cuatro colores.", "sigue": "plazo" },
+        "plazo": { "quien": "charizard", "emocion": "Happy", "texto": "Golduck saca una caja de chistorra con un lacito y una nota: «Plazo 1 de 12». Charizard se la abraza como si fuera un huevo.", "sigue": "n5" },
+        "n5": { "quien": "huesped", "emocion": "Happy", "texto": "Así que los sábados preparo gratis a otros opositores, en la biblioteca. Les enseño a subrayar… y a dormir. Lo que más les cuesta es dormir.", "opciones": [
+          { "texto": "«Lo de los sábados es lo mejor que te he oído nunca»", "efectos": { "afinidad": 1, "flags": { "psyduck_sabados": "maestro" } }, "sigue": "maestro" },
+          { "texto": "«¿Y no te apetece opositar a otra cosa? A juez, por ejemplo»", "efectos": { "flags": { "psyduck_sabados": "juez" } }, "sigue": "juez" }
+        ] },
+        "maestro": { "quien": "huesped", "emocion": "Happy", "texto": "¿Verdad? Uno de ellos lleva nueve años. Le he dicho lo que me dijo usted: si es mala, hay chistorra; si es buena, también.", "sigue": "fin" },
+        "juez": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Otra oposición? (Se agarra la cabeza por costumbre.) …Ni me duele, mire. Pero por si acaso, no. Ya tengo bastante con ser feliz.", "sigue": "fin" },
+        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "Mañana me voy, que en vacaciones se madruga para no hacer nada. Los otros once plazos se los mando por correo. Sin prisa: ya no tengo prisa para nada.", "sigue": "porche" },
+        "porche": { "quien": "charizard", "emocion": "Happy", "texto": "Por la noche, Charizard le ve en el porche, flotando a un palmo del suelo con los ojos cerrados. No le duele nada. Está, simplemente, a gusto." }
       }
     }
   ]

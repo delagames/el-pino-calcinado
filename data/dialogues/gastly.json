@@ -1,0 +1,69 @@
+{
+  "id": "gastly",
+  "_nota": "Gastly, primo de Gengar (habla con su mismo deje, más suave), que hace de máquina de humo en una orquesta de verbena: el humo es él, y Ditto es su compañero de escenario. Es gas y el viento se lo lleva; Charizard lo recoge con el ala. Evoluciona en Haunter en la v2 (por nivel): ya tiene manos, deja la orquesta y quiere ser monologuista, como el Haunter que hizo reír a Sabrina; solo se ríe su primo Gengar. En la v3 consigue hacer reír a Charizard, y no quiere ser Gengar: «para eso me tienen que cambiar, y me quedo sin público». Bandera gastly_risa.",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · el humo de la orquesta",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "(Entra una nube morada con dos ojos y una sonrisa.) ¡Buenas noches, illo! Gastly, de la Orquesta Malibú. Yo soy el humo.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿El humo? ¿Qué humo?", "sigue": "n1" },
+        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "El de la verbena. Cuando la cantante grita «¡arriba esas manos!», salgo yo por detrás. Me pagan en bocadillos. Los aplausos son para ella.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "El de los teclados es un Ditto. Si la cantante se constipa, hace de cantante. Y de batería. Y de humo, si me pongo malo. Yo no me pongo malo nunca.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Mi primo es Gengar, el del cante. Él es el artista de la familia. Yo soy… la ambientación.", "sigue": "ventana" },
+        "ventana": { "quien": "manolo", "emocion": "Worried", "texto": "(En ese momento, una ráfaga abre la ventana del comedor. Gastly sale disparado hacia el monte como una bolsa de plástico.)", "sigue": "ala" },
+        "ala": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard pega un salto, abre el ala y lo atrapa al vuelo, a medio camino del pino. Vuelve con él hecho una bola, como quien recoge una sábana del tendedero.", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Sad", "texto": "(Se recompone, un poco deshilachado.) Perdón. Me pasa mucho. Soy gas, y el viento me lleva adonde quiere. Nunca he elegido adónde voy.", "opciones": [
+          { "texto": "«Aquí cerramos las ventanas por ti»", "efectos": { "afinidad": 1 }, "sigue": "ventanas" },
+          { "texto": "«Pues átate a algo, chaval»", "sigue": "atate" }
+        ] },
+        "ventanas": { "quien": "huesped", "emocion": "Happy", "texto": "¿Por mí? (Se le pone un morado más oscuro, de gusto.) En la orquesta nadie cierra nada. Dicen que el humo, cuanto más se va, mejor queda.", "sigue": "fin" },
+        "atate": { "quien": "huesped", "emocion": "Normal", "texto": "Ya lo probé. Me até al Ditto y se convirtió en cometa. Acabamos los dos en Ciudad Azulona.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Esa noche, Charizard cierra todas las ventanas de la posada. Y, por si acaso, duerme con un ala apoyada en la puerta del cuarto morado." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · el monólogo",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "(Entra un Haunter saludando con las dos manos a la vez.) ¡Illo! ¡Mírame! ¡Tengo manos! ¡Ya no me lleva el viento: me agarro a los marcos!", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "¡Gastly! ¡Pues sí que has crecido!", "sigue": "n1" },
+        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "Haunter, ya. Y he dejado la orquesta: me paso al humor. Monólogos. Como el Haunter que hizo reír a Sabrina, la líder que no se reía nunca.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "Le he probado el material a mi primo Gengar y se ha reído tres días. Claro, que es de la familia. ¿Les hago un trocito?", "sigue": "chiste" },
+        "chiste": { "quien": "huesped", "emocion": "Happy", "texto": "¿Por qué Charizard no juega al escondite? ¡Porque siempre se le ve el rabo! …¿Eh? Encendido. El rabo. Que se le ve.", "sigue": "silencio" },
+        "silencio": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard mira a Haunter. Se mira la cola encendida. Mira a Haunter otra vez. No se ríe. Fuera se oye una lechuza.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Sad", "texto": "Nada. Como en la orquesta. Mi primo dice que la gracia es como el compás: o se tiene o se trabaja. Yo voy a tener que trabajarla.", "opciones": [
+          { "texto": "«A mí me ha hecho gracia lo del rabo»", "efectos": { "afinidad": 1 }, "sigue": "gracia" },
+          { "texto": "«Prueba con cosas de la casa, que las conoces»", "sigue": "casa" }
+        ] },
+        "gracia": { "quien": "huesped", "emocion": "Happy", "texto": "¿De verdad? (Se le iluminan los ojos.) ¡Un público! ¡Tengo un público! Esta noche le dedico el pase entero.", "sigue": "fin" },
+        "casa": { "quien": "huesped", "emocion": "Normal", "texto": "Cosas de la casa… (Mira la calva de Manolo, la chistorra, el pino quemado de la puerta.) Material hay. Lo que me falta es valor.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Esa noche, Haunter ensaya delante del espejo del cuarto morado. El espejo no se ríe. Charizard escucha desde el pasillo y, una vez, casi." }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · la risa del dragón",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "(Haunter está en mitad del comedor, con una nariz de payaso y las manos temblando.) Esta noche es la buena. Esta noche hago reír al dragón.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "Venga, que ya está sentado. Con la chistorra delante, que eso lo pone de buenas.", "sigue": "n1" },
+        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "Charizard, esto es para ti. (Respira hondo, que en un gas es mucho respirar.) ¿Sabes por qué en esta posada no hay detector de humo?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "¡Porque estaría pitando desde el día que llegaste! Y porque el humo de esta casa soy yo, y no me chivo.", "sigue": "risa" },
+        "risa": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard aguanta. Aguanta. Se le escapa un resoplido por la nariz. Luego otro. Luego, una carcajada con llamarada que chamusca el techo.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Surprised", "texto": "¡SE HA REÍDO! ¡Manolo, el dragón se ha reído! ¡Como Sabrina! (Da vueltas por el techo de la emoción, agarrado, que ya tiene manos.)", "sigue": "manolo2" },
+        "manolo2": { "quien": "manolo", "emocion": "Happy", "texto": "Y ahora solo te falta ser Gengar, como tu primo, ¿no?", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Normal", "texto": "Uy, no, illo. Para eso me tienen que cambiar, por intercambio. Y si me cambian, me quedo sin público. Yo ya tengo el mío.", "opciones": [
+          { "texto": "«Aquí el público no se cambia por nada»", "efectos": { "afinidad": 1, "flags": { "gastly_risa": "publico" } }, "sigue": "publico" },
+          { "texto": "«Pues el techo me lo pintas tú»", "efectos": { "flags": { "gastly_risa": "techo" } }, "sigue": "techo" }
+        ] },
+        "publico": { "quien": "huesped", "emocion": "Happy", "texto": "(Se quita la nariz de payaso y la deja en el mostrador.) Para el próximo que llegue triste. Que se la ponga y ya verá cómo se ríe alguien.", "sigue": "fin" },
+        "techo": { "quien": "huesped", "emocion": "Happy", "texto": "¡Hecho! Pero le dejo la mancha, que tiene forma de carcajada. Para el próximo que llegue triste: que mire arriba y ya verá.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Haunter se va con el viento de cara, agarrado al camino con las dos manos. En el porche, Charizard se vuelve a reír solo. Por lo del detector." }
+      }
+    }
+  ]
+}

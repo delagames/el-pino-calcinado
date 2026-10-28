@@ -1,0 +1,33 @@
+{
+  "id": "fosiles",
+  "_nota": "Grupo de una noche: la excursión de los fósiles revividos en el laboratorio de Isla Canela. Kabutops, guía del Museo de Ciudad Plateada, hace la visita guiada de su propio esqueleto; Omanyte es «Lord Helix», al que internet adoró como a un dios, y no sabe qué hacer con las ofrendas; Kabuto lleva trescientos millones de años sin cambiar de casa ni de opinión y le llamaban «el falso profeta»; Omastar no tira nada (dicen que por eso se extinguieron; solo tiene retrato Normal); Aerodactyl, sacado de un trozo de ámbar que lleva colgado, le gruñe a la furgoneta de Famadesa como si fuera un dinosaurio (solo Normal). Remate: todos descubren la chistorra y Kabuto cambia de opinión por primera vez.",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Una noche · la excursión de Isla Canela",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Del autobús baja la excursión más rara del mundo: un caracol con espiral, dos cascos con patas, uno con guadañas y un pterodáctilo que gruñe.)", "sigue": "kabutops" },
+        "kabutops": { "quien": "kabutops", "emocion": "Happy", "texto": "¡Buenas tardes! Kabutops, guía del Museo de Ciudad Plateada. Excursión del laboratorio de Isla Canela. Todos revividos y todos con papeles.", "sigue": "omanyte" },
+        "omanyte": { "quien": "omanyte", "emocion": "Worried", "texto": "Hola. Soy Omanyte. En internet me llamaban «Lord Helix». Me dejan ofrendas en la puerta del laboratorio: chuches, cromos, una vez un calcetín.", "sigue": "omanyte2" },
+        "omanyte2": { "quien": "omanyte", "emocion": "Sad", "texto": "No sé qué hacer con ellas. Yo solo soy un caracol. Un caracol de hace mucho, eso sí. ¿A usted le han adorado alguna vez?", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "Una vez, en el gimnasio, me pidieron un autógrafo en la calva. Pero no sé si cuenta.", "sigue": "kabuto" },
+        "kabuto": { "quien": "kabuto", "emocion": "Angry", "texto": "Kabuto. Trescientos millones de años sin cambiar de casa ni de opinión. Y en internet, «el falso profeta». ¿Falso yo? Si no he dicho nada en todo ese tiempo.", "sigue": "omastar" },
+        "omastar": { "quien": "omastar", "emocion": "Normal", "texto": "(Omastar entra la última, con la concha llena de piedras, tiques y un paraguas roto.) No tiro nada. Todo sirve. Dicen que por eso nos extinguimos. Exageran.", "sigue": "aerodactyl" },
+        "aerodactyl": { "quien": "aerodactyl", "emocion": "Normal", "texto": "¡GRRRAAAH! (Aerodactyl ve la furgoneta de Famadesa aparcada y se le eriza todo. Le gruñe como si fuera un tiranosaurio.)", "sigue": "charizard" },
+        "charizard": { "quien": "charizard", "emocion": "Angry", "texto": "Charizard se pone entre Aerodactyl y la furgoneta. No por la furgoneta: por la chistorra que lleva dentro.", "sigue": "kabutops2" },
+        "kabutops2": { "quien": "kabutops", "emocion": "Happy", "texto": "Y a mi izquierda, señores, mi esqueleto. Bueno, una foto: el original está en el museo. Lo explico yo, que nadie lo conoce mejor.", "sigue": "ambar" },
+        "ambar": { "quien": "kabutops", "emocion": "Normal", "texto": "Al pterodáctilo no le hagan caso. Le sacaron de un trozo de ámbar y lo lleva colgado del cuello, como un peluche. Ladra mucho, pero no muerde. Casi.", "opciones": [
+          { "texto": "«¿Y qué se cenaba hace trescientos millones de años?»", "sigue": "comian" },
+          { "texto": "«Aquí, potaje para todos»", "sigue": "potaje" }
+        ] },
+        "comian": { "quien": "kabuto", "emocion": "Normal", "texto": "Lo mismo de siempre. Y lo mismo seguiré cenando. No me va a cambiar ahora una posada de montaña.", "sigue": "potaje" },
+        "potaje": { "quien": "manolo", "emocion": "Happy", "texto": "(Manolo saca el potaje de garbanzos y, de segundo, una bandeja de chistorra a la brasa. La pone en el centro de la mesa.)", "sigue": "chistorra" },
+        "chistorra": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard reparte. Aerodactyl deja de gruñir. Omastar guarda una en la concha, «por si acaso». Omanyte deja la suya en un plato, como una ofrenda.", "sigue": "kabuto2" },
+        "kabuto2": { "quien": "kabuto", "emocion": "Surprised", "texto": "…Esto está buenísimo. (Silencio en la mesa.) He cambiado de opinión. Por primera vez en trescientos millones de años. Qué mareo.", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Happy", "texto": "(Kabutops lo apunta en la libreta del museo: «Hoy, Kabuto cambió de opinión». Se van de noche en el autobús. Aerodactyl le gruñe a la furgoneta. Por costumbre.)" }
+      }
+    }
+  ]
+}

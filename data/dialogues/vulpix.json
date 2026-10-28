@@ -1,0 +1,67 @@
+{
+  "id": "vulpix",
+  "_nota": "Vulpix, peluquera de colas: se cepilla las seis cada mañana (cien cepilladas por cola, como le enseñó su criadora) y monta salón en el comedor. El único cliente al que no puede atender es Manolo. En la v2 llega evolucionada en Ninetales con la Piedra Fuego: nueve colas, aires de marquesa de mil años, té a las cinco y la maldición de mil años para quien le tire de una cola (Pokédex). En la v3 se le cae el acento: fue de Brock (anime), que la devolvió a su criadora; manda recuerdos para el Onix de Brock, se va a abrir su salón «Las Nueve Colas» y le deja a Charizard tocar una cola, solo una (bandera vulpix_salon).",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · la peluquera de colas",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Hola, guapo! Vulpix, peluquera de colas. Una habitación con buena luz, que por las mañanas me cepillo las seis. Cien cepilladas cada una.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "«¿Seiscientas cepilladas antes de desayunar?»", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Me lo enseñó mi criadora: un poquito cada día y la cola sale sola. (Monta en una mesa del comedor un peine, un espejo y un cartel: «SALÓN».)", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Sad", "texto": "(Se queda mirando la calva de Manolo, muy seria.) …Ay. ¿Ni un pelito? ¿Ni en la nuca? ¿Ni una ceja de recuerdo?", "opciones": [
+          { "texto": "«Ni uno. Se me fueron todos con el estrés»", "efectos": { "afinidad": 1 }, "sigue": "estres" },
+          { "texto": "«Tú péiname, que algo quedará»", "sigue": "peina" }
+        ] },
+        "estres": { "quien": "huesped", "emocion": "Worried", "texto": "(Le pone una pata en el hombro, con pena profesional.) Eres el primer cliente que no puedo atender. Me duele aquí, cariño. En las colas.", "sigue": "charizard" },
+        "peina": { "quien": "huesped", "emocion": "Surprised", "texto": "(Le pasa el cepillo por la calva. Suena a cristal.) Esto no es pelo, cariño: esto es un espejo. Mira, me veo. Me sirve para el salón.", "sigue": "charizard" },
+        "charizard": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard se sienta en la silla del salón, muy formal. Como no tiene pelo, Vulpix le lima las garras y le saca brillo a los cuernos.", "sigue": "piedra" },
+        "piedra": { "quien": "huesped", "emocion": "Normal", "texto": "Mi criadora me guarda una Piedra Fuego, por si algún día quiero nueve colas. Nueve son muchas para peinar… Ya veremos.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Toda la noche, Charizard se mira las garras a la luz de la chimenea. En la cena coge la chistorra con el meñique estirado." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · nueve colas",
+      "nodos": {
+        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Entra una señora dorada, despacio, arrastrando nueve colas por la alfombra como la cola de un vestido de novia.)", "sigue": "n1" },
+        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "Buenas tardes, querido. Ninetales. Nos conocimos cuando yo era una chiquilla de seis colas. Hace siglos. Bueno, hace dos semanas.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "«¿Vulpix? ¿Eres tú? ¿Y la Piedra Fuego?»", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "Me la puse el martes. Ahora viviré mil años, así que hablo ya como si los tuviera. Para ir haciéndome. Se nota, ¿verdad?", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Té a las cinco, por favor. En taza fina. Y si tiene un monóculo, también. No veo mal, pero queda tan bien…", "sigue": "charizard" },
+        "charizard": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard alarga una garra hacia una de las nueve colas. Ninetales no se gira, pero las nueve colas se apartan a la vez.", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Angry", "texto": "Ni se te ocurra, dragón. Al que me tira de una cola le caen mil años de maldición. No es personal. Es la tradición.", "sigue": "n5" },
+        "n5": { "quien": "huesped", "emocion": "Worried", "texto": "(Baja la voz.) Entre usted y yo: con nueve colas tardo dos horas cada mañana. Ya no me queda tiempo para clientes. Ni para mí.", "opciones": [
+          { "texto": "«Pues cepíllate una menos al día. No se va a enterar nadie»", "efectos": { "afinidad": 1 }, "sigue": "una" },
+          { "texto": "«Para eso está el té de las cinco: para parar»", "sigue": "te" }
+        ] },
+        "una": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Una menos? ¿Saltarme una cola? (Se lo piensa. Se le escapa una risilla de chiquilla.) Qué escándalo. Qué maravilla.", "sigue": "fin" },
+        "te": { "quien": "huesped", "emocion": "Happy", "texto": "Tiene razón, querido. A las cinco se para el mundo. Lo dicen en todas las casas buenas. Y en esta, que es mejor.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "A las cinco en punto, Charizard sube el té en la taza fina, con el meñique estirado. Ninetales le deja sentarse a su lado. Lejos de las colas." }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · una cola, solo una",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "Querido, esta es mi última noche aquí. Abro salón propio: «Las Nueve Colas». Peluquería, té y conversación. Por este orden.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Sad", "texto": "«Te vamos a echar de menos, marquesa. ¿Y dónde lo pones?»", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Sad", "texto": "(Se le cae el acento de mil años.) Pues… no lo sé. ¿Sabe que fui de un chico de Ciudad Plateada? Brock. El de los ojos cerraditos.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Me cuidaba como nadie. Luego me devolvió a mi criadora, que me peinaba a diario: allí estaba mejor, y él lo sabía. Pero le echo de menos. Un poco.", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Happy", "texto": "Si un día pasa por aquí el Onix de Brock, dígale que la Vulpix que dormía encima de él sigue roncando. Ahora, con nueve colas.", "opciones": [
+          { "texto": "«Pon el salón en Plateada. Que te vea Brock»", "efectos": { "afinidad": 1, "flags": { "vulpix_salon": "plateada" } }, "sigue": "plateada" },
+          { "texto": "«Ponlo cerca de aquí. Clientela no te va a faltar»", "efectos": { "afinidad": 1, "flags": { "vulpix_salon": "cerca" } }, "sigue": "cerca" }
+        ] },
+        "plateada": { "quien": "huesped", "emocion": "Happy", "texto": "Enfrente del gimnasio. Así, cuando se enamore de otra enfermera, que se enamorará, tendrá dónde ponerse guapo para la cita.", "sigue": "cola" },
+        "cerca": { "quien": "huesped", "emocion": "Happy", "texto": "¿Aquí? Si en esta casa el único sin pelo es usted… (Le guiña un ojo.) Vale. Al pie del camino. A usted le haré masajes de calva.", "sigue": "cola" },
+        "cola": { "quien": "huesped", "emocion": "Normal", "texto": "(Mira a Charizard, que lleva toda la noche mirándole las colas.) Anda, dragón. Una. Solo una. Y sin tirar.", "sigue": "charizard" },
+        "charizard": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard toca una cola con la punta de la garra, como quien toca una pompa de jabón. No pasa nada. Bueno, sí: se le queda cara de tonto toda la noche.", "sigue": "fin" },
+        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "Maldición, ninguna: a ti te tocan mil años de buena suerte. (Al alba se va cuesta abajo, con las nueve colas al viento, peinadas una a una.)" }
+      }
+    }
+  ]
+}

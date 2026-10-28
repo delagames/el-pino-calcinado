@@ -1,0 +1,63 @@
+{
+  "id": "koffing",
+  "_nota": "Koffing, fan del Team Rocket: se sabe el lema de memoria (parafraseado, nunca copiado), llega con una rosa en la boca y quiere entrar en la banda; pregunta por Arbok y Meowth. En la v2 evoluciona en Weezing (solo tiene retrato Normal: dos cabezas y una sola cara) y las cartas de los ex del Team Rocket le cuentan cómo era aquello. En la v3 deja el lema y se hace guarda forestal, como el Weezing de James, para cuidar de los Ekans y Koffing del bosque (bandera koffing_lema).",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · que se preparen los líos",
+      "nodos": {
+        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Llaman a la puerta. Al abrir: una nube de humo de colores, una bola morada con una rosa entre los dientes y un olor a huevo que tumba.)", "sigue": "lema" },
+        "lema": { "quien": "huesped", "emocion": "Happy", "texto": "¡Atención, que llegan los líos! ¡Y vienen de dos en dos! ¡Para unir a todos los pueblos bajo…! Ay, no. Espere, que lo empiezo otra vez.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "«Tranquilo, hombre, sin prisa. ¿Qué vendes?»", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "No vendo: me presento. Koffing. Me sé el lema entero, hasta la parte del gato. ¿Es aquí donde se alojan Arbok y Meowth, los del Team Rocket?", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Worried", "texto": "Quiero entrar en la banda. Traigo la solicitud rellena y la rosa, que es el uniforme. ¿Usted cree que me cogerán? Peso menos que el aire, eso sí.", "opciones": [
+          { "texto": "«Aquí el lema es otro: cachimbita, chistorra y a dormir»", "efectos": { "afinidad": 1 }, "sigue": "otro" },
+          { "texto": "«Dicen que el Team Rocket viene de noche a por mi chistorra»", "sigue": "robar" }
+        ] },
+        "otro": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Cachimbita, chistorra y a dormir? …Es cortito. Pero tiene ritmo. Y no hay que salir volando al final. ¿Lleva rosa?", "sigue": "fin" },
+        "robar": { "quien": "huesped", "emocion": "Happy", "texto": "¡¿Aquí?! ¡Pues esta noche no duermo! A lo mejor me dejan sujetarles la escalera. Para empezar desde abajo, que es como se empieza.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard pone la rosa en un vaso de agua. Koffing sube flotando hasta el techo del cuarto, y Charizard le ata un cordel a la pata de la cama." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · sin contrato y siempre volando",
+      "nodos": {
+        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "«¿Koffing? ¡Si ahora sois dos!»", "sigue": "n1" },
+        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "Somos uno, Manolo. Weezing. Dos cabezas y una sola cara: ponga la que ponga, me sale esta. (La cabeza pequeña asiente, con la misma cara.)", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "He evolucionado igual que el Weezing del Team Rocket. Ahora sí me cogen. Les he escrito a Arbok y a Meowth para que me recomienden.", "sigue": "cartas" },
+        "cartas": { "quien": "manolo", "emocion": "Normal", "texto": "(Manolo le da dos cartas que han llegado a su nombre. Una huele a perfume de serpiente. La otra lleva en el sello un puño y una moneda.)", "sigue": "arbok" },
+        "arbok": { "quien": "huesped", "emocion": "Normal", "texto": "Arbok dice: «Cielo, ni contrato, ni pagas extra, y siempre salíamos volando. Aunque echo de menos a James. Eso no se lo cuentes a nadie».", "sigue": "meowth" },
+        "meowth": { "quien": "huesped", "emocion": "Normal", "texto": "Y Meowth: «Compañero, el Team Rocket no tiene convenio. Si te afilias a algo, que sea al sindicato». Lo ha subrayado tres veces.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "…Manolo, ¿y si no me cogen? ¿Para qué quiero dos cabezas, si ninguna sirve para ser malo?", "opciones": [
+          { "texto": "«Para pensártelo dos veces antes de hacer el mal»", "efectos": { "afinidad": 1 }, "sigue": "doble" },
+          { "texto": "«Para comer dos raciones, como Charizard»", "sigue": "comer" }
+        ] },
+        "doble": { "quien": "huesped", "emocion": "Normal", "texto": "La de la izquierda dice que sí. La de la derecha… también. Es la primera vez que estamos de acuerdo en algo.", "sigue": "fin" },
+        "comer": { "quien": "huesped", "emocion": "Normal", "texto": "La pequeña ya está mirando hacia la cocina. Es la que tiene hambre. Yo solo pongo la cara.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Esa noche Weezing echa humo sin querer por toda la escalera. Charizard abre las ventanas y le enseña a echarlo por la chimenea, como él. Practican hasta tarde." }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · el lema de la posada",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Manolo, he roto la solicitud. Bueno, le he echado un poco de gas y se ha deshecho sola. Ya no quiero entrar en el Team Rocket.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "En el bosque de abajo hay Ekans y Koffing pequeñitos, solos. Los cazadores los asustan. Alguien tiene que echarles el humo encima a los malos.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "«¿Te vas de guarda forestal?»", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Con gorra y todo. El Weezing de James acabó así: lo dejaron libre para que cuidara de los suyos. Le he copiado eso, que es lo mejor que hizo.", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Normal", "texto": "Pero un guarda necesita un lema, y el mío ya no vale. ¿Me ayuda a hacer uno nuevo? Las dos cabezas no se ponen de acuerdo.", "opciones": [
+          { "texto": "«Coge el de la casa, que te lo presto»", "efectos": { "afinidad": 1, "flags": { "koffing_lema": "posada" } }, "sigue": "posada" },
+          { "texto": "«Invéntalo tú, que ya sabes quién eres»", "efectos": { "afinidad": 1, "flags": { "koffing_lema": "suyo" } }, "sigue": "suyo" }
+        ] },
+        "posada": { "quien": "huesped", "emocion": "Normal", "texto": "(Se pone la rosa y lo recita a coro, con las dos cabezas.) «¡Cachimbita, chistorra y a dormir! ¡Y el que toque a un Koffing, sale volando!» …Me lo quedo.", "sigue": "fin" },
+        "suyo": { "quien": "huesped", "emocion": "Normal", "texto": "(Lo piensa con las dos cabezas.) «¡Si hay líos en el bosque, que se preparen ellos!» …¿Suena a malo? Pues lo digo de bueno.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al alba, Weezing baja flotando con su gorra de guarda y la rosa entre los dientes. Charizard le dice adiós con la cola hasta que el humo morado se pierde en el pinar." }
+      }
+    }
+  ]
+}

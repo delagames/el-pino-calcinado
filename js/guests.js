@@ -65,6 +65,8 @@ export function canAppear(guest, state) {
   if (need.mejora && !(state.mejoras || []).includes(need.mejora)) return false;
   if (need.dia_min && state.dia < need.dia_min) return false;
   if (need.no_si && (state.flags || {})[need.no_si]) return false;
+  // algunos solo vienen cuando ya ha pasado algo en otra historia (los hermanos de Eevee, Mewtwo)
+  if (need.si_flags?.some(f => !(state.flags || {})[f])) return false;
   // los más especiales solo vienen a una posada con fama
   if (need.estrellas && (state.estrellas || 1) < need.estrellas) return false;
   return true;

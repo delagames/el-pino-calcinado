@@ -1,0 +1,62 @@
+{
+  "id": "rhyhorn",
+  "_nota": "Rhyhorn solo puede recordar una cosa a la vez (Pokédex de Oro y Plata): entra en los sitios y no sabe a qué venía. En la v2 evoluciona en Rhydon, duerme en la cueva de la ladera (solo saca la cabeza) y se acuerda de algo enorme: fue el primer Pokémon que se diseñó y las estatuas de los gimnasios tienen su forma, así que el número uno es él (y discute con Bulbasaur, el 001). En la v3 le cuentan que Mew es el antepasado de todos, se ríe y cede; rechaza al señor del traje de Ciudad Verde y por fin se acuerda de a qué venía: a dar las gracias por la cena (bandera rhyhorn_gracias).",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · ¿a qué venía yo?",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Rhyhorn entra en la recepción, se para en medio y mira alrededor.) …Buenas. Venía a… a algo. Estoy seguro de que venía a algo.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "«¿A dormir, quizá? Esto es una posada.»", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "¡Eso! A dormir. Qué bien. (Se da la vuelta, sube la escalera, entra en la cocina, sale de la cocina.) …¿Y dónde era?", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Worried", "texto": "Perdone. Solo me cabe una cosa en la cabeza a la vez. Si me acuerdo de la habitación, se me olvida la cena. Y al revés.", "opciones": [
+          { "texto": "«Te lo apunto en un pósit y te lo pego en el cuerno»", "efectos": { "afinidad": 1 }, "sigue": "posit" },
+          { "texto": "«Tranquilo: Slowpoke tarda tres días en contestar»", "sigue": "slowpoke" }
+        ] },
+        "posit": { "quien": "huesped", "emocion": "Happy", "texto": "¡Un pósit! (Se pone bizco para leerlo.) «Habitación, cena, dormir.» …Qué idea más buena. ¿De quién ha sido?", "sigue": "fin" },
+        "slowpoke": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Tres días? Pues me siento a su lado, a ver quién se acuerda antes de qué estábamos hablando.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "En la cena, Rhyhorn repite chistorra tres veces porque no se acuerda de haber cenado. En la escalera se vuelve, abre la boca para decir algo… y se le olvida." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · el número uno",
+      "nodos": {
+        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Por la boca de la cueva de la ladera asoma un cuerno que gira como un taladro. Luego, una cabeza enorme, llena de polvo.)", "sigue": "n1" },
+        "n1": { "quien": "huesped", "emocion": "Angry", "texto": "¡Manolo! ¡Soy Rhydon! ¡He evolucionado y me he acordado de una cosa! ¡De una cosa enorme! ¡El número uno soy yo!", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "«¿El número uno de qué, hombre?»", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "¡De todo! Fui el primer Pokémon que dibujaron, antes que a nadie. ¿Las estatuas de los gimnasios de Kanto? Tienen mi forma. Mírelas.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Angry", "texto": "Así que quiero la habitación número uno. Y no me diga que ahí durmió Bulbasaur. ¡Ese es el 001 de una lista! ¡Yo soy el uno de verdad!", "sigue": "manolo2" },
+        "manolo2": { "quien": "manolo", "emocion": "Sigh", "texto": "(Manolo no se atreve a decirle que ya no cabe por la puerta. Ni que la cueva no tiene número.)", "opciones": [
+          { "texto": "«Pues desde hoy la cueva es la número uno»", "efectos": { "afinidad": 1 }, "sigue": "cueva" },
+          { "texto": "«Bulbasaur dijo que aquí no ha pasado nada»", "sigue": "bulba" }
+        ] },
+        "cueva": { "quien": "huesped", "emocion": "Happy", "texto": "(Con el cuerno, talla un «1» en la roca de la entrada. Le queda torcido, como un 7.) Perfecto. La número uno. Que no la toque nadie.", "sigue": "fin" },
+        "bulba": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Que no ha pasado nada? ¡Ha pasado que el primero soy yo! …Espere. ¿De qué hablábamos? Ah, sí. El uno. El uno soy yo.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard le baja la chistorra a la cueva. Rhydon saca la cabeza, come y se vuelve a meter repitiendo «el uno, el uno», para que no se le olvide." }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · el primero de todos",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "(Rhydon saca la cabeza de la cueva.) Manolo, una pregunta seria. Me han dicho por el camino que hay alguien antes que yo. Un tal Mew.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "«Dicen que Mew es el antepasado de todos. Que lleva dentro a todos los Pokémon.»", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Surprised", "texto": "¿A todos? ¿A mí también? …O sea, que antes de ser el número uno ya estaba yo metido dentro de un gatito rosa.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Happy", "texto": "(Se ríe tanto que tiembla la ladera y cae polvo del techo de la cueva.) ¡Pues que sea él! Un gatito rosa número uno. Me parece justo.", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Normal", "texto": "Un señor de traje de Ciudad Verde quería ponerme de estatua en su gimnasio. Le he dicho que no. Ya no necesito que me miren.", "sigue": "n5" },
+        "n5": { "quien": "huesped", "emocion": "Surprised", "texto": "¡Ah! ¡Y me he acordado! ¡Me he acordado de a qué venía la primera vez!", "opciones": [
+          { "texto": "«¿A qué, hombre?»", "efectos": { "afinidad": 1, "flags": { "rhyhorn_gracias": "cena" } }, "sigue": "gracias" },
+          { "texto": "«Seguro que a por chistorra»", "efectos": { "flags": { "rhyhorn_gracias": "chistorra" } }, "sigue": "chistorra" }
+        ] },
+        "gracias": { "quien": "huesped", "emocion": "Happy", "texto": "A darle las gracias por la cena. Cené tan a gusto que me lo apunté en el pósit. Y luego perdí el pósit. Gracias, Manolo. Ya está. Ya me acuerdo.", "sigue": "fin" },
+        "chistorra": { "quien": "huesped", "emocion": "Happy", "texto": "¡También! Pero sobre todo a darle las gracias por aquella cena. Lo llevaba en el pósit, y el pósit en el cuerno. Gracias, Manolo.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al alba, Rhydon baja la ladera despacito. Charizard le pega en el cuerno un pósit nuevo con una chistorra dibujada. No pone nada más. No hace falta." }
+      }
+    }
+  ]
+}

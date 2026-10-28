@@ -1,0 +1,61 @@
+{
+  "id": "moltres",
+  "_nota": "Moltres, la llama de la Liga Añil: todo el mundo quiere su fuego para encender pebeteros y antorchas, y ella solo busca un rato a oscuras. Duerme en el nido del pino. Solo tiene retrato Normal: siempre solemne (lo que le cambia es el color de la llama). v1: llega y mira el pino quemado con respeto; Charizard, entre la envidia y la devoción. v2: hablan de la Liga; él fue líder, ella encendió la antorcha. v3: deja una brasa en la chimenea «por si alguna noche le hace falta». Es un regalo para el hilo largo de Manolo, no una decisión. Bandera moltres_brasa.",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · un rato a oscuras",
+      "nodos": {
+        "inicio": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard es el primero en verla: un pájaro de fuego posado en lo alto del pino calcinado. Se le cae la chistorra de la boca.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "(Moltres. La de las leyendas. En el pino de su posada. Manolo se arregla el delantal sin darse cuenta.)", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Buenas noches. Soy Moltres. Me han dicho que aquí se puede dormir sin que nadie te pida fuego.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Allá donde voy me piden la llama: para un pebetero, para una barbacoa, para encender la Liga. Yo solo quiero un rato a oscuras.", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Normal", "texto": "Este pino aún arde por dentro. Lo noto. Hace falta mucho fuego, o mucha pena, para quemar un pino así. ¿Fue usted?", "opciones": [
+          { "texto": "«Fue Charizard. Un… estornudo»", "sigue": "estornudo" },
+          { "texto": "«Aquí arriba nadie le va a pedir nada»", "efectos": { "afinidad": 1 }, "sigue": "nada" }
+        ] },
+        "estornudo": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard mira al suelo y se rasca la cola. Moltres le mira muy seria. Luego inclina la cabeza: un saludo de fuego a fuego.", "sigue": "fin" },
+        "nada": { "quien": "huesped", "emocion": "Normal", "texto": "Nada. Qué palabra tan rara. Me la quedo para esta noche.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard sube al nido ramitas secas, una a una, toda la tarde. Moltres no las enciende. Charizard tampoco. Es un pacto entre los dos." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · la antorcha de la Liga",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Manolo. Me han dicho que usted fue líder. Pueblo Ceniza, tipo fuego. Yo encendí la antorcha de la Liga Añil. Varias veces.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Sigh", "texto": "Fui. Ahora es una medalla en un cajón. ¿Y usted cómo se entera de esas cosas?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Los de fuego nos conocemos. Dicen que su gimnasio no se apagaba nunca. Que la gente iba a verle aunque fuera a perder.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Lo que nadie sabe es lo que cansa. Enciendes la antorcha, todo el mundo aplaude y luego… nadie te pregunta si tienes frío.", "sigue": "cara" },
+        "cara": { "quien": "manolo", "emocion": "Normal", "texto": "(Moltres no cambia la cara. Nunca. Pero a Manolo le parece que la llama de la cresta se le ha bajado un poco.)", "opciones": [
+          { "texto": "«¿Y tiene frío?»", "efectos": { "afinidad": 1 }, "sigue": "frio" },
+          { "texto": "«Yo también me cansé. Por eso colgué la medalla»", "efectos": { "afinidad": 1 }, "sigue": "medalla" }
+        ] },
+        "frio": { "quien": "huesped", "emocion": "Normal", "texto": "…Nadie me lo había preguntado. Un poco. Por dentro. (Charizard, sin decir nada, se sienta a su lado y le arrima la cola.)", "sigue": "fin" },
+        "medalla": { "quien": "huesped", "emocion": "Normal", "texto": "Colgar la medalla no es apagarse. Usted sigue encendido, Manolo. Se le nota en cómo pone la chistorra.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Esa noche, en lo alto del pino, brillan dos llamas: la de Moltres y la de la cola de Charizard, que no se ha querido bajar del nido." }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · una brasa, por si acaso",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Me voy, Manolo. En algún sitio encienden otra antorcha y me toca. Pero antes quiero dejarle una cosa.", "sigue": "brasa" },
+        "brasa": { "quien": "manolo", "emocion": "Surprised", "texto": "(Moltres se acerca a la chimenea y deja caer una pluma de fuego. Al tocar la ceniza se queda en brasa: pequeña, roja, tranquila.)", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "No se apaga. Como la de su pino. Por si alguna noche le hace falta. Para lo que sea: para una chistorra… o para otra cosa.", "sigue": "n3" },
+        "n3": { "quien": "manolo", "emocion": "Worried", "texto": "¿Otra cosa? ¿Qué otra cosa?", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Normal", "texto": "Eso lo sabrá usted. Yo solo traigo el fuego. Lo que se enciende con él lo decide cada uno.", "opciones": [
+          { "texto": "«Gracias. La cuidaremos»", "efectos": { "afinidad": 1, "flags": { "moltres_brasa": "cuidar" } }, "sigue": "cuidar" },
+          { "texto": "«Con esta brasa, la mejor chistorra de Kanto»", "efectos": { "afinidad": 1, "flags": { "moltres_brasa": "chistorra" } }, "sigue": "chistorra" }
+        ] },
+        "cuidar": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard se sienta delante de la chimenea a mirar la brasa, como quien mira el mar. O una chistorra en la parrilla, que para él es lo mismo.", "sigue": "fin" },
+        "chistorra": { "quien": "huesped", "emocion": "Normal", "texto": "(Moltres no cambia la cara. Pero la llama de la cresta se le pone amarilla, amarillísima. Es lo más parecido a reírse que tiene.)", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Normal", "texto": "(Al alba, Moltres sale del nido y se pierde en el cielo como una cerilla. En la chimenea, la brasa sigue. Manolo la mira más de lo que diría.)" }
+      }
+    }
+  ]
+}

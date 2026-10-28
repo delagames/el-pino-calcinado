@@ -30,7 +30,11 @@
         "pikachu",
         "exeggcute",
         "dodrio",
-        "charmander"
+        "charmander",
+        "rhyhorn",
+        "magmar",
+        "hermanoseevee",
+        "moltres"
       ],
       "genero": "f",
       "juego": "vuelta"
@@ -62,7 +66,11 @@
         "psyduck",
         "cubone",
         "chansey",
-        "voltorb"
+        "voltorb",
+        "staryu",
+        "zubat",
+        "slowpoke",
+        "hermanoseevee"
       ],
       "genero": "f",
       "juego": "llama"
@@ -82,7 +90,8 @@
         "geodude",
         "alakazam",
         "kangaskhan",
-        "caterpie"
+        "caterpie",
+        "magikarp"
       ],
       "genero": "m",
       "juego": "miel"
@@ -101,7 +110,9 @@
         "machamp",
         "arbok",
         "farfetchd",
-        "pidgey"
+        "pidgey",
+        "paras",
+        "psyduck"
       ],
       "genero": "m",
       "juego": "setas"
@@ -118,7 +129,8 @@
         "lapras",
         "magikarp",
         "lickitung",
-        "weedle"
+        "weedle",
+        "drowzee"
       ],
       "genero": "f",
       "juego": "espeton"
@@ -144,7 +156,12 @@
         "machoke",
         "kadabra",
         "slowpoke",
-        "geodude"
+        "geodude",
+        "diglett",
+        "koffing",
+        "cubone",
+        "onix",
+        "mewtwo"
       ],
       "genero": "m"
     },
@@ -166,7 +183,9 @@
         "meowth",
         "dragonite",
         "spearow",
-        "jigglypuff"
+        "jigglypuff",
+        "gastly",
+        "bellsprout"
       ],
       "genero": "f"
     },
@@ -183,7 +202,9 @@
         "jigglypuff",
         "clefairy",
         "nidoran",
-        "oddish"
+        "oddish",
+        "vulpix",
+        "dratini"
       ],
       "genero": "f"
     },

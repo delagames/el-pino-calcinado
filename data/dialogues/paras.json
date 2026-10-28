@@ -1,0 +1,65 @@
+{
+  "id": "paras",
+  "_nota": "Paras, setero de domingo con cesta de mimbre, que opina del estofado sin que nadie le pregunte y reta a Farfetch'd (que le echa puerro) a un concurso. Evoluciona en Parasect en la v2 (por nivel): la seta de la espalda ha crecido tanto que habla y decide por él, y el bicho pone cara de muñeco (Parasect solo tiene retrato Normal: es el chiste). En la v3 el bicho dice su primera frase en un año, «gracias por la cena», y lleva a Manolo con los ojos vendados a su sitio secreto de níscalos. Bandera paras_secreto.",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · le falta sal",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "(Entra un Paras con una cesta de mimbre llena de níscalos. Huele a monte y a domingo.) Buenas. Paras, setero. ¿Qué hay de cena?", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "Estofado de setas, que te va a gustar.", "sigue": "n1" },
+        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "(Lo prueba sin que nadie se lo ofrezca.) Le falta un punto de sal. Y le sobra champiñón. El champiñón es una seta de supermercado.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "No se ofenda. Llevo dos setas en la espalda desde que nací: las setas son mi vida. Las mías son medicinales, ¿eh? No se comen.", "sigue": "manolo2" },
+        "manolo2": { "quien": "manolo", "emocion": "Worried", "texto": "Pues por aquí para Farfetch'd, el de la tele. Hace un estofado que dice que es el mejor de Kanto. Con puerro.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Angry", "texto": "¿Con puerro? ¡Un puerro en un estofado de setas! Eso es un crimen. Dígale que le reto: concurso de estofado, en su cocina, cuando él quiera.", "opciones": [
+          { "texto": "«Hecho. Y yo te pelo las setas»", "efectos": { "afinidad": 1 }, "sigue": "ayuda" },
+          { "texto": "«Mientras no me queméis la cocina…»", "sigue": "cocina" }
+        ] },
+        "ayuda": { "quien": "huesped", "emocion": "Happy", "texto": "¡Eso! Usted pela y yo opino. (Le enseña por dónde se corta el níscalo.) Así, que no sangre. Los níscalos sangran naranja, ¿lo sabía?", "sigue": "fin" },
+        "cocina": { "quien": "huesped", "emocion": "Normal", "texto": "La cocina la quema su dragón, no yo. Yo solo opino. Opinar no quema. Bueno, a veces un poco.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Esa noche Paras ensaya su estofado. Charizard repite tres veces, por ayudar. Paras apunta en una libreta: «El dragón no es objetivo»." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · habla la seta",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Entra un Parasect. La seta de la espalda es más grande que él. El bicho mira al frente, con cara de muñeco. Habla la seta.) Buenas noches.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Paras? ¿Eres tú? ¿Quién me habla, tú o la seta?", "sigue": "n1" },
+        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "Hablo yo, la seta. Él está aquí abajo, pero ya no opina: ahora opino yo. Lo decidimos juntos. Bueno, lo decidí yo.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "(La seta lleva al bicho hasta la mesa. El bicho se sienta. Cara de muñeco.) Queremos estofado. Él también. Él siempre quiere lo que yo quiero.", "sigue": "manolo2" },
+        "manolo2": { "quien": "manolo", "emocion": "Worried", "texto": "(Manolo no sabe a cuál de los dos mirar.) Chaval… o señora seta… ¿Tú estás bien ahí abajo?", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "(El bicho parpadea una vez, muy despacio. Contesta la seta.) Está estupendamente. Somos un ventrílocuo al revés. Lo vi hacer a un mimo.", "opciones": [
+          { "texto": "«Que me lo diga él, si puede»", "efectos": { "afinidad": 1 }, "sigue": "el" },
+          { "texto": "«Pues marchando estofado para… los dos»", "sigue": "dos" }
+        ] },
+        "el": { "quien": "huesped", "emocion": "Normal", "texto": "(Silencio. El bicho abre la boca. La cierra. La seta tose.) Hoy no puede. Lleva un año sin hablar y se le ha olvidado cómo se hace.", "sigue": "fin" },
+        "dos": { "quien": "huesped", "emocion": "Normal", "texto": "Para los dos. Pero la cuchara, a la seta. (El bicho mira el plato. Cara de muñeco. Un poquito más triste que antes.)", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard le pone al bicho una cucharilla en la pata, sin que la seta lo vea. El bicho no se mueve. Pero no la suelta en toda la noche." }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · gracias por la cena",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Parasect cena sin decir nada. La seta tampoco: viene mustia del viaje. El bicho rebaña el plato con la cucharilla de Charizard.)", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "¿Qué tal el estofado? ¿Le falta sal, según la seta?", "sigue": "n1" },
+        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "(La seta va a contestar. Pero antes, desde abajo, sale una voz que nadie había oído, ronca de no usarla.) …Gracias por la cena.", "sigue": "manolo2" },
+        "manolo2": { "quien": "manolo", "emocion": "Surprised", "texto": "(Manolo se queda con el cazo en el aire. Charizard deja de masticar. Hasta la seta se calla.)", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "(Habla el bicho, despacito.) Llevo un año dejando que hable ella. Era más fácil. Pero el estofado estaba bueno, y eso lo quería decir yo.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "(La seta, bajito:) Le falta sal. (El bicho:) No le falta nada. (Discuten. Por primera vez en mucho tiempo, son dos.)", "opciones": [
+          { "texto": "«Me alegro de oírte, chaval»", "efectos": { "afinidad": 1, "flags": { "paras_secreto": "voz" } }, "sigue": "voz" },
+          { "texto": "«Tenéis razón los dos. Toma, la sal»", "efectos": { "flags": { "paras_secreto": "sal" } }, "sigue": "sal" }
+        ] },
+        "voz": { "quien": "huesped", "emocion": "Normal", "texto": "(El bicho no sonríe, porque no le sale, pero se le nota.) Mañana, al amanecer, le enseño una cosa. Tápese los ojos.", "sigue": "secreto" },
+        "sal": { "quien": "huesped", "emocion": "Normal", "texto": "(Echan sal los dos a la vez, cada uno por un lado. Se pasan.) …Mañana, al amanecer, le enseñamos una cosa. Tápese los ojos.", "sigue": "secreto" },
+        "secreto": { "quien": "manolo", "emocion": "Happy", "texto": "(Al alba, con un trapo en los ojos, Manolo sube al monte de la pata de un bicho. Al quitárselo, ve un claro lleno de níscalos: el sitio secreto.)", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Parasect se va con la cesta vacía, para que Manolo llene la suya. Por el camino, el bicho y la seta siguen discutiendo la sal. Los dos." }
+      }
+    }
+  ]
+}

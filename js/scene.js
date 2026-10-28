@@ -240,6 +240,7 @@ export function createInnView(canvas) {
     tw: r() < 0.2, dim: r() < 0.5,
   }));
   let narrow = false, pan = -18, panMax = 0;   // cámara: en vertical empieza mirando un poco hacia la puerta
+  let panY = 0, panYMax = 0, baseWy = 0;        // y hacia arriba, si la casa es más alta que la pantalla
   let camTarget = null;                        // a dónde se va moviendo sola la cámara (siguiendo a la furgoneta)
   let outlines = new Map();
   const buildOutlines = () => { outlines = new Map(ROOMS.map(rm => [rm, perimeter(rm.poly
@@ -258,10 +259,10 @@ export function createInnView(canvas) {
     // en vertical (el móvil) la cámara se acerca a la casa y se arrastra con el dedo para ver los lados
     narrow = aw < ah * 1.15;
     const fw = narrow ? NARROW_W : FIT.w;
-    // en vertical la casa tiene que caber entera encima del cuadro de diálogo de verdad: con dos plantas
-    // más es muy alta y, si el cuadro crece, se encoge un poco en vez de quedar tapada
+    // en vertical, el zum es el de la casa de una planta (las de arriba no la encogen: se sube a verlas
+    // arrastrando hacia abajo) y la planta baja queda siempre encima del cuadro de diálogo de verdad
     const ahReal = (canvas.clientHeight - insets.top - Math.max(insets.bottom, insets.dialog || 0)) * dpr;
-    const fit = Math.min(aw / fw, (narrow ? ahReal : ah) / FIT.h);
+    const fit = Math.min(aw / fw, (narrow ? ahReal : ah) / (narrow ? FIT0.h : FIT.h));
     // a múltiplos enteros para que los píxeles salgan iguales; en el móvil (pantallas de mucha
     // densidad) se aprovecha todo el sitio, que redondear hacia abajo la dejaba mucho más pequeña
     const S = fit >= 2 && !narrow ? Math.floor(fit) : fit;
@@ -270,15 +271,27 @@ export function createInnView(canvas) {
     const viewW = aw / S;
     panMax = narrow ? Math.max(0, (FIT0.w + 24 - viewW) / 2) : 0;
     pan = Math.max(-panMax, Math.min(panMax, pan));
+    // en vertical, la casa abajo, pegada al cuadro de diálogo de verdad (arriba queda cielo). Si no cabe
+    // entera (las plantas de más), el tejado queda por arriba y se baja la cámara arrastrando
+    const hueco = H - (insets.top + (insets.dialog || insets.bottom)) * dpr - 6 * dpr;
+    const sobra = narrow ? hueco - FIT.h * S : (ah - FIT.h * S) / 2;
+    panYMax = narrow ? Math.max(0, -sobra / S) : 0;
+    panY = Math.max(0, Math.min(panYMax, panY));
+    baseWy = (insets.top * dpr + sobra) / S - FIT.y;
     v = {
       S, dpr, LW, LH, aw,
       wx: Math.round((insets.left * dpr + aw / 2) / S - (FIT.x + FIT.w / 2 + pan)),
-      // en vertical, la casa abajo, pegada al cuadro de diálogo de verdad (arriba queda cielo): si el
-      // cuadro crece, la casa sube en vez de quedar tapada, sin cambiar el zum
-      wy: Math.round((insets.top * dpr + (narrow
-        ? Math.max(0, H - (insets.top + (insets.dialog || insets.bottom)) * dpr - FIT.h * S - 6 * dpr)
-        : (ah - FIT.h * S) / 2)) / S - FIT.y),
+      wy: Math.round(baseWy + panY),
     };
+    paintStatic();
+  }
+
+  // sube o baja la cámara (para ver las plantas de arriba en el móvil)
+  function setPanY(p) {
+    const q = Math.max(0, Math.min(panYMax, p));
+    if (Math.round(q) === Math.round(panY)) { panY = q; return; }
+    panY = q;
+    v.wy = Math.round(baseWy + panY);
     paintStatic();
   }
 
@@ -1067,6 +1080,12 @@ export function createInnView(canvas) {
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.imageSmoothingEnabled = false;
     ctx.drawImage(low, 0, 0, v.LW, v.LH, 0, 0, v.LW * v.S, v.LH * v.S);
+    // si la casa sigue por arriba, una flechita parpadeante avisa de que se puede arrastrar para verla
+    if (panYMax > 0 && panY < panYMax - 2 && Math.floor(t / 500) % 2) {
+      const px = Math.max(2, Math.round(v.dpr * 2)), cx = Math.round(canvas.width / 2), cy = Math.round((insets.top + 10) * v.dpr);
+      ctx.fillStyle = '#F4EFE6';
+      for (let i = 0; i < 4; i++) ctx.fillRect(cx - (i + 1) * px, cy + i * px, (i + 1) * 2 * px, px);
+    }
   }
 
   const LOGO_FAMADESA = new Image();
@@ -1160,13 +1179,17 @@ export function createInnView(canvas) {
 
   // arrastrar para mover la cámara (solo en vertical); si se ha arrastrado, no cuenta como toque
   let drag = null, dragged = false;
-  canvas.addEventListener('pointerdown', ev => { drag = { x: ev.clientX, pan, on: false }; });
+  canvas.addEventListener('pointerdown', ev => { drag = { x: ev.clientX, y: ev.clientY, pan, panY, on: false }; });
   window.addEventListener('pointerup', () => { if (drag?.on) { dragged = true; setTimeout(() => { dragged = false; }, 0); } drag = null; });
   canvas.addEventListener('pointermove', ev => {
-    if (drag && panMax > 0) {
-      const dx = ev.clientX - drag.x;
-      if (Math.abs(dx) > 8) drag.on = true;
-      if (drag.on) { setPan(drag.pan - dx * v.dpr / v.S); return; }
+    if (drag && (panMax > 0 || panYMax > 0)) {
+      const dx = ev.clientX - drag.x, dy = ev.clientY - drag.y;
+      if (Math.abs(dx) > 8 || Math.abs(dy) > 8) drag.on = true;
+      if (drag.on) {
+        if (panMax > 0) setPan(drag.pan - dx * v.dpr / v.S);
+        if (panYMax > 0) setPanY(drag.panY + dy * v.dpr / v.S);   // arrastrar hacia abajo enseña lo de arriba
+        return;
+      }
     }
   });
   canvas.addEventListener('pointermove', ev => {

@@ -1,0 +1,35 @@
+{
+  "id": "oeste",
+  "_nota": "Grupo de una noche: los del oeste. Sandslash y su hijo Sandshrew, fans de las películas del desierto de Tabernas, con sombrero de vaquero. Piden la habitación más seca (con estanque, ni se quedan: el agua quieta les quita el sueño). A Sandslash se le caen las púas (le vuelven a crecer, Pokédex) y lo vive como una alopecia: busca a Manolo para hablar de calvos y pregunta por la baya de Oddish. Remate: duelo al sol en la puerta, a ver quién aguanta más serio; gana Manolo, al que el viento no le mueve nada. Se van de espaldas al atardecer y dejan un sombrero vaquero.",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Una noche · los del oeste",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Al atardecer se paran dos sombras en la puerta, con sombrero de vaquero. Suena una armónica que no toca nadie. Es el viento en la rendija.)", "sigue": "sandslash" },
+        "sandslash": { "quien": "sandslash", "emocion": "Normal", "texto": "Buenas tardes, forastero. Sandslash. Y este es mi hijo. Venimos del desierto de Tabernas, de rodar una del oeste. Bueno, de ver cómo la ruedan.", "sigue": "sandshrew" },
+        "sandshrew": { "quien": "sandshrew", "emocion": "Happy", "texto": "¡Papá salía de extra! ¡De cactus! ¡Tres días de cactus, sin moverse!", "sigue": "seca" },
+        "seca": { "quien": "sandslash", "emocion": "Normal", "texto": "Queremos la habitación más seca de la casa. Somos de tierra. La humedad nos sienta como un tiro.", "si_mejora": { "estanque": "seca_estanque" }, "sigue": "potaje" },
+        "seca_estanque": { "quien": "sandslash", "emocion": "Worried", "texto": "Queremos la habitación más seca… (Ve el estanque por la ventana.) ¿Eso es agua? ¿Quieta, al lado de la casa? Mejor cenamos y seguimos camino.", "sigue": "potaje" },
+        "potaje": { "quien": "manolo", "emocion": "Normal", "texto": "Os pongo potaje de garbanzos. Bien espesito, que caldo lleva poco.", "sigue": "sandshrew2" },
+        "sandshrew2": { "quien": "sandshrew", "emocion": "Worried", "texto": "Papá… díselo. Lo de las púas.", "sigue": "puas" },
+        "puas": { "quien": "sandslash", "emocion": "Sad", "texto": "(Se quita el sombrero. Le faltan púas en la coronilla.) Se me caen, forastero. Dicen que vuelven a crecer. Llevo dos semanas esperando.", "sigue": "puas2" },
+        "puas2": { "quien": "sandslash", "emocion": "Normal", "texto": "En el camino me dijeron: en el Pino hay un señor que de calvas sabe mucho. Y una Oddish con una baya milagrosa.", "sigue": "calva" },
+        "calva": { "quien": "manolo", "emocion": "Sigh", "texto": "(Manolo se pasa la mano por la calva, que brilla con el último sol.) Mira, vaquero: lo mío no vuelve. Lo tuyo, sí.", "opciones": [
+          { "texto": "«Y mientras, el sombrero te queda de cine»", "efectos": { "afinidad": 1 }, "sigue": "cine" },
+          { "texto": "«Lo de la baya de Oddish… mejor no preguntes»", "sigue": "baya" }
+        ] },
+        "cine": { "quien": "sandslash", "emocion": "Happy", "texto": "¿De cine? (Se lo vuelve a poner, ladeado.) Eso decía el director. Bueno, se lo decía al cactus de al lado. Pero yo estaba muy cerca.", "sigue": "duelo" },
+        "baya": { "quien": "sandslash", "emocion": "Surprised", "texto": "¿Tan mal fue? (Manolo asiente, muy serio. Sandslash se encasqueta el sombrero hasta las cejas.) Entendido. Que crezcan solas.", "sigue": "duelo" },
+        "duelo": { "quien": "sandshrew", "emocion": "Happy", "texto": "¡Papá! ¡Un duelo! ¡Como en las pelis! ¡En la puerta, al sol! ¡A ver quién aguanta más rato serio!", "sigue": "duelo2" },
+        "duelo2": { "quien": "manolo", "emocion": "Normal", "texto": "(En la puerta, al último sol: Sandslash, Sandshrew y Manolo, frente a frente. Charizard hace de armónica, soplando por la rendija.)", "sigue": "viento" },
+        "viento": { "quien": "charizard", "emocion": "Surprised", "texto": "Sopla el viento. A Sandshrew se le vuela el sombrero y se ríe. A Sandslash se le cae otra púa y se ríe. A Manolo no se le mueve nada. Nada de nada.", "sigue": "gana" },
+        "gana": { "quien": "sandslash", "emocion": "Happy", "texto": "…Ha ganado el forastero. Claro: sin púas ni pelo, el viento no tiene de dónde tirar. Es usted el más duro del oeste.", "sigue": "sandshrew3" },
+        "sandshrew3": { "quien": "sandshrew", "emocion": "Happy", "texto": "Papá, cuando sea mayor quiero ser como él. ¡Sin nada que se mueva!", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Cenan potaje y se van de espaldas, al atardecer, despacito, como en las películas. En el mostrador queda un sombrero vaquero: para Manolo, «por el sol»." }
+      }
+    }
+  ]
+}

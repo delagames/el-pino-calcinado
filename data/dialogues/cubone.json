@@ -1,6 +1,6 @@
 {
   "id": "cubone",
-  "_nota": "Cubone, adolescente intenso de Pueblo Lavanda, lleva el cráneo de su madre como casco y le recita monólogos a lo Hamlet. Tierno, no siniestro. Arco en tres visitas: ser o no ser, la Torre y las flores, y una familia de posada (bandera cubone_familia).",
+  "_nota": "Cubone, adolescente intenso de Pueblo Lavanda, lleva el cráneo de su madre como casco y le recita monólogos a lo Hamlet. Tierno, no siniestro. Arco en cuatro visitas: ser o no ser, la Torre y las flores, una familia de posada (bandera cubone_familia) y, en la v4, ya Marowak (por nivel): el casco le queda bien, habla bajito como su madre y se va a la Torre de Lavanda a cuidar de los Cubone que llegan solos, con tápers (bandera cubone_torre). Que evolucione al superar el duelo es una lectura de fans: aquí es solo cómo lo siente él.",
   "entradas": [
     {
       "id": "v1",
@@ -40,7 +40,6 @@
       "id": "v3",
       "cuando": { "visita_min": 3, "afinidad_min": 1 },
       "subtitulo": "Tercera visita · una familia de posada",
-      "fin_arco": true,
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Hoy Cubone cena sin recitar. Mira a Manolo y a Charizard, que discuten por la última chistorra.) ¿Ustedes dos son familia?", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "Lo conozco desde que era un Charmander que me quemaba los calcetines. Si eso no es familia, que venga alguien y me lo explique.", "sigue": "n2" },
@@ -50,7 +49,29 @@
         ] },
         "posada": { "quien": "huesped", "emocion": "Happy", "texto": "¿Con casco y todo? (Se lo ajusta, muy digno.) Entonces somos tres y medio. Contando a mamá.", "sigue": "fin" },
         "madre": { "quien": "huesped", "emocion": "Happy", "texto": "(Se toca el casco y sonríe por debajo.) Entonces llevarla puesta no es ir triste. Es ir acompañado.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le chamusca los calcetines, muy poquito y a propósito. Cubone se ríe por primera vez. Al alba vuelve a Lavanda, con su madre puesta y el tarro bajo el brazo." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le chamusca los calcetines, muy poquito y a propósito. Cubone se ríe por primera vez. Al alba vuelve a Lavanda con el tarro, prometiendo volver a enseñar el calcetín." }
+      }
+    },
+    {
+      "id": "v4",
+      "cuando": { "visita_min": 4, "afinidad_min": 1 },
+      "subtitulo": "Cuarta visita · la ropa de mamá",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Entra un Marowak con un hueso en la mano. El casco ya no le baila: le queda justo. Habla bajito.) Buenas noches, Manolo. Una habitación. Para dos.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Cubone? ¡Chaval! ¿Para dos? ¿Ya no es para uno y medio?", "sigue": "n1" },
+        "n1": { "quien": "huesped", "emocion": "Happy", "texto": "(Se toca el casco.) Ya no es medio. Me queda bien. Como cuando te pones la ropa de tu madre y un día, sin avisar, te queda bien.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Me he hecho mayor de golpe. Una mañana me desperté y ya no me salían los monólogos. Me salía hablar bajito. Como ella.", "sigue": "charizard" },
+        "charizard": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard se le planta delante y se pone de puntillas, para comprobar quién es más alto. Sigue siéndolo él. De sobra. Se queda más tranquilo.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Vengo a despedirme. Me voy a vivir a la Torre de Lavanda. Allí llegan Cubone solos, cada vez más. Alguien tiene que hacerles la cena.", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Sad", "texto": "Yo llegué aquí sin saber ni hablar sin declamar, y me disteis sopa caliente. Quiero ser eso para alguien. Una sopa caliente.", "opciones": [
+          { "texto": "«Te lleno unos tápers de potaje para el camino»", "efectos": { "afinidad": 1, "flags": { "cubone_torre": "taper" } }, "sigue": "taper" },
+          { "texto": "«¿Y a ti quién te va a cuidar?»", "efectos": { "flags": { "cubone_torre": "quien" } }, "sigue": "quien" }
+        ] },
+        "taper": { "quien": "huesped", "emocion": "Happy", "texto": "¿Tápers? (Se le quiebra un poco la voz.) Mamá decía que una casa se conoce por los tápers que te da al irte. Esta es de las buenas.", "sigue": "madre" },
+        "quien": { "quien": "huesped", "emocion": "Normal", "texto": "Ella. Y los pequeños, que me van a cuidar sin saberlo. Ya os lo dije: en Lavanda somos de familias que no se van del todo.", "sigue": "madre" },
+        "madre": { "quien": "huesped", "emocion": "Happy", "texto": "Sigo hablándole cada noche, ¿sabe? Pero ya no le pido nada. Solo le cuento qué tal el día. Hoy le contaré este.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al alba, Charizard le carga la mochila de tápers y le chamusca un calcetín, muy poquito, a propósito. Marowak se ríe bajito y se va hacia Lavanda." }
       }
     }
   ]

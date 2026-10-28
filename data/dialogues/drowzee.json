@@ -1,0 +1,71 @@
+{
+  "id": "drowzee",
+  "_nota": "Drowzee, crítico gastronómico de sueños: pide permiso para «cenar fuera», en las camas, puntúa los sueños con estrellas y nunca olvida uno (si te pica la nariz dormido, tienes uno al lado). Drowzee no tiene retrato Worried. En la v2 prueba el sueño de Manolo, la noche del Gyarados, y no cuenta el final (el secreto del pino lo desvela Lapras); se le indigesta y evoluciona de madrugada. En la v3, ya Hypno e hipnoterapeuta, quiere quitarle la cachimbita a Manolo con el péndulo, hipnotiza sin querer a Charizard, que deja de querer chistorra, lo deshace, y Manolo decide solo. Tono blanco: nada de la leyenda de internet de Hypno. Último sueño: la posada llena, cinco estrellas. Bandera drowzee_cachimba.",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · cenar fuera",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Entra un Drowzee con libreta y servilleta al cuello.) Buenas noches. Drowzee, crítico gastronómico. De sueños. Esta noche quisiera cenar fuera.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Fuera? Si quiere, le pongo la mesa del porche.", "sigue": "n1" },
+        "n1": { "quien": "huesped", "emocion": "Happy", "texto": "No, no: en las camas. Con su permiso, probaría los sueños de sus huéspedes. Un bocadito. No duele: como mucho, pica un poco la nariz.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Puntúo con estrellas, como en las guías. Y me acuerdo de todo lo que pruebo. Es lo malo del oficio: no se me olvida un sueño.", "opciones": [
+          { "texto": "«Pase, pero con educación, que esta es una casa decente»", "efectos": { "afinidad": 1 }, "sigue": "pase" },
+          { "texto": "«¿Y los míos también?»", "sigue": "mios" }
+        ] },
+        "pase": { "quien": "huesped", "emocion": "Happy", "texto": "¡Faltaría más! Servilleta, cubiertos y cerrar la puerta al salir. Y si alguien ronca, no le corto el sueño, que es de mala educación.", "sigue": "noche" },
+        "mios": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Los suyos? (Le mira la frente, muy interesado.) Más adelante. Los sueños del dueño se dejan para el final. Suelen ser muy… contundentes.", "sigue": "noche" },
+        "noche": { "quien": "manolo", "emocion": "Normal", "texto": "(De madrugada, Manolo baja a por agua y ve a Drowzee pasillo arriba y pasillo abajo, con la libreta, como un camarero de los de antes.)", "sigue": "notas" },
+        "notas": { "quien": "huesped", "emocion": "Happy", "texto": "(En el desayuno, lee sus notas.) Snorlax: un banquete de siete platos, cinco estrellas. Charizard: chistorra. Todo chistorra. Tres estrellas, por monótono.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Angry", "texto": "Charizard lee la nota por encima de su hombro y se ofende muchísimo. Esa noche sueña con chistorra a propósito. Con más chistorra que nunca." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · el sueño del dueño",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Drowzee llega con la libreta y muy serio.) Manolo, es mi segunda visita. Es la costumbre: hoy me toca el sueño del dueño.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Worried", "texto": "Mira, chaval, yo no sueño. Duermo como un leño. Cachimbita, chistorra y a dormir.", "sigue": "n1" },
+        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "Todo el mundo sueña. Lo que pasa es que no todo el mundo se acuerda. Yo sí. Por eso cobro.", "sigue": "noche" },
+        "noche": { "quien": "manolo", "emocion": "Sigh", "texto": "(Esa noche, Manolo se duerme en el sillón con la cachimbita en la mano. Drowzee entra de puntillas, se ata la servilleta y da un bocado.)", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Pain", "texto": "(Al rato sale al pasillo blanco como la leche.) Uf. Agua, por favor. Ese sueño era una pesadilla. Con mucha agua. Y algo enorme dentro.", "sigue": "manolo2" },
+        "manolo2": { "quien": "manolo", "emocion": "Sad", "texto": "(Manolo, despierto, desde el sillón.) …El Gyarados. Mi último combate. Lo sueño a veces. No se lo cuento a nadie.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Sad", "texto": "Lo siento. No debí. Sabía a escamas, a derrota y a pino quemado. Y al final, a algo más que no voy a decir. Un crítico no cuenta el final.", "opciones": [
+          { "texto": "«Ya está. Vamos a por una tila los dos»", "efectos": { "afinidad": 1 }, "sigue": "tila" },
+          { "texto": "«¿Y cuántas estrellas le pones?»", "sigue": "estrella" }
+        ] },
+        "tila": { "quien": "huesped", "emocion": "Normal", "texto": "(En la cocina, a las cuatro de la mañana, con dos tilas.) Me ha sentado fatal. Noto algo raro por dentro. Como si me estuviera haciendo mayor.", "sigue": "evol" },
+        "estrella": { "quien": "huesped", "emocion": "Sad", "texto": "Ninguna. A las pesadillas no se les pone nota: se les pone una manta. (Le tapa con la manta del sillón.) Lo he aprendido hoy.", "sigue": "evol" },
+        "evol": { "quien": "charizard", "emocion": "Surprised", "texto": "Al alba, Charizard encuentra a Drowzee dormido en la cocina. Ha crecido un palmo, le ha salido una gorguera blanca y tiene un péndulo en la mano." }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · el péndulo",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "(Entra un Hypno balanceando un péndulo con mucha profesionalidad.) Manolo, me he hecho hipnoterapeuta. Y ya tengo paciente: usted.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Yo? ¿Y qué me pasa a mí?", "sigue": "n1" },
+        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "La cachimbita. Lo noté en su sueño: olía a humo hasta debajo del agua. Diez minutos de péndulo y no la vuelve a querer. Siéntese.", "sigue": "manolo2" },
+        "manolo2": { "quien": "manolo", "emocion": "Worried", "texto": "(Manolo se sienta, desconfiado. Charizard se sienta a su lado, para vigilar. El péndulo va y viene. Va y viene.)", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Mire el péndulo. Usted ya no quiere la cachimbita. Usted ya no quiere… (Charizard también está mirando el péndulo. Muy fijo.)", "sigue": "crisis" },
+        "crisis": { "quien": "charizard", "emocion": "Normal", "texto": "Le traen a Charizard su chistorra. La mira. La aparta con la garra. Se come una hoja de lechuga. En el comedor no se oye ni una mosca.", "sigue": "manolo3" },
+        "manolo3": { "quien": "manolo", "emocion": "Pain", "texto": "¡Lo has hipnotizado a él! ¡Charizard no quiere chistorra! ¡Esto es una emergencia! ¡Que alguien llame a Famadesa!", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Surprised", "texto": "¡Ay, madre, ha mirado sin permiso! (Chasquea los dedos tres veces delante del dragón.) ¡Despierta! ¡Chistorra! ¡CHISTORRA!", "sigue": "vuelve" },
+        "vuelve": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard parpadea. Ve la chistorra. Se la come de un bocado, luego otra, luego la de Manolo. Y escupe la lechuga al fuego, con desprecio.", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Sad", "texto": "Perdón. Me he pasado. Uno no se debe meter en la cabeza de los demás para cambiarles nada. Bastante es ya comerse sus sueños.", "sigue": "n5" },
+        "n5": { "quien": "huesped", "emocion": "Normal", "texto": "Lo de la cachimbita, entonces… lo decide usted. Sin péndulo. (Se lo guarda en el bolsillo.)", "opciones": [
+          { "texto": "«De vez en cuando, en el porche, mirando el monte»", "efectos": { "afinidad": 1, "flags": { "drowzee_cachimba": "porche" } }, "sigue": "porche" },
+          { "texto": "«La dejo. Pero porque lo digo yo»", "efectos": { "flags": { "drowzee_cachimba": "dejada" } }, "sigue": "dejada" }
+        ] },
+        "porche": { "quien": "manolo", "emocion": "Happy", "texto": "(Manolo sale al porche con la cachimbita, mira el monte un rato y la guarda. Decidido por él. Hypno apunta algo en la libreta y sonríe.)", "sigue": "sueno" },
+        "dejada": { "quien": "manolo", "emocion": "Sigh", "texto": "(Manolo deja la cachimbita en la repisa de la chimenea, como un trofeo viejo.) Ahí se queda, para mirarla. Que mirar no es fumar.", "sigue": "sueno" },
+        "sueno": { "quien": "huesped", "emocion": "Happy", "texto": "(Esa noche, con permiso, Hypno prueba un último sueño de Manolo y sale sonriendo.) La posada llena. Todas las luces encendidas. Cinco estrellas.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al alba, Hypno se va balanceando el péndulo, sin mirarlo. Charizard tampoco lo mira, por si acaso. Y se come una chistorra de más, por si acaso." }
+      }
+    }
+  ]
+}

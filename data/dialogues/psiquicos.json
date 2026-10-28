@@ -1,0 +1,34 @@
+{
+  "id": "psiquicos",
+  "_nota": "Grupo de una noche: van a la convención de psíquicos de Azafrán (la de Sabrina) y paran a cenar. Abra, hijo de Kadabra (la vidente de la tele) y nieto de Alakazam (el del concurso), duerme dieciocho horas al día y se teletransporta, incluso dormido, en cuanto le mandan algo (Pokédex). Exeggutor, presidente veterano de la peña de Exeggcute, habla con sus tres cabezas pisándose con rayas, como la peña (no tiene retrato Worried); de su copa cayeron las cabecitas (leyenda de la Pokédex), y no entiende que la peña no quisiera la Piedra Hoja. Remate: lo entiende, porque él también fue peña antes de ser palmera, y deja un pañuelico para cuando vuelvan; Abra se queda despierto una hora entera para despedirse y deja su antifaz.",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Una noche · la convención de psíquicos",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "manolo", "emocion": "Normal", "texto": "(Del autobús baja una palmera de tres cabezas con una acreditación al cuello: «Convención de Psíquicos · Azafrán». En brazos lleva un Abra dormido.)", "sigue": "exeggutor" },
+        "exeggutor": { "quien": "exeggutor", "emocion": "Happy", "texto": "¡Buenas noches! Exeggutor, presidente veterano de la peña. Vamos a la convención de Sabrina y paramos a cenar. —¡Y a mirar! —¡Calla tú!", "sigue": "abra" },
+        "abra": { "quien": "abra", "emocion": "Normal", "texto": "(Abra abre un ojo. Lo cierra.) Hola. Abra. Duermo dieciocho horas al día. Ahora voy por la diecisiete. Estoy casi despierto.", "sigue": "manolo2" },
+        "manolo2": { "quien": "manolo", "emocion": "Happy", "texto": "«Bienvenidos. Abra, majo, ¿me ayudas a poner los platos?»", "sigue": "abra2" },
+        "abra2": { "quien": "abra", "emocion": "Surprised", "texto": "(En cuanto oye «ayudas», Abra desaparece: ¡fium! Al rato se oye un ronquido en el tejado.)", "sigue": "charizard" },
+        "charizard": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard sube al tejado, lo baja en brazos y lo sienta a la mesa. ¡Fium!: aparece en la despensa, dormido y abrazado a una chistorra.", "sigue": "abra3" },
+        "abra3": { "quien": "abra", "emocion": "Sad", "texto": "Perdón. Si me mandan algo, me teletransporto. Sin querer. Dormido, también. Mi madre dice que es de familia: ella dobla cucharas y yo desaparezco.", "sigue": "exeggutor2" },
+        "exeggutor2": { "quien": "exeggutor", "emocion": "Normal", "texto": "Es el hijo de Kadabra, la de las cartas de la tele, y nieto de Alakazam, el del concurso. Familia de mucho cerebro. Este lo usa para dormir.", "sigue": "exeggutor3" },
+        "exeggutor3": { "quien": "exeggutor", "emocion": "Sad", "texto": "Manolo, de palmera a posadero: me han dicho que por aquí para una peña de seis Exeggcute. Son mis cabecitas. Se me cayeron de la copa.", "sigue": "exeggutor4" },
+        "exeggutor4": { "quien": "exeggutor", "emocion": "Angry", "texto": "¡Y que no quieren la Piedra Hoja! ¡Seis a cero! —¡Con lo bien que se está de palmera! —¡Con las vistas que hay aquí arriba! —¿Usted qué opina?", "opciones": [
+          { "texto": "«Que para ser palmera hay tiempo, y para ser peña, solo ahora»", "efectos": { "afinidad": 1 }, "sigue": "entiende" },
+          { "texto": "«Yo de evoluciones no me meto. Aquí cada uno vota»", "sigue": "vota" }
+        ] },
+        "entiende": { "quien": "exeggutor", "emocion": "Surprised", "texto": "(Las tres cabezas se miran.) …Para peña, solo ahora. —Eso lo decíamos nosotros. —Antes de ser palmera. —¡Es verdad! ¡Fuimos peña!", "sigue": "recuerdo" },
+        "vota": { "quien": "exeggutor", "emocion": "Happy", "texto": "¿Votar? ¡Como en la peña! —Ellos, seis a cero. —Nosotros éramos tres a cero. —Y unanimidad para la charanga. Ay, qué tiempos.", "sigue": "recuerdo" },
+        "recuerdo": { "quien": "exeggutor", "emocion": "Happy", "texto": "Pues que sean peña mientras puedan. (Saca de la copa un pañuelico de fiestas y lo deja en el mostrador.) Para cuando vuelvan. Que se lo pongan.", "sigue": "abra4" },
+        "abra4": { "quien": "abra", "emocion": "Normal", "texto": "(Abra está despierto. Del todo. Con los ojos un poco abiertos.) Me quedo despierto para despedirme. Una hora entera. Por ustedes.", "sigue": "charizard2" },
+        "charizard2": { "quien": "charizard", "emocion": "Worried", "texto": "Pasa media hora. Abra da cabezadas. Charizard le sujeta la frente con una garra para que no se caiga encima de la baya Zidra.", "sigue": "abra5" },
+        "abra5": { "quien": "abra", "emocion": "Happy", "texto": "(A los cincuenta y nueve minutos.) …Adiós, Manolo. Adiós, dragón. Ha sido la mejor hora despierto de mi vida. (¡Fium!)", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Surprised", "texto": "Abra aparece dormido en el autobús antes que nadie. Exeggutor se despide con las tres cabezas. En el mostrador quedan el pañuelico y un antifaz de dormir." }
+      }
+    }
+  ]
+}

@@ -997,6 +997,834 @@
       "gesto": "(Spearow se repeina la cresta con un peine diminuto, mirándose en la cuchara, y le guiña un ojo a su reflejo.)",
       "paseo": "(Spearow pasea por el camino con andares de matón, y saluda muy educado a todo el que se cruza.)",
       "cuarto": "(Spearow está en su cuarto. Se oye una radio con rumba de los ochenta, muy bajita, para no molestar.)"
+    },
+    "staryu": {
+      "lineas": [
+        {
+          "emocion": "Happy",
+          "texto": "De noche me brilla el núcleo. Si ve una luz en el estanque, no es un ovni: soy yo, pensando."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Tres temporadas en el banquillo. Me sé de memoria el techo del gimnasio de Celeste. Tiene cuarenta y dos focos."
+        },
+        {
+          "emocion": "Pain",
+          "texto": "Ay. Me he dado con la mesa en la punta rota. No pasa nada: crece. Lo que tarda es el orgullo."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "Aquí nadie me pide que salga a jugar. Y aun así me apetece brillar. Será el aire de la sierra."
+        }
+      ],
+      "gesto": "(Staryu se frota el núcleo con la servilleta hasta que la lámpara del comedor parece apagada a su lado.)",
+      "paseo": "(Staryu rueda de canto por el camino, como una rueda, hasta el pino. Luego vuelve rodando cuesta arriba, más despacio.)",
+      "cuarto": "(Staryu está en el estanque, flotando boca arriba. El núcleo parpadea despacito, como quien tararea.)"
+    },
+    "staryu:121": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "No me pregunte cómo estoy por la cara: no tengo. Pregúntele al núcleo. Hoy está naranja. Naranja es «regular»."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Siete colores, todos los días a la misma hora. El violeta es el que más cuesta. El violeta siempre llega cansado."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Me llaman la gema del mar. Las gemas no se quejan. (El núcleo se pone gris un momento.) Eso no lo ha visto."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Manolo, ¿usted cuánto tardó en darse cuenta de que estaba quemado? Lo pregunto por una amiga. Que soy yo."
+        }
+      ],
+      "gesto": "(Starmie gira despacio sobre la silla. La cara no se le mueve; el núcleo va cambiando de color según la conversación.)",
+      "paseo": "(Starmie flota sobre el estanque, quieta, como una estrella que se ha caído y no tiene prisa por volver.)",
+      "cuarto": "(Starmie descansa en el estanque. Desde la ventana del comedor se ve el núcleo, muy bajito, como una vela.)"
+    },
+    "psyduck:55": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "Ya no me duele la cabeza. Ahora me duele no tener nada que me duela. Es raro. Lo estoy estudiando."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "Me he puesto a flotar a propósito por primera vez. Un palmo. Me he asustado y he bajado. Mañana, dos palmos."
+        },
+        {
+          "emocion": "Sad",
+          "texto": "A veces cojo un subrayador por costumbre. Lo destapo, lo huelo y lo vuelvo a tapar. Nadie me ha visto. Hasta ahora."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "De nueve a tres, sello impresos. De tres en adelante, no hago nada. Doce años soñando con esto, Manolo."
+        }
+      ],
+      "gesto": "(Golduck remueve el café con la mente. La cucharilla da vueltas sola, muy despacio. No se dobla.)",
+      "paseo": "(Golduck nada en el río del valle con brazadas largas y elegantes. Cada diez brazadas, se para a mirar el cielo.)",
+      "cuarto": "(Golduck lee una novela en su cuarto. Sin subrayar. Le cuesta, pero lo consigue.)"
+    },
+    "slowpoke:80": {
+      "lineas": [
+        {
+          "emocion": "Happy",
+          "texto": "Me noto más listo últimamente. Ayer entendí un chiste el mismo día. Creo que es la concha."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Alguien me habla desde la cola. Le contesto por educación. Nunca sé quién es. Me cae muy bien."
+        },
+        {
+          "emocion": "Sad",
+          "texto": "Si un día se me suelta lo que tengo en la cola, ¿volveré a ser como antes? (Pausa.) No sé qué tengo en la cola."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "…Sí, sopa para dos. (Lo dice por lo que le preguntaron en la cena de ayer.)"
+        }
+      ],
+      "gesto": "(Slowbro se lleva la cuchara a la boca muy despacio. Shellder, desde la cola, se lleva otra. Lo hacen a la vez.)",
+      "paseo": "(Slowbro pasea hasta el pino. Shellder va enganchada detrás, saludando a todo el que pasa. Slowbro no sabe por qué la gente le saluda tanto.)",
+      "cuarto": "(Slowbro duerme con la cola fuera de la cama. Shellder también duerme: con la boca cerrada, por si acaso.)"
+    },
+    "zubat": {
+      "lineas": [
+        {
+          "emocion": "Happy",
+          "texto": "En el 92 estuve tres días seguidos en una discoteca de Valencia. Bueno, creo que era una discoteca. Igual era una cueva con altavoces."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Dicen que en las cuevas salgo cada dos pasos. Mentira. Cada paso y medio."
+        },
+        {
+          "emocion": "Surprised",
+          "texto": "¿Esto es la sobremesa? ¿Comer y luego quedarse sentado? ¿Sin más? ¿Y cuándo empieza lo bueno?"
+        },
+        {
+          "emocion": "Sad",
+          "texto": "Mi pandilla de la Ruta ya no sale. Uno tiene una tienda de bicis, otro tres crías. Yo aún tengo las gafas de sol."
+        }
+      ],
+      "gesto": "(Zubat mueve la cabeza al ritmo de un bombo que solo oye él. Las cucharas de la mesa vibran un poco.)",
+      "paseo": "(Zubat da vueltas alrededor del pino quemado, en círculos, chillando bajito para no chocar con nada.)",
+      "cuarto": "(Zubat está colgado cabeza abajo de la lámpara del cuarto morado, con la barrita luminosa encendida.)"
+    },
+    "zubat:42": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "De guardia nocturna se ve de todo. Anoche, un Snorlax con dolor de muelas. Tuve que entrar con casco."
+        },
+        {
+          "emocion": "Angry",
+          "texto": "¿Eso es un caramelo? (Lo huele desde la otra punta del comedor.) Dámelo. Por tu bien."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "Antes la noche era para salir. Ahora es para que otros puedan dormir sin dolor. Es la misma noche, pero mejor usada."
+        },
+        {
+          "emocion": "Surprised",
+          "texto": "Charizard tiene una dentadura de libro. De libro antiguo, con manchas de chistorra. Pero de libro."
+        }
+      ],
+      "gesto": "(Golbat sonríe con su boca enorme y le revisa los dientes a todo el que se ríe cerca.)",
+      "paseo": "(Golbat sobrevuela el prado de vuelta de la guardia, despacio, sin prisa por llegar a ningún sitio.)",
+      "cuarto": "(Golbat duerme de día, colgado en el cuarto morado. En la puerta ha puesto un cartel: «Urgencias dentales: llamar fuerte».)"
+    },
+    "paras": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "El mejor níscalo sale donde nadie mira. Por eso yo no le digo a nadie dónde miro."
+        },
+        {
+          "emocion": "Angry",
+          "texto": "Champiñón de bandeja, no. Eso no es una seta. Es una seta que ha perdido las ganas de vivir."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "Las dos setas de mi espalda me hacen compañía. No hablan, ¿eh? Todavía."
+        },
+        {
+          "emocion": "Surprised",
+          "texto": "¿El estofado de hoy lo ha hecho usted? Mmm. Le falta sal. Pero menos que ayer. Vamos bien."
+        }
+      ],
+      "gesto": "(Paras limpia un níscalo con un pincel, muy despacio, como quien restaura un cuadro.)",
+      "paseo": "(Paras pasea por el borde del bosque con la cesta, agachándose cada dos pasos a oler la tierra.)",
+      "cuarto": "(Paras está en el cuarto verde, con la cesta en la mesilla. Huele a monte desde el pasillo.)"
+    },
+    "paras:47": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "(Habla la seta.) Él está muy contento. Lo sé porque lo decido yo."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "(La seta:) Le falta sal. (El bicho mueve una pata, muy poco. Parece que quiere decir algo. No lo dice.)"
+        },
+        {
+          "emocion": "Normal",
+          "texto": "(El bicho mira a Charizard con cara de muñeco. Charizard le guiña un ojo. El bicho no puede guiñarlo. Pero lo intenta.)"
+        },
+        {
+          "emocion": "Normal",
+          "texto": "(La seta:) Un mimo nos dijo que somos un número buenísimo. (El bicho, muy bajito, casi nada:) …Gracias."
+        }
+      ],
+      "gesto": "(Parasect come con la cucharilla de Charizard. La seta se inclina hacia el plato; el bicho, hacia Manolo.)",
+      "paseo": "(Parasect pasea por el prado. Va donde quiere la seta. Pero de vez en cuando el bicho tuerce un poco hacia las flores.)",
+      "cuarto": "(Parasect está en el cuarto verde, quieto, con cara de muñeco. Solo la seta se mueve un poco, como si respirara.)"
+    },
+    "diglett": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "Compañero, ¿sabe lo que es cavar sin casco? Pues es como cavar con casco, pero con más chichones."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "No me mire por debajo, por favor. Ni yo sé lo que hay. Prefiero no saberlo de golpe."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "Meowth nos enseñó a cantar en las asambleas. Él desafina mucho. Pero con mucha conciencia de clase."
+        },
+        {
+          "emocion": "Sad",
+          "texto": "En la mina se está muy solo. Cada uno en su agujero. Se oye cavar al de al lado, pero no se le ve nunca."
+        }
+      ],
+      "gesto": "(Diglett asoma del suelo junto a la mesa, agita la hucha una vez, clin, y se vuelve a hundir, muy educado.)",
+      "paseo": "(Por el prado va avanzando un montoncito de tierra. De vez en cuando asoma el casco de Diglett, mira, y sigue.)",
+      "cuarto": "(Diglett está en el cuarto marrón. Bueno, debajo. Se oye cavar bajito, como quien hace punto.)"
+    },
+    "diglett:51": {
+      "lineas": [
+        {
+          "emocion": "Happy",
+          "texto": "(Las tres cabezas:) ¡Buenas tardes! (La del medio:) Perdón, es que ahora todo lo decimos a la vez. Nos hace ilusión."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Llevábamos toda la vida debajo, y yo sin saberlo. Mi hermano de la izquierda dice que me pisaba. Yo no me acuerdo."
+        },
+        {
+          "emocion": "Angry",
+          "texto": "Ese señor trajeado ha vuelto a llamar. Le hemos colgado tres veces. Una cada uno."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "Esta noche ensayamos el bolero nuevo. Si oye desafinar, no se preocupe: es a propósito. Bueno, no. Pero suena a propósito."
+        }
+      ],
+      "gesto": "(Las tres cabezas de Dugtrio se turnan la cuchara del potaje: una cucharada cada una, en orden, sin discutir.)",
+      "paseo": "(Por el prado avanzan tres montoncitos de tierra a la vez, muy juntos. Se oye un bolero debajo.)",
+      "cuarto": "(Dugtrio está en el cuarto marrón. Desde el pasillo se oye ensayar a tres voces, cada una por su lado.)"
+    },
+    "gastly": {
+      "lineas": [
+        {
+          "emocion": "Happy",
+          "texto": "Mi primo Gengar dice que la familia es lo primero. Por eso a la verbena me vengo de humo y él, de artista."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "¿Esa ventana está bien cerrada? Lo pregunto por nada. (Se agarra al respaldo de la silla. Bueno, se enreda.)"
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Lo que más me gusta de la orquesta es cuando la gente baila dentro de mí y no lo sabe. Es como un abrazo muy grande."
+        },
+        {
+          "emocion": "Sad",
+          "texto": "Los aplausos nunca son para el humo. Pero el humo está siempre, illo. Siempre."
+        }
+      ],
+      "gesto": "(Gastly se deshace un poco cuando se ríe y tiene que volver a juntarse. Charizard le sopla para ayudarle.)",
+      "paseo": "(Gastly no pasea: el viento lo pasea a él. Charizard va detrás, por si hay que recogerlo.)",
+      "cuarto": "(Gastly está en el cuarto morado, con la ventana bien cerrada y el pestillo echado. Dos veces.)"
+    },
+    "gastly:93": {
+      "lineas": [
+        {
+          "emocion": "Happy",
+          "texto": "¿Sabe por qué los fantasmas no mienten? ¡Porque se les ve a través! …Ese es nuevo. Me lo apunto como «regular»."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "En primavera me caso, y mi primo Gengar ya lo va pregonando: boda gitana de tres días. El monólogo del banquete lo hago yo. Sin presión."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "Sabrina no se reía nunca, y un Haunter la hizo reír. Si él pudo con ella, yo puedo con un dragón. ¿No? ¿Verdad que sí?"
+        },
+        {
+          "emocion": "Surprised",
+          "texto": "¡Tengo manos! Perdón. Es que todavía me hace ilusión. Mírelas. Dos. Para aplaudirme yo solo, que de momento hace falta."
+        }
+      ],
+      "gesto": "(Haunter ensaya caras con las manos delante del vaso, que le hace de espejo. Charizard le mira de reojo, muy serio.)",
+      "paseo": "(Haunter pasea por el prado agarrándose a las vallas, de una en una, ensayando un chiste en voz alta.)",
+      "cuarto": "(Haunter está en el cuarto morado, ensayando delante del espejo. Se le oye: «…y entonces el dragón dice… no, no, otra vez».)"
+    },
+    "drowzee": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "Si dormido le pica la nariz, es que tiene a uno como yo al lado. No se rasque, que es de mala educación."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "El mejor sueño que he probado: un Snorlax en un bufé libre. Siete platos y postre. Cinco estrellas. Me lloraron los ojos."
+        },
+        {
+          "emocion": "Sad",
+          "texto": "Lo malo de mi oficio es que me acuerdo de todo. Hasta de los sueños que los demás olvidan al despertar. Alguien tiene que acordarse."
+        },
+        {
+          "emocion": "Surprised",
+          "texto": "¿Usted sabe que Jigglypuff no duerme nunca? Duermen todos los que la escuchan, pero ella no. Llevo tres noches esperando probarla."
+        }
+      ],
+      "gesto": "(Drowzee repasa su libreta de sueños y tacha una estrella, pensativo. Luego la vuelve a poner.)",
+      "paseo": "(Drowzee pasea por el porche con las manos a la espalda, mirando las ventanas de los cuartos, como quien lee una carta de restaurante.)",
+      "cuarto": "(Drowzee está en el cuarto amarillo, con la servilleta al cuello, esperando a que se duerma la casa.)"
+    },
+    "drowzee:97": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "Mire el péndulo… No, es broma. No lo mire. Desde lo del dragón, lo llevo en el bolsillo."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "Lo mejor de ser hipnoterapeuta es que la gente se va de la consulta descansada. Y algunos, sin saber cómo han llegado a casa."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "¿Ha visto a Charizard comerse la chistorra? Perfecto. Es que yo lo compruebo todas las mañanas. Por si acaso."
+        },
+        {
+          "emocion": "Sad",
+          "texto": "Antes me comía los sueños de los demás. Ahora prefiero que me los cuenten. Saben distinto, pero no se acaban."
+        }
+      ],
+      "gesto": "(Hypno balancea el péndulo debajo de la mesa, donde nadie lo vea. Charizard mira para otro lado, por si acaso.)",
+      "paseo": "(Hypno pasea por el prado al atardecer, con el péndulo quieto en el bolsillo y la mirada perdida en el monte.)",
+      "cuarto": "(Hypno está en el cuarto amarillo. Por debajo de la puerta se oye un tic-tac que no es de ningún reloj.)"
+    },
+    "cubone:105": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "Ya no declamo. Se me ha pasado la edad del monólogo. Ahora hablo bajito, como ella. Se oye igual, pero a menos gente."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "El hueso ya lo sé usar. Para remover el potaje, sobre todo. Mamá también lo usaba para eso, ahora me doy cuenta."
+        },
+        {
+          "emocion": "Sad",
+          "texto": "En la Torre hay un Cubone que llegó ayer, solo, con un casco que le baila. Le he dado mi tarro de tierra. Me ha recordado a alguien."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "¿Sabe qué le cuento a mi madre por las noches? Lo que he cenado. Antes le pedía que volviera. Ahora le digo que estoy bien."
+        }
+      ],
+      "gesto": "(Marowak remueve el potaje con el hueso, muy despacio, y prueba una cucharada con los ojos cerrados.)",
+      "paseo": "(Marowak pasea por el prado con un táper bajo el brazo, cogiendo flores de una en una para llevarlas a Lavanda.)",
+      "cuarto": "(Marowak está en su cuarto, hablando bajito con el casco. Se le oye: «Hoy ha sido un buen día, mamá».)"
+    },
+    "koffing": {
+      "lineas": [
+        {
+          "emocion": "Happy",
+          "texto": "¿Quiere que le recite el lema? Me lo sé al derecho, al revés y con eco. El eco lo pongo yo."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "¿Cree que en el Team Rocket aceptan a alguien que flota? Lo digo porque en las fotos de grupo siempre salgo en el techo."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "El gas de un Koffing es más ligero que el aire. Por eso, si me río fuerte, subo. Hoy no me río mucho, por si acaso."
+        },
+        {
+          "emocion": "Surprised",
+          "texto": "¡Charizard echa humo por la nariz! ¿Ha sido del Team Rocket alguna vez? Porque tiene muchísima presencia."
+        }
+      ],
+      "gesto": "(Koffing ensaya el lema delante del espejo del comedor con la rosa en la boca. Cada vez que llega a la parte del gato, se le olvida.)",
+      "paseo": "(Koffing flota por el prado, atado de un cordel que sujeta Charizard. Desde lejos parece un globo de feria.)",
+      "cuarto": "(Koffing está en su cuarto. Por debajo de la puerta sale un humillo morado y, de vez en cuando, un «¡prepárense!».)"
+    },
+    "koffing:110": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "Somos dos cabezas y una sola cara. La de la izquierda está contenta y la de la derecha también. No se nota, pero lo estamos."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Arbok me dice en su carta que en el Team Rocket siempre salían volando. Yo ya floto. Media carrera hecha."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "La cabeza pequeña quiere más potaje. La grande también. Yo pongo la cara, que es lo que me toca."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "He echado el humo por la chimenea, como me enseñó Charizard. Ni un solo huésped tosiendo. Es mi récord."
+        }
+      ],
+      "gesto": "(Weezing come potaje con dos cucharas a la vez, una por cabeza. La cara no cambia, pero las dos cucharas van muy rápido.)",
+      "paseo": "(Weezing pasea por el lindero del bosque. Las dos cabezas miran a lados distintos, como vigilando algo.)",
+      "cuarto": "(Weezing está en su cuarto. Las dos cabezas discuten bajito sobre la tercera línea del lema.)"
+    },
+    "rhyhorn": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "Perdone, ¿nos conocemos? Me suena usted muchísimo. …Ah, que es el dueño. Claro. Por eso."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "Tengo la sensación de que se me olvida algo. Algo importante. O algo pequeño. Algo de algún tamaño."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "¡Qué rica la chistorra! ¿Es la primera que como hoy? Me han dicho que no, pero yo la noto como la primera."
+        },
+        {
+          "emocion": "Surprised",
+          "texto": "¿Esta silla es mía? ¿Y este plato? ¿Y este pósit que llevo en el cuerno? «Cena y a dormir». ¡Ah, mira!"
+        }
+      ],
+      "gesto": "(Rhyhorn se levanta de la mesa, da dos pasos, se para y vuelve a sentarse. No se acuerda de a qué se había levantado.)",
+      "paseo": "(Rhyhorn pasea por el prado en línea recta. Llega al cercado, se para, mira alrededor y vuelve. Muy contento.)",
+      "cuarto": "(Rhyhorn está en su cuarto. Se le oye repetir «habitación, cena, dormir» para no olvidarse del orden.)"
+    },
+    "rhyhorn:112": {
+      "lineas": [
+        {
+          "emocion": "Angry",
+          "texto": "¡El número uno soy yo! Lo digo ahora que me acuerdo, que luego se me va."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "¿Ha visto las estatuas de los gimnasios? Soy yo. Tallado en piedra. Bueno, más o menos. Me hacen menos guapo."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Mi cueva tiene número. Lo he tallado yo. Parece un siete, pero es un uno. Quien diga que es un siete, que me lo diga a la cara."
+        },
+        {
+          "emocion": "Surprised",
+          "texto": "Me han dicho que el cuerno me gira como un taladro. Yo no lo noto. ¿Gira ahora? …¿Y ahora?"
+        }
+      ],
+      "gesto": "(Rhydon saca la cabeza por la boca de la cueva para cenar. Cada vez que alguien dice «uno», levanta el cuerno.)",
+      "paseo": "(Rhydon pasea por la ladera y se para delante de una roca con forma rara. Dice que se parece a él. No se parece.)",
+      "cuarto": "(Rhydon está en la cueva de la ladera. Solo se le ve el cuerno asomando por la boca, girando de vez en cuando.)"
+    },
+    "bellsprout": {
+      "lineas": [
+        {
+          "emocion": "Happy",
+          "texto": "Tres centímetros de cintura. Me la he medido antes de la cena. Después de la cena no me la mido, por educación."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "En los castings dicen que hay que tener «cara de nada». Yo pongo cara de nada, pero me ruge la tripa."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Jynx me ha enseñado a caminar con una baya en la cabeza. Se me cae la baya, pero me la como, y así no se desperdicia."
+        },
+        {
+          "emocion": "Sad",
+          "texto": "Me dicen que estoy muy delgado. Ya lo sé. Me lo como todo y no se me nota. Es mi cruz."
+        }
+      ],
+      "gesto": "(Bellsprout desfila por el comedor con un plato de pizza en cada hoja. Llega al final del pasillo con los dos platos vacíos.)",
+      "paseo": "(Bellsprout pasea por el prado moviendo el tallo como en la pasarela. Una Pidgey le pica en la cabeza, creyendo que es un gusano.)",
+      "cuarto": "(Bellsprout está en el cuarto verde. Se le oye contar en voz alta: «uno, dos, giro, posa, uno, dos, giro, ¿hay pizza?».)"
+    },
+    "bellsprout:70": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "Ding. (Es su manera de decir buenas tardes. También es su manera de decir todo lo demás.)"
+        },
+        {
+          "emocion": "Normal",
+          "texto": "En el pueblo ya no saben si toco a misa o a comer. Van a la iglesia con la servilleta puesta, por si acaso."
+        },
+        {
+          "emocion": "Pain",
+          "texto": "Me he dado con el quicio de la puerta. Ding. Ha sonado bonito, eso sí."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Echo de menos la pasarela. Pero una campana también tiene su público: todo el pueblo me oye, aunque no me mire."
+        }
+      ],
+      "gesto": "(Weepinbell se cuelga de la viga del comedor y se balancea despacito. A cada vuelta: ding. Charizard se levanta todas las veces.)",
+      "paseo": "(Weepinbell pasea por el camino. Cada vez que salta un bache suena un «ding» y un Pidgey levanta la cabeza.)",
+      "cuarto": "(Weepinbell está en su cuarto. A cada hora en punto se oye un «ding», con la puntualidad de un reloj de iglesia.)"
+    },
+    "bellsprout:71": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "Hoy he saludado a tres personas. Las tres han salido enteras. Estoy mejorando."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "¿Sabe lo que es tener por fin una boca del tamaño de tu hambre? Pues eso. Una paz que no se la deseo a nadie."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Me han dicho que hay un tal James que grita cada vez que su Victreebel le saluda. Será de alegría. Seguro."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "No sonrío porque tengo la boca siempre abierta. Pero por dentro sonrío muchísimo. Puede asomarse, si quiere."
+        }
+      ],
+      "gesto": "(Victreebel se come una pizza familiar de un bocado. Todo el comedor aplaude. Charizard, desde la otra punta, aplaude más fuerte.)",
+      "paseo": "(Victreebel pasea por el prado tocando su campanilla. Los Pidgey se apartan del camino con mucha educación.)",
+      "cuarto": "(Victreebel está en el cuarto verde, con la boca abierta hacia la ventana. Dice que así le entra la luna.)"
+    },
+    "nidoran:33": {
+      "lineas": [
+        {
+          "emocion": "Happy",
+          "texto": "Ella ahora me saca una cabeza y, ¿sabe qué? Que alcanza la balda del armario y yo no tengo que subirme a la silla."
+        },
+        {
+          "emocion": "Pain",
+          "texto": "Me toca dar el brindis del aniversario. Solo de pensarlo se me eriza el lomo. Mire. ¿Ve? Ya está."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Dice la Pokédex que mi cuerno es más duro que un diamante. Pues para abrir el bote de miel no me sirve de nada."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "Mi señora quiere emparejar a Eevee con Larvitar. Yo le digo que no se meta. Ella dice que quien no se mete no se casa."
+        }
+      ],
+      "gesto": "(Nidorina esconde las púas, tranquila, apoyada en Nidorino. Él tiene el lomo erizado. Está ensayando el brindis por dentro.)",
+      "paseo": "(Nidorino y Nidorina pasean por el prado eligiendo flores para el aniversario. Él coge una; ella le dice que esa no; él coge otra.)",
+      "cuarto": "(Los dos están en la buhardilla. Se oye a Nidorino ensayar «Querida Nidorina…» y a ella reírse bajito.)"
+    },
+    "nidoran:34": {
+      "lineas": [
+        {
+          "emocion": "Happy",
+          "texto": "Buenas tardes, Manolo. (Tiemblan los vasos de la mesa.) Perdón. Es la voz nueva. A ella le encanta."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Un señor de traje nos quiso contratar para su gimnasio. Le dijimos que nosotros, en la buhardilla. Ni lo pensamos."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "Ella dice que se parece a su madre. Yo no digo nada. Llevo un año casado y algo he aprendido."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "Media Piedra Lunar cada uno. La otra mitad del pisapapeles la tenemos en la mesilla. Bueno, las dos mitades. Juntas."
+        }
+      ],
+      "gesto": "(Nidoking y Nidoqueen comparten una tarta de tres pisos con dos cucharas. Ahora, en vez de pelearse por la última miga, se la parten.)",
+      "paseo": "(Nidoking y Nidoqueen pasean por el camino muy despacito. Han hecho el mismo recorrido que en la luna de miel. Tardan el doble: se paran a mirarlo todo.)",
+      "cuarto": "(Los dos están en la buhardilla, de lado, que no caben de frente. Se les oye reír y, luego, roncar a la vez, como siempre.)"
+    },
+    "vulpix": {
+      "lineas": [
+        {
+          "emocion": "Happy",
+          "texto": "Cien cepilladas por cola, cariño. Seis colas, seiscientas. Por eso desayuno tarde, pero desayuno guapa."
+        },
+        {
+          "emocion": "Sad",
+          "texto": "(Mira la calva de Manolo.) Es que me da una pena profesional… Una calva así, tan bien cuidada, y sin nada que peinar."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Al perro ese, Growlithe, le dejaría la melena como un león. Si se estuviera quieto. Y si no oliera chistorra."
+        },
+        {
+          "emocion": "Surprised",
+          "texto": "¿El dragón quiere que le lime otra vez las garras? ¡Si se las hice ayer! Qué presumido me ha salido."
+        }
+      ],
+      "gesto": "(Vulpix tiene montado el salón en una mesa del comedor: un peine, un espejo y un cartel. Mira a todo el que entra de arriba abajo, buscándole el pelo.)",
+      "paseo": "(Vulpix pasea por el prado con las seis colas en alto, para que no se le ensucien. Se para cada poco a mirarse en los charcos.)",
+      "cuarto": "(Vulpix está en su cuarto. Se oye el cepillo: chas, chas, chas. Cuenta en voz baja: «…noventa y ocho, noventa y nueve, cien. Siguiente cola».)"
+    },
+    "vulpix:38": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "Querido, a mi edad se aprende a esperar. Bueno, tengo tres semanas. Pero viviré mil años, así que voy adelantando."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "El té, a las cinco. A las cinco y cinco ya es otra cosa. A las cinco y diez es una falta de respeto."
+        },
+        {
+          "emocion": "Angry",
+          "texto": "(Mira a Charizard sin girarse.) Dragón, te estoy viendo la garra. Nueve colas. Nueve. Mil años cada una. Haz cuentas."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "Entre usted y yo: ¿sabe lo que es peinar nueve colas antes de desayunar? Una me la salto. No lo cuente."
+        }
+      ],
+      "gesto": "(Ninetales toma el té en la mesa del comedor con las nueve colas extendidas por el suelo. Todo el mundo pasa de puntillas para no pisarlas.)",
+      "paseo": "(Ninetales pasea por el prado muy despacio, como en una alfombra roja. Charizard le sujeta las colas para que no se manchen de barro.)",
+      "cuarto": "(Ninetales está en su cuarto. Por debajo de la puerta asoma la punta de una cola. Y otra. Y otra. Hasta nueve.)"
+    },
+    "onix": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "Perdón. Estaba respirando. Ya paro. …No, no puedo parar. Perdón por eso también."
+        },
+        {
+          "emocion": "Surprised",
+          "texto": "¿Me ha guardado potaje? ¿A mí? ¿En la olla grande? Ay. Perdón. Es que no estoy acostumbrado."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Brock dice que tengo dos caras: la de ganar y la de perder. Yo creo que esta es la de estar a gusto. Es igual, pero por dentro."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Desde la cueva oigo todo el comedor. No es por cotillear. Es que tengo la oreja muy grande. Como todo."
+        }
+      ],
+      "gesto": "(Onix saca la cabeza por la boca de la cueva para la sobremesa. Cada vez que alguien se ríe, él se ríe también, y caen piedrecitas del techo.)",
+      "paseo": "(Onix da un paseo por la ladera. Desde la posada se ve pasar entre los pinos, como un tren de piedras. Se para a dejar pasar a una mariquita.)",
+      "cuarto": "(Onix está en la cueva de la ladera. Solo se le ve la cabeza asomando por la boca, con la sábana enorme subida hasta las orejas.)"
+    },
+    "magmar": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "En Canela cocinamos a mil doscientos grados. Todo sale negro. Blaine dice que es carácter. Yo creo que es carbón."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "¿Le ha contestado ya a Blaine? No me lo diga. Yo solo llevo la carta. Pero me pone nervioso tenerla sin entregar."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Pregunta de concurso: ¿qué Pokémon nace en un cráter, echa llamas por los hombros y no sabe bajar el fuego? …Correcto."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "El dragón me mira mucho. Yo también le miro. Creo que eso, entre los de fuego, es casi hacerse amigos."
+        }
+      ],
+      "gesto": "(Magmar se sienta lejos de las cortinas, con las manos en las rodillas para no quemar el mantel. Lleva el gorro de cocinero chamuscado.)",
+      "paseo": "(Magmar pasea hasta el pino calcinado y le pone la mano encima. Se queda así un buen rato, como si le tomara la temperatura.)",
+      "cuarto": "(Magmar está en su cuarto. Por la rendija de la puerta sale un calorcito de volcán. El pasillo entero está a veintiocho grados.)"
+    },
+    "hermanoseevee": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "La sincronizada es como la vida: si uno saca la pierna y los demás no, queda fatal. Por eso Eevee tiene que ir con nosotros. Con el agua, digo."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "¿Sabía que me puedo volver invisible en el agua? Mire el vaso. …No, ahí no estoy. Era un ejemplo."
+        },
+        {
+          "emocion": "Angry",
+          "texto": "Jolteon me escribe cartas muy rápidas y muy feas. Le contesto con cartas mojadas. Es nuestra forma de quererse."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "¿Usted cree que Eevee estará bien sin evolucionar? Lo pregunto como hermana mayor. Y como entrenadora. Y como agua."
+        }
+      ],
+      "gesto": "(Vaporeon hace la vertical dentro del vaso de agua de la cena. Solo se le ve la cola. Los demás aplauden sin saber muy bien por qué.)",
+      "paseo": "(Vaporeon nada en el estanque haciendo figuras. Charizard le saca un ocho de diez, por no meterse en líos.)",
+      "cuarto": "(Vaporeon está en su cuarto, en la bañera. Por debajo de la puerta sale un hilito de agua y una canción de natación sincronizada.)"
+    },
+    "hermanoseevee:135": {
+      "lineas": [
+        {
+          "emocion": "Happy",
+          "texto": "¡He cenado en once segundos! ¡Récord personal! ¡Ahora no sé qué hacer con el resto de la noche!"
+        },
+        {
+          "emocion": "Angry",
+          "texto": "¡Vaporeon dice que el agua es mejor que el rayo! ¡Pues que se moje un enchufe y lo hablamos!"
+        },
+        {
+          "emocion": "Worried",
+          "texto": "Cuando me pongo nervioso el pelo se me hace pinchos. Ahora estoy tranquilo. Esto es estar tranquilo. Lo juro."
+        },
+        {
+          "emocion": "Surprised",
+          "texto": "¿Aquí la gente se sienta a charlar sin cronómetro? ¿Y cómo sabéis cuándo se acaba la charla?"
+        }
+      ],
+      "gesto": "(Jolteon cronometra a todo el comedor: quién come más rápido, quién bosteza antes. Gana Charizard en todo, menos en lo de esperar.)",
+      "paseo": "(Jolteon da veinte vueltas al prado antes de que Manolo cuente hasta diez. Luego se para, jadea y vuelve a empezar.)",
+      "cuarto": "(Jolteon está en su cuarto escribiendo una carta. La bombilla parpadea cada vez que pone un signo de exclamación.)"
+    },
+    "hermanoseevee:136": {
+      "lineas": [
+        {
+          "emocion": "Sad",
+          "texto": "En los memes siempre me ponen el último. Por eso he venido el último. Para que no me pillara de sorpresa."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "Charizard me ha dado la chistorra más grande. A mí. Primero. Creo que tengo un fan. El primero de mi vida."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Me esponjo el pelo para enfriarme por dentro. Si me ve muy esponjoso es que estoy contento. O que hace calor."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "¿Le importa que me siente aquí, al lado? Es que en casa siempre me sentaban en la otra punta de la mesa."
+        }
+      ],
+      "gesto": "(Flareon se ha acurrucado junto a la chimenea al lado de Charizard. Los dos echan un humillo calentito. Nadie dice nada. No hace falta.)",
+      "paseo": "(Flareon pasea por el prado y se para a oler todas las flores. Las que huele se quedan un poco tostadas, pero contentas.)",
+      "cuarto": "(Flareon está en su cuarto, hecho una bola de pelo naranja encima de la almohada. Se le oye ronronear desde el pasillo.)"
+    },
+    "dratini": {
+      "lineas": [
+        {
+          "emocion": "Happy",
+          "texto": "Yo, yo. Esta noche improviso un tema sobre la chistorra. Rima con… nada. No rima con nada. Por eso es un reto."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "La semana que viene me toca gótica. Le he pedido consejo a un Larvitar que pasó por aquí. Dice que el secreto es suspirar mucho."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "¿Y si un día mudo y debajo no hay nadie? ¿Solo otra piel, y otra, y otra? Bueno. No pienses eso, Dratini."
+        },
+        {
+          "emocion": "Sad",
+          "texto": "Mi padre trabaja por todo el mundo. Me manda postales. Muchas. Pero las postales no te ven la gorra nueva."
+        }
+      ],
+      "gesto": "(Dratini ensaya poses con la gorra delante del cristal de la ventana. Cada una es de un estilo distinto. Ninguna termina de convencerla.)",
+      "paseo": "(Dratini nada en el estanque haciendo eses. A su paso flotan pieles viejas, como calcetines.)",
+      "cuarto": "(Dratini está en el estanque, enroscada en el fondo. De vez en cuando sube una burbuja con una rima dentro.)"
+    },
+    "dratini:148": {
+      "lineas": [
+        {
+          "emocion": "Happy",
+          "texto": "Previsión para la cena: probabilidad alta de chistorra, vientos flojos de Charizard. Visibilidad buena, salvo por el humo."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "En la radio del valle me llaman «la que nunca falla». Es un mote precioso. Y un poco de trampa."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "¿Usted ha fallado alguna vez algo importante, Manolo? ¿Y qué pasó después? Lo pregunto por una amiga que soy yo."
+        },
+        {
+          "emocion": "Surprised",
+          "texto": "Fuera ha empezado a llover y no he sido yo. Qué emoción. Es como un regalo que no esperas."
+        }
+      ],
+      "gesto": "(Dragonair cierra los ojos y le brillan las perlas. Por la ventana del comedor, la luna sale un poco antes de lo que tocaba.)",
+      "paseo": "(Dragonair se desliza por el prado, serena. Por donde pasa, el cielo se despeja un trocito, del tamaño de un pañuelo.)",
+      "cuarto": "(Dragonair duerme en el estanque, quietísima. «Está haciendo el tiempo de mañana», dice Manolo, y nadie se atreve a despertarla.)"
+    },
+    "moltres": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "En la Liga encienden la antorcha conmigo y luego se olvidan de que estoy. Aquí me han preguntado si quería postre. Dos veces."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Su Charizard me mira mucho. No me molesta. Hace siglos que nadie me miraba sin pedirme nada."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Ese pino arde por dentro desde hace años. Alguien lo cuida sin saberlo. Usted, creo."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Dicen que no cambio nunca la cara. Es verdad. Lo que me cambia es la llama. Ahora mismo está tranquila."
+        }
+      ],
+      "gesto": "(Moltres está quieta en lo alto del pino, con las alas plegadas y la llama bajita. Desde el comedor parece una vela.)",
+      "paseo": "(Moltres da una vuelta lenta sobre el valle. Por donde pasa se encienden las farolas del pueblo, una a una, sin querer.)",
+      "cuarto": "(Moltres duerme en el nido del pino. Ha bajado tanto la llama que casi parece de noche. Charizard la mira desde la ventana.)"
+    },
+    "mewtwo": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "No hace falta que me cuente lo que piensa, Manolo. Lo oigo. Y sí: la chistorra de hoy le ha salido muy buena."
+        },
+        {
+          "emocion": "Sad",
+          "texto": "Me hicieron para ser el más fuerte. Nadie me hizo para tomar potaje. Y, sin embargo, aquí estoy."
+        },
+        {
+          "emocion": "Surprised",
+          "texto": "Su Charizard piensa en chistorra el noventa por ciento del tiempo. El otro diez, en usted. Me parece un buen reparto."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "En la Cueva Celeste no hay mesas. Aquí, sí. Estoy empezando a entender para qué sirven."
+        }
+      ],
+      "gesto": "(Mewtwo hace flotar las cucharas del comedor y las pone en su sitio. Luego coloca una que no estaba torcida, solo por practicar.)",
+      "paseo": "(Mewtwo flota sobre el prado, quieto, mirando las montañas. Una mariposa se le posa en la cabeza. No la aparta.)",
+      "cuarto": "(Mewtwo está en la cueva de la ladera. Solo se le ve la punta de la cola por la boca. De vez en cuando, una piedrecita flota sola.)"
+    },
+    "magikarp:130": {
+      "lineas": [
+        {
+          "emocion": "Happy",
+          "texto": "¡Campeón! Hoy un Pidgey no se ha desmayado al verme. Se ha desmayado un poquito. Es progreso."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "No me hizo falta ningún curso para evolucionar. Me hizo falta tiempo. Eso no se vende. Lo he mirado."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "Hablo bajito para no asustar. ¿Se me oye? ¿Demasiado bajito? Es que con esta cara, cualquier cosa parece un rugido."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "La poza de la cueva es lo mejor que me ha pasado. Lo segundo, el pan con miel. Lo tercero, tú, campeón."
+        }
+      ],
+      "gesto": "(Gyarados saca la cabeza por la boca de la cueva y sonríe a todo el que pasa. Algunos salen corriendo. Él les dice «¡buenas, campeón!» igual.)",
+      "paseo": "(Gyarados se da un baño en el río. Lo hace muy despacio para no levantar olas. Aun así, salpica medio prado.)",
+      "cuarto": "(Gyarados duerme en la poza de la cueva, con el mantel atado al cuello. Solo le asoman los bigotes por la boca. Ronca bajito, por educación.)"
     }
   },
   "parejas": [
@@ -2829,6 +3657,1082 @@
           "manolo",
           "Sigh",
           "(El vídeo se titula «albañil midiendo una pared» y tiene un millón de visitas. Geodude sigue sin entender qué ha pasado.)"
+        ]
+      ]
+    },
+    {
+      "a": "staryu",
+      "b": "machop",
+      "lineas": [
+        [
+          "machop",
+          "Surprised",
+          "¡Anda! ¿Tú no eres la estrella del gimnasio de Misty? ¡La que brillaba en la grada!"
+        ],
+        [
+          "staryu",
+          "Normal",
+          "La misma. ¿Y tú eres el que la reta cada semana? Te he visto salir volando por la ventana. Muy bien hecho, el vuelo."
+        ],
+        [
+          "machop",
+          "Happy",
+          "¡Gracias! También lo entreno. ¿Echamos un pulso? Sin agua, ¿eh?"
+        ],
+        [
+          "staryu",
+          "Normal",
+          "Con una punta. Y aprieta sin miedo: si me la rompes, me vuelve a crecer."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Echan un pulso encima de la mesa, dedo contra punta. Empatan. Machop dice que es el mejor combate de su vida. Y nadie se ha mojado.)"
+        ]
+      ]
+    },
+    {
+      "a": "staryu",
+      "b": "marina",
+      "lineas": [
+        [
+          "marina",
+          "Surprised",
+          "¿Eres del gimnasio de Celeste? ¡De pequeña yo quería ser líder de agua!"
+        ],
+        [
+          "staryu",
+          "Normal",
+          "Pues no se lo recomiendo: todo el día brillando. ¿Sabe usted que Manolo también fue líder?"
+        ],
+        [
+          "marina",
+          "Happy",
+          "¡Claro! Llevo meses pidiéndole que vuelva una noche. ¿Me ayudas a convencerle?"
+        ],
+        [
+          "staryu",
+          "Normal",
+          "De convencer a nadie de volver a brillar, ahora mismo no estoy. Pero le dejo mi paño. Por si acaso."
+        ],
+        [
+          "manolo",
+          "Sigh",
+          "(Las dos miran a Manolo. Manolo se pone a secar un vaso que ya estaba seco. Muy concentrado.)"
+        ]
+      ]
+    },
+    {
+      "a": "psyduck",
+      "b": "weedle",
+      "lineas": [
+        [
+          "psyduck",
+          "Surprised",
+          "Perdona… ¿eso es un talonario? ¿Eres de la administración?"
+        ],
+        [
+          "weedle",
+          "Worried",
+          "De la zona azul. Con plaza o sin plaza, según el día que me pilles."
+        ],
+        [
+          "psyduck",
+          "Happy",
+          "¡Un compañero! ¿Cuál es tu impreso favorito? El mío es el 3-B. Tiene unos márgenes preciosos."
+        ],
+        [
+          "weedle",
+          "Happy",
+          "¡El 3-B! ¡Es el que más me gusta pedir! No lo trae nunca nadie."
+        ],
+        [
+          "manolo",
+          "Sigh",
+          "(Se pasan la tarde comparando sellos. Charizard se duerme encima del 3-B y le queda la marca en la mejilla.)"
+        ]
+      ]
+    },
+    {
+      "a": "psyduck",
+      "b": "drowzee",
+      "lineas": [
+        [
+          "drowzee",
+          "Happy",
+          "Anoche probé tu sueño. Sin permiso, perdona: deformación profesional."
+        ],
+        [
+          "psyduck",
+          "Worried",
+          "¿Y a qué sabía?"
+        ],
+        [
+          "drowzee",
+          "Normal",
+          "A fotocopia. Con un toque de subrayador amarillo. Muy seco. Dos estrellas."
+        ],
+        [
+          "psyduck",
+          "Sad",
+          "Años soñando con el temario… y encima me ponen nota."
+        ],
+        [
+          "drowzee",
+          "Happy",
+          "Pero al final salía un sobre con un diez. Ese trocito, cinco estrellas. Repetí."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Esa noche, Psyduck se duerme pensando en el sobre. Por si Drowzee quiere repetir.)"
+        ]
+      ]
+    },
+    {
+      "a": "zubat",
+      "b": "chansey",
+      "lineas": [
+        [
+          "chansey",
+          "Worried",
+          "¿Tú también trabajas de noche? Se te nota en la cara. Bueno, en la cara que tienes."
+        ],
+        [
+          "zubat",
+          "Happy",
+          "¡Toda la vida! Antes de fiesta y ahora de guardia. La noche es mía, compañera."
+        ],
+        [
+          "chansey",
+          "Sad",
+          "Yo llevo tres turnos dobles seguidos. Ya no sé si es de día. Ni me acuerdo de qué es un domingo."
+        ],
+        [
+          "zubat",
+          "Normal",
+          "Yo tampoco veo si es de día. Pero hay un truco: si los pájaros cantan y tú bostezas, es que toca dormir."
+        ],
+        [
+          "chansey",
+          "Happy",
+          "…Eso es lo más sensato que me ha dicho nunca un murciélago."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Esa noche, los dos se van a dormir a la vez, a las ocho de la mañana, dándose las buenas noches con los pájaros cantando.)"
+        ]
+      ]
+    },
+    {
+      "a": "zubat",
+      "b": "gengar",
+      "lineas": [
+        [
+          "gengar",
+          "Happy",
+          "¡Ay, primo, pero si tú eres de los de la señora Agatha! ¡De los de la Meseta Añil!"
+        ],
+        [
+          "zubat",
+          "Surprised",
+          "Yo no. Un primo mío, que llegó lejos. Yo me quedé en la Ruta del Bakalao."
+        ],
+        [
+          "gengar",
+          "Normal",
+          "Pues la Ruta también tiene su arte, mi arma. Mi abuelo bailaba en las verbenas hasta que salía el sol."
+        ],
+        [
+          "zubat",
+          "Happy",
+          "¿Y qué bailaba?"
+        ],
+        [
+          "gengar",
+          "Happy",
+          "Lo que sonara. Él decía que el compás no se ve: se oye. Igual que tú, primo."
+        ],
+        [
+          "manolo",
+          "Sigh",
+          "(Esa noche hay juerga en el comedor: Gengar da palmas y Zubat chilla al compás. No duerme nadie, pero nadie se queja.)"
+        ]
+      ]
+    },
+    {
+      "a": "paras",
+      "b": "farfetchd",
+      "lineas": [
+        [
+          "farfetchd",
+          "Happy",
+          "¡Hombre, el setero! ¿Qué le dice un níscalo a un puerro? «¡Puerro que ladra no muerde!». …Eh. Sí."
+        ],
+        [
+          "paras",
+          "Normal",
+          "Le hace falta sal. Al chiste. Y al estofado."
+        ],
+        [
+          "farfetchd",
+          "Angry",
+          "¡Mi estofado lleva puerro desde hace tres generaciones! ¡Mi abuelo, mi padre y yo!"
+        ],
+        [
+          "paras",
+          "Normal",
+          "Las setas de mi espalda llevan conmigo desde que nací, y no se las echo al guiso."
+        ],
+        [
+          "farfetchd",
+          "Surprised",
+          "…Visto así, es un argumento. Empate técnico. Y un estofado a medias."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Esa noche hay un estofado con puerro y con níscalos. Los dos dicen que le falta algo. Charizard se lo come entero.)"
+        ]
+      ]
+    },
+    {
+      "a": "paras",
+      "b": "ditto",
+      "lineas": [
+        [
+          "ditto",
+          "Happy",
+          "¡Mira, mira! (Se pone una seta en la espalda.) ¿A que soy tú? ¡Clavado!"
+        ],
+        [
+          "paras",
+          "Normal",
+          "Te falta una. Llevo dos. Y te sobra… todo lo demás."
+        ],
+        [
+          "ditto",
+          "Sad",
+          "Siempre me falta algo. Hago de todos, pero de mí mismo no me sale. ¿Tú sabes quién eres?"
+        ],
+        [
+          "paras",
+          "Normal",
+          "Yo soy un setero. Y no sé por cuánto tiempo, porque las setas crecen, ¿sabes? Igual un día mandan ellas."
+        ],
+        [
+          "ditto",
+          "Surprised",
+          "¡Pues eso es peor que lo mío!"
+        ],
+        [
+          "manolo",
+          "Normal",
+          "(Se quedan los dos un rato callados, cada uno mirándose la espalda. Ditto se quita la seta y se la devuelve, muy educado.)"
+        ]
+      ]
+    },
+    {
+      "a": "diglett",
+      "b": "jynx",
+      "lineas": [
+        [
+          "diglett",
+          "Worried",
+          "Señora Jynx… perdone que la moleste. Soy muy fan. La escucho en la mina, en una radio de pilas."
+        ],
+        [
+          "jynx",
+          "Normal",
+          "¡Ay, mi arma, un minero! Mis mejores fans han sido siempre los que trabajan con las manos. O con lo que tengas."
+        ],
+        [
+          "diglett",
+          "Happy",
+          "Le quería pedir una cosa. ¿Me dedicaría una copla para la huelga? Para la hucha."
+        ],
+        [
+          "jynx",
+          "Normal",
+          "Una copla no, cariño. Te doy un consejo: canta tú. Con voz o sin voz. Lo que se canta con verdad no desafina."
+        ],
+        [
+          "diglett",
+          "Surprised",
+          "¿Aunque lo cante desde un agujero?"
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Jynx echa un billete en la hucha. Diglett se hunde de la emoción y vuelve a salir dos veces, por si era un sueño.)"
+        ]
+      ]
+    },
+    {
+      "a": "diglett",
+      "b": "geodude",
+      "lineas": [
+        [
+          "geodude",
+          "Normal",
+          "Ese agujero del comedor… (Lo mira con un ojo cerrado.) Está torcido. Dos dedos."
+        ],
+        [
+          "diglett",
+          "Worried",
+          "Perdón. Es mío. Lo tapo ahora mismo."
+        ],
+        [
+          "geodude",
+          "Normal",
+          "No, no, si está bien hecho. Torcido, pero bien hecho. ¿Tú no llevas casco? Ven, que te enseño a ponértelo como Dios manda."
+        ],
+        [
+          "diglett",
+          "Happy",
+          "¡Por eso hacemos huelga! ¡Para que nos den casco!"
+        ],
+        [
+          "geodude",
+          "Normal",
+          "Pues el mío te lo dejo. Yo tengo la cabeza de piedra: no me hace falta. En una semana te traigo otro."
+        ],
+        [
+          "manolo",
+          "Sigh",
+          "(Geodude tapa el agujero del suelo. Le queda torcido. Dos dedos. Diglett lo da por bueno.)"
+        ]
+      ]
+    },
+    {
+      "a": "gastly",
+      "b": "ditto",
+      "lineas": [
+        [
+          "ditto",
+          "Happy",
+          "¡Compañero de verbena! ¿Te acuerdas de Ciudad Azulona? Me até a ti y acabamos de cometa."
+        ],
+        [
+          "gastly",
+          "Happy",
+          "¡Illo, el Ditto! ¿Cómo se va a olvidar eso? Tú hacías de cometa y yo de nube. Teníamos más público que la orquesta."
+        ],
+        [
+          "ditto",
+          "Normal",
+          "¿Te hago a ti? (Se pone morado y se deshace un poco.) ¿Qué tal?"
+        ],
+        [
+          "gastly",
+          "Surprised",
+          "Clavado. Si hasta te sale lo de que se te vaya la cabeza con el viento."
+        ],
+        [
+          "ditto",
+          "Sad",
+          "Lo que no me sale es hacer de mí. Pero de ti, de maravilla."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Charizard cierra la ventana del comedor. Ahora hay dos nubes moradas en la mesa, y no sabe a cuál taparle el plato.)"
+        ]
+      ]
+    },
+    {
+      "a": "gastly",
+      "b": "kadabra",
+      "lineas": [
+        [
+          "kadabra",
+          "Normal",
+          "Corta la baraja, cariño. Con la izquierda… Uy. Tú eres de gas. Bueno, sóplala."
+        ],
+        [
+          "gastly",
+          "Happy",
+          "(Sopla. Vuelan las cartas por el comedor.) ¿Y qué sale, illo?"
+        ],
+        [
+          "kadabra",
+          "Surprised",
+          "Sale… una mujer muy seria, de Ciudad Azafrán, que no se ha reído en su vida. Y tú, delante, haciendo el payaso."
+        ],
+        [
+          "gastly",
+          "Surprised",
+          "¿Sabrina? ¡Esa es mi meta! ¿Y se ríe? ¿Se ríe al final?"
+        ],
+        [
+          "kadabra",
+          "Happy",
+          "Eso no lo dicen las cartas, cariño. Eso lo dice el chiste."
+        ],
+        [
+          "manolo",
+          "Normal",
+          "(Gastly se pasa toda la tarde recogiendo las cartas del suelo. Una se la guarda: la del bufón.)"
+        ]
+      ]
+    },
+    {
+      "a": "drowzee",
+      "b": "snorlax",
+      "lineas": [
+        [
+          "drowzee",
+          "Happy",
+          "Señor Snorlax, le quería felicitar. Su sueño de anoche: cinco estrellas. Un bufé libre de siete platos, como en los grandes hoteles."
+        ],
+        [
+          "snorlax",
+          "Normal",
+          "Mmm. (Abre un ojo.)"
+        ],
+        [
+          "drowzee",
+          "Normal",
+          "Si me permite una crítica: el postre se repite. Tres noches seguidas con flan."
+        ],
+        [
+          "snorlax",
+          "Angry",
+          "Mmm. (Cierra el ojo, muy ofendido.)"
+        ],
+        [
+          "drowzee",
+          "Surprised",
+          "…Retiro lo dicho. El flan, cada noche, es una declaración de principios."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Esa noche, Snorlax sueña con un flan del tamaño de la posada. Drowzee sale del cuarto con la servilleta llena de caramelo.)"
+        ]
+      ]
+    },
+    {
+      "a": "drowzee",
+      "b": "larvitar",
+      "lineas": [
+        [
+          "larvitar",
+          "Sad",
+          "¿Tú eres el que se come los sueños? Llévate los míos, por favor. Todos son con ella."
+        ],
+        [
+          "drowzee",
+          "Sad",
+          "Los he probado, chaval. Saben a canción de Camela y a servilleta mojada. No me los como enteros: me sientan mal a mí también."
+        ],
+        [
+          "larvitar",
+          "Normal",
+          "Entonces, ¿no hay manera?"
+        ],
+        [
+          "drowzee",
+          "Normal",
+          "Hay una. Las pesadillas no se comen: se les pone una manta encima y se espera a que amanezca. Lo aprendí aquí."
+        ],
+        [
+          "larvitar",
+          "Surprised",
+          "¿Una manta? ¿Solo eso?"
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Esa noche, Larvitar duerme con dos mantas. Drowzee vigila la puerta y no se come nada. Por la mañana, Larvitar no se acuerda de lo que soñó.)"
+        ]
+      ]
+    },
+    {
+      "a": "cubone",
+      "b": "kangaskhan",
+      "lineas": [
+        [
+          "kangaskhan",
+          "Normal",
+          "Perdona, cielo, ¿tú sabes que en internet dicen que los de tu especie sois crías de Kangaskhan?"
+        ],
+        [
+          "cubone",
+          "Surprised",
+          "¿Yo? Mi madre era Marowak. Alta, con un hueso, muy elegante."
+        ],
+        [
+          "kangaskhan",
+          "Happy",
+          "Ya lo sé, cielo. Se te nota en cómo coges la cuchara. Solo te lo digo porque, si algún día necesitas una bolsa, aquí hay sitio."
+        ],
+        [
+          "cubone",
+          "Sad",
+          "(Se baja el casco hasta los ojos.) …Gracias. No quepo. Pero gracias."
+        ],
+        [
+          "kangaskhan",
+          "Happy",
+          "Nadie cabe, cielo. La niña tampoco. Es una forma de hablar."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(La cría de Kangaskhan le da un golpecito al casco de Cubone, toc, toc, y Cubone le enseña a remover la sopa con el hueso.)"
+        ]
+      ]
+    },
+    {
+      "a": "cubone",
+      "b": "gastly",
+      "lineas": [
+        [
+          "gastly",
+          "Happy",
+          "¡Illo, tú eres de Lavanda! Yo me crie en esa Torre, en el tercer piso, el de las corrientes. Ahí me hice gas."
+        ],
+        [
+          "cubone",
+          "Normal",
+          "Yo subo los domingos. A llevarle flores a mi madre. ¿Tú eras el que apagaba las velas?"
+        ],
+        [
+          "gastly",
+          "Worried",
+          "…Sin querer. Es que soplaba el viento y me llevaba encima de las velas. Perdón, de verdad."
+        ],
+        [
+          "cubone",
+          "Happy",
+          "No pasa nada. A mi madre le gustaba más a oscuras. Decía que así se veían mejor las estrellas por la ventana."
+        ],
+        [
+          "gastly",
+          "Sad",
+          "Pues la próxima vez que suba, me pongo al lado de su vela. Quietecito. Para no apagarla."
+        ],
+        [
+          "manolo",
+          "Normal",
+          "(Esa tarde, Cubone y Gastly encienden una vela en la mesa. Gastly se queda quieto toda la cena, aguantando la respiración. La vela no se apaga.)"
+        ]
+      ]
+    },
+    {
+      "a": "koffing",
+      "b": "arbok",
+      "lineas": [
+        [
+          "koffing",
+          "Normal",
+          "¡Arbok! ¡La de Jessie! ¿Me firma la rosa? Me sé el lema entero. Me sé hasta la parte en que usted dice «ssss»."
+        ],
+        [
+          "arbok",
+          "Surprised",
+          "¿Hay una parte en que digo «ssss»? Cielo, eso lo decía yo porque no me sabía el resto."
+        ],
+        [
+          "koffing",
+          "Normal",
+          "¿Y qué se siente? Lo de salir volando, digo. Todas las semanas."
+        ],
+        [
+          "arbok",
+          "Sad",
+          "Se siente frío, cielo. Y vergüenza. Y luego, en el aire, te miras con los tuyos y te ríes. Eso es lo único que echo de menos."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Arbok le firma la rosa. Con una lengüita dibujada. Koffing no la vuelve a meter en agua, para que no se borre.)"
+        ]
+      ]
+    },
+    {
+      "a": "koffing",
+      "b": "meowth",
+      "lineas": [
+        [
+          "meowth",
+          "Angry",
+          "¿Quieres entrar en el Team Rocket? ¿Te han enseñado el contrato? ¿El seguro? ¿Las vacaciones?"
+        ],
+        [
+          "koffing",
+          "Normal",
+          "Me han enseñado el lema. ¿Eso no cuenta?"
+        ],
+        [
+          "meowth",
+          "Worried",
+          "El lema no paga el alquiler, compañero. Yo me lo sé en tres idiomas y dormía en un globo con forma de mi cara."
+        ],
+        [
+          "koffing",
+          "Normal",
+          "Pues a mí lo del globo me parece precioso."
+        ],
+        [
+          "meowth",
+          "Happy",
+          "…Lo era. No se lo digas a nadie. Toma, rellena esto: es la afiliación al sindicato. Por si acaso."
+        ],
+        [
+          "manolo",
+          "Sigh",
+          "(Koffing rellena la ficha del sindicato y la del Team Rocket a la vez. Las dos con la rosa. Manolo no sabe cuál va a ganar.)"
+        ]
+      ]
+    },
+    {
+      "a": "rhyhorn",
+      "b": "slowpoke",
+      "lineas": [
+        [
+          "rhyhorn",
+          "Normal",
+          "Perdona, ¿de qué estábamos hablando?"
+        ],
+        [
+          "slowpoke",
+          "Normal",
+          "…Sí, mañana creo que llueve. (Contesta a algo de ayer.)"
+        ],
+        [
+          "rhyhorn",
+          "Happy",
+          "¡Eso! De la lluvia. Qué bien, que me acuerdo."
+        ],
+        [
+          "slowpoke",
+          "Happy",
+          "…Encantado de conocerte. (Esto es de cuando se sentó.)"
+        ],
+        [
+          "rhyhorn",
+          "Happy",
+          "¡Igualmente! ¿Nos conocemos?"
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Llevan una hora así. Es la conversación más tranquila que se ha oído nunca en el comedor. Charizard se ha dormido escuchándolos.)"
+        ]
+      ]
+    },
+    {
+      "a": "rhyhorn",
+      "b": "mew",
+      "lineas": [
+        [
+          "rhyhorn",
+          "Surprised",
+          "Oye, gatito rosa. Me suena tu cara. ¿Tú no estabas debajo de un camión?"
+        ],
+        [
+          "mew",
+          "Worried",
+          "De una furgoneta. La de la chistorra. No me mires tanto, que me pongo invisible."
+        ],
+        [
+          "rhyhorn",
+          "Happy",
+          "Pues me caes bien. Tienes cara de primero. Del primero de algo. No sé de qué."
+        ],
+        [
+          "mew",
+          "Happy",
+          "Eso me lo dicen mucho. Que estoy dentro de todos. De ti también. Un poquito."
+        ],
+        [
+          "rhyhorn",
+          "Worried",
+          "¿Dentro de mí? …Pues no te noto. Pero no te vayas, que a lo mejor luego me acuerdo."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Mew se vuelve invisible del corte. Rhyhorn sigue hablándole a la silla vacía, muy contento. Mew, desde la silla, le contesta.)"
+        ]
+      ]
+    },
+    {
+      "a": "bellsprout",
+      "b": "snorlax",
+      "lineas": [
+        [
+          "bellsprout",
+          "Normal",
+          "Usted perdone. ¿Cuántas pizzas se come usted?"
+        ],
+        [
+          "snorlax",
+          "Normal",
+          "…Mmm. Todas."
+        ],
+        [
+          "bellsprout",
+          "Normal",
+          "Yo también. Pero a mí no se me nota. A usted sí. ¿Cuál es su secreto?"
+        ],
+        [
+          "snorlax",
+          "Happy",
+          "…Dormir después. (Se duerme.)"
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Bellsprout se tumba al lado de Snorlax a imitarle. A los dos minutos se levanta: tiene hambre. Snorlax, en sueños, le pasa una pizza.)"
+        ]
+      ]
+    },
+    {
+      "a": "bellsprout",
+      "b": "meowth",
+      "lineas": [
+        [
+          "meowth",
+          "Surprised",
+          "Tú… ese tallo, esa boca, esa cara de hambre… Yo conocí a un Victreebel. Se tragaba a un compañero cada vez que salía de la Poké Ball."
+        ],
+        [
+          "bellsprout",
+          "Normal",
+          "¿Y el compañero qué decía?"
+        ],
+        [
+          "meowth",
+          "Angry",
+          "¡Gritaba! Se llamaba James. Se ponía perdido de babas. Y al día siguiente, otra vez. Ni un día de descanso. Eso es un accidente laboral."
+        ],
+        [
+          "bellsprout",
+          "Normal",
+          "Pues a mí me parece una amistad preciosa. ¿Dónde vive ese James?"
+        ],
+        [
+          "manolo",
+          "Sigh",
+          "(Meowth apunta en su libreta: «cobertura para los saludos de planta». Bellsprout apunta: «James». Cada uno a lo suyo.)"
+        ]
+      ]
+    },
+    {
+      "a": "nidoran",
+      "b": "oddish",
+      "lineas": [
+        [
+          "nidoran",
+          "Happy",
+          "Oddish, te queremos en primera fila en el aniversario. Mi señora dice que hueles a boda."
+        ],
+        [
+          "oddish",
+          "Normal",
+          "¿A boda? Eso es mi colonia nueva. Se llama «Huele a Siempre». Va bien para aniversarios y para espantar mosquitos."
+        ],
+        [
+          "nidoran",
+          "Normal",
+          "¿Y podrías echar un poquito en la buhardilla? Para el ambiente."
+        ],
+        [
+          "oddish",
+          "Normal",
+          "Un poquito no existe. Mi colonia es toda o nada. Abrid las ventanas, y que os quiera mucho la vida."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Esa noche, la buhardilla huele tanto que se oye toser a Charizard desde la cocina. Los Nidoran dicen que huele a amor. Y a ajo.)"
+        ]
+      ]
+    },
+    {
+      "a": "nidoran",
+      "b": "mrmime",
+      "lineas": [
+        [
+          "nidoran",
+          "Pain",
+          "Señor Mime, usted que habla tanto en público… Tengo que dar un brindis en mi aniversario y se me eriza todo."
+        ],
+        [
+          "mrmime",
+          "Normal",
+          "¿Un brindis? ¡Hombre, por fin un tema serio! Lo primero: empiece por la situación económica del país."
+        ],
+        [
+          "nidoran",
+          "Normal",
+          "¿En un aniversario?"
+        ],
+        [
+          "mrmime",
+          "Normal",
+          "¡En todas partes! Luego el precio de las bayas, luego el gobierno y, al final, si queda tiempo, la novia. Así se hace."
+        ],
+        [
+          "nidoran",
+          "Happy",
+          "Gracias. Voy a hacer justo lo contrario. Empiezo por la novia y acabo por la novia."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Mr. Mime dice que es un error gravísimo. Luego, en el brindis de verdad, es el primero que llora.)"
+        ]
+      ]
+    },
+    {
+      "a": "vulpix",
+      "b": "jynx",
+      "lineas": [
+        [
+          "jynx",
+          "Normal",
+          "Niña, ¿tú sabes peinar un moño de folclórica? De los de antes. De los que no se mueven ni con el viento de levante."
+        ],
+        [
+          "vulpix",
+          "Happy",
+          "¿Que si sé? Cariño, yo nací con seis colas. Un moño es una cola que se ha portado bien."
+        ],
+        [
+          "jynx",
+          "Normal",
+          "Pues aquí lo tienes. Con cuidado, que lleva laca de tres giras."
+        ],
+        [
+          "vulpix",
+          "Surprised",
+          "(Hunde el cepillo. El cepillo no sale.) …Esto no es laca. Esto es cemento armado. Me encanta."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Al final de la tarde, Jynx lleva un moño el doble de alto. Vulpix se ha dejado el cepillo dentro, y ahí se queda, de adorno.)"
+        ]
+      ]
+    },
+    {
+      "a": "vulpix",
+      "b": "onix",
+      "lineas": [
+        [
+          "vulpix",
+          "Surprised",
+          "¿Onix? ¿El de Brock? ¡Soy yo! ¡La Vulpix que dormía la siesta encima de ti en el gimnasio!"
+        ],
+        [
+          "onix",
+          "Surprised",
+          "¿La que roncaba? Perdón. Quiero decir: ¡hola! Me hacías cosquillas con las colas."
+        ],
+        [
+          "vulpix",
+          "Happy",
+          "¿Y cómo está? ¿Sigue con lo de las enfermeras?"
+        ],
+        [
+          "onix",
+          "Normal",
+          "Con todas. Pero cocina bien. Y te echa de menos. No lo dice, pero cuando hace la sopa, pone un plato de más."
+        ],
+        [
+          "vulpix",
+          "Sad",
+          "…Un plato de más. Qué tonto. (Se le humedece el hocico.) Dile que me peino a diario. Que me cuido. Como él."
+        ],
+        [
+          "manolo",
+          "Normal",
+          "(Esa noche, Vulpix se echa la siesta encima de la cabeza de Onix, en la boca de la cueva. Él no se mueve en toda la noche, para no despertarla.)"
+        ]
+      ]
+    },
+    {
+      "a": "onix",
+      "b": "chansey",
+      "lineas": [
+        [
+          "chansey",
+          "Surprised",
+          "¡Usted es el Onix de Brock! ¡El del chico que se declara a las Joy!"
+        ],
+        [
+          "onix",
+          "Normal",
+          "Perdón. Sí. ¿Se le declaró también a la Joy de su Centro?"
+        ],
+        [
+          "chansey",
+          "Happy",
+          "Tres veces. Y las tres le dijo que tenía el corazón muy grande. Las tres, la misma frase."
+        ],
+        [
+          "onix",
+          "Surprised",
+          "¿Y qué le contestó la Joy?"
+        ],
+        [
+          "chansey",
+          "Normal",
+          "Que se tomara un jarabe. Pero luego, cuando se fue, se pasó la tarde sonriendo. No se lo cuente."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Onix no se lo cuenta a nadie. Pero esa noche, en la cueva, se le escapa la cara de sorpresa tres veces seguidas.)"
+        ]
+      ]
+    },
+    {
+      "a": "onix",
+      "b": "snorlax",
+      "lineas": [
+        [
+          "onix",
+          "Normal",
+          "Perdón. ¿Usted tampoco cabe en las habitaciones?"
+        ],
+        [
+          "snorlax",
+          "Normal",
+          "…No."
+        ],
+        [
+          "onix",
+          "Normal",
+          "¿Y no le da vergüenza ocupar tanto?"
+        ],
+        [
+          "snorlax",
+          "Happy",
+          "(Se lo piensa mucho rato.) …No. (Y se echa a dormir en mitad del pasillo.)"
+        ],
+        [
+          "onix",
+          "Surprised",
+          "…Ah. Que se puede no tener vergüenza. Nadie me lo había dicho."
+        ],
+        [
+          "manolo",
+          "Sigh",
+          "(Esa tarde, Onix ocupa toda la ladera y Snorlax todo el pasillo. Manolo pasa por encima de los dos con la bandeja del café.)"
+        ]
+      ]
+    },
+    {
+      "a": "magmar",
+      "b": "charmander",
+      "lineas": [
+        [
+          "charmander",
+          "Angry",
+          "Tú eres el que quiere quitarle el sitio a mi tío. Que lo sepas: la parrilla es suya."
+        ],
+        [
+          "magmar",
+          "Worried",
+          "Solo un poco. Bueno, ya no. Me ganó con la chistorra. Le sale dorada. A mí me sale negra."
+        ],
+        [
+          "charmander",
+          "Surprised",
+          "¿Negra? ¿Del todo? ¿Y eso cómo se hace?"
+        ],
+        [
+          "magmar",
+          "Normal",
+          "Con mil doscientos grados. Mira. (Le acerca la mano a la cola. La llama de Charmander se pone de puntillas.)"
+        ],
+        [
+          "charmander",
+          "Happy",
+          "¡Hala! ¡Mi cola nunca se había puesto tan alta! …No se lo digas a mi tío."
+        ],
+        [
+          "manolo",
+          "Worried",
+          "(Charizard se lo ha visto desde la cocina. Esa noche le hace a Charmander una chistorra dorada, por si acaso le estaban convenciendo.)"
+        ]
+      ]
+    },
+    {
+      "a": "magmar",
+      "b": "growlithe",
+      "lineas": [
+        [
+          "growlithe",
+          "Surprised",
+          "¡Ese olor! ¡Ceniza de Canela! ¿Tú eres del gimnasio de Blaine?"
+        ],
+        [
+          "magmar",
+          "Normal",
+          "La caldera del gimnasio. ¿Y tú? Hueles a chistorra. Mucho."
+        ],
+        [
+          "growlithe",
+          "Angry",
+          "¡Es que en esta casa desaparecen chistorras, y yo lo huelo todo! …¿Tú no habrás sido?"
+        ],
+        [
+          "magmar",
+          "Worried",
+          "Yo las chistorras no las robo. Las carbonizo. No queda ni la pista."
+        ],
+        [
+          "growlithe",
+          "Happy",
+          "…Coartada aceptada. Nadie carboniza tan bien a propósito."
+        ],
+        [
+          "manolo",
+          "Sigh",
+          "(Growlithe tacha un sospechoso de la libreta. Quedan los de siempre. Charizard silba mirando al techo.)"
+        ]
+      ]
+    },
+    {
+      "a": "hermanoseevee",
+      "b": "growlithe",
+      "lineas": [
+        [
+          "growlithe",
+          "Happy",
+          "¡Guau! ¡Hueles como Eevee! ¿Conoces a Eevee? ¡Una vez me dijo que, si se quedaba conmigo, sería Flareon!"
+        ],
+        [
+          "hermanoseevee",
+          "Surprised",
+          "¿Contigo? …Eso nos lo dice a todos, chaval. A cada uno con su piedra."
+        ],
+        [
+          "growlithe",
+          "Sad",
+          "Ah. ¿Entonces no va a ser Flareon?"
+        ],
+        [
+          "hermanoseevee",
+          "Normal",
+          "Va a ser Eevee. Que, pensándolo bien, es lo que le sale mejor."
+        ],
+        [
+          "growlithe",
+          "Happy",
+          "¡Pues Eevee es lo mejor!"
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Se pasan la tarde jugando a la pelota. Ninguno de los dos evoluciona por ello, que ya es mucho decir.)"
         ]
       ]
     }
