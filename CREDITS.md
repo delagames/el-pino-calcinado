@@ -46,6 +46,15 @@ Proyecto personal, sin ánimo de lucro, no afiliado a Nintendo, Creatures ni GAM
 | 0079 | Slowpoke | CHUNSOFT | CHUNSOFT, , Morei |
 | 0032 | Nidoran♂ | CHUNSOFT | CHUNSOFT, JFain |
 | 0029 | Nidoran♀ | CHUNSOFT | CHUNSOFT, JFain, Fearless-Quit |
+| 0074 | Geodude | CHUNSOFT | CHUNSOFT, JustAGunk |
+| 0052 | Meowth | CHUNSOFT | CHUNSOFT, PhillipsYoung |
+| 0113 | Chansey | CHUNSOFT | CHUNSOFT, Mojo |
+| 0149 | Dragonite | CHUNSOFT, SethY, Deeshura | CHUNSOFT, "motherhenna(Helen)", Emboarger, AlexGroeger |
+| 0065 | Alakazam | CHUNSOFT | CHUNSOFT, Gust |
+| 0102 | Exeggcute | CHUNSOFT | CHUNSOFT |
+| 0115 | Kangaskhan | CHUNSOFT | CHUNSOFT, Top_Kec |
+| 0108 | Lickitung | CHUNSOFT | CHUNSOFT, Shitpost_Sunkern |
+| 0085 | Dodrio | CHUNSOFT | CHUNSOFT, Top_Kec |
 | 0130 | Gyarados | CHUNSOFT | CHUNSOFT, G〜, baronessfaron |
 | 0067 | Machoke | CHUNSOFT | CHUNSOFT, JFain |
 | 0106 | Hitmonlee | CHUNSOFT | CHUNSOFT, Tainted#3886, G〜 |

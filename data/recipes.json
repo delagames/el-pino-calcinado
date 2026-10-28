@@ -27,7 +27,9 @@
         "growlithe",
         "machop",
         "eevee",
-        "pikachu"
+        "pikachu",
+        "exeggcute",
+        "dodrio"
       ],
       "genero": "f",
       "juego": "vuelta"
@@ -57,7 +59,8 @@
         "jigglypuff",
         "oddish",
         "psyduck",
-        "cubone"
+        "cubone",
+        "chansey"
       ],
       "genero": "f",
       "juego": "llama"
@@ -73,7 +76,10 @@
       "preferidos": [
         "jigglypuff",
         "jynx",
-        "mew"
+        "mew",
+        "geodude",
+        "alakazam",
+        "kangaskhan"
       ],
       "genero": "m",
       "juego": "miel"
@@ -106,7 +112,8 @@
       ],
       "preferidos": [
         "lapras",
-        "magikarp"
+        "magikarp",
+        "lickitung"
       ],
       "genero": "f",
       "juego": "espeton"
@@ -149,7 +156,9 @@
         "snorlax",
         "voltorb",
         "porygon",
-        "ditto"
+        "ditto",
+        "meowth",
+        "dragonite"
       ],
       "genero": "f"
     },

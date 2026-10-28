@@ -1,0 +1,60 @@
+{
+  "id": "dragonite",
+  "_nota": "Dragonite, rider de reparto a domicilio con mochila térmica, siempre mirando la app y las valoraciones. Lore: la Pokédex dice que da la vuelta al mundo en unas 16 horas; en el anime hay un Dragonite cartero. Charizard se pica con él: Charizard no es tipo dragón (es fuego y volador). Arco en tres visitas: su pedido está en camino, las cinco estrellas y el día libre, que es su despedida (bandera dragonite_libre).",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · su pedido está en camino",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Pedido para El Pino Calcinado! …Ah, no, que hoy el pedido soy yo. Una cama, por favor. Rápido, que me corre el tiempo.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "Pasa, pasa. ¿Y esa mochila tan grande? ¿Vienes de muy lejos?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "De Kalos. Y antes, de Alola. La Pokédex dice que doy la vuelta al mundo en dieciséis horas. Hoy he tardado diecisiete. Me van a bajar la nota.", "sigue": "charizard" },
+        "charizard": { "quien": "charizard", "emocion": "Angry", "texto": "Charizard se planta delante, saca pecho y echa humo por la nariz. Otro bicho naranja con alas en su posada. No le gusta nada.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Happy", "texto": "¡Hombre, un compañero dragón! ¿De qué empresa eres? ¿Cobras por pedido o por hora?", "opciones": [
+          { "texto": "«No es tipo dragón, pero tiene corazón de dragón»", "efectos": { "afinidad": 1 }, "sigue": "corazon" },
+          { "texto": "«Técnicamente es fuego y volador»", "sigue": "tecnico" }
+        ] },
+        "corazon": { "quien": "huesped", "emocion": "Happy", "texto": "¡Eso es lo que cuenta! Ser dragón es una actitud. Y llevar la comida caliente a la gente, también.", "sigue": "fin" },
+        "tecnico": { "quien": "huesped", "emocion": "Surprised", "texto": "¿No es dragón? ¿Con esa cara? Bueno, tranquilo, compañero: yo sí lo soy y parezco un peluche. La vida es así.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Angry", "texto": "Charizard se va a la cocina muy ofendido y quema una sartén. Dragonite le pone cinco estrellas igualmente." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · las cinco estrellas",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "Manolo, ¿me valoras? Cinco estrellas, porfa. Un cliente me ha puesto cuatro porque la sopa llegó tibia. ¡Venía de Hoenn!", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "¿Y por una estrella te pones así, hombre?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Sad", "texto": "Con 4,8 de media te quitan los repartos buenos. Ayer me tocó llevar una baya a Pueblo Paleta. Una. Sin propina.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Antes era cartero, ¿sabes? Llevaba cartas de amor de un faro a otro. Nadie me valoraba, pero me esperaban en la ventana.", "opciones": [
+          { "texto": "«Aquí tienes cinco estrellas y una silla»", "efectos": { "afinidad": 1 }, "sigue": "silla" },
+          { "texto": "«Pues pide más propina»", "sigue": "propina" }
+        ] },
+        "silla": { "quien": "huesped", "emocion": "Happy", "texto": "¿Una silla? ¿Para sentarme? …Ah, que se puede. Llevo tres años comiendo en pleno vuelo.", "sigue": "fin" },
+        "propina": { "quien": "huesped", "emocion": "Worried", "texto": "¿Pedir? Si pido, me ponen tres. La app lo ve todo, Manolo. Hasta lo que pienso.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard le deja una chistorra en la mesa, de mala gana. Dragonite se la come sentado, sin mirar el móvil. Charizard gruñe, pero ya menos." }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · el día libre",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "Manolo, hoy no traigo pedido. He apagado el móvil. Me he cogido el día libre. El primero en tres años.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "¡Ya era hora! ¿Y qué vas a hacer con él?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Nada. Mirar el pino. Comer despacio. Y mañana me voy: vuelvo a llevar el correo. Cartas de verdad, por encima del mar.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Sad", "texto": "Así que es mi última noche aquí. Me da pena, ¿eh? Es la única casa donde nadie me ha metido prisa.", "opciones": [
+          { "texto": "«Mándanos una postal de cada sitio»", "efectos": { "afinidad": 1, "flags": { "dragonite_libre": "postales" } }, "sigue": "postales" },
+          { "texto": "«Prométeme que descansarás más días»", "efectos": { "flags": { "dragonite_libre": "descanso" } }, "sigue": "descanso" }
+        ] },
+        "postales": { "quien": "huesped", "emocion": "Happy", "texto": "Una de cada faro. Las traeré yo mismo, a mi paso. Sin valoración. Con un «gracias» me llega.", "sigue": "charizard" },
+        "descanso": { "quien": "huesped", "emocion": "Happy", "texto": "Prometido. Los domingos, mirando el mar, como un dragón jubilado. Bueno, medio jubilado.", "sigue": "charizard" },
+        "charizard": { "quien": "charizard", "emocion": "Sad", "texto": "Charizard lo acompaña a la puerta. Se miran. Charizard le tiende la garra. Dragonite le da un abrazo de peluche gigante.", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Al alba, Dragonite despega sin mirar el móvil. En el libro de visitas ha escrito: «Cinco estrellas. La chistorra, seis».)" }
+      }
+    }
+  ]
+}

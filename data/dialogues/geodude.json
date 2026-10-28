@@ -1,0 +1,57 @@
+{
+  "id": "geodude",
+  "_nota": "Geodude, albañil de obra: una piedra con brazos y casco. Todo lo hace «en una semana» (nunca es una semana), presupuestos a ojo, el bocadillo de las diez y cualquier pared le parece torcida. Solo tiene retratos Normal, Happy y Pain. Arco en tres visitas: esto está torcido, la planta de arriba y la primera piedra, despedida (bandera geodude_obra).",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · esto está torcido",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Buenas. Una habitación. (Da dos golpes a la pared de la recepción con el nudillo.) Uy. Esto está torcido.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Torcido? Esa pared la levantó mi abuelo.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Y la hizo con cariño, se nota. Pero a ojo. Mira: dos dedos de caída. Esto te lo arreglo yo en una semana.", "opciones": [
+          { "texto": "«¿Y cuánto me costaría?»", "sigue": "presupuesto" },
+          { "texto": "«Déjala, que tiene su gracia»", "efectos": { "afinidad": 1 }, "sigue": "gracia" }
+        ] },
+        "presupuesto": { "quien": "huesped", "emocion": "Happy", "texto": "(La mira de arriba abajo.) A ojo… trescientas. Más el bocadillo de las diez. Una semana. Dos, como mucho. Tres si llueve.", "sigue": "fin" },
+        "gracia": { "quien": "huesped", "emocion": "Happy", "texto": "Eso me gusta: un jefe que quiere a sus paredes. Quedan pocos. Pero lo de los dos dedos te lo apunto, por si cambias de idea.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard se planta delante de la pared y ladea la cabeza. Desde hoy, él también la ve torcida." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · la planta de arriba",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "Jefe, esta mañana he subido al tejado. Ahí arriba te cabe otra planta. Tres habitaciones más. Te la hago yo en una semana.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Sigh", "texto": "«Una semana» me dijo el que arregló la buhardilla. Tardó un invierno entero.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Ese tenía piernas, y las piernas se cansan. Yo soy una piedra con brazos: no me siento nunca. No tengo con qué.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Lo único, el bocadillo de las diez. Eso es sagrado. Sin bocadillo no se levanta ni un tabique.", "opciones": [
+          { "texto": "«Venga, hazme un presupuesto»", "efectos": { "afinidad": 1 }, "sigue": "presu" },
+          { "texto": "«¿Y quién sube los ladrillos?»", "sigue": "ladrillos" }
+        ] },
+        "presu": { "quien": "huesped", "emocion": "Happy", "texto": "(Escribe en una servilleta.) Planta nueva: cuatro mil. Imprevistos: otros cuatro mil. Bocadillos: aparte. Más o menos.", "sigue": "fin" },
+        "ladrillos": { "quien": "huesped", "emocion": "Normal", "texto": "(Mira a Charizard.) Ese tiene alas y fuerza. Y si no, llamo a Machoke, que se pasa el día levantando cosas para nada.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard se imagina subiendo ladrillos al tejado toda la semana. O todo el año. Esa noche duerme escondido detrás de la chimenea." }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · la primera piedra",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Jefe, me voy. Me han llamado de Ciudad Plateada: el gimnasio de Brock tiene goteras. Un gimnasio de roca con goteras… no puede ser.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Sad", "texto": "¿Y la planta de arriba? ¿Y mi semana?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "(Señala un rincón del muro.) Ahí la tienes. He puesto la primera piedra esta mañana, antes del bocadillo. Recta, ¿eh? Comprobada.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Y te confieso una cosa: tu pared no está torcida. Es que me gusta tener algo que arreglar en los sitios donde estoy a gusto.", "opciones": [
+          { "texto": "«Esa piedra no la quita nadie»", "efectos": { "afinidad": 1, "flags": { "geodude_obra": "primera_piedra" } }, "sigue": "piedra" },
+          { "texto": "«La planta la acabaré yo, a ojo»", "efectos": { "flags": { "geodude_obra": "a_ojo" } }, "sigue": "ojo" }
+        ] },
+        "piedra": { "quien": "huesped", "emocion": "Happy", "texto": "Pues que la vea un día tu nieto y diga: «esto lo puso un Geodude, y está recto». Con eso me doy por pagado.", "sigue": "fin" },
+        "ojo": { "quien": "huesped", "emocion": "Happy", "texto": "A ojo, como tu abuelo. Ahora que lo pienso, lo que se hace a ojo dura más: se hace con ganas.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le prepara el bocadillo de las diez para el camino, con chistorra. Geodude baja la cuesta rodando y saluda con los dos brazos hasta perderse." }
+      }
+    }
+  ]
+}

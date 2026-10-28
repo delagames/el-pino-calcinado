@@ -1,0 +1,59 @@
+{
+  "id": "exeggcute",
+  "_nota": "Exeggcute: seis cabecitas que son una peña de fiestas de pueblo (pañuelico, charanga, «¡otra ronda!»). Hablan por telepatía, a la vez, y nadie sabe cuál ha dicho qué: dentro de un nodo se pisan con rayas. Solo tiene retrato Normal. Lore: si se juntan los seis, evolucionan en Exeggutor con la Piedra Hoja (que tiene tres cabezas: ¿y los otros tres?). Arco en tres visitas: la peña, la Piedra Hoja y fin de fiestas, que es su despedida (bandera exeggcute_pena).",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · la peña",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "¡Buenas noches! ¡Somos la peña Los Seis Huevos! ¡Una habitación! —Dos. —¡Una, que somos una peña!", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Y cuántos sois, exactamente?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "¡Seis! —Cinco y medio, que este está agrietado. —¡Es un rasguño! —¿Quién ha hablado? —Yo no. —Ni yo. Es la telepatía, se nos mezcla.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Venimos de fiestas, con la charanga en la cabeza. ¿Hay algo de beber? —¡Agua! —¡Otra ronda! —Una ronda de agua. —¡Eso no existe!", "opciones": [
+          { "texto": "«Ronda de mosto para toda la peña»", "efectos": { "afinidad": 1 }, "sigue": "mosto" },
+          { "texto": "«Aquí, a las once, silencio»", "sigue": "silencio" }
+        ] },
+        "mosto": { "quien": "huesped", "emocion": "Normal", "texto": "¡Mosto! ¡Vivan los calvos! —Eso no se dice. —Lo he dicho con cariño. —¿Pero quién lo ha dicho? —Todos y ninguno.", "sigue": "fin" },
+        "silencio": { "quien": "huesped", "emocion": "Normal", "texto": "Vale, vale, silencio. (Tararean la charanga por telepatía. Manolo la oye igual, dentro de la cabeza. Y bastante alta.)", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard se anuda un trapo de cocina al cuello. Ya es de la peña. Nadie se lo ha preguntado: las fiestas son así." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · la Piedra Hoja",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Manolo, usted es neutral. Uno de nosotros ha comprado una Piedra Hoja. —¡Yo no! —Pues alguien ha sido. —El de la grieta. —¡Siempre el de la grieta!", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "¿Y qué pasa si la usáis?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Que evolucionamos a Exeggutor: una palmera enorme de tres cabezas. —¿Tres? —Somos seis. —¿Y los otros tres? —Eso, ¿a dónde vamos los otros tres?", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "En una peña no se deja a nadie fuera. Ni al de la grieta. —Gracias. —De nada. —¿A quién le das las gracias? —Al que ha hablado.", "opciones": [
+          { "texto": "«La piedra, a un cajón hasta que lo votéis»", "efectos": { "afinidad": 1 }, "sigue": "votar" },
+          { "texto": "«Dicen que Exeggutor ve muy lejos desde arriba»", "sigue": "alto" }
+        ] },
+        "votar": { "quien": "huesped", "emocion": "Normal", "texto": "¡Votación! A mano alzada. —No tenemos manos. —Pues a cabeza alzada. —Empate a tres. —Como siempre. —¡Otra ronda de votos!", "sigue": "fin" },
+        "alto": { "quien": "huesped", "emocion": "Normal", "texto": "¿Muy alto? Uy, a mí me dan vértigo las alturas. —Y a mí. —Y a mí. —…Pues ya está votado sin votar.", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Manolo guarda la Piedra Hoja en la caja de recepción, junto a la Piedra Lunar de los Nidoran. Ya va teniendo una colección.)" }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · fin de fiestas",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Manolo, se acaban las fiestas. Mañana volvemos al pueblo y ya no pasamos por aquí. —No lo digas así, que lloro. —¿Quién llora? —Todos.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Sad", "texto": "Pues esta casa os va a echar de menos. Con lo bien que suena la charanga dentro de la cabeza.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Al final no usamos la Piedra Hoja. Seis a cero: para ser palmera hay tiempo; para ser peña, solo ahora. —Eso lo he dicho yo. —Lo hemos pensado todos.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Y le traemos esto: un pañuelico de la peña con siete huevos bordados. —Seis y usted. —¿Y el dragón? —Pues ocho, que borde otro.", "opciones": [
+          { "texto": "«Me lo pongo y no me lo quito»", "efectos": { "afinidad": 1, "flags": { "exeggcute_pena": "socio" } }, "sigue": "socio" },
+          { "texto": "«Una última ronda antes de iros»", "efectos": { "flags": { "exeggcute_pena": "ronda" } }, "sigue": "ronda" }
+        ] },
+        "socio": { "quien": "huesped", "emocion": "Normal", "texto": "¡Socio de honor! ¡Viva Manolo! —¡Viva! —¡Viva! —¿Somos seis gritando o lo he oído en la cabeza? —Da igual. ¡Viva!", "sigue": "charizard" },
+        "ronda": { "quien": "huesped", "emocion": "Normal", "texto": "¡La última ronda! De mosto, que mañana hay camino. —Y de chistorra. —Y de tarta. —Y de todo, que es la última.", "sigue": "charizard" },
+        "charizard": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard toca la charanga con la cola en una olla. Los seis bailan en corro. Manolo, con el pañuelico al cuello, también.", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Al alba, la peña baja el camino cantando. Seis voces o una, nunca se supo. En el pino de la entrada queda colgado un pañuelico.)" }
+      }
+    }
+  ]
+}

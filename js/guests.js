@@ -36,13 +36,15 @@ function rng(seed) {
   };
 }
 
-// Primero los que se fueron sin habitación; luego, al azar, evitando a los de ayer
-export function pickArrivals(state) {
+// Primero los que se fueron sin habitación; luego, al azar, evitando a los de ayer.
+// «terminados»: los que ya contaron toda su historia; no vuelven (salvo que no quede nadie más)
+export function pickArrivals(state, terminados = new Set()) {
   const r = rng(state.dia * 7919 + 13);
   // quien se fue disgustado tarda en volver; quien se fue encantado vuelve antes
   const libro = state.libro || {};
   const mosqueado = id => (libro[id]?.felicidad ?? 3) <= 1 && state.dia - (libro[id]?.ultimo || 0) < 4;
-  const pool = data.guests.filter(g => canAppear(g, state) && !mosqueado(g.id));
+  const posibles = data.guests.filter(g => canAppear(g, state) && !mosqueado(g.id));
+  const pool = posibles.filter(g => !terminados.has(g.id));
   const ayer = new Set(state.ayer || []);
   const first = (state.vuelven || []).filter(id => pool.some(g => g.id === id));
   // las mejoras atraen o espantan tipos: termal (fuego y roca sí, agua no), jardín (planta), farolillos
@@ -64,7 +66,9 @@ export function pickArrivals(state) {
     .map(g => ({ id: g.id, k: r() + (ayer.has(g.id) ? 1 : 0) + pull(g) }))
     .sort((a, b) => a.k - b.k)
     .map(g => g.id);
-  return [...first, ...rest].slice(0, arrivalsFor(state.dia, state.habitaciones || 3)).map(id => {
+  // si ya casi todos han terminado su historia, vuelven algunos de los de siempre para no dejar la posada vacía
+  const veteranos = posibles.filter(g => terminados.has(g.id) && !ayer.has(g.id)).map(g => ({ id: g.id, k: r() })).sort((a, b) => a.k - b.k).map(g => g.id);
+  return [...first, ...rest, ...veteranos].slice(0, arrivalsFor(state.dia, state.habitaciones || 3)).map(id => {
     const g = guestById(id);
     // encargos posibles hoy: sin los que ya no tienen sentido por una mejora y, si se puede,
     // distinto del de la visita anterior (para no repetir la misma escena)

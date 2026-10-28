@@ -1,0 +1,60 @@
+{
+  "id": "dodrio",
+  "_nota": "Dodrio, tres cabezas que son una tertulia de la tele: Izquierda (la alegre), Derecha (la enfadada) y Medio (la triste, que modera). Lore: cada cabeza tiene su personalidad: alegre, triste y enfadada. Habla todo como «huesped», con la cabeza marcada entre paréntesis. Opinan de lo que pasa en la posada como si fuera actualidad. Arco en tres visitas: el programa, el debate de la chistorra y el consenso (bandera dodrio_consenso). Tras la v3 ya no vuelve.",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · en directo",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "(Izquierda) ¡Buenas noches y bienvenidos a «Tres en la Posada»! (Derecha) Buenas noches dice, con el frío que hace.", "sigue": "medio" },
+        "medio": { "quien": "huesped", "emocion": "Sad", "texto": "(Medio) Por favor, por favor, de uno en uno… (suspira) Una habitación, señor. Doble. Bueno, triple. Es complicado.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "Habitación para uno con tres cabezas. ¿Cuántas almohadas?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Angry", "texto": "(Derecha) ¡Ahí está la noticia! ¡Cobran por cabeza! (Izquierda) ¡Qué va, si es un detalle precioso! (Medio) Vamos a publicidad.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "(Medio) Volvemos. Tema del día: el señor de la recepción, ¿calvo por el fuego o calvo de nacimiento? Tiene la palabra el público.", "opciones": [
+          { "texto": "«Calvo por convicción»", "efectos": { "afinidad": 1 }, "sigue": "conviccion" },
+          { "texto": "«Eso no es actualidad, es una falta de respeto»", "sigue": "respeto" }
+        ] },
+        "conviccion": { "quien": "huesped", "emocion": "Happy", "texto": "(Izquierda) ¡Gran titular! (Derecha) Pues a mí me ha convencido, fíjate. (Medio) Primera vez en años que la Derecha dice eso.", "sigue": "fin" },
+        "respeto": { "quien": "huesped", "emocion": "Surprised", "texto": "(Derecha) ¡Polémica! ¡Me encanta! (Izquierda) Ay, perdone. (Medio) Pedimos disculpas a los espectadores. Y al calvo.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard no sabe a qué cabeza mirar. Las mira por turnos, como en un partido de tenis, hasta que se marea y se sienta." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · el gran debate",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Medio) Buenas noches. Hoy, en «Tres en la Posada»: ¿llega la furgoneta de Famadesa tarde o llega cuando tiene que llegar?", "sigue": "derecha" },
+        "derecha": { "quien": "huesped", "emocion": "Angry", "texto": "(Derecha) ¡Tarde! ¡Siempre tarde! ¡Esto en Kanto no pasaba! (Izquierda) Pero llega, ¿eh? Llega con una alegría…", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Sigh", "texto": "Llega a las nueve. Todos los días. Lleva veinte años llegando a las nueve.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Sad", "texto": "(Medio) Nunca nos ponemos de acuerdo en nada. Ni en el tiempo. Ni en el canal. Nos gritamos hasta en sueños. Es agotador.", "opciones": [
+          { "texto": "«Pues a mí me gusta oíros. Es como tener la radio puesta»", "efectos": { "afinidad": 1 }, "sigue": "radio" },
+          { "texto": "«¿Y no podéis votar? Dos contra una»", "sigue": "votar" }
+        ] },
+        "radio": { "quien": "huesped", "emocion": "Happy", "texto": "(Izquierda) ¡Nos llama radio! (Derecha) Radio no, televisión, que tenemos imagen. (Medio) …Gracias, Manolo. De parte de las tres.", "sigue": "fin" },
+        "votar": { "quien": "huesped", "emocion": "Angry", "texto": "(Derecha) ¡Siempre votan contra mí! (Izquierda) ¡Porque siempre te enfadas! (Medio) Lo intentamos en 2019. Duró un minuto.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard le esconde el mando de la tele del comedor. Por si acaso. Lo deja debajo del cojín y se sienta encima, muy digno." }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · consenso",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Sad", "texto": "(Medio) Último programa, Manolo. Se acaba la temporada. Nos volvemos a la llanura, donde corremos a cien por hora sin opinar de nada.", "sigue": "cena" },
+        "cena": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard les pone delante un plato de chistorra a la brasa recién hecha. Las tres cabezas pican a la vez. Silencio.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Surprised", "texto": "(Izquierda) Está buenísima. (Derecha) …Está buenísima. (Medio) Está… (Las tres se miran.) ¿Estamos de acuerdo?", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¡Cuidado, que esto es noticia de verdad! Las tres de acuerdo. Que alguien lo apunte.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Happy", "texto": "(Medio, emocionada) En tantos años de tertulia… y nos tenía que poner de acuerdo una chistorra. ¿Cómo cerramos el programa, Manolo?", "opciones": [
+          { "texto": "«Con un titular: aquí cabéis las tres»", "efectos": { "afinidad": 1, "flags": { "dodrio_consenso": "titular" } }, "sigue": "titular" },
+          { "texto": "«Con otra chistorra, que eso no se debate»", "efectos": { "flags": { "dodrio_consenso": "chistorra" } }, "sigue": "chistorra" }
+        ] },
+        "titular": { "quien": "huesped", "emocion": "Happy", "texto": "(Izquierda) ¡Precioso! (Derecha) No tengo nada en contra. (Medio) Y con esto nos despedimos. Gracias por vernos. Gracias por la casa.", "sigue": "fin" },
+        "chistorra": { "quien": "huesped", "emocion": "Happy", "texto": "(Las tres, a la vez) ¡Otra chistorra! (Se miran, asustadas, y se echan a reír.) (Medio) Fin de la emisión. Hasta siempre, posada.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Por la mañana, Dodrio se va corriendo por el camino. Desde la puerta, Charizard oye cómo vuelven a discutir. Pero esta vez se ríen las tres." }
+      }
+    }
+  ]
+}

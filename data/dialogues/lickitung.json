@@ -1,0 +1,58 @@
+{
+  "id": "lickitung",
+  "_nota": "Lickitung, influencer de ASMR. Susurra a un micrófono y lame cosas para el contenido (su lengua mide el doble que su cuerpo; su lametazo da escalofríos). Pide silencio absoluto en la posada. Solo tiene retrato Normal: siempre la misma cara de concentración. Arco en tres visitas: silencio, se graba; el crepitar perfecto; y el vídeo viral (bandera lickitung_viral). Tras la v3 ya no vuelve.",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · silencio, se graba",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Susurrando, pegado a un micrófono con pelo.) Hola, chicos… bienvenidos a un nuevo vídeo… hoy… una posada de montaña…", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¡BUENAS NOCHES! ¿UNA HABITACIÓN?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "(Le tapa la boca con la lengua. Es muy larga: llega desde la puerta.) Shhh… Estoy en directo. Doce mil personas oyéndole respirar.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Necesito silencio absoluto. Voy a lamer el mostrador. Para el contenido. Suena a madera vieja. A mi público le relaja muchísimo.", "opciones": [
+          { "texto": "(Susurrando) «Adelante… pero luego lo friegas»", "efectos": { "afinidad": 1 }, "sigue": "susurro" },
+          { "texto": "«Hijo, eso lo ha tocado medio Kanto»", "sigue": "kanto" }
+        ] },
+        "susurro": { "quien": "huesped", "emocion": "Normal", "texto": "(Muy serio.) Qué voz tiene usted… grave… con un poco de humo… Le va a encantar a mi audiencia. Ya me están pidiendo más calvo.", "sigue": "fin" },
+        "kanto": { "quien": "huesped", "emocion": "Normal", "texto": "Lo sé. Por eso suena tan bien. (Lame. Al mostrador le da un escalofrío. A Manolo, también.)", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard intenta comerse una chistorra sin hacer ruido. Mastica tan despacio que tarda veinte minutos. Lickitung le hace un gesto de aprobación." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · el sonido perfecto",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Susurra.) Manolo… vengo a por algo grande. Llevo años buscando el sonido perfecto. Y creo que está en su chimenea.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "(En voz bajita, que ya va aprendiendo.) ¿La chimenea? Si eso es Charizard, que se echa ahí la siesta.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Exacto. El crepitar de su cola. Pero hay un problema: Jigglypuff canta, Machoke grita las series y el cuñado opina.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "(Sigue con la misma cara. Siempre la misma cara.) Por dentro estoy desesperado. No se me nota porque es malo para el audio.", "opciones": [
+          { "texto": "«Les pido silencio a todos una noche. Por ti»", "efectos": { "afinidad": 1 }, "sigue": "todos" },
+          { "texto": "«¿Y no te vale con el ruido de la nevera?»", "sigue": "nevera" }
+        ] },
+        "todos": { "quien": "huesped", "emocion": "Normal", "texto": "¿Haría eso? (Se emociona. No se le nota nada. Pero la lengua le tiembla un poquito.) Gracias, Manolo. De verdad.", "sigue": "fin" },
+        "nevera": { "quien": "huesped", "emocion": "Normal", "texto": "La nevera ya la grabé en la temporada uno. Episodio cuatro. Tuvo mucho éxito en el público que no puede dormir.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard ensaya delante del espejo a crepitar más bonito. Le sale un estornudo de chispas. Lo vuelve a intentar, muy concentrado." }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · viral",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Susurra, pero rápido.) Manolo. El vídeo. «Dragón crepitando en posada de montaña, ocho horas». Dos millones de visitas.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "¿Dos millones? ¡Charizard, que eres famoso! (Se tapa la boca.) Perdón. Que eres famoso.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "La gente se duerme con él en toda la región. Una abuela de Ciudad Azulona me escribió: «Por fin duermo como cuando había chimenea».", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Me han llamado de una tele. Me voy de gira. Esta es mi última noche aquí. (Misma cara. Pero se le ha quedado la lengua quieta.)", "opciones": [
+          { "texto": "«Graba una última: el silencio de la posada»", "efectos": { "afinidad": 1, "flags": { "lickitung_viral": "silencio" } }, "sigue": "silencio" },
+          { "texto": "«Despídete de tu público desde aquí»", "efectos": { "flags": { "lickitung_viral": "despedida" } }, "sigue": "despedida" }
+        ] },
+        "silencio": { "quien": "huesped", "emocion": "Normal", "texto": "(Pone el micro en la mesa. Nadie habla. Solo se oye la chimenea y a alguien que ronca bajito.) …Este no lo subo. Este es para mí.", "sigue": "fin" },
+        "despedida": { "quien": "huesped", "emocion": "Normal", "texto": "(Al micro, en susurros.) Gracias, chicos… a ustedes, y a una posada donde me dejaron hacer el raro. Buenas noches… de verdad.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al irse, Lickitung le da a Charizard un lametazo de despedida en la frente. Le recorre un escalofrío de la cabeza a la cola. Crepita como nunca. Nadie lo graba." }
+      }
+    }
+  ]
+}

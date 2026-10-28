@@ -22,13 +22,18 @@ function ensure() {
     musicBus = ctx.createGain(); musicBus.gain.value = prefs.music ? 0.22 : 0; musicBus.connect(master);
     sfxBus = ctx.createGain(); sfxBus.gain.value = prefs.sfx ? 0.5 : 0; sfxBus.connect(master);
   }
-  if (ctx.state === 'suspended') ctx.resume();
+  // «suspended» o, en iPhone, «interrupted» (una llamada, otra app, la pantalla bloqueada): se reanuda
+  if (ctx.state !== 'running') ctx.resume().catch(() => {});
   return ctx;
 }
 
-// El primer toque en cualquier sitio despierta el audio
-window.addEventListener('pointerdown', () => { if (ensure() && !timer) startMusic(); }, { once: true });
-window.addEventListener('keydown', () => { if (ensure() && !timer) startMusic(); }, { once: true });
+// Cualquier toque despierta el audio (el primero lo enciende; los siguientes lo reaniman si el móvil
+// lo había parado), y también al volver a la pestaña o a la app
+const despertar = () => { if (ensure() && !timer) startMusic(); };
+window.addEventListener('pointerdown', despertar);
+window.addEventListener('keydown', despertar);
+document.addEventListener('visibilitychange', () => { if (!document.hidden && ctx) despertar(); });
+window.addEventListener('pageshow', () => { if (ctx) despertar(); });
 
 export function getPrefs() { return { ...prefs }; }
 
@@ -95,6 +100,8 @@ function startMusic() {
   if (timer || !ctx) return;
   nextBar = ctx.currentTime + 0.1;
   timer = setInterval(() => {
+    // si el audio estuvo parado un rato, no se intenta recuperar lo perdido: se sigue desde ahora
+    if (nextBar < ctx.currentTime - 1) nextBar = ctx.currentTime + 0.05;
     while (nextBar < ctx.currentTime + 0.6) nextBar += scheduleBar(nextBar);
   }, 150);
 }
@@ -219,6 +226,15 @@ const CRIES = {
   '0104': t => { sweep(300, 250, t, 0.12, { type: 'triangle', vol: 0.13 }); sweep(260, 200, t + 0.16, 0.3, { type: 'triangle', vol: 0.13 }); },   // Cubone: «cu-bone»
   '0083': t => { sweep(700, 500, t, 0.08, { type: 'square', vol: 0.1 }); sweep(700, 480, t + 0.12, 0.1, { type: 'square', vol: 0.1 }); },   // Farfetch'd: cua cua
   '0079': t => sweep(200, 150, t, 1.3, { type: 'triangle', vol: 0.14, vib: 3 }),                                            // Slowpoke: «sloooow»
+  '0074': t => { sweep(160, 120, t, 0.15, { type: 'square', vol: 0.12 }); sweep(140, 100, t + 0.2, 0.2, { type: 'square', vol: 0.12 }); },   // Geodude: «¡geo-dud!»
+  '0052': t => sweep(700, 500, t, 0.35, { type: 'triangle', vol: 0.13, vib: 12 }),                                         // Meowth: miau
+  '0113': t => { sweep(900, 1100, t, 0.12, { type: 'sine', vol: 0.12 }); sweep(1100, 900, t + 0.15, 0.2, { type: 'sine', vol: 0.12 }); },   // Chansey: «chan-sii»
+  '0149': t => sweep(260, 420, t, 0.8, { type: 'triangle', vol: 0.15, vib: 6 }),                                           // Dragonite: rugido amable
+  '0065': t => sweep(300, 1200, t, 0.7, { type: 'sine', vol: 0.11, vib: 30 }),                                             // Alakazam: zumbido que sube
+  '0102': t => [0, 0.06, 0.12, 0.18, 0.24, 0.3].forEach((d, i) => sweep(600 + i * 70, 640 + i * 70, t + d, 0.05, { type: 'square', vol: 0.07 })),   // Exeggcute: seis a la vez
+  '0115': t => sweep(220, 160, t, 0.5, { type: 'sawtooth', vol: 0.09 }),                                                  // Kangaskhan
+  '0108': t => sweep(400, 250, t, 0.6, { type: 'sine', vol: 0.12, vib: 9 }),                                               // Lickitung: lametón
+  '0085': t => [0, 0.12, 0.24].forEach((d, i) => sweep(800 - i * 120, 650 - i * 120, t + d, 0.09, { type: 'square', vol: 0.09 })),   // Dodrio: tres cabezas
   '0032': t => { sweep(600, 700, t, 0.1, { type: 'triangle', vol: 0.12 }); sweep(900, 1050, t + 0.14, 0.12, { type: 'sine', vol: 0.12 }); },   // los Nidoran: él y ella
 };
 CRIES.marinilla = CRIES['0060'];

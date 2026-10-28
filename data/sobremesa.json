@@ -675,6 +675,213 @@
       "gesto": "(Los Nidoran comparten un trozo de tarta con una sola cuchara. Se pelean por la última miga y gana ella.)",
       "paseo": "(Los Nidoran pasean de la mano… de la pata… por el camino. Él le coge una flor; ella se la come.)",
       "cuarto": "(Los Nidoran se han subido pronto a la buhardilla. Se les oye reír y, luego, roncar a los dos a la vez.)"
+    },
+    "geodude": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "El comedor, bien. Pero ese marco de la puerta… (Lo mira con un ojo cerrado.) Dos dedos. Lo que yo te diga."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "El bocadillo de las diez es como un muro de carga: si lo quitas, se viene todo abajo."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Una vez levanté un muro en una semana. Bueno, en tres meses. Pero la primera semana fue la mejor."
+        },
+        {
+          "emocion": "Pain",
+          "texto": "Me he dado con el martillo en el dedo. Bueno, el martillo se ha dado conmigo. El martillo está peor."
+        }
+      ],
+      "gesto": "(Geodude mide la mesa del comedor a palmos. Le da un golpecito con el nudillo y asiente: esta sí está recta.)",
+      "paseo": "(Geodude da la vuelta a la posada rodando, mirando los cimientos. De vez en cuando se para y dice «hm».)",
+      "cuarto": "(Geodude duerme con el casco puesto. Ha nivelado la cama con dos libros debajo de una pata.)"
+    },
+    "meowth": {
+      "lineas": [
+        {
+          "emocion": "Happy",
+          "texto": "Compañeros, compañeras: después del postre, asamblea. Orden del día: la siesta como derecho."
+        },
+        {
+          "emocion": "Angry",
+          "texto": "¿Habéis visto a Charizard? Cocina, calienta la casa y enciende la chimenea. Y sin plus de peligrosidad."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Antes vivía en un globo con forma de mi cara. Ahora, en una posada. He mejorado mucho de vivienda."
+        },
+        {
+          "emocion": "Sad",
+          "texto": "A veces sueño con Meowzie. En el sueño le hablo y ella me contesta. Luego me despierto y solo contesto yo."
+        }
+      ],
+      "gesto": "(Meowth reparte panfletos por las mesas. Snorlax se queda uno de almohada; Charizard se come otro.)",
+      "paseo": "(Meowth pasea a dos patas por el camino, pancarta al hombro, gritando consignas a los pinos. Los pinos no se afilian.)",
+      "cuarto": "(Meowth se ha dormido encima de la pancarta. Murmura en sueños: «convenio… Meowzie… convenio».)"
+    },
+    "chansey": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "Tengo el sueño muy profundo. Salvo que alguien tosa. O estornude. O carraspee. O piense en toser."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "Llevo años tomándole la temperatura a todo el mundo. Hoy me la he tomado a mí. ¡Treinta y seis! Ni lo sabía."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "Psyduck sigue con dolor de cabeza. ¿Es que nadie le ha mirado eso? Ah, sí. Yo. Cuatro veces."
+        },
+        {
+          "emocion": "Sad",
+          "texto": "En el Centro suena una musiquita cada vez que curas a alguien. Aquí no suena nada. Echo de menos la musiquita."
+        }
+      ],
+      "gesto": "(Chansey se queda dormida sentada a la mesa, con el huevo bien sujeto. Charizard le pone una servilleta de almohada.)",
+      "paseo": "(Chansey pasea dando saltitos, muy despacio. Cuando un Pidgey estornuda, se para en seco, respira hondo y sigue andando.)",
+      "cuarto": "(Chansey duerme como un tronco. En la puerta ha colgado un cartel: «No molestar. Ni aunque tosáis».)"
+    },
+    "dragonite": {
+      "lineas": [
+        {
+          "emocion": "Happy",
+          "texto": "Esta chistorra la habría traído yo de Navarra en cuarenta minutos. Y calentita, ¿eh? Esa es mi especialidad."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "Perdona, que me vibra el ala. Ah, no, es la app. Un cliente de Sinnoh. Sigue, sigue, que te escucho."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Antes era cartero. Llevaba cartas de un faro a otro y me esperaban con galletas. Ahora me esperan con el móvil."
+        },
+        {
+          "emocion": "Sad",
+          "texto": "Charizard no me habla. Creo que es porque yo soy dragón de verdad y él no. Yo no tengo la culpa: me salió de serie."
+        }
+      ],
+      "gesto": "(Dragonite come de pie, con la mochila puesta, mirando el móvil. Cada vez que vibra, da un saltito y se le cae un trozo de pizza.)",
+      "paseo": "(Dragonite sale a estirar las alas y da tres vueltas al pino a toda velocidad. Dice que es para no perder la forma. Las Pidgey se marean.)",
+      "cuarto": "(Dragonite duerme abrazado a la mochila térmica. En sueños dice «su pedido está en camino» y sonríe.)"
+    },
+    "alakazam": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "Con la S: sobremesa. Rato que se pasa en la mesa después de comer. Mi palabra favorita. Después de «chistorra»."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "Perdón por el bigote en la sopa. Con un cerebro que no para de crecer, la cabeza se me va hacia delante."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "Dice la Pokédex que tengo un cociente de 5000. Y aun así no sé cerrar la puerta del baño de esta posada. ¿Tiene truco?"
+        },
+        {
+          "emocion": "Sad",
+          "texto": "Ciento cuarenta programas. Por la calle me gritan «¡el de las cucharas!». Nadie me pregunta cómo me llamo."
+        }
+      ],
+      "gesto": "(Alakazam dobla la cuchara mientras piensa, la endereza cuando acierta y vuelve a doblarla. Al llegar el postre parece un muelle.)",
+      "paseo": "(Alakazam pasea definiendo en voz alta todo lo que ve: «Con la P: pino. Calcinado, además». El pino no contesta.)",
+      "cuarto": "(Alakazam repasa el diccionario con una cuchara en cada mano. A las doce se le oye murmurar: «Contiene la Ñ…».)"
+    },
+    "exeggcute": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "¡Qué buena está la chistorra! —Pues a mí me sabe a poco. —Porque te la has comido tú solo. —¡Era para los seis!"
+        },
+        {
+          "emocion": "Normal",
+          "texto": "En nuestras fiestas, la peña sale a las doce y vuelve a las doce. —Del día siguiente. —O del otro."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "¿Quién ha pensado eso? —Yo no. —Pues alguien lo ha pensado y se ha oído en toda la mesa. —Perdón, Manolo."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Uno de nosotros quiere ser palmera. —Exeggutor. —Eso, palmera. —¡Pero sin dejar a nadie fuera de la peña!"
+        }
+      ],
+      "gesto": "(Las seis cabecitas tararean la charanga a la vez. Cada una va por una estrofa distinta, pero el compás es el mismo.)",
+      "paseo": "(La peña sale de paseo cantando. Se para en cada piedra a votar si sigue. Tardan una hora en dar la vuelta al pino.)",
+      "cuarto": "(Desde el cuarto de Exeggcute se oye una discusión a seis voces. De repente, silencio: se han dormido los seis a la vez.)"
+    },
+    "kangaskhan": {
+      "lineas": [
+        {
+          "emocion": "Pain",
+          "texto": "Si me quedo dormida en la silla, no me despierte. Solo si la niña se sube a algo. O se come algo. O toca a Gengar."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "Hoy ha dicho una palabra nueva: «chistorra». La primera fue «mamá». La segunda, «abuelo». Vamos bien."
+        },
+        {
+          "emocion": "Angry",
+          "texto": "Un Machoke se ha acercado a la bolsa a hacerle cucamonas. Le he enseñado los dientes. Educadamente."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Antes yo leía novelas. Ahora me sé de memoria el cuento del Snorlax que no quería dormir. Y lo entiendo."
+        }
+      ],
+      "gesto": "(Kangaskhan da cabezadas en la silla mientras, desde la bolsa, una manita le roba las servilletas a todo el comedor.)",
+      "paseo": "(Kangaskhan pasea muy despacio por el prado, meciéndose al andar. De la bolsa sale un bostezo pequeñito.)",
+      "cuarto": "(Kangaskhan duerme en su cuarto. Por fin. Desde el pasillo se oye a la cría contarle un cuento a su madre.)"
+    },
+    "lickitung": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "(Susurra.) Este tenedor… escuchen… (Lo lame.) Madera de pino y un toque de chistorra. Cinco estrellas."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Mi lengua mide el doble que yo. Es mi herramienta de trabajo. La tengo asegurada en el banco de Ciudad Celeste."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Por favor, mastiquen más bajo. No es por mí. Es por mis doce mil seguidores que intentan dormir."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "(Misma cara de siempre.) Estoy contentísimo. Se me nota, ¿verdad? No. No se me nota nunca. Es por el audio."
+        }
+      ],
+      "gesto": "(Lickitung acerca el micrófono a la taza de Manolo para grabar cómo sopla. Manolo sopla bajito, por si acaso.)",
+      "paseo": "(Lickitung pasea por el prado grabando el viento en los pinos. Les pide a los Pidgey que vuelen más bajito.)",
+      "cuarto": "(Lickitung está en su cuarto, muy quieto, grabando el silencio. Ha colgado un cartel en la puerta: «Shhh».)"
+    },
+    "dodrio": {
+      "lineas": [
+        {
+          "emocion": "Happy",
+          "texto": "(Izquierda) ¡Última hora: Snorlax ha bajado a desayunar! (Derecha) ¡Y se ha comido el mío! (Medio) Seguiremos informando."
+        },
+        {
+          "emocion": "Angry",
+          "texto": "(Derecha) ¡Esta sopa está fría! (Izquierda) ¡Está perfecta! (Medio) …Está templada. Damos paso al tiempo."
+        },
+        {
+          "emocion": "Sad",
+          "texto": "(Medio) A veces sueño con ser un Doduo. Dos cabezas. Sin moderar. Qué paz."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "(Medio) El debate de hoy: ¿Charizard es de la casa o la casa es de Charizard? Abrimos líneas."
+        }
+      ],
+      "gesto": "(Las tres cabezas de Dodrio comentan la cena a tres voces. La del medio levanta el ala para pedir turno.)",
+      "paseo": "(Dodrio da vueltas al prado corriendo a toda velocidad. Las tres cabezas discuten hacia dónde ir. Van hacia las tres.)",
+      "cuarto": "(Dodrio está en su cuarto. Se oyen tres ronquidos distintos, y de vez en cuando, uno que le lleva la contraria a los otros.)"
     }
   },
   "parejas": [
@@ -1636,6 +1843,320 @@
           "manolo",
           "Sigh",
           "(Eevee apunta «que me envenenen» en su lista de cosas que busca en una pareja. Manolo prefiere no preguntar.)"
+        ]
+      ]
+    },
+    {
+      "a": "meowth",
+      "b": "arbok",
+      "lineas": [
+        [
+          "meowth",
+          "Surprised",
+          "¿Arbok? ¿La de Jessie? ¡Compañera! Cuánto tiempo. ¿Sigues saliendo volando por los aires?"
+        ],
+        [
+          "arbok",
+          "Happy",
+          "Ssss… Ya no, cielo. Ahora solo escucho. ¿Y tú? Me han contado que tienes un sindicato."
+        ],
+        [
+          "meowth",
+          "Happy",
+          "Tengo, sí. Y dime: ¿el Team Rocket te pagó alguna vez? ¿Unas vacaciones? ¿Una paga extra? ¿Nada?"
+        ],
+        [
+          "arbok",
+          "Sad",
+          "Nos pagaban en explosiones. Bonitas, eso sí. Echo de menos a James. No se lo cuentes a nadie."
+        ],
+        [
+          "meowth",
+          "Normal",
+          "Yo también. A todos. Hasta a Wobbuffet. Te afilio y lo hablamos en asamblea."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Meowth y Arbok brindan con mosto por los viejos tiempos. Esta vez no sale nadie volando.)"
+        ]
+      ]
+    },
+    {
+      "a": "geodude",
+      "b": "machoke",
+      "lineas": [
+        [
+          "machoke",
+          "Happy",
+          "Oye, piedra. ¿Cuánto levantas? Yo esta mañana, cien kilos de press. Sin cinturón."
+        ],
+        [
+          "geodude",
+          "Normal",
+          "Yo levanto un muro entero. Y luego me como el bocadillo encima. Eso no es press: eso es trabajo."
+        ],
+        [
+          "machoke",
+          "Worried",
+          "¿Un muro? ¿Y cuántas series?"
+        ],
+        [
+          "geodude",
+          "Happy",
+          "Una. Que dura una semana. Bueno, tres. Oye, tú me valdrías de peón para la planta de arriba."
+        ],
+        [
+          "machoke",
+          "Happy",
+          "¿Subir ladrillos por la escalera? ¡Eso es día de pierna sin que se note!"
+        ],
+        [
+          "manolo",
+          "Sigh",
+          "(Machoke se apunta de peón. Al segundo ladrillo ya se está mirando en la ventana por si se le marca el gemelo.)"
+        ]
+      ]
+    },
+    {
+      "a": "chansey",
+      "b": "psyduck",
+      "lineas": [
+        [
+          "psyduck",
+          "Pain",
+          "Ay… La cabeza. Tema cuarenta y tres. No me entra. Y la cabeza, cada vez más."
+        ],
+        [
+          "chansey",
+          "Worried",
+          "(Ya le está mirando las pupilas.) ¿Cuántas horas estudias al día? ¿Bebes agua? ¿Duermes?"
+        ],
+        [
+          "psyduck",
+          "Worried",
+          "Doce horas de estudio. Agua, la del charco. Dormir… ¿eso entra en el temario?"
+        ],
+        [
+          "chansey",
+          "Happy",
+          "Mira, yo hacía lo mismo con los turnos. Se me ha curado aquí, durmiendo. Hoy, los dos: siesta. Receta de enfermera."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Chansey y Psyduck se duermen en el sofá del comedor. Por primera vez en doce años, a Psyduck no le duele nada.)"
+        ]
+      ]
+    },
+    {
+      "a": "dragonite",
+      "b": "pikachu",
+      "lineas": [
+        [
+          "pikachu",
+          "Happy",
+          "¡Tú eres el rider de la otra noche! Me trajiste el kétchup. Te puse una estrella."
+        ],
+        [
+          "dragonite",
+          "Sad",
+          "¿Una? Si volé desde Hoenn en dos horas, con el bote en la mochila para que no se enfriara…"
+        ],
+        [
+          "pikachu",
+          "Normal",
+          "Es que no me pediste un autógrafo. Quito una estrella por cada autógrafo que no me piden."
+        ],
+        [
+          "dragonite",
+          "Happy",
+          "Pues fírmame la mochila. Y la próxima vez te llevo el kétchup con escolta."
+        ],
+        [
+          "pikachu",
+          "Happy",
+          "Hecho. Cinco estrellas. Y una de propina, que soy famoso y puedo."
+        ],
+        [
+          "manolo",
+          "Sigh",
+          "(Charizard le pide un autógrafo a Pikachu, a ver si así lo valoran a él. Se lo firma en la cola y la llama se lo borra.)"
+        ]
+      ]
+    },
+    {
+      "a": "alakazam",
+      "b": "kadabra",
+      "lineas": [
+        [
+          "kadabra",
+          "Happy",
+          "¡Ay, mi niño! Te veo en la tele todas las tardes. Las cartas dicen que ganas el bote."
+        ],
+        [
+          "alakazam",
+          "Normal",
+          "Con la K: Kadabra. Lo que fui hasta que me intercambiaron. En nuestra familia se evoluciona cambiando de casa."
+        ],
+        [
+          "kadabra",
+          "Angry",
+          "¡Y te fue muy bien! Te dije que serías famoso. Lo vi en las cartas."
+        ],
+        [
+          "alakazam",
+          "Happy",
+          "Me dijiste que sería cantante. …Pero vale, me llevo una cuchara de recuerdo."
+        ],
+        [
+          "kadabra",
+          "Surprised",
+          "Esa cuchara es mía. Se ha doblado sola hacia ti. ¿Lo ves? Eso es una señal."
+        ],
+        [
+          "manolo",
+          "Sigh",
+          "(Se pasan la sobremesa doblándose cucharas el uno al otro. A Manolo le quedan dos rectas en toda la cocina.)"
+        ]
+      ]
+    },
+    {
+      "a": "exeggcute",
+      "b": "gengar",
+      "lineas": [
+        [
+          "gengar",
+          "Happy",
+          "¡Ay, una peña! ¡Esto es lo mío, primos! ¿Quién se arranca?"
+        ],
+        [
+          "exeggcute",
+          "Normal",
+          "¡Yo! —No, yo. —¡Todos! —Bueno, nos arrancamos a la vez y que salga lo que salga."
+        ],
+        [
+          "gengar",
+          "Surprised",
+          "Primos, que esto me suena por dentro de la cabeza. ¿Me estáis cantando por telepatía?"
+        ],
+        [
+          "exeggcute",
+          "Normal",
+          "Es la charanga. —Con su permiso. —Ponga usted las palmas, que nosotros no tenemos manos."
+        ],
+        [
+          "gengar",
+          "Happy",
+          "¡Pues olé! Bulerías con charanga de pueblo. Esto no lo ha oído ni mi abuela, y eso que ha oído de todo."
+        ],
+        [
+          "manolo",
+          "Sigh",
+          "(El comedor acaba bailando en corro. Desde fuera no se oye nada, pero todos llevan el compás por dentro.)"
+        ]
+      ]
+    },
+    {
+      "a": "kangaskhan",
+      "b": "nidoran",
+      "lineas": [
+        [
+          "nidoran",
+          "Happy",
+          "¡Qué cosa más pequeña! ¿Podemos cogerla? Es para ir practicando. Por si un día…"
+        ],
+        [
+          "kangaskhan",
+          "Pain",
+          "Primer consejo: dormid ahora. Todo lo que podáis. Guardad sueño como los Snorlax guardan comida."
+        ],
+        [
+          "nidoran",
+          "Surprised",
+          "¿Y segundo consejo?"
+        ],
+        [
+          "kangaskhan",
+          "Happy",
+          "Que os turnéis. Y que el que no se levanta de noche, hace el desayuno. Con chistorra."
+        ],
+        [
+          "nidoran",
+          "Worried",
+          "Mi señora dice que eso lo apunta. Y que el desayuno lo voy a hacer yo, ya puestos."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(La cría le pincha a Nidoran el cuerno con el dedo y se ríe. Nidoran se derrite. La buhardilla, de repente, parece pequeña.)"
+        ]
+      ]
+    },
+    {
+      "a": "lickitung",
+      "b": "jigglypuff",
+      "lineas": [
+        [
+          "jigglypuff",
+          "Happy",
+          "Puff… ¿Te canto algo para tu vídeo? Cortito. Muy suave."
+        ],
+        [
+          "lickitung",
+          "Normal",
+          "(Susurra.) No. Por favor. Llevo tres horas grabando el silencio. Es mi mejor silencio."
+        ],
+        [
+          "jigglypuff",
+          "Sad",
+          "Puff… Siempre igual. Nadie quiere oírme cantar."
+        ],
+        [
+          "lickitung",
+          "Normal",
+          "…Espera. Cántalo bajito. Susurrado. (Le pone el micro.) Una nana en susurros. Eso no lo tiene nadie."
+        ],
+        [
+          "jigglypuff",
+          "Happy",
+          "(Canta bajito. Lickitung se duerme en el segundo verso. Sus doce mil seguidores, también.)"
+        ],
+        [
+          "manolo",
+          "Sigh",
+          "(Jigglypuff está encantada: por primera vez, que se duerma el público es un éxito.)"
+        ]
+      ]
+    },
+    {
+      "a": "dodrio",
+      "b": "mrmime",
+      "lineas": [
+        [
+          "mrmime",
+          "Normal",
+          "Mira, yo de esto sé mucho. Esta posada antes era otra cosa. Antes había respeto."
+        ],
+        [
+          "dodrio",
+          "Angry",
+          "(Derecha) ¡Eso digo yo! (Izquierda) Pero si está preciosa. (Medio) Señor Mime, ¿usted en calidad de qué opina?"
+        ],
+        [
+          "mrmime",
+          "Normal",
+          "En calidad de que me lo ha dicho un amigo que sabe. Y el amigo lo leyó. En algún sitio."
+        ],
+        [
+          "dodrio",
+          "Sad",
+          "(Medio) Fuentes: un amigo. Tomamos nota. (Derecha) ¡Este es de los míos! (Izquierda) Ay, no, que se juntan."
+        ],
+        [
+          "manolo",
+          "Sigh",
+          "(A los diez minutos, Mr. Mime ya tiene su propia sección en el programa. Se llama «Lo que nadie dice». La dice él todas las noches.)"
         ]
       ]
     }

@@ -414,7 +414,7 @@ function render(v) {
   $('#advance').textContent = v.advance;
 }
 
-// Fin del día: lo que ha pasado, la caja y la tienda de mejoras (una por noche)
+// Fin del día: lo que ha pasado, la caja y la tienda de mejoras (las obras, una por noche)
 let lastNight = null;
 function heartsHtml(n) {
   return `<span class="hearts" title="${n} de 5">${'<i class="on"></i>'.repeat(n)}${'<i></i>'.repeat(5 - n)}</span>`;
@@ -466,7 +466,8 @@ function shop() {
   const list = inn.upgradesView();
   const grupos = [...new Set(list.map(u => u.grupo))];
   if (!grupos.includes(shopTab)) shopTab = grupos.find(g => list.some(u => u.grupo === g && u.puede)) || grupos[0];
-  const yaHoy = !list.some(u => u.puede) && list.some(u => !u.tiene && last.monedas >= u.precio && !u.falta);
+  // las obras, una por noche (lo demás se compra mientras haya dinero)
+  const yaHoy = shopTab === 'Obras' && list.some(u => u.bloqueada && !u.tiene && !u.falta);
   const v = last;
   let html = `<div class="shop-head">${starsHtml(v.estrellas)}<span>${v.monedas} monedas</span></div>`
     + (yaHoy ? '<p class="muted small">Una obra por noche: mañana, otra.</p>' : '')
@@ -545,7 +546,7 @@ async function libro() {
       <p>Afinidad ${heartsHtml(af)}</p>
       ${e.felicidad != null ? `<p>Última estancia ${heartsHtml(e.felicidad)}</p>` : ''}</div></div>
       <p class="reason">${esc(g.razon)}</p>
-      <h4>Su historia</h4>${capitulos.length ? `<ol class="chapters">${capitulos.map(c => `<li>${esc(c)}</li>`).join('')}</ol>` : '<p class="muted">Aún no habéis charlado.</p>'}
+      <h4>Su historia</h4>${book.terminados?.has(g.id) ? '<p class="muted">Historia completa: se despidió de la posada.</p>' : ''}${capitulos.length ? `<ol class="chapters">${capitulos.map(c => `<li>${esc(c)}</li>`).join('')}</ol>` : '<p class="muted">Aún no habéis charlado.</p>'}
       <h4>Le gusta</h4><p>${gusta.length ? gusta.map(id => esc(recipes.find(r => r.id === id).nombre)).join(', ') : '<span class="muted">Todavía no lo sabes: cocínale algo rico.</span>'}</p>`;
   }
   go('libro');

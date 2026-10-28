@@ -1,0 +1,58 @@
+{
+  "id": "chansey",
+  "_nota": "Chansey, enfermera del Centro Pokémon quemada de turnos dobles: viene a dormir doce horas seguidas y, si alguien tose, se le activa el modo enfermera. Lore: la Enfermera Joy y su Chansey en todos los Centros (todas las Joy son iguales) y el huevo de la bolsa. Arco en tres visitas: doce horas, todas las Joy y aprender a desconectar, despedida (bandera chansey_desconecta).",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · doce horas",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "La habitación más silenciosa, por favor. Vengo de un turno doble en el Centro Pokémon. Y antes, de otro. Quiero dormir doce horas.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "Tengo la del fondo, que da al pinar. (Charizard echa humo en la cocina y a Manolo se le escapa una tosecilla.) Cof.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Surprised", "texto": "(En un segundo, Chansey le ha metido un termómetro en la boca.) ¿Desde cuándo tose? ¿Le duele al tragar? ¿Toma algo? ¡No hable!", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Pain", "texto": "…Perdone. Es superior a mí. Alguien tose y se me activa la enfermera. Hasta dormida. Una vez le puse una venda a una almohada.", "opciones": [
+          { "texto": "«Aquí no hay turnos, solo almohadas»", "efectos": { "afinidad": 1 }, "sigue": "almohadas" },
+          { "texto": "«¿Y qué tengo, enfermera?»", "sigue": "diagnostico" }
+        ] },
+        "almohadas": { "quien": "huesped", "emocion": "Happy", "texto": "¿Almohadas de verdad? ¿Que no son de camilla? Ay. (Se le cierran los ojos ahí mismo, en la recepción.)", "sigue": "fin" },
+        "diagnostico": { "quien": "huesped", "emocion": "Normal", "texto": "Treinta y seis y medio: está usted perfecto. El humo es del dragón. Tómese una chistorra y a dormir. Que es lo que voy a hacer yo.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "De madrugada, Charizard tose humo sin querer. Chansey aparece en camisón con el termómetro. Ochocientos grados: normal, para él. Vuelve a la cama." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · todas las Joy",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "¿Sabe lo más raro de mi trabajo? En cada Centro Pokémon hay una Enfermera Joy. Y todas son iguales. Idénticas. Primas, dicen.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Y tú cómo las distingues?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "No las distingo. Llevo años diciendo «buenos días, Joy» a todas. Siempre acierto. Es el único trabajo donde nunca fallas un nombre.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Sad", "texto": "Lo malo es que ellas tampoco nos distinguen a las Chansey. Por eso nadie nota que llevo tres semanas sin dormir.", "opciones": [
+          { "texto": "«Yo te distingo: eres la que se duerme en la sopa»", "efectos": { "afinidad": 1 }, "sigue": "sopa" },
+          { "texto": "«¿Y ese huevo que llevas en la bolsa?»", "sigue": "huevo" }
+        ] },
+        "sopa": { "quien": "huesped", "emocion": "Happy", "texto": "(Se ríe y se despierta un poco.) Es verdad. Anoche me dormí con la cuchara en la boca. Y nadie me despertó. Qué gusto.", "sigue": "fin" },
+        "huevo": { "quien": "huesped", "emocion": "Normal", "texto": "Es para los pacientes. Lo llevo siempre, por si alguien se pone malo. Y no, Charizard, no se fríe. Ya lo ha preguntado tres veces.", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Pasa Psyduck con dolor de cabeza. Chansey se levanta de un salto, le pone una compresa fría y vuelve a su sopa sin terminar el bostezo.)" }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · aprender a desconectar",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Manolo! Hoy alguien ha tosido en el comedor… y no me he levantado. Bueno, un poco. Pero me he vuelto a sentar. ¡Y he dormido doce horas!", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "Eso se celebra. ¿Te quedas unos días más?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "No. Vuelvo al Centro. Pero he pedido horario de persona: un turno, no dos. Y los domingos, el termómetro en el cajón.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Sad", "texto": "Así que esta es mi última noche aquí. (Saca el huevo de la bolsa.) Te lo dejo. Por si alguien se pone malo. Pero esta vez cúralo tú.", "opciones": [
+          { "texto": "«Cuídate tú, que ya cuidas a todos»", "efectos": { "afinidad": 1, "flags": { "chansey_desconecta": "cuidarse" } }, "sigue": "cuidate" },
+          { "texto": "«Llévate al menos el termómetro»", "efectos": { "flags": { "chansey_desconecta": "termometro" } }, "sigue": "termometro" }
+        ] },
+        "cuidate": { "quien": "huesped", "emocion": "Happy", "texto": "Me lo voy a apuntar en la mano, con boli, para leerlo en cada turno: «cuídate tú». Qué raro suena. Qué bonito.", "sigue": "fin" },
+        "termometro": { "quien": "huesped", "emocion": "Surprised", "texto": "Uy, no. El termómetro se queda aquí. Si me lo llevo, le tomo la temperatura a alguien en el autobús. Es más fuerte que yo.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al despedirla, Charizard tose a propósito. Chansey se gira, sonríe… y no saca el termómetro. Se va cuesta abajo dando saltitos, descansada." }
+      }
+    }
+  ]
+}

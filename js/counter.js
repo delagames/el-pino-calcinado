@@ -180,14 +180,21 @@ export function createCounter(canvas) {
     const box = { width: parent.clientWidth - 16, height: libre - 16 };
     const dpr = window.devicePixelRatio || 1;
     const S = Math.max(1, Math.floor(Math.min(box.width * dpr / W, box.height * dpr / H)));
-    canvas.width = W; canvas.height = H;
+    if (canvas.width !== W) canvas.width = W;
+    if (canvas.height !== H) canvas.height = H;
     canvas.style.width = `${W * S / dpr}px`;
     canvas.style.height = `${H * S / dpr}px`;
   }
 
+  // un fallo en un fotograma se apunta y se sigue: que no se quede congelado el mostrador
   function frame(t) {
     if (!running) return;
-    if (t - drawn < 30) { requestAnimationFrame(frame); return; }   // ~30 fps bastan
+    try { drawFrame(t); } catch (err) { console.error('[mostrador]', err); }
+    requestAnimationFrame(frame);
+  }
+
+  function drawFrame(t) {
+    if (t - drawn < 30) return;   // ~30 fps bastan
     drawn = t;
     if (lugar === 'dentro') backdrop(c, fase, t);
     else outside(c, fase, t, lugar === 'estanque');
@@ -203,7 +210,6 @@ export function createCounter(canvas) {
     }
     if (llora && ojos) tears(c, t, ojos);
     if (lugar === 'dentro') counterFront(c);
-    requestAnimationFrame(frame);
   }
 
   window.addEventListener('resize', () => running && resize());

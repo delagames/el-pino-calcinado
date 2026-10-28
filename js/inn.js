@@ -26,6 +26,8 @@ const GUSTOS = {
   porygon: 'farolillos', pikachu: 'banderines', kadabra: 'farolillos', clefairy: 'alfombra', arbok: 'chimenea',
   mew: 'macetas', ditto: 'cuadro', cubone: 'chimenea', farfetchd: 'macetas', slowpoke: 'estanque',
   nidoran: 'farolillos',
+  geodude: 'cuadro', meowth: 'banderines', chansey: 'macetas', dragonite: 'alfombra', alakazam: 'farolillos',
+  exeggcute: 'banderines', kangaskhan: 'chimenea', lickitung: 'chimenea', dodrio: 'alfombra',
 };
 const DECOR_NOMBRE = { farolillos: 'los farolillos', banderines: 'los banderines', macetas: 'las macetas', cuadro: 'el cuadro del gimnasio', alfombra: 'la alfombra roja', estanque: 'la charca', chimenea: 'la chimenea' };
 
@@ -77,6 +79,15 @@ const TARDE = {
   farfetchd: { comedor: 0.6, paseo: 0.3 },
   slowpoke: { cuarto: 0.4, comedor: 0.4 },
   nidoran: { cuarto: 0.6, paseo: 0.3 },   // la pareja: a su buhardilla en cuanto pueden
+  geodude: { paseo: 0.5, comedor: 0.4 },
+  meowth: { comedor: 0.8, paseo: 0.1 },
+  chansey: { cuarto: 0.7, comedor: 0.2 },
+  dragonite: { paseo: 0.6, comedor: 0.3 },
+  alakazam: { comedor: 0.6, cuarto: 0.3 },
+  exeggcute: { comedor: 0.9, paseo: 0.05 },
+  kangaskhan: { cuarto: 0.5, comedor: 0.4 },
+  lickitung: { cuarto: 0.5, comedor: 0.4 },
+  dodrio: { comedor: 0.85, paseo: 0.1 },
 };
 const TARDE_DEF = { comedor: 0.6, paseo: 0.15 };
 const PASEO_X = [54, 334, 352, 384];              // fuera: entre el pino y el porche, y a la derecha de la casa
@@ -263,6 +274,13 @@ export async function createInn(scene, ui) {
   function charlaOf(g) {
     if (g.charlado || st.fase === 'noche') return null;
     return nextEntry(dialogues[g.id], talkCtx(g.id), st.vistas[g.id]);
+  }
+
+  // Quien ya ha contado toda su historia (ha visto su último capítulo) se despide y no vuelve:
+  // así dejan sitio a otros y no se repite
+  function terminados() {
+    return new Set(data.guests.filter(g => (dialogues[g.id]?.entradas || [])
+      .some(e => e.fin_arco && (st.vistas[g.id] || []).includes(e.id))).map(g => g.id));
   }
 
   function beginTalk(id) {
@@ -463,7 +481,7 @@ export async function createInn(scene, ui) {
   async function arrive() {
     st.llegados = true;
     syncEstrellas();
-    const llegan = pickArrivals(st);
+    const llegan = pickArrivals(st, terminados());
     st.vuelven = st.vuelven.filter(id => !llegan.some(l => l.id === id));
     st.ultimoPide = st.ultimoPide || {};
     for (const [i, l] of llegan.entries()) {
@@ -833,14 +851,17 @@ export async function createInn(scene, ui) {
       .map(id => ({ id, nombre: ROOM[id].nombre }));
   }
 
-  // ---------- mejoras (sección 7): una por noche ----------
+  // ---------- mejoras (sección 7): se compra lo que alcance; obras, solo una por noche ----------
 
   function upgradesView() {
-    return upgradesData.filter(u => !u.retirada).map(u => ({
-      ...u, tiene: has(u.id),
-      puede: !has(u.id) && st.monedas >= u.precio && (!u.requiere || has(u.requiere)) && st.compradoHoy !== st.dia,
+    return upgradesData.filter(u => !u.retirada).map(u => {
+      // no se levantan dos plantas del tirón: una obra por noche
+      const bloqueada = u.grupo === 'Obras' && st.obraHoy === st.dia;
+      return { ...u, tiene: has(u.id), bloqueada,
+      puede: !has(u.id) && st.monedas >= u.precio && (!u.requiere || has(u.requiere)) && !bloqueada,
       falta: u.requiere && !has(u.requiere) ? upgradesData.find(x => x.id === u.requiere).nombre : null,
-    }));
+      };
+    });
   }
 
   async function buyUpgrade(id) {
@@ -849,7 +870,7 @@ export async function createInn(scene, ui) {
     const antes = estrellas();
     st.monedas -= u.precio;
     st.mejoras.push(id);
-    st.compradoHoy = st.dia;
+    if (u.grupo === 'Obras') st.obraHoy = st.dia;
     syncEstrellas();
     const sube = st.estrellas > antes;
     ui.say('manolo', 'Happy', `¡Hecho! ${u.nombre}. ${u.efecto}` + (sube ? ` ¡La posada ya tiene ${st.estrellas} estrellas! Se correrá la voz.` : ''));
@@ -886,7 +907,7 @@ export async function createInn(scene, ui) {
       persist();
       await begin();
     },
-    bookView: () => ({ libro: st.libro, afinidad: st.afinidad, vistas: st.vistas, recetario: st.recetario, flags: st.flags }),
+    bookView: () => ({ libro: st.libro, afinidad: st.afinidad, vistas: st.vistas, recetario: st.recetario, flags: st.flags, terminados: terminados() }),
     actorOf: id => actors.get(id),
     clickActor(a) {
       if (a.huesped) select(a.huesped);

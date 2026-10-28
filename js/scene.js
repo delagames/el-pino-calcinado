@@ -206,6 +206,12 @@ function perimeter(pts) {
   return pts.flatMap((p, i) => linePixels(...p, ...pts[(i + 1) % pts.length]));
 }
 
+// Cambia el tamaño de un lienzo solo si es distinto (cada cambio reserva memoria nueva)
+export function fitCanvas(cv, w, h) {
+  if (cv.width !== w) cv.width = w;
+  if (cv.height !== h) cv.height = h;
+}
+
 export function createInnView(canvas) {
   const ctx = canvas.getContext('2d');
   const low = document.createElement('canvas');      // fotograma a resolución nativa
@@ -239,19 +245,24 @@ export function createInnView(canvas) {
   function resize() {
     const dpr = window.devicePixelRatio || 1;
     const W = Math.round(canvas.clientWidth * dpr), H = Math.round(canvas.clientHeight * dpr);
-    canvas.width = W; canvas.height = H;
+    // solo se cambia el tamaño de los lienzos si hace falta: reasignarlos en cada cambio del cuadro de
+    // diálogo gastaba memoria y Safari del móvil, al pasar su límite, dejaba de dibujar
+    fitCanvas(canvas, W, H);
     const aw = (canvas.clientWidth - insets.left - insets.right) * dpr;
     const ah = (canvas.clientHeight - insets.top - insets.bottom) * dpr;
     const FIT = { ...FIT0, y: FIT0.y - LAYOUT.lift, h: FIT0.h + LAYOUT.lift };
     // en vertical (el móvil) la cámara se acerca a la casa y se arrastra con el dedo para ver los lados
     narrow = aw < ah * 1.15;
     const fw = narrow ? NARROW_W : FIT.w;
-    const fit = Math.min(aw / fw, ah / FIT.h);
+    // en vertical la casa tiene que caber entera encima del cuadro de diálogo de verdad: con dos plantas
+    // más es muy alta y, si el cuadro crece, se encoge un poco en vez de quedar tapada
+    const ahReal = (canvas.clientHeight - insets.top - Math.max(insets.bottom, insets.dialog || 0)) * dpr;
+    const fit = Math.min(aw / fw, (narrow ? ahReal : ah) / FIT.h);
     // a múltiplos enteros para que los píxeles salgan iguales; en el móvil (pantallas de mucha
     // densidad) se aprovecha todo el sitio, que redondear hacia abajo la dejaba mucho más pequeña
     const S = fit >= 2 && !narrow ? Math.floor(fit) : fit;
     const LW = Math.ceil(W / S) + 1, LH = Math.ceil(H / S) + 1;
-    low.width = stat.width = LW; low.height = stat.height = LH;
+    fitCanvas(low, LW, LH); fitCanvas(stat, LW, LH);
     const viewW = aw / S;
     panMax = narrow ? Math.max(0, (FIT0.w + 24 - viewW) / 2) : 0;
     pan = Math.max(-panMax, Math.min(panMax, pan));
@@ -825,12 +836,18 @@ export function createInnView(canvas) {
     c.globalAlpha = 1;
   }
 
+  // Un fallo en un fotograma no puede parar la animación para siempre: se apunta y se sigue
   function frame(t) {
     if (!running) return;
     // tapada por la recepción, la cocina o el libro: se para el bucle hasta que vuelva
     if (paused) { looping = false; return; }
+    try { drawFrame(t); } catch (err) { console.error('[escena]', err); }
+    requestAnimationFrame(frame);
+  }
+
+  function drawFrame(t) {
     // el pixel art se anima a saltos: con ~30 fotogramas por segundo sobra (y el móvil lo agradece)
-    if (t - drawn < 30) { requestAnimationFrame(frame); return; }
+    if (t - drawn < 30) return;
     drawn = t;
     // la cámara se acerca poco a poco a donde tiene que mirar (y al acabar, vuelve)
     if (camTarget != null) {
@@ -997,7 +1014,6 @@ export function createInnView(canvas) {
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.imageSmoothingEnabled = false;
     ctx.drawImage(low, 0, 0, v.LW, v.LH, 0, 0, v.LW * v.S, v.LH * v.S);
-    requestAnimationFrame(frame);
   }
 
   const LOGO_FAMADESA = new Image();

@@ -775,7 +775,8 @@ export function createKitchen(canvas) {
     const box = { width: parent.clientWidth - 16, height: libre - 16 - extra };
     const dpr = window.devicePixelRatio || 1;
     const S = Math.max(1, Math.floor(Math.min(box.width * dpr / W, box.height * dpr / H)));
-    canvas.width = W; canvas.height = H;
+    if (canvas.width !== W) canvas.width = W;
+    if (canvas.height !== H) canvas.height = H;
     canvas.style.width = `${W * S / dpr}px`;
     canvas.style.height = `${H * S / dpr}px`;
   }
@@ -814,8 +815,13 @@ export function createKitchen(canvas) {
     const token = (session += 1);
     return new Promise(resolve => {
       let last = null, countdown = 2.4, result = null;
+      // un fallo en un fotograma se apunta y se sigue: si no, la cocina se quedaba colgada
       function frame(t) {
         if (!running || session !== token) return;
+        try { step(t); } catch (err) { console.error('[cocina]', err); }
+        requestAnimationFrame(frame);
+      }
+      function step(t) {
         const dt = last == null ? 0 : Math.min(0.05, (t - last) / 1000);
         last = t;
         if (countdown > 0) {
@@ -833,7 +839,6 @@ export function createKitchen(canvas) {
         chari.draw(c, t);
         if (game) game.draw(c, t);
         else countdownOverlay(Math.ceil(countdown / 0.8));
-        requestAnimationFrame(frame);
       }
       requestAnimationFrame(frame);
     });

@@ -1179,6 +1179,368 @@
           "recuerda": "¿Y la tarta? Que ya hemos sacado las dos cucharas."
         }
       ]
+    },
+    {
+      "id": "geodude",
+      "especie": "Geodude",
+      "dex": 74,
+      "sprite": "0074",
+      "razon": "Albañil de obra: una piedra con brazos y casco. Todo lo hace «en una semana», ve torcida cualquier pared de la posada y el bocadillo de las diez es sagrado.",
+      "gustos": [
+        "pan tostado con miel",
+        "chistorra a la brasa"
+      ],
+      "aparece": {
+        "dia_min": 3,
+        "estrellas": 1
+      },
+      "arco": 3,
+      "tipos": [
+        "roca",
+        "tierra"
+      ],
+      "pide": [
+        {
+          "tipo": "servicio",
+          "texto": "Un casco de obra",
+          "objeto": "casco",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "Jefe, ¿me dejas un casco? No es por mí, que soy de piedra. Es por la normativa.",
+          "hecho": "Manolo le da el casco. Geodude se lo pone, da tres golpecitos a la pared y dice «esto está torcido». Ya está contento.",
+          "recuerda": "¿Y el casco, jefe? Que si viene el inspector, me la cargo yo."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Algo en pan para las diez",
+          "plato": "pan tostado con miel",
+          "receta": "pan",
+          "objeto": "plato",
+          "dice": "Son las diez. ¿Me pones algo en pan? Lo que sea, pero en pan: a las diez, en la obra, todo va en pan.",
+          "recuerda": "Que son las diez y cuarto, jefe. Un albañil sin bocadillo es un pedrusco."
+        }
+      ]
+    },
+    {
+      "id": "meowth",
+      "especie": "Meowth",
+      "dex": 52,
+      "sprite": "0052",
+      "razon": "El Meowth del Team Rocket que aprendió a hablar por amor. Ahora es sindicalista: pide convenio para los Pokémon trabajadores y quiere afiliar a Charizard.",
+      "gustos": [
+        "pizza familiar"
+      ],
+      "aparece": {
+        "dia_min": 5,
+        "estrellas": 2
+      },
+      "arco": 3,
+      "tipos": [
+        "normal"
+      ],
+      "pide": [
+        {
+          "tipo": "servicio",
+          "texto": "Una pancarta para la protesta",
+          "objeto": "pancarta",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "Compañero, ¿me consigues una pancarta? La mía se chamuscó en la última asamblea. No digo quién fue. Tiene cola y alas.",
+          "hecho": "Manolo le trae la pancarta. Meowth escribe «CONVENIO YA» y se manifiesta él solo delante de la chimenea. Charizard se une, por si hay merienda.",
+          "recuerda": "¿Y la pancarta? Una huelga sin pancarta es solo gente parada."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Una pizza para la asamblea",
+          "plato": "pizza familiar",
+          "receta": "pizza",
+          "objeto": "plato",
+          "dice": "Una pizza familiar, compañero. Es para la asamblea. La asamblea soy yo, pero tengo mucha hambre.",
+          "recuerda": "La asamblea sigue esperando la pizza. Y la asamblea se impacienta."
+        }
+      ]
+    },
+    {
+      "id": "chansey",
+      "especie": "Chansey",
+      "dex": 113,
+      "sprite": "0113",
+      "razon": "Enfermera del Centro Pokémon, quemada de turnos dobles. Viene a dormir doce horas seguidas, pero si alguien tose se le activa el modo enfermera.",
+      "gustos": [
+        "sopa de bayas",
+        "pan tostado con miel"
+      ],
+      "aparece": {
+        "dia_min": 4,
+        "estrellas": 2
+      },
+      "arco": 3,
+      "tipos": [
+        "normal"
+      ],
+      "pide": [
+        {
+          "tipo": "servicio",
+          "texto": "Un termómetro, por si acaso",
+          "objeto": "termometro",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Tienes un termómetro? No es para mí. Es por si acaso. Por si alguien. Por si yo.",
+          "hecho": "Manolo le lleva el termómetro. Chansey le toma la temperatura a Manolo, a Charizard y a la sopa. Todo en orden. Se duerme tranquila.",
+          "recuerda": "El termómetro… Alguien ha tosido en el pasillo. Lo he oído. Estoy segura."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Una sopa calentita",
+          "plato": "sopa de bayas",
+          "receta": "sopa",
+          "objeto": "plato",
+          "dice": "Una sopa de bayas, calentita. En el Centro como de pie, de un vaso de plástico, entre dos Rattata con fiebre.",
+          "recuerda": "¿Y la sopa? Me estoy quedando dormida esperando. Bueno, eso es bueno."
+        }
+      ]
+    },
+    {
+      "id": "dragonite",
+      "especie": "Dragonite",
+      "dex": 149,
+      "sprite": "0149",
+      "razon": "Rider de reparto que da la vuelta al mundo en dieciséis horas. Vive pendiente de la app y de las cinco estrellas.",
+      "gustos": [
+        "pizza familiar",
+        "chistorra a la brasa"
+      ],
+      "aparece": {
+        "dia_min": 6,
+        "estrellas": 3
+      },
+      "arco": 3,
+      "tipos": [
+        "dragon",
+        "volador"
+      ],
+      "pide": [
+        {
+          "tipo": "servicio",
+          "texto": "Arreglar la mochila térmica",
+          "objeto": "mochila",
+          "quien": "charizard",
+          "gesto": "Happy",
+          "dice": "¿Me arregláis la mochila térmica? Se ha roto la cremallera y, sin cremallera, las pizzas se me salen volando.",
+          "hecho": "Charizard le suelda la cremallera con la llama de la cola. Ahora la mochila calienta sola. Dragonite le pone cinco estrellas.",
+          "recuerda": "¿Y la mochila? Que me vibra el ala. Creo que es la app."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Una pizza que no sea para entregar",
+          "plato": "pizza familiar",
+          "receta": "pizza",
+          "objeto": "plato",
+          "dice": "¿Me hace una pizza familiar? Llevo mil repartidas y nunca me he comido ninguna. Esta, para mí. Sin hacerle foto.",
+          "recuerda": "¿Y mi pizza? La tengo en «preparando» desde hace un rato."
+        }
+      ]
+    },
+    {
+      "id": "alakazam",
+      "especie": "Alakazam",
+      "dex": 65,
+      "sprite": "0065",
+      "razon": "Concursante de la tele con un cociente de 5000. Lleva meses en el rosco de las letras y siempre le falla la misma.",
+      "gustos": [
+        "pan tostado con miel",
+        "sopa de bayas"
+      ],
+      "aparece": {
+        "dia_min": 5,
+        "estrellas": 3
+      },
+      "arco": 3,
+      "tipos": [
+        "psiquico"
+      ],
+      "pide": [
+        {
+          "tipo": "servicio",
+          "texto": "Algo que haga «¡clic!»",
+          "objeto": "pulsador",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Tiene un pulsador? Si no entreno el dedo, se me oxida. Con la O: oxidar. Cubrirse de óxido por falta de uso.",
+          "hecho": "Manolo le da el timbre de recepción. Alakazam lo pulsa y define todo lo que ve durante una hora. Charizard acaba escondido.",
+          "recuerda": "Con la P: pulsador. Botón que se aprieta para responder. ¿Me lo trae, por favor?"
+        },
+        {
+          "tipo": "comida",
+          "texto": "Algo dulce para el cerebro",
+          "plato": "pan tostado con miel",
+          "receta": "pan",
+          "objeto": "plato",
+          "dice": "Con la M: miel. Sustancia dulce que fabrican las abejas y que mi cerebro pide a gritos. Sobre pan tostado, si puede ser.",
+          "recuerda": "Con la T: tardanza. Retraso en llegar. Lo digo por el pan, sin presión."
+        }
+      ]
+    },
+    {
+      "id": "exeggcute",
+      "especie": "Exeggcute",
+      "dex": 102,
+      "sprite": "0102",
+      "razon": "Seis cabecitas que son una peña de fiestas de pueblo. Hablan por telepatía, todas a la vez, y nunca se sabe cuál ha sido.",
+      "gustos": [
+        "chistorra a la brasa",
+        "tarta de bayas"
+      ],
+      "aparece": {
+        "dia_min": 3,
+        "estrellas": 1
+      },
+      "arco": 3,
+      "tipos": [
+        "planta",
+        "psiquico"
+      ],
+      "pide": [
+        {
+          "tipo": "servicio",
+          "texto": "Un pañuelico de fiestas",
+          "objeto": "panuelico",
+          "quien": "manolo",
+          "gesto": "Normal",
+          "dice": "¿Tiene un pañuelico? Uno se ha perdido en la charanga. —Fui yo. —No, fui yo. —El caso es que hay uno sin pañuelico.",
+          "hecho": "Manolo le anuda el pañuelico a una cabeza. Las otras cinco dicen que era la suya. Al final se lo turnan cada media hora.",
+          "recuerda": "¡El pañuelico! —Sin pañuelico no se es de la peña. —Bueno, se es, pero da frío."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Chistorra para la peña",
+          "plato": "chistorra a la brasa",
+          "receta": "chistorra",
+          "objeto": "chistorra",
+          "dice": "¡Chistorra para la peña! —Seis. —Una, que estamos a dieta. —¿Quién está a dieta? —Nadie. ¡Seis!",
+          "recuerda": "¿Y la chistorra? —Yo no he dicho nada. —Pues alguien lo ha pensado muy alto."
+        }
+      ]
+    },
+    {
+      "id": "kangaskhan",
+      "especie": "Kangaskhan",
+      "dex": 115,
+      "sprite": "0115",
+      "razon": "Madre primeriza con la cría en la bolsa. Lleva dos años sin dormir una noche entera y viene a intentarlo. La cría lo toca todo.",
+      "gustos": [
+        "pan tostado con miel",
+        "sopa de bayas"
+      ],
+      "aparece": {
+        "dia_min": 4,
+        "estrellas": 2
+      },
+      "arco": 3,
+      "tipos": [
+        "normal"
+      ],
+      "pide": [
+        {
+          "tipo": "servicio",
+          "texto": "Un biberón templado",
+          "objeto": "biberon",
+          "quien": "manolo",
+          "gesto": "Pain",
+          "dice": "¿Me calienta un biberón? Templadito, ni frío ni caliente. Si no, no se duerme. Y si no se duerme ella, no me duermo yo.",
+          "hecho": "Manolo prueba el biberón en la muñeca, como un profesional. La cría se lo bebe de un trago y le dice «gracias, abuelo».",
+          "recuerda": "El biberón, por favor… que ya empieza a dar patadas desde la bolsa."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Algo rápido y dulce",
+          "plato": "pan tostado con miel",
+          "receta": "pan",
+          "objeto": "plato",
+          "dice": "¿Tienen algo que se coma con una mano? La otra la necesito para que la niña no se suba a la lámpara.",
+          "recuerda": "¿Y el pan con miel? Cómo se nota que no tiene usted una cría en la bolsa."
+        }
+      ]
+    },
+    {
+      "id": "lickitung",
+      "especie": "Lickitung",
+      "dex": 108,
+      "sprite": "0108",
+      "razon": "Influencer de ASMR: susurra a un micrófono con pelo y lame cosas para el contenido. Exige silencio absoluto en la posada para grabar.",
+      "gustos": [
+        "baya Zidra asada"
+      ],
+      "aparece": {
+        "dia_min": 3,
+        "estrellas": 2
+      },
+      "arco": 3,
+      "tipos": [
+        "normal"
+      ],
+      "pide": [
+        {
+          "tipo": "servicio",
+          "texto": "Su micrófono, que se lo dejó",
+          "objeto": "microfono",
+          "quien": "charizard",
+          "gesto": "Normal",
+          "dice": "(Susurrando.) Me he dejado el micrófono en el comedor… ¿alguien me lo trae? Despacito. Sin hacer ruido. Que estoy en directo.",
+          "hecho": "Charizard se lo trae de puntillas, con la cola tapada para que no crepite. Lickitung asiente: «Perfecto. Ni un ruido. Eres un profesional».",
+          "recuerda": "(Susurra.) El micrófono… mi público lleva diez minutos oyendo mi respiración sola."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Algo que cruja bonito",
+          "plato": "baya Zidra asada",
+          "receta": "zidra",
+          "objeto": "plato",
+          "dice": "(Susurra.) ¿Tienen algo que cruja bonito? Es para comer delante del micro. La piel de la baya Zidra asada suena como un abrazo.",
+          "recuerda": "(Susurra.) ¿Y la baya? Ya tengo el micro puesto y no se oye nada. Literalmente."
+        }
+      ]
+    },
+    {
+      "id": "dodrio",
+      "especie": "Dodrio",
+      "dex": 85,
+      "sprite": "0085",
+      "razon": "Tres cabezas que son una tertulia de la tele: una alegre, una enfadada y la del medio, triste, que modera. Opinan de todo lo que pasa en la posada.",
+      "gustos": [
+        "chistorra a la brasa",
+        "pizza familiar"
+      ],
+      "aparece": {
+        "dia_min": 4,
+        "estrellas": 2
+      },
+      "arco": 3,
+      "tipos": [
+        "normal",
+        "volador"
+      ],
+      "pide": [
+        {
+          "tipo": "servicio",
+          "texto": "El mando de la tele",
+          "objeto": "mando",
+          "quien": "manolo",
+          "gesto": "Angry",
+          "dice": "(Derecha) ¡El mando! (Izquierda) Por favor. (Medio) Lo necesitamos para decidir el canal. Bueno, para discutir el canal.",
+          "hecho": "Manolo les da el mando. Se lo pasan de pico en pico durante una hora y al final no ven nada. Dicen que ha sido un gran debate.",
+          "recuerda": "(Medio) Seguimos sin mando. Y sin mando, señor, esto no es una tertulia: es una pelea."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Una para las tres",
+          "plato": "chistorra a la brasa",
+          "receta": "chistorra",
+          "objeto": "chistorra",
+          "dice": "(Izquierda) ¡Chistorra! (Derecha) Pizza. (Medio) …Pedimos chistorra, que la Izquierda llegó primero. Moción aprobada.",
+          "recuerda": "(Medio) La chistorra, por favor. La Derecha ya ha empezado a decir que no llega nunca."
+        }
+      ]
     }
   ]
 }
