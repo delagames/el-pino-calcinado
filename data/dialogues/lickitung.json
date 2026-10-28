@@ -8,7 +8,7 @@
       "subtitulo": "Primera visita · silencio, se graba",
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Susurrando, pegado a un micrófono con pelo.) Hola, chicos… bienvenidos a un nuevo vídeo… hoy… una posada de montaña…", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¡BUENAS NOCHES! ¿UNA HABITACIÓN?", "sigue": "n2" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¡BUENOS DÍAS! ¿UNA HABITACIÓN?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "(Le tapa la boca con la lengua. Es muy larga: llega desde la puerta.) Shhh… Estoy en directo. Doce mil personas oyéndole respirar.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Necesito silencio absoluto. Voy a lamer el mostrador. Para el contenido. Suena a madera vieja. A mi público le relaja muchísimo.", "opciones": [
           { "texto": "(Susurrando) «Adelante… pero luego lo friegas»", "efectos": { "afinidad": 1 }, "sigue": "susurro" },
@@ -26,7 +26,7 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Susurra.) Manolo… vengo a por algo grande. Llevo años buscando el sonido perfecto. Y creo que está en su chimenea.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "(En voz bajita, que ya va aprendiendo.) ¿La chimenea? Si eso es Charizard, que se echa ahí la siesta.", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Exacto. El crepitar de su cola. Pero hay un problema: Jigglypuff canta, Machoke grita las series y el cuñado opina.", "sigue": "n3" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Exacto. El crepitar de su cola. Pero hay un problema: en una posada siempre hay alguien que canta, alguien que grita las series y algún cuñado que opina.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "(Sigue con la misma cara. Siempre la misma cara.) Por dentro estoy desesperado. No se me nota porque es malo para el audio.", "opciones": [
           { "texto": "«Les pido silencio a todos una noche. Por ti»", "efectos": { "afinidad": 1 }, "sigue": "todos" },
           { "texto": "«¿Y no te vale con el ruido de la nevera?»", "sigue": "nevera" }

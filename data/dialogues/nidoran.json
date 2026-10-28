@@ -26,7 +26,7 @@
       "subtitulo": "Segunda visita · la Piedra Lunar",
       "nodos": {
         "inicio": { "quien": "pareja", "emocion": "Angry", "texto": "Manolo, usted que es neutral: ¿verdad que una tiene derecho a evolucionar cuando le dé la gana?", "sigue": "el" },
-        "el": { "quien": "huesped", "emocion": "Worried", "texto": "¡Es que se ha comprado una Piedra Lunar! Si evoluciona a Nidorina, me saca una cabeza. ¿Y yo qué? ¿Me quedo pequeñito?", "sigue": "ella" },
+        "el": { "quien": "huesped", "emocion": "Worried", "texto": "¡Es que se ha comprado una Piedra Lunar! En cuanto sea Nidorina, la usa y se hace Nidoqueen. Me saca tres cabezas. ¿Y yo qué?", "sigue": "ella" },
         "ella": { "quien": "pareja", "emocion": "Normal", "texto": "Pues evolucionas tú también, que la piedra vale para los dos. Pero no, el señor tiene miedo de que le cambie la voz.", "opciones": [
           { "texto": "«Evolucionad juntos, que es lo bonito»", "efectos": { "afinidad": 1 }, "sigue": "juntos" },
           { "texto": "«Yo no me meto, que luego os reconciliáis y el malo soy yo»", "sigue": "nomemeto" }
@@ -43,7 +43,7 @@
       "subtitulo": "Tercera visita · el aniversario",
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Un año, Manolo! Volvemos por el aniversario. A la buhardilla, claro. Es nuestro nidito.", "sigue": "ella" },
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Manolo! Volvemos por nuestro mesiversario. Sí, lo celebramos cada mes. A la buhardilla, claro: es nuestro nidito.", "sigue": "ella" },
         "ella": { "quien": "pareja", "emocion": "Happy", "texto": "Al final no evolucionamos. Decidimos que pequeñitos cabemos mejor en la cama. Y la Piedra Lunar la usamos de pisapapeles.", "sigue": "el" },
         "el": { "quien": "huesped", "emocion": "Normal", "texto": "Queríamos darle las gracias. En ningún sitio nos trataron como aquí: ni una pregunta de la Pokédex. Solo «¿cuántas chistorras?».", "opciones": [
           { "texto": "«La buhardilla es vuestra cuando queráis»", "efectos": { "afinidad": 1, "flags": { "nidoran_nidito": "vuestra" } }, "sigue": "vuestra" },
@@ -51,7 +51,7 @@
         ] },
         "vuestra": { "quien": "pareja", "emocion": "Happy", "texto": "¿De verdad? Pues le vamos a bordar un cojín con nuestros números: 029 y 032. Para que no se olvide.", "sigue": "fin" },
         "pregunta": { "quien": "pareja", "emocion": "Surprised", "texto": "¡Manolo, qué cosas tiene! …Bueno. Ya le avisaremos. Usted vaya guardando la buhardilla.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Esa noche, Charizard sube a la buhardilla una vela para el aniversario. Solo quema un poquito la cortina. Lo celebran igual." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard les sube una vela para el aniversario y solo quema un poquito la cortina. Al alba se van cuesta abajo, muy juntitos. Él le lleva la maleta." }
       }
     }
   ]

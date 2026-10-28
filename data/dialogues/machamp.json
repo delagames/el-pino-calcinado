@@ -1,6 +1,6 @@
 {
   "id": "machamp",
-  "_nota": "Machamp, caballero legionario (parodia cariñosa de la Legión): paso ligero, cabra mascota, se remanga las cuatro mangas y llora con el himno. Solo tiene retrato Normal: no cambia de cara nunca, «es la Legión». Arco en tres visitas: llega con la cabra, el himno y la foto de Pokéstagram con la Gótica de Larvitar (bandera machamp_larvitar).",
+  "_nota": "Machamp, caballero legionario (parodia cariñosa de la Legión): paso ligero, cabra mascota, se remanga las cuatro mangas y llora con el himno. Solo tiene retrato Normal: no cambia de cara nunca, «es la Legión». Arco en tres visitas: llega con la cabra, el himno y la foto de Pokéstagram con la Gótica de Larvitar, que llega como rumor para no depender de que Larvitar haya pasado ya (bandera machamp_larvitar).",
   "entradas": [
     {
       "id": "v1",
@@ -8,7 +8,7 @@
       "subtitulo": "Primera visita · a paso legionario",
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Machamp cruza la puerta a ciento sesenta pasos por minuto y frena en seco ante el mostrador. Detrás, sin prisa, entra una cabra.)", "sigue": "n1" },
-        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "¡Buenas noches! Machamp, caballero legionario. Una cama, un rancho y un sitio para la cabra, que es de la unidad.", "sigue": "manolo" },
+        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "¡Buenos días! Machamp, caballero legionario. Una cama, un rancho y un sitio para la cabra, que es de la unidad.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿La cabra duerme con usted?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "La cabra duerme donde quiere, señor. Es la mascota. Tiene más galones que yo y peor carácter.", "opciones": [
           { "texto": "«Para la cabra, el cobertizo con paja nueva»", "efectos": { "afinidad": 1 }, "sigue": "cobertizo" },
@@ -26,7 +26,7 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Señor, con todo respeto: ¿le importa que tararee un poco? Es el himno. Si no lo canto antes de dormir, no duermo.", "opciones": [
           { "texto": "«Tararee, que aquí se respeta todo»", "efectos": { "afinidad": 1 }, "sigue": "canta" },
-          { "texto": "«Bajito, que Jigglypuff por fin duerme»", "sigue": "bajito" }
+          { "texto": "«Bajito, que hay gente durmiendo»", "sigue": "bajito" }
         ] },
         "canta": { "quien": "huesped", "emocion": "Normal", "texto": "(Machamp tararea la del novio que no le teme a nada, con voz de cañonazo. A la segunda estrofa le cae una lágrima. La cara, igual.)", "sigue": "manolo" },
         "bajito": { "quien": "huesped", "emocion": "Normal", "texto": "Afirmativo. (Lo tararea en un susurro. Aun así tiemblan los vasos del comedor. Y a él, por dentro, también.)", "sigue": "manolo" },
@@ -42,16 +42,16 @@
       "subtitulo": "Tercera visita · la foto de Pokéstagram",
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "manolo", "emocion": "Worried", "texto": "Machamp, una pregunta delicada. ¿Ha salido usted en Pokéstagram con una Gótica? Tengo un huésped de roca con el corazón partido.", "sigue": "n2" },
+        "inicio": { "quien": "manolo", "emocion": "Worried", "texto": "Machamp, una pregunta delicada. Se comenta que sale usted en Pokéstagram con una Gótica, y que hay un Larvitar con el corazón partido.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "¿La del ojo pintado? Me pidió una foto en el desfile de Málaga. Le hice yo el selfi: cuatro brazos, buen encuadre. Nada más, señor.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Yo ya tengo novia. La de la canción, ya sabe: una muy seria y muy antigua. No le quito la Gótica a nadie. Y menos a un chaval.", "sigue": "n4" },
         "n4": { "quien": "huesped", "emocion": "Normal", "texto": "Pero si ese Larvitar lo ha pasado mal por mi foto, le debo una disculpa. Un legionario no deja a nadie atrás. Ni a un Larvitar.", "opciones": [
-          { "texto": "«Díselo tú. Está en el comedor»", "efectos": { "afinidad": 1, "flags": { "machamp_larvitar": "perdon" } }, "sigue": "perdon" },
-          { "texto": "«Le llevo yo el recado con una tarta»", "efectos": { "flags": { "machamp_larvitar": "recado" } }, "sigue": "recado" }
+          { "texto": "«Búscalo y díselo tú»", "efectos": { "afinidad": 1, "flags": { "machamp_larvitar": "perdon" } }, "sigue": "perdon" },
+          { "texto": "«Si pasa por aquí, le doy yo el recado»", "efectos": { "flags": { "machamp_larvitar": "recado" } }, "sigue": "recado" }
         ] },
-        "perdon": { "quien": "huesped", "emocion": "Normal", "texto": "Voy. A paso ligero. (Desde el comedor se oye: «Chaval, lo siento». Y luego risas: Larvitar le pide que le enseñe a no cambiar de cara.)", "sigue": "fin" },
+        "perdon": { "quien": "huesped", "emocion": "Normal", "texto": "Voy. A paso ligero. Lo encontraré aunque tenga que patearme Kanto entero. Le diré «chaval, lo siento» y le enseñaré a no cambiar de cara.", "sigue": "fin" },
         "recado": { "quien": "huesped", "emocion": "Normal", "texto": "Gracias, señor. Dígale que en Semana Santa le guardo sitio a mi lado, bajo el trono. Que el que llora con el himno no llora solo.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard aplaude. Machamp se cuadra. Por la mejilla le cae una lágrima, pero la cara ni se inmuta. Es la Legión." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al alba, Machamp se cuadra ante Charizard y se va a paso ligero, con la cabra detrás. Le cae una lágrima, pero la cara ni se inmuta. Es la Legión." }
       }
     }
   ]

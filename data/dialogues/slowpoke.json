@@ -8,7 +8,7 @@
       "subtitulo": "Primera visita · con un poquito de retraso",
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "…", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "Buenas noches. ¿Quiere una habitación?", "sigue": "n2" },
+        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "Buenos días. ¿Quiere una habitación?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "…", "sigue": "manolo2" },
         "manolo2": { "quien": "manolo", "emocion": "Worried", "texto": "¿Se encuentra bien? ¿Ha cenado algo?", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Happy", "texto": "Sí, una habitación, por favor. Qué amable.", "sigue": "tic" },
@@ -27,7 +27,7 @@
       "cuando": { "visita_min": 2 },
       "subtitulo": "Segunda visita · ¿quién me ha mordido?",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Buenas noches. Una cosa. Creo que me han mordido la cola. No sé cuándo. ¿El martes? ¿En el viaje de la otra vez?", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Buenas. Una cosa. Creo que me han mordido la cola. No sé cuándo. ¿El martes? ¿En el viaje de la otra vez?", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Y no le duele?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Pain", "texto": "Todavía no. (Pausa.) …Ahora sí. Ay. Ay. Es que a nosotros los mordiscos nos llegan con días de retraso. Como las cartas.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Worried", "texto": "En mi pueblo, el Team Rocket nos cortaba las colas en el pozo para venderlas. Dicen que son un manjar. (Mira a Charizard.) …¿Ese señor cocina?", "sigue": "silba" },
@@ -48,14 +48,14 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Manolo! ¡Ya lo he pillado! Lo del pino. Que Charizard estornudó. Me lo contó usted la primera noche. ¡Qué gracioso!", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "Hombre, pues te ha costado, ¿eh?", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Es que fuera todo va muy rápido: entrenadores, bicis, Rapidash. Aquí no. Aquí hay un Snorlax que va más lento que yo. Por fin no soy el último.", "sigue": "n3" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Es que fuera todo va muy rápido: entrenadores, bicis, Rapidash. Aquí no. Aquí hasta la chistorra se hace despacito. Por fin no soy el último.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Worried", "texto": "Y Charizard ya no me mira la cola. Ahora me mira el plato, por si quiero más. Creo. Igual de esto también me estoy enterando tarde.", "opciones": [
           { "texto": "«Aquí puedes ir a tu ritmo, chaval»", "efectos": { "afinidad": 1, "flags": { "slowpoke_cola": "ritmo" } }, "sigue": "ritmo" },
           { "texto": "«Charizard te ha cogido cariño, de verdad»", "efectos": { "afinidad": 1, "flags": { "slowpoke_cola": "charizard" } }, "sigue": "carino" }
         ] },
         "ritmo": { "quien": "huesped", "emocion": "Happy", "texto": "A mi ritmo… (Pausa.) Qué bien suena. Me lo quedo. Dentro de una semana me emocionaré; se lo digo ya para que lo sepa.", "sigue": "fin" },
         "carino": { "quien": "huesped", "emocion": "Happy", "texto": "¿Cariño? (Pausa larga.) …¡Ah! Por eso me corta la chistorra en trocitos. Yo pensaba que era para ir practicando con mi cola.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le pone otra tirita en la cola, esta con dibujitos. Slowpoke sonríe. Tarda, pero sonríe muchísimo." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le pone otra tirita, esta con dibujitos. Al irse, Slowpoke no dice adiós: lo dirá dentro de unos días, por carta. Pero sonríe muchísimo." }
       }
     }
   ]

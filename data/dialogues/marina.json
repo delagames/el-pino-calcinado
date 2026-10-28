@@ -189,7 +189,7 @@
         "n2": {
           "quien": "huesped",
           "emocion": "Normal",
-          "texto": "Lo del combate… Mire, ya no me apetece. Toda la vida entrenando para ganarle a usted y resulta que lo que me gustaba era el agua, no pelearme. Ahora damos clases de natación a Magikarp.",
+          "texto": "Lo del combate… ya no me apetece. Toda la vida entrenando para ganarle y resulta que lo que me gustaba era el agua, no pelearme. Ahora damos clases de natación.",
           "opciones": [
             {
               "texto": "«Me alegro muchísimo por ti, chiquilla»",
@@ -233,7 +233,7 @@
         "fin": {
           "quien": "manolo",
           "emocion": "Happy",
-          "texto": "Venga, pasad, que os doy la habitación de las vistas. Y tú, Rubén: aquí no se silba. Aquí cachimbita, chistorra y a dormir."
+          "texto": "Venga, pasad, que esta noche invita la casa: hay que despediros como se merece. Y tú, Rubén: aquí no se silba. Aquí cachimbita, chistorra y a dormir."
         }
       }
     }

@@ -7,7 +7,7 @@
       "cuando": { "visita_min": 1 },
       "subtitulo": "Primera visita · ¿esto es un castillo?",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "♪ Buenas noches, señor posadero, qué bonito es su hogaaar… ♪ Perdón, es que lo canto todo. ¿Esto es un castillo?", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "♪ Buenos días, señor posadero, qué bonito es su hogaaar… ♪ Perdón, es que lo canto todo. ¿Esto es un castillo?", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "Es una posada. Con un pino quemado en la puerta.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Happy", "texto": "¡Un castillo encantado, entonces! Con su dragón y todo. En las películas, el dragón acaba siendo bueno, ¿sabe?", "opciones": [
           { "texto": "«Este dragón es buenísimo»", "efectos": { "afinidad": 1 }, "sigue": "bueno" },
@@ -47,7 +47,7 @@
         ] },
         "viaje": { "quien": "huesped", "emocion": "Happy", "texto": "¡Una postal con purpurina! Y a la vuelta les traigo orejas. A usted y a Charizard. Vais a ir monísimos.", "sigue": "fin" },
         "posada": { "quien": "huesped", "emocion": "Happy", "texto": "♪ Mi castillo es de madera y huele a chistorraaa… ♪ Me ha salido sola. Es la canción más bonita que he hecho.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Clefairy le pone a Manolo su corona y a Charizard le hace otra de servilleta. Arde al momento. Le queda un aro de humo. Igual de real." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Clefairy le pone a Manolo su corona y a Charizard le hace otra de servilleta, que arde al momento. Al alba se va cuesta abajo, cantando su despedida." }
       }
     }
   ]

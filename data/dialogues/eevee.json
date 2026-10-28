@@ -23,7 +23,7 @@
       "subtitulo": "Segunda visita · ¿en qué evoluciono?",
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "Manolo, necesito consejo. Puedo evolucionar en ocho cosas distintas. Ocho. Y cada vez que me enamoro, cambio de idea.", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Si me quedo con Charizard, Flareon. Si me quedo con aquel Growlithe tan majo, Flareon también. Si me quedo con un Squirtle… Vaporeon, y a ti se te cierra un ojo. ¿Lo ves? Es dificilísimo.", "opciones": [
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Si me quedo con Charizard, Flareon. Con un Growlithe, Flareon también. Con un Squirtle… Vaporeon, y a ti se te cierra un ojo. ¿Lo ves? Es dificilísimo.", "opciones": [
           { "texto": "«Evoluciona por ti, no por nadie»", "efectos": { "afinidad": 1 }, "sigue": "porti" },
           { "texto": "«Flareon, que aquí todos somos de fuego»", "sigue": "flareon" }
         ] },
@@ -39,13 +39,13 @@
       "fin_arco": true,
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Manolo! Lo he decidido. No voy a evolucionar. Me quedo Eevee. Así me puede gustar todo el mundo sin tener que elegir piedra.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "Es lo más sensato que he oído en esta posada. Y aquí ha dormido un mimo.", "opciones": [
+        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "Es lo más sensato que he oído en esta posada. Y mira que aquí se oye de todo.", "opciones": [
           { "texto": "«Aquí siempre tendrás tu cuarto»", "efectos": { "afinidad": 1, "flags": { "eevee_decide": "eevee" } }, "sigue": "cuarto" },
           { "texto": "«¿Y Charizard? Lo vas a dejar hecho polvo»", "efectos": { "flags": { "eevee_decide": "charizard" } }, "sigue": "charizard" }
         ] },
         "cuarto": { "quien": "huesped", "emocion": "Happy", "texto": "Ay, Manolo. Si tuvieras pelo, me casaba contigo. Bueno, sin pelo también, pero no se lo digas a nadie.", "sigue": "fin" },
         "charizard": { "quien": "huesped", "emocion": "Happy", "texto": "¿Charizard? A Charizard le guardo un sitio en mi corazón. En la parte calentita, que es la que le pega.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard asoma por la puerta de la cocina con una chistorra hecha solo para ella. Tiene forma de corazón. Más o menos." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le hace una chistorra con forma de corazón, más o menos. Al alba, Eevee se va guiñándole el ojo a todo el mundo. A Charizard, dos veces." }
       }
     }
   ]

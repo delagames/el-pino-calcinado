@@ -31,9 +31,9 @@
           { "texto": "«Sin sustos, que se me desmaya el dragón»", "sigue": "palmas" }
         ] },
         "palmas": { "quien": "huesped", "emocion": "Happy", "texto": "¡Venga, chavó, échame unas palmas! ¡Así, así! ¡Pero qué compás tienes tú en esas garras, si pareces de los Montoya!", "sigue": "cante" },
-        "cante": { "quien": "huesped", "emocion": "Happy", "texto": "♪ Ay, que me voy pa' la posaaada, la del pino calcinaaao… ♪ Esto me lo enseñó mi abuelo, que decía que como Camarón no ha cantao nadie, ni vivo ni muerto. Y él de eso sabía.", "sigue": "juerga" },
+        "cante": { "quien": "huesped", "emocion": "Happy", "texto": "♪ Ay, que me voy pa' la posaaada, la del pino calcinaaao… ♪ Me lo enseñó mi abuelo, que decía que como Camarón no ha cantao nadie, ni vivo ni muerto.", "sigue": "juerga" },
         "juerga": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard da palmas. Al principio con miedo. Luego con ganas. Al final, con una llamarada al compás que deja el comedor caliente como un horno.", "sigue": "fin" },
-        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "¡Olé! Esto es lo que yo camelo: una buena casa y buena gente. Aquí vuelvo, primo, y la próxima me traigo a la familia entera.", "efectos": { "flags": { "gengar_juerga": true } } }
+        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "¡Olé! Esto es lo que yo camelo: una buena casa y buena gente. Me voy, primo, pero el duende se queda aquí pa' siempre. ¡No me olvidéis!", "efectos": { "flags": { "gengar_juerga": true } } }
       }
     }
   ]

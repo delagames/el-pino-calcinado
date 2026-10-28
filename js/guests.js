@@ -11,6 +11,19 @@ export function guestById(id) {
   return data.guests.find(g => g.id === id);
 }
 
+// La meta del juego: los 151 de Kanto en el libro de visitas. Cuentan los números de la Pokédex
+// de quien ha pasado (y su acompañante, como la Nidoran♀ de la pareja), más Charizard, que vive aquí.
+// Los de otras regiones (Larvitar) se apuntan en el libro pero no suman.
+export function kantoVistos(libro) {
+  const dex = new Set([6]);
+  for (const g of data.guests) {
+    if (!libro[g.id]) continue;
+    if (g.dex && g.dex <= 151) dex.add(g.dex);
+    if (/^\d+$/.test(g.acompanante || '') && +g.acompanante <= 151) dex.add(+g.acompanante);
+  }
+  return dex.size;
+}
+
 // Un huésped puede aparecer si la posada tiene lo que necesita (mejoras, fase 6), si ya
 // es el día que toca y si no se ha quedado a vivir (Snorlax)
 export function canAppear(guest, state) {
@@ -37,14 +50,13 @@ function rng(seed) {
 }
 
 // Primero los que se fueron sin habitación; luego, al azar, evitando a los de ayer.
-// «terminados»: los que ya contaron toda su historia; no vuelven (salvo que no quede nadie más)
+// «terminados»: los que ya contaron toda su historia y se despidieron; no vuelven
 export function pickArrivals(state, terminados = new Set()) {
   const r = rng(state.dia * 7919 + 13);
   // quien se fue disgustado tarda en volver; quien se fue encantado vuelve antes
   const libro = state.libro || {};
   const mosqueado = id => (libro[id]?.felicidad ?? 3) <= 1 && state.dia - (libro[id]?.ultimo || 0) < 4;
-  const posibles = data.guests.filter(g => canAppear(g, state) && !mosqueado(g.id));
-  const pool = posibles.filter(g => !terminados.has(g.id));
+  const pool = data.guests.filter(g => canAppear(g, state) && !mosqueado(g.id) && !terminados.has(g.id));
   const ayer = new Set(state.ayer || []);
   const first = (state.vuelven || []).filter(id => pool.some(g => g.id === id));
   // las mejoras atraen o espantan tipos: termal (fuego y roca sí, agua no), jardín (planta), farolillos
@@ -66,9 +78,7 @@ export function pickArrivals(state, terminados = new Set()) {
     .map(g => ({ id: g.id, k: r() + (ayer.has(g.id) ? 1 : 0) + pull(g) }))
     .sort((a, b) => a.k - b.k)
     .map(g => g.id);
-  // si ya casi todos han terminado su historia, vuelven algunos de los de siempre para no dejar la posada vacía
-  const veteranos = posibles.filter(g => terminados.has(g.id) && !ayer.has(g.id)).map(g => ({ id: g.id, k: r() })).sort((a, b) => a.k - b.k).map(g => g.id);
-  return [...first, ...rest, ...veteranos].slice(0, arrivalsFor(state.dia, state.habitaciones || 3)).map(id => {
+  return [...first, ...rest].slice(0, arrivalsFor(state.dia, state.habitaciones || 3)).map(id => {
     const g = guestById(id);
     // encargos posibles hoy: sin los que ya no tienen sentido por una mejora y, si se puede,
     // distinto del de la visita anterior (para no repetir la misma escena)

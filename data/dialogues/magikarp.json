@@ -7,7 +7,7 @@
       "cuando": { "visita_min": 1 },
       "subtitulo": "Primera visita · mindset Gyarados",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Buenas, campeón! Aunque sean las nueve de la noche: en mi cabeza siempre son las cinco de la mañana. Magikarp, coach de alto rendimiento.", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Buenas, campeón! Sea la hora que sea, en mi cabeza siempre son las cinco de la mañana. Magikarp, coach de alto rendimiento.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Pain", "texto": "(Tipo agua: a Manolo se le cierra un ojo y le cae una gota.) ¿Coach de qué, perdone?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "De mindset. Hoy soy Magikarp, pero pienso como un Gyarados. Mañana evoluciono. Lo dicen mi visualización y mi agua con limón.", "opciones": [
           { "texto": "«Pues mucha suerte con lo de mañana»", "efectos": { "afinidad": 1 }, "sigue": "suerte" },
@@ -50,7 +50,7 @@
         ] },
         "fuera": { "quien": "huesped", "emocion": "Happy", "texto": "¿Sin mindset? ¿Sin curso? ¿Solo… yo? (Magikarp borra LinkedIn del móvil. Respira. Salpica un poco, esta vez de felicidad.)", "sigue": "fin" },
         "gyarados": { "quien": "huesped", "emocion": "Happy", "texto": "Evolucionaré cuando toque. Y cuando sea Gyarados vendré a desayunar aquí. A morder, no. A desayunar. Palabra de pez.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le sirve un café normal, sin aceite de nada. Magikarp dice que es el mejor café de su vida. Y esta vez no está vendiendo nada." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le sirve un café normal, sin aceite de nada. Magikarp dice que es el mejor café de su vida. Al irse, no le vende nada a nadie." }
       }
     }
   ]

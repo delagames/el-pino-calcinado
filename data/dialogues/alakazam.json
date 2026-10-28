@@ -27,7 +27,7 @@
         "inicio": { "quien": "huesped", "emocion": "Sad", "texto": "Manolo, otra vez. Me quedaba la Ñ y me quedé en blanco. El reloj, tic, tac… Y dije «paso». Por decimocuarta vez.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "¿Y cuál era la palabra?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Worried", "texto": "Ni idea. Con un cerebro tan grande, las palabras pequeñitas se me pierden por los rincones. Tengo el bote a una letra desde marzo.", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Kadabra, la de la tele de madrugada, dice que lo ve en las cartas. Yo fui Kadabra, ¿sabe? Sé cómo se echan esas cartas.", "opciones": [
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Kadabra, el de la tele de madrugada, dice que lo ve en las cartas. Yo fui Kadabra, ¿sabe? Sé cómo se echan esas cartas.", "opciones": [
           { "texto": "«¿Qué palabra con Ñ le gusta a usted?»", "efectos": { "afinidad": 1 }, "sigue": "gusta" },
           { "texto": "«Con la Ñ: ñu. Siempre es ñu»", "sigue": "nu" }
         ] },
@@ -50,7 +50,7 @@
           { "texto": "«¿Y qué hará con tanto dinero?»", "efectos": { "flags": { "alakazam_bote": "tejado" } }, "sigue": "tejado" }
         ] },
         "gracias": { "quien": "huesped", "emocion": "Happy", "texto": "Correcto. Y con la P: posada. Sitio donde un cerebro de 5000 aprendió a no pensar en nada. La echaré de menos.", "sigue": "charizard" },
-        "tejado": { "quien": "huesped", "emocion": "Happy", "texto": "Con la T: tejado nuevo para su buhardilla. Ya está pagado. No diga que no, que ya lo he definido.", "sigue": "charizard" },
+        "tejado": { "quien": "huesped", "emocion": "Happy", "texto": "Con la T: tejado nuevo para su posada. Ya está pagado. No diga que no, que ya lo he definido.", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le trae una piña del pino calcinado, un poco chamuscada. Alakazam la sostiene como si fuera un trofeo.", "sigue": "fin" },
         "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Por la mañana se va sin decir una sola definición. Solo «adiós». En la mesa deja una cuchara doblada en forma de corazón.)" }
       }

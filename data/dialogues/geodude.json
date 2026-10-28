@@ -8,8 +8,8 @@
       "subtitulo": "Primera visita · esto está torcido",
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Buenas. Una habitación. (Da dos golpes a la pared de la recepción con el nudillo.) Uy. Esto está torcido.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Torcido? Esa pared la levantó mi abuelo.", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Y la hizo con cariño, se nota. Pero a ojo. Mira: dos dedos de caída. Esto te lo arreglo yo en una semana.", "opciones": [
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Torcido? Esa pared la levanté yo con mis manos.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Y la hiciste con cariño, se nota. Pero a ojo. Mira: dos dedos de caída. Esto te lo arreglo yo en una semana.", "opciones": [
           { "texto": "«¿Y cuánto me costaría?»", "sigue": "presupuesto" },
           { "texto": "«Déjala, que tiene su gracia»", "efectos": { "afinidad": 1 }, "sigue": "gracia" }
         ] },
@@ -24,14 +24,14 @@
       "subtitulo": "Segunda visita · la planta de arriba",
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "Jefe, esta mañana he subido al tejado. Ahí arriba te cabe otra planta. Tres habitaciones más. Te la hago yo en una semana.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Sigh", "texto": "«Una semana» me dijo el que arregló la buhardilla. Tardó un invierno entero.", "sigue": "n2" },
+        "manolo": { "quien": "manolo", "emocion": "Sigh", "texto": "«Una semana» me dijo uno que vino a mirar las goteras. Todavía lo estoy esperando.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Ese tenía piernas, y las piernas se cansan. Yo soy una piedra con brazos: no me siento nunca. No tengo con qué.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Lo único, el bocadillo de las diez. Eso es sagrado. Sin bocadillo no se levanta ni un tabique.", "opciones": [
           { "texto": "«Venga, hazme un presupuesto»", "efectos": { "afinidad": 1 }, "sigue": "presu" },
           { "texto": "«¿Y quién sube los ladrillos?»", "sigue": "ladrillos" }
         ] },
         "presu": { "quien": "huesped", "emocion": "Happy", "texto": "(Escribe en una servilleta.) Planta nueva: cuatro mil. Imprevistos: otros cuatro mil. Bocadillos: aparte. Más o menos.", "sigue": "fin" },
-        "ladrillos": { "quien": "huesped", "emocion": "Normal", "texto": "(Mira a Charizard.) Ese tiene alas y fuerza. Y si no, llamo a Machoke, que se pasa el día levantando cosas para nada.", "sigue": "fin" },
+        "ladrillos": { "quien": "huesped", "emocion": "Normal", "texto": "(Mira a Charizard.) Ese tiene alas y fuerza. Y si no, llamo a un Machoke que conozco, que se pasa el día levantando cosas para nada.", "sigue": "fin" },
         "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard se imagina subiendo ladrillos al tejado toda la semana. O todo el año. Esa noche duerme escondido detrás de la chimenea." }
       }
     },
@@ -49,7 +49,7 @@
           { "texto": "«La planta la acabaré yo, a ojo»", "efectos": { "flags": { "geodude_obra": "a_ojo" } }, "sigue": "ojo" }
         ] },
         "piedra": { "quien": "huesped", "emocion": "Happy", "texto": "Pues que la vea un día tu nieto y diga: «esto lo puso un Geodude, y está recto». Con eso me doy por pagado.", "sigue": "fin" },
-        "ojo": { "quien": "huesped", "emocion": "Happy", "texto": "A ojo, como tu abuelo. Ahora que lo pienso, lo que se hace a ojo dura más: se hace con ganas.", "sigue": "fin" },
+        "ojo": { "quien": "huesped", "emocion": "Happy", "texto": "A ojo, como la primera vez. Ahora que lo pienso, lo que se hace a ojo dura más: se hace con ganas.", "sigue": "fin" },
         "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le prepara el bocadillo de las diez para el camino, con chistorra. Geodude baja la cuesta rodando y saluda con los dos brazos hasta perderse." }
       }
     }

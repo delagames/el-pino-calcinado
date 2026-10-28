@@ -7,7 +7,7 @@
       "cuando": { "visita_min": 1 },
       "subtitulo": "Primera visita · aquí no ha pasado nada",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Buenas noches, jefe. Una habitación. Al fondo, sin ventanas a la carretera. Vengo con la planta y la planta necesita discreción.", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Buenas, jefe. Una habitación. Al fondo, sin ventanas a la carretera. Vengo con la planta y la planta necesita discreción.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Worried", "texto": "¿La… planta? Mire, chaval, esta es una casa decente. Aquí lo más fuerte que hay es la cachimba.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Angry", "texto": "¿Qué insinúa usted? Yo soy un Pokémon de bien. He venido en lancha por la ría y luego por el monte, como hacen los de bien. Aquí no ha pasado nada.", "opciones": [
           { "texto": "«Mientras no me dé problemas, adelante»", "efectos": { "afinidad": 1 }, "sigue": "trato" },
@@ -40,13 +40,13 @@
       "fin_arco": true,
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Jefe, le voy a confesar una cosa, que usted se ha portado. Lo que traigo en la lancha cada vez que vengo… es esto.", "sigue": "bolsa" },
-        "bolsa": { "quien": "huesped", "emocion": "Happy", "texto": "(Abre el bulbo y saca un saquito.) Semillas de baya de mi abuela, de la ría. Las paso a escondidas porque en Kanto dicen que son «de fuera». Fuera, fuera… Son semillas, home.", "opciones": [
+        "bolsa": { "quien": "huesped", "emocion": "Happy", "texto": "(Abre el bulbo y saca un saquito.) Semillas de baya de mi abuela, de la ría. Las paso a escondidas porque aquí dicen que son «de fuera». ¡Son semillas, home!", "opciones": [
           { "texto": "«Plántalas junto al pino»", "efectos": { "afinidad": 1, "flags": { "bulbasaur_semillas": "pino" } }, "sigue": "pino" },
           { "texto": "«Quédatelas, que son de tu abuela»", "efectos": { "flags": { "bulbasaur_semillas": "abuela" } }, "sigue": "abuela" }
         ] },
         "pino": { "quien": "huesped", "emocion": "Happy", "texto": "¿Junto al pino quemado? Allí la tierra tiene ceniza, y la ceniza es buen abono. Mi abuela diría que ahí crece hasta lo que no debe. Hecho, jefe.", "sigue": "fin" },
         "abuela": { "quien": "huesped", "emocion": "Happy", "texto": "Usted es un señor. Pero le dejo una. Una sola. Si algún día le crece algo raro en el huerto… aquí no ha pasado nada.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le da un golpecito en el bulbo, como quien choca la mano. Desde hoy son socios. De qué, no lo sabe nadie." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le da un golpecito en el bulbo, como quien choca la mano. Al alba, Bulbasaur baja hacia la ría y ya no vuelve. Aquí no ha pasado nada." }
       }
     }
   ]

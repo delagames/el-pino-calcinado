@@ -25,7 +25,7 @@
       "cuando": { "visita_min": 2 },
       "subtitulo": "Segunda visita · ahora me ves, ahora no",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Una voz sale del mostrador vacío.) Buenas noches. Estoy aquí. Me he vuelto invisible sin querer. Me pasa cuando me miran mucho.", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Una voz sale del mostrador vacío.) Buenos días. Estoy aquí. Me he vuelto invisible sin querer. Me pasa cuando me miran mucho.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Dónde es «aquí»? ¿Al lado del timbre?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Worried", "texto": "Encima del timbre. No lo toque. …Lo ha tocado. Ya se me ve otra vez. Qué vergüenza.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Sad", "texto": "Me han dicho que por el camino va un tal Ditto con mi color y mi peso. Que salió de mí. A veces pienso que el que sobra soy yo.", "opciones": [

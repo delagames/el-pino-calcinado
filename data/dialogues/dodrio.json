@@ -26,8 +26,8 @@
       "subtitulo": "Segunda visita · el gran debate",
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Medio) Buenas noches. Hoy, en «Tres en la Posada»: ¿llega la furgoneta de Famadesa tarde o llega cuando tiene que llegar?", "sigue": "derecha" },
-        "derecha": { "quien": "huesped", "emocion": "Angry", "texto": "(Derecha) ¡Tarde! ¡Siempre tarde! ¡Esto en Kanto no pasaba! (Izquierda) Pero llega, ¿eh? Llega con una alegría…", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Sigh", "texto": "Llega a las nueve. Todos los días. Lleva veinte años llegando a las nueve.", "sigue": "n2" },
+        "derecha": { "quien": "huesped", "emocion": "Angry", "texto": "(Derecha) ¡Tarde! ¡Siempre tarde! ¡Esto antes no pasaba! (Izquierda) Pero llega, ¿eh? Llega con una alegría…", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Sigh", "texto": "Llega a las nueve. Todos los días. No ha fallado ni uno desde que abrimos.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Sad", "texto": "(Medio) Nunca nos ponemos de acuerdo en nada. Ni en el tiempo. Ni en el canal. Nos gritamos hasta en sueños. Es agotador.", "opciones": [
           { "texto": "«Pues a mí me gusta oíros. Es como tener la radio puesta»", "efectos": { "afinidad": 1 }, "sigue": "radio" },
           { "texto": "«¿Y no podéis votar? Dos contra una»", "sigue": "votar" }

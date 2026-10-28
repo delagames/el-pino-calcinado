@@ -23,8 +23,8 @@
       "cuando": { "visita_min": 2 },
       "subtitulo": "Segunda visita · las cucharas dobladas",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Angry", "texto": "Manolo, anoche alguien cantó en el pasillo. Una bola rosa. Me dormí encima del tema 52. Me he despertado con el índice pegado a la cara.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Sigh", "texto": "Es Jigglypuff. Canta para no pensar. Es buena chica.", "sigue": "n2" },
+        "inicio": { "quien": "huesped", "emocion": "Angry", "texto": "Manolo, la otra noche alguien cantó en el pasillo. Una bola rosa. Me dormí encima del tema 52. Me he despertado con el índice pegado a la cara.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Sigh", "texto": "Sería una Jigglypuff. Cantan de noche, pero son buena gente.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Worried", "texto": "Y hay otra cosa. Esta mañana las cucharas estaban dobladas y Charizard flotaba. Todos dicen que fui yo. Yo no me acuerdo de nada.", "sigue": "techo" },
         "techo": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard asiente muy deprisa y señala el techo: en la madera se ve, clarita, la marca de su cabeza.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Pain", "texto": "Me pasa cuando me duele mucho la cabeza. Se me escapa lo psíquico. Luego, nada: ni un recuerdo. Como con los temas del 60 al 70.", "opciones": [
@@ -52,7 +52,7 @@
         ] },
         "biblioteca": { "quien": "huesped", "emocion": "Happy", "texto": "Para el siguiente pobre que oposite. Les pondré una nota en la primera página: «Tema 91: dormir también entra». Y unos tapones de regalo.", "sigue": "fin" },
         "hoguera": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard prende doce años de apuntes. Arden en cuatro colores. Psyduck mira el fuego y, por primera vez en una década, no le duele la cabeza.", "sigue": "fin" },
-        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "Gracias, Manolo. Con la primera nómina vuelvo y pago la cena de todo el comedor. Hasta la de Snorlax. …Bueno, la de Snorlax a plazos." }
+        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "Gracias, Manolo. Me voy a Ciudad Celeste a tomar posesión. Con la primera nómina le mando una caja de chistorra. …Bueno, a plazos." }
       }
     }
   ]

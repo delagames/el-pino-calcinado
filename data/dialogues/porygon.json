@@ -48,7 +48,7 @@
         ] },
         "devuelta": { "quien": "huesped", "emocion": "Happy", "texto": "¡Intacta! Bueno, un chamuscón en la tabla. Le da carácter. Ahora es la edición Pino Calcinado. Única en el mundo.", "sigue": "fin" },
         "regalada": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Mi chase? …Vale. Que se la quede. Pero que no le gire el dial, que la tiene a tope de vida.", "sigue": "fin" },
-        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "¿Sabe qué? Ya no me hace falta salir en la tele. Tengo mesa, regla y un dragón de rival. Más de lo que tiene Pikachu." }
+        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "¿Sabe qué? Ya no me hace falta salir en la tele. Me voy con la mejor partida de mi vida y un dragón de rival. Más de lo que tiene Pikachu." }
       }
     }
   ]

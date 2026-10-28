@@ -43,7 +43,7 @@
       "subtitulo": "Tercera visita · el pato viene con el puerro",
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "En Japón dicen «el pato viene con el puerro a cuestas»: algo que llega a pedir de boca. Pues hoy el pato viene a cocinar, no a que lo cocinen.", "sigue": "pinche" },
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "Allá en Johto dicen «el pato viene con el puerro a cuestas»: algo que llega a pedir de boca. Pues hoy el pato viene a cocinar, no a que lo cocinen.", "sigue": "pinche" },
         "pinche": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard se ata el delantal de Manolo. No le cierra, pero se lo ata. Fuego medio en la cola. Por primera vez, deja que otro toque su chistorra.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Happy", "texto": "Chistorra a la brasa con puerro pochado. ¿Nombre? ¿«Chispuerro»? ¿«Puerristorra»? …Lo llamamos «Especial Pino Calcinado». Y sin chiste.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "(Manolo lo prueba y cierra los ojos. Por un momento siente que le vuelve a crecer el pelo.)", "opciones": [
@@ -52,7 +52,7 @@
         ] },
         "carta": { "quien": "huesped", "emocion": "Happy", "texto": "¿En la carta? ¿Con mi nombre? ¡Mi primer plato en el que el ingrediente no soy yo! (Se seca una lagrimilla con el puerro.)", "sigue": "fin" },
         "tele": { "quien": "huesped", "emocion": "Happy", "texto": "¡El lunes, en horario de máxima audiencia! Y el dragón, de copresentador. Contrato no le hace falta: cobra en chistorra.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le da un abrazo con cuidado de no asarlo. El pato se deja. Huele a puerro y a brasa, y por una vez eso no le da miedo." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le da un abrazo con cuidado de no asarlo. Al alba, el pato se va con su puerro al hombro, oliendo a brasa. Y por una vez, eso no le da miedo." }
       }
     }
   ]

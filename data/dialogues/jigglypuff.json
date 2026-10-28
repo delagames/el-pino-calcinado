@@ -41,7 +41,7 @@
         "canta": { "quien": "huesped", "emocion": "Happy", "texto": "♪ Jiggly… jiggly… puuuff… ♪", "sigue": "aguanta" },
         "aguanta": { "quien": "charizard", "emocion": "Pain", "texto": "Charizard aguanta los párpados con las garras. A Manolo se le cae la cabeza dos veces. Pero no se duermen.", "sigue": "final" },
         "final": { "quien": "huesped", "emocion": "Happy", "texto": "¡La he terminado! ¡Alguien la ha oído entera! Ahora ya puedo dormir sin cantar.", "sigue": "fin" },
-        "fin": { "quien": "manolo", "emocion": "Happy", "texto": "Precioso. Y ahora, todos a la cama. Que mañana hay que madrugar.", "efectos": { "flags": { "jigglypuff_duerme": true } } }
+        "fin": { "quien": "manolo", "emocion": "Happy", "texto": "Precioso. Ahora, a dormir. Y por donde vayas, que te escuchen hasta el final, como aquí.", "efectos": { "flags": { "jigglypuff_duerme": true } } }
       }
     }
   ]

@@ -26,7 +26,7 @@
         "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "Al día siguiente me salió una pelusilla. Fina, rubia. Un bigote de melocotón en lo alto de la cabeza.", "sigue": "manolo2" },
         "manolo2": { "quien": "manolo", "emocion": "Sigh", "texto": "Y al otro, Charizard estornudó a mi lado y se me fue toda. Como el pino.", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard silba mirando al techo. Bueno, lo intenta: le sale una chispa.", "sigue": "fin" },
-        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "¡Entonces funciona! Le traeré otra. ¡Pero que Charizard no estornude!", "efectos": { "afinidad": 1 } }
+        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "¡Entonces funciona! Me voy lejos a buscar más, que esto hay que patentarlo. ¡Pero que Charizard no estornude!", "efectos": { "afinidad": 1 } }
       }
     }
   ]

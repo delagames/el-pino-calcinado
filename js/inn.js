@@ -481,7 +481,8 @@ export async function createInn(scene, ui) {
   async function arrive() {
     st.llegados = true;
     syncEstrellas();
-    const llegan = pickArrivals(st, terminados());
+    // tras el final (todo el libro completo), los de siempre vuelven de visita, ya sin historia nueva
+    const llegan = pickArrivals(st, st.finalVisto ? new Set() : terminados());
     st.vuelven = st.vuelven.filter(id => !llegan.some(l => l.id === id));
     st.ultimoPide = st.ultimoPide || {};
     for (const [i, l] of llegan.entries()) {
@@ -907,6 +908,10 @@ export async function createInn(scene, ui) {
       persist();
       await begin();
     },
+    // el final: cuando todos han contado su historia
+    libroCompleto: () => terminados().size >= data.guests.length,
+    finalVisto: () => !!st.finalVisto,
+    marcarFinal() { st.finalVisto = true; persist(); },
     bookView: () => ({ libro: st.libro, afinidad: st.afinidad, vistas: st.vistas, recetario: st.recetario, flags: st.flags, terminados: terminados() }),
     actorOf: id => actors.get(id),
     clickActor(a) {

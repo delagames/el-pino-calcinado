@@ -27,7 +27,7 @@
       "nodos": {
         "inicio": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard entra en la despensa y encuentra a otro Charizard comiéndose la chistorra. Se miran. Se echan humo. Los dos.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Angry", "texto": "¡A ver! ¿Cuál de los dos es el mío? ¡Que levante la pata el que sea Charizard!", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Worried", "texto": "(Levantan la pata los dos.) …Vale, soy yo. (Plof.) Es que imito tan bien que me pierdo dentro. Esta mañana he hecho de Mr. Mime y aún me molesta el IVA.", "sigue": "n3" },
+        "n2": { "quien": "huesped", "emocion": "Worried", "texto": "(Levantan la pata los dos.) …Vale, soy yo. (Plof.) Es que imito tan bien que me pierdo dentro. Esta mañana he hecho de Snorlax y aún tengo sueño.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Sad", "texto": "¿Sabe lo que dicen? Que soy un clon de Mew que salió mal. Mismo color, mismo peso, y solo sé hacer una cosa: Transformación.", "opciones": [
           { "texto": "«Pues lo de la chistorra te ha salido muy bien»", "sigue": "robo" },
           { "texto": "«Mal no has salido: has salido distinto»", "efectos": { "afinidad": 1 }, "sigue": "distinto" }
@@ -44,14 +44,14 @@
       "fin_arco": true,
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "Manolo, una pregunta seria. Cuando no imito a nadie, ¿quién soy? Me miro al espejo y veo una masa esperando instrucciones.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "Pues yo veo a un huésped que paga, que no ronca y que hace un Mr. Mime que te mueres.", "sigue": "n2" },
+        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "Pues yo veo a un huésped que paga, que no ronca y que hace un Charizard que te mueres.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Sad", "texto": "Eso es lo de fuera. Si me quedo quieto, sin forma, ¿le caería bien igual? ¿O sería una mancha en el sillón?", "opciones": [
           { "texto": "«Me caes bien así, morado y blandito»", "efectos": { "afinidad": 1, "flags": { "ditto_es": "ditto" } }, "sigue": "asi" },
           { "texto": "«Imitar también es ser alguien: el artista»", "efectos": { "afinidad": 1, "flags": { "ditto_es": "artista" } }, "sigue": "artista" }
         ] },
         "asi": { "quien": "huesped", "emocion": "Happy", "texto": "¿Así? ¿Sin pelucas ni calvas? (Se queda quieto. No se transforma. Sonríe con sus dos puntitos.) Es rarísimo. Me gusta.", "sigue": "fin" },
         "artista": { "quien": "huesped", "emocion": "Happy", "texto": "¡Claro! El que hace a todos también es alguien: el de la verbena. (Plof: Manolo. Plof: Ditto.) Y el de después de la verbena, también.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le cede su sitio junto a la chimenea. Al Ditto de verdad, el blandito. Lo ha comprobado olisqueándolo dos veces." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le cede su sitio junto a la chimenea al Ditto de verdad, el blandito. Al alba, Ditto se va sin imitar a nadie. Dice «adiós» con su propia voz." }
       }
     }
   ]

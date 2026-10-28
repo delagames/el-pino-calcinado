@@ -33,7 +33,7 @@
         ] },
         "votar": { "quien": "huesped", "emocion": "Normal", "texto": "¡Votación! A mano alzada. —No tenemos manos. —Pues a cabeza alzada. —Empate a tres. —Como siempre. —¡Otra ronda de votos!", "sigue": "fin" },
         "alto": { "quien": "huesped", "emocion": "Normal", "texto": "¿Muy alto? Uy, a mí me dan vértigo las alturas. —Y a mí. —Y a mí. —…Pues ya está votado sin votar.", "sigue": "fin" },
-        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Manolo guarda la Piedra Hoja en la caja de recepción, junto a la Piedra Lunar de los Nidoran. Ya va teniendo una colección.)" }
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Manolo guarda la Piedra Hoja en la caja de recepción, bajo llave. Por si acaso. En esta casa no se evoluciona sin votar.)" }
       }
     },
     {

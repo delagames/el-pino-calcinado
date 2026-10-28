@@ -51,7 +51,7 @@
         "inicio": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard sale de la cocina con la última chistorra… y la parte en dos con una garra.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Es… para mí? ¿La mitad?", "sigue": "n3" },
         "n3": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard asiente y suelta una nubecilla de humo con forma de corazón. O de chistorra. No se sabe.", "sigue": "fin" },
-        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "¡Guau! ¡Amigos de chistorra! Desde hoy, la última siempre a medias.", "efectos": { "flags": { "growlithe_amigo": true }, "afinidad": 1 } }
+        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "¡Guau! ¡Amigos de chistorra! Me vuelvo al valle a contárselo a todos. Y desde hoy, la última, siempre a medias.", "efectos": { "flags": { "growlithe_amigo": true }, "afinidad": 1 } }
       }
     }
   ]

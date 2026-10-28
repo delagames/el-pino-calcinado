@@ -1,6 +1,6 @@
 {
   "id": "voltorb",
-  "_nota": "Voltorb, fanático del baloncesto con forma de balón (y de Poké Ball): le aterra que lo boten o lo encesten, y si se emociona demasiado se le escapa una Autodestrucción pequeñita. Arco en tres visitas: llega gritando, el triple de la radio y el partido de la posada con Snorlax de canasta (bandera voltorb_cancha).",
+  "_nota": "Voltorb, fanático del baloncesto con forma de balón (y de Poké Ball): le aterra que lo boten o lo encesten, y si se emociona demasiado se le escapa una Autodestrucción pequeñita. Arco en tres visitas: llega gritando, el triple de la radio y el partido de la posada con la olla de canasta (bandera voltorb_cancha).",
   "entradas": [
     {
       "id": "v1",
@@ -43,14 +43,14 @@
       "fin_arco": true,
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "Manolo, te confieso una cosa: yo lo que quiero es jugar. Pero en cuanto piso una cancha, todos me miran como si fuera el balón.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "Pues aquí tenemos un balón de verdad. Y un Snorlax que, tumbado boca arriba, es la canasta más grande de Kanto.", "sigue": "n2" },
+        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "Pues aquí tenemos un balón de verdad. Y de canasta, la olla del potaje colgada del pino: la más grande de Kanto.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Un partido? ¿Aquí? ¿Y yo qué hago, juego o lo narro? ¡No puedo elegir! ¡Me estoy calentando!", "opciones": [
           { "texto": "«Juega. El balón es ese, no tú»", "efectos": { "afinidad": 1, "flags": { "voltorb_cancha": "juega" } }, "sigue": "juega" },
           { "texto": "«Nárralo, que nadie lo hace como tú»", "efectos": { "flags": { "voltorb_cancha": "narra" } }, "sigue": "narra" }
         ] },
-        "juega": { "quien": "huesped", "emocion": "Happy", "texto": "(Voltorb rueda hasta la zona, recibe el pase de Charizard y lanza el balón. El balón, no a sí mismo. ¡Canasta! En la barriga de Snorlax.)", "sigue": "fin" },
-        "narra": { "quien": "huesped", "emocion": "Happy", "texto": "¡Charizard la sube, finta, vuela… y machaca sobre Snorlax! ¡Snorlax ni se inmuta! ¡Señoras y señores, la posada está en llamas! ¡Literalmente!", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al final del partido, Voltorb explota de alegría. Una pequeñita. Nadie se queja: hasta Snorlax abre un ojo y aplaude con una mano." }
+        "juega": { "quien": "huesped", "emocion": "Happy", "texto": "(Voltorb rueda hasta la zona, recibe el pase de Charizard y lanza el balón. El balón, no a sí mismo. ¡Canasta! Dentro de la olla.)", "sigue": "fin" },
+        "narra": { "quien": "huesped", "emocion": "Happy", "texto": "¡Charizard la sube, finta, vuela… y machaca en la olla! ¡El pino ni se inmuta! ¡Señoras y señores, la posada está en llamas! ¡Literalmente!", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al final del partido, Voltorb explota de alegría. Una pequeñita. Nadie se queja. Al alba se va cuesta abajo, botando. Por gusto, esta vez." }
       }
     }
   ]

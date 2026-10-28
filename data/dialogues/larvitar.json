@@ -46,7 +46,7 @@
         ] },
         "evolucionar": { "quien": "huesped", "emocion": "Happy", "texto": "Tiene razón. Voy a evolucionar. Pupitar, y luego Tyranitar. Y cuando me vea con dos metros y una montaña en la espalda… que se lo piense.", "sigue": "fin" },
         "descansar": { "quien": "huesped", "emocion": "Happy", "texto": "Unos días aquí… Cachimbita, chistorra y a dormir, ¿no? Creo que eso es justo lo que me hace falta.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Por primera vez, Larvitar sonríe. Charizard lo celebra quemando sin querer una servilleta con un poema. Nadie lo lamenta." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Por primera vez, Larvitar sonríe. Charizard quema sin querer una servilleta con un poema; nadie lo lamenta. Al alba, Larvitar se va con el corazón entero. O casi." }
       }
     }
   ]

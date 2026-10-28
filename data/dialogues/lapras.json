@@ -137,7 +137,7 @@
         "fin": {
           "quien": "charizard",
           "emocion": "Worried",
-          "texto": "Charizard se tapa la cara con las alas. Desde aquel día no puede mirar a un pino a los ojos.",
+          "texto": "Charizard se tapa la cara con las alas. Al alba, Lapras se despide rumbo al sur, y Charizard aún no se atreve a mirarle a los ojos.",
           "efectos": {
             "flags": {
               "pino_verdad": true

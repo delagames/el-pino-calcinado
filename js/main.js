@@ -7,9 +7,10 @@ import { portraitUrl } from './sprites.js';
 import { showScene } from './popup.js';
 import { createCounter } from './counter.js';
 import { playIntro } from './intro.js';
+import { playFinal } from './final.js';
 import { runEntry } from './dialogue.js';
 import { createKitchen, loadRecipes } from './kitchen.js';
-import { loadGuestData } from './guests.js';
+import { loadGuestData, kantoVistos } from './guests.js';
 import { loadDialogue } from './dialogue.js';
 import { setMood, setRain as rainSound, sfx, getPrefs, setMusic, setSfx, cry, cancion } from './audio.js';
 
@@ -454,9 +455,12 @@ function night(s) {
     + s.lines.map(l => `<p class="suceso">${esc(l)}</p>`).join('')
     + `<p class="total">Hoy <b>+${s.ganado}</b> monedas · en la caja ${last?.monedas ?? s.monedas}</p>`
     + (s.subeEstrella ? `<p class="total">¡La posada sube a ${starsHtml(s.estrellas)}! Vendrán huéspedes nuevos.</p>` : '')
-    + `<button id="to-shop" class="secondary">Mejoras${shopCount() ? ` (${shopCount()} al alcance)` : ''}</button>`;
+    + `<button id="to-shop" class="secondary">Mejoras${shopCount() ? ` (${shopCount()} al alcance)` : ''}</button>`
+    // todos han contado su historia: el libro está completo y toca el final
+    + (inn.libroCompleto() && !inn.finalVisto() ? '<p class="total">¡Libro de visitas completo! Todos los huéspedes han contado su historia.</p><button id="to-final">Ver el final</button>' : '');
   card('noche', { title: `Fin del día ${s.dia}`, html, button: 'Ver la posada de noche' });
   $('#to-shop').addEventListener('click', () => shop());
+  $('#to-final')?.addEventListener('click', verFinal);
 }
 
 // ---------- la tienda de mejoras: por pestañas, cada una con lo que hace y su precio ----------
@@ -495,7 +499,7 @@ async function libro() {
   const book = inn.bookView();
   const guests = [...data.guests].sort((a, b) => a.dex - b.dex);
   const seen = guests.filter(g => book.libro[g.id]);
-  $('#book-count').textContent = `Vistos: ${seen.length} / 151`;
+  $('#book-count').textContent = `Kanto: ${kantoVistos(book.libro)} / 151`;
   for (const b of document.querySelectorAll('[data-tab]')) b.classList.toggle('active', b.dataset.tab === bookTab);
   const list = $('#book-list'), detail = $('#book-detail');
   const scroll = list.scrollTop;   // al tocar un Pokémon, la lista se queda donde estaba
@@ -546,7 +550,7 @@ async function libro() {
       <p>Afinidad ${heartsHtml(af)}</p>
       ${e.felicidad != null ? `<p>Última estancia ${heartsHtml(e.felicidad)}</p>` : ''}</div></div>
       <p class="reason">${esc(g.razon)}</p>
-      <h4>Su historia</h4>${book.terminados?.has(g.id) ? '<p class="muted">Historia completa: se despidió de la posada.</p>' : ''}${capitulos.length ? `<ol class="chapters">${capitulos.map(c => `<li>${esc(c)}</li>`).join('')}</ol>` : '<p class="muted">Aún no habéis charlado.</p>'}
+      <h4>Su historia</h4>${g.aparece?.no_si && book.flags[g.aparece.no_si] ? '<p class="muted">Se ha quedado a vivir en la posada.</p>' : book.terminados?.has(g.id) ? '<p class="muted">Historia completa: se despidió de la posada.</p>' : ''}${capitulos.length ? `<ol class="chapters">${capitulos.map(c => `<li>${esc(c)}</li>`).join('')}</ol>` : '<p class="muted">Aún no habéis charlado.</p>'}
       <h4>Le gusta</h4><p>${gusta.length ? gusta.map(id => esc(recipes.find(r => r.id === id).nombre)).join(', ') : '<span class="muted">Todavía no lo sabes: cocínale algo rico.</span>'}</p>`;
   }
   go('libro');
@@ -590,6 +594,15 @@ function refreshStart() {
   $('#start-new').classList.toggle('hidden', !saved);
   $('#start-export').classList.toggle('hidden', !saved);
   $('#start-new').textContent = 'Nueva partida';
+  $('#start-final').classList.toggle('hidden', !inn?.finalVisto());
+}
+
+// El final (también se puede volver a ver desde el inicio)
+async function verFinal() {
+  await playFinal(kantoVistos(inn.bookView().libro));
+  inn.marcarFinal();
+  refreshStart();
+  if (state === 'noche') go('posada');
 }
 
 // la primera vez (sin partida guardada) se cuenta la historia antes de abrir
@@ -613,6 +626,7 @@ $('#start-open').addEventListener('click', async () => {
 });
 let introVista = false;
 $('#start-story').addEventListener('click', () => playIntro());
+$('#start-final').addEventListener('click', () => verFinal());
 
 // Música y efectos, con su preferencia guardada
 $('#opt-music').checked = getPrefs().music;
@@ -681,13 +695,18 @@ const PASE = '537e3882', PASE_KEY = 'el-pino-calcinado-pase';
 const huella = t => { let h = 0x811c9dc5; for (const c of t) { h ^= c.charCodeAt(0); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(16); };
 const dentro = () => { try { return localStorage.getItem(PASE_KEY) === PASE; } catch { return false; } };
 const cerrado = () => !$('#gate').classList.contains('hidden');
+// para ver el final sin jugar entero: …/?final (directo, nada más pasar la contraseña)
+const soloFinal = new URLSearchParams(location.search).has('final');
+const verSoloFinal = () => { if (soloFinal && !cerrado()) playFinal(151).then(() => { location.href = location.pathname; }); };
 if (dentro()) $('#gate').classList.add('hidden');
 else $('#gate-pass').focus();
+verSoloFinal();
 $('#gate').addEventListener('submit', ev => {
   ev.preventDefault();
   if (huella($('#gate-pass').value.trim().toLowerCase()) !== PASE) { $('#gate-error').classList.remove('hidden'); $('#gate-pass').select(); return; }
   try { localStorage.setItem(PASE_KEY, PASE); } catch { /* sin almacenamiento: habrá que ponerla cada vez */ }
   $('#gate').classList.add('hidden');
+  verSoloFinal();
 });
 
 window.addEventListener('keydown', ev => {

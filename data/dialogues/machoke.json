@@ -42,14 +42,14 @@
       "fin_arco": true,
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "Jefe, ¿ha pasado por aquí mi hermano pequeño? Machop. Bajito, cejas de luchador. Va a retar a Misty.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "¿Machop? Si es de la casa. Rompe rocas en el patio y desayuna por tres.", "sigue": "n2" },
+        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "¿Bajito y con cejas de luchador? Por aquí pasa mucho chaval camino de Celeste. Si es el tuyo, aquí tiene su casa.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Sad", "texto": "Yo le decía que con el agua no hay nada que hacer. Que se dedicara a las pesas, como yo. Y él, erre que erre.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Lo de presumir es por él, ¿sabe? Para que me viera fuerte. Pero el valiente de la familia es el enano. No yo.", "opciones": [
           { "texto": "«Pues díselo. Que te lo oiga»", "efectos": { "afinidad": 1, "flags": { "machoke_hermano": "decirselo" } }, "sigue": "decir" },
           { "texto": "«Y entrena pierna, que él te mira los pies»", "efectos": { "flags": { "machoke_hermano": "pierna" } }, "sigue": "pierna" }
         ] },
-        "decir": { "quien": "huesped", "emocion": "Happy", "texto": "Se lo voy a decir. Mañana bajo a Ciudad Celeste a animarlo desde la grada. Con pancarta. Y sin camiseta, que es como mejor animo.", "sigue": "fin" },
-        "pierna": { "quien": "huesped", "emocion": "Happy", "texto": "¡Eso! Cuando gane a Misty, lo saco a hombros. Y para sacar a alguien a hombros hacen falta piernas. Mañana, sentadillas.", "sigue": "fin" },
+        "decir": { "quien": "huesped", "emocion": "Happy", "texto": "Se lo voy a decir. Mañana bajo a buscarlo, gane o pierda. Con pancarta. Y sin camiseta, que es como mejor animo.", "sigue": "fin" },
+        "pierna": { "quien": "huesped", "emocion": "Happy", "texto": "¡Eso! Gane o no gane, lo saco a hombros. Y para sacar a alguien a hombros hacen falta piernas. Mañana, sentadillas.", "sigue": "fin" },
         "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le prepara un batido de despedida: bayas, avena y algo chamuscado. Machoke se lo bebe de un trago y dice que sabe a familia." }
       }
     }

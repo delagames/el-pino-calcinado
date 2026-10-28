@@ -7,32 +7,32 @@
 import { loadSprite, Actor, DIR } from './sprites.js';
 import { sfx, cry } from './audio.js';
 
-const W = 240, H = 135;
-const OFF = -999;   // fuera de escena
+export const W = 240, H = 135;
+export const OFF = -999;   // fuera de escena
 
-function rect(c, x, y, w, h, col) { c.fillStyle = col; c.fillRect(Math.round(x), Math.round(y), Math.round(w), Math.round(h)); }
-function disc(c, cx, cy, r, col) {
+export function rect(c, x, y, w, h, col) { c.fillStyle = col; c.fillRect(Math.round(x), Math.round(y), Math.round(w), Math.round(h)); }
+export function disc(c, cx, cy, r, col) {
   c.fillStyle = col;
   for (let y = -r; y <= r; y++) { const h = Math.round(Math.sqrt(r * r - y * y)); c.fillRect(Math.round(cx - h), Math.round(cy + y), h * 2 + 1, 1); }
 }
-function oval(c, cx, cy, rx, ry, col) {
+export function oval(c, cx, cy, rx, ry, col) {
   c.fillStyle = col;
   for (let y = -ry; y <= ry; y++) { const h = Math.round(rx * Math.sqrt(1 - (y * y) / (ry * ry))); c.fillRect(Math.round(cx - h), Math.round(cy + y), h * 2 + 1, 1); }
 }
-function sky(c, top, low, horizon = 50) {
+export function sky(c, top, low, horizon = 50) {
   rect(c, 0, 0, W, H, low);
   for (let y = 0; y < horizon; y++) if (y < horizon * 0.6 || y % 2) rect(c, 0, y, W, 1, top);
 }
-function mountains(c, col, base, amp, seed) {
+export function mountains(c, col, base, amp, seed) {
   for (let x = 0; x < W; x++) { const h = Math.round(amp * (0.6 + 0.4 * Math.sin(x / 17 + seed) * Math.sin(x / 7 + seed * 2))); rect(c, x, base - h, 1, H, col); }
 }
-function text(c, s, x, y, col = '#283048', size = 10) {
+export function text(c, s, x, y, col = '#283048', size = 10) {
   c.font = `${size}px "Jersey 10", monospace`;
   c.fillStyle = col;
   c.fillText(s, x, y);
 }
 // el pino: verde, ardiendo (de 0 a 1, cuánto arde) o ya calcinado con su brasa
-function pine(c, x, base, t, { burnt = false, fire = 0 } = {}) {
+export function pine(c, x, base, t, { burnt = false, fire = 0 } = {}) {
   const trunk = burnt ? '#0F1324' : '#5F3A23', leaf = burnt ? '#0F1324' : '#2F6F3F', leaf2 = '#3F8F4F';
   rect(c, x - 2, base - 56, 4, 56, trunk);
   for (let i = 0; i < 8; i++) {
@@ -54,7 +54,7 @@ function pine(c, x, base, t, { burnt = false, fire = 0 } = {}) {
   }
 }
 // un bocadillo con una exclamación sobre alguien, como en los juegos
-function bubble(c, x, y, ch = '!') {
+export function bubble(c, x, y, ch = '!') {
   rect(c, x - 6, y - 12, 13, 11, '#100C14'); rect(c, x - 5, y - 11, 11, 9, '#F8F8F8'); rect(c, x - 1, y - 2, 3, 2, '#100C14');
   text(c, ch, x - 2, y - 3, '#C73F2F', 10);
 }
@@ -244,7 +244,8 @@ const SCENES = [
     lines: [
       { who: 'Manolo', text: 'Aquí la regla es una sola: ¡cachimbita, chistorra y a dormir!' },
       { text: 'A los huéspedes, eso sí, Manolo les cuenta que lo del pino fue un estornudo. Charizard le sigue el rollo.' },
-      { text: 'Ahora la posada es tuya. Que no falte la chistorra… y ojo con los de agua.' },
+      { text: 'Ahora la posada es tuya. La meta: que pasen por aquí los 151 Pokémon de Kanto y llenar el libro de visitas con sus historias.' },
+      { text: 'Que no falte la chistorra… y ojo con los de agua.' },
     ],
     draw(c, t, a, k) {
       rect(c, 0, 0, W, H, '#1B2238');
@@ -264,15 +265,26 @@ const SCENES = [
   },
 ];
 
+export const imagen = src => new Promise(res => { const im = new Image(); im.onload = () => res(im); im.onerror = () => res(null); im.src = src; });
+
 export async function playIntro() {
   const [ms, cs, gs] = await Promise.all([
     loadSprite('manolo', ['Idle', 'Walk', 'Sleep']),
     loadSprite('0006', ['Idle', 'Walk', 'Sleep', 'Shoot', 'Hurt']),
     loadSprite('0130', ['Idle', 'Shoot']),
   ]);
-  const face = await new Promise(res => { const im = new Image(); im.onload = () => res(im); im.onerror = () => res(null); im.src = 'assets/portraits/manolo/Pain.png'; });
-  const actors = { manolo: new Actor(ms), chari: new Actor(cs, { offset: 300 }), gyarados: new Actor(gs), face };
-  actors.gyarados.place(OFF, OFF, {});
+  const face = await imagen('assets/portraits/manolo/Pain.png');
+  // el orden es el de dibujo: Gyarados detrás, luego Charizard y Manolo delante
+  const actors = { gyarados: new Actor(gs), chari: new Actor(cs, { offset: 300 }), manolo: new Actor(ms), face };
+  // el Gyarados solo sale en el combate
+  return playScenes(SCENES, actors, { lastLabel: 'Abrir la posada', each: a => a.gyarados.place(OFF, OFF, {}) });
+}
+
+// Reproduce una historia en escenas (la intro, el final): lienzo, cuadro de texto y botones.
+// actors: los sprites (Actor) que se dibujan, más lo que necesiten las escenas
+export async function playScenes(SCENES, actors, { lastLabel = 'Seguir ▸', each = () => {} } = {}) {
+  const sprites = Object.values(actors).filter(a => a instanceof Actor);
+  for (const a of sprites) a.place(OFF, OFF, {});
   try { await document.fonts.load('10px "Jersey 10"'); } catch { /* sin la fuente se ve igual */ }
   const box = document.createElement('section');
   box.id = 'intro';
@@ -312,7 +324,7 @@ export async function playIntro() {
       }
       onLine();
       const last = i === SCENES.length - 1 && k === SCENES[i].lines.length - 1;
-      box.querySelector('.intro-next').textContent = last ? 'Abrir la posada' : 'Seguir ▸';
+      box.querySelector('.intro-next').textContent = last ? lastLabel : 'Seguir ▸';
     };
     const onKey = e => { if (e.code === 'Space' || e.key === 'Enter') { e.preventDefault(); next(); } else if (e.key === 'Escape') finish(); };
     window.addEventListener('keydown', onKey);
@@ -327,9 +339,9 @@ export async function playIntro() {
       const t = now - t0, ks = now - k0;
       const sc = SCENES[i];
       c.imageSmoothingEnabled = false;
-      actors.gyarados.place(OFF, OFF, {});   // solo sale en el combate
+      each(actors);
       sc.draw(c, t, actors, k, now, ks);
-      for (const a of [actors.gyarados, actors.chari, actors.manolo]) if (a.x > OFF) a.draw(c, now);
+      for (const a of sprites) if (a.x > OFF) a.draw(c, now);
       sc.front?.(c, t, actors, k, now, ks);
       // fundido de entrada en cada escena
       if (t < 400) { c.globalAlpha = 1 - t / 400; rect(c, 0, 0, W, H, '#100C14'); c.globalAlpha = 1; }

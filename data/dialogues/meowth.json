@@ -7,7 +7,7 @@
       "cuando": { "visita_min": 1 },
       "subtitulo": "Primera visita · el delegado sindical",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Buenas noches, compañero! Una habitación, y que conste en acta: ¿quién es el delegado sindical de esta casa?", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Buenos días, compañero! Una habitación, y que conste en acta: ¿quién es el delegado sindical de esta casa?", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Un Meowth que habla? …Aquí no hay delegado. Estamos el dragón y yo.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Aprendí a hablar solo. Y a andar a dos patas. Larga historia. Ahora lo uso para lo importante: ¿el dragón cobra las horas extra?", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Angry", "texto": "¿Quién le paga la nocturnidad cuando enciende la chimenea? ¿Tiene convenio? ¿Vacaciones? ¿Dentista para los colmillos?", "opciones": [
@@ -24,7 +24,7 @@
       "cuando": { "visita_min": 2 },
       "subtitulo": "Segunda visita · Meowzie",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "He visto a Arbok en el comedor, la de Jessie. Años juntos en el Team Rocket: sin contrato, sin pagas extra y siempre saliendo volando.", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Por el camino me he cruzado con Arbok, la de Jessie. Años juntos en el Team Rocket: sin contrato, sin pagas extra y siempre saliendo volando.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "¿Y por eso te hiciste sindicalista?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Sad", "texto": "Por eso y por otra cosa. ¿Sabes por qué hablo? Por una Meowth. Meowzie. Aprendí a hablar y a andar a dos patas para impresionarla.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Sad", "texto": "Y me dijo que era un bicho raro. Que un Meowth de verdad no hace esas cosas. Me quedé con la voz y sin la gata.", "opciones": [

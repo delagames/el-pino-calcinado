@@ -13,7 +13,7 @@
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Dos años y pico. Hasta los tres no sale de la bolsa. Lo dice la Pokédex. Yo lo cuento en noches: setecientas sin dormir.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Sad", "texto": "Y no me quejo, ¿eh? Por ella me pego con un Onix si hace falta. Pero ahora mismo me pego con la almohada y pierdo.", "opciones": [
           { "texto": "«Duerme tú, que la peque la vigilo yo un rato»", "efectos": { "afinidad": 1 }, "sigue": "vigilo" },
-          { "texto": "«Aquí hay silencio. Salvo Jigglypuff. Y Charizard roncando»", "sigue": "silencio" }
+          { "texto": "«Aquí hay silencio. Salvo Charizard, que ronca»", "sigue": "silencio" }
         ] },
         "vigilo": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Usted? ¿Seguro? (La cría le mira la calva y le da palmaditas.) …Vale. Pero si llora, me despierta. Y si no llora, también.", "sigue": "fin" },
         "silencio": { "quien": "huesped", "emocion": "Worried", "texto": "¿Ronca? Bah. Yo he dormido al lado de una cría que da patadas desde dentro. Un ronquido es una nana.", "sigue": "fin" },
@@ -28,9 +28,9 @@
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Manolo! Desde que estuvimos aquí, la niña pregunta todos los días por el «abuelo». Y por el dragón que brilla.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Abuelo? Yo tengo cincuenta y pocos. Bueno, cincuenta y muchos. Bueno… «abuelo» está bien.", "sigue": "cria" },
         "cria": { "quien": "huesped", "emocion": "Worried", "texto": "(La cría saca la mano, le roba la cachimba a Manolo y se la mete en la bolsa.) ¡Devuélvele eso al abuelo! Ay, perdone. Lo toca todo.", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Sad", "texto": "Es que lo único que conoce es mi bolsa. Me da miedo el día que salga. Ahí fuera hay escaleras. Y Gengar.", "opciones": [
+        "n2": { "quien": "huesped", "emocion": "Sad", "texto": "Es que lo único que conoce es mi bolsa. Me da miedo el día que salga. Ahí fuera hay escaleras. Y fantasmas.", "opciones": [
           { "texto": "«Saldrá cuando esté lista. Y tú también»", "efectos": { "afinidad": 1 }, "sigue": "lista" },
-          { "texto": "«Gengar es buena gente. Le canta flamenco»", "sigue": "gengar" }
+          { "texto": "«Hay fantasmas majos. Alguno hasta canta flamenco»", "sigue": "gengar" }
         ] },
         "lista": { "quien": "huesped", "emocion": "Happy", "texto": "Y yo también… Qué razón tiene. Igual la que no está lista soy yo. (La cría le devuelve la cachimba. Babeada.)", "sigue": "fin" },
         "gengar": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Flamenco? Pues a lo mejor la duerme. Yo ya le he cantado todo lo que sé, y le he inventado tres canciones nuevas.", "sigue": "fin" },

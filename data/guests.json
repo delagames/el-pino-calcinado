@@ -126,7 +126,7 @@
       "especie": "Growlithe",
       "dex": 58,
       "sprite": "0058",
-      "razon": "Cliente fijo por la chistorra.",
+      "razon": "Viene por la chistorra: la huele desde el valle.",
       "gustos": [
         "chistorra a la brasa"
       ],
@@ -649,7 +649,7 @@
           "gesto": "Happy",
           "dice": "¿Hay un balón por aquí? Uno de verdad. Para que, si alguien quiere botar algo, bote eso. Y no a mí.",
           "hecho": "Charizard le trae el balón y lo bota tres veces. Voltorb se tapa los ojos en cada bote, por empatía.",
-          "recuerda": "¿Y el balón? Que hay un Machoke mirándome con ganas de entrenar."
+          "recuerda": "¿Y el balón? Que hay alguien mirándome con ganas de botar algo."
         },
         {
           "tipo": "comida",
@@ -727,7 +727,7 @@
           "gesto": "Happy",
           "dice": "¿Tiene tapones para los oídos? Me han dicho que aquí hay una Jigglypuff que canta. Y yo mañana tengo el tema 52.",
           "hecho": "Manolo le da unos tapones. Psyduck se los pone, sonríe y repasa el tema 52 tan alto que lo oye toda la posada.",
-          "recuerda": "¿Y los tapones? Por el pasillo se oye un «puff» sospechoso."
+          "recuerda": "¿Y los tapones? Mañana tengo el tema 52 y no me fío del pasillo."
         },
         {
           "tipo": "comida",
@@ -932,7 +932,7 @@
           "receta": "estofado",
           "objeto": "plato",
           "dice": "Un estofado de setas, cielo. De las buenas, que el veneno ya lo pongo yo. Es broma. Ssss.",
-          "recuerda": "¿Y mi estofado? Me han contado que a Mr. Mime se lo has servido antes. Yo no digo nada."
+          "recuerda": "¿Y mi estofado? Me han contado que a otros se lo has servido antes. Yo no digo nada."
         }
       ]
     },
@@ -1446,7 +1446,7 @@
           "texto": "Un biberón templado",
           "objeto": "biberon",
           "quien": "manolo",
-          "gesto": "Pain",
+          "gesto": "Happy",
           "dice": "¿Me calienta un biberón? Templadito, ni frío ni caliente. Si no, no se duerme. Y si no se duerme ella, no me duermo yo.",
           "hecho": "Manolo prueba el biberón en la muñeca, como un profesional. La cría se lo bebe de un trago y le dice «gracias, abuelo».",
           "recuerda": "El biberón, por favor… que ya empieza a dar patadas desde la bolsa."

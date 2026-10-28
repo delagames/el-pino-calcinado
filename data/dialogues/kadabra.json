@@ -7,7 +7,7 @@
       "cuando": { "visita_min": 1 },
       "subtitulo": "Primera visita · las cartas no mienten",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Buenas noches, cariño. No me digas nada: vas a darme la habitación tres. ¿Que es la uno? Bueno, casi.", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Buenos días, cariño. No me digas nada: vas a darme la habitación tres. ¿Que es la uno? Bueno, casi.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Usted es… adivino?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Happy", "texto": "Vidente. De la tele, de madrugada. «Llámame, cariño, que las cartas no mienten». A ti te echo una gratis.", "opciones": [
           { "texto": "«Venga, écheme una»", "efectos": { "afinidad": 1 }, "sigue": "carta" },
@@ -40,14 +40,14 @@
       "subtitulo": "Tercera visita · la tirada de la posada",
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "Le he echado las cartas a Larvitar: le ha salido el Sol, que viene algo bueno. Ha llorado igual, pero de otra manera.", "sigue": "n2" },
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "Por el camino le eché las cartas a un chaval con el corazón roto: le salió el Sol, que viene algo bueno. Lloró igual, pero de otra manera.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Ahora te toca a ti, cariño. La tirada de la casa: lo que fue, lo que es y lo que será. Corta tú.", "opciones": [
           { "texto": "«Corto. Y que salga lo que salga»", "efectos": { "afinidad": 1, "flags": { "kadabra_tirada": "posada" } }, "sigue": "tirada" },
           { "texto": "«Prefiero no saberlo, la verdad»", "efectos": { "flags": { "kadabra_tirada": "sin_tirar" } }, "sigue": "nosaber" }
         ] },
         "tirada": { "quien": "huesped", "emocion": "Surprised", "texto": "Lo que fue: un pino ardiendo. Lo que es: una casa llena. Lo que será… ¡Uy! Una cuchara recta. Esa no la había visto nunca.", "sigue": "fin" },
         "nosaber": { "quien": "huesped", "emocion": "Happy", "texto": "Haces bien. El futuro que no se mira llega de sorpresa, que es más bonito. Te dejo la baraja de recuerdo.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le trae la última cuchara de la casa. Kadabra la mira y, por primera vez, no se dobla. A Kadabra se le escapa la risa." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le trae la última cuchara de la casa. Kadabra la mira y, por primera vez, no se dobla. Se la lleva de recuerdo y se va riendo camino abajo." }
       }
     }
   ]

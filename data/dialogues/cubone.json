@@ -7,7 +7,7 @@
       "cuando": { "visita_min": 1 },
       "subtitulo": "Primera visita · ser o no ser",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Sad", "texto": "Buenas noches. Una habitación para uno. Bueno, para dos. Para uno y medio.", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Sad", "texto": "Buenas. Una habitación para uno. Bueno, para dos. Para uno y medio.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Worried", "texto": "¿Y el medio, chaval?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Mi madre. (Se toca el casco.) Es su cráneo. Lo llevo puesto desde que se fue. No me lo quito ni para dormir. Ni para ducharme.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Sad", "texto": "(Mira su reflejo en la ventana y declama.) Ser o no ser Marowak, esa es la cuestión. ¿Es más noble llorar en la Torre o cenar algo caliente?", "opciones": [
@@ -31,7 +31,7 @@
           { "texto": "«Las madres son así, hasta de fantasma»", "efectos": { "afinidad": 1 }, "sigue": "madres" },
           { "texto": "«¿Y comes verdura?»", "sigue": "verdura" }
         ] },
-        "madres": { "quien": "huesped", "emocion": "Happy", "texto": "¡Eso le digo yo a Gengar! Su abuela canta en el cementerio. Nos entendemos: somos de familias que no se van del todo.", "sigue": "fin" },
+        "madres": { "quien": "huesped", "emocion": "Happy", "texto": "¡Eso digo yo! En Lavanda los fantasmas vuelven solo para decirte que te abrigues. Somos de familias que no se van del todo.", "sigue": "fin" },
         "verdura": { "quien": "huesped", "emocion": "Pain", "texto": "…No. (Se baja el casco hasta los ojos.) Por eso tiene que venir a decírmelo.", "sigue": "fin" },
         "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Antes de dormir, Charizard le seca la tierra de Lavanda junto al fuego y se la deja en un tarro, con una flor del prado encima." }
       }
@@ -50,7 +50,7 @@
         ] },
         "posada": { "quien": "huesped", "emocion": "Happy", "texto": "¿Con casco y todo? (Se lo ajusta, muy digno.) Entonces somos tres y medio. Contando a mamá.", "sigue": "fin" },
         "madre": { "quien": "huesped", "emocion": "Happy", "texto": "(Se toca el casco y sonríe por debajo.) Entonces llevarla puesta no es ir triste. Es ir acompañado.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le quema los calcetines a Cubone. Muy poquito, y a propósito. Cubone se ríe por primera vez, y esta vez no retumba nada." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le chamusca los calcetines, muy poquito y a propósito. Cubone se ríe por primera vez. Al alba vuelve a Lavanda, con su madre puesta y el tarro bajo el brazo." }
       }
     }
   ]

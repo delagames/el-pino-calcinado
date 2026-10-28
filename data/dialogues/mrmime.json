@@ -45,7 +45,7 @@
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Hoy os hago la función. En silencio. Como debe ser. Que ya está bien de que en este país hable todo el mundo.", "sigue": "funcion" },
         "funcion": { "quien": "charizard", "emocion": "Surprised", "texto": "Mr. Mime atrapado en una caja invisible. Mr. Mime subiendo una escalera invisible. Mr. Mime con una pancarta invisible que, por la cara que pone, dice algo muy fuerte.", "sigue": "aplausos" },
         "aplausos": { "quien": "manolo", "emocion": "Happy", "texto": "¡Bravo! ¡Bravísimo! Es lo mejor que he visto en años. Y lo más silencioso.", "sigue": "fin" },
-        "fin": { "quien": "huesped", "emocion": "Normal", "texto": "Gracias, gracias. Aquí se respeta el arte. No como en el Ministerio de Cultura. …Vale, ya me callo.", "efectos": { "flags": { "mrmime_funcion": true } } }
+        "fin": { "quien": "huesped", "emocion": "Normal", "texto": "Gracias, gracias. Aquí se respeta el arte, no como en el Ministerio. Me voy de gira. Adiós, posada. …Vale, ya me callo.", "efectos": { "flags": { "mrmime_funcion": true } } }
       }
     }
   ]

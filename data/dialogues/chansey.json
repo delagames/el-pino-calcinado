@@ -33,7 +33,7 @@
         ] },
         "sopa": { "quien": "huesped", "emocion": "Happy", "texto": "(Se ríe y se despierta un poco.) Es verdad. Anoche me dormí con la cuchara en la boca. Y nadie me despertó. Qué gusto.", "sigue": "fin" },
         "huevo": { "quien": "huesped", "emocion": "Normal", "texto": "Es para los pacientes. Lo llevo siempre, por si alguien se pone malo. Y no, Charizard, no se fríe. Ya lo ha preguntado tres veces.", "sigue": "fin" },
-        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Pasa Psyduck con dolor de cabeza. Chansey se levanta de un salto, le pone una compresa fría y vuelve a su sopa sin terminar el bostezo.)" }
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Pasa un huésped con dolor de cabeza. Chansey se levanta de un salto, le pone una compresa fría y vuelve a su sopa sin terminar el bostezo.)" }
       }
     },
     {

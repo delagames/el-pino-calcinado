@@ -60,9 +60,9 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Sad", "texto": "Cuatro derrotas. Estoy pensando en dejarlo, señor.", "sigue": "historia" },
         "historia": { "quien": "manolo", "emocion": "Sigh", "texto": "Siéntate. Te debo una historia. Mi gimnasio era de fuego. Y todo el que venía, venía con agua.", "sigue": "historia2" },
-        "historia2": { "quien": "manolo", "emocion": "Pain", "texto": "Squirtles, Psyducks, un Gyarados una vez… Año tras año. Del estrés se me cayó todo el pelo. Hasta las cejas.", "sigue": "historia3" },
+        "historia2": { "quien": "manolo", "emocion": "Pain", "texto": "Squirtles, Psyducks… año tras año. Y al final, un Gyarados. Del estrés se me cayó todo el pelo. Hasta las cejas.", "sigue": "historia3" },
         "historia3": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Por eso es usted…? ¿Por eso no tiene…?", "sigue": "historia4" },
-        "historia4": { "quien": "manolo", "emocion": "Normal", "texto": "Por eso. Un día dije basta, cerré el gimnasio y me vine aquí con Charizard. Lo que te digo ahora es…", "opciones": [
+        "historia4": { "quien": "manolo", "emocion": "Normal", "texto": "Por eso. Aquella noche dije basta, colgué la medalla y me vine aquí con Charizard. Lo que te digo ahora es…", "opciones": [
           { "texto": "«Dejarlo no es perder. Yo soy feliz aquí»", "efectos": { "flags": { "machop_consejo": "dejar" } }, "sigue": "dejar" },
           { "texto": "«Aprendí a perder. Tú sigue, que tú puedes»", "efectos": { "flags": { "machop_consejo": "seguir" }, "afinidad": 1 }, "sigue": "seguir" }
         ] },
@@ -94,7 +94,7 @@
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "Señor… ¡Mire! ¡La medalla Cascada! ¡He ganado a Misty!", "sigue": "n2" },
         "n2": { "quien": "manolo", "emocion": "Happy", "texto": "¡Ja! ¡Lo sabía! Esta noche cenas gratis. Chistorra para todos.", "sigue": "n3" },
         "n3": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard levanta la cabeza de golpe al oír «chistorra para todos».", "sigue": "n4" },
-        "n4": { "quien": "huesped", "emocion": "Happy", "texto": "Usted me dijo que siguiera. Siempre que pase por aquí, me paro en El Pino Calcinado.", "efectos": { "afinidad": 1, "flags": { "machop_final": "gana" } } }
+        "n4": { "quien": "huesped", "emocion": "Happy", "texto": "Usted me dijo que siguiera. Ahora, a por la siguiente medalla. Gracias por todo, señor: esta también es un poco suya.", "efectos": { "afinidad": 1, "flags": { "machop_final": "gana" } } }
       }
     },
     {
@@ -106,7 +106,7 @@
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Señor, lo he decidido: dejo los gimnasios. No era lo mío, y no pasa nada.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Happy", "texto": "Voy a montar una escuela de romper rocas en el pueblo. Para críos. Sin agua.", "sigue": "n3" },
         "n3": { "quien": "manolo", "emocion": "Happy", "texto": "Me parece de maravilla. Dejarlo no es perder: a mí me trajo hasta aquí.", "sigue": "n4" },
-        "n4": { "quien": "huesped", "emocion": "Happy", "texto": "Le guardo la primera plaza a Charizard, por si quiere dar clases de llamarada.", "efectos": { "flags": { "machop_final": "deja" } } }
+        "n4": { "quien": "huesped", "emocion": "Happy", "texto": "Le guardo la primera plaza a Charizard, por si quiere dar clases de llamarada. Gracias por todo, señor. Hasta siempre.", "efectos": { "flags": { "machop_final": "deja" } } }
       }
     }
   ]

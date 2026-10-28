@@ -7,7 +7,7 @@
       "cuando": { "visita_min": 1 },
       "subtitulo": "Primera visita · llega la artista",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Buenas noches, mi arma. Una habitación tranquilita, sin prensa. ¡Y no me mires! No me mires, que vengo sin pintar.", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Buenos días, mi arma. Una habitación tranquilita, sin prensa. ¡Y no me mires! No me mires, que vengo sin pintar.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "(Manolo mira al suelo, por educación. Charizard la mira de arriba abajo, sin ninguna.)", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Vengo de la gira de Kanto. Doce noches, doce estadios. Y en todos el mismo fotógrafo gritando «¡una sonrisa!». Dientes, dientes, que es lo que les gusta.", "opciones": [
           { "texto": "«Aquí nadie te va a hacer fotos»", "efectos": { "afinidad": 1 }, "sigue": "tranquila" },
@@ -46,7 +46,7 @@
         ] },
         "bonito": { "quien": "huesped", "emocion": "Normal", "texto": "Pues es suya. Y cuando la cante en la tele diré «esta es para Manolo, que me dio de comer y no me miró». Dientes, dientes.", "sigue": "fin" },
         "fiesta": { "quien": "huesped", "emocion": "Normal", "texto": "¿En la fiesta? ¿Con prensa? …Bueno. Por usted, una vez. Pero el fotógrafo, que se quede en la puerta.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Sad", "texto": "Charizard se ha emocionado: le cae una lagrimita que se evapora antes de tocar el suelo. Jynx le da un beso en la frente y le deja los labios marcados." }
+        "fin": { "quien": "charizard", "emocion": "Sad", "texto": "Charizard se emociona: le cae una lagrimita que se evapora antes de tocar el suelo. Jynx le da un beso en la frente y se va tarareando la copla." }
       }
     }
   ]

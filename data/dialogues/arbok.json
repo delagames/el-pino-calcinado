@@ -23,7 +23,7 @@
       "cuando": { "visita_min": 2 },
       "subtitulo": "Segunda visita · el mal rollo",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "Manolo, cielo. Le he dicho a Jynx que Jigglypuff canta mejor que ella. Y a Jigglypuff, lo contrario. A ver qué pasa.", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "Manolo, cielo. Por el camino le escribí a Jynx que Jigglypuff canta mejor que ella. Y a Jigglypuff, lo contrario. A ver qué pasa.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Angry", "texto": "¿Y para qué hace eso?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Costumbre. Viví años con una tal Jessie. Allí, sin mal rollo no había cena. Y siempre acabábamos saliendo volando.", "opciones": [
           { "texto": "«Aquí no hace falta mal rollo para cenar»", "efectos": { "afinidad": 1 }, "sigue": "cenar" },
@@ -31,7 +31,7 @@
         ] },
         "cenar": { "quien": "huesped", "emocion": "Surprised", "texto": "¿No? ¿Y entonces de qué se habla en la mesa? ¿Del tiempo? ¿De las bayas? Qué cosa más exótica.", "sigue": "fin" },
         "volando": { "quien": "huesped", "emocion": "Sad", "texto": "Ay, no, cielo, que volar ya volé bastante. Me porto bien. Por lo menos hasta el postre.", "sigue": "fin" },
-        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(En el comedor, Jynx y Jigglypuff acaban cantando a dúo para ver quién gana. Sale precioso. Arbok no da crédito.)" }
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Por la noche, en la radio: Jynx y Jigglypuff han acabado cantando a dúo en una verbena, para ver quién gana. Sale precioso. Arbok no da crédito.)" }
       }
     },
     {
@@ -40,14 +40,14 @@
       "subtitulo": "Tercera visita · nadie le sigue el juego",
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Sad", "texto": "Manolo, esto no funciona. Le cuento algo a Gengar y me invita a bizcocho. Se lo cuento a Mr. Mime y me suelta un mitin.", "sigue": "n2" },
+        "inicio": { "quien": "huesped", "emocion": "Sad", "texto": "Manolo, esto no funciona. Aquí le cuentas un chisme a alguien y te invita a bizcocho. O te suelta un mitin. O te canta.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Worried", "texto": "¿Y ahora con quién cotilleo? Llevo dos días espiando a un Pidgey con los prismáticos. No hace nada. Es fascinante.", "opciones": [
           { "texto": "«Cotillea conmigo: ¿qué tal te va a ti?»", "efectos": { "afinidad": 1, "flags": { "arbok_cambia": "amiga" } }, "sigue": "amiga" },
           { "texto": "«Usa los prismáticos para ver la luna»", "efectos": { "flags": { "arbok_cambia": "luna" } }, "sigue": "luna" }
         ] },
         "amiga": { "quien": "huesped", "emocion": "Surprised", "texto": "¿A mí? Nadie me pregunta a mí. …Pues regular. Echo de menos a Jessie. Y a veces hasta a James. No se lo cuentes a nadie.", "sigue": "fin" },
-        "luna": { "quien": "huesped", "emocion": "Happy", "texto": "¿La luna? …Anda, si está Clefairy bailando ahí arriba. Eso sí que es noticia. Pero de las bonitas.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le guarda el secreto: es un dragón, no cuenta nada. Arbok se enrosca junto a la chimenea, por fin sin nada que contar." }
+        "luna": { "quien": "huesped", "emocion": "Happy", "texto": "¿La luna? …Anda, si hay un Clefairy bailando ahí arriba, en el monte. Eso sí que es noticia. Pero de las bonitas.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard no le cuenta a nadie lo de esta noche: no habla, que es lo mejor para guardar secretos. Al alba, Arbok se va sin nada que contar. Y tan a gusto." }
       }
     }
   ]

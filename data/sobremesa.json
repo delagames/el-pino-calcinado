@@ -87,7 +87,7 @@
         },
         {
           "emocion": "Happy",
-          "texto": "He visto el estanque desde la ventana. Algún día me bañaré ahí. Cuando sea valiente."
+          "texto": "Si algún día ponen un estanque, me bañaré el primero. Cuando sea valiente."
         },
         {
           "emocion": "Normal",
@@ -159,7 +159,7 @@
         },
         {
           "emocion": "Normal",
-          "texto": "Esta posada es de lo poco que queda de la España de verdad. Chistorra, chimenea y nadie preguntándome los pronombres."
+          "texto": "Esta posada es de lo poco que queda del Kanto de verdad. Chistorra, chimenea y nadie vendiéndome criptomonedas."
         },
         {
           "emocion": "Normal",
@@ -278,7 +278,7 @@
         },
         {
           "emocion": "Worried",
-          "texto": "Ese Squirtle de ahí… ¿no será de la Benemérita? Tiene caparazón de uniforme, ya le digo."
+          "texto": "Jefe, si ve entrar a un Squirtle, avíseme. Con ese caparazón de uniforme, para mí que es de la Benemérita."
         }
       ],
       "gesto": "(Bulbasaur se sienta de espaldas a la pared, mirando a la puerta. Por si acaso. Por si acaso qué, no lo dice.)",
@@ -289,7 +289,7 @@
       "lineas": [
         {
           "emocion": "Happy",
-          "texto": "¿Has visto qué brazos tiene Machop? Cuatro no, ¿eh? Esos son los Machamp. Pero dos, bien puestos."
+          "texto": "¿Has visto qué brazos tienen los Machop? Cuatro no, ¿eh? Esos son los Machamp. Pero dos, bien puestos."
         },
         {
           "emocion": "Happy",
@@ -373,7 +373,7 @@
           "texto": "Un Gasol me firmó una vez. En la frente. Creía que era un balón de recuerdo. No me he lavado desde entonces."
         }
       ],
-      "gesto": "(Voltorb narra en voz baja cómo Snorlax se come un bollo: «se levanta, se acerca… ¡y adentro! ¡Qué mano!».)",
+      "gesto": "(Voltorb narra en voz baja cómo Charizard se come una chistorra: «se levanta, se acerca… ¡y adentro! ¡Qué mano!».)",
       "paseo": "(Voltorb mira desde lejos a unos Pokémon que juegan a la pelota. Cada vez que la botan, da un respingo.)",
       "cuarto": "(Voltorb escucha un partido en la radio de su cuarto. De vez en cuando se oye «¡triple!» y una pequeña explosión.)"
     },
@@ -416,7 +416,7 @@
         },
         {
           "emocion": "Happy",
-          "texto": "Doce años opositando y aquí he dormido del tirón. Será el aire de la sierra. O que Jigglypuff estaba afónica."
+          "texto": "Doce años opositando y aquí he dormido del tirón. Será el aire de la sierra. O que esta vez nadie cantaba en el pasillo."
         }
       ],
       "gesto": "(Psyduck se sujeta la cabeza con las dos manos y recita la Ley de Centros Pokémon. Las servilletas de la mesa tiemblan un poco.)",
@@ -458,14 +458,14 @@
         },
         {
           "emocion": "Worried",
-          "texto": "Esa Clefairy me mira raro. Y ese Porygon, peor. Uno ya no puede ser famoso tranquilo."
+          "texto": "En todas partes hay alguien que me mira raro. Una Clefairy, un Porygon… Uno ya no puede ser famoso tranquilo."
         },
         {
           "emocion": "Happy",
           "texto": "¿Esto es kétchup casero? Manolo, cásese conmigo. Lo digo como estrella, no como Pikachu."
         }
       ],
-      "gesto": "(Pikachu firma servilletas y se las reparte a todo el comedor. Snorlax se come la suya.)",
+      "gesto": "(Pikachu firma servilletas y se las reparte a todo el comedor. Charizard se come la suya.)",
       "paseo": "(Pikachu pasea con gafas de sol aunque es de noche. Saluda a las Pidgey del pino como si fueran fotógrafos.)",
       "cuarto": "(Pikachu duerme abrazado al bote de kétchup. Su Poké Ball está fuera del cuarto, en el pasillo, castigada.)"
     },
@@ -504,7 +504,7 @@
         },
         {
           "emocion": "Worried",
-          "texto": "¿Ese de ahí es Pikachu? No, nada, no pasa nada. Es que le tengo… mucho cariño. Mucho. Ya."
+          "texto": "Si algún día veo a Pikachu… No, nada, no pasa nada. Es que le tengo… mucho cariño. Mucho. Ya."
         },
         {
           "emocion": "Happy",
@@ -519,7 +519,7 @@
       "lineas": [
         {
           "emocion": "Happy",
-          "texto": "Ssss… ¿Has visto cómo mira Eevee a Charizard? Yo no digo nada. Pero lo he visto. Con prismáticos."
+          "texto": "Ssss… ¿Has visto cómo mira Charizard la despensa? Yo no digo nada. Pero lo he visto. Con prismáticos."
         },
         {
           "emocion": "Normal",
@@ -531,12 +531,12 @@
         },
         {
           "emocion": "Surprised",
-          "texto": "¡Manolo! ¿Has visto al Snorlax? Ha hecho algo escandaloso. …No, era que se había dado la vuelta."
+          "texto": "¡Manolo! ¿Has visto a Charizard? Ha hecho algo escandaloso. …No, era que había bostezado."
         }
       ],
       "gesto": "(Arbok mira el comedor con los prismáticos, aunque está a dos metros de todos. Toma notas con la cola.)",
       "paseo": "(Arbok pasea despacio pegada a las ventanas de los cuartos. Dice que va mirando la arquitectura.)",
-      "cuarto": "(Arbok tiene la oreja pegada a la pared del cuarto de al lado. Al otro lado, Snorlax ronca. Ella apunta igual.)"
+      "cuarto": "(Arbok tiene la oreja pegada a la pared del cuarto de al lado. Al otro lado, alguien ronca. Ella apunta igual.)"
     },
     "mew": {
       "lineas": [
@@ -565,7 +565,7 @@
       "lineas": [
         {
           "emocion": "Happy",
-          "texto": "¿Le hago a Jynx? «¡No me mires, que vengo sin pintar!». …La he clavado, ¿eh? La de verdad me ha mirado fatal."
+          "texto": "¿Le hago a Jynx? «¡No me mires, que vengo sin pintar!». …La he clavado, ¿eh? La vi una vez en la tele."
         },
         {
           "emocion": "Normal",
@@ -718,7 +718,7 @@
           "texto": "A veces sueño con Meowzie. En el sueño le hablo y ella me contesta. Luego me despierto y solo contesto yo."
         }
       ],
-      "gesto": "(Meowth reparte panfletos por las mesas. Snorlax se queda uno de almohada; Charizard se come otro.)",
+      "gesto": "(Meowth reparte panfletos por las mesas. Un huésped se queda uno de almohada; Charizard se come otro.)",
       "paseo": "(Meowth pasea a dos patas por el camino, pancarta al hombro, gritando consignas a los pinos. Los pinos no se afilian.)",
       "cuarto": "(Meowth se ha dormido encima de la pancarta. Murmura en sueños: «convenio… Meowzie… convenio».)"
     },
@@ -734,7 +734,7 @@
         },
         {
           "emocion": "Worried",
-          "texto": "Psyduck sigue con dolor de cabeza. ¿Es que nadie le ha mirado eso? Ah, sí. Yo. Cuatro veces."
+          "texto": "Aquí siempre hay alguien con dolor de cabeza. ¿Es que nadie le mira eso? Ah, sí. Yo. Cuatro veces."
         },
         {
           "emocion": "Sad",
@@ -818,7 +818,7 @@
       "lineas": [
         {
           "emocion": "Pain",
-          "texto": "Si me quedo dormida en la silla, no me despierte. Solo si la niña se sube a algo. O se come algo. O toca a Gengar."
+          "texto": "Si me quedo dormida en la silla, no me despierte. Solo si la niña se sube a algo. O se come algo. O toca a un fantasma."
         },
         {
           "emocion": "Happy",
@@ -864,7 +864,7 @@
       "lineas": [
         {
           "emocion": "Happy",
-          "texto": "(Izquierda) ¡Última hora: Snorlax ha bajado a desayunar! (Derecha) ¡Y se ha comido el mío! (Medio) Seguiremos informando."
+          "texto": "(Izquierda) ¡Última hora: Charizard ha bajado a desayunar! (Derecha) ¡Y se ha comido el mío! (Medio) Seguiremos informando."
         },
         {
           "emocion": "Angry",
@@ -1240,7 +1240,7 @@
         [
           "larvitar",
           "Sad",
-          "Me dejó mi Gótica. Por un Machamp."
+          "Me dejó mi Gótica. Dice que soy muy duro."
         ],
         [
           "eevee",
@@ -1338,7 +1338,7 @@
         [
           "psyduck",
           "Angry",
-          "¿Tú eres la que cantó anoche? ¡Me dormí en el tema 52! ¡Con la cara encima del índice!"
+          "¿Tú eres la que canta por las noches? ¡Una vez me dormí en el tema 52! ¡Con la cara encima del índice!"
         ],
         [
           "jigglypuff",
@@ -1528,7 +1528,7 @@
         [
           "mrmime",
           "Normal",
-          "Con Gengar, no. Me trae bizcocho. Con quien me enfado es con el Gobierno. ¿Quiere que le cuente lo de las autonomías?"
+          "Con Gengar, no, que dicen que hace bizcocho. Con quien me enfado es con el Gobierno. ¿Quiere que le cuente lo de las autonomías?"
         ],
         [
           "manolo",
@@ -1564,7 +1564,7 @@
         [
           "manolo",
           "Happy",
-          "(Jynx y Jigglypuff acaban ensayando juntas en el comedor. Arbok aplaude sin querer y luego disimula.)"
+          "(Jynx le da a Arbok un recado para Jigglypuff: «que venga, que le enseño». Por primera vez, Arbok lleva un recado bonito. Y le gusta.)"
         ]
       ]
     },

@@ -176,7 +176,7 @@
         "fin": {
           "quien": "huesped",
           "emocion": "Happy",
-          "texto": "¡Hasta la próxima! Y cuando tengan estanque, ¡avíseme el primero!",
+          "texto": "¡Gracias por todo! Me voy con mi piedra calentita. Y si un día hay estanque, que lo estrene otro Squirtle miedoso.",
           "efectos": {
             "flags": {
               "squirtle_amigo": true
@@ -189,7 +189,7 @@
         "fin_estanque": {
           "quien": "huesped",
           "emocion": "Happy",
-          "texto": "¡Hasta la próxima! Y la próxima, ¡derechito al estanque!",
+          "texto": "¡Gracias por todo! Me llevo la piedra calentita. Y el estanque, cuídenmelo para el próximo Squirtle miedoso.",
           "efectos": {
             "flags": {
               "squirtle_amigo": true
