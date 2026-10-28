@@ -397,11 +397,14 @@ export async function createInn(scene, ui) {
     // si ha evolucionado y tiene líneas propias para esa forma («id:número»), esas
     const mine = sobremesaData.huespedes[`${g.id}:${guestById(g.id).dex}`] || sobremesaData.huespedes[g.id];
     if (!mine) return null;
-    // quien no baja al comedor no cuenta nada: se le ve a lo suyo, en su cuarto o de paseo
-    const lugar = tardeDe(g);
+    // quien no baja al comedor no cuenta nada: se le ve a lo suyo, en su cuarto o de paseo. Los que
+    // duermen fuera (charca, cueva, nido) no caben en el comedor: charlan en la puerta de su sitio,
+    // y los del comedor salen a verlos (así sus charlas en pareja también salen)
+    const deFuera = FUERA.has(g.hab);
+    const lugar = deFuera ? 'comedor' : tardeDe(g);
     if (lugar !== 'comedor') return { gesto: mine[lugar] || `(${guestById(g.id).especie} ${lugar === 'paseo' ? 'ha salido a dar un paseo' : 'se ha quedado en su cuarto'}.)`, fuera: true };
     if (g.sobremesa) return { gesto: mine.gesto };
-    const here = new Set(enComedor().map(h => h.id));
+    const here = new Set([...enComedor(), ...st.hoy.filter(h => h.estado === 'habitacion' && FUERA.has(h.hab) && h.atendido)].map(h => h.id));
     const pareja = sobremesaData.parejas.find(p => (p.a === g.id || p.b === g.id) && here.has(p.a) && here.has(p.b)
       && !st.flags[`sobremesa_${p.a}_${p.b}`]);
     if (pareja) return { pareja: { key: `sobremesa_${pareja.a}_${pareja.b}`, lineas: pareja.lineas } };

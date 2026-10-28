@@ -10,10 +10,10 @@
       "nodos": {
         "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Del autobús de la excursión baja un charco morado que va derecho a los cubos de la basura. Detrás, otro charco mucho más grande, con los brazos abiertos.)", "sigue": "grimer" },
         "grimer": { "quien": "grimer", "emocion": "Surprised", "texto": "Buenas. Grimer, del punto limpio de Ciudad Fucsia. ¿Esto es todo? ¿Un cubo? ¿Uno solo? ¿Para todo? (Se le cae un poco de lodo de la impresión.)", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Sigh", "texto": "«Es que somos de pueblo.»", "sigue": "cubos" },
+        "manolo": { "quien": "manolo", "emocion": "Sigh", "texto": "Es que somos de pueblo.", "sigue": "cubos" },
         "cubos": { "quien": "grimer", "emocion": "Normal", "texto": "Pues ya no. (Saca cinco cubos de colores de no se sabe dónde.) Amarillo, envases. Azul, papel. Verde, vidrio. Marrón, orgánico. Gris, lo demás.", "sigue": "muk" },
         "muk": { "quien": "muk", "emocion": "Normal", "texto": "(Muk, su padre, sonríe de oreja a oreja. Siempre sonríe igual.) Qué ordenado es este niño. Sale a su madre. ¡Ven aquí, Manolo, que no nos conocemos!", "sigue": "manolo2" },
-        "manolo2": { "quien": "manolo", "emocion": "Worried", "texto": "«Eh… luego, luego, que estoy con las manos en la masa.»", "sigue": "pieles" },
+        "manolo2": { "quien": "manolo", "emocion": "Worried", "texto": "Eh… luego, luego, que estoy con las manos en la masa.", "sigue": "pieles" },
         "pieles": { "quien": "charizard", "emocion": "Normal", "texto": "En la cocina, Charizard tira las pieles de la chistorra al cubo amarillo sin mirar.", "sigue": "grimer2" },
         "grimer2": { "quien": "grimer", "emocion": "Surprised", "texto": "¡Alto! ¡Las pieles de chistorra van al marrón! ¡Al marrón! (Se planta delante del cubo amarillo como un portero.)", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Angry", "texto": "Charizard gruñe. Las ha tirado al amarillo porque el amarillo es el color del fuego. Para él tiene todo el sentido del mundo.", "sigue": "muk2" },

@@ -221,10 +221,10 @@
       "fin_arco": true,
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Un Blastoise con casco y carpeta se planta en la recepción y saca los cañones.) Buenas tardes. Inspección de incendios. ¿Esto es El Pino… Calcinado?", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "«¿Squirtle? ¡Pero si no cabes por la puerta! ¿Y esos cañones?»", "sigue": "n2" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Squirtle? ¡Pero si no cabes por la puerta! ¿Y esos cañones?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Jefe de bomberos del distrito. Y aquí, Manolo, tengo un parte de lo más raro: un pino quemado en la puerta, un dragón suelto y cocina de leña.", "sigue": "pino" },
         "pino": { "quien": "huesped", "emocion": "Worried", "texto": "Empecemos por el pino. (Saca el bolígrafo.) Origen del incendio.", "sigue": "manolo2" },
-        "manolo2": { "quien": "manolo", "emocion": "Normal", "texto": "«Un estornudo de Charizard.»", "sigue": "charizard" },
+        "manolo2": { "quien": "manolo", "emocion": "Normal", "texto": "Un estornudo de Charizard.", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard mira para otro lado y se rasca la cola. Le salta una chispa. Blastoise la apaga con un dedo sin levantar la vista de la carpeta.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Ya. Un estornudo. Lo anoto. (Lo anota.) Lo suyo sería limpiarlo a presión: con los cañones lo dejo como nuevo en un momento.", "opciones": [ { "texto": "«Al pino no se le toca: es la historia de la casa»", "sigue": "historia", "efectos": { "afinidad": 1, "flags": { "squirtle_acta": "pino" } } }, { "texto": "«Límpialo, a ver qué hay debajo»", "sigue": "limpia", "efectos": { "flags": { "squirtle_acta": "limpia" } } } ] },
         "historia": { "quien": "huesped", "emocion": "Sad", "texto": "(Baja los cañones y mira el pino un buen rato.) Tiene razón. No está sucio. Es como mi caparazón: lo que pesa es lo que te ha pasado.", "sigue": "acta" },

@@ -9,7 +9,7 @@
       "nodos": {
         "inicio": { "quien": "charizard", "emocion": "Surprised", "texto": "Tiembla el suelo. Por la ladera baja una fila de rocas enormes, una detrás de otra, como un tren. Se paran en la puerta. Charizard se esconde.", "sigue": "n1" },
         "n1": { "quien": "huesped", "emocion": "Normal", "texto": "(Una cabeza de piedra se agacha hasta la ventana de recepción.) Perdón. Buenas. Perdón. Vengo a dormir. Si no es molestia. Perdón.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "«Madre mía. ¿Y tú cuánto mides, hijo?»", "sigue": "n2" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "Madre mía. ¿Y tú cuánto mides, hijo?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Ocho metros ochenta. Perdón. Me salió así. (Suspira y levanta una nube de polvo.) Perdón por el polvo.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Tiene una cueva? ¿Para mí entero? Ay. Es que en las casas siempre rompo algo. Una vez entré en una tienda y me llevé la tienda.", "sigue": "cueva" },
         "cueva": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard le guía hasta la cueva de la ladera. Onix entra marcha atrás, despacito. Al final solo asoma la cabeza por la boca, como un perro en su caseta.", "sigue": "n4" },
@@ -28,11 +28,11 @@
       "subtitulo": "Segunda visita · el corazón de Brock",
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Onix saca la cabeza de la cueva al ver pasar a Manolo.) Perdón. Le quería contar una cosa de mi entrenador. Pero no se lo cuente a nadie.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "«Lo que se cuenta en la cueva se queda en la cueva.»", "sigue": "n2" },
+        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "Lo que se cuenta en la cueva se queda en la cueva.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Brock se enamora. De las Enfermeras Joy. De todas. Entra en un Centro Pokémon, se pone de rodillas y le pide matrimonio a la del mostrador.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Surprised", "texto": "¡Y son iguales! ¡Todas! Él dice que cada una es especial. Una vez se declaró a la misma dos veces en un día. En dos ciudades.", "sigue": "n4" },
         "n4": { "quien": "huesped", "emocion": "Normal", "texto": "Antes, una amiga suya lo sacaba del Centro tirándole de la oreja. Ahora me toca a mí. Con la cola. Con cuidado. Y luego le pido perdón.", "sigue": "manolo2" },
-        "manolo2": { "quien": "manolo", "emocion": "Happy", "texto": "«Pues las Chansey de los Centros, que paran aquí a dormir, lo conocerán, ¿no?»", "sigue": "n5" },
+        "manolo2": { "quien": "manolo", "emocion": "Happy", "texto": "Pues las Chansey de los Centros, que paran aquí a dormir, lo conocerán, ¿no?", "sigue": "n5" },
         "n5": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Conocerlo? Todas las Chansey de Kanto. Cuando lo ven entrar, se ríen y esconden a la Joy detrás del mostrador.", "sigue": "n6" },
         "n6": { "quien": "huesped", "emocion": "Normal", "texto": "Pero es bueno, ¿eh? Cocina para todos. Cuida de todos. Hasta de mí, que no quepo en ningún sitio. Tiene el corazón muy grande. Como yo el cuerpo.", "opciones": [
           { "texto": "«Pues sois iguales: ocupáis mucho porque queréis mucho»", "efectos": { "afinidad": 1 }, "sigue": "iguales" },
@@ -52,7 +52,7 @@
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Onix asoma la cabeza, más quieto que nunca.) Manolo, perdón. Esta mañana ha sonado el teléfono de recepción. Era para mí. Era Brock.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Las goteras del gimnasio, arregladas. Las ha arreglado un Geodude que dice que le conoce a usted. En una semana. Bueno, en muchas.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Y Brock dice que sin mí el gimnasio parece más grande. Que vuelva a casa.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "«¡Pero eso es buena noticia! ¿Por qué pones esa cara?»", "sigue": "n4" },
+        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "¡Pero eso es buena noticia! ¿Por qué pones esa cara?", "sigue": "n4" },
         "n4": { "quien": "huesped", "emocion": "Surprised", "texto": "Es la que tengo, perdón. (Pausa.) Es que aquí me he acostumbrado a una cosa: nadie me pide que ocupe menos.", "sigue": "n5" },
         "n5": { "quien": "huesped", "emocion": "Normal", "texto": "Toda la vida encogiéndome. En los caminos, en los Centros, en las fotos. Aquí me hicisteis una cueva a mi medida. Nadie me había hecho nada a mi medida.", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard se sienta en la boca de la cueva, junto a la cabeza de Onix, y apoya la espalda en él como en una pared. Una pared que respira.", "sigue": "n6" },

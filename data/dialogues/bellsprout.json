@@ -8,7 +8,7 @@
       "subtitulo": "Primera visita · el casting",
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Hola! Bellsprout, modelo. Bueno, aspirante. Pasado mañana tengo casting en Azulona y vengo a ensayar el paseíllo. ¿Me deja el pasillo?", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "«¿El pasillo de la posada?»", "sigue": "n2" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿El pasillo de la posada?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Es el más largo que he visto. (Desfila de punta a punta, gira y posa. Se mide la cintura con una cinta métrica.) Tres centímetros. Perfecto.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Worried", "texto": "Ahora, la cena. Una pizza familiar. Para mí solo. Bueno, tres. No me mire así: seré de tallo fino, pero tengo la raíz muy profunda.", "opciones": [
           { "texto": "«En mi casa no se viene a pasar hambre»", "efectos": { "afinidad": 1 }, "sigue": "hambre" },
@@ -25,7 +25,7 @@
       "subtitulo": "Segunda visita · tocar a chistorra",
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Entra una campana amarilla con dos hojas, siempre con la misma cara.) Soy Weepinbell. He evolucionado. Tengo forma de campana: adiós pasarela.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Sad", "texto": "«Vaya, hombre. ¿Y ahora a qué te dedicas?»", "sigue": "n2" },
+        "manolo": { "quien": "manolo", "emocion": "Sad", "texto": "Vaya, hombre. ¿Y ahora a qué te dedicas?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Campanero. En el pueblo. Toco a misa, toco a fuego y toco a la hora de comer. (Pone la misma cara para las tres.) Ding.", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Surprised", "texto": "Al oír «a fuego», Charizard sale corriendo con el cubo de fregar y lo vacía en la chimenea. La chimenea estaba apagada.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Pain", "texto": "Eso me pasa en todas partes. Toco a comer y la gente sale a apagar fuegos. Toco a fuego y van a misa. Es que tengo un solo tono.", "opciones": [
@@ -43,9 +43,9 @@
       "subtitulo": "Tercera visita · el saludo",
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "manolo", "emocion": "Happy", "texto": "«¡Hombre, Weepinbell! ¿Qué tal la campa…?»", "sigue": "saludo" },
+        "inicio": { "quien": "manolo", "emocion": "Happy", "texto": "¡Hombre, Weepinbell! ¿Qué tal la campa…?", "sigue": "saludo" },
         "saludo": { "quien": "huesped", "emocion": "Normal", "texto": "(Una boca enorme se lanza sobre Manolo y se le traga la cabeza entera. Con muchísimo cariño.)", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Pain", "texto": "«¡Mmmf! ¡Mmmmmf!»", "sigue": "suelta" },
+        "manolo": { "quien": "manolo", "emocion": "Pain", "texto": "¡Mmmf! ¡Mmmmmf!", "sigue": "suelta" },
         "suelta": { "quien": "huesped", "emocion": "Normal", "texto": "(La calva resbala y Manolo sale solo, brillante como un plato recién fregado.) Hola, Manolo. Victreebel, con la Piedra Hoja. Es que ahora saludo así.", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Angry", "texto": "Charizard se pone entre los dos y enseña los dientes. A Manolo no se lo come nadie. Eso lo tiene que dejar claro.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Perdone. Solo lo hago con los que quiero. Me sale de dentro. Bueno, de dentro sale usted. Ya me entiende.", "opciones": [

@@ -9,7 +9,7 @@
       "nodos": {
         "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Llaman a la puerta. Al abrir: una nube de humo de colores, una bola morada con una rosa entre los dientes y un olor a huevo que tumba.)", "sigue": "lema" },
         "lema": { "quien": "huesped", "emocion": "Happy", "texto": "¡Atención, que llegan los líos! ¡Y vienen de dos en dos! ¡Para unir a todos los pueblos bajo…! Ay, no. Espere, que lo empiezo otra vez.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "«Tranquilo, hombre, sin prisa. ¿Qué vendes?»", "sigue": "n2" },
+        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "Tranquilo, hombre, sin prisa. ¿Qué vendes?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "No vendo: me presento. Koffing. Me sé el lema entero, hasta la parte del gato. ¿Es aquí donde se alojan Arbok y Meowth, los del Team Rocket?", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Worried", "texto": "Quiero entrar en la banda. Traigo la solicitud rellena y la rosa, que es el uniforme. ¿Usted cree que me cogerán? Peso menos que el aire, eso sí.", "opciones": [
           { "texto": "«Aquí el lema es otro: cachimbita, chistorra y a dormir»", "efectos": { "afinidad": 1 }, "sigue": "otro" },
@@ -25,7 +25,7 @@
       "cuando": { "visita_min": 2 },
       "subtitulo": "Segunda visita · sin contrato y siempre volando",
       "nodos": {
-        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "«¿Koffing? ¡Si ahora sois dos!»", "sigue": "n1" },
+        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Koffing? ¡Si ahora sois dos!", "sigue": "n1" },
         "n1": { "quien": "huesped", "emocion": "Normal", "texto": "Somos uno, Manolo. Weezing. Dos cabezas y una sola cara: ponga la que ponga, me sale esta. (La cabeza pequeña asiente, con la misma cara.)", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "He evolucionado igual que el Weezing del Team Rocket. Ahora sí me cogen. Les he escrito a Arbok y a Meowth para que me recomienden.", "sigue": "cartas" },
         "cartas": { "quien": "manolo", "emocion": "Normal", "texto": "(Manolo le da dos cartas que han llegado a su nombre. Una huele a perfume de serpiente. La otra lleva en el sello un puño y una moneda.)", "sigue": "arbok" },
@@ -48,7 +48,7 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Manolo, he roto la solicitud. Bueno, le he echado un poco de gas y se ha deshecho sola. Ya no quiero entrar en el Team Rocket.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "En el bosque de abajo hay Ekans y Koffing pequeñitos, solos. Los cazadores los asustan. Alguien tiene que echarles el humo encima a los malos.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "«¿Te vas de guarda forestal?»", "sigue": "n3" },
+        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "¿Te vas de guarda forestal?", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Con gorra y todo. El Weezing de James acabó así: lo dejaron libre para que cuidara de los suyos. Le he copiado eso, que es lo mejor que hizo.", "sigue": "n4" },
         "n4": { "quien": "huesped", "emocion": "Normal", "texto": "Pero un guarda necesita un lema, y el mío ya no vale. ¿Me ayuda a hacer uno nuevo? Las dos cabezas no se ponen de acuerdo.", "opciones": [
           { "texto": "«Coge el de la casa, que te lo presto»", "efectos": { "afinidad": 1, "flags": { "koffing_lema": "posada" } }, "sigue": "posada" },

@@ -8,7 +8,7 @@
       "subtitulo": "Primera visita · la peluquera de colas",
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Hola, guapo! Vulpix, peluquera de colas. Una habitación con buena luz, que por las mañanas me cepillo las seis. Cien cepilladas cada una.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "«¿Seiscientas cepilladas antes de desayunar?»", "sigue": "n2" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Seiscientas cepilladas antes de desayunar?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Me lo enseñó mi criadora: un poquito cada día y la cola sale sola. (Monta en una mesa del comedor un peine, un espejo y un cartel: «SALÓN».)", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Sad", "texto": "(Se queda mirando la calva de Manolo, muy seria.) …Ay. ¿Ni un pelito? ¿Ni en la nuca? ¿Ni una ceja de recuerdo?", "opciones": [
           { "texto": "«Ni uno. Se me fueron todos con el estrés»", "efectos": { "afinidad": 1 }, "sigue": "estres" },
@@ -28,7 +28,7 @@
       "nodos": {
         "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Entra una señora dorada, despacio, arrastrando nueve colas por la alfombra como la cola de un vestido de novia.)", "sigue": "n1" },
         "n1": { "quien": "huesped", "emocion": "Normal", "texto": "Buenas tardes, querido. Ninetales. Nos conocimos cuando yo era una chiquilla de seis colas. Hace siglos. Bueno, hace dos semanas.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "«¿Vulpix? ¿Eres tú? ¿Y la Piedra Fuego?»", "sigue": "n2" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Vulpix? ¿Eres tú? ¿Y la Piedra Fuego?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Happy", "texto": "Me la puse el martes. Ahora viviré mil años, así que hablo ya como si los tuviera. Para ir haciéndome. Se nota, ¿verdad?", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Té a las cinco, por favor. En taza fina. Y si tiene un monóculo, también. No veo mal, pero queda tan bien…", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard alarga una garra hacia una de las nueve colas. Ninetales no se gira, pero las nueve colas se apartan a la vez.", "sigue": "n4" },
@@ -49,7 +49,7 @@
       "fin_arco": true,
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "Querido, esta es mi última noche aquí. Abro salón propio: «Las Nueve Colas». Peluquería, té y conversación. Por este orden.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Sad", "texto": "«Te vamos a echar de menos, marquesa. ¿Y dónde lo pones?»", "sigue": "n2" },
+        "manolo": { "quien": "manolo", "emocion": "Sad", "texto": "Te vamos a echar de menos, marquesa. ¿Y dónde lo pones?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Sad", "texto": "(Se le cae el acento de mil años.) Pues… no lo sé. ¿Sabe que fui de un chico de Ciudad Plateada? Brock. El de los ojos cerraditos.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Me cuidaba como nadie. Luego me devolvió a mi criadora, que me peinaba a diario: allí estaba mejor, y él lo sabía. Pero le echo de menos. Un poco.", "sigue": "n4" },
         "n4": { "quien": "huesped", "emocion": "Happy", "texto": "Si un día pasa por aquí el Onix de Brock, dígale que la Vulpix que dormía encima de él sigue roncando. Ahora, con nueve colas.", "opciones": [

@@ -9,7 +9,7 @@
       "nodos": {
         "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Sube la cuesta un Pokémon que echa llamas por los hombros, con un sobre en la mano. El sobre no se quema: lo lleva con muchísimo cuidado.)", "sigue": "n1" },
         "n1": { "quien": "huesped", "emocion": "Normal", "texto": "Buenas. Magmar, del gimnasio de Blaine, en Isla Canela. Traigo una carta para Manolo, el de Pueblo Ceniza. ¿Es usted? Es usted. Calvo de fuego.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "«¿Blaine? ¿El del bigote y las gafas de sol? ¿Todavía se acuerda de mí?»", "sigue": "n2" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Blaine? ¿El del bigote y las gafas de sol? ¿Todavía se acuerda de mí?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Blaine se acuerda de todos los calvos de fuego. Dice que quedan pocos y hay que cuidarse. (Le da el sobre.) Ábrala cuando quiera. No hay prisa. Algo, sí.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Otra cosa. Me han dicho que aquí el fogón es un Charizard. Yo nací en un volcán: hago la brasa a mil doscientos grados. Me ofrezco de fogón.", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Angry", "texto": "Charizard deja caer la chistorra que tenía en la boca. Le sale humo por la nariz. Mucho humo. La cocina entera huele a celos.", "sigue": "n4" },
@@ -54,7 +54,7 @@
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Manolo, me vuelvo a Canela: sin mí, el gimnasio se queda frío. ¿Tiene la respuesta para Blaine?", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Sigh", "texto": "(Manolo lleva días con la pregunta en el bolsillo del delantal. Saca un papel lleno de tachones y de manchas de chistorra.)", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Worried", "texto": "No hace falta que me la lea. A mí no. Yo solo la llevo. Blaine dice que las respuestas buenas se escriben, no se cuentan.", "sigue": "manolo2" },
-        "manolo2": { "quien": "manolo", "emocion": "Normal", "texto": "«Ya está escrita. Lo que no sé es si es buena.»", "opciones": [
+        "manolo2": { "quien": "manolo", "emocion": "Normal", "texto": "Ya está escrita. Lo que no sé es si es buena.", "opciones": [
           { "texto": "«He puesto: “Todavía no lo sé. Pero el fuego sigue”»", "efectos": { "afinidad": 1, "flags": { "magmar_carta": "fuego" } }, "sigue": "fuego" },
           { "texto": "«He puesto: “Pásate a cenar y lo hablamos”»", "efectos": { "afinidad": 1, "flags": { "magmar_carta": "cena" } }, "sigue": "cena" }
         ] },

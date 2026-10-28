@@ -10,7 +10,7 @@
       "nodos": {
         "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Para el autobús y bajan cuatro con kimono y cinta en la frente. Le hacen una reverencia a la puerta. La puerta no se la devuelve.)", "sigue": "hitmonlee" },
         "hitmonlee": { "quien": "hitmonlee", "emocion": "Happy", "texto": "¡Hiiiaaa! ¡Buenas noches! Hitmonlee, profesor de polideportivo. ¡Del Dojo Karate de Azafrán, de excursión! ¡Wataaa!", "sigue": "manolo2" },
-        "manolo2": { "quien": "manolo", "emocion": "Worried", "texto": "«¿Hace falta gritar tanto para dar las buenas noches?»", "sigue": "hitmonlee2" },
+        "manolo2": { "quien": "manolo", "emocion": "Worried", "texto": "¿Hace falta gritar tanto para dar las buenas noches?", "sigue": "hitmonlee2" },
         "hitmonlee2": { "quien": "hitmonlee", "emocion": "Normal", "texto": "Es la técnica. Sin grito no hay patada. Y sin patada… (estira la pierna hasta el perchero y cuelga el kimono) …no cuelgo la ropa.", "sigue": "hitmonchan" },
         "hitmonchan": { "quien": "hitmonchan", "emocion": "Normal", "texto": "(Hitmonchan entra rodando por los escalones de la puerta, de espaldas.) Tranquilos. Estoy bien. Era para probar el plano. Soy especialista de cine.", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard le ayuda a levantarse. Hitmonchan vuelve arriba y se cae otra vez, igualito. «La buena es la segunda», dice. Con la misma cara.", "sigue": "hitmonlee3" },

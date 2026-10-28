@@ -59,7 +59,7 @@
       "fin_arco": true,
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "(Un Electrode entra rodando muy despacio, con un termo.) Hola, Manolo. Bajito, por favor. Que ahora exploto con nada.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "«¿Voltorb? ¡Pero si estás del revés!»", "sigue": "n2" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Voltorb? ¡Pero si estás del revés!", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Sad", "texto": "Electrode. He crecido. Me he convertido en mi padre, el de la Central. Y ahora no exploto solo con los triples: exploto con todo.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Worried", "texto": "Con una puerta que cruje. Con un «¡hola!» muy alto. Con un estornudo. Me llaman «la bomba con patas». Y no tengo patas: eso es lo que más me duele.", "sigue": "termo" },
         "termo": { "quien": "huesped", "emocion": "Normal", "texto": "Por eso voy con tila a todas partes. (Da un sorbito.) Esta noche hay final. Quiero verla entera sin explotar ni una vez.", "sigue": "charizard" },

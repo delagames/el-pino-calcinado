@@ -54,7 +54,7 @@
       "subtitulo": "Cuarta visita · mi cliente no tiene nada que declarar",
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Entra un Ivysaur con corbata y maletín, y deja una tarjeta en el mostrador: «Ivysaur, abogado».) Buenas, jefe. Soy yo. No ha pasado nada.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "«¿Bulbasaur? ¡Si has crecido el doble! ¿Y ese capullo que llevas a la espalda?»", "sigue": "n2" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Bulbasaur? ¡Si has crecido el doble! ¿Y ese capullo que llevas a la espalda?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Worried", "texto": "No es un capullo: es un bulto sin identificar. Pesa tanto que ya no me pongo a dos patas. Y huele dulce. Eso es lo que me preocupa.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Cuando huele dulce es que va a florecer. Y una flor no se esconde, jefe. Por eso me he sacado Derecho a distancia: para cuando salga todo a la luz.", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard le olisquea el capullo. Huele a caramelo. Pone cara de que eso es una prueba, y las pruebas, en esta casa, se las come él.", "sigue": "n4" },

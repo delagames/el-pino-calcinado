@@ -11,7 +11,7 @@
         "inicio": { "quien": "manolo", "emocion": "Normal", "texto": "(Del autobús baja una palmera de tres cabezas con una acreditación al cuello: «Convención de Psíquicos · Azafrán». En brazos lleva un Abra dormido.)", "sigue": "exeggutor" },
         "exeggutor": { "quien": "exeggutor", "emocion": "Happy", "texto": "¡Buenas noches! Exeggutor, presidente veterano de la peña. Vamos a la convención de Sabrina y paramos a cenar. —¡Y a mirar! —¡Calla tú!", "sigue": "abra" },
         "abra": { "quien": "abra", "emocion": "Normal", "texto": "(Abra abre un ojo. Lo cierra.) Hola. Abra. Duermo dieciocho horas al día. Ahora voy por la diecisiete. Estoy casi despierto.", "sigue": "manolo2" },
-        "manolo2": { "quien": "manolo", "emocion": "Happy", "texto": "«Bienvenidos. Abra, majo, ¿me ayudas a poner los platos?»", "sigue": "abra2" },
+        "manolo2": { "quien": "manolo", "emocion": "Happy", "texto": "Bienvenidos. Abra, majo, ¿me ayudas a poner los platos?", "sigue": "abra2" },
         "abra2": { "quien": "abra", "emocion": "Surprised", "texto": "(En cuanto oye «ayudas», Abra desaparece: ¡fium! Al rato se oye un ronquido en el tejado.)", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard sube al tejado, lo baja en brazos y lo sienta a la mesa. ¡Fium!: aparece en la despensa, dormido y abrazado a una chistorra.", "sigue": "abra3" },
         "abra3": { "quien": "abra", "emocion": "Sad", "texto": "Perdón. Si me mandan algo, me teletransporto. Sin querer. Dormido, también. Mi madre dice que es de familia: ella dobla cucharas y yo desaparezco.", "sigue": "exeggutor2" },
