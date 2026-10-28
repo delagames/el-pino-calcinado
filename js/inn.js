@@ -132,9 +132,11 @@ const VENTAJA = {
   obras: 'las obras cuestan menos', propina: 'cobra más propina, por convenio', chistorra: 'trae chistorra cada mañana',
   limpieza: 'aprueba sola la inspección',
 };
-// Los sucesos (uno cada 4 o 5 días): la excursión con los grupos de una noche, la inspección,
-// el Team Rocket, la nevada, la tormenta con apagón y la lluvia de estrellas
-const SUCESOS = { excursion: 3, inspeccion: 1, rocket: 1, nevada: 1, apagon: 1, estrellas: 1 };
+// Los sucesos (uno cada 4 o 5 días): la inspección, el Team Rocket, la nevada, la tormenta con
+// apagón y la lluvia de estrellas. La excursión va aparte: un autobús cada 3 días mientras queden
+// grupos de una noche por venir (si compitiera con los demás, la partida duraba más de 150 días)
+const SUCESOS = { inspeccion: 1, rocket: 1, nevada: 1, apagon: 1, estrellas: 1 };
+const CADA_BUS = 3;
 
 export function hasSave() {
   return !!load();
@@ -581,9 +583,10 @@ export async function createInn(scene, ui) {
       a.walkTo(queueX(i), GROUND, { then: () => { refreshGuest(g); publish(); } });
     }
     // la excursión: el grupo baja del autobús y se queda delante de la posada
-    const grupo = sucesoHoy('excursion') && !st.suceso.grupo && cameosPendientes()[0];
+    const bus = st.bus?.dia === st.dia ? st.bus : sucesoHoy('excursion') ? st.suceso : null;   // (o la de una partida antigua)
+    const grupo = bus && !bus.grupo && cameosPendientes()[0];
     if (grupo) {
-      st.suceso.grupo = grupo.id;
+      bus.grupo = grupo.id;
       const g = { id: grupo.id, pide: 0, estado: 'excursion', hab: null, atendido: true };
       st.hoy.push(g);
       const a = await guestActor(g);
@@ -938,6 +941,7 @@ export async function createInn(scene, ui) {
       chistorra: st.chistorra + paquete, paquete, lluvia, manoloFuera: sale ? dia : st.manoloFuera };
     const suceso = carta || sale || nevo ? null : elegirSuceso(dia);
     if (suceso) { st.suceso = { id: suceso, dia }; st.ultimoSuceso = dia; }
+    if (!carta && cameosPendientes().length && dia - (st.ultimoBus || 0) >= CADA_BUS) { st.bus = { dia }; st.ultimoBus = dia; }
     st.huelga = sinReparto && st.chistorra === 0;
     selected = null;
     await placeResidents();
@@ -972,7 +976,7 @@ export async function createInn(scene, ui) {
     const r = () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296);
     const hace = dia - (st.ultimoSuceso || 0);
     if (dia < 4 || hace < 4 || (hace === 4 && r() < 0.5)) return null;
-    const ok = { excursion: cameosPendientes().length > 0, inspeccion: dia >= 5, rocket: dia >= 6, nevada: dia >= 6, apagon: dia >= 5, estrellas: true };
+    const ok = { inspeccion: dia >= 5, rocket: dia >= 6, nevada: dia >= 6, apagon: dia >= 5, estrellas: true };
     const lista = Object.entries(SUCESOS).filter(([id]) => ok[id] && id !== st.suceso?.id);
     const total = lista.reduce((a, [, w]) => a + w, 0);
     let x = r() * total;
