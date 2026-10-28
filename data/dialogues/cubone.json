@@ -1,0 +1,57 @@
+{
+  "id": "cubone",
+  "_nota": "Cubone, adolescente intenso de Pueblo Lavanda, lleva el cráneo de su madre como casco y le recita monólogos a lo Hamlet. Tierno, no siniestro. Arco en tres visitas: ser o no ser, la Torre y las flores, y una familia de posada (bandera cubone_familia).",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · ser o no ser",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Sad", "texto": "Buenas noches. Una habitación para uno. Bueno, para dos. Para uno y medio.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Worried", "texto": "¿Y el medio, chaval?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Mi madre. (Se toca el casco.) Es su cráneo. Lo llevo puesto desde que se fue. No me lo quito ni para dormir. Ni para ducharme.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Sad", "texto": "(Mira su reflejo en la ventana y declama.) Ser o no ser Marowak, esa es la cuestión. ¿Es más noble llorar en la Torre o cenar algo caliente?", "opciones": [
+          { "texto": "«Muy bonito. ¿Lo has escrito tú?»", "sigue": "escrito" },
+          { "texto": "«Tu madre estaría orgullosa de ti»", "efectos": { "afinidad": 1 }, "sigue": "orgullosa" }
+        ] },
+        "escrito": { "quien": "huesped", "emocion": "Normal", "texto": "Me lo enseñó un señor en Pueblo Lavanda que hablaba con calaveras. Creía que era de los míos. Luego resultó que era actor.", "sigue": "fin" },
+        "orgullosa": { "quien": "huesped", "emocion": "Happy", "texto": "…¿Usted cree? (Se ajusta el casco.) Ella me oye, ¿sabe? Retumba un poco, pero me oye.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Sad", "texto": "Charizard deja la llama de la cola junto a su puerta toda la noche. Para que no esté a oscuras. Ni él ni su madre." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · la Torre de Lavanda",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "He traído tierra de Pueblo Lavanda en el bolsillo. De al lado de la Torre Pokémon. Para que mi madre no la eche de menos.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "¿Y cómo es esa torre? Me han dicho que da un poco de miedo.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Da miedo si vas con prisa. Si vas despacio, es un sitio donde todos se acuerdan de alguien. Una vez vi el fantasma de mi madre.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Happy", "texto": "Era ella, seguro. Me dijo que me fuera a casa, que hacía frío. Y que comiera verdura.", "opciones": [
+          { "texto": "«Las madres son así, hasta de fantasma»", "efectos": { "afinidad": 1 }, "sigue": "madres" },
+          { "texto": "«¿Y comes verdura?»", "sigue": "verdura" }
+        ] },
+        "madres": { "quien": "huesped", "emocion": "Happy", "texto": "¡Eso le digo yo a Gengar! Su abuela canta en el cementerio. Nos entendemos: somos de familias que no se van del todo.", "sigue": "fin" },
+        "verdura": { "quien": "huesped", "emocion": "Pain", "texto": "…No. (Se baja el casco hasta los ojos.) Por eso tiene que venir a decírmelo.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Antes de dormir, Charizard le seca la tierra de Lavanda junto al fuego y se la deja en un tarro, con una flor del prado encima." }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · una familia de posada",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Hoy Cubone cena sin recitar. Mira a Manolo y a Charizard, que discuten por la última chistorra.) ¿Ustedes dos son familia?", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "Lo conozco desde que era un Charmander que me quemaba los calcetines. Si eso no es familia, que venga alguien y me lo explique.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Sad", "texto": "Yo ya no tengo a nadie que me queme los calcetines. Solo a ella, aquí arriba. Y ella no habla. O sí, pero de noche y con eco.", "opciones": [
+          { "texto": "«Aquí tienes sitio siempre, con casco y todo»", "efectos": { "afinidad": 1, "flags": { "cubone_familia": "posada" } }, "sigue": "posada" },
+          { "texto": "«Ella sigue contigo en cómo cuidas las cosas»", "efectos": { "flags": { "cubone_familia": "madre" } }, "sigue": "madre" }
+        ] },
+        "posada": { "quien": "huesped", "emocion": "Happy", "texto": "¿Con casco y todo? (Se lo ajusta, muy digno.) Entonces somos tres y medio. Contando a mamá.", "sigue": "fin" },
+        "madre": { "quien": "huesped", "emocion": "Happy", "texto": "(Se toca el casco y sonríe por debajo.) Entonces llevarla puesta no es ir triste. Es ir acompañado.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le quema los calcetines a Cubone. Muy poquito, y a propósito. Cubone se ríe por primera vez, y esta vez no retumba nada." }
+      }
+    }
+  ]
+}

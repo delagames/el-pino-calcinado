@@ -204,6 +204,22 @@ const CRIES = {
   '0124': t => sweep(520, 780, t, 0.7, { type: 'sine', vol: 0.14, f2: 600, vib: 14 }),                                    // Jynx: quejío flamenco
   '0001': t => { sweep(260, 220, t, 0.12, { type: 'triangle', vol: 0.14 }); sweep(330, 240, t + 0.16, 0.22, { type: 'triangle', vol: 0.14 }); },  // Bulbasaur: «bul-ba»
   '0133': t => { sweep(700, 1050, t, 0.12, { type: 'sine', vol: 0.13 }); sweep(900, 1300, t + 0.16, 0.18, { type: 'sine', vol: 0.13, vib: 18 }); }, // Eevee: «i-viii»
+  '0067': t => { sweep(300, 260, t, 0.12); sweep(420, 360, t + 0.15, 0.2, { vol: 0.12 }); },                               // Machoke: «¡ma-choke!»
+  '0068': t => { sweep(220, 200, t, 0.1, { type: 'square', vol: 0.12 }); sweep(220, 200, t + 0.13, 0.1, { type: 'square', vol: 0.12 }); sweep(330, 300, t + 0.26, 0.25, { type: 'square', vol: 0.12 }); },   // Machamp: «¡un, dos, ¡AR!»
+  '0100': t => { sweep(900, 300, t, 0.25, { type: 'square', vol: 0.1 }); sweep(120, 60, t + 0.22, 0.3, { type: 'sawtooth', vol: 0.12 }); },   // Voltorb: chispa y petardazo
+  '0129': t => [0, 0.1, 0.2, 0.3].forEach(d => sweep(420, 380, t + d, 0.06, { type: 'triangle', vol: 0.1 })),                // Magikarp: plaf plaf plaf
+  '0054': t => { sweep(520, 470, t, 0.16, { type: 'square', vol: 0.1 }); sweep(500, 430, t + 0.2, 0.3, { type: 'square', vol: 0.1, vib: 10 }); },   // Psyduck: «¿psy-aaa?»
+  '0137': t => [0, 0.07, 0.14, 0.21, 0.28].forEach((d, i) => sweep(600 + (i % 2) * 400, 600 + (i % 2) * 400, t + d, 0.05, { type: 'square', vol: 0.08 })),   // Porygon: pitidos de módem
+  '0025': t => { sweep(880, 990, t, 0.1, { type: 'square', vol: 0.1 }); sweep(1040, 1320, t + 0.13, 0.25, { type: 'square', vol: 0.1 }); },   // Pikachu: «pika-chuuu»
+  '0064': t => sweep(400, 900, t, 0.6, { type: 'sine', vol: 0.12, vib: 25 }),                                                // Kadabra: zumbido psíquico
+  '0035': t => { sweep(1000, 1200, t, 0.1, { type: 'sine', vol: 0.12 }); sweep(1200, 1500, t + 0.13, 0.22, { type: 'sine', vol: 0.12, vib: 15 }); },   // Clefairy: «cle-fiii»
+  '0024': t => sweep(1800, 1400, t, 0.6, { type: 'sawtooth', vol: 0.05 }),                                                  // Arbok: siseo
+  '0151': t => sweep(1200, 1700, t, 0.5, { type: 'sine', vol: 0.1, f2: 1400, vib: 30 }),                                   // Mew: risita
+  '0132': t => sweep(300, 500, t, 0.4, { type: 'triangle', vol: 0.12, vib: 40 }),                                           // Ditto: blandiblú
+  '0104': t => { sweep(300, 250, t, 0.12, { type: 'triangle', vol: 0.13 }); sweep(260, 200, t + 0.16, 0.3, { type: 'triangle', vol: 0.13 }); },   // Cubone: «cu-bone»
+  '0083': t => { sweep(700, 500, t, 0.08, { type: 'square', vol: 0.1 }); sweep(700, 480, t + 0.12, 0.1, { type: 'square', vol: 0.1 }); },   // Farfetch'd: cua cua
+  '0079': t => sweep(200, 150, t, 1.3, { type: 'triangle', vol: 0.14, vib: 3 }),                                            // Slowpoke: «sloooow»
+  '0032': t => { sweep(600, 700, t, 0.1, { type: 'triangle', vol: 0.12 }); sweep(900, 1050, t + 0.14, 0.12, { type: 'sine', vol: 0.12 }); },   // los Nidoran: él y ella
 };
 CRIES.marinilla = CRIES['0060'];
 

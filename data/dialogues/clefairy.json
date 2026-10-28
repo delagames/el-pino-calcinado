@@ -1,0 +1,54 @@
+{
+  "id": "clefairy",
+  "_nota": "Clefairy, súper fan de Disney: lo canta todo, habla con los pájaros y sueña con su castillo. Iba a ser la mascota del anime antes que Pikachu, y baila bajo la luna del Monte Moon. Arco en tres visitas: el castillo encantado, la que iba a ser mascota y el castillo de verdad (bandera clefairy_castillo).",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · ¿esto es un castillo?",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "♪ Buenas noches, señor posadero, qué bonito es su hogaaar… ♪ Perdón, es que lo canto todo. ¿Esto es un castillo?", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "Es una posada. Con un pino quemado en la puerta.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "¡Un castillo encantado, entonces! Con su dragón y todo. En las películas, el dragón acaba siendo bueno, ¿sabe?", "opciones": [
+          { "texto": "«Este dragón es buenísimo»", "efectos": { "afinidad": 1 }, "sigue": "bueno" },
+          { "texto": "«Este dragón lo que tiene es hambre»", "sigue": "hambre" }
+        ] },
+        "bueno": { "quien": "huesped", "emocion": "Happy", "texto": "¡Lo sabía! ♪ Un dragón de buen corazón… ♪ Le voy a coser una capa. Roja. No, naranja, que le pega con la llama.", "sigue": "fin" },
+        "hambre": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Hambre de princesas? …Ah, de chistorra. Bueno, eso también es un poco de cuento.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard posa como un dragón de película. Clefairy aplaude. Un Pidgey se le posa en el hombro para hacerle los coros." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · la que iba a ser la mascota",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Sad", "texto": "Manolo, ¿le cuento un secreto? Al principio, la mascota de la tele iba a ser yo. Yo. Lo tenían casi firmado.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Y qué pasó?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Angry", "texto": "Que llegó Pikachu con sus mofletes y su rayito. Y a mí me dejaron bailando bajo la luna en el Monte Moon. Con los Zubat.", "opciones": [
+          { "texto": "«Bailar bajo la luna suena precioso»", "efectos": { "afinidad": 1 }, "sigue": "luna" },
+          { "texto": "«Pikachu tampoco es para tanto»", "sigue": "pikachu" }
+        ] },
+        "luna": { "quien": "huesped", "emocion": "Happy", "texto": "¿Verdad? Cada luna llena bailamos en corro. Si quiere, le enseño. Se le daría bien, con esa calva que brilla.", "sigue": "fin" },
+        "pikachu": { "quien": "huesped", "emocion": "Worried", "texto": "No lo es. Pero tiene unas orejas preciosas, y yo colecciono orejas. De diadema, ¿eh? Llevo cuarenta. Es un conflicto.", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Esa noche, desde el porche, Manolo ve a Clefairy bailar bajo la luna. Charizard la sigue con la cola, de foco.)" }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · el castillo",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "Manolo, ya tengo ahorros para ir al castillo de verdad. El de los fuegos artificiales y las tazas que giran. Pero no sé si ir.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Porque aquí hay un dragón, un pino, bailes con luna y un señor que me deja cantar en el desayuno. Esto ya es un poco castillo.", "opciones": [
+          { "texto": "«Ve, y nos mandas una postal»", "efectos": { "afinidad": 1, "flags": { "clefairy_castillo": "viaje" } }, "sigue": "viaje" },
+          { "texto": "«Aquí tienes tu castillo cuando quieras»", "efectos": { "afinidad": 1, "flags": { "clefairy_castillo": "posada" } }, "sigue": "posada" }
+        ] },
+        "viaje": { "quien": "huesped", "emocion": "Happy", "texto": "¡Una postal con purpurina! Y a la vuelta les traigo orejas. A usted y a Charizard. Vais a ir monísimos.", "sigue": "fin" },
+        "posada": { "quien": "huesped", "emocion": "Happy", "texto": "♪ Mi castillo es de madera y huele a chistorraaa… ♪ Me ha salido sola. Es la canción más bonita que he hecho.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Clefairy le pone a Manolo su corona y a Charizard le hace otra de servilleta. Arde al momento. Le queda un aro de humo. Igual de real." }
+      }
+    }
+  ]
+}

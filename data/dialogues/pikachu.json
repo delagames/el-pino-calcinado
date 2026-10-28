@@ -1,0 +1,55 @@
+{
+  "id": "pikachu",
+  "_nota": "Pikachu, estrella de la tele, creída, con mánager imaginario. Le chifla el kétchup y no entra en una Poké Ball ni loco. Arco en tres visitas: llega la estrella, el kétchup y sin focos (bandera pikachu_normal).",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · llega la estrella",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Pika! Sí, soy yo. No hace falta que grite. ¿Dónde firmo? Le firmo el registro, la servilleta y la calva.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿La calva? Mire, con el registro me apaño.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Mi mánager le llamará por lo de la habitación. Está aquí, a mi lado. ¿No lo ve? Bueno, él a usted sí.", "opciones": [
+          { "texto": "«Dígale a su mánager que hay chistorra»", "efectos": { "afinidad": 1 }, "sigue": "chistorra" },
+          { "texto": "«Aquí todos los huéspedes son iguales»", "sigue": "iguales" }
+        ] },
+        "chistorra": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Chistorra? ¿Y la ponen con kétchup? …Lo pregunta mi mánager. Yo el kétchup lo tomo por contrato.", "sigue": "fin" },
+        "iguales": { "quien": "huesped", "emocion": "Angry", "texto": "¿Iguales? Yo salgo en mochilas, en aviones y en cajas de cereales. Usted, como mucho, en la foto de un gimnasio.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Angry", "texto": "Pikachu intenta firmarle un ala a Charizard. Charizard la aparta con un bufido. Primero se pide permiso." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · ni en la Poké Ball",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Manolo, ¿la habitación tiene Poké Ball? Que la quiten. Yo ahí no entro. Ni en la mía ni en la de nadie. Es un principio.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "Aquí no hay Poké Balls. Hay camas. Con sábanas.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "¡Perfecto! ¿Y me guarda el kétchup? Lo llevo siempre encima. Duermo abrazado al bote. Eso no lo cuente en la prensa.", "opciones": [
+          { "texto": "«Se lo guardo en la nevera, como a una estrella»", "efectos": { "afinidad": 1 }, "sigue": "nevera" },
+          { "texto": "«¿Duerme abrazado a un bote de kétchup?»", "sigue": "abraza" }
+        ] },
+        "nevera": { "quien": "huesped", "emocion": "Happy", "texto": "¡Usted sí sabe tratar a una estrella! Le dejo un autógrafo en la nevera. Por fuera. Con imán.", "sigue": "fin" },
+        "abraza": { "quien": "huesped", "emocion": "Worried", "texto": "Todo el mundo duerme con un peluche mío. ¿Y yo con qué duermo? Con el kétchup. Es lógico.", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Manolo esconde el kétchup detrás de la chistorra. Si Charizard lo descubre, se acabó la paz en la cocina.)" }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · sin focos",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Sad", "texto": "Manolo, no ha venido nadie. Ni un fan. Ni Porygon a reñirme. Le firmé un autógrafo a Snorlax y se lo comió.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "Aquí la fama dura lo que una chistorra en la mesa. Pero la cama es igual de blanda para todos.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "¿Sabe que es la primera vez en años que ceno sin fotos? Me he manchado de kétchup hasta la oreja y nadie se ha dado cuenta.", "opciones": [
+          { "texto": "«Pues quédate de huésped normal»", "efectos": { "afinidad": 1, "flags": { "pikachu_normal": "huesped" } }, "sigue": "normal" },
+          { "texto": "«Toma, un autógrafo mío. Para variar»", "efectos": { "flags": { "pikachu_normal": "autografo" } }, "sigue": "autografo" }
+        ] },
+        "normal": { "quien": "huesped", "emocion": "Happy", "texto": "Huésped normal… Qué bien suena. Dígale al mánager que se coja vacaciones. Yo me quedo junto a la chimenea.", "sigue": "fin" },
+        "autografo": { "quien": "huesped", "emocion": "Surprised", "texto": "«Para Pikachu, de Manolo, el de la posada». ¡Es el primero que me firman a mí! Lo voy a enmarcar.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le acerca el kétchup y media chistorra. Cenan juntos sin decir nada. Ni una foto. Pikachu, por fin, a gusto." }
+      }
+    }
+  ]
+}

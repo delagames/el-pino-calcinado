@@ -1,0 +1,58 @@
+{
+  "id": "ditto",
+  "_nota": "Ditto, imitador de verbena: hace de Manolo, de Charizard y de los huéspedes, y a veces lía a todo el mundo. Carga con la teoría de que es un clon fallido de Mew. Arco en tres visitas: el Manolo de la puerta, el lío de los dos Charizard y quién es él cuando no imita a nadie (bandera ditto_es).",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · el Manolo de la puerta",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "(En la puerta hay un señor calvo, sin cejas y con delantal. Es Manolo. Pero Manolo está detrás del mostrador.) ¡Cachimbita, chistorra y a dormir!", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¡Pero si ese soy yo! Bueno, yo soy más guapo. ¿Y por qué tiene usted la calva morada?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "¡Ay, la calva, que siempre se me olvida el color! (Plof. Una masa morada con dos puntitos por ojos.) Ditto, para servirle. Imitador de verbena.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Hago a Charizard, a Snorlax, al alcalde de Pueblo Paleta… Lo que me echen. Por la noche en la verbena; de día, lo que me pidan.", "opciones": [
+          { "texto": "«Haz a Charizard, a ver»", "efectos": { "afinidad": 1 }, "sigue": "charizard" },
+          { "texto": "«Aquí, con un Manolo, vamos sobrados»", "sigue": "sobra" }
+        ] },
+        "charizard": { "quien": "huesped", "emocion": "Happy", "texto": "(Plof. Un Charizard perfecto, con la cara morada.) ¡Grrr! ¿Chistorra? Yo no he sido. Hay quemaduras en la puerta de la despensa, pero yo no he sido.", "sigue": "humo" },
+        "humo": { "quien": "charizard", "emocion": "Angry", "texto": "El Charizard de verdad suelta humo por la nariz. Lo peor es que lo ha clavado.", "sigue": "fin" },
+        "sobra": { "quien": "huesped", "emocion": "Sad", "texto": "Ya, ya. Me lo dicen en todas partes: «el original es mejor». (Plof.) Bueno, una habitación. Para mí, o para quien sea yo esta noche.", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Manolo le da la llave. Ditto la mira, se convierte en llave por reflejo, y Manolo tarda diez minutos en encontrarlo.)" }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · dos Charizard en la despensa",
+      "nodos": {
+        "inicio": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard entra en la despensa y encuentra a otro Charizard comiéndose la chistorra. Se miran. Se echan humo. Los dos.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Angry", "texto": "¡A ver! ¿Cuál de los dos es el mío? ¡Que levante la pata el que sea Charizard!", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Worried", "texto": "(Levantan la pata los dos.) …Vale, soy yo. (Plof.) Es que imito tan bien que me pierdo dentro. Esta mañana he hecho de Mr. Mime y aún me molesta el IVA.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Sad", "texto": "¿Sabe lo que dicen? Que soy un clon de Mew que salió mal. Mismo color, mismo peso, y solo sé hacer una cosa: Transformación.", "opciones": [
+          { "texto": "«Pues lo de la chistorra te ha salido muy bien»", "sigue": "robo" },
+          { "texto": "«Mal no has salido: has salido distinto»", "efectos": { "afinidad": 1 }, "sigue": "distinto" }
+        ] },
+        "robo": { "quien": "huesped", "emocion": "Pain", "texto": "Eso es lo malo: cuando imito a Charizard, también me entra su hambre. Lo siento. Se la devuelvo… bueno, ya no se la puedo devolver.", "sigue": "fin" },
+        "distinto": { "quien": "huesped", "emocion": "Happy", "texto": "Distinto. Me gusta. Nunca me habían dicho otra palabra que no fuera «igualito». (Se pone un poco más morado de la emoción.)", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard le mira de reojo toda la noche. Por si acaso, cuenta las chistorras dos veces. Le salen las mismas. Raro." }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · ¿y quién soy yo?",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "Manolo, una pregunta seria. Cuando no imito a nadie, ¿quién soy? Me miro al espejo y veo una masa esperando instrucciones.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "Pues yo veo a un huésped que paga, que no ronca y que hace un Mr. Mime que te mueres.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Sad", "texto": "Eso es lo de fuera. Si me quedo quieto, sin forma, ¿le caería bien igual? ¿O sería una mancha en el sillón?", "opciones": [
+          { "texto": "«Me caes bien así, morado y blandito»", "efectos": { "afinidad": 1, "flags": { "ditto_es": "ditto" } }, "sigue": "asi" },
+          { "texto": "«Imitar también es ser alguien: el artista»", "efectos": { "afinidad": 1, "flags": { "ditto_es": "artista" } }, "sigue": "artista" }
+        ] },
+        "asi": { "quien": "huesped", "emocion": "Happy", "texto": "¿Así? ¿Sin pelucas ni calvas? (Se queda quieto. No se transforma. Sonríe con sus dos puntitos.) Es rarísimo. Me gusta.", "sigue": "fin" },
+        "artista": { "quien": "huesped", "emocion": "Happy", "texto": "¡Claro! El que hace a todos también es alguien: el de la verbena. (Plof: Manolo. Plof: Ditto.) Y el de después de la verbena, también.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le cede su sitio junto a la chimenea. Al Ditto de verdad, el blandito. Lo ha comprobado olisqueándolo dos veces." }
+      }
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "nidoran",
+  "_nota": "Nidoran♂ y Nidoran♀, recién casados, de luna de miel en la buhardilla (solo aceptan esa habitación). Lore: en la Pokédex son dos especies distintas (029 y 032), porque en los primeros juegos no había machos y hembras. Habla él («huesped») y ella («pareja»). Arco en tres visitas: la luna de miel, la primera discusión (ella quiere evolucionar con la Piedra Lunar y él no) y el aniversario (bandera nidoran_nidito).",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · luna de miel",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Buenas! Venimos de luna de miel. Queremos la buhardilla. Mi señora dice que es la que tiene vistas a la luna.", "sigue": "ella" },
+        "ella": { "quien": "pareja", "emocion": "Happy", "texto": "Y la más apartada, que este ronca. Pero ronca bonito, ¿eh? Como un motor de barca.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "Enhorabuena, pareja. ¿Y hace mucho que os casasteis?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "El sábado. Su familia no quería: dice la Pokédex que somos especies distintas. Ella la 029 y yo la 032.", "sigue": "n3" },
+        "n3": { "quien": "pareja", "emocion": "Angry", "texto": "Tres números de diferencia. ¡Tres! Mi tía se casó con un Nidoking y nadie dijo nada.", "opciones": [
+          { "texto": "«¡Vivan los novios!»", "efectos": { "afinidad": 1 }, "sigue": "vivan" },
+          { "texto": "«Aquí no se mira la Pokédex, se mira la cartera»", "sigue": "cartera" }
+        ] },
+        "vivan": { "quien": "pareja", "emocion": "Happy", "texto": "¡Ay, que me emociono! Cariño, el señor calvo nos aplaude. Apúntalo en el álbum.", "sigue": "fin" },
+        "cartera": { "quien": "huesped", "emocion": "Surprised", "texto": "Eh… pagamos por adelantado, si quiere. Es que el viaje de novios nos lo ha pagado mi suegra. Con condiciones.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard les sube las maletas a la buhardilla y les deja una chistorra en la almohada. Es su manera de decir «felicidades»." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · la Piedra Lunar",
+      "nodos": {
+        "inicio": { "quien": "pareja", "emocion": "Angry", "texto": "Manolo, usted que es neutral: ¿verdad que una tiene derecho a evolucionar cuando le dé la gana?", "sigue": "el" },
+        "el": { "quien": "huesped", "emocion": "Worried", "texto": "¡Es que se ha comprado una Piedra Lunar! Si evoluciona a Nidorina, me saca una cabeza. ¿Y yo qué? ¿Me quedo pequeñito?", "sigue": "ella" },
+        "ella": { "quien": "pareja", "emocion": "Normal", "texto": "Pues evolucionas tú también, que la piedra vale para los dos. Pero no, el señor tiene miedo de que le cambie la voz.", "opciones": [
+          { "texto": "«Evolucionad juntos, que es lo bonito»", "efectos": { "afinidad": 1 }, "sigue": "juntos" },
+          { "texto": "«Yo no me meto, que luego os reconciliáis y el malo soy yo»", "sigue": "nomemeto" }
+        ] },
+        "juntos": { "quien": "huesped", "emocion": "Happy", "texto": "Juntos… Mira, eso no se me había ocurrido. Media piedra cada uno. ¿Se puede partir una Piedra Lunar?", "sigue": "manolo" },
+        "nomemeto": { "quien": "pareja", "emocion": "Happy", "texto": "Qué listo es usted. Ya nos hemos reconciliado, mire. Él me ha pedido perdón con el cuerno, que es como se hace.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Sigh", "texto": "(Manolo guarda la Piedra Lunar en la caja de la recepción. Por si acaso. Hasta que lo hablen tranquilos.)", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard mira la Piedra Lunar con mucho interés. Manolo le dice que no, que no se come." }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · el aniversario",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Un año, Manolo! Volvemos por el aniversario. A la buhardilla, claro. Es nuestro nidito.", "sigue": "ella" },
+        "ella": { "quien": "pareja", "emocion": "Happy", "texto": "Al final no evolucionamos. Decidimos que pequeñitos cabemos mejor en la cama. Y la Piedra Lunar la usamos de pisapapeles.", "sigue": "el" },
+        "el": { "quien": "huesped", "emocion": "Normal", "texto": "Queríamos darle las gracias. En ningún sitio nos trataron como aquí: ni una pregunta de la Pokédex. Solo «¿cuántas chistorras?».", "opciones": [
+          { "texto": "«La buhardilla es vuestra cuando queráis»", "efectos": { "afinidad": 1, "flags": { "nidoran_nidito": "vuestra" } }, "sigue": "vuestra" },
+          { "texto": "«¿Y para cuándo un Nidoran pequeñito?»", "efectos": { "flags": { "nidoran_nidito": "pregunta" } }, "sigue": "pregunta" }
+        ] },
+        "vuestra": { "quien": "pareja", "emocion": "Happy", "texto": "¿De verdad? Pues le vamos a bordar un cojín con nuestros números: 029 y 032. Para que no se olvide.", "sigue": "fin" },
+        "pregunta": { "quien": "pareja", "emocion": "Surprised", "texto": "¡Manolo, qué cosas tiene! …Bueno. Ya le avisaremos. Usted vaya guardando la buhardilla.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Esa noche, Charizard sube a la buhardilla una vela para el aniversario. Solo quema un poquito la cortina. Lo celebran igual." }
+      }
+    }
+  ]
+}

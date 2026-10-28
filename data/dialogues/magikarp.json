@@ -1,0 +1,57 @@
+{
+  "id": "magikarp",
+  "_nota": "Magikarp, coach motivacional y criptobro de LinkedIn: «mindset Gyarados», «mañana evoluciono», vende cursos para escalar la posada. Arco en tres visitas: Salpicadura (no pasa nada), el curso de quinientas monedas y la confesión: a él lo vendieron por quinientas en un Centro Pokémon (bandera magikarp_careta).",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · mindset Gyarados",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Buenas, campeón! Aunque sean las nueve de la noche: en mi cabeza siempre son las cinco de la mañana. Magikarp, coach de alto rendimiento.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Pain", "texto": "(Tipo agua: a Manolo se le cierra un ojo y le cae una gota.) ¿Coach de qué, perdone?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "De mindset. Hoy soy Magikarp, pero pienso como un Gyarados. Mañana evoluciono. Lo dicen mi visualización y mi agua con limón.", "opciones": [
+          { "texto": "«Pues mucha suerte con lo de mañana»", "efectos": { "afinidad": 1 }, "sigue": "suerte" },
+          { "texto": "«¿Y qué sabes hacer, aparte de pensar?»", "sigue": "salpica" }
+        ] },
+        "suerte": { "quien": "huesped", "emocion": "Happy", "texto": "La suerte no existe, campeón: existe el foco. Por cierto, ¿me pones un café con aceite MCT? Es para el foco.", "sigue": "fin" },
+        "salpica": { "quien": "huesped", "emocion": "Angry", "texto": "¿Que qué sé hacer? ¡Mira! (Magikarp usa Salpicadura con todas sus fuerzas. Durante un buen rato.)", "sigue": "nada" },
+        "nada": { "quien": "charizard", "emocion": "Surprised", "texto": "No pasa nada. Absolutamente nada. Charizard espera un poco más, por educación. Sigue sin pasar nada.", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Manolo le da la llave. Magikarp le pide «conectar» en LinkedIn. Manolo no sabe qué es, pero dice que sí, por si acaso.)" }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · escala tu posada",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "Manolo, he estudiado tu negocio. Tienes potencial, pero piensas en pequeño. Te presento mi curso: «Escala tu posada en 30 días».", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Módulo uno: la chistorra no se sirve, se tokeniza. Módulo dos: Charizard, en remoto. Módulo tres: te levantas a las cuatro y ducha de hielo.", "sigue": "humo" },
+        "humo": { "quien": "charizard", "emocion": "Angry", "texto": "Charizard oye «en remoto» y «hielo» en la misma frase y le echa una nube de humo directa a la cara al coach.", "opciones": [
+          { "texto": "«Aquí: cachimbita, chistorra y a dormir»", "efectos": { "afinidad": 1 }, "sigue": "lema" },
+          { "texto": "«¿Y cuánto cuesta el curso?»", "sigue": "precio" }
+        ] },
+        "lema": { "quien": "huesped", "emocion": "Surprised", "texto": "Cachimbita, chistorra y a dormir… Eso es un eslogan brutal, campeón. ¿Me dejas ponerlo en mi perfil? Te cito, ¿eh?", "sigue": "fin" },
+        "precio": { "quien": "huesped", "emocion": "Worried", "texto": "¡Una ganga! Quinientas monedas. …¿Por qué pongo esta cara al decir quinientas? Nada. No es nada. Siguiente diapositiva.", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Normal", "texto": "(Esa noche, Manolo ve a Magikarp asomado a la ventana, mirando la luna sin hacerse ninguna foto. Parece otro pez.)" }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · quinientas monedas",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Sad", "texto": "Manolo, ¿te cuento una cosa sin filtro? Lo de las quinientas monedas… es mi precio. A mí me vendieron por quinientas en un Centro Pokémon.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Sad", "texto": "Un señor con gabardina: «¡Magikarp, una ganga!». El niño que me compró me devolvió a los dos días. Desde entonces vendo cursos. Para valer más.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Pain", "texto": "(A Manolo se le cierra un ojo y le cae una gota. Y no es solo por el agua: el Gyarados que le ganó el último combate también fue Magikarp un día.)", "sigue": "manolo2" },
+        "manolo2": { "quien": "manolo", "emocion": "Normal", "texto": "Te digo una cosa. El Gyarados más bruto que he visto también salpicaba de pequeño. Y tú me caes bastante mejor.", "opciones": [
+          { "texto": "«Aquí no hace falta evolucionar para valer»", "efectos": { "afinidad": 1, "flags": { "magikarp_careta": "fuera" } }, "sigue": "fuera" },
+          { "texto": "«Evoluciona, pero acuérdate de dónde vienes»", "efectos": { "flags": { "magikarp_careta": "gyarados" } }, "sigue": "gyarados" }
+        ] },
+        "fuera": { "quien": "huesped", "emocion": "Happy", "texto": "¿Sin mindset? ¿Sin curso? ¿Solo… yo? (Magikarp borra LinkedIn del móvil. Respira. Salpica un poco, esta vez de felicidad.)", "sigue": "fin" },
+        "gyarados": { "quien": "huesped", "emocion": "Happy", "texto": "Evolucionaré cuando toque. Y cuando sea Gyarados vendré a desayunar aquí. A morder, no. A desayunar. Palabra de pez.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le sirve un café normal, sin aceite de nada. Magikarp dice que es el mejor café de su vida. Y esta vez no está vendiendo nada." }
+      }
+    }
+  ]
+}

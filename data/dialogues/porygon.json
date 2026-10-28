@@ -1,0 +1,55 @@
+{
+  "id": "porygon",
+  "_nota": "Porygon, friki de HeroClix: monta partidas en el comedor y mide con regla. No ha perdonado a Pikachu lo del episodio del 97, tras el que él no volvió a salir en el anime. Arco en tres visitas: la partida, «fue Pikachu» y la figura chase (bandera porygon_chase).",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · trescientos puntos",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Buenas! ¿Tiene una mesa grande y una regla? Traigo un equipo de 300 puntos y busco rival. HeroClix. Superhéroes en miniatura.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "(Manolo mira la caja: cien muñequitos de Marvel y DC, cada uno con una ruedecita en la peana.)", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "La rueda es el dial de combate. Te dan un golpe, giras un clic y te bajan las estadísticas. Como la vida misma, pero con Lobezno.", "opciones": [
+          { "texto": "«Le dejo el comedor después de cenar»", "efectos": { "afinidad": 1 }, "sigue": "comedor" },
+          { "texto": "«Aquí no se combate, ni con muñecos»", "sigue": "nocombate" }
+        ] },
+        "comedor": { "quien": "huesped", "emocion": "Happy", "texto": "¡Figuras, caballero! Muñecos son los de la tómbola. Monto el mapa junto a la chimenea. Línea de visión despejada.", "sigue": "fin" },
+        "nocombate": { "quien": "huesped", "emocion": "Worried", "texto": "No es combate, es estrategia. Aquí no se hace daño nadie. Salvo las peanas, si las pisa un dragón.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard coge un Superman para olerlo. Porygon le ruega que lo suelte por la peana, que el dial es delicado." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · fue Pikachu",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Sad", "texto": "¿Sabe por qué voy de posada en posada? Porque en la tele no me quieren. Desde el 97. Un episodio y adiós.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Worried", "texto": "¿Y qué pasó en el 97?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Angry", "texto": "¡Unas lucecitas! Y el rayo lo soltó Pikachu. Pero a él, portadas y peluches. Y a mí, ni un cameo. Ni al fondo de un plano.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Sad", "texto": "Fue Pikachu. Lo sabe todo el mundo. Y luego el raro soy yo, por medir las distancias con regla.", "opciones": [
+          { "texto": "«Eso es una injusticia de las gordas»", "efectos": { "afinidad": 1 }, "sigue": "injusticia" },
+          { "texto": "«Igual te faltaba un buen mánager»", "sigue": "manager" }
+        ] },
+        "injusticia": { "quien": "huesped", "emocion": "Happy", "texto": "¡Por fin alguien lo dice! Le regalo una figura repetida. Un Spider-Man de los normales, no se emocione.", "sigue": "fin" },
+        "manager": { "quien": "huesped", "emocion": "Normal", "texto": "Pikachu tiene mánager. Imaginario, pero lo tiene. Yo tengo una carpeta con fundas y una calculadora de puntos.", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Manolo decide que, si un día coinciden Porygon y Pikachu, mejor sentarlos en mesas distintas.)" }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · la figura chase",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "Manolo, emergencia. He perdido mi chase. La figura rara: un Silver Surfer plateado. Sale uno por caja. O por diez.", "sigue": "charizard" },
+        "charizard": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard mira al techo. Lleva toda la tarde con algo brillante entre las garras, como quien no quiere la cosa.", "opciones": [
+          { "texto": "«Charizard, devuélvesela ahora mismo»", "efectos": { "afinidad": 1, "flags": { "porygon_chase": "devuelta" } }, "sigue": "devuelta" },
+          { "texto": "«Mira qué carita pone. ¿Se la dejas?»", "efectos": { "flags": { "porygon_chase": "regalada" } }, "sigue": "regalada" }
+        ] },
+        "devuelta": { "quien": "huesped", "emocion": "Happy", "texto": "¡Intacta! Bueno, un chamuscón en la tabla. Le da carácter. Ahora es la edición Pino Calcinado. Única en el mundo.", "sigue": "fin" },
+        "regalada": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Mi chase? …Vale. Que se la quede. Pero que no le gire el dial, que la tiene a tope de vida.", "sigue": "fin" },
+        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "¿Sabe qué? Ya no me hace falta salir en la tele. Tengo mesa, regla y un dragón de rival. Más de lo que tiene Pikachu." }
+      }
+    }
+  ]
+}

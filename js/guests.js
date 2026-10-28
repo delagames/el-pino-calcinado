@@ -55,6 +55,9 @@ export function pickArrivals(state) {
     if (g.atrae && mejoras.has(g.atrae)) k -= 0.35;
     if (state.lluvia && t.includes('agua')) k -= 0.35;   // con lluvia vienen más los de agua
     if ((libro[g.id]?.felicidad ?? 0) >= 4) k -= 0.4;
+    // con tantos huéspedes, quien tiene su historia a medias vuelve antes (si no, no se acaba nunca)
+    const visitas = libro[g.id]?.visitas || 0;
+    if (visitas > 0 && visitas < (g.arco || 3)) k -= 0.25;
     return k;
   };
   const rest = pool.filter(g => !first.includes(g.id))

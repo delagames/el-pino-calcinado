@@ -1,0 +1,57 @@
+{
+  "id": "voltorb",
+  "_nota": "Voltorb, fanático del baloncesto con forma de balón (y de Poké Ball): le aterra que lo boten o lo encesten, y si se emociona demasiado se le escapa una Autodestrucción pequeñita. Arco en tres visitas: llega gritando, el triple de la radio y el partido de la posada con Snorlax de canasta (bandera voltorb_cancha).",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · ¡buenas noches, Kanto!",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Buenas noches, Kanto! ¡Llega Voltorb, desde la Central de Energía! ¡Una habitación para uno y el público en pie!", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "(Manolo, por instinto, le busca el botón para abrirlo. Voltorb da un saltito hacia atrás.)", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Worried", "texto": "¡Eh, eh! Que no soy una Poké Ball. Ni un balón. Lo de redondo es genética. Por favor: nada de botarme. Ni lanzarme. Ni encestarme.", "opciones": [
+          { "texto": "«Tranquilo, aquí no se bota a nadie»", "efectos": { "afinidad": 1 }, "sigue": "tranquilo" },
+          { "texto": "«¿Y de qué equipo eres?»", "sigue": "equipo" }
+        ] },
+        "tranquilo": { "quien": "huesped", "emocion": "Sad", "texto": "Gracias. La última vez un Hitmonlee me confundió con el balón y me hizo un mate. Dos puntos para él. Para mí, un chichón esférico.", "sigue": "fin" },
+        "equipo": { "quien": "huesped", "emocion": "Happy", "texto": "¡De todos los que tengan un Gasol! Y de la ACB entera. Y de la NBA a las tres de la mañana. Dormir es para los que no tienen liga.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard, que ya iba a darle un toquecito con la cola como a una pelota, la esconde detrás de la espalda y silba." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · partido en la radio",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Manolo, la radio, que hay partido! Final apretado, diez segundos… ¡La tiene él, se levanta, lanza desde su casa…!", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Worried", "texto": "Oye, que te estás poniendo rojo. Más rojo. Y estás… ¿vibrando?", "sigue": "triple" },
+        "triple": { "quien": "huesped", "emocion": "Surprised", "texto": "¡TRIIIPLEEE! ¡Desde el aparcamiento! ¡Lo ha metido desde el aparca…!", "sigue": "pum" },
+        "pum": { "quien": "charizard", "emocion": "Surprised", "texto": "¡PUM! Una explosioncita. Vuela el mantel, Charizard se queda con la cara negra y la radio sigue sonando, impecable.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Sad", "texto": "Perdón, perdón. Es Autodestrucción. Me pasa con los triples. Y con los tapones. Y con los tiros libres en el último segundo.", "opciones": [
+          { "texto": "«Se barre y listo. ¿Quién ha ganado?»", "efectos": { "afinidad": 1 }, "sigue": "gana" },
+          { "texto": "«La próxima, escúchalo en el patio»", "sigue": "patio" }
+        ] },
+        "gana": { "quien": "huesped", "emocion": "Happy", "texto": "¡Hemos ganado! Bueno, han ganado ellos. Pero la explosión la he puesto yo. Eso también suma.", "sigue": "fin" },
+        "patio": { "quien": "huesped", "emocion": "Normal", "texto": "En el patio. Lejos del pino, que ya está bastante quemado. Entendido.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard se limpia el hollín con la cola y se ríe por dentro. Por fin hay alguien en la casa que quema más cosas que él." }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · el partido de la posada",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "Manolo, te confieso una cosa: yo lo que quiero es jugar. Pero en cuanto piso una cancha, todos me miran como si fuera el balón.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "Pues aquí tenemos un balón de verdad. Y un Snorlax que, tumbado boca arriba, es la canasta más grande de Kanto.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Un partido? ¿Aquí? ¿Y yo qué hago, juego o lo narro? ¡No puedo elegir! ¡Me estoy calentando!", "opciones": [
+          { "texto": "«Juega. El balón es ese, no tú»", "efectos": { "afinidad": 1, "flags": { "voltorb_cancha": "juega" } }, "sigue": "juega" },
+          { "texto": "«Nárralo, que nadie lo hace como tú»", "efectos": { "flags": { "voltorb_cancha": "narra" } }, "sigue": "narra" }
+        ] },
+        "juega": { "quien": "huesped", "emocion": "Happy", "texto": "(Voltorb rueda hasta la zona, recibe el pase de Charizard y lanza el balón. El balón, no a sí mismo. ¡Canasta! En la barriga de Snorlax.)", "sigue": "fin" },
+        "narra": { "quien": "huesped", "emocion": "Happy", "texto": "¡Charizard la sube, finta, vuela… y machaca sobre Snorlax! ¡Snorlax ni se inmuta! ¡Señoras y señores, la posada está en llamas! ¡Literalmente!", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al final del partido, Voltorb explota de alegría. Una pequeñita. Nadie se queja: hasta Snorlax abre un ojo y aplaude con una mano." }
+      }
+    }
+  ]
+}

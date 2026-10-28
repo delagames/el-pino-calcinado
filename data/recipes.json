@@ -26,7 +26,8 @@
       "preferidos": [
         "growlithe",
         "machop",
-        "eevee"
+        "eevee",
+        "pikachu"
       ],
       "genero": "f",
       "juego": "vuelta"
@@ -54,7 +55,9 @@
       "preferidos": [
         "squirtle",
         "jigglypuff",
-        "oddish"
+        "oddish",
+        "psyduck",
+        "cubone"
       ],
       "genero": "f",
       "juego": "llama"
@@ -69,7 +72,8 @@
       ],
       "preferidos": [
         "jigglypuff",
-        "jynx"
+        "jynx",
+        "mew"
       ],
       "genero": "m",
       "juego": "miel"
@@ -84,7 +88,10 @@
       ],
       "preferidos": [
         "machop",
-        "bulbasaur"
+        "bulbasaur",
+        "machamp",
+        "arbok",
+        "farfetchd"
       ],
       "genero": "m",
       "juego": "setas"
@@ -98,7 +105,8 @@
         }
       ],
       "preferidos": [
-        "lapras"
+        "lapras",
+        "magikarp"
       ],
       "genero": "f",
       "juego": "espeton"
@@ -120,7 +128,10 @@
       ],
       "preferidos": [
         "machop",
-        "snorlax"
+        "snorlax",
+        "machoke",
+        "kadabra",
+        "slowpoke"
       ],
       "genero": "m"
     },
@@ -135,7 +146,10 @@
         }
       ],
       "preferidos": [
-        "snorlax"
+        "snorlax",
+        "voltorb",
+        "porygon",
+        "ditto"
       ],
       "genero": "f"
     },
@@ -149,7 +163,9 @@
         }
       ],
       "preferidos": [
-        "jigglypuff"
+        "jigglypuff",
+        "clefairy",
+        "nidoran"
       ],
       "genero": "f"
     }

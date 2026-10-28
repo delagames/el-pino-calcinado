@@ -384,7 +384,9 @@ async function startTalk(id, after = null) {
     mejoras: inn.mejoras(),
     applyEffects: ef => inn.applyEffects(id, ef),
     onNode(node) {
-      const who = node.quien === 'huesped' ? { sprite: h.sprite, nombre: h.nombre } : CREW[node.quien];
+      // «pareja»: habla el acompañante (Nidoran♀); el huésped, con su nombre de hablante si lo tiene
+      const who = node.quien === 'huesped' ? { sprite: h.sprite, nombre: h.hablante || h.nombre }
+        : node.quien === 'pareja' && h.acompanante ? { sprite: h.acompanante, nombre: h.acompananteNombre || h.nombre } : CREW[node.quien];
       counter.speak(node.quien, node.emocion);
       const options = node.opciones
         ? node.opciones.map((o, i) => ({ label: o.texto, action: () => run.choose(i) }))

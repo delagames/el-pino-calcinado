@@ -1,0 +1,54 @@
+{
+  "id": "kadabra",
+  "_nota": "Kadabra, vidente de la tele de madrugada: echa las cartas y dobla cucharas sin querer. Un tal Uri le tiene denunciado y no le dejan salir en las cartas, a él, que vive de echarlas. Arco en tres visitas: las cartas no mienten, un tal Uri y la tirada de la posada (bandera kadabra_tirada).",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · las cartas no mienten",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Buenas noches, cariño. No me digas nada: vas a darme la habitación tres. ¿Que es la uno? Bueno, casi.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Usted es… adivino?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "Vidente. De la tele, de madrugada. «Llámame, cariño, que las cartas no mienten». A ti te echo una gratis.", "opciones": [
+          { "texto": "«Venga, écheme una»", "efectos": { "afinidad": 1 }, "sigue": "carta" },
+          { "texto": "«Mi futuro es chistorra y a dormir»", "sigue": "futuro" }
+        ] },
+        "carta": { "quien": "huesped", "emocion": "Surprised", "texto": "Ha salido… el Dragón. Te espera un ser grande y naranja que te quiere mucho y te vacía la despensa. ¡Qué precisa!", "sigue": "fin" },
+        "futuro": { "quien": "huesped", "emocion": "Normal", "texto": "Respeto, cariño. Pero veo una chistorra en tu futuro. Y un dragón detrás de ella. Muy rápido.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard le trae la cena. Kadabra mira la cuchara y la cuchara se dobla sola. Charizard sale de espaldas, despacito." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · un tal Uri",
+      "nodos": {
+        "inicio": { "quien": "manolo", "emocion": "Sigh", "texto": "Kadabra, me faltan doce cucharas. Las he encontrado en tu cuarto. Todas dobladas.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Worried", "texto": "Perdona, cariño. No lo hago queriendo. Las miro y se ponen tímidas. Por eso me tiene denunciado un tal Uri.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Sad", "texto": "Dice que le copié la cuchara y la estrella de la frente. Y desde entonces no me dejan salir en las cartas. ¡A mí! Que vivo de echarlas.", "opciones": [
+          { "texto": "«Aquí sales en todas las cartas que quieras»", "efectos": { "afinidad": 1 }, "sigue": "todas" },
+          { "texto": "«Te compro cucharas de madera»", "sigue": "madera" }
+        ] },
+        "todas": { "quien": "huesped", "emocion": "Happy", "texto": "Ay, qué hombre. Te echo las cartas y me pongo yo en el centro. El Mago. Que es lo que soy.", "sigue": "fin" },
+        "madera": { "quien": "huesped", "emocion": "Normal", "texto": "De madera se doblan menos, pero se astillan. Y luego el potaje sabe a mueble. Gracias igual, cariño.", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Esa noche Manolo cena el potaje con tenedor. No es lo ideal.)" }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · la tirada de la posada",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "Le he echado las cartas a Larvitar: le ha salido el Sol, que viene algo bueno. Ha llorado igual, pero de otra manera.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Ahora te toca a ti, cariño. La tirada de la casa: lo que fue, lo que es y lo que será. Corta tú.", "opciones": [
+          { "texto": "«Corto. Y que salga lo que salga»", "efectos": { "afinidad": 1, "flags": { "kadabra_tirada": "posada" } }, "sigue": "tirada" },
+          { "texto": "«Prefiero no saberlo, la verdad»", "efectos": { "flags": { "kadabra_tirada": "sin_tirar" } }, "sigue": "nosaber" }
+        ] },
+        "tirada": { "quien": "huesped", "emocion": "Surprised", "texto": "Lo que fue: un pino ardiendo. Lo que es: una casa llena. Lo que será… ¡Uy! Una cuchara recta. Esa no la había visto nunca.", "sigue": "fin" },
+        "nosaber": { "quien": "huesped", "emocion": "Happy", "texto": "Haces bien. El futuro que no se mira llega de sorpresa, que es más bonito. Te dejo la baraja de recuerdo.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le trae la última cuchara de la casa. Kadabra la mira y, por primera vez, no se dobla. A Kadabra se le escapa la risa." }
+      }
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "id": "mew",
+  "_nota": "Mew, la leyenda del patio de colegio («Mew está debajo del camión»), llega escondido debajo de la furgoneta de Famadesa. Tímido, se vuelve invisible si le miran mucho. Arco en tres visitas: debajo de la furgoneta, ahora me ves y ahora no, y del que vienen todos (bandera mew_existe).",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · Mew está debajo de la furgoneta",
+      "nodos": {
+        "inicio": { "quien": "charizard", "emocion": "Surprised", "texto": "La furgoneta de Famadesa descarga la chistorra. Charizard olisquea las ruedas y se queda muy quieto: debajo hay algo rosa que le mira.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Qué has encontrado, Charizard? …¿Eso es un gato rosa?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Worried", "texto": "Aquí debajo no hay nadie. Váyanse. …Bueno, hay alguien. Pero muy poquito.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Sad", "texto": "Soy Mew. Ya sé que no se lo cree. Nadie se lo cree. En los patios de colegio dicen que vivo debajo de un camión, al lado de un barco en Ciudad Carmín.", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Worried", "texto": "Lo del barco ya pasó. Ahora vivo debajo de esta furgoneta. Huele a chistorra y aquí no mira nadie. Bueno, ustedes sí.", "opciones": [
+          { "texto": "«Sal, hombre, que hay una cama libre»", "sigue": "cama" },
+          { "texto": "«Quédate ahí, que te traigo una manta»", "efectos": { "afinidad": 1 }, "sigue": "manta" }
+        ] },
+        "cama": { "quien": "huesped", "emocion": "Worried", "texto": "¿Una cama? ¿Con gente alrededor que me ve? …No sé. Me lo pienso desde aquí abajo.", "sigue": "fin" },
+        "manta": { "quien": "huesped", "emocion": "Happy", "texto": "¿Una manta? ¿Para mí? Nunca me habían traído nada. Normalmente me buscan con trucos raros y una Pokédex.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard se tumba en la gravilla y le pasa un trozo de chistorra por debajo. Desaparece la chistorra. Luego, Mew." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · ahora me ves, ahora no",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Una voz sale del mostrador vacío.) Buenas noches. Estoy aquí. Me he vuelto invisible sin querer. Me pasa cuando me miran mucho.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Dónde es «aquí»? ¿Al lado del timbre?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Worried", "texto": "Encima del timbre. No lo toque. …Lo ha tocado. Ya se me ve otra vez. Qué vergüenza.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Sad", "texto": "Me han dicho que por el camino va un tal Ditto con mi color y mi peso. Que salió de mí. A veces pienso que el que sobra soy yo.", "opciones": [
+          { "texto": "«Aquí no sobra nadie, ni rosa ni morado»", "efectos": { "afinidad": 1 }, "sigue": "sobra" },
+          { "texto": "«¿Y por qué te escondes tanto?»", "sigue": "esconde" }
+        ] },
+        "sobra": { "quien": "huesped", "emocion": "Happy", "texto": "¿Ni siquiera uno que solo existe en los rumores? …Me lo apunto. Por dentro, que papel no tengo.", "sigue": "fin" },
+        "esconde": { "quien": "huesped", "emocion": "Sad", "texto": "Porque cuando me encuentran me quieren meter en una Ball, en un laboratorio o en una película. Debajo de la furgoneta solo me quiere la chistorra.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Esa noche Mew duerme en el pasillo, envuelto en la manta y a la vista. Charizard monta guardia para que nadie le haga fotos." }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · del que vienen todos",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Manolo, ¿sabe lo que dicen de mí? Que llevo dentro un poquito de todos los Pokémon. Que todos vienen de uno como yo.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿De todos? ¿También de Charizard? ¿Y de Snorlax?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "Sobre todo de Snorlax. Por eso duermo tanto debajo de las furgonetas. …Era broma. Estoy aprendiendo a hacer bromas.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Worried", "texto": "Lo que quiero decir es que aquí tengo primos en cada cuarto. Y hoy quiero probar a dormir en una cama de verdad. Con la puerta abierta.", "opciones": [
+          { "texto": "«La mejor habitación, con tu manta»", "efectos": { "afinidad": 1, "flags": { "mew_existe": "cama" } }, "sigue": "cama" },
+          { "texto": "«Y si te asustas, la furgoneta sigue ahí»", "efectos": { "flags": { "mew_existe": "furgoneta" } }, "sigue": "furgoneta" }
+        ] },
+        "cama": { "quien": "huesped", "emocion": "Happy", "texto": "Con la manta que huele a chistorra. Sí. Así es como dormir debajo de la furgoneta, pero con almohada.", "sigue": "fin" },
+        "furgoneta": { "quien": "huesped", "emocion": "Happy", "texto": "Gracias por no obligarme. Hoy pruebo la cama, y si me asusto, bajo a la furgoneta. Saber que puedo ya es la mitad.", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Happy", "texto": "(A la mañana siguiente, en el libro de visitas, hay una firma rosa que antes no estaba: «Mew. Existo. Estuve aquí».)" }
+      }
+    }
+  ]
+}

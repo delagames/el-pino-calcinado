@@ -29,6 +29,23 @@ Proyecto personal, sin ánimo de lucro, no afiliado a Nintendo, Creatures ni GAM
 | 0124 | Jynx | CHUNSOFT | CHUNSOFT |
 | 0001 | Bulbasaur | CHUNSOFT | CHUNSOFT |
 | 0133 | Eevee | CHUNSOFT | CHUNSOFT |
+| 0067 | Machoke | CHUNSOFT | CHUNSOFT, JFain |
+| 0068 | Machamp | CHUNSOFT | CHUNSOFT |
+| 0100 | Voltorb | CHUNSOFT, Emboarger | CHUNSOFT, JFain |
+| 0129 | Magikarp | CHUNSOFT | CHUNSOFT, JemDragons |
+| 0054 | Psyduck | CHUNSOFT | CHUNSOFT, Felis-Licht, Morei |
+| 0137 | Porygon | CHUNSOFT | CHUNSOFT, Mojo, Emmuffin |
+| 0025 | Pikachu | CHUNSOFT | CHUNSOFT |
+| 0064 | Kadabra | CHUNSOFT | CHUNSOFT, 0palite, baronessfaron |
+| 0035 | Clefairy | CHUNSOFT | CHUNSOFT, estelstarlight |
+| 0024 | Arbok | CHUNSOFT | CHUNSOFT, drawsstuff, Noo, Emmuffin |
+| 0151 | Mew | CHUNSOFT, JFain | CHUNSOFT, Mojo, G〜, baronessfaron |
+| 0132 | Ditto | CHUNSOFT, Caitemis | CHUNSOFT,  |
+| 0104 | Cubone | CHUNSOFT, Emmuffin, Sceptile, Some_Shinx | CHUNSOFT, Felis-Licht, Morei, Emmuffin |
+| 0083 | Farfetch'd | CHUNSOFT | CHUNSOFT, Noo |
+| 0079 | Slowpoke | CHUNSOFT | CHUNSOFT, , Morei |
+| 0032 | Nidoran♂ | CHUNSOFT | CHUNSOFT, JFain |
+| 0029 | Nidoran♀ | CHUNSOFT | CHUNSOFT, JFain, Fearless-Quit |
 | 0130 | Gyarados | CHUNSOFT | CHUNSOFT, G〜, baronessfaron |
 | 0067 | Machoke | CHUNSOFT | CHUNSOFT, JFain |
 | 0106 | Hitmonlee | CHUNSOFT | CHUNSOFT, Tainted#3886, G〜 |

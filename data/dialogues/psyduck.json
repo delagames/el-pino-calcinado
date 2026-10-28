@@ -1,0 +1,59 @@
+{
+  "id": "psyduck",
+  "_nota": "Psyduck, opositor eterno: doce años preparando las oposiciones al Ayuntamiento de Ciudad Celeste, noventa temas subrayados en cuatro colores y un dolor de cabeza constante que a veces suelta poderes psíquicos que luego no recuerda. Arco en tres visitas: el temario, la noche de Jigglypuff y las cucharas dobladas, y la carta con la nota (bandera psyduck_apuntes).",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · tema 37 de 90",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "Buenas… Una habitación tranquila, por favor. Muy tranquila. Preparo oposiciones. Al Ayuntamiento de Ciudad Celeste.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Pain", "texto": "(Tipo agua: a Manolo se le cierra un ojo y le cae una gota. Psyducks venían muchos a su gimnasio.) Hombre, qué bien. ¿Y cuánto llevas?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Pain", "texto": "Doce años. Noventa temas. Azul lo importante, verde lo muy importante, rojo lo que cae seguro, amarillo… no me acuerdo. Ay, la cabeza.", "opciones": [
+          { "texto": "«Te doy la del fondo, la más silenciosa»", "efectos": { "afinidad": 1 }, "sigue": "fondo" },
+          { "texto": "«¿Doce años? ¿No será mejor otra cosa?»", "sigue": "otra" }
+        ] },
+        "fondo": { "quien": "huesped", "emocion": "Happy", "texto": "Gracias. Ahí repaso el tema 37: «Régimen jurídico de los Centros Pokémon». Es apasionante. Mentira. Pero entra.", "sigue": "fin" },
+        "otra": { "quien": "huesped", "emocion": "Sad", "texto": "Lo he pensado. Pero mi madre ya ha dicho en el pueblo que voy a ser funcionario. Si lo dejo, me tengo que cambiar de pueblo.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Psyduck se agarra la cabeza con las dos manos. Charizard baja la llama del fogón y se va de puntillas. Para un dragón de noventa kilos, es todo un detalle." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · las cucharas dobladas",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Angry", "texto": "Manolo, anoche alguien cantó en el pasillo. Una bola rosa. Me dormí encima del tema 52. Me he despertado con el índice pegado a la cara.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Sigh", "texto": "Es Jigglypuff. Canta para no pensar. Es buena chica.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Worried", "texto": "Y hay otra cosa. Esta mañana las cucharas estaban dobladas y Charizard flotaba. Todos dicen que fui yo. Yo no me acuerdo de nada.", "sigue": "techo" },
+        "techo": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard asiente muy deprisa y señala el techo: en la madera se ve, clarita, la marca de su cabeza.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Pain", "texto": "Me pasa cuando me duele mucho la cabeza. Se me escapa lo psíquico. Luego, nada: ni un recuerdo. Como con los temas del 60 al 70.", "opciones": [
+          { "texto": "«Te subo unos tapones y una tila»", "efectos": { "afinidad": 1 }, "sigue": "tila" },
+          { "texto": "«¿Y no puedes usar eso en el examen?»", "sigue": "examen" }
+        ] },
+        "tila": { "quien": "huesped", "emocion": "Happy", "texto": "Tapones y tila. Eso no viene en el temario, pero debería. Gracias, Manolo.", "sigue": "fin" },
+        "examen": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Usar el dolor de cabeza en el examen? Eso es o trampa o una genialidad. Lo subrayo en amarillo, que no sé lo que significa.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard dobla una cuchara con los dientes para que Psyduck no se sienta solo. Luego no sabe desdoblarla." }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · la carta",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "Manolo… Ha llegado la carta con las notas. Doce años. Noventa temas. No me atrevo a abrirla. Me duele la cabeza solo de mirar el sobre.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "Trae, que la abro yo. Si es mala, hay chistorra. Si es buena, también.", "sigue": "carta" },
+        "carta": { "quien": "manolo", "emocion": "Surprised", "texto": "«Psyduck: aprobado. Primera plaza. Nota final: diez». ¡Un diez, chaval!", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Un diez? Si no me acuerdo del examen. Me dolía tanto la cabeza que me quedé en blanco… y al salir, el tribunal estaba flotando.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Happy", "texto": "¡Soy funcionario! ¡Plaza fija! Manolo… ¿y qué hago yo ahora con doce años de apuntes en cuatro colores?", "opciones": [
+          { "texto": "«Dónalos a la biblioteca, para el siguiente»", "efectos": { "afinidad": 1, "flags": { "psyduck_apuntes": "biblioteca" } }, "sigue": "biblioteca" },
+          { "texto": "«Hoguera en el patio. Charizard lo está deseando»", "efectos": { "flags": { "psyduck_apuntes": "hoguera" } }, "sigue": "hoguera" }
+        ] },
+        "biblioteca": { "quien": "huesped", "emocion": "Happy", "texto": "Para el siguiente pobre que oposite. Les pondré una nota en la primera página: «Tema 91: dormir también entra». Y unos tapones de regalo.", "sigue": "fin" },
+        "hoguera": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard prende doce años de apuntes. Arden en cuatro colores. Psyduck mira el fuego y, por primera vez en una década, no le duele la cabeza.", "sigue": "fin" },
+        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "Gracias, Manolo. Con la primera nómina vuelvo y pago la cena de todo el comedor. Hasta la de Snorlax. …Bueno, la de Snorlax a plazos." }
+      }
+    }
+  ]
+}

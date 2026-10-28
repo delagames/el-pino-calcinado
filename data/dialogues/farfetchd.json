@@ -1,0 +1,59 @@
+{
+  "id": "farfetchd",
+  "_nota": "Farfetch'd, chef de un programa de cocina de la tele con un chiste malo por receta. La Pokédex dice que casi se extinguieron porque están muy ricos con puerro, y teme que le miren como a un plato. Arco en tres visitas: el programa, la crítica a la chistorra y el especial a dos fogones con Charizard (bandera farfetchd_receta).",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · ¡y a cocinar!",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Buenas noches, querida audiencia! Aquí Farfetch'd, de «Con el puerro a cuestas», el programa de cocina más visto después de la teletienda.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Audiencia? Aquí solo estamos Charizard y yo. Y la cachimba.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "¡Audiencia de tres, entonces! Chiste de la noche: ¿qué le dice un puerro a otro? «¡Qué puerrada de día!». ¡Tachán!", "sigue": "mira" },
+        "mira": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard no se ríe. Mira al pato. Mira el puerro. Vuelve a mirar al pato. Se relame un poquito.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Worried", "texto": "Eh, eh. Ese dragón me mira como a un menú. En Kanto quedamos pocos, ¿sabe? Dicen que estamos riquísimos con puerro.", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Worried", "texto": "Y yo lo llevo a todas partes. Ya, ya sé que es como ir por ahí con el aliño puesto. Pero sin él no soy nadie.", "opciones": [
+          { "texto": "«Aquí no se come a los huéspedes»", "efectos": { "afinidad": 1 }, "sigue": "nadie" },
+          { "texto": "«Pues suelta el puerro, hombre»", "sigue": "suelta" }
+        ] },
+        "nadie": { "quien": "huesped", "emocion": "Happy", "texto": "¡Qué alivio! Póngalo en la carta: «No se sirven huéspedes». Y un chiste para celebrarlo: ¿qué cena un pato? ¡Pa-tatas! …Mañana, mejor.", "sigue": "fin" },
+        "suelta": { "quien": "huesped", "emocion": "Angry", "texto": "¿Soltarlo? ¡Jamás! Un Farfetch'd sin puerro es como un plató sin focos: se le ve todo y no luce nada.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard pasa la noche lejos del pato. Pero cada vez que le llega el olor del puerro, se le escapa una chispita por la nariz." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · la crítica",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Prueba la chistorra de Charizard ante una cámara imaginaria.) Mmm. Textura, correcta. Ahumado, excesivo. Emplatado: ninguno. La tiran al plato.", "sigue": "humo" },
+        "humo": { "quien": "charizard", "emocion": "Angry", "texto": "Charizard se pone de pie. Humo por la nariz. Nadie critica su chistorra. Nadie.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Worried", "texto": "¡Es crítica constructiva, querido! Le falta algo verde. Algo largo. Algo que, casualmente, llevo yo debajo del ala.", "opciones": [
+          { "texto": "«Ni se te ocurra tocarle la chistorra»", "sigue": "nitocar" },
+          { "texto": "«Haced las paces y cocinad juntos»", "efectos": { "afinidad": 1 }, "sigue": "juntos" }
+        ] },
+        "nitocar": { "quien": "huesped", "emocion": "Sad", "texto": "Entendido. La chistorra es sagrada. Lo apunto para el programa: «En el norte, la chistorra no se toca». Gran frase. Mal guiso.", "sigue": "fin" },
+        "juntos": { "quien": "huesped", "emocion": "Happy", "texto": "¡Un especial a dos fogones! Chiste de promo: ¿cuál es el colmo de un pato? ¡Tener a un dragón de pinche! …Esto lo cortamos en montaje.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard gruñe. Pero esa noche, cuando cree que nadie le ve, olisquea el puerro con muchísimo interés." }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · el pato viene con el puerro",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "En Japón dicen «el pato viene con el puerro a cuestas»: algo que llega a pedir de boca. Pues hoy el pato viene a cocinar, no a que lo cocinen.", "sigue": "pinche" },
+        "pinche": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard se ata el delantal de Manolo. No le cierra, pero se lo ata. Fuego medio en la cola. Por primera vez, deja que otro toque su chistorra.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "Chistorra a la brasa con puerro pochado. ¿Nombre? ¿«Chispuerro»? ¿«Puerristorra»? …Lo llamamos «Especial Pino Calcinado». Y sin chiste.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "(Manolo lo prueba y cierra los ojos. Por un momento siente que le vuelve a crecer el pelo.)", "opciones": [
+          { "texto": "«Esto va directo a la carta»", "efectos": { "afinidad": 1, "flags": { "farfetchd_receta": "carta" } }, "sigue": "carta" },
+          { "texto": "«Esto tiene que salir en la tele»", "efectos": { "flags": { "farfetchd_receta": "tele" } }, "sigue": "tele" }
+        ] },
+        "carta": { "quien": "huesped", "emocion": "Happy", "texto": "¿En la carta? ¿Con mi nombre? ¡Mi primer plato en el que el ingrediente no soy yo! (Se seca una lagrimilla con el puerro.)", "sigue": "fin" },
+        "tele": { "quien": "huesped", "emocion": "Happy", "texto": "¡El lunes, en horario de máxima audiencia! Y el dragón, de copresentador. Contrato no le hace falta: cobra en chistorra.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le da un abrazo con cuidado de no asarlo. El pato se deja. Huele a puerro y a brasa, y por una vez eso no le da miedo." }
+      }
+    }
+  ]
+}

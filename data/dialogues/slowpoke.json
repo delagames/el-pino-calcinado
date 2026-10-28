@@ -1,0 +1,62 @@
+{
+  "id": "slowpoke",
+  "_nota": "Slowpoke, de Pueblo Azalea, va con retraso: contesta a lo que le dijeron una frase antes y tarda días en notar que le han mordido la cola. Es tipo agua, así que a Manolo le da el tic, pero tarde. Le da pánico que en la cocina de Charizard le guisen la cola (en el Pozo Slowpoke el Team Rocket se las cortaba para venderlas). Arco en tres visitas: la llegada a destiempo, la cola mordida y al ritmo de la casa (bandera slowpoke_cola).",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · con un poquito de retraso",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "…", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "Buenas noches. ¿Quiere una habitación?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "…", "sigue": "manolo2" },
+        "manolo2": { "quien": "manolo", "emocion": "Worried", "texto": "¿Se encuentra bien? ¿Ha cenado algo?", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Happy", "texto": "Sí, una habitación, por favor. Qué amable.", "sigue": "tic" },
+        "tic": { "quien": "manolo", "emocion": "Pain", "texto": "(Al rato, a Manolo se le cierra un ojo y le cae una gota: el tic de los tipo agua. Con un Slowpoke, hasta el tic llega tarde.)", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Normal", "texto": "No, no he cenado.", "opciones": [
+          { "texto": "«Pues ahora le preparo algo»", "efectos": { "afinidad": 1 }, "sigue": "algo" },
+          { "texto": "«¿Y de dónde viene usted?»", "sigue": "lejos" }
+        ] },
+        "algo": { "quien": "huesped", "emocion": "Happy", "texto": "(Pausa larga.) …Ah, ¿me había dicho algo? Perdone. Voy con un poquito de retraso. Los Slowpoke somos así. Gracias por lo que sea.", "sigue": "fin" },
+        "lejos": { "quien": "huesped", "emocion": "Normal", "texto": "(Mira una mosca. Luego otra.) …De Pueblo Azalea. Del pozo. Tardé tres semanas en llegar. Bueno, una. Las otras dos estuve parado.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard le mira la cola, larga y rosa, con ojos de cocinero. Slowpoke no se da cuenta. Se dará cuenta el jueves." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · ¿quién me ha mordido?",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Buenas noches. Una cosa. Creo que me han mordido la cola. No sé cuándo. ¿El martes? ¿En el viaje de la otra vez?", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Y no le duele?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Pain", "texto": "Todavía no. (Pausa.) …Ahora sí. Ay. Ay. Es que a nosotros los mordiscos nos llegan con días de retraso. Como las cartas.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Worried", "texto": "En mi pueblo, el Team Rocket nos cortaba las colas en el pozo para venderlas. Dicen que son un manjar. (Mira a Charizard.) …¿Ese señor cocina?", "sigue": "silba" },
+        "silba": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard, que estaba mirando la cola, mira de golpe al techo y silba. Le sale humo en vez de silbido.", "opciones": [
+          { "texto": "«Aquí la cola no te la toca nadie»", "efectos": { "afinidad": 1 }, "sigue": "nadie" },
+          { "texto": "«Charizard solo cocina chistorra, tranquilo»", "sigue": "chistorra" }
+        ] },
+        "nadie": { "quien": "huesped", "emocion": "Happy", "texto": "Gracias. (Pausa.) …Y sí, me duele un poco. Lo digo por lo de antes. Ya me había llegado.", "sigue": "fin" },
+        "chistorra": { "quien": "huesped", "emocion": "Worried", "texto": "¿Y de qué se hace la chistorra? (Pausa larguísima.) …Prefiero no saberlo. Lo pensaré mañana, que es cuando lo voy a entender.", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Manolo le pone una tirita en la cola. Slowpoke da las gracias dos días después, por carta.)" }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · al ritmo de la casa",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Manolo! ¡Ya lo he pillado! Lo del pino. Que Charizard estornudó. Me lo contó usted la primera noche. ¡Qué gracioso!", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "Hombre, pues te ha costado, ¿eh?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Es que fuera todo va muy rápido: entrenadores, bicis, Rapidash. Aquí no. Aquí hay un Snorlax que va más lento que yo. Por fin no soy el último.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Worried", "texto": "Y Charizard ya no me mira la cola. Ahora me mira el plato, por si quiero más. Creo. Igual de esto también me estoy enterando tarde.", "opciones": [
+          { "texto": "«Aquí puedes ir a tu ritmo, chaval»", "efectos": { "afinidad": 1, "flags": { "slowpoke_cola": "ritmo" } }, "sigue": "ritmo" },
+          { "texto": "«Charizard te ha cogido cariño, de verdad»", "efectos": { "afinidad": 1, "flags": { "slowpoke_cola": "charizard" } }, "sigue": "carino" }
+        ] },
+        "ritmo": { "quien": "huesped", "emocion": "Happy", "texto": "A mi ritmo… (Pausa.) Qué bien suena. Me lo quedo. Dentro de una semana me emocionaré; se lo digo ya para que lo sepa.", "sigue": "fin" },
+        "carino": { "quien": "huesped", "emocion": "Happy", "texto": "¿Cariño? (Pausa larga.) …¡Ah! Por eso me corta la chistorra en trocitos. Yo pensaba que era para ir practicando con mi cola.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le pone otra tirita en la cola, esta con dibujitos. Slowpoke sonríe. Tarda, pero sonríe muchísimo." }
+      }
+    }
+  ]
+}

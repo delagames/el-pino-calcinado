@@ -1,0 +1,54 @@
+{
+  "id": "arbok",
+  "_nota": "Arbok, la de Jessie del Team Rocket: chismosa con lengua viperina y prismáticos, siembra mal rollo contando a unos lo que dicen otros. Arco en tres visitas: ¿te has enterado?, el mal rollo y nadie le sigue el juego (bandera arbok_cambia).",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · ¿te has enterado?",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "Ssss… Buenas. Una habitación con ventana al comedor, para ver el paisaje. ¿Y quién más se aloja? Pregunto por educación.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Worried", "texto": "Eso es cosa de cada huésped, señora.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Claro, claro. Yo, una tumba. Por cierto: ¿sabías que Mr. Mime dice que Gengar entra por las paredes para no pagar?", "opciones": [
+          { "texto": "«Aquí no se va contando nada»", "efectos": { "afinidad": 1 }, "sigue": "nada" },
+          { "texto": "«¿En serio dice eso?»", "sigue": "serio" }
+        ] },
+        "nada": { "quien": "huesped", "emocion": "Surprised", "texto": "…Qué casa más rara. Bueno, me lo guardo. Una tiene muchas cosas guardadas, cielo. Por si acaso.", "sigue": "fin" },
+        "serio": { "quien": "huesped", "emocion": "Happy", "texto": "Y más. Pero eso te lo cuento mañana, que a una serpiente le gusta dosificar. Ssss.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard la ve subir con unos prismáticos al cuello. Por si acaso, cierra la despensa con la cola." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · el mal rollo",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "Manolo, cielo. Le he dicho a Jynx que Jigglypuff canta mejor que ella. Y a Jigglypuff, lo contrario. A ver qué pasa.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Angry", "texto": "¿Y para qué hace eso?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Costumbre. Viví años con una tal Jessie. Allí, sin mal rollo no había cena. Y siempre acabábamos saliendo volando.", "opciones": [
+          { "texto": "«Aquí no hace falta mal rollo para cenar»", "efectos": { "afinidad": 1 }, "sigue": "cenar" },
+          { "texto": "«Pues a ver si sale volando de aquí»", "sigue": "volando" }
+        ] },
+        "cenar": { "quien": "huesped", "emocion": "Surprised", "texto": "¿No? ¿Y entonces de qué se habla en la mesa? ¿Del tiempo? ¿De las bayas? Qué cosa más exótica.", "sigue": "fin" },
+        "volando": { "quien": "huesped", "emocion": "Sad", "texto": "Ay, no, cielo, que volar ya volé bastante. Me porto bien. Por lo menos hasta el postre.", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(En el comedor, Jynx y Jigglypuff acaban cantando a dúo para ver quién gana. Sale precioso. Arbok no da crédito.)" }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · nadie le sigue el juego",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Sad", "texto": "Manolo, esto no funciona. Le cuento algo a Gengar y me invita a bizcocho. Se lo cuento a Mr. Mime y me suelta un mitin.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Worried", "texto": "¿Y ahora con quién cotilleo? Llevo dos días espiando a un Pidgey con los prismáticos. No hace nada. Es fascinante.", "opciones": [
+          { "texto": "«Cotillea conmigo: ¿qué tal te va a ti?»", "efectos": { "afinidad": 1, "flags": { "arbok_cambia": "amiga" } }, "sigue": "amiga" },
+          { "texto": "«Usa los prismáticos para ver la luna»", "efectos": { "flags": { "arbok_cambia": "luna" } }, "sigue": "luna" }
+        ] },
+        "amiga": { "quien": "huesped", "emocion": "Surprised", "texto": "¿A mí? Nadie me pregunta a mí. …Pues regular. Echo de menos a Jessie. Y a veces hasta a James. No se lo cuentes a nadie.", "sigue": "fin" },
+        "luna": { "quien": "huesped", "emocion": "Happy", "texto": "¿La luna? …Anda, si está Clefairy bailando ahí arriba. Eso sí que es noticia. Pero de las bonitas.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le guarda el secreto: es un dragón, no cuenta nada. Arbok se enrosca junto a la chimenea, por fin sin nada que contar." }
+      }
+    }
+  ]
+}

@@ -129,7 +129,9 @@ export class Actor {
   draw(c, ms) {
     if (this.buddy) {
       const b = this.buddy;
-      Object.assign(b, { x: this.x + this.buddySide() * BUDDY_DX, y: this.y + 1, dir: this.dir,
+      // al dormir, pegaditos (la pareja de Nidoran comparte cama)
+      const dx = this.anim === 'Sleep' ? BUDDY_DX - 5 : BUDDY_DX;
+      Object.assign(b, { x: this.x + this.buddySide() * dx, y: this.y + 1, dir: this.dir,
         anim: b.sprite.anims[this.anim] ? this.anim : 'Idle' });
       b.draw(c, ms);
     }

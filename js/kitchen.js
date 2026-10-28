@@ -1,7 +1,7 @@
 // Vista C: la cocina (sección 6 de DISEÑO.md). Charizard es el fogón y cada receta tiene
 // su propio minijuego (campo «juego» de data/recipes.json), todos con un solo dedo:
 // - llama:   mantener pulsado aviva el fuego; cada paso pide una zona (sopa de bayas).
-// - vuelta:  tocar para dar la vuelta a la chistorra justo cuando está dorada.
+// - vuelta:  la raya sube y baja; tocar cuando pasa por el medio para darle la vuelta a la chistorra.
 // - miel:    el tarro va y viene; mantener pulsado para echar miel sobre el pan.
 // - setas:   las setas pasan por la tabla; tocar cuando están bajo el cuchillo.
 // - espeton: tocar para girar la baya; mantener pulsado para retirarla cuando esté hecha.
@@ -106,7 +106,7 @@ function llama(recipe, base, k, say) {
   let stepGood = 0, stepTotal = 0;
   say(recipe.pasos[0].texto);
   return {
-    hint: 'Mantén pulsado para avivar el fuego · suelta para bajarlo',
+    hint: 'Mantén pulsado: más fuego · suelta: menos. Que la raya quede en la zona',
     update(dt, t, { holding }) {
       s.f += (holding ? 0.6 : -0.42) * k.vel * dt;
       s.f += (Math.sin(t / 230) * 0.6 + Math.sin(t / 97) * 0.4) * (k.shaky ? 0.35 : 0.06) * dt;
@@ -152,33 +152,41 @@ function llama(recipe, base, k, say) {
   };
 }
 
-// Vuelta y vuelta: la cara de abajo se va dorando; tocar para darle la vuelta en su punto
+// Vuelta y vuelta: la raya sube y baja por la barra sin parar; hay que tocar cuando pasa por el
+// verde, en el medio. Abajo (gris) se queda cruda; arriba (rojo) se quema. Cada vuelta, un poco más rápida.
 function vuelta(recipe, base, k, say) {
   const N = 4;
-  const lo = 0.6 - k.ancho, hi = 0.88 + k.ancho;
-  const s = { sides: [0, 0], down: 0, flips: [], flipT: 0, rate: 0, burnt: false };
-  const newRate = () => (0.3 + 0.14 * Math.random()) * k.vel;
-  s.rate = newRate();
+  const w = 0.12 + k.ancho;                      // media franja verde (más estrecha los últimos días)
+  const lo = 0.5 - w, hi = 0.5 + w;
+  const s = { sides: [0, 0], down: 0, flips: [], flipT: 0, pos: 0, dir: 1, speed: 0, waited: 0 };
+  // la raya recorre la barra entera en ~0,8 s (y más deprisa con los días y con cada vuelta)
+  const newSpeed = () => (1.15 + 0.3 * Math.random()) * k.vel * (1 + 0.1 * s.flips.length);
+  s.speed = newSpeed();
   say(recipe.pasos[0].texto);
   return {
-    hint: 'Toca para darle la vuelta a la chistorra cuando esté dorada (barra en verde)',
+    hint: 'Toca cuando la raya pase por el verde del medio',
     update(dt, t, { taps }) {
       s.flipT = Math.max(0, s.flipT - dt);
-      const wob = k.shaky ? 1 + 0.5 * Math.sin(t / 180) : 1;
-      s.sides[s.down] += s.rate * wob * dt;
-      const h = s.sides[s.down];
-      const judge = h < lo ? 'cold' : h > hi ? 'hot' : 'good';
-      if (taps.length || h > 1.2) {
-        s.flips.push(judge);
-        say(judge === 'good' ? '¡Dorada! Vuelta.' : judge === 'cold' ? 'Uy, le faltaba un poco. Vuelta.' : '¡Que se pasa! Vuelta, vuelta.');
+      s.waited += dt;
+      const wob = k.shaky ? 1 + 0.4 * Math.sin(t / 160) : 1;
+      s.pos += s.dir * s.speed * wob * dt;
+      if (s.pos >= 1) { s.pos = 2 - s.pos; s.dir = -1; }
+      if (s.pos <= 0) { s.pos = -s.pos; s.dir = 1; }
+      const judge = s.pos < lo ? 'cold' : s.pos > hi ? 'hot' : 'good';
+      // si no se toca en un buen rato, se quema sola
+      if (taps.length || s.waited > 6) {
+        const j = taps.length ? judge : 'hot';
+        s.flips.push(j);
+        say(j === 'good' ? '¡En su punto! Vuelta.' : j === 'cold' ? 'Uy, le faltaba un poco. Vuelta.' : '¡Que se pasa! Vuelta, vuelta.');
+        // la cara que se estaba haciendo sube a la vista con el color que ha cogido
+        s.sides[s.down] = j === 'good' ? 0.75 : j === 'cold' ? 0.4 : 1.1;
         if (s.flips.length >= N) {
           const good = s.flips.filter(f => f === 'good').length;
           return { acierto: good / N, hot: s.flips.filter(f => f === 'hot').length, cold: s.flips.filter(f => f === 'cold').length };
         }
-        // cada cara se dora dos veces: la segunda parte de donde se quedó, a medias
         s.down = 1 - s.down;
-        s.sides[s.down] = s.flips.length < 2 ? 0 : Math.min(0.35, s.sides[s.down] * 0.4);
-        s.rate = newRate();
+        s.pos = 0; s.dir = 1; s.waited = 0;
+        s.speed = newSpeed();
         s.flipT = 0.3;
       }
       return null;
@@ -199,12 +207,13 @@ function vuelta(recipe, base, k, say) {
       for (const x of [61, 67, 73]) rect(c, x, y0 + 1, 1, 4, mix(top, '#100C14', 0.5));   // los pliegues de la tripa
       if (s.sides[1 - s.down] > 0.45) for (const x of [58, 64, 70, 76]) rect(c, x, y0 + 2, 2, 1, '#2F1717');   // marcas de la parrilla
       rect(c, 51, y0 + 2, 3, 1, '#F4EFE6'); rect(c, 80, y0 + 2, 3, 1, '#F4EFE6');
-      if (s.sides[s.down] > 0.5) for (let i = 0; i < 3; i++) rect(c, 60 + i * 6, 36 - ((t / 80 + i * 3) % 7) - up, 1, 1, s.sides[s.down] > 0.95 ? '#5F5A67' : '#F4EFE6');
-      meter(c, s.sides[s.down] / 1.2, lo / 1.2, hi / 1.2, t);
+      // humo según por dónde va la raya: blanco en su punto, gris si se está pasando
+      if (s.pos > lo) for (let i = 0; i < 3; i++) rect(c, 60 + i * 6, 36 - ((t / 80 + i * 3) % 7) - up, 1, 1, s.pos > hi ? '#5F5A67' : '#F4EFE6');
+      meter(c, s.pos, lo, hi, t);
       pips(c, [...s.flips, ...Array(N - s.flips.length).fill(null)], s.flips.length);
     },
     state: s,
-    sound: () => 0.55 + s.sides[s.down] * 0.3,
+    sound: () => 0.55 + s.pos * 0.3,
   };
 }
 
@@ -215,7 +224,7 @@ function miel(recipe, base, k, say) {
   const DUR = 8 / Math.sqrt(k.vel);
   say(recipe.pasos[0].texto);
   return {
-    hint: 'Mantén pulsado para echar miel cuando el tarro esté sobre la tostada · que no chorree',
+    hint: 'Mantén pulsado cuando el tarro esté sobre la tostada',
     update(dt, t, { holding }) {
       s.t += dt;
       s.toast = Math.min(1, s.toast + dt / 1.2);
@@ -286,7 +295,7 @@ function setas(recipe, base, k, say) {
   const s = { knife: 0, hot: 0, list };
   say(recipe.pasos[0].texto);
   return {
-    hint: 'Toca para cortar cuando la seta esté justo bajo el cuchillo',
+    hint: 'Toca cuando la seta esté bajo el cuchillo',
     update(dt, t, { taps }) {
       taps = taps.length;
       s.knife = Math.max(0, s.knife - dt);
@@ -355,7 +364,7 @@ function espeton(recipe, base, k, say) {
     return { acierto: marks.filter(m => m === 'good').length / 4, hot: marks.filter(m => m === 'hot').length, cold: marks.filter(m => m === 'cold').length };
   };
   return {
-    hint: 'Toca para girar la baya · mantén pulsado para retirarla del fuego cuando esté dorada por todos lados',
+    hint: 'Toca: girar la baya · mantén pulsado: sacarla cuando esté dorada',
     update(dt, t, { holding, taps }) {
       s.t += dt;
       // Charizard respira: el fuego sube y baja a oleadas
@@ -464,7 +473,7 @@ function potaje(recipe, base, k, say) {
   const POT = { x: 42, y: 44 };
   const s = { fase: 'elegir', t: 0, good: 0, bad: 0, ang: 0, turns: 0, splash: 0, lastA: null, shelf };
   const g = {
-    hint: `Toca los ingredientes del potaje (${buenos.map(i => ING[i].nombre).join(', ')}) · lo raro no va dentro`,
+    hint: `Toca solo: ${buenos.map(i => ING[i].nombre).join(', ')}`,
     state: s,
     update(dt, t, inp) {
       s.t += dt;
@@ -481,7 +490,7 @@ function potaje(recipe, base, k, say) {
         }
         if (s.good >= buenos.length || s.t > 10 / k.vel) {
           s.fase = 'remover'; s.t = 0;
-          g.hint = 'Mantén pulsado y da vueltas alrededor de la marmita para remover · sin prisas, que salpica';
+          g.hint = 'Mantén pulsado y da vueltas a la marmita, despacio';
           say('Ahora a remover. Despacito y con vueltas redondas.');
         }
         return null;
@@ -550,7 +559,7 @@ function pizza(recipe, base, k, say) {
   const s = { fase: 'amasar', t: 0, kneads: 0, lastSide: 0, squish: 0, r: 6, tear: 0, roto: false, held: false, estirado: null, spots, fuera: 0, bake: 0 };
   const NK = 14;
   const g = {
-    hint: 'Amasa: toca alternando a la izquierda y a la derecha de la masa',
+    hint: 'Amasa: toca a izquierda y derecha, alternando',
     state: s,
     update(dt, t, inp) {
       s.t += dt;
@@ -562,7 +571,7 @@ function pizza(recipe, base, k, say) {
         }
         if (s.kneads >= NK || s.t > 7 / k.vel) {
           s.fase = 'estirar'; s.t = 0; s.r = 6;
-          g.hint = 'Estira: mantén pulsado en la masa y arrastra hacia fuera despacio · suelta al llegar al círculo';
+          g.hint = 'Estira: arrastra desde la masa hasta el círculo';
           say('Ahora a estirarla. Con cariño, que se rompe.');
         }
         return null;
@@ -578,7 +587,7 @@ function pizza(recipe, base, k, say) {
         if (s.estirado != null || s.t > 9 / k.vel || s.r > R0 + 8) {
           s.estirado = s.estirado ?? s.r;
           s.fase = 'poner'; s.t = 0;
-          g.hint = 'Toca los círculos que brillan para poner tomate, queso y chistorra';
+          g.hint = 'Toca los círculos que brillan';
           say(Math.abs(s.estirado - R0) <= 3 ? '¡Redonda y finita!' : s.estirado < R0 ? 'Ha quedado gordita. Para Snorlax, mejor.' : 'Muy fina… casi transparente.');
         }
         return null;
@@ -677,7 +686,7 @@ function emplatar(recipe, base, k, say) {
   const DUR = 16 / k.vel;
   const place = (o, tg) => { tg.got = true; o.placed = 'good'; o.x = tg.x; o.y = tg.y; s.good += 1; };
   const g = {
-    hint: 'Arrastra cada cosa de la bandeja a su sombra en la tarta',
+    hint: 'Arrastra cada cosa a su sombra en la tarta',
     state: s,
     update(dt, t, inp) {
       s.t += dt;
@@ -726,6 +735,17 @@ function emplatar(recipe, base, k, say) {
 }
 
 const GAMES = { llama, vuelta, miel, setas, espeton, potaje, pizza, emplatar };
+// qué hay que hacer en cada uno, para la cuenta atrás
+const COMO = {
+  llama: 'Mantén pulsado para más fuego y suelta para bajarlo.',
+  vuelta: 'Toca cuando la raya pase por el verde del medio.',
+  miel: 'Mantén pulsado cuando el tarro esté sobre la tostada.',
+  setas: 'Toca cuando la seta pase bajo el cuchillo.',
+  espeton: 'Toca para girar la baya; mantén pulsado para sacarla.',
+  potaje: 'Toca solo lo que va en el potaje.',
+  pizza: 'Amasa, estira y pon los ingredientes.',
+  emplatar: 'Arrastra cada cosa a su sitio en la tarta.',
+};
 // los de preparar: Charizard mira desde un lado en vez de hacer de fogón debajo
 const PREP = new Set(['setas', 'potaje', 'pizza', 'emplatar']);
 
@@ -786,7 +806,8 @@ export function createKitchen(canvas) {
     const say = texto => onStep({ texto });
     game = null;
     const make = () => { const g = (GAMES[recipe.juego] || llama)(recipe, base, k, say); g.juego = recipe.juego || 'llama'; return g; };
-    if (hint) hint.textContent = '¡Preparados…!';
+    // durante la cuenta atrás ya se explica qué hay que hacer (en corto)
+    if (hint) hint.textContent = `¡Preparados…! ${COMO[recipe.juego] || COMO.llama}`;
     let shown = null;
     resize();
     running = true; holding = false; taps = []; pos = null;

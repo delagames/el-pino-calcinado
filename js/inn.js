@@ -22,6 +22,10 @@ const GUSTOS = {
   jigglypuff: 'farolillos', gengar: 'farolillos', mrmime: 'banderines', eevee: 'banderines',
   oddish: 'macetas', bulbasaur: 'macetas', machop: 'cuadro', growlithe: 'cuadro',
   jynx: 'alfombra', marina: 'alfombra', squirtle: 'estanque', larvitar: 'chimenea',
+  machoke: 'cuadro', machamp: 'banderines', voltorb: 'banderines', magikarp: 'estanque', psyduck: 'estanque',
+  porygon: 'farolillos', pikachu: 'banderines', kadabra: 'farolillos', clefairy: 'alfombra', arbok: 'chimenea',
+  mew: 'macetas', ditto: 'cuadro', cubone: 'chimenea', farfetchd: 'macetas', slowpoke: 'estanque',
+  nidoran: 'farolillos',
 };
 const DECOR_NOMBRE = { farolillos: 'los farolillos', banderines: 'los banderines', macetas: 'las macetas', cuadro: 'el cuadro del gimnasio', alfombra: 'la alfombra roja', estanque: 'la charca', chimenea: 'la chimenea' };
 
@@ -57,6 +61,22 @@ const TARDE = {
   jynx: { comedor: 0.8, cuarto: 0.15 },
   bulbasaur: { paseo: 0.55, comedor: 0.3 },
   eevee: { comedor: 0.8, paseo: 0.1 },
+  machoke: { paseo: 0.5, comedor: 0.4 },
+  machamp: { paseo: 0.45, comedor: 0.45 },
+  voltorb: { comedor: 0.7, paseo: 0.2 },
+  magikarp: { comedor: 0.75, paseo: 0.1 },
+  psyduck: { cuarto: 0.6, comedor: 0.3 },
+  porygon: { comedor: 0.8, cuarto: 0.15 },
+  pikachu: { comedor: 0.7, paseo: 0.2 },
+  kadabra: { comedor: 0.8, cuarto: 0.1 },
+  clefairy: { comedor: 0.6, paseo: 0.3 },
+  arbok: { comedor: 0.9, paseo: 0.05 },
+  mew: { cuarto: 0.5, paseo: 0.4 },
+  ditto: { comedor: 0.8, paseo: 0.1 },
+  cubone: { cuarto: 0.5, paseo: 0.3 },
+  farfetchd: { comedor: 0.6, paseo: 0.3 },
+  slowpoke: { cuarto: 0.4, comedor: 0.4 },
+  nidoran: { cuarto: 0.6, paseo: 0.3 },   // la pareja: a su buhardilla en cuanto pueden
 };
 const TARDE_DEF = { comedor: 0.6, paseo: 0.15 };
 const PASEO_X = [54, 334, 352, 384];              // fuera: entre el pino y el porche, y a la derecha de la casa
@@ -110,6 +130,7 @@ export async function createInn(scene, ui) {
     const info = guestById(id);
     if (info.tam === 'grande') return false;
     if (info.tam === 'agua') return roomId === 'estanque';
+    if (info.solo_hab) return roomId === info.solo_hab;   // la pareja de Nidoran: solo la buhardilla
     if (roomId === 'estanque') return (info.tipos || []).includes('agua');
     return true;
   }
@@ -491,6 +512,7 @@ export async function createInn(scene, ui) {
     if (!fits(g.id, room.id)) {
       const info = guestById(g.id);
       if (room.id === 'estanque') return ui.say('manolo', 'Normal', `El estanque es para los de agua. ${info.especie} mejor en una cama.`);
+      if (info.solo_hab) return ui.say('manolo', 'Happy', info.solo_hab_dice || `${info.especie} solo quieren la ${ROOM[info.solo_hab].nombre.toLowerCase()}.`);
       return ui.say('manolo', 'Sigh', info.tam === 'agua' ? `${info.especie} necesita agua de verdad: solo le vale el estanque.`
         : `${info.especie} no cabe en la ${room.nombre.toLowerCase()}. Ni en ninguna, la verdad.`);
     }
@@ -765,7 +787,7 @@ export async function createInn(scene, ui) {
         return { id: g.id, sprite: info.sprite, nombre: info.especie, estado: g.estado,
           hab: g.hab && ROOM[g.hab].nombre, pide: pide.texto, dice: pide.dice, tipo: pide.tipo, atendido: g.atendido,
           grande: info.tam === 'grande', tam: info.tam || 'normal', charla: !!charlaOf(g), oido: !!g.oido, preguntado: !!g.preguntado,
-          acompanante: info.acompanante || null, recuerda: pide.recuerda || pide.dice, visitas: st.libro[g.id]?.visitas || 0, sobremesa: sobremesaOf(g) };
+          acompanante: info.acompanante || null, acompananteNombre: info.acompanante_especie || null, hablante: info.hablante || info.especie, recuerda: pide.recuerda || pide.dice, visitas: st.libro[g.id]?.visitas || 0, sobremesa: sobremesaOf(g) };
       }),
     };
   }
