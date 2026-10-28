@@ -12,7 +12,7 @@
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Blaine? ¿El del bigote y las gafas de sol? ¿Todavía se acuerda de mí?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Blaine se acuerda de todos los calvos de fuego. Dice que quedan pocos y hay que cuidarse. (Le da el sobre.) Ábrala cuando quiera. No hay prisa. Algo, sí.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Otra cosa. Me han dicho que aquí el fogón es un Charizard. Yo nací en un volcán: hago la brasa a mil doscientos grados. Me ofrezco de fogón.", "sigue": "charizard" },
-        "charizard": { "quien": "charizard", "emocion": "Angry", "texto": "Charizard deja caer la chistorra que tenía en la boca. Le sale humo por la nariz. Mucho humo. La cocina entera huele a celos.", "sigue": "n4" },
+        "charizard": { "quien": "charizard", "emocion": "Angry", "texto": "Charizard deja caer la chistorra que tenía en la boca. Le sale humo por la nariz. Mucho humo. La cocina entera huele a celos.", "anim": "humo", "sigue": "n4" },
         "n4": { "quien": "huesped", "emocion": "Worried", "texto": "Uy. No era por quitarle el sitio. Bueno, un poco sí. En Canela me ganó un Charizard, hace años. Desde entonces le tengo respeto. Y ganas.", "opciones": [
           { "texto": "«Aquí el fogón es Charizard. Tú eres huésped, y se te cuida»", "efectos": { "afinidad": 1 }, "sigue": "huesped" },
           { "texto": "«¿Mil doscientos grados? Eso lo carboniza todo»", "sigue": "grados" }
@@ -29,8 +29,8 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Manolo, vengo a por la revancha. Sin combate, que aquí no se pelea. Un duelo de cocina: ¿quién deja mejor la chistorra, Charizard o yo?", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Angry", "texto": "Charizard ya está en la parrilla. Lleva ahí desde que vio a Magmar subir la cuesta. Se ha puesto el delantal de Manolo. Le queda de babero.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Sigh", "texto": "«Venga. Una chistorra cada uno, y juzgo yo, que soy neutral.» (No es neutral.)", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "(Pone la suya en la brasa y se concentra. La brasa se pone blanca.) Mientras se hace, una pregunta de concurso. Como en el gimnasio de Blaine.", "sigue": "n3" },
+        "manolo": { "quien": "manolo", "emocion": "Sigh", "texto": "Venga. Una chistorra cada uno, y juzgo yo, que soy neutral. (No es neutral.)", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "(Pone la suya en la brasa y se concentra. La brasa se pone blanca.) Mientras se hace, una pregunta de concurso. Como en el gimnasio de Blaine.", "anim": "fuego", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Pregunta uno: ¿qué tipo es fuerte contra el fuego? (A Manolo se le cierra un ojo y le cae una gota, y eso que no ha entrado nadie de agua.)", "opciones": [
           { "texto": "«El agua. Lo sé de sobra»", "efectos": { "afinidad": 1 }, "sigue": "agua" },
           { "texto": "«La chistorra, que se come todo el fuego que le eches»", "sigue": "chistorra" }
@@ -38,11 +38,10 @@
         "agua": { "quien": "huesped", "emocion": "Normal", "texto": "Correcto. Blaine dice que quien lo contesta sin temblar es que ya lo ha superado. (Mira el ojo cerrado de Manolo.) Casi.", "sigue": "resultado" },
         "chistorra": { "quien": "huesped", "emocion": "Worried", "texto": "…No es la respuesta. Pero Blaine diría que es mejor que la buena. Medio punto. (Se lo apunta en la mano. Se borra: la tiene muy caliente.)", "sigue": "resultado" },
         "resultado": { "quien": "charizard", "emocion": "Happy", "texto": "Veredicto. La chistorra de Magmar: un carbón perfecto, de un negro precioso. La de Charizard: dorada, crujiente, en su punto. Charizard enseña todos los dientes.", "sigue": "n4" },
-        "n4": { "quien": "huesped", "emocion": "Worried", "texto": "(Prueba la de Charizard. Se queda callado mucho rato.) …Así que esto es a lo que sabe la chistorra cuando no es negra.", "sigue": "n5" },
-        "n5": { "quien": "huesped", "emocion": "Normal", "texto": "Ha ganado. Otra vez. Pero esta vez no me importa: me ha dado a probar. En Canela nadie me había enseñado a bajar el fuego.", "sigue": "ensena" },
+        "n4": { "quien": "huesped", "emocion": "Worried", "texto": "(Prueba la de Charizard. Se queda callado mucho rato.) …Así sabe la chistorra cuando no es negra. Ha ganado otra vez. Pero esta vez no me importa.", "sigue": "ensena" },
         "ensena": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le pone la cola encima del hombro y le enseña: la llama un poco más baja, otro poco. A medianoche, a Magmar le sale una chistorra marrón. Casi.", "sigue": "carta" },
-        "carta": { "quien": "manolo", "emocion": "Normal", "texto": "(Con la cocina ya en silencio, Manolo abre por fin la carta de Blaine. Es muy corta. Es una pregunta de concurso.)", "sigue": "fin" },
-        "fin": { "quien": "manolo", "emocion": "Worried", "texto": "(«Manolo: ¿un líder deja de serlo cuando cierra el gimnasio? Contesta a mi Magmar. B.» Manolo la dobla. Esa noche duerme poco.)" }
+        "carta": { "quien": "manolo", "emocion": "Worried", "texto": "(Ya de madrugada, Manolo abre por fin la carta de Blaine. Es una pregunta de concurso: «¿Un líder deja de serlo cuando cierra el gimnasio? Contesta a mi Magmar».)", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Manolo la dobla y se la guarda en el delantal. Esa noche duerme poco.)" }
       }
     },
     {
@@ -50,8 +49,9 @@
       "cuando": { "visita_min": 3, "afinidad_min": 1 },
       "subtitulo": "Tercera visita · la respuesta",
       "fin_arco": true,
+      "de_paso": true,
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Manolo, me vuelvo a Canela: sin mí, el gimnasio se queda frío. ¿Tiene la respuesta para Blaine?", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Manolo, hoy no me quedo: me vuelvo a Canela, que sin mí el gimnasio se queda frío. Solo vengo a por la respuesta para Blaine. ¿La tiene?", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Sigh", "texto": "(Manolo lleva días con la pregunta en el bolsillo del delantal. Saca un papel lleno de tachones y de manchas de chistorra.)", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Worried", "texto": "No hace falta que me la lea. A mí no. Yo solo la llevo. Blaine dice que las respuestas buenas se escriben, no se cuentan.", "sigue": "manolo2" },
         "manolo2": { "quien": "manolo", "emocion": "Normal", "texto": "Ya está escrita. Lo que no sé es si es buena.", "opciones": [
@@ -62,7 +62,7 @@
         "cena": { "quien": "huesped", "emocion": "Normal", "texto": "(Guarda la carta sin leerla, pegada al pecho, donde no quema.) Vendrá. Blaine no ha dicho que no a una cena en su vida. Vaya comprando chistorra.", "sigue": "colega" },
         "colega": { "quien": "huesped", "emocion": "Normal", "texto": "(Mira a Charizard.) Tú y yo somos lo mismo, ¿sabes? El fuego de alguien. Tú el de Manolo, yo el de Blaine. Eso no se gana ni se pierde.", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le pone en la mano la última chistorra de la parrilla, hecha a fuego bajo, como le enseñó. Magmar se la come despacio. Es nuevo para él.", "sigue": "fin" },
-        "fin": { "quien": "huesped", "emocion": "Worried", "texto": "(Se le humedecen los ojos, y se le evapora al momento.) Gracias, colega. (Con la primera luz baja la cuesta con la carta en el pecho. No la ha leído. No le hace falta.)" }
+        "fin": { "quien": "huesped", "emocion": "Worried", "texto": "(Se le humedecen los ojos y se le evapora al momento.) Gracias, colega. (Baja la cuesta con la carta en el pecho. No la ha leído. No le hace falta.)" }
       }
     }
   ]

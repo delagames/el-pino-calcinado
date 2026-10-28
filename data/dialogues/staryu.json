@@ -39,7 +39,7 @@
         ] },
         "contenta": { "quien": "huesped", "emocion": "Normal", "texto": "Siete colores, todos los días, a la misma hora. Me encanta. (El núcleo hace una pausa rara.) Me encanta, he dicho.", "sigue": "fin" },
         "gasta": { "quien": "huesped", "emocion": "Normal", "texto": "¿Gastarse? Qué va. Soy la gema del mar, lo pone en el cartel. (El núcleo se le pone gris un segundo.) Eso no lo ha visto usted.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Esa noche, en el estanque, Starmie brilla en siete colores hasta las tantas. Charizard ve que entre color y color tarda cada vez un poquito más." }
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Esa noche, en el estanque, Starmie brilla en siete colores hasta las tantas. Charizard ve que entre color y color tarda cada vez un poquito más.", "anim": "estrellas", "anim_quien": "huesped" }
       }
     },
     {
@@ -60,7 +60,7 @@
         "quiera": { "quien": "huesped", "emocion": "Normal", "texto": "(El núcleo se enciende. Un solo color, azul, despacito.) Cuando yo quiera. No sabía que eso se podía elegir.", "sigue": "pano" },
         "banquillo": { "quien": "huesped", "emocion": "Normal", "texto": "(Se le enciende el núcleo, verde, flojito.) Mirar sin que todo dependa de mí. Igual era eso lo que me gustaba del banquillo y no lo sabía.", "sigue": "pano" },
         "pano": { "quien": "huesped", "emocion": "Normal", "texto": "Mañana vuelvo a Celeste. Le dejo el paño en el mostrador, Manolo. Para la medalla del cuadro… por si un día le da por sacarle brillo.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Esa noche el estanque está a oscuras. Charizard se asoma, preocupado, y la ve: dormida como una piedra. Por primera vez, sin brillar. Y a gusto." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Esa noche el estanque está a oscuras. Charizard se asoma, preocupado, y la ve: dormida como una piedra. Por primera vez, sin brillar. Y a gusto.", "anim": "duerme", "anim_quien": "huesped" }
       }
     }
   ]

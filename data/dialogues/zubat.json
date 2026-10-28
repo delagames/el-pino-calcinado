@@ -18,7 +18,7 @@
         ] },
         "quieto": { "quien": "huesped", "emocion": "Sad", "texto": "(Se quita las gafas de sol. Debajo no hay nada, pero se le nota cansado.) …Treinta años sin estarme quieto. Igual ya va siendo hora.", "sigue": "fin" },
         "madrugar": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Madrugar? Qué palabra tan bonita. Yo no lo he hecho nunca. ¿Eso es por la mañana?", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Zubat se cuelga cabeza abajo de la lámpara del cuarto morado y se queda frito en tres segundos. Charizard le baja la persiana, por si las moscas." }
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Zubat se cuelga cabeza abajo de la lámpara del cuarto morado y se queda frito en tres segundos. Charizard le baja la persiana, por si las moscas.", "anim": "duerme", "anim_quien": "huesped" }
       }
     },
     {
@@ -30,7 +30,7 @@
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Tú eres el de las gafas de sol? ¿Y esa boca, chaval?", "sigue": "n1" },
         "n1": { "quien": "huesped", "emocion": "Normal", "texto": "He crecido. Y me he sacado Odontología. Ahora soy dentista de guardia nocturna. La noche sigue siendo mía, pero ahora la uso para algo.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Surprised", "texto": "(Charizard bosteza.) ¡Quieto! ¡Abre otra vez! …Eso de ahí, entre las muelas, ¿es chistorra?", "sigue": "muelas" },
-        "muelas": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard cierra la boca de golpe. Luego la abre, despacito. Ahí hay chistorra de hace años. Hay chistorra que ya es de la familia.", "sigue": "n3" },
+        "muelas": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard cierra la boca de golpe. Luego la abre, despacito. Ahí hay chistorra de hace años. Hay chistorra que ya es de la familia.", "anim": "sudor", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Angry", "texto": "¡Esto es un escándalo! ¡Y en esta casa seguro que no es el único! Desde hoy, aquí dentro, guerra al azúcar.", "opciones": [
           { "texto": "«Haz lo que tengas que hacer, doctor»", "efectos": { "afinidad": 1 }, "sigue": "limpieza" },
           { "texto": "«La chistorra no se toca, que es patrimonio»", "sigue": "patrimonio" }
@@ -44,6 +44,7 @@
       "id": "v3",
       "cuando": { "visita_min": 3, "afinidad_min": 1 },
       "subtitulo": "Tercera visita · el amanecer",
+      "de_paso": true,
       "fin_arco": true,
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Seis de la mañana. Golbat no entra: está en el porche, colgado del alero, mirando hacia el este.) Buenos días, Manolo. Vuelvo de la guardia.", "sigue": "manolo" },

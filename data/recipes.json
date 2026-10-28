@@ -10,7 +10,7 @@
     ],
     "fuerte": [
       0.66,
-      1.0
+      1
     ]
   },
   "recipes": [
@@ -204,6 +204,86 @@
         "nidoran",
         "oddish",
         "vulpix",
+        "dratini"
+      ],
+      "genero": "f"
+    },
+    {
+      "id": "kebab",
+      "nombre": "kebab de chistorra",
+      "juego": "kebab",
+      "chistorra": 1,
+      "pasos": [
+        {
+          "texto": "¡Kebab de chistorra! Charizard dora el rollo y yo corto. Solo lo dorado, ¿eh?"
+        }
+      ],
+      "preferidos": [
+        "machop",
+        "jigglypuff",
+        "snorlax",
+        "growlithe",
+        "gengar",
+        "machoke",
+        "voltorb",
+        "pikachu",
+        "ditto",
+        "nidoran",
+        "geodude",
+        "dragonite",
+        "exeggcute",
+        "dodrio",
+        "charmander",
+        "weedle",
+        "spearow",
+        "zubat",
+        "gastly",
+        "koffing",
+        "rhyhorn",
+        "bellsprout",
+        "magmar",
+        "hermanoseevee"
+      ],
+      "genero": "m"
+    },
+    {
+      "id": "pescado",
+      "nombre": "sopa de pescado",
+      "juego": "potaje",
+      "ingredientes": [
+        "pescado",
+        "gamba",
+        "mejillon",
+        "cebolla"
+      ],
+      "trampas": [
+        "calcetin",
+        "pokeball",
+        "bota",
+        "patito"
+      ],
+      "caldo": "#D7874F",
+      "pasos": [
+        {
+          "texto": "Sopa de pescado: pescado, gambas, mejillones y cebolla. Y el patito de goma, fuera."
+        }
+      ],
+      "preferidos": [
+        "squirtle",
+        "lapras",
+        "marina",
+        "jynx",
+        "bulbasaur",
+        "psyduck",
+        "farfetchd",
+        "slowpoke",
+        "meowth",
+        "chansey",
+        "alakazam",
+        "kangaskhan",
+        "pidgey",
+        "staryu",
+        "hermanoseevee",
         "dratini"
       ],
       "genero": "f"

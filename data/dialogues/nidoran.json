@@ -59,11 +59,11 @@
       "subtitulo": "Cuarta visita · un año de casados",
       "nodos": {
         "inicio": { "quien": "pareja", "emocion": "Happy", "texto": "¡Manolo! ¡Un año de casados! El aniversario de verdad, no un mesiversario. Y mírenos bien: hemos dado el estirón.", "sigue": "el" },
-        "el": { "quien": "huesped", "emocion": "Normal", "texto": "Ella es Nidorina y yo Nidorino. Por nivel, sin piedra ni nada. Nos acostamos pequeñitos en la buhardilla y nos levantamos así.", "sigue": "ella" },
+        "el": { "quien": "huesped", "emocion": "Normal", "texto": "Ella es Nidorina y yo Nidorino. Por nivel, sin piedra ni nada. Una noche nos acostamos pequeñitos y nos levantamos así.", "sigue": "ella" },
         "ella": { "quien": "pareja", "emocion": "Surprised", "texto": "Y le saco una cabeza. Lo que él temía. (Se pone de puntillas.) Cabeza y media, si me estiro.", "sigue": "el2" },
         "el2": { "quien": "huesped", "emocion": "Happy", "texto": "Y no ha pasado nada. Bueno, sí: ahora ella alcanza la balda de arriba y yo le cojo lo que se cae debajo de la cama. Somos un equipo.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "Pues un año hay que celebrarlo como Dios manda.", "sigue": "ella2" },
-        "ella2": { "quien": "pareja", "emocion": "Happy", "texto": "¡Eso digo yo! Por todo lo alto: flores, tarta de tres pisos, Mr. Mime de maestro de ceremonias y Oddish en primera fila, que huele de maravilla.", "sigue": "el3" },
+        "ella2": { "quien": "pareja", "emocion": "Happy", "texto": "¡Eso digo yo! Fiesta por todo lo alto, aquí, la próxima vez que vengamos: flores, tarta de tres pisos y los amigos en primera fila.", "sigue": "el3" },
         "el3": { "quien": "huesped", "emocion": "Pain", "texto": "Y un brindis. Que lo tengo que dar yo. (Se le eriza el lomo entero.) Lo ensayo cada noche delante del espejo y el espejo se raya con las púas.", "opciones": [
           { "texto": "«Ensaya conmigo, que de discursos de gimnasio sé un rato»", "efectos": { "afinidad": 1 }, "sigue": "ensayo" },
           { "texto": "«Di lo primero que se te ocurra, que es lo que vale»", "sigue": "primero" }
@@ -80,23 +80,21 @@
       "subtitulo": "Quinta visita · media piedra cada uno",
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Suben la cuesta dos Pokémon enormes: uno morado con un cuerno como una lanza y una azul con coraza. Traen un pisapapeles partido por la mitad.)", "sigue": "el" },
-        "el": { "quien": "huesped", "emocion": "Happy", "texto": "¡Manolo! Lo hicimos: media Piedra Lunar cada uno, a la vez, en la buhardilla. Lo que hablamos hace un año. Juntos.", "sigue": "ella" },
+        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Suben la cuesta dos Pokémon enormes, de la mano: uno morado con un cuerno como una lanza y una azul con coraza.)", "sigue": "el" },
+        "el": { "quien": "huesped", "emocion": "Happy", "texto": "¡Manolo! ¡Somos nosotros! Partimos el pisapapeles: media Piedra Lunar cada uno, a la vez. Lo que hablamos hace un año. Juntos.", "sigue": "ella" },
         "ella": { "quien": "pareja", "emocion": "Worried", "texto": "Nidoqueen. Me he mirado al espejo y… soy mi madre. Igualita. La coraza, la cola, la manera de cruzar los brazos. Hasta el carraspeo.", "sigue": "el2" },
-        "el2": { "quien": "huesped", "emocion": "Normal", "texto": "Y yo, Nidoking. Me ha cambiado la voz, como temía. Ahora digo «buenos días» y tiemblan los cristales. Pero a ella le gusta.", "sigue": "ella2" },
-        "ella2": { "quien": "pareja", "emocion": "Happy", "texto": "Me encanta. Parece un locutor de la radio. Le pido que me lea la lista de la compra antes de dormir.", "sigue": "el3" },
+        "el2": { "quien": "huesped", "emocion": "Normal", "texto": "Y yo, Nidoking. Me ha cambiado la voz, como temía. Ahora digo «buenos días» y tiemblan los cristales. Pero a ella le gusta: dice que parezco de la radio.", "sigue": "el3" },
         "el3": { "quien": "huesped", "emocion": "Worried", "texto": "Pero hay otra cosa. Ayer nos paró en el camino un señor de traje, de Ciudad Verde, con un Persian en brazos. Nos ofrece trabajo en su gimnasio.", "sigue": "ella3" },
-        "ella3": { "quien": "pareja", "emocion": "Angry", "texto": "Buen sueldo, coche de empresa y salir en los carteles. Y una gorra con una R. Yo no me fío de un señor que acaricia al gato mientras te habla.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Worried", "texto": "Eso es mucho dinero, pareja.", "opciones": [
+        "ella3": { "quien": "pareja", "emocion": "Angry", "texto": "Buen sueldo, coche de empresa y una gorra con una R. Yo no me fío de un señor que acaricia al gato mientras te habla.", "opciones": [
           { "texto": "«¿Y qué le habéis contestado?»", "efectos": { "afinidad": 1, "flags": { "nidoran_traje": "no" } }, "sigue": "dicho" },
           { "texto": "«Con ese sueldo se pagan muchas buhardillas»", "efectos": { "flags": { "nidoran_traje": "dudas" } }, "sigue": "dinero" }
         ] },
         "dicho": { "quien": "pareja", "emocion": "Happy", "texto": "Que no. Que nosotros, en la buhardilla. Si no le pedimos permiso a la Pokédex para casarnos, como para pedírselo a un señor con gato.", "sigue": "brindis" },
-        "dinero": { "quien": "huesped", "emocion": "Normal", "texto": "Buhardillas hay muchas, Manolo. Nidito, solo uno. Le dijimos que no. Que nosotros, en la buhardilla.", "sigue": "brindis" },
-        "brindis": { "quien": "manolo", "emocion": "Happy", "texto": "(Esa noche hay fiesta en el comedor: el ramo, la tarta de tres pisos y una vela que Charizard enciende sin quemar nada. Le toca a él.)", "sigue": "discurso" },
+        "dinero": { "quien": "huesped", "emocion": "Normal", "texto": "Buhardillas hay muchas, Manolo. Nidito, solo uno. Le dijimos que no.", "sigue": "brindis" },
+        "brindis": { "quien": "manolo", "emocion": "Happy", "texto": "(Esa noche hay fiesta en el comedor: el ramo, la tarta de tres pisos y una vela que Charizard enciende sin quemar nada. Le toca el brindis a Nidoking.)", "anim": "confeti", "anim_quien": "huesped", "sigue": "discurso" },
         "discurso": { "quien": "huesped", "emocion": "Happy", "texto": "(Nidoking se levanta. No se le eriza nada.) «Por la 029 y el 032, que según la Pokédex no pegaban. Un año, dos evoluciones y una sola manta.»", "sigue": "ella4" },
         "ella4": { "quien": "pareja", "emocion": "Sad", "texto": "(Nidoqueen llora como una magdalena. Igual que su madre en la boda.) Esto lo pego en el álbum. En la primera página.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al alba bajan de la buhardilla de lado, que ya no caben por la escalera. Charizard les dice adiós desde la ventana de su nidito, que se queda vacío y calentito." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al alba bajan de la buhardilla de lado, que ya no caben por la escalera. Charizard les dice adiós desde la puerta. El nidito se queda vacío y calentito." }
       }
     }
   ]

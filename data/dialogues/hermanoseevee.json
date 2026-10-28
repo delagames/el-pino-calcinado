@@ -8,14 +8,14 @@
       "subtitulo": "Primera visita · Vaporeon, de agua como Dios manda",
       "nodos": {
         "inicio": { "quien": "manolo", "emocion": "Pain", "texto": "(Entra una Vaporeon con gorro de natación y una pinza en la nariz. Tipo agua. A Manolo se le cierra un ojo y le cae una gota.)", "sigue": "n1" },
-        "n1": { "quien": "huesped", "emocion": "Happy", "texto": "¡Buedas tardes! Perdode, es la pidza. (Se la quita.) Ya. Vaporeon, monitora de natación sincronizada. Vengo buscando a mi hermana pequeña: Eevee.", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Angry", "texto": "Nos escribió desde aquí: que no piensa evolucionar. ¡Que se queda Eevee! Con lo bien que le quedaría el agua. Como a mí. Como Dios manda.", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Somos tres hermanos mayores: agua, rayo y fuego. Vengo yo la primera, que para eso soy la mayor. Usted la conoce: ¿a que estaría preciosa de Vaporeon?", "opciones": [
+        "n1": { "quien": "huesped", "emocion": "Happy", "texto": "¡Buedas tardes! Perdode, es la pidza. (Se la quita.) Ya. Vaporeon, monitora de natación sincronizada. Soy la hermana mayor de Eevee.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Angry", "texto": "Nos escribió desde aquí: que no piensa evolucionar. ¡Que se queda Eevee! Con lo bien que le quedaría el agua, como Dios manda. Si vuelve por aquí, la espero.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Somos tres hermanos mayores: agua, rayo y fuego. Vengo yo la primera, que para eso soy la mayor. Usted la conoce: ¿a que estaría preciosa de agua?", "opciones": [
           { "texto": "«Eevee ha decidido ser Eevee. Y está guapísima»", "efectos": { "afinidad": 1 }, "sigue": "contra" },
           { "texto": "«Hombre, de agua… de agua no, por favor»", "sigue": "ojo" }
         ] },
         "contra": { "quien": "huesped", "emocion": "Angry", "texto": "¿Que me lleva la contraria? ¿A mí? ¿A la capitana del equipo? (A Vaporeon se le empieza a poner el cuerpo transparente.)", "sigue": "disuelve" },
-        "disuelve": { "quien": "charizard", "emocion": "Surprised", "texto": "Vaporeon se mete en el cubo de fregar y se funde con el agua. Charizard mira el cubo. El cubo le mira a él. Nadie se atreve a fregar en toda la tarde.", "si_mejora": { "estanque": "disuelve_estanque" }, "sigue": "fin" },
+        "disuelve": { "quien": "charizard", "emocion": "Surprised", "texto": "Vaporeon se mete en el cubo de fregar y se funde con el agua. Charizard mira el cubo. El cubo le mira a él. Nadie se atreve a fregar en toda la tarde.", "anim": "agua", "anim_quien": "huesped", "si_mejora": { "estanque": "disuelve_estanque" }, "sigue": "fin" },
         "disuelve_estanque": { "quien": "charizard", "emocion": "Surprised", "texto": "Vaporeon sale ofendida al estanque, se zambulle y se vuelve agua. No se la ve. Charizard tira una piedrecita. «¡Oiga!», protesta el estanque.", "sigue": "fin" },
         "ojo": { "quien": "huesped", "emocion": "Surprised", "texto": "¿No le gusta el agua? …Ah, claro, ese ojo. Eevee me lo contó: «el señor del tic, que es un amor». Perdone. Me pongo pesada con lo del agua.", "sigue": "fin" },
         "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Al rato, Vaporeon vuelve a tener forma. Se pone la pinza y sube a su cuarto muy digna. Deja un charquito en cada escalón.)" }
@@ -29,7 +29,7 @@
         "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Entra un Jolteon con los pelos de punta, literalmente, y un cronómetro colgado del cuello. Ha llegado antes que su propia sombra.)", "sigue": "n1" },
         "n1": { "quien": "huesped", "emocion": "Happy", "texto": "¡Buenas-buenas! ¡Jolteon, el hermano rápido de Eevee! ¡Vaporeon ya ha venido, ya lo sé! ¡Me lo ha escrito! ¡Yo vengo a hacerlo bien!", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Angry", "texto": "¡Mi hermana dice que Eevee tiene que ser de agua! ¡Mentira! ¡Eléctrica, como yo! ¡Rápida! ¡Le he escrito tres cartas hoy! ¡Y es martes!", "sigue": "sopa" },
-        "sopa": { "quien": "charizard", "emocion": "Angry", "texto": "Charizard trae la sopa de la cena. Jolteon pulsa el cronómetro: «¡Cuarenta y dos segundos! ¿Esto es un servicio o una siesta?». Charizard suelta humo.", "sigue": "n3" },
+        "sopa": { "quien": "charizard", "emocion": "Angry", "texto": "Charizard trae la sopa de la cena. Jolteon pulsa el cronómetro: «¡Cuarenta y dos segundos! ¿Esto es un servicio o una siesta?». Charizard suelta humo.", "anim": "chispas", "anim_quien": "huesped", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Worried", "texto": "Perdón, perdón. Cuando me pongo nervioso, el pelo se me hace pinchos. Ahora mismo pincho. Mire: carta de Vaporeon. Dice cosas feas de mí. Con faltas.", "opciones": [
           { "texto": "«¿Y si dejáis a Eevee en paz?»", "efectos": { "afinidad": 1 }, "sigue": "paz" },
           { "texto": "«Siéntate, que la sopa no se escapa»", "efectos": { "afinidad": 1 }, "sigue": "sientate" }
@@ -49,7 +49,7 @@
         "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "(Un Flareon con la melena esponjosa y cara de no haber dormido. No da ningún miedo. Da ganas de abrazarlo.)", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Sad", "texto": "Dicen que soy la peor evolución de Eevee. Lo dicen en internet, en los patios, en todas partes. Ni para jugar me eligen.", "sigue": "chari" },
         "chari": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard se acerca muy despacio, le pone delante una chistorra recién hecha y se sienta a su lado. Le da un toquecito con la cola. Es su primer fan.", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Happy", "texto": "¿Para mí? ¿Me ha elegido a mí? (Se le esponja tanto la melena que parece un cojín.) Es que cuando me emociono me esponjo. Para enfriarme.", "sigue": "n4" },
+        "n3": { "quien": "huesped", "emocion": "Happy", "texto": "¿Para mí? ¿Me ha elegido a mí? (Se le esponja tanto la melena que parece un cojín.) Es que cuando me emociono me esponjo. Para enfriarme.", "anim": "corazones", "sigue": "n4" },
         "n4": { "quien": "huesped", "emocion": "Normal", "texto": "Mis hermanos se pelean por si Eevee tiene que ser de agua o de rayo. Yo creo que… que si Eevee no quiere elegir, que no elija.", "sigue": "n5" },
         "n5": { "quien": "huesped", "emocion": "Worried", "texto": "A mí no me elige nadie y aquí estoy, tan contento. Bueno, hoy más. Traigo cartas de los dos. ¿Usted cree que me harán caso, Manolo?", "opciones": [
           { "texto": "«Díselo tú, que lo dices mejor que nadie»", "efectos": { "afinidad": 1, "flags": { "hermanoseevee_paz": "flareon" } }, "sigue": "dile" },

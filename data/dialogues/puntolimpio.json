@@ -1,33 +1,32 @@
 {
   "id": "puntolimpio",
-  "_nota": "Grupo de una noche: los del punto limpio de Ciudad Fucsia. Grimer, reciclador obsesivo (retratos Normal, Pain y Surprised), separa la basura de la posada en cinco cubos y pilla a Charizard tirando las pieles de chistorra al amarillo. Muk, su padre (solo Normal: siempre la misma sonrisa), es el tío de las bodas: abraza a todo el mundo y deja mancha. Remate: nadie quiere su abrazo hasta que se lo da Charizard, y Grimer recicla el delantal manchado de Manolo como trapo «de los buenos». Los dos entrenaron con Koga.",
+  "_nota": "Grupo de excursión (una mañana, no duermen): los de Limasa, la empresa de limpieza de Málaga. Grimer, reciclador obsesivo (retratos Normal, Pain y Surprised), ve que la posada tiene un solo cubo de basura y saca cinco de colores; pilla a Charizard tirando las pieles de chistorra del desayuno al amarillo (para Charizard, el amarillo es el color del fuego). Muk, su padre (solo Normal: siempre la misma sonrisa), lo abraza todo y deja mancha; en el gimnasio de Koga la llamaban «la mancha de Muk». Remate: nadie quiere su abrazo hasta que se lo da Charizard, y Grimer salva el delantal manchado de Manolo como trapo «de los buenos». Anim: enfado, humo, corazones, estrellas.",
   "entradas": [
     {
       "id": "v1",
       "cuando": { "visita_min": 1 },
-      "subtitulo": "Una noche · los del punto limpio",
+      "subtitulo": "Una mañana · los de Limasa",
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Del autobús de la excursión baja un charco morado que va derecho a los cubos de la basura. Detrás, otro charco mucho más grande, con los brazos abiertos.)", "sigue": "grimer" },
-        "grimer": { "quien": "grimer", "emocion": "Surprised", "texto": "Buenas. Grimer, del punto limpio de Ciudad Fucsia. ¿Esto es todo? ¿Un cubo? ¿Uno solo? ¿Para todo? (Se le cae un poco de lodo de la impresión.)", "sigue": "manolo" },
+        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Por la mañana baja del autobús un charco morado que va derecho al cubo de basura de la puerta. Detrás, otro charco mucho más grande, con los brazos abiertos.)", "sigue": "grimer" },
+        "grimer": { "quien": "grimer", "emocion": "Surprised", "texto": "Buenas. Soy Grimer, de Limasa, la de la limpieza de Málaga: reciclo. ¿Esto es todo? ¿Un cubo? ¿Uno solo? ¿Para todo?", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Sigh", "texto": "Es que somos de pueblo.", "sigue": "cubos" },
         "cubos": { "quien": "grimer", "emocion": "Normal", "texto": "Pues ya no. (Saca cinco cubos de colores de no se sabe dónde.) Amarillo, envases. Azul, papel. Verde, vidrio. Marrón, orgánico. Gris, lo demás.", "sigue": "muk" },
-        "muk": { "quien": "muk", "emocion": "Normal", "texto": "(Muk, su padre, sonríe de oreja a oreja. Siempre sonríe igual.) Qué ordenado es este niño. Sale a su madre. ¡Ven aquí, Manolo, que no nos conocemos!", "sigue": "manolo2" },
-        "manolo2": { "quien": "manolo", "emocion": "Worried", "texto": "Eh… luego, luego, que estoy con las manos en la masa.", "sigue": "pieles" },
-        "pieles": { "quien": "charizard", "emocion": "Normal", "texto": "En la cocina, Charizard tira las pieles de la chistorra al cubo amarillo sin mirar.", "sigue": "grimer2" },
-        "grimer2": { "quien": "grimer", "emocion": "Surprised", "texto": "¡Alto! ¡Las pieles de chistorra van al marrón! ¡Al marrón! (Se planta delante del cubo amarillo como un portero.)", "sigue": "charizard" },
-        "charizard": { "quien": "charizard", "emocion": "Angry", "texto": "Charizard gruñe. Las ha tirado al amarillo porque el amarillo es el color del fuego. Para él tiene todo el sentido del mundo.", "sigue": "muk2" },
-        "muk2": { "quien": "muk", "emocion": "Normal", "texto": "Hijo, no le grites al dragón. Mira, Charizard: un abrazo y hacemos las paces. (Abre los brazos. Todo el comedor se aparta un paso.)", "sigue": "grimer3" },
-        "grimer3": { "quien": "grimer", "emocion": "Pain", "texto": "Papá, que dejas mancha. Siempre deja mancha. En el dojo de Koga la llamaban «la mancha de Muk». Le dura semanas a cualquiera.", "opciones": [
+        "muk": { "quien": "muk", "emocion": "Normal", "texto": "(Su padre, Muk, sonríe de oreja a oreja; siempre sonríe igual.) Soy Muk. Qué ordenado es mi niño, ¿eh? ¡Ven aquí, Manolo, que te doy un abrazo!", "sigue": "pieles" },
+        "pieles": { "quien": "charizard", "emocion": "Normal", "texto": "Manolo se escabulle a la cocina. Mientras, Charizard sale con las pieles de la chistorra del desayuno y las tira al cubo amarillo sin mirar.", "sigue": "grimer2" },
+        "grimer2": { "quien": "grimer", "emocion": "Surprised", "anim": "enfado", "texto": "¡Alto! ¡Las pieles de chistorra son orgánico! ¡Al marrón! (Se planta delante del cubo amarillo como un portero.)", "sigue": "charizard" },
+        "charizard": { "quien": "charizard", "emocion": "Angry", "anim": "humo", "texto": "Charizard gruñe y le sale humo por la nariz. Las ha tirado al amarillo porque el amarillo es el color del fuego. Para él tiene todo el sentido del mundo.", "sigue": "muk2" },
+        "muk2": { "quien": "muk", "emocion": "Normal", "texto": "Hijo, no le grites al dragón. Mira, Charizard: un abrazo y hacemos las paces. (Abre los brazos. Todo el mundo se aparta un paso.)", "sigue": "grimer3" },
+        "grimer3": { "quien": "grimer", "emocion": "Pain", "texto": "Papá, que dejas mancha. Siempre. Cuando entrenábamos en el gimnasio de Koga, la llamaban «la mancha de Muk». Dura semanas.", "opciones": [
           { "texto": "«Charizard, haz las paces con el señor»", "efectos": { "afinidad": 1 }, "sigue": "abrazo" },
-          { "texto": "«Yo, desde aquí, que acabo de fregar»", "sigue": "lejos" }
+          { "texto": "«Yo, desde aquí, que me acabo de duchar»", "sigue": "lejos" }
         ] },
         "lejos": { "quien": "muk", "emocion": "Normal", "texto": "Nadie quiere nunca. Nunca. (Sigue sonriendo igual, pero baja un poquito los brazos.)", "sigue": "abrazo" },
-        "abrazo": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard deja la sartén, se seca las garras y le da a Muk un abrazo de oso. Largo. De los de verdad. Sale con media barriga morada.", "sigue": "muk3" },
-        "muk3": { "quien": "muk", "emocion": "Normal", "texto": "(Muk no dice nada. Sonríe igual que siempre, pero se le nota en todo el cuerpo.) …Ya está. Ya tengo un amigo en este pueblo.", "sigue": "delantal" },
+        "abrazo": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard se seca las garras y le da a Muk un abrazo de oso. Largo. De los de verdad. Sale con media barriga morada.", "sigue": "muk3" },
+        "muk3": { "quien": "muk", "emocion": "Normal", "anim": "corazones", "texto": "(Muk sonríe igual que siempre, pero se le nota en todo el cuerpo.) …Ya está. Ya tengo un amigo en este pueblo.", "sigue": "delantal" },
         "delantal": { "quien": "manolo", "emocion": "Happy", "texto": "(Manolo le limpia la mancha a Charizard con el delantal. El delantal queda morado para siempre. Lo va a tirar al gris.)", "sigue": "grimer4" },
-        "grimer4": { "quien": "grimer", "emocion": "Surprised", "texto": "¡Eso no se tira! (Lo dobla con mimo.) Ni amarillo ni gris: trapo. De los buenos. Lo mejor de un punto limpio es que nada es basura del todo.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "A medianoche se suben al autobús. Muk dice adiós desde la ventanilla con los dos brazos. En la cocina quedan cinco cubos. Charizard lo sigue tirando todo al amarillo." }
+        "grimer4": { "quien": "grimer", "emocion": "Surprised", "anim": "estrellas", "texto": "¡Eso no se tira! (Lo dobla con mimo.) Trapo. De los buenos. En Limasa lo sabemos: nada es basura del todo.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "A mediodía suben al autobús. Muk dice adiós por la ventanilla con los dos brazos. En la puerta quedan cinco cubos. Charizard lo sigue tirando todo al amarillo." }
       }
     }
   ]

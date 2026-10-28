@@ -467,7 +467,12 @@ const ING = {
   pokeball: { nombre: 'una Poké Ball', art: ['...LLLLL...', '.LLRRRRRLL.', 'LRFRRRRRRDL', 'LRRRLLLRRDL', 'LLLLWFWLLLL', 'LWWWLLLWwwL', 'LWWWWWWWwwL', '.LLWWWWwLL.', '...LLLLL...'], trampa: true },
   bota: { nombre: 'una bota vieja', art: ['.LLLLL.....', '.LBTBL.....', '.LBWBL.....', '.LBTBL.....', '.LBWBL.....', '.LBBBBLLL..', '.LBBBBBBBL.', 'LBBBBBBBTBL', 'LKKKKKKKKKL', '.LLLLLLLLL.'], trampa: true },
   magikarp: { nombre: 'un Magikarp', art: ['.....LL.......', '....LYOL....LL', '..LLOOOOLL.LOL', '.LOOOOOOOOLLOL', 'LOWLOOrOOrOOL.', 'LOLLOOOrOOOOL.', 'LFOOOOOOrOOOL.', '.LYFFFFOOOLLOL', '..LLFLLLLL.LOL', '...LYL......LL', '....L.........'], trampa: true },
-  tomate: { art: ['..LGL..', '.LRRRL.', 'LRYrYRL', 'LRrRrRL', 'LRYrYRL', '.LRRRL.', '..LLL..'] },
+  pescado: { nombre: 'pescado', art: ['.....LLL....', '...LLwWWL..L', '..LwWWWWWLLL', '.LWLWWwWWWwL', 'LWWWWWWWwwLL', '.LwwwwwwwwL.', '..LLLLLLLL..'] },
+  gamba: { nombre: 'gambas', art: ['L.L........', '.L.LLLL....', '..LrOrOL...', '.LOrOrOOL..', '.LOOrOrOL..', '..LLOrOL...', '....LOOL...', '...LrOL....', '...LLL.....'] },
+  mejillon: { nombre: 'mejillones', art: ['....LLL....', '..LLcKcLL..', '.LcKKcKKcL.', 'LKcKcKKcKcL', 'LcKKcKcKKcL', '.LLKKcKKLL.', '...LYOYL...', '....LLL....'] },
+  cebolla: { nombre: 'cebolla', art: ['.....L.....', '....LGL....', '...LLgLL...', '..LEWEEWL..', '.LEWEEEWeL.', '.LWEEWEEeL.', '.LEEWEEeeL.', '..LEEEeeL..', '...LLLLL...'] },
+  patito: { nombre: 'un patito de goma', art: ['...LLL.....', '..LYYYL....', '..LYLYLL...', '..LYYYOOL..', '...LYYLL...', '.LLYYYYYLL.', 'LYYYYYYYYyL', 'LyYYYYYYyyL', '.LLLLLLLLL.'], trampa: true },
+  tomate: { nombre: 'tomate', art: ['..LGL..', '.LRRRL.', 'LRYrYRL', 'LRrRrRL', 'LRYrYRL', '.LRRRL.', '..LLL..'] },
   queso: { art: ['.....L.', '...LLYL', '.LLYYYL', 'LYyYYYL', 'LYYYYyL', 'LyYYyYL', 'LLLLLLL'] },
   rodaja: { art: ['.LLLLL.', 'LRWRRRL', 'LRRRWRL', 'LRWRRRL', '.LLLLL.'] },
   baya: { art: ['..LgL..', '.LLGLL.', 'LCUCCcL', 'LCCCCcL', 'LCCCccL', '.LccL..', '..LL...'] },
@@ -483,7 +488,8 @@ const ing = (c, id, x, y) => { const { w, h } = isz(id); sprite(c, ING[id].art, 
 // Marmita de potaje: elegir de la estantería los ingredientes buenos y luego remover
 function potaje(recipe, base, k, say) {
   const buenos = recipe.ingredientes || ['garbanzos', 'chorizo', 'patata', 'zanahoria'];
-  const malos = ['calcetin', 'pokeball', 'bota', 'magikarp'];
+  const malos = recipe.trampas || ['calcetin', 'pokeball', 'bota', 'magikarp'];
+  const caldo = recipe.caldo || '#C7873F';
   const ids = [...buenos, ...malos].sort(() => Math.random() - 0.5);
   // cada cosa, centrada en su balda (x, y es su centro)
   const shelf = ids.map((id, i) => ({ id, x: 95 + (i % 4) * 16, y: 24 + Math.floor(i / 4) * 22 + (5.5 - isz(id).h / 2), gone: false, fly: null }));
@@ -502,7 +508,7 @@ function potaje(recipe, base, k, say) {
           if (!it) continue;
           it.gone = true; it.fly = { k: 0, x0: it.x, y0: it.y };
           const n = ING[it.id].nombre;
-          if (ING[it.id].trampa) { s.bad += 1; say(`¡Eso es ${n}! Eso no va en el potaje…`); }
+          if (ING[it.id].trampa) { s.bad += 1; say(`¡Eso es ${n}! Eso no va en ${recipe.genero === 'f' ? 'la' : 'el'} ${recipe.nombre}…`); }
           else { s.good += 1; say(`${n[0].toUpperCase()}${n.slice(1)}, a la marmita.`); }
         }
         if (s.good >= buenos.length || s.t > 10 / k.vel) {
@@ -551,7 +557,7 @@ function potaje(recipe, base, k, say) {
       // la marmita sobre la llama de Charizard
       flameShape(c, POT.x, 60, 0.5, t, k.shaky);
       rect(c, POT.x - 13, POT.y - 6, 26, 14, '#100C14'); rect(c, POT.x - 12, POT.y - 5, 24, 12, '#57576F');
-      rect(c, POT.x - 11, POT.y - 5, 22, 3, s.bad ? '#7F7F4F' : '#C7873F');
+      rect(c, POT.x - 11, POT.y - 5, 22, 3, s.bad ? '#7F7F4F' : caldo);
       if (s.fase === 'remover') {
         const a = s.ang;
         const cx = POT.x + Math.cos(a) * 8;
@@ -826,7 +832,100 @@ function rocket(recipe, base, k) {
   };
 }
 
-const GAMES = { llama, vuelta, miel, setas, espeton, potaje, pizza, emplatar, limpiar, rocket };
+// El kebab: el rollo gira junto a la parrilla de Charizard y se va dorando por franjas. Hay que
+// pasar el cortador (mantener pulsado y arrastrar arriba y abajo) por las franjas doradas para que
+// caigan los cachos en el pan; lo pálido sale crudo y lo que se deja demasiado, quemado.
+function kebab(recipe, base, k, say) {
+  const N = 8, BANDS = 5;
+  const ROLL = { x: 96, top: 12, h: 40 };
+  const bh = ROLL.h / BANDS;
+  // cada franja se dora a su ritmo (en el medio pega más la llama)
+  const bands = [...Array(BANDS)].map((_, i) => ({ d: 0.15 + Math.random() * 0.2, vel: (0.16 + 0.07 * (2 - Math.abs(i - 2))) * k.vel * (0.85 + Math.random() * 0.3), cut: 0 }));
+  const lo = 0.55 - k.ancho, hi = 1 + k.ancho;
+  const s = { knifeY: null, slices: [], falling: [], hot: 0, cold: 0, good: 0, t: 0, lastY: null };
+  const ancho = y => 13 - (y - ROLL.top) / ROLL.h * 5;   // más gordo arriba, como los de verdad
+  say(recipe.pasos[0].texto);
+  return {
+    hint: 'Mantén pulsado y pasa el cortador por lo dorado',
+    update(dt, t, { holding, pos }) {
+      s.t += dt;
+      for (const b of bands) { b.d = Math.min(1.5, b.d + b.vel * dt * (k.shaky ? 1 + 0.5 * Math.sin(t / 300) : 1)); b.cut = Math.max(0, b.cut - dt); }
+      for (const f of s.falling) f.k = Math.min(1, f.k + dt * 2.2);
+      s.falling = s.falling.filter(f => f.k < 1 || !s.slices.push(f.d));
+      if (holding) {
+        // con el ratón o el dedo, el cortador va a donde apuntes; con la barra, baja solo
+        const y = pos ? Math.max(ROLL.top, Math.min(ROLL.top + ROLL.h - 1, pos.y)) : ROLL.top + ((s.t * 40) % ROLL.h);
+        const from = s.lastY ?? y;
+        for (const [i, b] of bands.entries()) {
+          const y0 = ROLL.top + i * bh, y1 = y0 + bh;
+          // se corta la franja por la que pasa el cortador (si no se acaba de cortar)
+          if (b.cut > 0 || Math.max(from, y) < y0 || Math.min(from, y) > y1) continue;
+          b.cut = 0.5;
+          const j = b.d < lo ? 'cold' : b.d > hi ? 'hot' : 'good';
+          s[j] += 1;
+          s.falling.push({ d: b.d, k: 0, y: (y0 + y1) / 2 });
+          if (j === 'hot') say('¡Eso está negro! Charizard, menos fuego…');
+          else if (j === 'cold') say('Uy, eso aún estaba crudo.');
+          else if (s.good % 3 === 1) say('¡Así, finito y dorado!');
+          b.d = 0.1 + Math.random() * 0.15;   // debajo, la carne aún está cruda
+        }
+        s.knifeY = y; s.lastY = y;
+      } else { s.knifeY = null; s.lastY = null; }
+      if (s.slices.length + s.falling.length >= N && !s.falling.length) {
+        return { acierto: s.good / N - s.hot * 0.05, hot: s.hot, cold: s.cold };
+      }
+      // si no se corta nada en mucho rato, se quema el rollo
+      if (s.t > 22 / k.vel) return { acierto: s.good / N, hot: s.hot + 2, cold: s.cold };
+      return null;
+    },
+    draw(c, t) {
+      // la parrilla vertical detrás, con la llama de Charizard
+      rect(c, 116, 8, 10, 48, '#100C14'); rect(c, 117, 9, 8, 46, '#5F5A67');
+      for (let y = 11; y < 54; y += 4) rect(c, 118, y, 6, 2, Math.sin(t / 150 + y) > 0 ? '#E2653F' : '#FFB347');
+      // el pincho, la bandeja y el rollo girando
+      rect(c, ROLL.x, 6, 1, 52, '#9F9AA7');
+      rect(c, ROLL.x - 12, 54, 25, 3, '#100C14'); rect(c, ROLL.x - 11, 54, 23, 2, '#9F9AA7');
+      for (const [i, b] of bands.entries()) {
+        const y0 = ROLL.top + i * bh;
+        for (let y = Math.round(y0); y < Math.round(y0 + bh); y++) {
+          const w = ancho(y);
+          rect(c, ROLL.x - w - 1, y, w * 2 + 3, 1, '#100C14');
+          // las vetas giran: rayas que pasan de un lado al otro
+          for (let x = -w; x <= w; x++) {
+            const veta = Math.sin((x / w) * 1.4 + t / 260 + y * 0.7) > 0.55;
+            const col = doneness(b.d, '#E7A7A7', '#C7772F');
+            rect(c, ROLL.x + x, y, 1, 1, veta ? mix(col, '#100C14', 0.25) : x > w - 2 ? mix(col, '#FFF7BF', 0.3) : col);
+          }
+        }
+        if (b.cut > 0.3) rect(c, ROLL.x - ancho(y0) - 3, Math.round(y0 + bh / 2), 2, 1, '#FFF7BF');
+      }
+      // los cachos que caen al pan
+      const PAN = { x: 58, y: 58 };
+      for (const f of s.falling) {
+        const x = lerp(ROLL.x - 10, PAN.x, f.k), y = lerp(f.y, PAN.y - 4, f.k) - Math.sin(f.k * Math.PI) * 6;
+        rect(c, x - 2, y - 1, 5, 3, '#100C14'); rect(c, x - 1, y, 3, 1, doneness(f.d, '#E7A7A7', '#C7772F'));
+      }
+      // el pan de pita con lo que ya ha caído
+      rect(c, PAN.x - 15, PAN.y - 2, 31, 8, '#100C14'); rect(c, PAN.x - 14, PAN.y - 1, 29, 6, '#E7C78F'); rect(c, PAN.x - 14, PAN.y + 3, 29, 2, '#C79F5F');
+      s.slices.forEach((d, i) => { rect(c, PAN.x - 12 + (i % 8) * 3.4, PAN.y - 3 - Math.floor(i / 8) * 2 + (i % 2), 3, 2, doneness(d, '#E7A7A7', '#C7772F')); });
+      // el cortador (la maquinita redonda con mango)
+      if (s.knifeY != null) {
+        const y = Math.round(s.knifeY), x = ROLL.x - ancho(y) - 7;
+        rect(c, x - 12, y - 1, 9, 3, '#100C14'); rect(c, x - 11, y, 7, 1, '#3F3F4F');
+        rect(c, x - 3, y - 4, 7, 9, '#100C14'); rect(c, x - 2, y - 3, 5, 7, '#B7BFCF'); rect(c, x - 1, y - 3, 1, 7, '#EFF7FF');
+      }
+      for (let i = 0; i < N; i++) {
+        const d = s.slices[i];
+        const col = d == null ? '#5F5A67' : d < lo ? '#9F9AA7' : d > hi ? '#C73F2F' : '#6F9F4F';
+        rect(c, UI.x + i * 9, 66, 7, 7, '#100C14'); rect(c, UI.x + 1 + i * 9, 67, 5, 5, col);
+      }
+    },
+    state: s,
+    sound: () => (s.knifeY != null ? 0.45 : 0.25),
+  };
+}
+
+const GAMES = { llama, vuelta, miel, setas, espeton, potaje, pizza, emplatar, limpiar, rocket, kebab };
 // qué hay que hacer en cada uno, para la cuenta atrás
 const COMO = {
   llama: 'Mantén pulsado para más fuego y suelta para bajarlo.',
@@ -834,14 +933,15 @@ const COMO = {
   miel: 'Mantén pulsado cuando el tarro esté sobre la tostada.',
   setas: 'Toca cuando la seta pase bajo el cuchillo.',
   espeton: 'Toca para girar la baya; mantén pulsado para sacarla.',
-  potaje: 'Toca solo lo que va en el potaje.',
+  potaje: 'Toca solo lo que va en la olla.',
+  kebab: 'Mantén pulsado y pasa el cortador por lo dorado.',
   pizza: 'Amasa, estira y pon los ingredientes.',
   emplatar: 'Arrastra cada cosa a su sitio en la tarta.',
   limpiar: 'Toca las manchas antes de que llegue el inspector.',
   rocket: 'Toca las sombras de la ventana para espantarlas.',
 };
 // los de preparar: Charizard mira desde un lado en vez de hacer de fogón debajo
-const PREP = new Set(['setas', 'potaje', 'pizza', 'emplatar', 'limpiar', 'rocket']);
+const PREP = new Set(['setas', 'potaje', 'pizza', 'emplatar', 'limpiar', 'rocket', 'kebab']);
 
 export function createKitchen(canvas) {
   const c = canvas.getContext('2d');

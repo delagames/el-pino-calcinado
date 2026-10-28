@@ -45,6 +45,25 @@
           "dice": "Mañana reto a Misty. Necesito algo con mucha proteína.",
           "receta": "potaje",
           "recuerda": "¿Hay algo de comer con proteína? Tengo un hambre de lobo."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Una toalla para el sudor",
+          "objeto": "pano",
+          "quien": "charizard",
+          "gesto": "Happy",
+          "dice": "¿Me dejas una toalla? He hecho cien flexiones en el pasillo y estoy chorreando. Bueno, ciento tres: me he venido arriba.",
+          "hecho": "Charizard le tiende un paño. Machop se seca, se lo cuelga al cuello como un boxeador y hace tres flexiones más, por el paño.",
+          "recuerda": "¿Y la toalla? Que estoy goteando en el pasillo."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Un kebab, que es carne en rollo",
+          "plato": "kebab de chistorra",
+          "receta": "kebab",
+          "objeto": "plato",
+          "dice": "¿Eso que da vueltas es carne? ¡Ponme un kebab! Mi hermano dice que lo que gira tiene más proteína.",
+          "recuerda": "¿Me cortas ya del rollo? Que se me enfría el músculo."
         }
       ],
       "tipos": [
@@ -82,6 +101,25 @@
           "dice": "¿Tenéis algo dulce? Lo dulce me pone de buen humor.",
           "receta": "tarta",
           "recuerda": "¿Hay ya algo dulce?"
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un micrófono para una canción",
+          "objeto": "microfono",
+          "quien": "charizard",
+          "gesto": "Worried",
+          "dice": "Puff… ¿Tenéis un micrófono? Solo una canción. Cortita. Y si alguien se duerme, no pasa nada. (Sí pasa.)",
+          "hecho": "Charizard le da el micrófono. Jigglypuff canta una nana y Charizard ronca al segundo verso. Ella se infla, pero esta vez lo deja dormir.",
+          "recuerda": "¿Y el micro? Tengo una canción atascada."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Una sopa antes de dormir",
+          "plato": "sopa de bayas",
+          "receta": "sopa",
+          "objeto": "plato",
+          "dice": "Puff… ¿Hay sopa de bayas? Calentita. Dicen que con la tripa llena se duerme mejor. Yo lo quiero probar.",
+          "recuerda": "¿La sopa? Que hoy, a lo mejor, duermo."
         }
       ],
       "tipos": [
@@ -122,6 +160,15 @@
               "objeto": "plato",
               "dice": "¡Una pizza familiar, amigo! Una entera. Es para el gremio. El gremio soy yo. ¡Pero como mucho!",
               "recuerda": "¡Amigo, amigo! ¿Y la pizza? ¡El gremio tiene hambre!"
+            },
+            {
+              "tipo": "comida",
+              "texto": "Un kebab para la expedición",
+              "plato": "kebab de chistorra",
+              "receta": "kebab",
+              "objeto": "plato",
+              "dice": "¡Amigo! ¿Eso que gira es un kebab? ¡Uno para la expedición! Bueno, para antes de la expedición. Bueno, para ahora.",
+              "recuerda": "¡Amigo, el kebab! La expedición no espera."
             }
           ]
         }
@@ -151,6 +198,25 @@
           "dice": "Comida. Toda.",
           "receta": "pizza",
           "recuerda": "…Comida."
+        },
+        {
+          "tipo": "comida",
+          "texto": "El rollo entero",
+          "plato": "kebab de chistorra",
+          "receta": "kebab",
+          "objeto": "plato",
+          "dice": "Eso que gira. Entero.",
+          "recuerda": "…El rollo."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Una manta. Grande.",
+          "objeto": "manta",
+          "quien": "charizard",
+          "gesto": "Happy",
+          "dice": "Manta. (Bosteza.) Grande.",
+          "hecho": "Charizard le echa una manta por encima. Solo le tapa la barriga, pero Snorlax ronca tan a gusto que nadie se atreve a decírselo.",
+          "recuerda": "…Manta."
         }
       ],
       "tam": "grande",
@@ -188,6 +254,25 @@
           "objeto": "mano",
           "dice": "¿Me rascas detrás de la oreja? Solo un poquito… bueno, un muchito.",
           "recuerda": "¿Me rascas ya la oreja? Solo un poquito."
+        },
+        {
+          "tipo": "comida",
+          "texto": "¡Kebab! ¡Ya!",
+          "plato": "kebab de chistorra",
+          "receta": "kebab",
+          "objeto": "plato",
+          "dice": "¡Guau! ¿Qué es eso que da vueltas y huele a chistorra? ¡Un kebab! ¡Quiero un kebab! ¡Ya! Bueno, cuando gire.",
+          "recuerda": "¡El kebab! ¡Que lo huelo desde aquí y no llega!"
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Que le tiren la pelota",
+          "objeto": "balon",
+          "quien": "charizard",
+          "gesto": "Happy",
+          "dice": "¿Me tiras la pelota? Una vez. Bueno, cien veces. ¡Guau!",
+          "hecho": "Charizard le lanza el balón por el prado. Growlithe lo trae cuarenta veces. A la cuarenta y una, Charizard se hace el dormido.",
+          "recuerda": "¿Y la pelota? ¡Tírala! ¡Una más!"
         }
       ],
       "tipos": [
@@ -221,6 +306,16 @@
               "objeto": "chistorra",
               "dice": "Necesito una chistorra a la brasa. Es una prueba. Para comparar. ¡Guau! Digo… procedimiento.",
               "recuerda": "¿Y la chistorra? ¡La prueba! Digo… ¡mi chistorra!"
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Un café de comisaría",
+              "objeto": "cafe",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "Señor Manolo, un café. Solo, en vaso. Así lo toman los policías de las películas. ¡Guau! Digo… gracias.",
+              "hecho": "Manolo le pone el café en vaso. Arcanine lo sopla muy serio, se quema el hocico y dice que eso también forma parte del servicio.",
+              "recuerda": "El café, señor Manolo. Un agente sin café es un perro con placa."
             }
           ]
         }
@@ -257,6 +352,25 @@
           "dice": "¿Hay sopa de bayas? Templada, por favor, que caliente me da cosa.",
           "receta": "sopa",
           "recuerda": "¿Y la sopa de bayas? Templadita, ¿eh?"
+        },
+        {
+          "tipo": "comida",
+          "texto": "Sopa de pescado templada",
+          "plato": "sopa de pescado",
+          "receta": "pescado",
+          "objeto": "plato",
+          "dice": "¿Hay sopa de pescado? Templada, ¿eh? Sabe a río, y con sabor a río duermo mejor.",
+          "recuerda": "¿Y la sopa de pescado? Templadita, que sepa a río."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Una taza de agua en la mesilla",
+          "objeto": "taza",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Me dejas una taza de agua en la mesilla? Si me despierto y no la veo, me entra la cosa.",
+          "hecho": "Manolo le deja la taza llena. Squirtle la mira, la toca con un dedo y se duerme abrazado a la mesilla.",
+          "recuerda": "¿La taza de agua? Sin ella no me atrevo a cerrar los ojos."
         }
       ],
       "tipos": [
@@ -290,6 +404,16 @@
               "objeto": "plato",
               "dice": "¿Hay sopa de bayas? Templada, como siempre. Que ya soy mayor, pero caliente me sigue dando cosa.",
               "recuerda": "¿Y la sopa? Templadita, ¿eh? Como la otra vez."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Un casco, para ir acostumbrándose",
+              "objeto": "casco",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "¿Tienes un casco? El de bombero me lo dan cuando apruebe, y quiero ir acostumbrando la cabeza.",
+              "hecho": "Manolo le trae un casco viejo. Wartortle se lo pone, saluda muy serio al espejo y las orejas peludas se le salen por los lados.",
+              "recuerda": "¿Y el casco? Que tengo que acostumbrar la cabeza."
             }
           ]
         },
@@ -320,6 +444,15 @@
               "objeto": "plato",
               "dice": "Una sopa de bayas, por favor. Templada. Un jefe de bomberos no puede quemarse la lengua: da mala imagen.",
               "recuerda": "¿Y la sopa? Templada, recuerde. Lo tengo en la carpeta."
+            },
+            {
+              "tipo": "comida",
+              "texto": "Sopa de pescado, según la carpeta",
+              "plato": "sopa de pescado",
+              "receta": "pescado",
+              "objeto": "plato",
+              "dice": "Una sopa de pescado, templada. Lo pone en la carpeta: comida sin riesgo de quemaduras. Y con las espinas controladas.",
+              "recuerda": "La sopa de pescado, Manolo. Templada, como dice la carpeta."
             }
           ]
         }
@@ -348,6 +481,25 @@
           "dice": "Vengo de muy lejos y el viento de la montaña es frío. ¿Algo para entrar en calor?",
           "receta": "zidra",
           "recuerda": "¿Tienes ya algo calentito?"
+        },
+        {
+          "tipo": "comida",
+          "texto": "Sopa de pescado, como en su tierra",
+          "plato": "sopa de pescado",
+          "receta": "pescado",
+          "objeto": "plato",
+          "dice": "En mi tierra, junto al mar, hacen una sopa de pescado que cura la añoranza. ¿Sabéis hacerla aquí?",
+          "recuerda": "¿La sopa de pescado? Me trae el olor del mar."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Una manta para la historia larga",
+          "objeto": "manta",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Tenéis una manta? En el norte dormía sobre el hielo, pero aquí me he malacostumbrado a lo blandito.",
+          "hecho": "Manolo le echa la manta por el caparazón. Lapras le cuenta una historia de Johto en agradecimiento, y Manolo se duerme a la mitad.",
+          "recuerda": "¿La manta? Que esta noche toca historia larga."
         }
       ],
       "tipos": [
@@ -387,6 +539,25 @@
           "objeto": "sol",
           "dice": "¿Puedo tomar el sol un rato en la ventana? Es mi desayuno.",
           "recuerda": "¿Me abres la ventana para tomar el sol?"
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un chorrito de agua por las hojas",
+          "objeto": "regadera",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Me echa un poco de agua por encima? Solo un chorrito. Por las hojas, no por la cara.",
+          "hecho": "Manolo le pasa la regadera por las hojas. Oddish se estira de gusto y suelta un olor tan fuerte que Charizard estornuda una llama.",
+          "recuerda": "¿Y el chorrito? Que se me arrugan las hojas."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Sopa de bayas por los pies",
+          "plato": "sopa de bayas",
+          "receta": "sopa",
+          "objeto": "plato",
+          "dice": "¿Me hace una sopa de bayas? Tibia. Me la tomo por los pies, que es como comemos las plantas.",
+          "recuerda": "¿La sopa? Tibia, y por los pies, ¿eh?"
         }
       ],
       "tipos": [
@@ -426,6 +597,16 @@
               "objeto": "plato",
               "dice": "¿Me hace una tarta de bayas? Es para tener algo que huela bien cerca. Además de mí, digo.",
               "recuerda": "¿Y la tarta? Que aquí huele mucho a mí y poco a tarta."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Pinzas para la nariz (de los demás)",
+              "objeto": "pinza",
+              "quien": "manolo",
+              "gesto": "Pain",
+              "dice": "¿Tiene pinzas de la ropa? No para mí. Para los demás. Para la nariz. Es que hoy huelo… a mucho.",
+              "hecho": "Manolo reparte pinzas por el comedor. Charizard se pone dos. Gloom dice, muy digna, que eso ya es exagerar.",
+              "recuerda": "¿Las pinzas? Hoy huelo a mucho, lo sé."
             }
           ]
         },
@@ -461,6 +642,16 @@
               "objeto": "plato",
               "dice": "Una tarta de bayas, por favor. Vengo de un aniversario y me he quedado con ganas de algo de fiesta.",
               "recuerda": "¿Y la tarta? Debajo de la pamela se me está poniendo cara de hambre. No se ve, pero se me pone."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Flores para competir",
+              "objeto": "flores",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "¿Me pone unas flores en el cuarto? Para competir. Que vean las flores lo que es oler de verdad.",
+              "hecho": "Manolo le deja un ramo en la mesilla. Al rato, todas las flores se han girado hacia la ventana, mareadas.",
+              "recuerda": "¿Las flores? Hoy quiero ganarle a algo."
             }
           ]
         }
@@ -503,6 +694,25 @@
           "objeto": "chistorra",
           "dice": "Ponme chistorra, que es de aquí de toda la vida y no esas modernidades que se comen ahora.",
           "recuerda": "¿Y mi chistorra de toda la vida?"
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un café en la barra, discutiendo",
+          "objeto": "cafe",
+          "quien": "manolo",
+          "gesto": "Sigh",
+          "dice": "¿Me pone un café? Pero en la barra, ¿eh? El café se toma discutiendo, y en el cuarto discuto solo.",
+          "hecho": "Manolo le pone el café en la barra. Mr. Mime tarda dos horas en tomárselo, opinando de todo. Manolo asiente cada diez minutos.",
+          "recuerda": "¿Y mi café? Tengo tres opiniones esperando."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Un potaje de los de antes",
+          "plato": "potaje de garbanzos",
+          "receta": "potaje",
+          "objeto": "plato",
+          "dice": "Un potaje, de los de antes. ¡Que ahora todo es espuma y tonterías! En mi época se comía de cuchara y punto.",
+          "recuerda": "¿Y el potaje? Esto antes no pasaba."
         }
       ]
     },
@@ -542,6 +752,25 @@
           "objeto": "plato",
           "dice": "Algo de cuchara, si puede ser. Nos hemos pateado medio monte y Poliwag tiene hambre.",
           "recuerda": "¿Hay ya algo de cuchara?"
+        },
+        {
+          "tipo": "comida",
+          "texto": "Sopa de pescado para los dos",
+          "plato": "sopa de pescado",
+          "receta": "pescado",
+          "objeto": "plato",
+          "dice": "¿Hay sopa de pescado? Es la que tomábamos después de entrenar en el río. A Poliwag le recuerda a casa.",
+          "recuerda": "¿Y la sopa de pescado? Poliwag ya está haciendo pompas de hambre."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un paño para secar a Poliwag",
+          "objeto": "pano",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Me dejas un paño? Poliwag se ha tirado al abrevadero y ahora quiere dormir en mi cama, chorreando.",
+          "hecho": "Manolo le da un paño. Marina seca a Poliwag, Poliwag la moja a ella, y acaban los dos secos y muertos de risa.",
+          "recuerda": "¿El paño? Que Poliwag ya me está empapando la almohada."
         }
       ],
       "acompanante": "0060",
@@ -584,6 +813,25 @@
           "objeto": "plato",
           "dice": "¿Hay algo dulcecito? Un pan con miel, que los fantasmas también tenemos nuestro antojillo.",
           "recuerda": "¿Y el pan con miel, mi arma?"
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un espejo, aunque no salga",
+          "objeto": "espejo",
+          "quien": "manolo",
+          "gesto": "Surprised",
+          "dice": "Primo, ¿me deja un espejo? Ya sé que no salgo, pero me gusta mirar el hueco donde estaría yo. Es muy flamenco.",
+          "hecho": "Manolo le trae el espejo. Gengar se pone de perfil y se peina el pelo que no tiene. «Estoy guapísimo», dice. Nadie se lo discute.",
+          "recuerda": "Mi arma, ¿y el espejo? Que tengo que peinarme el duende."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Un kebab después de la juerga",
+          "plato": "kebab de chistorra",
+          "receta": "kebab",
+          "objeto": "plato",
+          "dice": "¿Un kebab, primo? Que después de cantar por bulerías hasta las tantas, un kebab es lo que pide el cuerpo.",
+          "recuerda": "Primo, el kebab, que la juerga ya ha acabado y el hambre no."
         }
       ]
     },
@@ -624,6 +872,25 @@
           "objeto": "plato",
           "dice": "¿Hay algo dulce? Leí que el azúcar cura el desamor. Seguramente es mentira, pero por probar.",
           "recuerda": "¿Y lo dulce? Es para el corazón, no para mí."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Más servilletas, para los poemas",
+          "objeto": "pano",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Me da más servilletas? Se me han acabado a mitad de un soneto. Y sin la rima no hay quien duerma.",
+          "hecho": "Manolo le trae un taco de servilletas. Larvitar escribe hasta las tres y le deja una en la barra: «A Manolo, que me da papel». Rima regular.",
+          "recuerda": "¿Y las servilletas? Tengo un verso en la punta de la lengua."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Una sopa como las de ella",
+          "plato": "sopa de bayas",
+          "receta": "sopa",
+          "objeto": "plato",
+          "dice": "¿Hay sopa de bayas? Ella me hacía sopa cuando estaba malo. No es que quiera acordarme. Bueno, un poco.",
+          "recuerda": "¿La sopa? Aunque me haga llorar, la quiero."
         }
       ]
     },
@@ -664,6 +931,25 @@
           "objeto": "plato",
           "dice": "Algo con miel, por favor, que mañana tengo que cantar y la garganta es mi Cantora.",
           "recuerda": "¿Y lo de la miel? La voz no espera, mi arma."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Flores para el camerino",
+          "objeto": "flores",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿No tendrá usted flores, mi arma? Una folclórica duerme con claveles en el camerino. Aunque el camerino sea la habitación 2.",
+          "hecho": "Manolo le pone unas flores del prado en un vaso. Jynx las huele, suspira y dice que no son claveles, pero que tienen arte.",
+          "recuerda": "Mi arma, ¿y las flores? El camerino está desnudo."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Sopa de pescado para la voz",
+          "plato": "sopa de pescado",
+          "receta": "pescado",
+          "objeto": "plato",
+          "dice": "Una sopa de pescado, por favor. Calentita, que la voz se me ha quedado en el autobús y a la voz hay que mimarla.",
+          "recuerda": "¿La sopa de pescado, mi arma? La garganta me la pide."
         }
       ]
     },
@@ -704,6 +990,25 @@
           "objeto": "plato",
           "dice": "Póngame algo de monte. Setas, por ejemplo. Lo que crece en la tierra no hace preguntas.",
           "recuerda": "¿Y las setas, jefe? Tengo que estar en la lancha antes del amanecer."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Una linterna para la planta",
+          "objeto": "linterna",
+          "quien": "manolo",
+          "gesto": "Worried",
+          "dice": "Jefe, ¿tiene una linterna? Para la planta. Necesita luz. Pocas horas. Sin que se vea desde la carretera.",
+          "hecho": "Manolo le da la linterna. Bulbasaur se encierra en el cuarto. Por la rendija sale luz toda la noche, y un olor dulce. Él dice que lee.",
+          "recuerda": "La linterna, jefe. La planta tiene un horario."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Sopa de pescado, como en las rías",
+          "plato": "sopa de pescado",
+          "receta": "pescado",
+          "objeto": "plato",
+          "dice": "Póngame una sopa de pescado, jefe. Como en las rías. Allí todo llega por mar, y sin preguntas.",
+          "recuerda": "¿La sopa de pescado, jefe? Sin preguntas, pero con prisa."
         }
       ],
       "evoluciones": [
@@ -735,6 +1040,16 @@
               "objeto": "plato",
               "dice": "Un estofado de setas, jefe. Lo de siempre. El cliente habitual tiene derecho a lo de siempre.",
               "recuerda": "¿Y el estofado? Le recuerdo que hacer esperar a un abogado sale caro."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Un sobre para la citación",
+              "objeto": "sobre",
+              "quien": "manolo",
+              "gesto": "Normal",
+              "dice": "Jefe, un sobre. Cerrado. No es lo que parece: es una citación. Bueno, sí es lo que parece, pero legal.",
+              "hecho": "Manolo le da un sobre. Ivysaur mete un papel, lo cierra con la lengua y lo sella con una hoja. Dice que ya está todo en regla.",
+              "recuerda": "El sobre, jefe. Los plazos no esperan."
             }
           ]
         },
@@ -766,6 +1081,15 @@
               "objeto": "plato",
               "dice": "Póngame un estofado de setas. Lo que crece en la tierra no hace preguntas. Y yo ya tampoco.",
               "recuerda": "¿Y las setas, jefe? Que en la huerta me esperan los tomates."
+            },
+            {
+              "tipo": "comida",
+              "texto": "Una tarta por la flor",
+              "plato": "tarta de bayas",
+              "receta": "tarta",
+              "objeto": "plato",
+              "dice": "Una tarta, jefe. Ha florecido, y eso se celebra. Ya lo puedo decir: es una flor. Siempre fue una flor.",
+              "recuerda": "La tarta, jefe. Por la flor."
             }
           ]
         }
@@ -807,6 +1131,25 @@
           "objeto": "chistorra",
           "dice": "Dicen que la chistorra la hace Charizard con su propio fuego. Qué fuerte. Qué… caliente. Una, por favor.",
           "recuerda": "¿Y mi chistorra? Dile a Charizard que la quiero hecha por él, con cariño."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Una rosa, por si acaso",
+          "objeto": "rosa",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Me consigues una rosa, guapo? Alguien del comedor me ha mirado. O no. Da igual, me la llevo por si acaso.",
+          "hecho": "Manolo le da una rosa. Eevee se la ofrece a Charizard, luego a Machoke y luego a Manolo. Al final se la pone ella detrás de la oreja.",
+          "recuerda": "¿Y la rosa? Que se me pasa el flechazo."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Tarta con dos cucharas",
+          "plato": "tarta de bayas",
+          "receta": "tarta",
+          "objeto": "plato",
+          "dice": "Una tarta con dos cucharas, guapo. Por si alguien se apunta. Si no se apunta nadie, me como las dos.",
+          "recuerda": "¿La tarta para dos? Aún no tengo pareja, pero tengo cucharas."
         }
       ]
     },
@@ -847,11 +1190,37 @@
           "objeto": "plato",
           "dice": "¿Tienes algo con proteína de verdad? Garbanzos, por ejemplo. Una olla. Pequeña. Bueno, mediana.",
           "recuerda": "¿Y el potaje? Estoy en volumen y el volumen no espera."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un espejo para el bombeo",
+          "objeto": "espejo",
+          "quien": "charizard",
+          "gesto": "Happy",
+          "dice": "Jefe, ¿me pones un espejo en el cuarto? Hoy he hecho bíceps y tengo que ver el bombeo antes de que se baje.",
+          "hecho": "Charizard le cuelga el espejo. Machoke posa veinte minutos. Charizard se pone a posar a su lado, y Machoke se pica: en alas no le gana.",
+          "recuerda": "El espejo, jefe, que se me baja el bombeo."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Kebab doble de carne",
+          "plato": "kebab de chistorra",
+          "receta": "kebab",
+          "objeto": "plato",
+          "dice": "Jefe, un kebab doble de carne. Es proteína que da vueltas, como yo en el gimnasio. Sin salsa, que estoy en definición.",
+          "recuerda": "El kebab, jefe. Que se me cierra la ventana anabólica."
         }
       ],
       "empleo": {
         "puesto": "mozo de las maletas",
-        "ventaja": "maletas"
+        "ventaja": "maletas",
+        "frases": [
+          "¡Maletas arriba! Esto es press de banca, pero con cremallera.",
+          "Dos maletas en cada mano: así trabajo y entreno a la vez. Y encima me dan propina.",
+          "La maleta de Snorlax pesa más que yo. Hoy, por fin, es día de pierna. Más o menos.",
+          "Jefe, ¿has visto este bombeo? Tres plantas con un baúl. Mírame el tríceps, mira.",
+          "Las escaleras no las subo con las piernas: subo a pulso, por la barandilla."
+        ]
       }
     },
     {
@@ -891,6 +1260,25 @@
           "objeto": "plato",
           "dice": "Un rancho de cuchara, si es tan amable. Un legionario come lo que haya. Pero si hay estofado, mejor.",
           "recuerda": "Señor, el rancho. Sin prisa. Pero ya."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Una manta para la cabra",
+          "objeto": "manta",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "Señor, ¿tiene una manta para la cabra? Ella no se queja nunca, pero esta noche refresca y es de la familia.",
+          "hecho": "Manolo tapa a la cabra con una manta. Machamp se cuadra, se le escapa una lágrima y dice que es del humo. No hay humo.",
+          "recuerda": "La manta de la cabra, señor. Un legionario no deja atrás a nadie."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Potaje para cuatro brazos",
+          "plato": "potaje de garbanzos",
+          "receta": "potaje",
+          "objeto": "plato",
+          "dice": "Un potaje, señor. Para cuatro brazos harían falta dos platos, pero me conformo con uno grande.",
+          "recuerda": "El potaje, señor. Los cuatro brazos esperan firmes."
         }
       ]
     },
@@ -930,6 +1318,25 @@
           "objeto": "plato",
           "dice": "¿Una pizza familiar? Es que hay partido, y un partido sin pizza no es un partido. Es un debate.",
           "recuerda": "¿Y la pizza? ¡Que empieza el último cuarto!"
+        },
+        {
+          "tipo": "servicio",
+          "texto": "El mando, que hay partido",
+          "objeto": "mando",
+          "quien": "manolo",
+          "gesto": "Worried",
+          "dice": "¿Me pones el partido? Dime dónde está el mando. Prometo no gritar «¡triple!». Bueno, prometo intentarlo.",
+          "hecho": "Manolo le da el mando. A falta de un minuto, alguien mete un triple. Voltorb chisporrotea entero, pero se aguanta. Solo explota un poquito.",
+          "recuerda": "¿El mando? ¡Que empieza el último cuarto!"
+        },
+        {
+          "tipo": "comida",
+          "texto": "Un kebab en el descanso",
+          "plato": "kebab de chistorra",
+          "receta": "kebab",
+          "objeto": "plato",
+          "dice": "Un kebab, que en el descanso es lo que se come. Rápido, que solo son quince minutos y yo como como un pívot.",
+          "recuerda": "¡El kebab! ¡Que se acaba el descanso!"
         }
       ],
       "evoluciones": [
@@ -964,6 +1371,16 @@
               "objeto": "plato",
               "dice": "Esta vez nada de pizza: una sopa de bayas. Calentita, suave. Lo que comería un Electrode que no quiere explotar.",
               "recuerda": "¿Y la sopa? Que me estoy poniendo nervioso. Y ya sabes lo que pasa."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Hielo para no recalentarse",
+              "objeto": "hielo",
+              "quien": "charizard",
+              "gesto": "Worried",
+              "dice": "¿Tienes hielo? Si me lo pongo encima, me enfrío y no exploto. Es la teoría. La práctica la vemos en la prórroga.",
+              "hecho": "Charizard le pone una bolsa de hielo encima. Se derrite enseguida, pero Electrode aguanta el partido entero sin estallar.",
+              "recuerda": "¿Y el hielo? Que voy notando la prórroga."
             }
           ]
         }
@@ -1005,6 +1422,25 @@
           "objeto": "plato",
           "dice": "¿Tenéis baya Zidra? Es superalimento. La asas, la subes a redes y luego, si eso, te la comes.",
           "recuerda": "¿Y la Zidra? Que tengo el post preparado."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un espejo para las afirmaciones",
+          "objeto": "espejo",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "Campeón, un espejo. Cada noche me digo «eres un Gyarados». Si no me lo digo, me lo creo menos.",
+          "hecho": "Manolo le trae el espejo. Magikarp se dice «eres un Gyarados» diez veces. A la décima, salta. Se da con el techo.",
+          "recuerda": "Campeón, el espejo, que tengo las afirmaciones pendientes."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Legumbre ancestral",
+          "plato": "potaje de garbanzos",
+          "receta": "potaje",
+          "objeto": "plato",
+          "dice": "Campeón, ¿un potaje de garbanzos? Proteína vegetal, fibra y legumbre ancestral. Mañana lo vendo en un curso.",
+          "recuerda": "Campeón, ¿y el potaje? Que tengo directo a las siete."
         }
       ],
       "evoluciones": [
@@ -1042,6 +1478,16 @@
               "objeto": "plato",
               "dice": "Pan tostado con miel. El desayuno prometido. A morder, no: a desayunar. Aunque sea por la noche.",
               "recuerda": "¿Y mi tostada? Hablo bajito para no asustar, pero tengo un hambre de Gyarados."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Un café normal",
+              "objeto": "cafe",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "Campeón, un café. Normal. Sin aceite ni nada. Lo he descubierto hace poco: el café normal está buenísimo.",
+              "hecho": "Manolo le pone un café de los de siempre. Gyarados lo prueba, cierra los ojos y dice que es lo más auténtico que ha bebido nunca.",
+              "recuerda": "Campeón, ¿y el café normal? Me he aficionado."
             }
           ]
         },
@@ -1079,6 +1525,15 @@
               "objeto": "plato",
               "dice": "Pan tostado con miel. Lo de desayunar aquí se me ha convertido en costumbre. Y esa sí que es buena.",
               "recuerda": "¿La tostada va? Sin prisa, ¿eh? Ahora sé esperar."
+            },
+            {
+              "tipo": "comida",
+              "texto": "Chistorra, sin foto",
+              "plato": "chistorra a la brasa",
+              "receta": "chistorra",
+              "objeto": "plato",
+              "dice": "Campeón, una chistorra. Ya no la subo a redes: me la como caliente, como la gente normal.",
+              "recuerda": "Campeón, la chistorra. Sin foto, ¿eh? Caliente."
             }
           ]
         }
@@ -1120,6 +1575,25 @@
           "objeto": "plato",
           "dice": "¿Hay sopa de bayas? Algo que se coma con una mano, que con la otra subrayo.",
           "recuerda": "¿Y la sopa? Llevo tres temas sin cenar."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Hielo para la frente",
+          "objeto": "hielo",
+          "quien": "manolo",
+          "gesto": "Worried",
+          "dice": "¿Tiene hielo? Para la frente. El tema 30 me ha dado un dolor de cabeza que todavía me retumba.",
+          "hecho": "Manolo le pone una bolsa de hielo en la frente. Psyduck sigue repasando con los ojos cerrados, cantando los artículos por lo bajo.",
+          "recuerda": "¿El hielo? Me palpita el tema 30."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Sopa de pescado para la memoria",
+          "plato": "sopa de pescado",
+          "receta": "pescado",
+          "objeto": "plato",
+          "dice": "¿Hay sopa de pescado? Dicen que el pescado es bueno para la memoria. Y yo tengo que memorizar ochenta temas.",
+          "recuerda": "¿La sopa de pescado? Que me queda el tema 53."
         }
       ],
       "evoluciones": [
@@ -1154,6 +1628,16 @@
               "objeto": "plato",
               "dice": "¿Hay estofado de setas? Sin prisa. He aprendido que lo que se hace despacio sale mejor. Hasta los patos.",
               "recuerda": "¿Y el estofado? No me duele la cabeza, pero la tripa empieza a opinar."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Pósits para los opositores",
+              "objeto": "posit",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "¿Tiene pósits? De colores. Mis opositores los pegan por la casa y aprenden de pared en pared.",
+              "hecho": "Manolo le da un taco de pósits. Golduck pega uno en la chimenea: «Tema 1: no te agobies». Manolo lo deja ahí.",
+              "recuerda": "¿Los pósits? El sábado tengo clase."
             }
           ]
         }
@@ -1195,6 +1679,25 @@
           "objeto": "plato",
           "dice": "¿Una pizza familiar? Es la comida oficial de las partidas: con una mano se come y con la otra se gira el dial.",
           "recuerda": "¿Y la pizza? Mi equipo juega mejor con el estómago lleno."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un cronómetro para los turnos",
+          "objeto": "cronometro",
+          "quien": "charizard",
+          "gesto": "Happy",
+          "dice": "¿Hay un cronómetro? Los turnos son de cincuenta segundos. Sin cronómetro, la gente piensa. Y pensar ralentiza la partida.",
+          "hecho": "Charizard le trae el cronómetro. Porygon lo pone en la mesa y lo mira cada medio minuto. Charizard pierde el turno por pensar.",
+          "recuerda": "El cronómetro. Sin tiempo oficial, la partida no cuenta."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Tarta para la final",
+          "plato": "tarta de bayas",
+          "receta": "tarta",
+          "objeto": "plato",
+          "dice": "¿Hay tarta de bayas? Si gano el torneo, me la como yo. Si pierdo, me la como yo también, pero con rencor.",
+          "recuerda": "¿La tarta? La final empieza en diez minutos."
         }
       ]
     },
@@ -1234,6 +1737,25 @@
           "objeto": "chistorra",
           "dice": "Una chistorra, por favor. Con kétchup. Bueno, kétchup con un poco de chistorra.",
           "recuerda": "¿Y mi chistorra? El kétchup ya está esperando, y no le gusta esperar."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un espejo de camerino",
+          "objeto": "espejo",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Me deja un espejo? Es para el camerino. Mi mánager dice que una estrella se mira antes de salir, aunque sea al pasillo.",
+          "hecho": "Manolo le trae el espejo. Pikachu se sonríe, se firma un autógrafo a sí mismo y se lo pega en la frente.",
+          "recuerda": "¿Y el espejo? Que salgo al pasillo en directo."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Un kebab con kétchup",
+          "plato": "kebab de chistorra",
+          "receta": "kebab",
+          "objeto": "plato",
+          "dice": "Un kebab, con kétchup. Mi mánager me lo ha prohibido, pero mi mánager no existe. Eso no se lo diga.",
+          "recuerda": "¿Mi kebab? Con kétchup por dentro y por fuera."
         }
       ]
     },
@@ -1273,6 +1795,25 @@
           "objeto": "plato",
           "dice": "Un potaje de garbanzos, cariño. Que se come con cuchara, y así hacemos una prueba de fe.",
           "recuerda": "¿Y mi potaje? Lo veo en mi futuro, pero no en mi mesa."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Una vela para echar las cartas",
+          "objeto": "vela",
+          "quien": "manolo",
+          "gesto": "Surprised",
+          "dice": "Cariño, ¿me traes una vela? Las cartas con luz eléctrica no dicen nada. Se ponen tímidas, como las cucharas.",
+          "hecho": "Manolo enciende la vela. Kadabra le echa las cartas y salen la Torre, el Dragón y la Chistorra. Dice que es buena tirada.",
+          "recuerda": "Cariño, la vela, que las cartas están calladas."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Una sopa que se bebe",
+          "plato": "sopa de bayas",
+          "receta": "sopa",
+          "objeto": "plato",
+          "dice": "Una sopa de bayas, cariño. De esas que se toman sin cuchara. Ya sabes por qué.",
+          "recuerda": "Cariño, la sopa, que me la bebo directa."
         }
       ]
     },
@@ -1313,6 +1854,25 @@
           "objeto": "plato",
           "dice": "♪ Una tarta de bayas, por favooor… ♪ Con muchas bayas, como en los banquetes de las pelis.",
           "recuerda": "♪ La tarta no llegaaa… ♪ Es una canción nueva. Se titula así."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Cien cepilladas, como las princesas",
+          "objeto": "cepillo",
+          "quien": "charizard",
+          "gesto": "Happy",
+          "dice": "¿Me cepilla el pelo cien veces? Como las princesas antes de dormir. Bueno, el rizo. Tengo un rizo.",
+          "hecho": "Charizard le cepilla el rizo con mucho cuidado. Clefairy canta y un gorrión se posa en la ventana. Ella dice que es su amigo.",
+          "recuerda": "¿Y el cepillo? Cien veces, como en las pelis."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Pan con miel de princesa",
+          "plato": "pan tostado con miel",
+          "receta": "pan",
+          "objeto": "plato",
+          "dice": "♪ Pan tostado con miel ♪… ¿Lo hay? En las pelis, las princesas desayunan pan con miel con los pajaritos.",
+          "recuerda": "♪ ¿Y mi pan con miel? ♪"
         }
       ],
       "evoluciones": [
@@ -1343,6 +1903,16 @@
               "objeto": "plato",
               "dice": "Una tarta de bayas, por favor. Como en los banquetes. Pero sin que nadie cante al traerla, ¿eh?",
               "recuerda": "(Susurra.) La tarta no llega… Lo susurro, que antes lo cantaba."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Una manta hasta las orejas",
+              "objeto": "manta",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "(Susurra.) ¿Una manta? Me la pongo por encima de las orejas. Hoy el comedor piensa muy alto.",
+              "hecho": "Manolo le da una manta. Clefable se envuelve hasta las orejas y, por fin, solo se oye a sí misma. Sonríe.",
+              "recuerda": "(Susurra.) La manta… que piensan muy alto."
             }
           ]
         }
@@ -1384,6 +1954,25 @@
           "objeto": "plato",
           "dice": "Un estofado de setas, cielo. De las buenas, que el veneno ya lo pongo yo. Es broma. Ssss.",
           "recuerda": "¿Y mi estofado? Me han contado que a otros se lo has servido antes. Yo no digo nada."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "El periódico, por los cotilleos",
+          "objeto": "periodico",
+          "quien": "manolo",
+          "gesto": "Normal",
+          "dice": "Cielo, ¿tienes el periódico? No por las noticias, ¿eh? Por los ecos de sociedad. Hay que saber quién se lleva mal.",
+          "hecho": "Manolo le da el periódico. Arbok lo lee de cola a cabeza y subraya tres cotilleos. Uno es de la posada. Ssss.",
+          "recuerda": "¿Y el periódico, cielo? Que me pierdo quién se ha peleado."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Tarta, para tener excusa",
+          "plato": "tarta de bayas",
+          "receta": "tarta",
+          "objeto": "plato",
+          "dice": "Un trozo de tarta, cielo, y que sea en el comedor. Es para tener excusa para quedarme escuchando.",
+          "recuerda": "¿La tarta, cielo? Sin tarta no puedo disimular."
         }
       ]
     },
@@ -1424,6 +2013,25 @@
           "objeto": "plato",
           "dice": "¿Me pueden dejar algo de comer junto a la rueda? Pan con miel, si hay. Y luego no miren, por favor.",
           "recuerda": "…¿Y el pan con miel? Déjenlo en la rueda. Y no miren."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Una linterna junto a la rueda",
+          "objeto": "linterna",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Me dejan una linterna encendida junto a la rueda? Es para ver si tengo sombra. Si tengo sombra, a lo mejor existo.",
+          "hecho": "Manolo deja la linterna junto a la furgoneta. Al rato se ve una sombrita rosa en el barro. Mew la mira toda la noche, muy contento.",
+          "recuerda": "¿La linterna? Quiero comprobar una cosa de mi sombra."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Tarta junto a la rueda (experimento)",
+          "plato": "tarta de bayas",
+          "receta": "tarta",
+          "objeto": "plato",
+          "dice": "¿Pueden dejar un trocito de tarta junto a la rueda? Si mañana no está, es que existo. Si está… es que no me gustaba.",
+          "recuerda": "¿La tarta junto a la rueda? Es un experimento."
         }
       ]
     },
@@ -1463,6 +2071,25 @@
           "objeto": "plato",
           "dice": "Una pizza familiar, por favor. Es que esta noche no sé cuántos voy a ser.",
           "recuerda": "¿Y la pizza? Tengo un hambre de Snorlax. Literal: he estado haciendo de Snorlax."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Una chistera para hacer de mago",
+          "objeto": "chistera",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Tiene una chistera? Mañana hago de mago. Bueno, hago de Kadabra haciendo de mago, que es más difícil.",
+          "hecho": "Manolo le pasa la chistera. Ditto se convierte en Kadabra y dobla una cuchara. La cuchara, de la impresión, se convierte en Ditto.",
+          "recuerda": "¿Y la chistera? Sin ella me sale un Kadabra de oferta."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Un kebab, para meterse en el papel",
+          "plato": "kebab de chistorra",
+          "receta": "kebab",
+          "objeto": "plato",
+          "dice": "Un kebab, por favor. Esta noche hago de Snorlax en la verbena y tengo que meterme en el papel. Por dentro.",
+          "recuerda": "¿El kebab? Que Snorlax no se imita con hambre."
         }
       ]
     },
@@ -1502,6 +2129,25 @@
           "objeto": "plato",
           "dice": "¿Hay sopa? Mi madre hacía sopa de bayas. No me acuerdo de a qué sabía, pero me acuerdo de que estaba caliente.",
           "recuerda": "¿Y la sopa? Caliente, como la de ella, si puede ser."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Una vela para su madre",
+          "objeto": "vela",
+          "quien": "manolo",
+          "gesto": "Sad",
+          "dice": "¿Me da una vela? Para encenderla al lado del casco. A mi madre le gustaba la luz bajita.",
+          "hecho": "Manolo le enciende la vela. Cubone le recita un verso a su madre, bajito. Charizard baja la llama de la cola, para no hacerle sombra.",
+          "recuerda": "¿La vela? Quiero darle las buenas noches a mi madre."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Algo que le guste a él",
+          "plato": "pan tostado con miel",
+          "receta": "pan",
+          "objeto": "plato",
+          "dice": "¿Hay pan con miel? No es lo que hacía mi madre. Pero quiero tener algo mío que me guste.",
+          "recuerda": "¿El pan con miel? Es para empezar a tener cosas mías."
         }
       ],
       "evoluciones": [
@@ -1540,6 +2186,16 @@
               "objeto": "plato",
               "dice": "¿Me pone un potaje? Quiero aprender a hacerlo. Un potaje caliente da para muchos, y en la Torre somos muchos.",
               "recuerda": "¿Y el potaje? Me fijo en cómo lo hace, para hacerlo igual allí."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Una manta para el próximo que llegue",
+              "objeto": "manta",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "Manolo, ¿me daría una manta vieja? En la Torre hace frío por las noches y siempre llega algún pequeño sin nada.",
+              "hecho": "Manolo le da dos mantas. Marowak las dobla con mucho cuidado y les habla bajito, como le hablaba su madre.",
+              "recuerda": "¿La manta? Para el próximo que llegue solo."
             }
           ]
         }
@@ -1583,11 +2239,37 @@
           "objeto": "plato",
           "dice": "Un estofado de setas, por favor. Sin pato. Lo digo por si acaso: SIN pato.",
           "recuerda": "¿Y el estofado? Recuerde: setas sí, pato no."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Sopa de pescado (sin pato)",
+          "plato": "sopa de pescado",
+          "receta": "pescado",
+          "objeto": "plato",
+          "dice": "Una sopa de pescado, por favor. ¿Sabe qué le dijo un pez a otro? Nada. Porque nadaba. Y, sobre todo, sin pato.",
+          "recuerda": "¿Y la sopa de pescado? Sin pato, recuerde. Nada de pato."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un gorro para el programa",
+          "objeto": "gorro",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Me presta un gorro de cocinero? Mañana grabo el programa y el mío se me ha caído a la olla. El caldo sabía a gorro.",
+          "hecho": "Manolo le da un gorro. Farfetch'd se lo pone, se mira y suelta un chiste de gorros. Nadie se ríe. Él sí, mucho.",
+          "recuerda": "¿El gorro? Sin gorro soy un pato en una cocina, y eso da miedo."
         }
       ],
       "empleo": {
         "puesto": "cocinero de apoyo",
-        "ventaja": "cocina"
+        "ventaja": "cocina",
+        "frases": [
+          "¿Qué le dice una cebolla a otra? Nada: se ponen a llorar. Y así, picando, se pasa la tarde.",
+          "Yo pico, Charizard asa y a mí no me asa nadie. Así está repartido el trabajo.",
+          "Receta del día: estofado. Ingrediente secreto: no lleva pato. Ese es el secreto.",
+          "El puerro es mío, ¿eh? No va a la olla. Es mi compañero de trabajo.",
+          "¿Por qué se puso rojo el tomate? Porque vio a Charizard sin delantal. ¡Toma ya!"
+        ]
       }
     },
     {
@@ -1627,6 +2309,25 @@
           "objeto": "plato",
           "dice": "¿Hay potaje? De ese que se hace a fuego lento. Lento como yo. Así nos entendemos.",
           "recuerda": "¿Y el potaje? No hay prisa… Bueno, un poco sí, que la hora de comer se me pasó hace dos días."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Sopa de pescado (no pica nada)",
+          "plato": "sopa de pescado",
+          "receta": "pescado",
+          "objeto": "plato",
+          "dice": "¿Hay sopa de pescado? Pesco con la cola en el pozo, pero no pica nada. Llevo desde el martes.",
+          "recuerda": "…¿Qué pedí? Ah, sí. La sopa de pescado."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Una taza de algo… caliente",
+          "objeto": "taza",
+          "quien": "manolo",
+          "gesto": "Normal",
+          "dice": "¿Me pone una taza de algo? …(Pasa un rato.) …Caliente. Antes se me ha olvidado decirlo.",
+          "hecho": "Manolo le trae la taza caliente. Slowpoke la mira tanto rato que, cuando por fin bebe, ya está templada. Dice que perfecta.",
+          "recuerda": "…¿Y la taza? Creo que la pedí. Creo."
         }
       ],
       "evoluciones": [
@@ -1664,6 +2365,15 @@
               "texto": "Sopa de bayas para dos",
               "dice": "¿Hay sopa de bayas? (Una vocecita desde la cola: «¡Para dos!») …Para dos, dice mi cola. Pues para dos.",
               "recuerda": "¿Y la sopa? (Desde la cola: «¡Las dos!») …Eso. Las dos."
+            },
+            {
+              "tipo": "comida",
+              "texto": "Sopa de pescado (sin marisco)",
+              "plato": "sopa de pescado",
+              "receta": "pescado",
+              "objeto": "plato",
+              "dice": "¿Hay sopa de pescado? (Desde la cola: «¡Sin marisco!») …Sin marisco, dice. Será por algo.",
+              "recuerda": "¿La sopa? (Desde la cola: «¡Sin marisco!»)"
             }
           ]
         },
@@ -1697,6 +2407,16 @@
               "objeto": "plato",
               "dice": "¿Hay potaje? El de la primera vez. Volvemos a ser los de antes, y los de antes comíamos potaje.",
               "recuerda": "¿Y el potaje? No hay prisa… Bueno, un poco sí. Cloyster también come."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Un cepillo para la cola",
+              "objeto": "cepillo",
+              "quien": "charizard",
+              "gesto": "Happy",
+              "dice": "¿Tienen un cepillo? Para la cola. Se ha quedado sola y le quiero dar mimos.",
+              "hecho": "Charizard le cepilla la cola. Slowpoke da las gracias tres minutos después, cuando Charizard ya se ha ido a la cocina.",
+              "recuerda": "…¿El cepillo? Para la cola, que echa de menos a alguien."
             }
           ]
         }
@@ -1744,6 +2464,25 @@
           "objeto": "plato",
           "dice": "¿Tienen tarta? Una sola, con dos cucharas. Somos así de cursis, qué le vamos a hacer.",
           "recuerda": "¿Y la tarta? Que ya hemos sacado las dos cucharas."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Una vela para cenar",
+          "objeto": "vela",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Nos pone una vela en la mesa? Una cena a la luz de una vela, como en las pelis. Aunque la luz la dé Charizard por detrás.",
+          "hecho": "Manolo les enciende una vela. Los dos se miran, se ponen rojos y se dan un beso a la vez. Charizard baja la llama de la cola, por respeto.",
+          "recuerda": "¿Y la vela? Que se nos pasa el momento."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Un kebab para dos",
+          "plato": "kebab de chistorra",
+          "receta": "kebab",
+          "objeto": "plato",
+          "dice": "Un kebab para compartir. Cada uno muerde por un lado hasta encontrarnos en el medio. Como en la peli de los perritos.",
+          "recuerda": "¿El kebab para dos? Ya tenemos el plan."
         }
       ],
       "evoluciones": [
@@ -1782,6 +2521,16 @@
               "objeto": "plato",
               "dice": "Una tarta de bayas, con dos cucharas, como siempre. Pero más grande, que hemos crecido.",
               "recuerda": "¿Y la tarta? Las cucharas ya están puestas. Y ahora son cucharas de mayores."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Un sobre para la carta del aniversario",
+              "objeto": "sobre",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "Manolo, ¿tiene un sobre? Es para la carta del aniversario. Ella me ha escrito cuatro páginas y yo voy por la segunda línea.",
+              "hecho": "Manolo le da un sobre. Nidorino lo cierra con pegatinas de corazón y lo deja en la almohada. Nidorina lo encuentra y llora un ratito.",
+              "recuerda": "¿El sobre? Que ella ya me ha dado el suyo."
             }
           ]
         },
@@ -1821,6 +2570,16 @@
               "objeto": "plato",
               "dice": "Una tarta de bayas. De tres pisos, si se puede. Una por cada cosa: la boda, el año y la Piedra Lunar.",
               "recuerda": "¿Y la tarta? Que mi señora ya ha sacado las dos cucharas. Las de siempre, que eso no cambia."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Una manta grande para el sofá",
+              "objeto": "manta",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "¿Nos deja una manta grande? Para ver una peli abrazados en el sofá. Somos más grandes que el sofá, pero la manta ayuda.",
+              "hecho": "Manolo les trae la manta más grande. No les tapa ni los pies, pero se quedan dormidos abrazados antes de los títulos.",
+              "recuerda": "¿La manta? Que la peli empieza ya."
             }
           ]
         }
@@ -1864,11 +2623,37 @@
           "objeto": "plato",
           "dice": "Son las diez. ¿Me pones algo en pan? Lo que sea, pero en pan: a las diez, en la obra, todo va en pan.",
           "recuerda": "Que son las diez y cuarto, jefe. Un albañil sin bocadillo es un pedrusco."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Una lupa para la pared torcida",
+          "objeto": "lupa",
+          "quien": "manolo",
+          "gesto": "Sigh",
+          "dice": "Jefe, ¿tiene una lupa? Esa pared está torcida. No se ve, pero está torcida. Con lupa se lo demuestro.",
+          "hecho": "Manolo le trae la lupa. Geodude mira la pared un buen rato y sentencia: «Torcida. En una semana, la arreglo». Lleva años diciéndolo.",
+          "recuerda": "La lupa, jefe. La pared no se va a enderezar sola."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Kebab de viernes",
+          "plato": "kebab de chistorra",
+          "receta": "kebab",
+          "objeto": "plato",
+          "dice": "Jefe, ¿un kebab? En la obra, los viernes, kebab. Es tradición. Como el bocadillo de las diez, pero a las dos.",
+          "recuerda": "Jefe, el kebab, que en algún sitio es viernes."
         }
       ],
       "empleo": {
         "puesto": "jefe de obra",
-        "ventaja": "obras"
+        "ventaja": "obras",
+        "frases": [
+          "Eso lo arreglo en una semana. Aquello también. Esa pared, en una semana y media.",
+          "Torcida. Esa viga está torcida. No se ve, pero yo lo noto en la piedra.",
+          "Son las diez. Que nadie me hable: la hora del bocadillo es sagrada.",
+          "Aquí iría una ampliación. Y aquí, otra. Jefe, la posada se nos queda pequeña.",
+          "Lo dejo apuntalado y mañana lo miro. Mañana, o en una semana."
+        ]
       },
       "evoluciones": [
         {
@@ -1903,6 +2688,16 @@
               "objeto": "plato",
               "dice": "Ponme un potaje de garbanzos, jefe. Los domingos se suben puertos con potaje, no con barritas.",
               "recuerda": "¿Y el potaje? Que tengo las piernas… bueno, los brazos, vacíos."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Un café para la grupeta",
+              "objeto": "cafe",
+              "quien": "manolo",
+              "gesto": "Surprised",
+              "dice": "Jefe, un café, que mañana salgo a las siete con la grupeta y sin café la bici no arranca.",
+              "hecho": "Manolo le pone un café cargado. Graveler se lo toma de un trago, se pone el culotte y sale a dar una vuelta a la posada. Son las once de la noche.",
+              "recuerda": "El café, jefe, que sin café la grupeta me deja atrás."
             }
           ]
         },
@@ -1938,6 +2733,16 @@
               "objeto": "plato",
               "dice": "Un potaje de garbanzos, jefe. Para brindar. En la obra, los finales se celebran con cuchara.",
               "recuerda": "¿Y el potaje? Que se enfría el brindis."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Una antorcha para los cohetes",
+              "objeto": "antorcha",
+              "quien": "manolo",
+              "gesto": "Surprised",
+              "dice": "Jefe, ¿una antorcha? Para encender los cohetes del fin de obra. Encenderme, me enciendo yo solo, pero así queda más bonito.",
+              "hecho": "Manolo le trae la antorcha. Golem enciende una traca en el prado y Charizard aplaude. A Manolo se le cae la cachimbita del susto.",
+              "recuerda": "La antorcha, jefe. Los cohetes no se encienden con ganas."
             }
           ]
         }
@@ -1979,11 +2784,37 @@
           "objeto": "plato",
           "dice": "Una pizza familiar, compañero. Es para la asamblea. La asamblea soy yo, pero tengo mucha hambre.",
           "recuerda": "La asamblea sigue esperando la pizza. Y la asamblea se impacienta."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Sopa de pescado (punto tres del convenio)",
+          "plato": "sopa de pescado",
+          "receta": "pescado",
+          "objeto": "plato",
+          "dice": "Una sopa de pescado, compañero. Es una reivindicación histórica de los gatos. Va en el punto tres del convenio.",
+          "recuerda": "¿La sopa de pescado? Punto tres del convenio, compañero."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un micrófono para el mitin",
+          "objeto": "microfono",
+          "quien": "manolo",
+          "gesto": "Sigh",
+          "dice": "Compañero, ¿me dejas un micrófono? Mañana hay asamblea y, si no se me oye, Charizard dirá que no se enteró y no se afilia.",
+          "hecho": "Manolo le da el micrófono. Meowth da un mitin de una hora en el comedor. Charizard aplaude al final. Sigue sin afiliarse.",
+          "recuerda": "¿Y el micro? Una asamblea sin micro es una charla de bar."
         }
       ],
       "empleo": {
         "puesto": "delegado sindical (y cobrador)",
-        "ventaja": "propina"
+        "ventaja": "propina",
+        "frases": [
+          "Compañero Charizard, te traigo la ficha de afiliación. Basta con que firmes con la garra.",
+          "Asamblea a las cinco junto a la chimenea. Orden del día: la chistorra del personal.",
+          "Punto uno del convenio: siesta. Punto dos: siesta. Punto tres: sopa de pescado.",
+          "Cobro la propina por convenio. Y el que no la reclama, compañero, no la cobra.",
+          "Si el dragón hace horas extra, que se las paguen en chistorra. Lo pongo en el acta."
+        ]
       }
     },
     {
@@ -2023,11 +2854,37 @@
           "objeto": "plato",
           "dice": "Una sopa de bayas, calentita. En el Centro como de pie, de un vaso de plástico, entre dos Rattata con fiebre.",
           "recuerda": "¿Y la sopa? Me estoy quedando dormida esperando. Bueno, eso es bueno."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Tapones para doce horas",
+          "objeto": "tapones",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Tienes tapones? Doce horas. Sin pitidos, sin timbres, sin nadie gritando «¡enfermera!».",
+          "hecho": "Manolo le da unos tapones. Chansey se los pone y se duerme de pie. Al rato alguien tose y se despierta igual. Es el oficio.",
+          "recuerda": "¿Los tapones? Que hoy toca dormir doce horas."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Sopa de pescado (receta propia)",
+          "plato": "sopa de pescado",
+          "receta": "pescado",
+          "objeto": "plato",
+          "dice": "¿Hay sopa de pescado? Es lo que receto siempre. Hoy me la receto a mí, y me la tomo sentada.",
+          "recuerda": "¿La sopa de pescado? Me la he recetado yo."
         }
       ],
       "empleo": {
         "puesto": "enfermera de la posada",
-        "ventaja": "animo"
+        "ventaja": "animo",
+        "frases": [
+          "¿Quién ha tosido? Nadie, ¿no? Vale. Pero tengo el termómetro preparado.",
+          "Aquí hay una tirita para cada rasguño y una sopa para cada disgusto.",
+          "Respira hondo, cariño. Cuatro segundos dentro, cuatro fuera. Ya está. ¿Mejor?",
+          "Turnos de seis horas, siesta y café. Aquí, por una vez, me cuidan a mí.",
+          "Manolo, esa cachimbita… Bueno, nada. Pero que sepas que te estoy mirando."
+        ]
       }
     },
     {
@@ -2068,11 +2925,37 @@
           "objeto": "plato",
           "dice": "¿Me hace una pizza familiar? Llevo mil repartidas y nunca me he comido ninguna. Esta, para mí. Sin hacerle foto.",
           "recuerda": "¿Y mi pizza? La tengo en «preparando» desde hace un rato."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Rellenar el botellín",
+          "objeto": "botellin",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Me rellenas el botellín? Llevo nueve continentes sin parar y la app no me deja ni beber. Rápido, que se me cae la valoración.",
+          "hecho": "Manolo le llena el botellín. Dragonite se lo bebe de un trago y le pide a Manolo, muy serio, que le ponga cinco estrellas.",
+          "recuerda": "¿El botellín? Que se me seca el ala."
+        },
+        {
+          "tipo": "comida",
+          "texto": "El kebab de las tres de la mañana",
+          "plato": "kebab de chistorra",
+          "receta": "kebab",
+          "objeto": "plato",
+          "dice": "¿Me pone un kebab? Siempre los reparto a las tres de la mañana y nunca me como uno. Esta noche, al revés.",
+          "recuerda": "El kebab, porfa. Que me está sonando la app."
         }
       ],
       "empleo": {
         "puesto": "repartidor de chistorra",
-        "ventaja": "chistorra"
+        "ventaja": "chistorra",
+        "frases": [
+          "Pedido para la habitación 2: chistorra a la brasa. Llegada estimada: ya. ¡Cinco estrellas!",
+          "Esta mañana he dado dos vueltas al mundo y la chistorra sigue caliente. Es la mochila.",
+          "¿Me pones cinco estrellas? Es que la app se fija mucho. Ah, que aquí no hay app. Qué paz.",
+          "La mochila, bien cerrada. Desde que me la arregló Charizard, no sale nada volando.",
+          "Reparto a domicilio y a montaña. Donde haya hambre de chistorra, hay ruta."
+        ]
       }
     },
     {
@@ -2112,6 +2995,25 @@
           "objeto": "plato",
           "dice": "Con la M: miel. Sustancia dulce que fabrican las abejas y que mi cerebro pide a gritos. Sobre pan tostado, si puede ser.",
           "recuerda": "Con la T: tardanza. Retraso en llegar. Lo digo por el pan, sin presión."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un pósit para la letra maldita",
+          "objeto": "posit",
+          "quien": "manolo",
+          "gesto": "Normal",
+          "dice": "¿Tiene un pósit? Con la P: papelito adhesivo para recordar lo que siempre se olvida. Mañana vuelve mi letra.",
+          "hecho": "Manolo le da un pósit. Alakazam escribe la letra que siempre falla y se la pega en la cuchara. Se pasa la noche mirándola.",
+          "recuerda": "El pósit, por favor. Con la P: pendiente."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Con la F: fósforo",
+          "plato": "sopa de pescado",
+          "receta": "pescado",
+          "objeto": "plato",
+          "dice": "Con la F: fósforo. Está en el pescado y el cerebro lo pide a gritos. ¿Me hace una sopa de pescado?",
+          "recuerda": "Con la S: sopa. De pescado, por favor."
         }
       ]
     },
@@ -2153,6 +3055,25 @@
           "objeto": "chistorra",
           "dice": "¡Chistorra para la peña! —Seis. —Una, que estamos a dieta. —¿Quién está a dieta? —Nadie. ¡Seis!",
           "recuerda": "¿Y la chistorra? —Yo no he dicho nada. —Pues alguien lo ha pensado muy alto."
+        },
+        {
+          "tipo": "comida",
+          "texto": "¡Kebab para la peña!",
+          "plato": "kebab de chistorra",
+          "receta": "kebab",
+          "objeto": "plato",
+          "dice": "¡Kebab para la peña! —Seis. —Uno para compartir. —¿Compartir quién? —Nadie. ¡Seis!",
+          "recuerda": "¡El kebab! —Seis. —Que se enfría la peña."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Algo que suene, para la charanga",
+          "objeto": "campanilla",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Tiene algo que suene? La charanga se ha quedado sin bombo. —Fui yo. —No, fui yo. —El caso es que no hay bombo.",
+          "hecho": "Manolo les da una campanilla. Las seis cabecitas la tocan por turnos hasta las tres. Charizard acaba bailando la jota.",
+          "recuerda": "¡Lo que suena! —Sin música no hay peña. —Hay peña, pero triste."
         }
       ]
     },
@@ -2193,6 +3114,25 @@
           "objeto": "plato",
           "dice": "¿Tienen algo que se coma con una mano? La otra la necesito para que la niña no se suba a la lámpara.",
           "recuerda": "¿Y el pan con miel? Cómo se nota que no tiene usted una cría en la bolsa."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Algo que suene, para la niña",
+          "objeto": "campanilla",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Tienen algo que suene? Un sonajero, una campanilla… Para que la niña toque eso y no la chimenea.",
+          "hecho": "Manolo le da una campanilla. La cría la toca dos horas seguidas. Kangaskhan se duerme sentada, con una sonrisa de dos años de sueño.",
+          "recuerda": "¿La campanilla? Que ya se ha subido a la chimenea."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Sopa de pescado para la niña",
+          "plato": "sopa de pescado",
+          "receta": "pescado",
+          "objeto": "plato",
+          "dice": "¿Hay sopa de pescado? Para la niña, que tiene que empezar a probar cosas. Yo me como lo que me deje, que suele ser poco.",
+          "recuerda": "¿La sopa? Que la niña ya está mordiendo la cuchara."
         }
       ]
     },
@@ -2232,11 +3172,37 @@
           "objeto": "plato",
           "dice": "(Susurra.) ¿Tienen algo que cruja bonito? Es para comer delante del micro. La piel de la baya Zidra asada suena como un abrazo.",
           "recuerda": "(Susurra.) ¿Y la baya? Ya tengo el micro puesto y no se oye nada. Literalmente."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un paño suave para el vídeo",
+          "objeto": "pano",
+          "quien": "manolo",
+          "gesto": "Normal",
+          "dice": "(Susurra.) ¿Me deja un paño suave? Voy a frotarlo despacito delante del micro. Es mi vídeo más esperado.",
+          "hecho": "Manolo le da el paño. Lickitung lo frota cuarenta minutos contra el micro. En el comedor se duerme todo el mundo, Manolo incluido.",
+          "recuerda": "(Susurra.) El paño… despacito…"
+        },
+        {
+          "tipo": "comida",
+          "texto": "Pan que cruja",
+          "plato": "pan tostado con miel",
+          "receta": "pan",
+          "objeto": "plato",
+          "dice": "(Susurra.) Pan tostado. Muy tostado. Que cruja al morderlo. Lo voy a morder muy, muy cerca del micro.",
+          "recuerda": "(Susurra.) El pan… que cruja…"
         }
       ],
       "empleo": {
         "puesto": "limpieza a fondo",
-        "ventaja": "limpieza"
+        "ventaja": "limpieza",
+        "frases": [
+          "(Susurra.) Shhh… Estoy limpiando la barra. Escucha cómo suena. ¿A que relaja?",
+          "(Susurra.) Esta mancha llevaba aquí desde el verano. Ya no. Un lametón y fuera.",
+          "(Susurra.) Lo grabo todo, ¿eh? «Limpieza a fondo en la posada». Va a ser viral.",
+          "(Susurra.) Si alguien habla alto, se me estropea el vídeo. Tú no, Manolo: tú hablas bajito.",
+          "(Susurra.) Hoy toca cristales. Suenan a «fiiiu». Precioso."
+        ]
       }
     },
     {
@@ -2277,6 +3243,25 @@
           "objeto": "chistorra",
           "dice": "(Izquierda) ¡Chistorra! (Derecha) Pizza. (Medio) …Pedimos chistorra, que la Izquierda llegó primero. Moción aprobada.",
           "recuerda": "(Medio) La chistorra, por favor. La Derecha ya ha empezado a decir que no llega nunca."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Kebab, dos votos a uno",
+          "plato": "kebab de chistorra",
+          "receta": "kebab",
+          "objeto": "plato",
+          "dice": "(Derecha) ¡Kebab! (Izquierda) Pues no. (Medio) Votamos: kebab, dos a uno. La Izquierda presentará un recurso.",
+          "recuerda": "(Medio) El kebab, por favor. El recurso va despacio."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "El periódico, para la tertulia",
+          "objeto": "periodico",
+          "quien": "manolo",
+          "gesto": "Sigh",
+          "dice": "(Medio) ¿Nos trae el periódico? (Izquierda) ¡Para criticarlo! (Derecha) ¡Para los pasatiempos! (Medio) Para debatirlo.",
+          "hecho": "Manolo les da el periódico. Cada cabeza lee una página y no se ponen de acuerdo ni en qué día es. Dicen que ha sido el mejor programa.",
+          "recuerda": "(Izquierda) ¡El periódico! (Medio) Sin papel no hay tertulia."
         }
       ]
     },
@@ -2299,7 +3284,14 @@
       ],
       "empleo": {
         "puesto": "pinche de cocina",
-        "ventaja": "cocina"
+        "ventaja": "cocina",
+        "frases": [
+          "¡Tío! Ya he picado las cebollas. Bueno, las he chamuscado un poco, pero picadas están.",
+          "Cuando la chistorra me sale bien, se me pone grande la llama de la cola. ¡Mira, mira!",
+          "Primero se come la chistorra y luego se aprende a hacerla. Ya voy por la segunda parte.",
+          "Si llueve, yo no salgo a por leña. Pero dentro de la cocina, lo que haga falta.",
+          "Mi tío dice que voy bien. Bueno, no lo dice: gruñe. Pero gruñe contento."
+        ]
       },
       "pide": [
         {
@@ -2320,6 +3312,25 @@
           "objeto": "chistorra",
           "dice": "Mi tío dice que, para aprender a hacer chistorra, primero hay que comérsela. Muchas veces. Es el método.",
           "recuerda": "¿Y la chistorra? Es para estudiar, de verdad."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Un kebab, para estudiarlo",
+          "plato": "kebab de chistorra",
+          "receta": "kebab",
+          "objeto": "plato",
+          "dice": "Mi tío dice que lo de hacer girar el rollo es lo más difícil. ¿Me hace un kebab? Para estudiarlo. Por dentro.",
+          "recuerda": "¿El kebab? Que tengo que estudiarlo."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Una manta gorda, por si hay tormenta",
+          "objeto": "manta",
+          "quien": "charizard",
+          "gesto": "Happy",
+          "dice": "¿Me deja una manta gorda? Si hay tormenta esta noche me tapo entero. Menos la cola, claro, que si no la manta arde.",
+          "hecho": "Charizard lo arropa con la manta y le deja la cola fuera, como un farolillo. Charmander se duerme mirando la llamita.",
+          "recuerda": "¿La manta? Hay nubes por el monte."
         }
       ],
       "evoluciones": [
@@ -2350,6 +3361,16 @@
               "objeto": "chistorra",
               "dice": "Chistorra. Mucha. Y no me mires mientras como.",
               "recuerda": "Grrr. ¿La chistorra, o qué?"
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Un gorro de cocina (no es para él)",
+              "objeto": "gorro",
+              "quien": "charizard",
+              "gesto": "Happy",
+              "dice": "Un gorro de cocina. No es que quiera trabajar. Es que mi tío me lo ha dicho. Déjalo en la cocina y ya está.",
+              "hecho": "Charizard le pone el gorro. Charmeleon se lo quita, refunfuña y, cuando cree que nadie lo mira, se lo vuelve a poner.",
+              "recuerda": "El gorro. Que no es para mí. Bueno, sí."
             }
           ]
         }
@@ -2391,6 +3412,25 @@
           "objeto": "plato",
           "dice": "¿Hay algo dulce? Las orugas crecemos comiendo. Y yo quiero crecer pronto, a ver si Misty me mira distinto.",
           "recuerda": "¿Y el pan con miel? Que tengo que crecer, y así no hay manera."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un espejo para saber si da asco",
+          "objeto": "espejo",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Me deja un espejo? Quiero ver si doy asco. Usted dígame la verdad. Bueno, no: dígame que no.",
+          "hecho": "Manolo le trae el espejo. Caterpie se mira por un lado y por el otro. Manolo le dice que es una oruga muy apañada, y se queda contentísimo.",
+          "recuerda": "¿El espejo? Necesito saberlo."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Tarta, conteste o no conteste",
+          "plato": "tarta de bayas",
+          "receta": "tarta",
+          "objeto": "plato",
+          "dice": "¿Hay tarta de bayas? Si Misty me contesta, lo celebro. Si no me contesta, también. Las orugas tenemos que comer igual.",
+          "recuerda": "¿La tarta? Celebre o no celebre, tengo hambre."
         }
       ],
       "evoluciones": [
@@ -2421,6 +3461,16 @@
               "objeto": "plato",
               "dice": "Fortaleza. (Mira de reojo el tarro de miel.)",
               "recuerda": "Fortaleza. Fortaleza. (Tiene hambre.)"
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Limpiarle una mancha (no lo dirá)",
+              "objeto": "pano",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "Fortaleza. (Señala con los ojos una mancha en el caparazón. Quiere que se la limpien.)",
+              "hecho": "Manolo le pasa un paño por el caparazón. Metapod no se mueve, pero brilla un poco más. Se diría que está orgulloso.",
+              "recuerda": "Fortaleza. (Sigue mirando la mancha.)"
             }
           ]
         },
@@ -2452,6 +3502,16 @@
               "objeto": "plato",
               "dice": "¿Hay pan con miel? Desde que vuelo me he aficionado a la miel. Cosas de mariposa.",
               "recuerda": "¿Y la miel? Para el viaje, que es muy largo."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Flores para llevarse el olor",
+              "objeto": "flores",
+              "quien": "charizard",
+              "gesto": "Happy",
+              "dice": "¿Hay flores en el prado? Quiero llevarme el olor para el viaje. Si Misty pregunta algún día, que sepa que olía bien.",
+              "hecho": "Charizard le trae un ramo del prado. Butterfree se posa en cada flor, una a una, como si se despidiera de ellas.",
+              "recuerda": "¿Las flores? Me voy con la migración."
             }
           ]
         }
@@ -2494,6 +3554,25 @@
           "objeto": "plato",
           "dice": "¿Tiene algo ácido? En el Bosque Verde comía Zidras para darme valor. Mañana tengo que multar a alguien.",
           "recuerda": "¿Y la Zidra? Es que sin valor no multo. Bueno, con valor tampoco."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Pósits para multar con cariño",
+          "objeto": "posit",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Me da unos pósits? En vez de multas, dejaré notas: «Está usted mal aparcado, pero tiene un coche muy bonito».",
+          "hecho": "Manolo le da un taco de pósits. Weedle llena de notas amables la furgoneta de Famadesa. El conductor se emociona.",
+          "recuerda": "¿Los pósits? Que hay un coche en doble fila y me da apuro."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Una sopa para los nervios",
+          "plato": "sopa de bayas",
+          "receta": "sopa",
+          "objeto": "plato",
+          "dice": "¿Hay sopa de bayas? Hoy no he multado a nadie y tengo el estómago encogido. La sopa entra sola.",
+          "recuerda": "¿La sopa? Que con los nervios no me baja nada más."
         }
       ],
       "evoluciones": [
@@ -2525,6 +3604,16 @@
               "objeto": "plato",
               "dice": "Solicito una baya Zidra asada. Se tramitará en el plazo de tres a cinco días hábiles.",
               "recuerda": "La solicitud de la Zidra sigue en trámite. Le recuerdo que el silencio administrativo es negativo."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Una carpeta para las alegaciones",
+              "objeto": "carpeta",
+              "quien": "manolo",
+              "gesto": "Normal",
+              "dice": "Se requiere una carpeta para archivar las alegaciones. De anillas, a ser posible.",
+              "hecho": "Manolo le da una carpeta. Kakuna la ordena por fechas, por colores y por orden alfabético. Sin moverse ni un milímetro.",
+              "recuerda": "Se reitera la solicitud de carpeta. Plazo: hoy."
             }
           ]
         },
@@ -2556,6 +3645,15 @@
               "objeto": "plato",
               "dice": "¡Una Zidra asada para llevar! ¡Me la como volando!",
               "recuerda": "¡La Zidra! ¡Que ya llevo tres vueltas al comedor!"
+            },
+            {
+              "tipo": "comida",
+              "texto": "¡Un kebab para la ronda!",
+              "plato": "kebab de chistorra",
+              "receta": "kebab",
+              "objeto": "plato",
+              "dice": "¡Un kebab para llevar! ¡Me lo como en ronda! ¡Que hay uno en carga y descarga desde hace dos minutos!",
+              "recuerda": "¡El kebab! ¡Que se me escapa el de la furgoneta!"
             }
           ]
         }
@@ -2598,6 +3696,25 @@
           "objeto": "plato",
           "dice": "¿Hay estofado? En la Ruta 1 comemos lo que sale. Hoy me apetece algo que tenga nombre.",
           "recuerda": "¿El estofado? Perdone, es que soy el Pidgey de antes. El de la linterna. Bueno, uno de ellos."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un pañuelo de color, para distinguirse",
+          "objeto": "panuelico",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Tiene un pañuelo de color? Para atármelo al cuello. Así, si salgo de fondo en algún sitio, por lo menos sé cuál soy yo.",
+          "hecho": "Manolo le anuda un pañuelico rojo. Pidgey se mira en la ventana y se reconoce a la primera. Se le saltan las lágrimas.",
+          "recuerda": "¿El pañuelo de color? Quiero distinguirme, aunque sea de mí."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Un pan que sea solo suyo",
+          "plato": "pan tostado con miel",
+          "receta": "pan",
+          "objeto": "plato",
+          "dice": "¿Me pone pan tostado? En la Ruta 1 comemos las migas que tiran los demás. Quiero un pan que sea solo mío.",
+          "recuerda": "¿Mi pan? El mío, ¿eh? No unas migas."
         }
       ],
       "evoluciones": [
@@ -2629,6 +3746,16 @@
               "objeto": "plato",
               "dice": "Un estofado de setas. Para aguantar el turno de noche. Que nadie más vigila.",
               "recuerda": "El estofado. Le recuerdo que estoy de servicio. Sin cenar."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Un café para la guardia",
+              "objeto": "cafe",
+              "quien": "manolo",
+              "gesto": "Normal",
+              "dice": "Un café. Para la guardia. Que nadie me vea tomarlo: los vigilantes no nos dormimos, ni siquiera un poco.",
+              "hecho": "Manolo le deja el café en la ventana. Pidgeotto se lo toma de un sorbo, sin quitarle ojo al camino. No pasa nadie. Él vigila igual.",
+              "recuerda": "El café, por favor. La noche es larga."
             }
           ]
         },
@@ -2660,6 +3787,15 @@
               "objeto": "plato",
               "dice": "Estofado de setas, por favor. Mañana vuelo hasta el mar con doscientos detrás.",
               "recuerda": "¿Y el estofado? Que doscientos Pidgey dependen de que yo cene."
+            },
+            {
+              "tipo": "comida",
+              "texto": "Sopa de pescado antes de ver el mar",
+              "plato": "sopa de pescado",
+              "receta": "pescado",
+              "objeto": "plato",
+              "dice": "¿Hay sopa de pescado? Mañana llegamos al mar y quiero saber a qué sabe antes de verlo.",
+              "recuerda": "¿La sopa de pescado? Quiero ir con el sabor aprendido."
             }
           ]
         }
@@ -2702,6 +3838,25 @@
           "objeto": "plato",
           "dice": "Una pizza familiar. Pa la banda. (No hay banda.) Bueno, pa mí. Pero familiar.",
           "recuerda": "¿Y la pizza? Que la banda tiene hambre. Bueno, yo."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un peine para la cresta",
+          "objeto": "cepillo",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "Oiga, abuelo, ¿tiene un peine? La cresta no se engomina sola. Y sin cresta soy un pájaro cualquiera.",
+          "hecho": "Manolo le da un cepillo. Spearow se pasa media hora con la cresta. Le queda perfecta. Luego mira la calva de Manolo y le da un poco de pena.",
+          "recuerda": "¿El peine, abuelo? Que la cresta se me cae."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Un kebab pa la banda",
+          "plato": "kebab de chistorra",
+          "receta": "kebab",
+          "objeto": "plato",
+          "dice": "Un kebab, abuelo. Pa la banda. (Sigue sin haber banda.) La banda cena de pie, en la puerta, con la moto encendida.",
+          "recuerda": "¿El kebab, abuelo? Que la moto se calienta."
         }
       ],
       "evoluciones": [
@@ -2739,6 +3894,16 @@
               "objeto": "plato",
               "dice": "Una pizza familiar. Para mí solo. Puedo volar un día entero sin comer, pero no quiero.",
               "recuerda": "La pizza, caballero. Le espero en el nido. Toda la noche, si hace falta."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Un paño para el pico",
+              "objeto": "pano",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "¿Tiene un paño, caballero? Para sacarle brillo al pico. Ahora tengo mucho pico, y hay que lucirlo.",
+              "hecho": "Manolo le da un paño. Fearow le saca brillo al pico hasta que se ve la cara en él. Se mira un rato y se gusta.",
+              "recuerda": "¿El paño, caballero? El pico no brilla solo."
             }
           ]
         }
@@ -2782,7 +3947,7 @@
           "sprite": "0020"
         }
       ],
-      "razon": "La feria ambulante paró una noche en el prado: Ponyta, la del tiovivo, y su madre Rapidash; Tauros, posando en el cerro; y Rattata, que ganó el concurso de talentos echándose la siesta, con su padre Raticate de mánager.",
+      "razon": "La feria ambulante paró una mañana en el prado: Ponyta, la del tiovivo, y su madre Rapidash; Tauros, posando en el cerro; y Rattata, que ganó el concurso de talentos echándose la siesta, con su padre Raticate de mánager.",
       "aparece": {
         "dia_min": 6,
         "estrellas": 1
@@ -2835,6 +4000,25 @@
           "texto": "Algo de cuchara (sin cuchara)",
           "dice": "¿Hay sopa de bayas? Con cinco puntas y ningún dedo, el tenedor no es lo mío. La sopa me la bebo del plato.",
           "recuerda": "¿Y la sopa? Que con cinco puntas y ningún dedo no puedo ni rascarme la barriga."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Sopa de pescado, del plato",
+          "plato": "sopa de pescado",
+          "receta": "pescado",
+          "objeto": "plato",
+          "dice": "¿Hay sopa de pescado? Me la bebo del plato, que es lo mío. Y me recuerda al estanque del gimnasio.",
+          "recuerda": "¿La sopa de pescado? Del plato, como siempre."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Una linterna para ensayar el brillo",
+          "objeto": "linterna",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Me deja una linterna? Para alumbrarme desde abajo. Ensayo el brillo de titular, por si un día me sacan.",
+          "hecho": "Manolo la enfoca con la linterna. Staryu brilla tanto que Charizard tiene que taparse los ojos con las alas.",
+          "recuerda": "¿La linterna? Tengo que ensayar el brillo."
         }
       ],
       "evoluciones": [
@@ -2866,6 +4050,16 @@
               "texto": "Sopa de bayas, la de siempre",
               "dice": "Una sopa de bayas, por favor. Me ha salido otra estrella por detrás, pero los dedos siguen sin salir.",
               "recuerda": "¿Y la sopa? No pongo cara de hambre porque no tengo caras. Pero tengo hambre."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Un espejo para los siete colores",
+              "objeto": "espejo",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "¿Me deja un espejo? Quiero ver los siete colores a la vez. Desde dentro solo veo uno.",
+              "hecho": "Manolo le pone el espejo delante. Starmie gira despacio, el arcoíris rebota en la pared y Charizard intenta cazarlo.",
+              "recuerda": "¿Y el espejo? Los siete colores, a la vez."
             }
           ]
         },
@@ -2897,6 +4091,16 @@
               "texto": "Sopa de bayas, templadita",
               "dice": "Sopa de bayas, si puede ser. Templadita. Estoy de baja: hoy nada que me haga brillar, ni la sopa caliente.",
               "recuerda": "¿Y la sopa? Sin prisa. Estoy aprendiendo a no tener prisa."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Una tila para el núcleo",
+              "objeto": "tila",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "¿Me prepara una tila? El médico dice que descanse. El núcleo dice que no. La tila decide.",
+              "hecho": "Manolo le prepara la tila. Starmie se la bebe a sorbitos y, por primera vez en semanas, el núcleo se le apaga un rato.",
+              "recuerda": "¿Y la tila? Que el núcleo no se calla."
             }
           ]
         }
@@ -2905,7 +4109,7 @@
     {
       "id": "playa",
       "cameo": true,
-      "especie": "El autobús de la playa",
+      "especie": "El autobús de la Malagueta",
       "dex": 72,
       "sprite": "0072",
       "miembros": [
@@ -2946,7 +4150,7 @@
           "sprite": "0099"
         }
       ],
-      "razon": "El autobús de vuelta de la playa de Carmín paró a merendar: Tentacool y su madre Tentacruel, la activista; Horsea, que escribió el menú con su tinta, y su padre Seadra; Krabby, el sastre, y su padre Kingler, que abrió todos los tarros y no cerró ninguno.",
+      "razon": "El autobús de la Malagueta paró a desayunar: Tentacool y su madre Tentacruel, la activista; Horsea, que escribió el menú con su tinta, y su padre Seadra; Krabby, el sastre, y su padre Kingler, que abrió todos los tarros y no cerró ninguno.",
       "aparece": {
         "dia_min": 12,
         "estrellas": 2
@@ -3004,7 +4208,7 @@
           "sprite": "0062"
         }
       ],
-      "razon": "El ballet acuático del gimnasio de Ciudad Celeste, de gira de otoño, ensayó una noche en el estanque. A Manolo le dio el tic seis veces seguidas, y Charizard aplaudió con Seel.",
+      "razon": "El ballet acuático del gimnasio de Ciudad Celeste, de gira de otoño, ensayó una mañana en el estanque. A Manolo le dio el tic seis veces seguidas, y Charizard aplaudió con Seel.",
       "aparece": {
         "mejora": "estanque",
         "dia_min": 14,
@@ -3056,6 +4260,25 @@
           "objeto": "plato",
           "dice": "¿Hay algo calentito? Una sopa. Llevo desde el jueves a base de chicles y de viento.",
           "recuerda": "La sopa, jefe… que me ha bajado el subidón de golpe."
+        },
+        {
+          "tipo": "comida",
+          "texto": "El kebab de las siete de la mañana",
+          "plato": "kebab de chistorra",
+          "receta": "kebab",
+          "objeto": "plato",
+          "dice": "Jefe, ¿tiene kebab? Es lo que se cena a las siete de la mañana, al salir de la discoteca. Y yo salí el jueves.",
+          "recuerda": "¿El kebab, jefe? Que se me pasa la hora del after."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Tapones (para los demás)",
+          "objeto": "tapones",
+          "quien": "manolo",
+          "gesto": "Worried",
+          "dice": "Jefe, ¿tiene tapones? No para mí, ¿eh? Para los demás. Que yo, cuando sueño, ultrasonido.",
+          "hecho": "Manolo reparte tapones por los cuartos. A medianoche Zubat sueña con una fiesta. Nadie se entera, salvo las copas, que tintinean.",
+          "recuerda": "¿Los tapones, jefe? Que esta noche sueño fuerte."
         }
       ],
       "evoluciones": [
@@ -3087,6 +4310,16 @@
               "objeto": "plato",
               "dice": "Una sopa de bayas, por favor. Sin azúcar. Las bayas ya traen la suya, y con eso basta.",
               "recuerda": "¿Y la sopa? Le aviso: si le echa azúcar, lo sabré."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Un cepillo de dientes",
+              "objeto": "cepillo",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "Manolo, ¿tiene un cepillo? De dientes. Ahora que tengo boca grande, me la cuido. En mis años de bakalao, nada de nada.",
+              "hecho": "Manolo le da un cepillo. Golbat se cepilla diez minutos, despacito, contando los dientes. Le salen todos. Sonríe.",
+              "recuerda": "El cepillo, Manolo. La boca no se cepilla sola."
             }
           ]
         }
@@ -3129,6 +4362,25 @@
           "objeto": "plato",
           "dice": "Póngame un estofado de setas. Lo voy a criticar, ¿eh? Pero me lo voy a comer entero.",
           "recuerda": "¿Y el estofado? Que tengo una opinión preparada y se me enfría."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Una lupa para las setas",
+          "objeto": "lupa",
+          "quien": "manolo",
+          "gesto": "Normal",
+          "dice": "¿Me deja una lupa? Quiero ver de cerca las setas del estofado. Me han dicho que aquí las compran. ¡Comprar setas! Herejía.",
+          "hecho": "Manolo le da la lupa. Paras examina una seta del plato, frunce el ceño y dice que no está mal. Viniendo de él, es una medalla.",
+          "recuerda": "¿La lupa? Quiero ver qué setas me dan."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Potaje (sin puerro)",
+          "plato": "potaje de garbanzos",
+          "receta": "potaje",
+          "objeto": "plato",
+          "dice": "Un potaje, para variar. Sin setas. Bueno, con una o dos, para que sepa a algo. Y sin puerro, por favor.",
+          "recuerda": "¿El potaje? Sin puerro, que me entero."
         }
       ],
       "evoluciones": [
@@ -3160,6 +4412,16 @@
               "objeto": "plato",
               "dice": "(La seta:) Un estofado. Le falta sal, seguro. (El bicho mira la olla con cara de muñeco y de hambre.)",
               "recuerda": "(La seta:) El estofado. (Al bicho le suenan las tripas. Eso no lo controla ella.)"
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Agua por encima (para la seta)",
+              "objeto": "regadera",
+              "quien": "manolo",
+              "gesto": "Normal",
+              "dice": "(La seta:) Queremos agua. Por encima. (El bicho, en voz baja, se queja de que el que se moja es él.)",
+              "hecho": "Manolo los riega. La seta se pone tiesa y contenta. El bicho tiembla de frío, pero no dice nada: la seta no le deja.",
+              "recuerda": "(La seta:) El agua. (El bicho estornuda.)"
             }
           ]
         }
@@ -3201,6 +4463,25 @@
           "objeto": "plato",
           "dice": "¿Hay potaje? Es lo que se come en la mina: cuchara, garbanzo y a seguir cavando. Bueno, ahora a seguir en huelga.",
           "recuerda": "El potaje, compañero, que hacer huelga da mucha hambre."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un casco para la cabeza",
+          "objeto": "casco",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "Compañero, ¿me deja un casco? El mío se quedó en la mina el día del paro. Sin casco, se me queda al aire la cabeza, que es lo único que se me ve.",
+          "hecho": "Manolo le pone un casco de obra. Diglett asoma con él como un periscopio y hace guardia en la puerta del comedor toda la noche.",
+          "recuerda": "¿El casco, compañero? Que se me enfría la cabeza."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Sopa de piquete",
+          "plato": "sopa de bayas",
+          "receta": "sopa",
+          "objeto": "plato",
+          "dice": "Una sopa de bayas, caliente. En la mina, los días de huelga se hace sopa en el piquete y se reparte. Hoy el piquete soy yo.",
+          "recuerda": "¿La sopa, compañero? El piquete tiene frío."
         }
       ],
       "evoluciones": [
@@ -3231,6 +4512,16 @@
               "objeto": "plato",
               "dice": "Un potaje, por favor. Grande. Somos tres bocas y una sola tripa, y la tripa manda.",
               "recuerda": "(Las tres cabezas a la vez:) ¿Y el potaje?"
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Una pancarta para tres",
+              "objeto": "pancarta",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "(Las tres:) ¿Nos deja una pancarta? (La del medio:) Grande. (Las otras:) Que somos tres a sujetarla.",
+              "hecho": "Manolo les da una pancarta. La del medio escribe «HUELGA», la de la izquierda «MINERA» y la de la derecha dibuja una seta.",
+              "recuerda": "(Las tres:) ¡La pancarta! (La del medio:) Por favor."
             }
           ]
         }
@@ -3256,7 +4547,14 @@
       ],
       "empleo": {
         "puesto": "cómico de la casa",
-        "ventaja": "animo"
+        "ventaja": "animo",
+        "frases": [
+          "Illo, ¿sabes por qué no salgo en las fotos? Porque salgo movido. Y gaseoso.",
+          "Llevo toda la tarde haciendo de máquina de humo. A ver si alguien se anima a bailar.",
+          "¡Que nadie abra la ventana, que se me va el público y me voy yo detrás!",
+          "Entra un fantasma en un bar… y el bar se queda vacío. ¡Ay, que me troncho!",
+          "Aquí, animando el comedor. Si no os reís, os doy un susto, que también vale."
+        ]
       },
       "pide": [
         {
@@ -3277,6 +4575,25 @@
           "objeto": "plato",
           "dice": "¿Hay pizza familiar? En la orquesta cenamos pizza en la furgoneta. Yo me como el olor, que es lo mío.",
           "recuerda": "¿Y la pizza? Que el olor ya me lo he comido y tengo hambre de lo demás."
+        },
+        {
+          "tipo": "comida",
+          "texto": "El kebab de después de la verbena",
+          "plato": "kebab de chistorra",
+          "receta": "kebab",
+          "objeto": "plato",
+          "dice": "Illo, ¿un kebab? Después de la verbena, kebab. Yo me como el olor, pero el olor de un kebab da para tres.",
+          "recuerda": "Illo, ¿el kebab? Que se me escapa el olor."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Una pinza para la cortina",
+          "objeto": "pinza",
+          "quien": "manolo",
+          "gesto": "Worried",
+          "dice": "¿Me trae una pinza de la ropa? Para sujetar la cortina. Si entra corriente, me despierto en el pueblo de al lado.",
+          "hecho": "Manolo sujeta la cortina con una pinza. Esa noche sopla el viento, pero Gastly amanece en su cuarto. Un poco más estirado, eso sí.",
+          "recuerda": "Illo, ¿la pinza? Que ya noto la corriente."
         }
       ],
       "evoluciones": [
@@ -3308,6 +4625,16 @@
               "objeto": "plato",
               "dice": "Una pizza familiar, por favor. Para el artista. Bueno, y para el público, si se ríe.",
               "recuerda": "¿Y la pizza? Que el humor con hambre no sale."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Un micro para el monólogo",
+              "objeto": "microfono",
+              "quien": "charizard",
+              "gesto": "Happy",
+              "dice": "Illo, ¿tiene un micro? Esta noche hago monólogo. Si no se ríen, que por lo menos se oiga que no se ríen.",
+              "hecho": "Charizard le pasa el micro. Haunter cuenta tres chistes malos. Charizard se ríe de los tres. Los demás, del ruido que hace Charizard.",
+              "recuerda": "Illo, el micro, que el público se enfría."
             }
           ]
         }
@@ -3349,6 +4676,25 @@
           "objeto": "plato",
           "dice": "Antes de cenar fuera, ¿me pone una baya Zidra asada? Para limpiar el paladar entre sueño y sueño.",
           "recuerda": "La baya Zidra… que llevo el paladar con sabor a pesadilla de Snorlax."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Una servilleta (ha cenado un sueño)",
+          "objeto": "pano",
+          "quien": "manolo",
+          "gesto": "Surprised",
+          "dice": "¿Me da una servilleta? Es que he cenado un sueño de Charizard, de chistorra, y me he puesto perdido. Muy sabroso, eso sí.",
+          "hecho": "Manolo le da una servilleta. Drowzee se limpia la trompa con elegancia y le pone al sueño de Charizard cuatro estrellas y media.",
+          "recuerda": "¿La servilleta? Que voy goteando sueño."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Tarta, para comparar",
+          "plato": "tarta de bayas",
+          "receta": "tarta",
+          "objeto": "plato",
+          "dice": "¿Me pone tarta de bayas? De postre. Para comparar con el sueño que me comí anoche, que sabía a tarta de cumpleaños.",
+          "recuerda": "¿La tarta? Necesito comparar con el sueño."
         }
       ],
       "evoluciones": [
@@ -3379,6 +4725,16 @@
               "objeto": "plato",
               "dice": "Una baya Zidra asada, como siempre. Un hipnoterapeuta también tiene sus costumbres. No me las quite nadie.",
               "recuerda": "Mi baya Zidra… Le advierto que, si tarda, mi péndulo se impacienta."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Una carpeta para el archivo de sueños",
+              "objeto": "carpeta",
+              "quien": "manolo",
+              "gesto": "Worried",
+              "dice": "Manolo, ¿me da una carpeta? Es para el historial de sueños de la posada. Los tengo todos apuntados. No se me olvida ninguno.",
+              "hecho": "Manolo le da una carpeta. Hypno la llena esa misma noche. En la tapa pone «Sueños del Pino». Manolo no se atreve a abrirla.",
+              "recuerda": "La carpeta, Manolo. Un sueño sin archivar es un sueño perdido."
             }
           ]
         }
@@ -3444,7 +4800,7 @@
           "sprite": "0049"
         }
       ],
-      "razon": "La verbena del pueblo de al lado acabó en el comedor: Doduo dio las campanadas en octubre, Venonat le graduó la vista a Manolo a ojo y su madre, Venomoth, se quedó dormida mirando la chimenea.",
+      "razon": "La verbena del pueblo de al lado acabó por la mañana delante de la posada: Doduo dio las campanadas en octubre, Venonat le graduó la vista a Manolo a ojo y su madre, Venomoth, se quedó dormida junto a la cola de Charizard.",
       "aparece": {
         "dia_min": 11,
         "estrellas": 2
@@ -3497,6 +4853,25 @@
           "objeto": "plato",
           "dice": "¿Hay potaje de garbanzos? Para el gas. Bueno, para la cena. Pero también para el gas.",
           "recuerda": "¿Y el potaje? Que sin garbanzos me desinflo y me quedo pegado al techo."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un espejo para ensayar el lema",
+          "objeto": "espejo",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Me deja un espejo? Tengo que ensayar el lema con pose. Lo de la rosa en la boca ya lo tengo. Lo de no toser, no.",
+          "hecho": "Manolo le trae el espejo. Koffing recita el lema doce veces. A la duodécima le sale de un tirón, y tose de la emoción.",
+          "recuerda": "¿El espejo? Que el lema sin pose no impresiona."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Un kebab de villano",
+          "plato": "kebab de chistorra",
+          "receta": "kebab",
+          "objeto": "plato",
+          "dice": "¿Eso que gira es un kebab? Lo quiero. Los del Team Rocket seguro que cenan kebab después de cada fechoría.",
+          "recuerda": "¿El kebab? Para cenar como un villano."
         }
       ],
       "evoluciones": [
@@ -3527,6 +4902,16 @@
               "objeto": "plato",
               "dice": "Un potaje de garbanzos, con dos cucharas. Que la boca es una, pero las ganas son dobles.",
               "recuerda": "¿Y el potaje? Las dos cabezas tienen hambre. Y la cara, que es una, pone esta."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Una linterna para la ronda del bosque",
+              "objeto": "linterna",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "Manolo, ¿me deja una linterna? Para la ronda del bosque. Hay un Koffing nuevo que se pierde siempre.",
+              "hecho": "Manolo le da la linterna. Weezing sale al bosque y vuelve a la hora con un Koffing pequeño debajo de cada cabeza.",
+              "recuerda": "La linterna, Manolo. El pequeño ya se habrá perdido."
             }
           ]
         }
@@ -3569,6 +4954,25 @@
           "objeto": "chistorra",
           "dice": "Chistorra a la brasa. De eso sí me acuerdo. Es lo único de lo que me acuerdo siempre.",
           "recuerda": "¿Ya he cenado? Creo que no. ¿Y la chistorra? Eso, la chistorra."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Un kebab (¿qué había pedido?)",
+          "plato": "kebab de chistorra",
+          "receta": "kebab",
+          "objeto": "plato",
+          "dice": "¿Qué es eso que gira? ¡Un kebab! Quiero uno. …¿Qué había pedido? Ah, sí. Un kebab.",
+          "recuerda": "…¿El qué? Ah, sí. El kebab."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Algo que haga «tilín»",
+          "objeto": "campanilla",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Me da algo que suene? Si se me olvida a qué he venido, lo toco y a lo mejor me acuerdo.",
+          "hecho": "Manolo le da una campanilla. Rhyhorn la toca cada cinco minutos. No se acuerda de nada, pero el sonido le gusta mucho.",
+          "recuerda": "¿Me iba a dar algo? Algo que hacía «tilín»."
         }
       ],
       "evoluciones": [
@@ -3606,6 +5010,16 @@
               "objeto": "chistorra",
               "dice": "Una chistorra a la brasa. La primera que salga de la parrilla, que para eso soy el número uno.",
               "recuerda": "La chistorra, que el número uno no puede esperar. …¿Qué estaba pidiendo? Ah, sí. Chistorra."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Una corona para el número uno",
+              "objeto": "corona",
+              "quien": "charizard",
+              "gesto": "Happy",
+              "dice": "¡Charizard! ¡Una corona! El número uno lleva corona. Lo he pensado yo solo. Y me acuerdo.",
+              "hecho": "Charizard le pone una corona en el cuerno. Rhydon se pasea por el comedor saludando. Charizard le hace una reverencia, de broma.",
+              "recuerda": "¡La corona! El número uno no puede ir con el cuerno desnudo."
             }
           ]
         }
@@ -3648,6 +5062,25 @@
           "objeto": "plato",
           "dice": "Una pizza familiar. Para mí solo. Si sobra algo, que no sobrará, se lo doy al dragón.",
           "recuerda": "¿Y la pizza? Que tengo la cintura en tres centímetros y bajando."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Un kebab (y otra pizza)",
+          "plato": "kebab de chistorra",
+          "receta": "kebab",
+          "objeto": "plato",
+          "dice": "Un kebab. Dicen que para ser modelo hay que comer poco. Por eso pido uno solo. Bueno, y luego otra pizza.",
+          "recuerda": "¿El kebab? Que el casting es mañana."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Una flor para la pasarela",
+          "objeto": "flores",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Tiene una flor? Para ponérmela en la cabeza. En las pasarelas siempre llevan algo en la cabeza, y yo solo tengo una hoja.",
+          "hecho": "Manolo le da una margarita. Bellsprout se la pone, desfila por el pasillo y se cae al girar. Se levanta posando.",
+          "recuerda": "¿La flor? La pasarela no espera."
         }
       ],
       "evoluciones": [
@@ -3679,6 +5112,16 @@
               "objeto": "plato",
               "dice": "Toco a comer. (Ding.) Pizza familiar. La de antes, la de siempre.",
               "recuerda": "Ding. Ding. Ding. (Eso es que tiene hambre.)"
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Tapones para no oírse",
+              "objeto": "tapones",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "¿Tiene tapones? Para mí. Desde que soy campana, me retumbo yo mismo. Ding.",
+              "hecho": "Manolo le da unos tapones. Weepinbell se los pone, toca un «ding» y sonríe: por fin no se oye a sí mismo.",
+              "recuerda": "Ding. ¿Los tapones? Ding."
             }
           ]
         },
@@ -3710,6 +5153,16 @@
               "objeto": "plato",
               "dice": "Una pizza familiar. Por fin tengo una boca del tamaño de mi hambre. Entera, de un bocado.",
               "recuerda": "¿Y la pizza? Tengo la boca abierta desde hace rato. Bueno, la tengo siempre abierta, pero ahora es por eso."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "El periódico, para buscar a James",
+              "objeto": "periodico",
+              "quien": "manolo",
+              "gesto": "Normal",
+              "dice": "¿Me trae el periódico? Busco a un tal James. A veces sale en las noticias, siempre saliendo volando.",
+              "hecho": "Manolo le da el periódico. No sale James, pero sale un globo con forma de Meowth. Victreebel recorta la foto y se la guarda.",
+              "recuerda": "¿El periódico? Que James estará por algún lado."
             }
           ]
         }
@@ -3718,7 +5171,7 @@
     {
       "id": "puntolimpio",
       "cameo": true,
-      "especie": "Los del punto limpio",
+      "especie": "Los de Limasa",
       "dex": 88,
       "sprite": "0088",
       "miembros": [
@@ -3735,7 +5188,7 @@
           "sprite": "0089"
         }
       ],
-      "razon": "Grimer, del punto limpio de Ciudad Fucsia, separó la basura de la posada en cinco cubos y pilló a Charizard tirando las pieles de chistorra al amarillo. Su padre Muk lo abraza todo; solo Charizard se dejó.",
+      "razon": "Grimer, de Limasa, la de la limpieza de Málaga, separó la basura de la posada en cinco cubos y pilló a Charizard tirando las pieles de chistorra al amarillo. Su padre Muk lo abraza todo; solo Charizard se dejó.",
       "aparece": {
         "dia_min": 15,
         "estrellas": 2
@@ -3820,6 +5273,25 @@
           "objeto": "plato",
           "dice": "¿Hay tarta de bayas? Un trocito. Bueno, seis trocitos: uno por cola.",
           "recuerda": "¿Y la tarta? Que las colas sin azúcar se me ponen lacias."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un espejo para las seis colas",
+          "objeto": "espejo",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Me deja un espejo grande, cariño? Para mirar las seis colas a la vez. Si una queda más corta, no duermo.",
+          "hecho": "Manolo le pone el espejo. Vulpix repasa sus seis colas, encuentra un pelo rebelde y lo pone en su sitio. Ahora sí, a dormir.",
+          "recuerda": "¿El espejo, cariño? Hay un pelo que me mira mal."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Miel, por el brillo",
+          "plato": "pan tostado con miel",
+          "receta": "pan",
+          "objeto": "plato",
+          "dice": "¿Hay pan tostado con miel? La miel es buena para el pelo. Por dentro, ¿eh? Aunque por fuera tampoco está mal.",
+          "recuerda": "¿El pan con miel? Es por el brillo."
         }
       ],
       "evoluciones": [
@@ -3850,6 +5322,16 @@
               "objeto": "plato",
               "dice": "Y con el té, tarta de bayas. Ahora son nueve trocitos. Las colas no perdonan.",
               "recuerda": "¿La tarta? Una marquesa no protesta. Pero espera con mucha intención."
+            },
+            {
+              "tipo": "servicio",
+              "texto": "Un abanico para la marquesa",
+              "objeto": "abanico",
+              "quien": "manolo",
+              "gesto": "Surprised",
+              "dice": "Querido, ¿un abanico? Mil años y todavía me sofoca la chimenea. Será el fuego del dragón, que lo tiene muy subido.",
+              "hecho": "Manolo le da un abanico. Ninetales se abanica con elegancia y, de paso, le apaga la cachimbita a Manolo. Pide perdón con mucha clase.",
+              "recuerda": "El abanico, querido. Una marquesa no suda."
             }
           ]
         }
@@ -3894,6 +5376,25 @@
           "objeto": "plato",
           "dice": "¿Hay potaje de garbanzos? En la olla grande, si no es molestia. En plato no me lo noto.",
           "recuerda": "Perdón. ¿El potaje? No quiero molestar, pero la tripa me suena y en la cueva hace eco."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un paño para el polvo (perdón)",
+          "objeto": "pano",
+          "quien": "manolo",
+          "gesto": "Normal",
+          "dice": "Perdón. ¿Tendría un paño? Al entrar he rozado el marco y lo he dejado lleno de polvo de roca. Perdón. Lo limpio yo.",
+          "hecho": "Manolo le da un paño. Onix limpia el marco, la puerta y medio pasillo. Manolo le dice que no hacía falta. Onix pide perdón por limpiar.",
+          "recuerda": "Perdón… ¿el paño? Es que sigo soltando polvo."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Un poquito de estofado (perdón)",
+          "plato": "estofado de setas",
+          "receta": "estofado",
+          "objeto": "plato",
+          "dice": "¿Hay estofado de setas? Perdón por pedir. Un poquito. En la olla grande, si no es molestia. Perdón.",
+          "recuerda": "Perdón, ¿y el estofado? No quería molestar."
         }
       ]
     },
@@ -3933,6 +5434,25 @@
           "objeto": "chistorra",
           "dice": "Chistorra a la brasa. Hecha por otro. Quiero saber a qué sabe cuando no la carbonizo yo.",
           "recuerda": "¿Y la chistorra? Si tarda más, la hago yo. Y ya sabe cómo me sale."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Un kebab, para ver el truco",
+          "plato": "kebab de chistorra",
+          "receta": "kebab",
+          "objeto": "plato",
+          "dice": "¿Eso que da vueltas al fuego es un kebab? ¿Y no se quema? Quiero uno. Y quiero saber cómo no lo carbonizáis.",
+          "recuerda": "¿El kebab? Quiero ver el truco."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Hielo para las manos",
+          "objeto": "hielo",
+          "quien": "manolo",
+          "gesto": "Surprised",
+          "dice": "¿Tiene hielo? Es para meter las manos antes de tocar la parrilla. Blaine dice que soy muy caliente de carácter.",
+          "hecho": "Manolo le da un cubo de hielo. Magmar mete las manos y sale vapor por toda la cocina. Charizard se ríe tanto que se le escapa una llamarada.",
+          "recuerda": "¿El hielo? Que me hierven las manos."
         }
       ]
     },
@@ -4061,7 +5581,7 @@
     {
       "id": "electricistas",
       "cameo": true,
-      "especie": "El apagón",
+      "especie": "Los de la Sevillana",
       "dex": 125,
       "sprite": "0125",
       "miembros": [
@@ -4090,7 +5610,7 @@
           "sprite": "0082"
         }
       ],
-      "razon": "La cuadrilla de la Central Energía paró a cenar y se fue la luz sin tormenta: había sido Electabuzz, que se comió los fusibles. Magnemite sintonizó a Dodrio, Magneton llamó desde la mesa de al lado y Raichu, el primo de Pikachu, se fue orgulloso de ser Raichu.",
+      "razon": "La cuadrilla de la Sevillana, la compañía de la luz, paró a desayunar y se fue la luz sin tormenta: había sido Electabuzz, que se comió los fusibles. Magnemite sintonizó a Dodrio, Magneton llamó desde la mesa de al lado y Raichu, el primo de Pikachu, se fue orgulloso de ser Raichu.",
       "aparece": {
         "dia_min": 22,
         "estrellas": 3
@@ -4144,6 +5664,25 @@
           "objeto": "plato",
           "dice": "Una sopa de bayas, por favor. Bien calentita, que vengo de tres horas de piscina y tengo los bigotes arrugados.",
           "recuerda": "¿Y la sopa? Que me estoy quedando como una pasa. Una pasa de agua."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Sopa de pescado después de nadar",
+          "plato": "sopa de pescado",
+          "receta": "pescado",
+          "objeto": "plato",
+          "dice": "¿Hay sopa de pescado? Después de nadar se me pone un hambre de tiburón. Bueno, de Vaporeon, que es peor.",
+          "recuerda": "¿La sopa de pescado? Que me gotea la nariz de hambre."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Una toalla grande",
+          "objeto": "pano",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Me deja una toalla? Grande. Vengo de la piscina y, si me siento así, el sillón se convierte en un estanque.",
+          "hecho": "Manolo le da una toalla. Vaporeon se seca, y la toalla queda tan empapada que Charizard tiene que secarla con la cola.",
+          "recuerda": "¿La toalla? Que estoy encharcando el sillón."
         }
       ],
       "evoluciones": [
@@ -4174,6 +5713,16 @@
               "objeto": "plato",
               "dice": "¡Una sopa de bayas! ¡Ya! ¡Bueno, cuando esté! ¡Pero que esté ya!",
               "recuerda": "¡La sopa! ¡Se me están poniendo los pelos de punta! ¡Más de punta!"
+            },
+            {
+              "tipo": "servicio",
+              "texto": "¡Una tila! ¡Ya!",
+              "objeto": "tila",
+              "quien": "manolo",
+              "gesto": "Worried",
+              "dice": "¡Una tila! ¡Rápido! ¡Que estoy muy nervioso y no me calmo! ¡Bueno, cuando puedas! ¡Pero ya!",
+              "hecho": "Manolo le prepara una tila. Jolteon se la bebe de golpe, se quema la lengua y suelta un chispazo. Luego, eso sí, se queda tranquilo.",
+              "recuerda": "¡La tila! ¡Que me calme ya!"
             }
           ]
         },
@@ -4204,6 +5753,15 @@
               "objeto": "chistorra",
               "dice": "¿Me haría una chistorra a la brasa? Como la que me dio Charizard. Bueno, si sobra alguna. Si no, me como el pan.",
               "recuerda": "¿Queda alguna chistorra? No quiero molestar. Pero huele tan bien…"
+            },
+            {
+              "tipo": "comida",
+              "texto": "Un kebab, si no es molestia",
+              "plato": "kebab de chistorra",
+              "receta": "kebab",
+              "objeto": "plato",
+              "dice": "¿Me haría un kebab? Si no es mucha molestia. Nunca nadie me hace un kebab. Si no puede, no pasa nada. Me como el pan.",
+              "recuerda": "¿El kebab? Si se puede. Si no, no pasa nada."
             }
           ]
         }
@@ -4247,6 +5805,25 @@
           "objeto": "plato",
           "dice": "Una tarta de bayas, porfa. Cada vez que mudo lo celebro. Es como un cumpleaños, pero de piel.",
           "recuerda": "¿Y la tarta? Que se me está pasando la muda y luego ya no tiene gracia."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Sopa de pescado, estilo marinero",
+          "plato": "sopa de pescado",
+          "receta": "pescado",
+          "objeto": "plato",
+          "dice": "¿Hay sopa de pescado? Esta semana me toca estilo marinero: rayas, ancla y sopa de pescado.",
+          "recuerda": "¿La sopa de pescado? Que el estilo marinero dura hasta el domingo."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un espejo tras la muda",
+          "objeto": "espejo",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "Manolo, un espejo, porfa. Acabo de mudar y no sé de qué estilo me ha salido la piel nueva.",
+          "hecho": "Manolo le trae el espejo. Dratini se mira y decide que esta semana va de rockera. Se lo dice a Charizard, que asiente muy serio.",
+          "recuerda": "¿El espejo, porfa? No sé quién soy esta semana."
         }
       ],
       "evoluciones": [
@@ -4277,6 +5854,16 @@
               "objeto": "plato",
               "dice": "Previsión para esta noche: tarta de bayas, con intervalos de nata. Probabilidad, del cien por cien. Si usted quiere.",
               "recuerda": "Actualizo la previsión: la tarta se retrasa. Pero sigue siendo del cien por cien, ¿verdad?"
+            },
+            {
+              "tipo": "servicio",
+              "texto": "El periódico, por la previsión",
+              "objeto": "periodico",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "¿Me trae el periódico? Quiero ver qué tiempo dicen que va a hacer mañana. Luego lo cambio, pero me gusta saber qué tenían pensado.",
+              "hecho": "Manolo le da el periódico. Dragonair lee «soleado» y sonríe. A la mañana siguiente sale el sol. Por una vez, no ha tocado nada.",
+              "recuerda": "¿El periódico? Quiero ver la previsión, por respeto."
             }
           ]
         }
@@ -4321,6 +5908,25 @@
           "objeto": "chistorra",
           "dice": "Una chistorra a la brasa, por favor. Hecha por otro. Llevo siglos poniendo yo el fuego para todo el mundo.",
           "recuerda": "La chistorra. Sin prisa. Pero hecha por usted: con la suya no me vale."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Una manta, para estar a oscuras",
+          "objeto": "manta",
+          "quien": "manolo",
+          "gesto": "Worried",
+          "dice": "¿Me trae una manta oscura? Para taparme la llama y estar a oscuras un rato. Nadie me ha visto nunca a oscuras. Ni yo.",
+          "hecho": "Manolo le echa una manta por encima. Moltres se queda a oscuras, muy quieta. La manta humea un poco, pero aguanta.",
+          "recuerda": "¿La manta? Quiero probar lo de estar a oscuras."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Una sopa fría, antes de calentarla",
+          "plato": "sopa de bayas",
+          "receta": "sopa",
+          "objeto": "plato",
+          "dice": "¿Hay sopa de bayas? Fría, si puede ser, como un gazpacho. Es que todo lo que como lo caliento sin querer.",
+          "recuerda": "¿La sopa fría? Antes de que la mire y se caliente."
         }
       ]
     },
@@ -4367,6 +5973,25 @@
           "objeto": "plato",
           "dice": "Un potaje de garbanzos. Nunca me han hecho la comida. En el laboratorio me alimentaban por un tubo.",
           "recuerda": "El potaje. No tengo prisa: llevo toda la vida esperando algo así."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un espejo, sin nadie detrás",
+          "objeto": "espejo",
+          "quien": "manolo",
+          "gesto": "Normal",
+          "dice": "¿Me deja un espejo? En el laboratorio solo había cristales de tubo. Quiero verme sin nadie mirando detrás.",
+          "hecho": "Manolo le trae el espejo. Mewtwo se mira un buen rato, en silencio. Al final se arregla la cola, como hacen los demás.",
+          "recuerda": "¿El espejo? Quiero verme yo solo."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Una tarta de cumpleaños",
+          "plato": "tarta de bayas",
+          "receta": "tarta",
+          "objeto": "plato",
+          "dice": "¿Me hace una tarta? Nunca he tenido cumpleaños. No sé qué día nací. Si me la hace hoy, hoy será.",
+          "recuerda": "¿La tarta? Hoy es mi cumpleaños. Lo he decidido."
         }
       ]
     },
@@ -4443,7 +6068,7 @@
           "sprite": "0145"
         }
       ],
-      "razon": "Una noche de nieve y truenos trajeron hasta la posada el autobús perdido. Articuno, con fama de gafe, lleva años guiando a los perdidos hasta aquí; Zapdos, del equipo de menos gente, alumbró el camino. Discutieron de equipos en el nido hasta el amanecer.",
+      "razon": "Al amanecer, entre nieve y truenos, trajeron hasta la posada un autobús perdido. Articuno, con fama de gafe, lleva años guiando a los perdidos hasta aquí; Zapdos, del equipo de menos gente, alumbró el camino. Discutieron de equipos hasta que se fueron volando.",
       "aparece": {
         "mejora": "nido",
         "dia_min": 40,

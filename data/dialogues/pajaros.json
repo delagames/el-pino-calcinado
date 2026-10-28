@@ -1,30 +1,30 @@
 {
   "id": "pajaros",
-  "_nota": "Grupo de una noche: Articuno y Zapdos. Una noche nieva y truena a la vez: el autobús de la excursión se ha perdido en el puerto y llega a la posada guiado por Articuno y alumbrado a rayos por Zapdos, que se posan en el nido del pino. Articuno tiene fama de gafe (se aparece a los que se pierden en la nieve)… y resulta que lleva años guiando a los perdidos hasta aquí. Zapdos, hincha del equipo amarillo de Pokémon GO, el de menos gente. Los dos solo tienen retrato Normal. Remate: discuten de equipos hasta el amanecer y, desde entonces, cuando nieva hay un rastro de escarcha hasta la puerta.",
+  "_nota": "Evento de excursión (por la mañana, de paso): Articuno y Zapdos. Amanece nevando y tronando a la vez: un autobús de excursión se perdió anoche en el puerto y llega a la posada guiado por Articuno y alumbrado a rayos por Zapdos, que se posan en el nido del pino. Articuno tiene fama de gafe (se aparece a los que se pierden en la nieve)… y resulta que lleva años guiando a los perdidos hasta aquí y dejándoles escarcha hasta la puerta. Zapdos se queja de que el azul se lleva la fama; Articuno explica a Manolo los equipos del juego de móvil (azul, el suyo; rojo, de su prima Moltres; amarillo, el de Zapdos, el de menos gente). Los dos solo tienen retrato Normal. Remate: cuando el autobús se va, vuelan delante discutiendo de equipos y, desde entonces, cuando nieva hay un rastro de escarcha hasta la puerta.",
   "entradas": [
     {
       "id": "v1",
       "cuando": { "visita_min": 1 },
-      "subtitulo": "Una noche · nieva y truena a la vez",
+      "subtitulo": "Una mañana · nieva y truena a la vez",
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Nieva y truena a la vez, cosa que no pasa nunca. El autobús de la excursión asoma entre la ventisca, guiado por un pájaro de hielo y alumbrado a rayos por otro.)", "sigue": "articuno" },
-        "articuno": { "quien": "articuno", "emocion": "Normal", "texto": "Buenas noches. El autobús se había perdido en el puerto. Venía hacia aquí. Al final, todos los que se pierden vienen hacia aquí.", "sigue": "zapdos" },
-        "zapdos": { "quien": "zapdos", "emocion": "Normal", "texto": "¡Y la luz la he puesto yo! ¡Zapdos, del equipo amarillo! El de menos gente: somos cuatro y un perro. ¡Pero el perro es buenísimo!", "sigue": "articuno2" },
-        "articuno2": { "quien": "articuno", "emocion": "Normal", "texto": "Yo soy del azul, el de la sabiduría. No le haga caso: las tormentas le ponen así.", "sigue": "nido" },
-        "nido": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard mira a uno y a otro. Luego mira el nido del pino, que de repente parece muy pequeño. Suben los dos. El nido cruje. Aguanta.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Worried", "texto": "Señora Articuno… ¿es verdad lo que cuentan? ¿Que se aparece a los que se pierden en la nieve?", "sigue": "articuno3" },
-        "articuno3": { "quien": "articuno", "emocion": "Normal", "texto": "Me aparezco, sí. Dicho así suena a desgracia. Me aparezco y luego les enseño el camino. Casi siempre, el de esta casa.", "sigue": "articuno4" },
-        "articuno4": { "quien": "articuno", "emocion": "Normal", "texto": "Pájaros sin bandada, viajeros con el corazón roto, alguno que tiritaba… Y otros que ni se enteraron. A todos les dejé escarcha hasta su puerta.", "opciones": [
-          { "texto": "«Gracias por traérnoslos»", "sigue": "gracias" },
+        "inicio": { "quien": "manolo", "emocion": "Surprised", "anim": "flash", "texto": "(Amanece nevando y tronando a la vez, cosa que no pasa nunca. Entre la ventisca asoma un autobús, guiado por un pájaro de hielo y alumbrado a rayos por otro.)", "sigue": "articuno" },
+        "articuno": { "quien": "articuno", "emocion": "Normal", "anim": "gira", "texto": "(Articuno se posa en el nido del pino entre un remolino de nieve.) Buenos días. Este autobús se perdió anoche en el puerto. Todos los que se pierden acaban aquí.", "sigue": "zapdos" },
+        "zapdos": { "quien": "zapdos", "emocion": "Normal", "anim": "chispas", "texto": "¡Y la luz la he puesto yo! ¡Zapdos! Toda la noche echando rayos para que el conductor viera la carretera. ¡De nada!", "sigue": "nido" },
+        "nido": { "quien": "charizard", "emocion": "Surprised", "texto": "Zapdos se posa también. Charizard mira el nido del pino, que de repente parece muy pequeño. El nido cruje. Aguanta. Los excursionistas bajan tiritando.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Worried", "texto": "Señora Articuno… ¿es verdad lo que cuentan? ¿Que se aparece a los que se pierden en la nieve, y que trae mala suerte?", "sigue": "articuno2" },
+        "articuno2": { "quien": "articuno", "emocion": "Normal", "texto": "Me aparezco, sí. Dicho así suena a desgracia. Pero luego les enseño el camino. Casi siempre, el de esta casa.", "sigue": "articuno3" },
+        "articuno3": { "quien": "articuno", "emocion": "Normal", "texto": "Pájaros sin bandada, viajeros con el corazón roto, alguno que tiritaba… A todos les dejé un rastro de escarcha hasta su puerta.", "opciones": [
+          { "texto": "«Gracias por traérnoslos»", "efectos": { "afinidad": 1 }, "sigue": "gracias" },
           { "texto": "«¿Y por qué aquí, y no a otro sitio?»", "sigue": "porque" }
         ] },
-        "gracias": { "quien": "articuno", "emocion": "Normal", "texto": "No hay de qué. Desde arriba, una posada con la luz encendida se ve muy bien. Sobre todo si tiene un pino que brilla por dentro.", "sigue": "zapdos2" },
+        "gracias": { "quien": "articuno", "emocion": "Normal", "texto": "No hay de qué. Desde arriba, una posada con la chimenea encendida se ve muy bien. Sobre todo si tiene un pino que brilla por dentro.", "sigue": "zapdos2" },
         "porque": { "quien": "articuno", "emocion": "Normal", "texto": "Porque es la única luz del puerto que no se apaga nunca. Y porque aquí a nadie le preguntan por qué se ha perdido.", "sigue": "zapdos2" },
-        "zapdos2": { "quien": "zapdos", "emocion": "Normal", "texto": "¿Y del amarillo qué? ¿Nadie habla del amarillo? ¡Que he alumbrado medio puerto! Sin mí, el autobús acaba en Johto.", "sigue": "articuno5" },
-        "articuno5": { "quien": "articuno", "emocion": "Normal", "texto": "Lo de los equipos es un invento de los humanos. Como el de la roja de mi prima Moltres. Nosotros somos pájaros.", "sigue": "zapdos3" },
-        "zapdos3": { "quien": "zapdos", "emocion": "Normal", "texto": "¡Eso lo dices porque el azul tiene más gente! (Un trueno. Una nevada. Otro trueno.)", "sigue": "fin" },
-        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Discuten de equipos en el nido hasta el amanecer, entre nieve y truenos. Desde esa noche, cuando nieva, hay un rastro de escarcha que llega hasta la puerta.)" }
+        "zapdos2": { "quien": "zapdos", "emocion": "Normal", "texto": "¿Y del rayo qué? ¡Sin mí, el autobús acaba en Johto! Siempre igual: el azul se lleva la fama y el amarillo, el trabajo.", "sigue": "manolo2" },
+        "manolo2": { "quien": "manolo", "emocion": "Normal", "texto": "¿El azul? ¿El amarillo? ¿Eso qué es, de fútbol?", "sigue": "articuno4" },
+        "articuno4": { "quien": "articuno", "emocion": "Normal", "texto": "Equipos de un juego de móvil, el de cazar Pokémon por la calle. El azul es el mío; el rojo, de mi prima Moltres; el amarillo, el suyo. El de menos gente.", "sigue": "zapdos3" },
+        "zapdos3": { "quien": "zapdos", "emocion": "Normal", "anim": "flash", "texto": "¡Pocos pero buenos! ¡Somos cuatro y un perro, y el perro es buenísimo! (Un trueno. Una nevada. Otro trueno.)", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(El autobús se va y los dos vuelan delante, discutiendo de equipos entre nieve y truenos. Desde ese día, cuando nieva, hay un rastro de escarcha hasta la puerta.)" }
       }
     }
   ]

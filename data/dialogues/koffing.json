@@ -7,7 +7,7 @@
       "cuando": { "visita_min": 1 },
       "subtitulo": "Primera visita · que se preparen los líos",
       "nodos": {
-        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Llaman a la puerta. Al abrir: una nube de humo de colores, una bola morada con una rosa entre los dientes y un olor a huevo que tumba.)", "sigue": "lema" },
+        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Llaman a la puerta. Al abrir: una nube de humo de colores, una bola morada con una rosa entre los dientes y un olor a huevo que tumba.)", "anim": "humo", "anim_quien": "huesped", "sigue": "lema" },
         "lema": { "quien": "huesped", "emocion": "Happy", "texto": "¡Atención, que llegan los líos! ¡Y vienen de dos en dos! ¡Para unir a todos los pueblos bajo…! Ay, no. Espere, que lo empiezo otra vez.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "Tranquilo, hombre, sin prisa. ¿Qué vendes?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "No vendo: me presento. Koffing. Me sé el lema entero, hasta la parte del gato. ¿Es aquí donde se alojan Arbok y Meowth, los del Team Rocket?", "sigue": "n3" },
@@ -45,18 +45,19 @@
       "cuando": { "visita_min": 3, "afinidad_min": 1 },
       "subtitulo": "Tercera visita · el lema de la posada",
       "fin_arco": true,
+      "de_paso": true,
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Manolo, he roto la solicitud. Bueno, le he echado un poco de gas y se ha deshecho sola. Ya no quiero entrar en el Team Rocket.", "sigue": "n2" },
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Manolo, vengo a despedirme. He roto la solicitud: le eché un poco de gas y se deshizo sola. Ya no quiero entrar en el Team Rocket.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "En el bosque de abajo hay Ekans y Koffing pequeñitos, solos. Los cazadores los asustan. Alguien tiene que echarles el humo encima a los malos.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "¿Te vas de guarda forestal?", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Con gorra y todo. El Weezing de James acabó así: lo dejaron libre para que cuidara de los suyos. Le he copiado eso, que es lo mejor que hizo.", "sigue": "n4" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Con gorra y todo. El Weezing del Team Rocket acabó así: su dueño lo dejó libre para que cuidara de los suyos. Le copio eso, que es lo mejor que hizo.", "sigue": "n4" },
         "n4": { "quien": "huesped", "emocion": "Normal", "texto": "Pero un guarda necesita un lema, y el mío ya no vale. ¿Me ayuda a hacer uno nuevo? Las dos cabezas no se ponen de acuerdo.", "opciones": [
           { "texto": "«Coge el de la casa, que te lo presto»", "efectos": { "afinidad": 1, "flags": { "koffing_lema": "posada" } }, "sigue": "posada" },
           { "texto": "«Invéntalo tú, que ya sabes quién eres»", "efectos": { "afinidad": 1, "flags": { "koffing_lema": "suyo" } }, "sigue": "suyo" }
         ] },
         "posada": { "quien": "huesped", "emocion": "Normal", "texto": "(Se pone la rosa y lo recita a coro, con las dos cabezas.) «¡Cachimbita, chistorra y a dormir! ¡Y el que toque a un Koffing, sale volando!» …Me lo quedo.", "sigue": "fin" },
         "suyo": { "quien": "huesped", "emocion": "Normal", "texto": "(Lo piensa con las dos cabezas.) «¡Si hay líos en el bosque, que se preparen ellos!» …¿Suena a malo? Pues lo digo de bueno.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Temprano, Weezing baja flotando con su gorra de guarda y la rosa entre los dientes. Charizard le dice adiós con la cola hasta que el humo morado se pierde en el pinar." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Esa misma tarde, Weezing baja flotando hacia el bosque, con su gorra de guarda y la rosa entre los dientes. Charizard le dice adiós con la cola hasta que se pierde en el pinar." }
       }
     }
   ]

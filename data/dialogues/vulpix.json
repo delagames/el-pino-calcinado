@@ -32,7 +32,7 @@
         "n2": { "quien": "huesped", "emocion": "Happy", "texto": "Me la puse el martes. Ahora viviré mil años, así que hablo ya como si los tuviera. Para ir haciéndome. Se nota, ¿verdad?", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Té a las cinco, por favor. En taza fina. Y si tiene un monóculo, también. No veo mal, pero queda tan bien…", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard alarga una garra hacia una de las nueve colas. Ninetales no se gira, pero las nueve colas se apartan a la vez.", "sigue": "n4" },
-        "n4": { "quien": "huesped", "emocion": "Angry", "texto": "Ni se te ocurra, dragón. Al que me tira de una cola le caen mil años de maldición. No es personal. Es la tradición.", "sigue": "n5" },
+        "n4": { "quien": "huesped", "emocion": "Angry", "texto": "Ni se te ocurra, dragón. Al que me tira de una cola le caen mil años de maldición. No es personal. Es la tradición.", "anim": "enfado", "sigue": "n5" },
         "n5": { "quien": "huesped", "emocion": "Worried", "texto": "(Baja la voz.) Entre usted y yo: con nueve colas tardo dos horas cada mañana. Ya no me queda tiempo para clientes. Ni para mí.", "opciones": [
           { "texto": "«Pues cepíllate una menos al día. No se va a enterar nadie»", "efectos": { "afinidad": 1 }, "sigue": "una" },
           { "texto": "«Para eso está el té de las cinco: para parar»", "sigue": "te" }
@@ -50,17 +50,17 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "Querido, esta es mi última noche aquí. Abro salón propio: «Las Nueve Colas». Peluquería, té y conversación. Por este orden.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Sad", "texto": "Te vamos a echar de menos, marquesa. ¿Y dónde lo pones?", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Sad", "texto": "(Se le cae el acento de mil años.) Pues… no lo sé. ¿Sabe que fui de un chico de Ciudad Plateada? Brock. El de los ojos cerraditos.", "sigue": "n3" },
+        "n2": { "quien": "huesped", "emocion": "Sad", "texto": "(Se le cae el acento de mil años.) Pues… no lo sé. ¿Sabe que fui de un chico de Ciudad Plateada? Brock, el del gimnasio. El de los ojos cerraditos.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Me cuidaba como nadie. Luego me devolvió a mi criadora, que me peinaba a diario: allí estaba mejor, y él lo sabía. Pero le echo de menos. Un poco.", "sigue": "n4" },
         "n4": { "quien": "huesped", "emocion": "Happy", "texto": "Si un día pasa por aquí el Onix de Brock, dígale que la Vulpix que dormía encima de él sigue roncando. Ahora, con nueve colas.", "opciones": [
           { "texto": "«Pon el salón en Plateada. Que te vea Brock»", "efectos": { "afinidad": 1, "flags": { "vulpix_salon": "plateada" } }, "sigue": "plateada" },
           { "texto": "«Ponlo cerca de aquí. Clientela no te va a faltar»", "efectos": { "afinidad": 1, "flags": { "vulpix_salon": "cerca" } }, "sigue": "cerca" }
         ] },
-        "plateada": { "quien": "huesped", "emocion": "Happy", "texto": "Enfrente del gimnasio. Así, cuando se enamore de otra enfermera, que se enamorará, tendrá dónde ponerse guapo para la cita.", "sigue": "cola" },
+        "plateada": { "quien": "huesped", "emocion": "Happy", "texto": "Enfrente de su gimnasio. Ese chico se enamora de una enfermera por semana: que tenga dónde ponerse guapo para las citas.", "sigue": "cola" },
         "cerca": { "quien": "huesped", "emocion": "Happy", "texto": "¿Aquí? Si en esta casa el único sin pelo es usted… (Le guiña un ojo.) Vale. Al pie del camino. A usted le haré masajes de calva.", "sigue": "cola" },
         "cola": { "quien": "huesped", "emocion": "Normal", "texto": "(Mira a Charizard, que lleva toda la noche mirándole las colas.) Anda, dragón. Una. Solo una. Y sin tirar.", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard toca una cola con la punta de la garra, como quien toca una pompa de jabón. No pasa nada. Bueno, sí: se le queda cara de tonto toda la noche.", "sigue": "fin" },
-        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "Maldición, ninguna: a ti te tocan mil años de buena suerte. (Por la mañana se va camino abajo, con las nueve colas al viento, peinadas una a una.)" }
+        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "Maldición, ninguna: a ti te tocan mil años de buena suerte. (Por la mañana se va camino abajo, con las nueve colas al viento, peinadas una a una.)", "anim": "estrellas" }
       }
     }
   ]

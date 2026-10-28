@@ -9,13 +9,13 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "Bu-buenas. Weedle, controlador de la zona azul. Becario. Hoy es mi primer día con el talonario.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Zona azul? ¿Aquí, en mitad del monte?", "sigue": "n1" },
-        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "Desde el lunes, todo el camino de la posada. Lo ha pintado el Ayuntamiento. De azul, claro. Me lo han dado a mí para practicar.", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Worried", "texto": "Es que ahí fuera está la furgoneta de Famadesa en doble fila. Y la tengo que multar. Pero el repartidor es muy grande. Y trae chistorra.", "opciones": [
+        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "Desde el lunes, todo el camino de la posada es zona azul. Lo ha pintado el Ayuntamiento. Y me lo han dado a mí para practicar.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Worried", "texto": "Ahí fuera está la furgoneta de Famadesa en doble fila. La tengo que multar. Pero el repartidor es muy grande. Y trae chistorra.", "opciones": [
           { "texto": "«Tranquilo, que esto se aprende poco a poco»", "efectos": { "afinidad": 1 }, "sigue": "poco" },
           { "texto": "«Pues multa, que es tu trabajo»", "sigue": "multa" }
         ] },
         "poco": { "quien": "huesped", "emocion": "Happy", "texto": "¿Usted cree? Mi jefe dice que el que no multa el primer día ya no multa nunca. Pero mi jefe es un Beedrill y no se para ni a comer.", "sigue": "fin" },
-        "multa": { "quien": "huesped", "emocion": "Pain", "texto": "(Sale. Vuelve a los diez minutos, sudando.) Ya está. Ya la he puesto. Me tiembla el aguijón. Creo que la he escrito un poco rara.", "sigue": "fin" },
+        "multa": { "quien": "huesped", "emocion": "Pain", "texto": "(Sale. Vuelve a los diez minutos, sudando.) Ya está. Ya la he puesto. Me tiembla el aguijón. Creo que la he escrito un poco rara.", "anim": "sudor", "sigue": "fin" },
         "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard lee la multa del parabrisas de Famadesa: «Gracias por venir. Buen viaje. Weedle». El repartidor se la guarda para enmarcarla." }
       }
     },
@@ -26,25 +26,25 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Llega un Kakuna. No se mueve. Habla sin mover nada.) Buenas. Una habitación. Con el impreso 3-B debidamente cumplimentado.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Weedle? ¿Y qué es eso del 3-B?", "sigue": "n1" },
-        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "Kakuna, funcionario de carrera. Plaza fija en la ventanilla. Sin el 3-B no me puedo alojar. Ni sin fotocopia del DNI. Y falta un papel.", "sigue": "manolo2" },
+        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "Kakuna, funcionario de carrera. Plaza fija. Sin el 3-B no me puedo alojar. Ni sin fotocopia del DNI. Y falta un papel.", "sigue": "manolo2" },
         "manolo2": { "quien": "manolo", "emocion": "Worried", "texto": "¿Qué papel?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "No se sabe. Siempre falta uno. Es la base del sistema.", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Happy", "texto": "Dicen que un Psyduck que oposita me tiene de ídolo. Que de mayor quiere estar tan quieto como yo.", "opciones": [
+        "n3": { "quien": "huesped", "emocion": "Happy", "texto": "Dicen que un Psyduck que oposita me tiene de ídolo. De mayor quiere estar tan quieto como yo.", "opciones": [
           { "texto": "«Te relleno yo el 3-B, con buena letra»", "efectos": { "afinidad": 1 }, "sigue": "relleno" },
           { "texto": "«Aquí se entra sin papeles, como en casa»", "sigue": "sinpapeles" }
         ] },
         "relleno": { "quien": "huesped", "emocion": "Happy", "texto": "(No se mueve, pero el caparazón le brilla un poco más.) Sello. Firma. Conforme. Es usted un administrado ejemplar.", "sigue": "fin" },
-        "sinpapeles": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Sin papeles? (Se endurece del susto.) Eso es… irregular. Y precioso. Lo voy a tener que pensar mucho rato. Muy quieto.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard intenta subir a Kakuna al cuarto amarillo y pesa como un yunque. Lo deja de pie en el pasillo. Kakuna dice que así está bien: es su ventanilla." }
+        "sinpapeles": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Sin papeles? (Se endurece del susto.) Eso es… irregular. Y precioso. Lo tendré que pensar mucho rato. Muy quieto.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard intenta subir a Kakuna al cuarto amarillo, pero pesa como un yunque. Lo deja en el pasillo. Kakuna dice que así está bien: es su ventanilla." }
       }
     },
     {
-      "id": "v3",
+      "id": "v3", "de_paso": true,
       "cuando": { "visita_min": 3, "afinidad_min": 1 },
       "subtitulo": "Tercera visita · el jefe que no se para",
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Angry", "texto": "(Un Beedrill entra zumbando, da tres vueltas al comedor y no se posa.) ¡Buenas! ¡Jefe de la zona azul! ¡No me siento, que tengo prisa!", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Angry", "texto": "(Un Beedrill entra zumbando, da tres vueltas al comedor y no se posa.) ¡Buenas! ¡Jefe de la zona azul! ¡No me siento, que tengo prisa!", "anim": "gira", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¡Weedle! ¿Pero tú no eras el que no se movía?", "sigue": "n1" },
         "n1": { "quien": "huesped", "emocion": "Normal", "texto": "¡Ascendido! Multo todo lo que se para. ¡Todo! Por eso yo no me paro nunca: me tendría que multar a mí mismo.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Angry", "texto": "Ahí fuera hay un Snorlax tumbado junto al pino. Le he puesto siete multas por estacionamiento indefinido. Ni se ha enterado.", "sigue": "n3" },
@@ -52,10 +52,10 @@
           { "texto": "«Siéntate un minuto en el porche, que yo vigilo»", "efectos": { "afinidad": 1, "flags": { "weedle_parado": "porche" } }, "sigue": "porche" },
           { "texto": "«El trabajo es lo primero, campeón»", "efectos": { "flags": { "weedle_parado": "trabajo" } }, "sigue": "trabajo" }
         ] },
-        "porche": { "quien": "huesped", "emocion": "Sad", "texto": "Un minuto. Solo uno. Y si pasa alguien en doble fila, me avisa… (Se posa en la mecedora. A los tres segundos ronca.)", "sigue": "duerme" },
-        "trabajo": { "quien": "huesped", "emocion": "Pain", "texto": "Eso digo yo… (Da una vuelta más, y otra, y aterriza en la mecedora del porche sin querer.) Ay. Me he parado. (Ronca.)", "sigue": "duerme" },
-        "duerme": { "quien": "manolo", "emocion": "Happy", "texto": "(Beedrill duerme en el porche hasta el amanecer. Al despertar, saca el talonario, se pone una multa por «estar parado»… y la rompe.)", "sigue": "n4" },
-        "n4": { "quien": "huesped", "emocion": "Happy", "texto": "Me voy, Manolo. Pero despacio. Y las del Snorlax también las rompo. Que descanse, que alguien en este mundo tiene que hacerlo.", "sigue": "fin" },
+        "porche": { "quien": "huesped", "emocion": "Sad", "texto": "Un minuto. Solo uno. Y si pasa alguien en doble fila, me avisa… (Se posa en la mecedora. A los tres segundos ronca.)", "anim": "duerme", "sigue": "duerme" },
+        "trabajo": { "quien": "huesped", "emocion": "Pain", "texto": "Eso digo yo… (Da una vuelta más, y otra, y aterriza en la mecedora del porche sin querer.) Ay. Me he parado. (Ronca.)", "anim": "duerme", "sigue": "duerme" },
+        "duerme": { "quien": "manolo", "emocion": "Happy", "texto": "(Beedrill duerme en la mecedora del porche hasta el amanecer. Al despertar, se pone una multa por «estar parado»… y la rompe.)", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Happy", "texto": "Me voy, Manolo. Pero despacio. Y las multas del Snorlax también las rompo. Que descanse, que alguien tiene que hacerlo.", "sigue": "fin" },
         "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard lo ve irse volando bajito, por primera vez sin prisa. Al pasar junto al pino, Beedrill se posa un segundo en una rama. Solo por gusto." }
       }
     }

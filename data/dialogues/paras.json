@@ -10,9 +10,9 @@
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "(Entra un Paras con una cesta de mimbre llena de níscalos. Huele a monte y a domingo.) Buenas. Paras, setero. ¿Qué hay de cena?", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "Estofado de setas, que te va a gustar.", "sigue": "n1" },
         "n1": { "quien": "huesped", "emocion": "Normal", "texto": "(Lo prueba sin que nadie se lo ofrezca.) Le falta un punto de sal. Y le sobra champiñón. El champiñón es una seta de supermercado.", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "No se ofenda. Llevo dos setas en la espalda desde que nací: las setas son mi vida. Las mías son medicinales, ¿eh? No se comen.", "sigue": "manolo2" },
+        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "No se ofenda. Llevo dos setas en la espalda desde que nací: de setas sé un rato. Las mías no se comen, ¿eh? Son medicinales.", "sigue": "manolo2" },
         "manolo2": { "quien": "manolo", "emocion": "Worried", "texto": "Pues por aquí para Farfetch'd, el de la tele. Hace un estofado que dice que es el mejor de Kanto. Con puerro.", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Angry", "texto": "¿Con puerro? ¡Un puerro en un estofado de setas! Eso es un crimen. Dígale que le reto: concurso de estofado, en su cocina, cuando él quiera.", "opciones": [
+        "n3": { "quien": "huesped", "emocion": "Angry", "texto": "¿Con puerro? ¡Un puerro en un estofado de setas! Eso es un crimen. Dígale que le reto: concurso de estofado, en su cocina, cuando él quiera.", "anim": "enfado", "opciones": [
           { "texto": "«Hecho. Y yo te pelo las setas»", "efectos": { "afinidad": 1 }, "sigue": "ayuda" },
           { "texto": "«Mientras no me queméis la cocina…»", "sigue": "cocina" }
         ] },
@@ -31,11 +31,11 @@
         "n1": { "quien": "huesped", "emocion": "Normal", "texto": "Hablo yo, la seta. Él está aquí abajo, pero ya no opina: ahora opino yo. Lo decidimos juntos. Bueno, lo decidí yo.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "(La seta lleva al bicho hasta la mesa. El bicho se sienta. Cara de muñeco.) Queremos estofado. Él también. Él siempre quiere lo que yo quiero.", "sigue": "manolo2" },
         "manolo2": { "quien": "manolo", "emocion": "Worried", "texto": "(Manolo no sabe a cuál de los dos mirar.) Chaval… o señora seta… ¿Tú estás bien ahí abajo?", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "(El bicho parpadea una vez, muy despacio. Contesta la seta.) Está estupendamente. Somos un ventrílocuo al revés. Lo vi hacer a un mimo.", "opciones": [
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "(El bicho parpadea una vez, muy despacio. Contesta la seta.) Está estupendamente. Él pone el cuerpo y yo la voz. Como un ventrílocuo, pero al revés.", "opciones": [
           { "texto": "«Que me lo diga él, si puede»", "efectos": { "afinidad": 1 }, "sigue": "el" },
           { "texto": "«Pues marchando estofado para… los dos»", "sigue": "dos" }
         ] },
-        "el": { "quien": "huesped", "emocion": "Normal", "texto": "(Silencio. El bicho abre la boca. La cierra. La seta tose.) Hoy no puede. Lleva un año sin hablar y se le ha olvidado cómo se hace.", "sigue": "fin" },
+        "el": { "quien": "huesped", "emocion": "Normal", "texto": "(Silencio. El bicho abre la boca. La cierra. La seta tose.) Hoy no puede. Desde que evolucionó no dice ni mu: se le ha olvidado cómo se hace.", "sigue": "fin" },
         "dos": { "quien": "huesped", "emocion": "Normal", "texto": "Para los dos. Pero la cuchara, a la seta. (El bicho mira el plato. Cara de muñeco. Un poquito más triste que antes.)", "sigue": "fin" },
         "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard le pone al bicho una cucharilla en la pata, sin que la seta lo vea. El bicho no se mueve. Pero no la suelta en toda la noche." }
       }
@@ -48,9 +48,9 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Parasect cena sin decir nada. La seta tampoco: viene mustia del viaje. El bicho rebaña el plato con la cucharilla de Charizard.)", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "¿Qué tal el estofado? ¿Le falta sal, según la seta?", "sigue": "n1" },
-        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "(La seta va a contestar. Pero antes, desde abajo, sale una voz que nadie había oído, ronca de no usarla.) …Gracias por la cena.", "sigue": "manolo2" },
+        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "(La seta va a contestar. Pero antes, desde abajo, sale una voz que nadie había oído en mucho tiempo, ronca de no usarla.) …Gracias por la cena.", "sigue": "manolo2" },
         "manolo2": { "quien": "manolo", "emocion": "Surprised", "texto": "(Manolo se queda con el cazo en el aire. Charizard deja de masticar. Hasta la seta se calla.)", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "(Habla el bicho, despacito.) Llevo un año dejando que hable ella. Era más fácil. Pero el estofado estaba bueno, y eso lo quería decir yo.", "sigue": "n3" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "(Habla el bicho, despacito.) Desde que evolucioné dejo que hable ella. Era más fácil. Pero el estofado estaba bueno, y eso quería decirlo yo.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "(La seta, bajito:) Le falta sal. (El bicho:) No le falta nada. (Discuten. Por primera vez en mucho tiempo, son dos.)", "opciones": [
           { "texto": "«Me alegro de oírte, chaval»", "efectos": { "afinidad": 1, "flags": { "paras_secreto": "voz" } }, "sigue": "voz" },
           { "texto": "«Tenéis razón los dos. Toma, la sal»", "efectos": { "flags": { "paras_secreto": "sal" } }, "sigue": "sal" }

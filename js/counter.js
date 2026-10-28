@@ -98,6 +98,147 @@ function outside(c, fase, t, pond) {
   }
 }
 
+// El sombrero vaquero de los del Oeste, encima de la cabeza (k: lo que mide cada píxel)
+const SOMBRERO = ['....LLLLLL....', '...LBBBBBBL...', '...LBBBBBBL...', '...LDDDDDDL...', 'LLLLBBBBBBLLLL', 'LBBBBBBBBBBBBL', '.LLLLLLLLLLLL.'];
+function sombrero(c, x, y, k) {
+  const col = { L: '#100C14', B: '#9F6A3F', D: '#4F2F1F' };
+  const x0 = Math.round(x - SOMBRERO[0].length * k / 2), y0 = Math.round(y - (SOMBRERO.length - 3) * k);
+  SOMBRERO.forEach((r, dy) => [...r].forEach((ch, dx) => { if (ch !== '.') rect(c, x0 + dx * k, y0 + dy * k, k, k, col[ch]); }));
+}
+
+// Decorados de los eventos (las excursiones): cada grupo monta lo suyo delante de la posada, entre
+// el pino (x 14-20) y la fachada (x 122): al fondo, detrás de los personajes. El suelo empieza en y 58.
+function guirnalda(c, x0, y0, x1, y1, comba, t, cols, paso = 6, banderin = false) {
+  const n = Math.floor((x1 - x0) / paso);
+  for (let i = 0; i <= n; i++) {
+    const k = i / n, x = Math.round(x0 + (x1 - x0) * k), y = Math.round(y0 + (y1 - y0) * k + Math.sin(k * Math.PI) * comba);
+    rect(c, x, y, 2, 1, '#100C14');
+    if (i === n) break;
+    const col = cols[i % cols.length];
+    if (banderin) { rect(c, x, y + 1, 4, 2, col); rect(c, x + 1, y + 3, 2, 1, col); }
+    else { const on = Math.floor(t / 400 + i) % 3 !== 0; rect(c, x + 2, y + 1, 2, 2, on ? col : '#5F5A67'); if (on) { c.globalAlpha = 0.3; rect(c, x + 1, y, 4, 4, col); c.globalAlpha = 1; } }
+  }
+}
+function arte(c, rows, x, y, pal) {
+  rows.forEach((r, dy) => [...r].forEach((ch, dx) => { if (ch !== '.') rect(c, x + dx, y + dy, 1, 1, pal[ch]); }));
+}
+const ESCENARIO = {
+  // la feria: bombillas del pino a la casa y un tiovivo a rayas
+  feria(c, t) {
+    guirnalda(c, 20, 12, 122, 15, 8, t, ['#FFD27A', '#F7577F', '#9FD7FF', '#A7D76F']);
+    const x = 104, gira = Math.floor(t / 250) % 2;
+    for (let i = 0; i < 9; i++) rect(c, x - i, 24 + i, i * 2 + 1, 1, (i + gira) % 2 ? '#C73F2F' : '#F4EFE6');
+    rect(c, x - 9, 33, 19, 1, '#100C14');
+    rect(c, x, 34, 1, 22, '#DFAF3F');
+    for (const [dx, up] of [[-6, gira], [5, 1 - gira]]) { rect(c, x + dx, 34, 1, 12 + up * 2, '#DFAF3F'); rect(c, x + dx - 2, 46 + up * 2, 5, 3, '#F4EFE6'); rect(c, x + dx - 2, 46 + up * 2, 1, 1, '#100C14'); }
+    rect(c, x - 11, 56, 23, 2, '#7F3323');
+  },
+  // la playa: sombrilla, toalla y cubo con pala
+  playa(c, t) {
+    const x = 104;
+    for (let i = 0; i < 7; i++) rect(c, x - 2 - i * 2, 22 + i, 5 + i * 4, 1, Math.floor(i / 2) % 2 ? '#F4EFE6' : '#C73F2F');
+    rect(c, x, 29, 1, 29, '#9F9AA7');
+    rect(c, x - 16, 60, 20, 4, '#4F8FDF'); for (let i = 0; i < 20; i += 4) rect(c, x - 16 + i, 60, 2, 4, '#FFD27A');
+    rect(c, x + 8, 55, 6, 5, '#100C14'); rect(c, x + 9, 55, 4, 4, '#F08F3F'); rect(c, x + 13, 50, 1, 6, '#E2653F');
+    disc(c, 64 + Math.round(Math.sin(t / 500) * 2), 61, 2, '#F7577F'); rect(c, 63 + Math.round(Math.sin(t / 500) * 2), 59, 2, 1, '#F4EFE6');
+  },
+  // el ballet acuático: banderines azules y blancos sobre el estanque, y surtidores
+  acuatico(c, t) {
+    guirnalda(c, 20, 10, 122, 12, 6, t, ['#4F8FDF', '#F4EFE6', '#9FDFEF'], 6, true);
+    for (const x of [44, 116]) for (let i = 0; i < 4; i++) {
+      const k = ((t / 600) + i / 4) % 1;
+      rect(c, x + Math.round((i - 1.5) * k * 6), Math.round(66 - Math.sin(k * Math.PI) * 14), 2, 2, i % 2 ? '#9FDFEF' : '#F4EFE6');
+    }
+  },
+  // el Oeste: cactus, cartel del saloon y un matojo que rueda
+  oeste(c, t) {
+    arte(c, ['...LL...', '...GL...', 'L..GL...', 'GL.GL.LL', 'GL.GL.GL', 'GLLGLLGL', '.GGGGGG.', '...GL...', '...GL...', '...GL...', '...GL...', '...GL...'], 100, 46, { L: '#3F6F3F', G: '#6F9F4F' });
+    rect(c, 26, 38, 1, 20, '#6F4527'); rect(c, 36, 38, 1, 20, '#6F4527');
+    rect(c, 24, 34, 15, 7, '#100C14'); rect(c, 25, 35, 13, 5, '#B7834F');
+    for (let i = 0; i < 4; i++) rect(c, 27 + i * 3, 37, 2, 1, '#4F2F1F');
+    const x = ((t / 30) % 140) - 10, y = 54 - Math.abs(Math.sin(t / 200)) * 4;
+    disc(c, Math.round(x), Math.round(y), 3, '#9F7F4F'); rect(c, Math.round(x) - 1, Math.round(y) - 1, 2, 1, '#6F5F37');
+  },
+  // la verbena: banderines de papel en zigzag, farolillos y un cohete en el cielo
+  verbena(c, t) {
+    guirnalda(c, 20, 10, 122, 14, 7, t, ['#C73F2F', '#FFD27A', '#6F9F4F', '#4F8FDF', '#F7A7C7'], 5, true);
+    guirnalda(c, 20, 20, 122, 22, 6, t, ['#FFB347', '#F7577F'], 10);
+    const k = (t % 3000) / 3000;
+    if (k < 0.5) rect(c, 70, Math.round(34 - k * 50), 1, 2, '#FFF7BF');
+    else for (let i = 0; i < 8; i++) { const a = i * Math.PI / 4, r = (k - 0.5) * 20; c.globalAlpha = 1 - (k - 0.5) * 2; rect(c, Math.round(70 + Math.cos(a) * r), Math.round(9 + Math.sin(a) * r), 1, 1, ['#FFD27A', '#F7577F', '#9FD7FF'][i % 3]); }
+    c.globalAlpha = 1;
+  },
+  // el punto limpio: los tres contenedores de reciclar
+  puntolimpio(c) {
+    [['#FFD23F', '#B7972F'], ['#4F8FDF', '#2F4F9F'], ['#6F9F4F', '#3F6F3F']].forEach(([a, b], i) => {
+      const x = 92 + i * 10;
+      rect(c, x, 42, 9, 16, '#100C14'); rect(c, x + 1, 44, 7, 13, a); rect(c, x, 41, 9, 3, b); rect(c, x + 3, 47, 3, 1, '#F4EFE6');
+    });
+    rect(c, 30, 54, 5, 4, '#7F7F4F'); rect(c, 31, 53, 3, 1, '#9F9F6F');
+  },
+  // la visita del Team Rocket: el globo con cara de gato y un cartel con la R
+  visitasrocket(c, t) {
+    const y = 8 + Math.round(Math.sin(t / 700) * 2), x = 98;
+    disc(c, x, y + 6, 8, '#100C14'); disc(c, x, y + 6, 7, '#F2DCA0');
+    rect(c, x - 7, y - 2, 3, 3, '#F2DCA0'); rect(c, x + 5, y - 2, 3, 3, '#F2DCA0');
+    disc(c, x, y + 2, 2, '#DFAF3F'); rect(c, x - 3, y + 6, 1, 2, '#100C14'); rect(c, x + 3, y + 6, 1, 2, '#100C14');
+    rect(c, x - 3, y + 15, 1, 6, '#100C14'); rect(c, x + 3, y + 15, 1, 6, '#100C14'); rect(c, x - 4, y + 21, 9, 4, '#8F5F37');
+    rect(c, 28, 30, 13, 15, '#100C14'); rect(c, 29, 31, 11, 13, '#F4EFE6');
+    arte(c, ['XXXX.', 'X...X', 'XXXX.', 'X.X..', 'X..X.', 'X...X'], 32, 34, { X: '#C73F2F' });
+    rect(c, 34, 45, 1, 13, '#6F4527');
+  },
+  // el dojo: tatami en el césped, saco de boxeo colgado del pino y el cartel con el círculo rojo
+  dojo(c, t) {
+    rect(c, 50, 59, 56, 6, '#100C14'); rect(c, 51, 59, 54, 5, '#C7B76F'); for (let x = 51; x < 105; x += 9) rect(c, x, 59, 1, 5, '#8F7F3F');
+    const sw = Math.round(Math.sin(t / 500) * 2);
+    rect(c, 26, 22, 1, 8, '#4F4F57'); rect(c, 24 + sw, 30, 6, 14, '#100C14'); rect(c, 25 + sw, 31, 4, 12, '#C73F2F'); rect(c, 25 + sw, 31, 1, 12, '#E2653F');
+    rect(c, 106, 36, 1, 22, '#6F4527'); rect(c, 100, 26, 13, 11, '#100C14'); rect(c, 101, 27, 11, 9, '#F4EFE6'); disc(c, 106, 31, 3, '#C73F2F');
+  },
+  // los psíquicos: mesita con bola de cristal, cucharas que flotan y destellos
+  psiquicos(c, t) {
+    rect(c, 98, 48, 16, 2, '#100C14'); rect(c, 99, 48, 14, 1, '#8F4FAF'); rect(c, 100, 50, 1, 8, '#4F2F1F'); rect(c, 111, 50, 1, 8, '#4F2F1F');
+    disc(c, 106, 43, 4, '#100C14'); disc(c, 106, 43, 3, Math.sin(t / 300) > 0 ? '#B77FDF' : '#9FD7FF'); rect(c, 105, 41, 1, 1, '#FFFFFF');
+    for (let i = 0; i < 3; i++) {
+      const x = 40 + i * 22, y = 24 + Math.round(Math.sin(t / 400 + i * 2) * 3);
+      rect(c, x, y, 1, 5, '#C7C3D3'); rect(c, x - 1, y - 2, 3, 2, '#E7E7EF');
+    }
+    for (let i = 0; i < 5; i++) if ((Math.floor(t / 200) + i) % 4 === 0) rect(c, 30 + i * 18, 16 + (i * 7) % 20, 1, 1, '#FFF7BF');
+  },
+  // la vendimia: la parra con racimos, un cesto de uvas y el tonel
+  vendimia(c) {
+    for (const x of [30, 58, 86]) rect(c, x, 36, 1, 22, '#6F4527');
+    rect(c, 30, 36, 57, 1, '#6F4527');
+    for (let x = 30; x < 88; x += 5) { rect(c, x, 37, 4, 3, '#6F9F4F'); if (x % 10 === 0) { rect(c, x + 1, 40, 3, 2, '#8F4FAF'); rect(c, x + 2, 42, 1, 2, '#5F2F7F'); } }
+    rect(c, 100, 46, 14, 12, '#100C14'); rect(c, 101, 47, 12, 10, '#9F6A3F'); rect(c, 101, 49, 12, 1, '#57576F'); rect(c, 101, 54, 12, 1, '#57576F');
+    rect(c, 92, 53, 8, 5, '#B7834F'); for (let i = 0; i < 4; i++) rect(c, 93 + i * 2, 51, 2, 2, '#8F4FAF');
+  },
+  // los electricistas: poste con cables al pino y a la casa, caja de herramientas y cono
+  electricistas(c, t) {
+    rect(c, 70, 14, 2, 44, '#6F4527'); rect(c, 64, 16, 14, 2, '#6F4527');
+    guirnalda(c, 20, 18, 64, 17, 4, t, ['#100C14'], 8, true);
+    guirnalda(c, 78, 17, 122, 20, 4, t, ['#100C14'], 8, true);
+    if (Math.floor(t / 150) % 9 === 0) { rect(c, 66, 14, 2, 2, '#FFF7BF'); rect(c, 75, 18, 2, 2, '#FFD23F'); }
+    rect(c, 98, 54, 12, 4, '#100C14'); rect(c, 99, 54, 10, 3, '#C73F2F'); rect(c, 102, 52, 4, 2, '#100C14');
+    rect(c, 114, 51, 3, 7, '#F08F3F'); rect(c, 113, 57, 5, 1, '#F08F3F'); rect(c, 114, 54, 3, 1, '#F4EFE6');
+  },
+  // los fósiles: una excavación con huesos, el ámbar y la pala clavada
+  fosiles(c) {
+    for (let i = 0; i < 8; i++) rect(c, 94 - i * 2, 50 + i, 18 + i * 4, 1, i < 2 ? '#8F6037' : '#6F4527');
+    rect(c, 90, 52, 6, 2, '#F4EFE6'); rect(c, 89, 51, 2, 1, '#F4EFE6'); rect(c, 95, 51, 2, 1, '#F4EFE6');
+    rect(c, 102, 55, 4, 4, '#100C14'); rect(c, 103, 55, 2, 3, '#FFB347');
+    disc(c, 110, 53, 3, '#100C14'); disc(c, 110, 53, 2, '#C7B78F'); rect(c, 109, 53, 2, 1, '#8F7F5F');
+    rect(c, 116, 38, 1, 18, '#6F4527'); rect(c, 114, 50, 5, 6, '#9F9AA7');
+  },
+  // los pájaros legendarios: nubes, copos que caen y alguna pluma con chispa
+  pajaros(c, t) {
+    for (const [x, y] of [[40, 10], [92, 6], [70, 18]]) { const dx = Math.round(Math.sin(t / 2000 + x) * 3); disc(c, x + dx, y, 4, '#F4EFE6'); disc(c, x + dx + 5, y + 1, 3, '#F4EFE6'); disc(c, x + dx - 5, y + 1, 3, '#E7E7EF'); }
+    for (let i = 0; i < 6; i++) { const k = ((t / 4000) + i / 6) % 1; rect(c, 28 + i * 16 + Math.round(Math.sin(k * 8) * 3), Math.round(k * 56), 1, 1, '#9FDFEF'); }
+    for (let i = 0; i < 2; i++) { const k = ((t / 5000) + i / 2) % 1; const x = 50 + i * 40 + Math.round(Math.sin(k * 6) * 6), y = Math.round(k * 54);
+      rect(c, x, y, 3, 1, i ? '#FFD23F' : '#4F8FDF'); rect(c, x + 1, y + 1, 3, 1, i ? '#FFD23F' : '#4F8FDF'); }
+    if (Math.floor(t / 120) % 25 === 0) arte(c, ['.XX', 'XX.', '.XX', 'XX.'], 108, 8, { X: '#FFF7BF' });
+  },
+};
+
 function counterFront(c) {
   // la barra del mostrador, por delante de todo
   rect(c, 0, BAR, W, H - BAR, '#6F4527');
@@ -134,38 +275,148 @@ function tears(c, t, { x, y, sep }) {
   c.globalAlpha = 1;
 }
 
+// Los efectos de las animaciones de los eventos, en pixel art: corazones, Zzz, chispas, confeti…
+// (cab: lo alto del que la hace, en píxeles de la vista; ms: desde que empezó)
+const DIBUJO = {
+  corazon: ['.X.X.', 'XXXXX', 'XXXXX', '.XXX.', '..X..'],
+  nota: ['..XX', '..XX', '..X.', 'XXX.', 'XX..'],
+  zeta: ['XXXX', '..X.', '.X..', 'XXXX'],
+  estrella: ['..X..', '..X..', 'XXXXX', '..X..', '..X..'],
+  gota: ['.X.', 'XXX', 'XXX', '.X.'],
+  enfado: ['X.X.X', '.....', 'X...X', '.....', 'X.X.X'],
+};
+function pinta(c, forma, x, y, col, borde = '#100C14') {
+  const rows = DIBUJO[forma];
+  x = Math.round(x); y = Math.round(y);
+  c.fillStyle = borde;
+  rows.forEach((r, dy) => [...r].forEach((ch, dx) => { if (ch === 'X') { c.fillRect(x + dx - 1, y + dy, 3, 1); c.fillRect(x + dx, y + dy - 1, 1, 3); } }));
+  c.fillStyle = col;
+  rows.forEach((r, dy) => [...r].forEach((ch, dx) => { if (ch === 'X') c.fillRect(x + dx, y + dy, 1, 1); }));
+}
+function efecto(c, fx, ms, cab) {
+  if (!cab) return;
+  const { x, y, h } = cab;
+  const ciclo = (n, per) => [...Array(n)].map((_, i) => ((ms / per) + i / n) % 1);
+  switch (fx.tipo) {
+    case 'duerme':
+      ciclo(3, 1800).forEach(k => { c.globalAlpha = 1 - k; pinta(c, 'zeta', x + 6 + k * 14, y - 2 - k * 16, '#F4EFE6'); });
+      break;
+    case 'corazones':
+      ciclo(4, 1600).forEach((k, i) => { c.globalAlpha = 1 - k * 0.8; pinta(c, 'corazon', x - 12 + i * 7 + Math.sin(k * 6 + i) * 3, y + 4 - k * 22, '#F7577F'); });
+      break;
+    case 'notas':
+      ciclo(3, 1500).forEach((k, i) => { c.globalAlpha = 1 - k * 0.8; pinta(c, 'nota', x + (i % 2 ? 10 : -14) + Math.sin(k * 8) * 3, y + 2 - k * 20, i % 2 ? '#FFD27A' : '#9FD7FF'); });
+      break;
+    case 'estrellas':
+      ciclo(5, 1200).forEach((k, i) => { c.globalAlpha = Math.sin(k * Math.PI); pinta(c, 'estrella', x + Math.cos(i * 1.3) * (12 + i * 2), y + h * 0.4 + Math.sin(i * 2.1) * h * 0.5, '#FFF7BF'); });
+      break;
+    case 'sudor':
+      pinta(c, 'gota', x + 9, y + 2 + (ms % 1400) / 1400 * 8, '#6FB7FF');
+      break;
+    case 'enfado':
+      if (ms % 900 < 600) pinta(c, 'enfado', x + 8, y - 2, '#E2453F', '#7F1F17');
+      break;
+    case 'chispas':
+      for (let i = 0; i < 4; i++) {
+        if ((Math.floor(ms / 90) + i) % 3) continue;
+        const a = i * 1.7 + Math.floor(ms / 270);
+        let px = x + Math.cos(a) * 14, py = y + h * 0.5 + Math.sin(a) * h * 0.5;
+        c.fillStyle = i % 2 ? '#FFF7BF' : '#FFD23F';
+        for (let j = 0; j < 4; j++) { c.fillRect(Math.round(px), Math.round(py), 2, 2); px += j % 2 ? 2 : -2; py += 2; }
+      }
+      break;
+    case 'fuego':
+      ciclo(8, 700).forEach((k, i) => {
+        const r = Math.max(1, Math.round(3 * (1 - k)));
+        c.fillStyle = k < 0.3 ? '#FFF7BF' : k < 0.6 ? '#FFB347' : '#E2653F';
+        c.fillRect(Math.round(x + 6 + k * 26), Math.round(y + h * 0.3 + Math.sin(i * 2.4) * k * 6 - k * 6), r, r);
+      });
+      break;
+    case 'agua':
+      ciclo(8, 900).forEach((k, i) => {
+        const a = -Math.PI / 2 + (i - 3.5) * 0.35;
+        c.fillStyle = i % 2 ? '#9FDFEF' : '#4F8FDF';
+        c.fillRect(Math.round(x + Math.cos(a) * k * 22), Math.round(y + Math.sin(a) * k * 22 + k * k * 20), 2, 2);
+      });
+      break;
+    case 'humo':
+      ciclo(4, 1600).forEach((k, i) => { c.globalAlpha = 0.7 * (1 - k); disc(c, Math.round(x - 6 + i * 4 + k * 4), Math.round(y + 4 - k * 18), 2 + Math.round(k * 4), '#C7C3D3'); });
+      break;
+    case 'flash': {
+      const k = (ms % 2200) / 350;
+      if (k < 1) { c.globalAlpha = 0.8 * (1 - k); c.fillStyle = '#FFFFFF'; c.fillRect(0, 0, W, H); }
+      break;
+    }
+    case 'confeti': {
+      const COL = ['#F7577F', '#FFD27A', '#6F9F4F', '#4F8FDF', '#B77FDF', '#F4EFE6'];
+      for (let i = 0; i < 26; i++) {
+        const k = ((ms / 2400) + (i * 37 % 26) / 26) % 1;
+        c.fillStyle = COL[i % COL.length];
+        c.fillRect(Math.round((i * 53) % W + Math.sin(k * 9 + i) * 4), Math.round(k * (H + 6)) - 4, 2, Math.floor(ms / 120 + i) % 2 ? 2 : 1);
+      }
+      break;
+    }
+  }
+  c.globalAlpha = 1;
+}
+
 export function createCounter(canvas) {
   const c = canvas.getContext('2d');
   let guest = null, chari = null, fase = 'noche', running = false, speaking = null, hopUntil = 0, guestScale = 2, drawn = 0;
   let llora = false, ojos = null;   // si el huésped está llorando y dónde tiene los ojos
   let lugar = 'dentro';   // 'dentro' (mostrador), 'fuera' (frente al pino) o 'estanque'
+  let decor = null;       // el decorado del evento (las excursiones), si lo hay
+  let sinSombrero = false; // en el Oeste, cuando se lo quita (o se le vuela)
 
-  async function open({ sprite, buddy = null, fase: f, lugar: l = 'dentro' }) {
+  const ANIMS = ['Idle', 'Hop', 'Sleep'];
+  let guestSprite = null, cabeza = null, fx = null;   // fx: la animación del momento («anim» de un nodo)
+
+  async function open({ sprite, buddy = null, fase: f, lugar: l = 'dentro', escenario = null }) {
     fase = f;
     lugar = l;
-    const [gs, cs] = await Promise.all([loadSprite(sprite, ['Idle', 'Hop']), loadSprite('0006', ['Idle', 'Hop'])]);
-    // el huésped va en primer plano: a ×2 si cabe, a ×1 si es muy grande (Gengar flota alto).
-    // Se mide su cuerpo real para que asome de la barra siempre igual.
-    const a = gs.anims.Idle, body = measure(a.img, a.fw, a.fh);
-    // fuera se le ve entero, de pie en el césped (o en el agua del estanque)
-    const ground = lugar === 'dentro' ? BAR + 9 : lugar === 'estanque' ? 74 : 72;
-    guestScale = (body.bottom - body.top) * 2 <= (lugar === 'dentro' ? 58 : 62) ? 2 : 1;
-    const feetY = ground / guestScale + 6 + a.fh / 2 - body.bottom;
-    guest = new Actor(gs, { x: (lugar === 'dentro' ? 84 : 80) / guestScale - (buddy ? 9 : 0), y: feetY, dir: DIR.down });
-    // a un tercio de la cabeza, más o menos: de ahí caen las lágrimas
-    ojos = { x: guest.x * guestScale, y: (feetY - 6 - a.fh / 2 + body.top + (body.bottom - body.top) * 0.3) * guestScale, sep: Math.min(10, (body.bottom - body.top) * 0.18) * guestScale };
+    decor = ESCENARIO[escenario] ? escenario : null;
+    fx = null;
     llora = false;
-    await addBuddy(guest, buddy, ['Idle', 'Hop']);
+    const cs = await loadSprite('0006', ANIMS);
+    guestSprite = null;
+    await setGuest(sprite, buddy);
     chari = new Actor(cs, { x: lugar === 'dentro' ? 26 : 38, y: lugar === 'dentro' ? BAR + 10 : 70, dir: DIR.downRight });
     if (!running) { running = true; requestAnimationFrame(frame); }
     resize();
   }
 
+  // Pone delante a un huésped (en los grupos, al miembro que habla en cada momento)
+  async function setGuest(sprite, buddy = null) {
+    if (!sprite || sprite === guestSprite) return;
+    guestSprite = sprite;
+    const gs = await loadSprite(sprite, ANIMS);
+    if (guestSprite !== sprite) return;   // mientras cargaba ya se ha pedido otro
+    // el huésped va en primer plano: a ×2 si cabe, a ×1 si es muy grande (Gengar flota alto).
+    // Se mide su cuerpo real para que asome de la barra siempre igual.
+    const a = gs.anims.Idle, body = measure(a.img, a.fw, a.fh);
+    // fuera se le ve entero, de pie en el césped (o en el agua del estanque)
+    const ground = lugar === 'dentro' ? BAR + 9 : lugar === 'estanque' ? 74 : 72;
+    const scale = (body.bottom - body.top) * 2 <= (lugar === 'dentro' ? 58 : 62) ? 2 : 1;
+    const feetY = ground / scale + 6 + a.fh / 2 - body.bottom;
+    const g = new Actor(gs, { x: (lugar === 'dentro' ? 84 : 80) / scale - (buddy ? 9 : 0), y: feetY, dir: DIR.down });
+    await addBuddy(g, buddy, ANIMS);
+    if (guestSprite !== sprite) return;
+    guest = g;
+    guestScale = scale;
+    // a un tercio de la cabeza, más o menos: de ahí caen las lágrimas
+    ojos = { x: g.x * scale, y: (feetY - 6 - a.fh / 2 + body.top + (body.bottom - body.top) * 0.3) * scale, sep: Math.min(10, (body.bottom - body.top) * 0.18) * scale };
+    cabeza = { x: g.x * scale, y: (feetY - 6 - a.fh / 2 + body.top) * scale, h: (body.bottom - body.top) * scale };
+  }
+
   function close() { running = false; }
 
-  // Quién habla y con qué cara: el que habla contento da un saltito
-  function speak(who, emotion) {
+  // Quién habla y con qué cara: el que habla contento da un saltito. «anim»: la animación del
+  // momento (se duerme, baila, chispas…), sobre el que habla o sobre otro («otro»: su sprite)
+  function speak(who, emotion, anim = null, otro = null) {
     speaking = who;
+    if (otro && otro !== '0006') setGuest(otro);
+    fx = anim ? { tipo: anim, t0: performance.now(), sobre: otro === '0006' || (!otro && who === 'charizard') ? 'chari' : 'guest' } : null;
+    if (anim) { llora = false; return; }
     if (who === 'huesped') llora = ['Crying', 'Sad', 'Teary-Eyed'].includes(emotion);
     const a = who === 'huesped' ? guest : who === 'charizard' ? chari : null;
     // los grandes (a ×1) no saltan: se saldrían del cuadro
@@ -197,21 +448,48 @@ export function createCounter(canvas) {
     if (t - drawn < 30) return;   // ~30 fps bastan
     drawn = t;
     if (lugar === 'dentro') backdrop(c, fase, t);
-    else outside(c, fase, t, lugar === 'estanque');
-    if (performance.now() > hopUntil) for (const a of [guest, chari]) if (a && a.anim === 'Hop') a.anim = 'Idle';
+    else outside(c, fase, t, lugar === 'estanque' || decor === 'acuatico');
+    if (decor) ESCENARIO[decor](c, t, fase);
+    const now = performance.now();
+    if (now > hopUntil) for (const a of [guest, chari]) if (a && (a.anim === 'Hop' || a.anim === 'Sleep')) a.anim = 'Idle';
     c.imageSmoothingEnabled = false;
+    const blanco = fx && (fx.sobre === 'chari' ? chari : guest);
+    // quien habla: Charizard, o el huésped (que en los grupos es el miembro que tiene la palabra)
+    const hablante = speaking === 'charizard' ? chari : speaking === 'manolo' ? null : guest;
     for (const a of [chari, guest]) {
       if (!a) continue;
-      // el que no habla queda un poco en sombra
-      c.globalAlpha = speaking && speaking !== 'manolo' && a !== (speaking === 'huesped' ? guest : chari) ? 0.75 : 1;
+      // el que no habla queda un poco en sombra (salvo el que hace la animación)
+      c.globalAlpha = hablante && a !== hablante && a !== blanco ? 0.75 : 1;
+      const k = a === guest ? guestScale : 1;
+      const [dx, dy, dir] = a === blanco ? mover(a, now - fx.t0) : [0, 0, null];
+      const x0 = a.x, y0 = a.y, d0 = a.dir;
+      a.x += dx / k; a.y += dy / k;
+      if (dir != null) a.dir = dir;
       if (a === guest) { c.save(); c.scale(guestScale, guestScale); a.draw(c, t); c.restore(); }
       else a.draw(c, t);
+      a.x = x0; a.y = y0; a.dir = d0;
       c.globalAlpha = 1;
+      // en el Oeste, los dos van con su sombrero de vaquero puesto
+      if (a === guest && decor === 'oeste' && cabeza && !sinSombrero) sombrero(c, cabeza.x + dx, cabeza.y + dy, guestScale);
     }
     if (llora && ojos) tears(c, t, ojos);
     if (lugar === 'dentro') counterFront(c);
+    if (fx) efecto(c, fx, now - fx.t0, fx.sobre === 'chari' ? { x: chari.x, y: chari.y - 30, h: 24 } : cabeza);
+  }
+
+  // Lo que se mueve el que hace la animación: [dx, dy, dirección] en píxeles de la vista
+  function mover(a, ms) {
+    const tipo = fx.tipo;
+    if (tipo === 'duerme' && a.sprite.anims.Sleep) a.anim = 'Sleep';
+    else if (a.anim === 'Sleep' || (a.anim === 'Hop' && performance.now() > hopUntil)) a.anim = 'Idle';
+    if (tipo === 'baila') return [Math.round(Math.sin(ms / 160) * 3), -Math.round(Math.abs(Math.sin(ms / 160)) * 4), Math.floor(ms / 320) % 2 ? DIR.downLeft : DIR.downRight];
+    if (tipo === 'gira') return [0, 0, [DIR.down, DIR.downRight, DIR.right, DIR.upRight, DIR.up, DIR.upLeft, DIR.left, DIR.downLeft][Math.floor(ms / 90) % 8]];
+    if (tipo === 'salta') { const k = (ms % 1400) / 600; return [0, k < 1 ? -Math.round(Math.sin(k * Math.PI) * 14) : 0, null]; }
+    if (tipo === 'tiembla' || (tipo === 'enfado' && ms % 900 < 300)) return [Math.floor(ms / 40) % 2 ? 1 : -1, 0, null];
+    if (tipo === 'duerme' && !a.sprite.anims.Sleep) return [0, 2, null];
+    return [0, 0, null];
   }
 
   window.addEventListener('resize', () => running && resize());
-  return { open, close, speak };
+  return { open, close, speak, setGuest, sombrero: puesto => { sinSombrero = !puesto; } };
 }

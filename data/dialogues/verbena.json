@@ -1,34 +1,31 @@
 {
   "id": "verbena",
-  "_nota": "Grupo de una noche: la verbena del pueblo de al lado acaba en la posada (la orquesta se ha ido: el humo, Gastly, se lo llevó el viento). Doduo, pareja de presentadores de dos cabezas que nunca duermen a la vez (lo que serán: Dodrio, la tertulia), lleva todo el año ensayando las campanadas. Venonat, viajante de una óptica, gradúa la vista a ojo con sus ojos de radar. Venomoth, su madre, no puede dejar de mirar la llama de la cola de Charizard (le atrae la luz de noche). Remate: campanadas en octubre con doce bayas en vez de uvas; Venomoth se queda dormida junto a la chimenea, que también da luz.",
+  "_nota": "Grupo de excursión (una mañana, no duermen): la verbena del pueblo de al lado ha durado toda la noche y su autobús para en la posada a las ocho de la mañana, porque les faltan las campanadas. Doduo, pareja de presentadores de dos cabezas que nunca duermen a la vez, lleva todo el año ensayándolas. Venonat, de Óptica La Pupila, gradúa la vista a ojo con sus ojos de radar (a Manolo, dos dioptrías). Venomoth, su madre, es polilla: se ha pasado la noche rondando las farolas y ahora no puede dejar de seguir la llama de la cola de Charizard. Remate: campanadas en octubre con doce bayas en vez de uvas; Venomoth se duerme junto a la cola de Charizard y la suben al autobús dormida; Venonat deja unas gafas de cerca. Anim: sudor, corazones (rama), confeti, duerme.",
   "entradas": [
     {
       "id": "v1",
       "cuando": { "visita_min": 1 },
-      "subtitulo": "Una noche · la verbena",
+      "subtitulo": "Una mañana · la verbena",
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(A las once de la noche entra por la puerta media verbena del pueblo de al lado: confeti, un altavoz y un olor a churros que lo llena todo.)", "sigue": "doduo" },
-        "doduo": { "quien": "doduo", "emocion": "Happy", "texto": "(Cabeza izquierda:) ¡Buenas noches, Kanto! (Cabeza derecha:) ¡Buenas noches, El Pino Calcinado! (Las dos:) ¡Somos Doduo, y esto es la verbena!", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Worried", "texto": "La verbena se hace en la plaza, chavales. Esto es una posada.", "sigue": "doduo2" },
-        "doduo2": { "quien": "doduo", "emocion": "Normal", "texto": "(Izquierda:) Se nos ha acabado la plaza. (Derecha:) Y la orquesta se ha ido: al humo se lo llevó el viento. (Izquierda:) Así que seguimos aquí.", "sigue": "doduo3" },
-        "doduo3": { "quien": "doduo", "emocion": "Happy", "texto": "(Derecha:) Llevamos todo el año ensayando las campanadas. (Izquierda:) Como no dormimos nunca a la vez, una ensaya mientras la otra duerme.", "sigue": "venonat" },
-        "venonat": { "quien": "venonat", "emocion": "Happy", "texto": "(Un Venonat se acerca mucho, mucho, a la cara de Manolo.) Perdone. Venonat, de Óptica La Pupila. Usted necesita gafas de cerca. Dos dioptrías.", "sigue": "manolo2" },
-        "manolo2": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Y eso cómo lo sabes, si no me has hecho ni una prueba?", "sigue": "venonat2" },
-        "venonat2": { "quien": "venonat", "emocion": "Normal", "texto": "Tengo ojos de radar, señor. Gradúo a ojo. A su dragón le veo vista cansada. De mirar tanto la chistorra, supongo.", "sigue": "venomoth" },
-        "venomoth": { "quien": "venomoth", "emocion": "Normal", "texto": "(Su madre, Venomoth, no ha dicho nada desde que entró. Mira la cola de Charizard, fijamente. Se acerca. Se aparta. Se acerca otra vez.)", "sigue": "cola" },
-        "cola": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard mueve la cola a la izquierda. Venomoth va a la izquierda. A la derecha: Venomoth, a la derecha. Charizard empieza a sudar.", "sigue": "venonat3" },
-        "venonat3": { "quien": "venonat", "emocion": "Worried", "texto": "Perdone a mi madre. Es la luz: de noche no lo puede evitar. En casa tenemos todas las bombillas tapadas, como las jaulas de los pájaros.", "sigue": "venomoth2" },
-        "venomoth2": { "quien": "venomoth", "emocion": "Happy", "texto": "Qué llama tan bonita, hijo. Calentita. Amarillita. Me recuerda a las farolas del paseo, cuando yo era joven…", "opciones": [
+        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(A las ocho de la mañana para un autobús con confeti hasta en las ruedas. Es la verbena del pueblo de al lado, que ha durado toda la noche y no sabe acabar.)", "sigue": "doduo" },
+        "doduo": { "quien": "doduo", "emocion": "Happy", "texto": "(Cabeza izquierda:) ¡Buenos días, Kanto! (Cabeza derecha:) ¡Buenos días, El Pino Calcinado! (Las dos:) ¡Somos Doduo, presentadores de la verbena!", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Worried", "texto": "La verbena se hace en la plaza, chavales, y de noche. Son las ocho de la mañana.", "sigue": "doduo2" },
+        "doduo2": { "quien": "doduo", "emocion": "Normal", "texto": "(Izquierda:) La orquesta se ha ido a dormir. (Derecha:) Nosotros no: con dos cabezas, siempre hay una despierta. (Las dos:) ¡Y nos faltan las campanadas!", "sigue": "venonat" },
+        "venonat": { "quien": "venonat", "emocion": "Happy", "texto": "(Un Venonat se acerca muchísimo a la cara de Manolo.) Perdone. Soy Venonat, de Óptica La Pupila. Usted necesita gafas de cerca. Dos dioptrías.", "sigue": "venonat2" },
+        "venonat2": { "quien": "venonat", "emocion": "Normal", "texto": "¿Que cómo lo sé sin hacerle la prueba? Tengo ojos de radar: gradúo a ojo. Al dragón le veo vista cansada. De mirar tanto la chistorra, supongo.", "sigue": "venomoth" },
+        "venomoth": { "quien": "venomoth", "emocion": "Normal", "texto": "(Su madre, Venomoth, no dice nada. Mira fijamente la llama de la cola de Charizard. Se acerca. Se aparta. Se acerca otra vez.)", "sigue": "cola" },
+        "cola": { "quien": "charizard", "emocion": "Worried", "anim": "sudor", "texto": "Charizard mueve la cola a la izquierda: Venomoth va a la izquierda. A la derecha: Venomoth, a la derecha. Charizard empieza a sudar.", "sigue": "venonat3" },
+        "venonat3": { "quien": "venonat", "emocion": "Worried", "texto": "Perdone a mi madre: es polilla, y las luces la atraen. Se ha pasado la noche entera dando vueltas a las farolas de la verbena.", "sigue": "venomoth2" },
+        "venomoth2": { "quien": "venomoth", "emocion": "Happy", "texto": "Qué llama tan bonita, hijo. Calentita. Amarillita. Mejor que las farolas…", "opciones": [
           { "texto": "«Charizard, deja que te mire, hombre»", "efectos": { "afinidad": 1 }, "sigue": "mirar" },
-          { "texto": "«¡Venga, esas campanadas, aunque sea octubre!»", "sigue": "campanadas" }
+          { "texto": "«¡Venga, esas campanadas, aunque sean las ocho!»", "sigue": "campanadas" }
         ] },
-        "mirar": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard se sienta y deja la cola quieta, como una lamparita. Venomoth se pone a su lado, encantada. Venonat aprovecha para graduarle la vista al dragón.", "sigue": "campanadas" },
+        "mirar": { "quien": "charizard", "emocion": "Normal", "anim": "corazones", "anim_quien": "venomoth", "texto": "Charizard se sienta y deja la cola quieta, como una lamparita. Venomoth se pone a su lado, encantada.", "sigue": "campanadas" },
         "campanadas": { "quien": "doduo", "emocion": "Happy", "texto": "(Las dos cabezas, con capa de lentejuelas:) ¡Atentos, que vienen los cuartos! (Izquierda:) ¡Que no son los cuartos! (Derecha:) ¡Que sí!", "sigue": "bayas" },
-        "bayas": { "quien": "manolo", "emocion": "Happy", "texto": "(Manolo reparte doce bayas por cabeza, que uvas no hay. Una por campanada. Doduo, que tiene dos bocas, se come veinticuatro.)", "sigue": "doduo4" },
-        "doduo4": { "quien": "doduo", "emocion": "Surprised", "texto": "(Izquierda:) ¡Feliz año nuevo! (Derecha:) ¡Que estamos en octubre! (Izquierda:) ¡Pues feliz octubre! (Las dos:) …Nos ha salido perfecto.", "sigue": "dormida" },
-        "dormida": { "quien": "manolo", "emocion": "Normal", "texto": "(A la una se van con el altavoz y el confeti. Bueno, casi todos: Venomoth se ha quedado dormida junto a la chimenea, que también da luz.)", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard la tapa con la capa de lentejuelas que se dejó Doduo. De madrugada, Venonat vuelve de puntillas a por ella y le deja a Manolo unas gafas de cerca." }
+        "bayas": { "quien": "manolo", "emocion": "Happy", "anim": "confeti", "anim_quien": "doduo", "texto": "(Doce bayas por cabeza, como las uvas de Nochevieja. Doduo, que tiene dos bocas, se come veinticuatro.) ¡Feliz año nuevo… en octubre!", "sigue": "dormida" },
+        "dormida": { "quien": "venomoth", "emocion": "Normal", "anim": "duerme", "texto": "(Venomoth, que no ha pegado ojo en toda la noche, se queda dormida junto a la cola de Charizard, calentita.)", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "A media mañana suben al autobús. Charizard sube a Venomoth en brazos, dormida, tapada con la capa de Doduo. En el banco del pino quedan unas gafas de cerca para Manolo." }
       }
     }
   ]

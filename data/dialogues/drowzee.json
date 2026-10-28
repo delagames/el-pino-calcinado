@@ -49,22 +49,19 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "(Entra un Hypno balanceando un péndulo con mucha profesionalidad.) Manolo, me he hecho hipnoterapeuta. Y ya tengo paciente: usted.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Yo? ¿Y qué me pasa a mí?", "sigue": "n1" },
-        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "La cachimbita. Lo noté en su sueño: olía a humo hasta debajo del agua. Diez minutos de péndulo y no la vuelve a querer. Siéntese.", "sigue": "manolo2" },
-        "manolo2": { "quien": "manolo", "emocion": "Worried", "texto": "(Manolo se sienta, desconfiado. Charizard se sienta a su lado, para vigilar. El péndulo va y viene. Va y viene.)", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Mire el péndulo. Usted ya no quiere la cachimbita. Usted ya no quiere… (Charizard también está mirando el péndulo. Muy fijo.)", "sigue": "crisis" },
+        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "La cachimbita. Lo noté en su sueño: olía a humo hasta debajo del agua. Diez minutos de péndulo y no la vuelve a querer. Siéntese.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "(Manolo se sienta, desconfiado; Charizard, a su lado, para vigilar.) Mire el péndulo. Usted ya no quiere… (Charizard también lo mira. Muy fijo.)", "anim": "estrellas", "sigue": "crisis" },
         "crisis": { "quien": "charizard", "emocion": "Normal", "texto": "Le traen a Charizard su chistorra. La mira. La aparta con la garra. Se come una hoja de lechuga. En el comedor no se oye ni una mosca.", "sigue": "manolo3" },
-        "manolo3": { "quien": "manolo", "emocion": "Pain", "texto": "¡Lo has hipnotizado a él! ¡Charizard no quiere chistorra! ¡Esto es una emergencia! ¡Que alguien llame a Famadesa!", "sigue": "n3" },
+        "manolo3": { "quien": "manolo", "emocion": "Pain", "anim": "sudor", "texto": "¡Lo has hipnotizado a él! ¡Charizard no quiere chistorra! ¡Esto es una emergencia! ¡Que alguien llame a un médico! ¡O a un charcutero!", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Surprised", "texto": "¡Ay, madre, ha mirado sin permiso! (Chasquea los dedos tres veces delante del dragón.) ¡Despierta! ¡Chistorra! ¡CHISTORRA!", "sigue": "vuelve" },
         "vuelve": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard parpadea. Ve la chistorra. Se la come de un bocado, luego otra, luego la de Manolo. Y escupe la lechuga al fuego, con desprecio.", "sigue": "n4" },
-        "n4": { "quien": "huesped", "emocion": "Sad", "texto": "Perdón. Me he pasado. Uno no se debe meter en la cabeza de los demás para cambiarles nada. Bastante es ya comerse sus sueños.", "sigue": "n5" },
-        "n5": { "quien": "huesped", "emocion": "Normal", "texto": "Lo de la cachimbita, entonces… lo decide usted. Sin péndulo. (Se lo guarda en el bolsillo.)", "opciones": [
+        "n4": { "quien": "huesped", "emocion": "Sad", "texto": "Perdón. Me he pasado: no hay que meterse en la cabeza de nadie para cambiarle nada. Lo de la cachimbita lo decide usted. (Se guarda el péndulo.)", "opciones": [
           { "texto": "«De vez en cuando, en el porche, mirando el monte»", "efectos": { "afinidad": 1, "flags": { "drowzee_cachimba": "porche" } }, "sigue": "porche" },
           { "texto": "«La dejo. Pero porque lo digo yo»", "efectos": { "flags": { "drowzee_cachimba": "dejada" } }, "sigue": "dejada" }
         ] },
         "porche": { "quien": "manolo", "emocion": "Happy", "texto": "(Manolo sale al porche con la cachimbita, mira el monte un rato y la guarda. Decidido por él. Hypno apunta algo en la libreta y sonríe.)", "sigue": "sueno" },
         "dejada": { "quien": "manolo", "emocion": "Sigh", "texto": "(Manolo deja la cachimbita en la repisa de la chimenea, como un trofeo viejo.) Ahí se queda, para mirarla. Que mirar no es fumar.", "sigue": "sueno" },
-        "sueno": { "quien": "huesped", "emocion": "Happy", "texto": "(Esa noche, con permiso, Hypno prueba un último sueño de Manolo y sale sonriendo.) La posada llena. Todas las luces encendidas. Cinco estrellas.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Por la mañana, Hypno se va balanceando el péndulo, sin mirarlo. Charizard tampoco lo mira. Y se come una chistorra de más, para comprobar que le sigue gustando." }
+        "sueno": { "quien": "huesped", "emocion": "Happy", "texto": "(Esa noche, con permiso, Hypno prueba un último sueño de Manolo. En el desayuno lo puntúa:) La posada llena, todas las luces encendidas. Cinco estrellas.", "anim": "estrellas" }
       }
     }
   ]

@@ -1,34 +1,31 @@
 {
   "id": "feria",
-  "_nota": "Grupo de una noche: la feria ambulante para en el prado. Ponyta, la del tiovivo, no sabe parar de dar vueltas; su madre Rapidash corre a 240 km/h y no se sienta ni a cenar (su crin no quema a quien se fía); Tauros posa de perfil en el cerro como el toro de las carreteras y se cree patrimonio nacional (Ash atrapó treinta en la Zona Safari); Rattata, «del top 1 %» según su entrenador, hace claqué en el concurso de talentos, y su padre Raticate, el mánager, lo graba todo y muerde una silla de los nervios (solo tiene retratos Normal, Happy y Pain). Remate: Rattata gana echándose la siesta en mitad del número y su padre aplaude sin grabar.",
+  "_nota": "Grupo de excursión (una mañana, no duermen): el autobús de la feria ambulante para en el prado. Ponyta, la del tiovivo, no sabe parar de dar vueltas; su madre Rapidash corre a 240 km/h y no se sienta ni para almorzar (su crin solo quema a quien no se fía, y Charizard la toca y se fía); Tauros posa de perfil en el cerro como el toro negro de los carteles de carretera y se cree patrimonio nacional; Rattata, «del top 1 %» según su entrenador, hace claqué en el concurso de talentos, y su padre Raticate, el mánager, lo graba todo y muerde un poste de los nervios (solo retratos Normal, Happy y Pain). Remate: Rattata gana quedándose dormido en mitad del número y su padre aplaude sin grabar. Anim: gira (Ponyta), baila y duerme (Rattata), confeti (premio).",
   "entradas": [
     {
       "id": "v1",
       "cuando": { "visita_min": 1 },
-      "subtitulo": "Una noche · la feria ambulante",
+      "subtitulo": "Una mañana · la feria ambulante",
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Por la tarde para en el prado un camión lleno de bombillas: la feria ambulante. Antes de que Manolo diga «buenas», el comedor está lleno.)", "sigue": "ponyta" },
-        "ponyta": { "quien": "ponyta", "emocion": "Happy", "texto": "¡Hola, hola, hola! ¡Soy Ponyta, la del tiovivo! (Da vueltas alrededor de la mesa.) ¡Es que no sé parar! ¡Llevo dando vueltas desde abril!", "sigue": "rapidash" },
-        "rapidash": { "quien": "rapidash", "emocion": "Normal", "texto": "Perdone a la niña. Rapidash, su madre. Yo no me siento, que corro a doscientos cuarenta y si paro se me enfría la crin. Ceno de pie.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Worried", "texto": "¿Y eso no quema, señora? Lo digo por las cortinas.", "sigue": "rapidash2" },
-        "rapidash2": { "quien": "rapidash", "emocion": "Happy", "texto": "Solo quema a quien no se fía. ¿Usted se fía?", "sigue": "crin" },
-        "crin": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard toca la crin de Ponyta con la punta de la garra. No quema nada. Se queda tan contento que se fía de ella para siempre.", "sigue": "tauros" },
-        "tauros": { "quien": "tauros", "emocion": "Normal", "texto": "(Por la ventana se ve a Tauros en el cerro, de perfil, inmóvil, recortado contra el cielo.) Que no me molesten. Estoy siendo patrimonio nacional.", "sigue": "manolo2" },
-        "manolo2": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Y ese no baja a cenar?", "sigue": "tauros2" },
-        "tauros2": { "quien": "tauros", "emocion": "Angry", "texto": "Cuando se ponga el sol, que es cuando mejor sale la silueta. Un chaval atrapó a treinta como yo en la Zona Safari. Y ninguno posaba así.", "sigue": "rattata" },
-        "rattata": { "quien": "rattata", "emocion": "Happy", "texto": "¡Y yo soy Rattata! Mi entrenador dice que soy del top uno por ciento de los Rattata. ¡Esta noche hago claqué en el concurso de talentos!", "sigue": "raticate" },
-        "raticate": { "quien": "raticate", "emocion": "Pain", "texto": "(Su padre, Raticate, lo graba todo con el móvil y muerde la pata de una silla.) Es mi niño. Soy su mánager. Los dientes me crecen solos, perdone.", "opciones": [
-          { "texto": "«¡Pues que empiece el concurso!»", "efectos": { "afinidad": 1 }, "sigue": "concurso" },
-          { "texto": "«¿Y la silla quién me la paga?»", "sigue": "silla" }
+        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Por la mañana para en el prado un autobús lleno de bombillas: la feria ambulante, de excursión. Bajan cinco y montan un escenario junto al pino.)", "sigue": "ponyta" },
+        "ponyta": { "quien": "ponyta", "emocion": "Happy", "anim": "gira", "texto": "¡Hola, hola! ¡Soy Ponyta, la del tiovivo! (Da vueltas alrededor del pino.) ¡De tanto tiovivo no sé parar! ¡Llevo girando desde abril!", "sigue": "rapidash" },
+        "rapidash": { "quien": "rapidash", "emocion": "Normal", "texto": "Perdone a la niña. Soy Rapidash, su madre. Corro a doscientos cuarenta por hora y no me siento nunca. Ni para almorzar.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Worried", "texto": "¿Y esa crin de fuego no quema, señora? Lo digo por el pino, que ya se quemó una vez.", "sigue": "rapidash2" },
+        "rapidash2": { "quien": "rapidash", "emocion": "Happy", "texto": "Mi fuego solo quema a quien no se fía. ¿Usted se fía?", "sigue": "crin" },
+        "crin": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard toca la crin de Ponyta con la punta de la garra. No quema nada: hace cosquillas. Desde ese momento se fía de ella para siempre.", "sigue": "tauros" },
+        "tauros": { "quien": "tauros", "emocion": "Normal", "texto": "(En lo alto del cerro, Tauros posa de perfil, quieto, como el toro negro de los carteles de carretera.) Que no me molesten. Soy patrimonio nacional.", "sigue": "rattata" },
+        "rattata": { "quien": "rattata", "emocion": "Happy", "texto": "¡Y yo soy Rattata! Mi entrenador dice que soy del top uno por ciento de los Rattata. ¡Hoy hago claqué en el concurso de talentos!", "sigue": "raticate" },
+        "raticate": { "quien": "raticate", "emocion": "Pain", "texto": "(Su padre, Raticate, lo graba todo con el móvil y muerde un poste de los nervios.) Soy su padre y su mánager. Perdone el poste: los dientes me crecen solos.", "opciones": [
+          { "texto": "«¡Pues que empiece el concurso!»", "efectos": { "afinidad": 1 }, "sigue": "numero" },
+          { "texto": "«¿Y el poste quién me lo paga?»", "sigue": "poste" }
         ] },
-        "silla": { "quien": "raticate", "emocion": "Happy", "texto": "Le invito a la tarta. Y la silla se la arregla un Geodude que conozco. Me ha dicho que en una semana.", "sigue": "concurso" },
-        "concurso": { "quien": "manolo", "emocion": "Happy", "texto": "(Ponyta da vueltas, Tauros posa en la ventana y Rapidash hace de jurado sin sentarse. Le toca a Rattata. Se apagan las luces.)", "sigue": "numero" },
-        "numero": { "quien": "rattata", "emocion": "Normal", "texto": "Uno, dos, tres… (Tap, tap, tap. A mitad del número se para, se tumba en el escenario y se queda dormido como un tronco.)", "sigue": "jurado" },
-        "jurado": { "quien": "rapidash", "emocion": "Surprised", "texto": "…¡Un diez! Qué naturalidad. Qué presencia. Yo no he estado quieta en mi vida y este niño se duerme delante de todos.", "sigue": "ponyta2" },
-        "ponyta2": { "quien": "ponyta", "emocion": "Happy", "texto": "¡Ha ganado! ¡Ha ganado durmiendo! ¡Mamá, yo quiero aprender a hacer eso!", "sigue": "padre" },
-        "padre": { "quien": "raticate", "emocion": "Happy", "texto": "(Raticate baja el móvil. Por primera vez en toda la noche, aplaude sin grabar.) …Ese es mi niño.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "A medianoche se suben todos al camión. Charizard tapa con una servilleta a Rattata, que sigue dormido. En el mostrador queda una herradura «para la suerte»." }
+        "poste": { "quien": "raticate", "emocion": "Happy", "texto": "Le invito a tarta. Y el poste se lo arregla un Geodude que conozco. Dice que en una semana.", "sigue": "numero" },
+        "numero": { "quien": "rattata", "emocion": "Happy", "anim": "baila", "texto": "(Sube al escenario.) Y uno, y dos, y tres… (¡Tap, tap, tap! Zapatea como un loco. Ponyta gira de la emoción y Rapidash hace de jurado, de pie.)", "sigue": "siesta" },
+        "siesta": { "quien": "rattata", "emocion": "Normal", "anim": "duerme", "texto": "(A mitad del número, Rattata se para, se tumba en el escenario y se queda dormido como un tronco. Tanto claqué cansa.)", "sigue": "jurado" },
+        "jurado": { "quien": "rapidash", "emocion": "Surprised", "anim": "confeti", "texto": "…¡Un diez! Qué calma, qué presencia. Yo no he estado quieta en mi vida y este niño se duerme delante de todos. ¡Ha ganado!", "sigue": "padre" },
+        "padre": { "quien": "raticate", "emocion": "Happy", "texto": "(Raticate baja el móvil. Por primera vez en toda la mañana, aplaude sin grabar.) …Ese es mi niño.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "A mediodía suben todos al autobús. Charizard sube en brazos a Rattata, que sigue dormido. En el pino queda colgada una herradura «para la suerte»." }
       }
     }
   ]

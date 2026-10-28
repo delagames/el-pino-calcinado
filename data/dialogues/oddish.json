@@ -13,7 +13,7 @@
         "frota": { "quien": "manolo", "emocion": "Surprised", "texto": "(Manolo se frota la baya por la calva. Huele a menta. Le pica un poco.)", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard se acerca a mirar de cerca la calva de Manolo, muy serio, como quien vigila una olla.", "sigue": "fin" },
         "no": { "quien": "huesped", "emocion": "Sad", "texto": "Vale… Se la dejo aquí, por si cambia de idea.", "sigue": "fin" },
-        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "¡Mañana lo verá! Bueno, cuando vuelva, que yo me voy temprano." }
+        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "¡Ya verá como le sale! Yo salgo al alba, así que me lo cuenta la próxima vez." }
       }
     },
     {
@@ -24,8 +24,8 @@
         "inicio": { "quien": "huesped", "emocion": "Surprised", "texto": "¡Señor! ¿Funcionó la baya? ¡Cuente, cuente!", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "Al día siguiente me salió una pelusilla. Fina, rubia. Un bigote de melocotón en lo alto de la cabeza.", "sigue": "manolo2" },
         "manolo2": { "quien": "manolo", "emocion": "Sigh", "texto": "Y al otro, Charizard estornudó a mi lado y se me fue toda. Como el pino.", "sigue": "charizard" },
-        "charizard": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard silba mirando al techo. Bueno, lo intenta: le sale una chispa.", "sigue": "fin" },
-        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "¡Entonces funciona! Me voy a buscar más, que esto hay que patentarlo. ¡Volveré con la fórmula buena! ¡Pero que Charizard no estornude!", "efectos": { "afinidad": 1 } }
+        "charizard": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard silba mirando al techo. Bueno, lo intenta: le sale una chispa.", "anim": "chispas", "sigue": "fin" },
+        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "¡Entonces funciona! Mañana salgo a buscar más, que esto hay que patentarlo. ¡Pero que Charizard no estornude!", "efectos": { "afinidad": 1 } }
       }
     },
     {
@@ -36,24 +36,24 @@
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Señor calvo! ¡He vuelto, y he crecido! (Un Gloom que gotea miel sonríe en la puerta. El comedor entero da un paso atrás.)", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Pain", "texto": "(A Manolo le llora un ojo. Luego el otro. No es la emoción: es el olor.)", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "El crecepelo no salió. Pero al mezclar la baya conmigo salió otra cosa: ¡una colonia! «Eau de Gloom». Huele a mí.", "sigue": "charizard" },
-        "charizard": { "quien": "charizard", "emocion": "Pain", "texto": "Charizard se tapa el hocico con las dos garras. La llama de la cola se le encoge un segundo, como una vela con corriente.", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Sad", "texto": "Ya sé que huele fuerte. Pero la Pokédex dice que a uno de cada mil le encanta. Solo tengo que encontrarlo. Llevo novecientos noventa y nueve.", "opciones": [ { "texto": "«Pues a mí me huele a jardín»", "sigue": "jardin", "efectos": { "afinidad": 1, "flags": { "oddish_colonia": "manolo" } } }, { "texto": "«Deja una muestra en recepción, a ver quién pica»", "sigue": "muestra", "efectos": { "flags": { "oddish_colonia": "muestra" } } } ] },
+        "charizard": { "quien": "charizard", "emocion": "Pain", "texto": "Charizard se tapa el hocico con las dos garras. La llama de la cola se le encoge, como una vela con corriente.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Sad", "texto": "Ya sé que huele fuerte. Pero dicen que a uno de cada mil le encanta. Solo tengo que encontrarlo. Llevo novecientos noventa y nueve.", "opciones": [ { "texto": "«Pues a mí me huele a jardín»", "sigue": "jardin", "efectos": { "afinidad": 1, "flags": { "oddish_colonia": "manolo" } } }, { "texto": "«Deja una muestra en recepción, a ver quién pica»", "sigue": "muestra", "efectos": { "flags": { "oddish_colonia": "muestra" } } } ] },
         "jardin": { "quien": "huesped", "emocion": "Surprised", "texto": "¿De verdad? ¿Usted es mi uno de cada mil? (Le echa un chorro en la calva.) ¡Ya tengo cliente! ¡El número mil!", "sigue": "fin" },
-        "muestra": { "quien": "huesped", "emocion": "Happy", "texto": "(Deja un frasquito en el mostrador. Al rato pasa un Lickitung, le da un lametazo y susurra: «sabe a domingo».) ¡El número mil!", "sigue": "fin" },
-        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "¡Y me ha escrito la perfumería de Ciudad Azulona, la de una tal Erika! Si les gusta, me hago famoso. ¡Y la primera fragancia se la dedico a usted!" }
+        "muestra": { "quien": "huesped", "emocion": "Happy", "texto": "(Deja un frasquito en el mostrador. Pasa un Lickitung, le da un lametazo y susurra: «sabe a domingo».) ¡El número mil!", "sigue": "fin" },
+        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "¡Y me ha escrito la perfumería de Erika, en Ciudad Azulona! Si les gusta, me hago famoso. Y la primera fragancia, para usted." }
       }
     },
     {
-      "id": "v4",
+      "id": "v4", "de_paso": true,
       "cuando": { "visita_min": 4, "afinidad_min": 1 },
       "subtitulo": "Cuarta visita · la pamela",
       "fin_arco": true,
       "nodos": {
         "inicio": { "quien": "charizard", "emocion": "Surprised", "texto": "Por la puerta entra una pamela enorme, roja con lunares. Debajo, en algún sitio, hay un Pokémon. Charizard se agacha a buscarle la cara.", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "¡Señor calvo! Soy yo. Bueno, Vileplume. No se me ve la cara, ya lo sé: son mis pétalos, los más grandes del mundo. Erika me dio una Piedra Hoja.", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "La colonia ha triunfado en Azulona. Y vengo de un aniversario de boda, de unos Nidoran muy majos. Fui el más elegante. Por la pamela.", "sigue": "achis" },
-        "achis": { "quien": "charizard", "emocion": "Pain", "texto": "Al sacudirse la pamela suelta una nube de polen. Charizard estornuda. Y otra vez. Y otra. Al tercer estornudo arde el felpudo.", "sigue": "n4" },
-        "n4": { "quien": "huesped", "emocion": "Normal", "texto": "¡Perdón, perdón! Es el polen: da alergia, lo dice la Pokédex. Y con la pamela no se me ve la cara de perdón. Tendrán que creérselo.", "sigue": "frasco" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "¡Señor calvo! Soy yo, Vileplume. No se me ve la cara, ya lo sé: son mis pétalos. Erika me dio una Piedra Hoja.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "La colonia ha triunfado en Azulona. Vuelvo de una boda, donde fui el más elegante, y solo paso a traerle una cosa.", "sigue": "achis" },
+        "achis": { "quien": "charizard", "emocion": "Pain", "texto": "Al sacudir la pamela suelta una nube de polen. Charizard estornuda una, dos, tres veces. Al tercero arde el felpudo.", "anim": "fuego", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Normal", "texto": "¡Perdón, perdón! Es el polen, que da alergia. Y con la pamela no se me ve la cara de perdón. Tendrán que creérselo.", "sigue": "frasco" },
         "frasco": { "quien": "huesped", "emocion": "Normal", "texto": "(Le da un frasco con un lazo.) Para la calva. No crece nada, ya lo sé. Pero huele a jardín. A jardín de verdad, no como lo otro.", "opciones": [ { "texto": "«Me lo pondré los domingos»", "sigue": "domingos", "efectos": { "afinidad": 1, "flags": { "oddish_frasco": "domingos" } } }, { "texto": "«¿Y el crecepelo, para cuándo?»", "sigue": "crecepelo", "efectos": { "flags": { "oddish_frasco": "crecepelo" } } } ] },
         "domingos": { "quien": "manolo", "emocion": "Happy", "texto": "(Manolo se echa una gota. Por primera vez en años, en lo alto de su cabeza crece algo: un olor a primavera.)", "sigue": "fin" },
         "crecepelo": { "quien": "huesped", "emocion": "Normal", "texto": "El crecepelo es como mi cara debajo de la pamela, señor calvo: dicen que existe, pero nadie lo ha visto.", "sigue": "fin" },

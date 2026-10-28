@@ -9,15 +9,15 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Buenas! Pidgey, de la Ruta 1. Una habitación, la que sea, que yo con cualquier rama me apaño.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "¡Hombre, Pidgey! ¿Tú no estuviste aquí la semana pasada?", "sigue": "n1" },
-        "n1": { "quien": "huesped", "emocion": "Sad", "texto": "No, ese sería otro. Somos muchísimos. He salido en todas las escenas de Kanto: de fondo, volando. Nunca en primer plano.", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "En un juego del móvil nos atrapaban de cien en cien para subir de nivel. Y luego nos mandaban al profesor. Por caramelos.", "sigue": "n3" },
+        "n1": { "quien": "huesped", "emocion": "Sad", "texto": "No, ese sería otro. Somos muchísimos. Salgo en todas las escenas de Kanto: de fondo, volando. Nunca en primer plano.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "En un juego del móvil nos atrapaban de cien en cien y nos mandaban al profesor a cambio de caramelos. A granel.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Surprised", "texto": "Oiga, me han contado que una Arbok se pasó dos días espiándome con prismáticos. ¡A mí! ¿Será verdad?", "opciones": [
           { "texto": "«Algo he oído: dijo que eras fascinante»", "efectos": { "afinidad": 1 }, "sigue": "fascinante" },
           { "texto": "«Te habrá confundido con otro Pidgey»", "sigue": "otro" }
         ] },
         "fascinante": { "quien": "huesped", "emocion": "Happy", "texto": "¿Fascinante? ¿Yo? (Se le esponjan todas las plumas.) Me lo voy a bordar en la almohada. ¡Alguien me ha mirado a mí!", "sigue": "fin" },
-        "otro": { "quien": "huesped", "emocion": "Sad", "texto": "…Ya. Seguro. (Se mira en la ventana.) Aunque yo tengo esta pluma un poco torcida, por si alguien se fija. Nadie se fija.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Antes de dormir, Charizard le chamusca una pluma de la cabeza, muy poquito, en forma de rizo. Ahora sí se le distingue. Pidgey no cabe en sí." }
+        "otro": { "quien": "huesped", "emocion": "Sad", "texto": "…Ya. Seguro. (Se mira en la ventana.) Aunque tengo esta pluma un poco torcida, por si alguien se fija. Nadie se fija.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Antes de dormir, Charizard le chamusca una pluma de la cabeza en forma de rizo. Muy poquito. Ahora sí se le distingue. Pidgey no cabe en sí." }
       }
     },
     {
@@ -27,20 +27,20 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Un Pidgeotto se planta en la puerta con las alas cruzadas, como un portero de discoteca.) Buenas noches. DNI, por favor.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Pidgey? ¡Que soy yo, el dueño!", "sigue": "n1" },
-        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "Pidgeotto, ahora. Seguridad. Nadie me ha contratado, pero alguien tiene que vigilar. Patrullo un territorio enorme. Lo dice la Pokédex.", "sigue": "n2" },
+        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "Pidgeotto, ahora. Seguridad. Nadie me ha contratado, pero alguien tiene que vigilar.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Esta semana le he pedido el DNI a un Snorlax, a Charizard y a una furgoneta. La furgoneta no lo llevaba.", "opciones": [
           { "texto": "«Aquí tiene mi DNI, agente»", "efectos": { "afinidad": 1 }, "sigue": "dni" },
           { "texto": "«Aquí no hay nada que vigilar»", "sigue": "nada" }
         ] },
         "dni": { "quien": "huesped", "emocion": "Normal", "texto": "Manolo. Calvo. Pueblo Ceniza. Conforme: puede pasar a su propia posada. (No cambia de cara. Es la cara de vigilante.)", "sigue": "noche" },
         "nada": { "quien": "huesped", "emocion": "Worried", "texto": "Eso creen todos. Hasta que desaparece algo. (Misma cara. Siempre la misma cara.)", "sigue": "noche" },
-        "noche": { "quien": "manolo", "emocion": "Sigh", "texto": "(De madrugada, Manolo baja a por agua y se encuentra a Pidgeotto en la ventana de la despensa, inmóvil, mirando hacia fuera.)", "sigue": "sombra" },
+        "noche": { "quien": "manolo", "emocion": "Sigh", "texto": "(De madrugada, Manolo baja a por agua y encuentra a Pidgeotto en la ventana de la despensa, inmóvil, mirando fuera.)", "sigue": "sombra" },
         "sombra": { "quien": "huesped", "emocion": "Worried", "texto": "…Nada, Manolo. No he visto nada. Una sombra con la cola encendida y una chistorra. Pero nada. Vuélvase a la cama.", "sigue": "fin" },
         "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Por la mañana falta una chistorra. Charizard desayuna silbando. Pidgeotto lo mira. Charizard mira a otro lado. Nadie dice nada." }
       }
     },
     {
-      "id": "v3",
+      "id": "v3", "de_paso": true,
       "cuando": { "visita_min": 3, "afinidad_min": 1 },
       "subtitulo": "Tercera visita · el que va delante",
       "fin_arco": true,
@@ -48,14 +48,14 @@
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "(Un Pidgeot enorme se posa en la puerta con la cresta al viento. Ya no hay quien lo confunda.) Buenas, Manolo. ¿Se acuerda? El del montón.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¡Pero bueno! ¡Si pareces un anuncio de champú!", "sigue": "n1" },
         "n1": { "quien": "huesped", "emocion": "Normal", "texto": "Me han elegido para guiar a la bandada de la Ruta 1. Doscientos Pidgey. Alguien tiene que ir delante, y les ha dado por mí.", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Worried", "texto": "Hubo otro Pidgeot que hizo esto. Su entrenador lo dejó cuidando de una bandada y le prometió volver. Dicen que aún le espera.", "sigue": "n3" },
+        "n2": { "quien": "huesped", "emocion": "Worried", "texto": "Hubo otro Pidgeot así. Su entrenador lo dejó cuidando una bandada y le prometió volver. Dicen que aún le espera.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Sad", "texto": "Yo no quiero que nadie me espere así. Por eso vengo a despedirme bien. Para no dejar nada a medias.", "opciones": [
           { "texto": "«Has sido el mejor vigilante que he tenido»", "efectos": { "afinidad": 1, "flags": { "pidgey_bandada": "vigilante" } }, "sigue": "vigilante" },
           { "texto": "«Si ese entrenador vuelve algún día, se lo diré»", "efectos": { "flags": { "pidgey_bandada": "promesa" } }, "sigue": "promesa" }
         ] },
         "vigilante": { "quien": "huesped", "emocion": "Happy", "texto": "Y el único. (Se ríe.) Le dejo la linterna en la despensa. Por si vuelve la sombra de la cola encendida.", "sigue": "fin" },
-        "promesa": { "quien": "huesped", "emocion": "Happy", "texto": "Gracias. Y si no vuelve, que sepa que su Pidgeot está bien. Que los Pidgeot nos apañamos. Volamos más rápido que el sonido.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al alba, Pidgeot sube a lo alto del pino y abre las alas. Por el valle llega la bandada: cientos de Pidgey, todos iguales. Todos le siguen a él." }
+        "promesa": { "quien": "huesped", "emocion": "Happy", "texto": "Gracias. Y si no vuelve, que sepa que su Pidgeot está bien. Los Pidgeot nos apañamos.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Pidgeot sube a lo alto del pino y abre las alas. Por el valle llega la bandada: cientos de Pidgey, todos iguales. Todos se van tras él." }
       }
     }
   ]

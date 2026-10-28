@@ -36,20 +36,20 @@
       }
     },
     {
-      "id": "v3",
+      "id": "v3", "de_paso": true,
       "cuando": { "visita_min": 3, "afinidad_min": 1 },
       "subtitulo": "Tercera visita · la primera piedra",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Jefe, me voy. Me han llamado de Ciudad Plateada: el gimnasio de Brock tiene goteras. Un gimnasio de roca con goteras… no puede ser.", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Jefe, vengo a despedirme. Me llaman de Ciudad Plateada: el gimnasio de Brock tiene goteras. ¡Un gimnasio de roca con goteras!", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Sad", "texto": "¿Y la planta de arriba? ¿Y mi semana?", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "(Señala un rincón del muro.) Ahí la tienes. He puesto la primera piedra esta mañana, antes del bocadillo. Recta, ¿eh? Comprobada.", "sigue": "n3" },
+        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "(Señala un rincón del muro.) Ahí la tienes: la primera piedra, puesta esta mañana antes del bocadillo. Recta, ¿eh? Comprobada.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Y te confieso una cosa: tu pared no está torcida. Es que me gusta tener algo que arreglar en los sitios donde estoy a gusto.", "opciones": [
           { "texto": "«Esa piedra no la quita nadie»", "efectos": { "afinidad": 1, "flags": { "geodude_obra": "primera_piedra" } }, "sigue": "piedra" },
           { "texto": "«La planta la acabaré yo, a ojo»", "efectos": { "flags": { "geodude_obra": "a_ojo" } }, "sigue": "ojo" }
         ] },
         "piedra": { "quien": "huesped", "emocion": "Happy", "texto": "Pues que la vea un día tu nieto y diga: «esto lo puso un Geodude, y está recto». Con eso me doy por pagado.", "sigue": "fin" },
         "ojo": { "quien": "huesped", "emocion": "Happy", "texto": "A ojo, como la primera vez. Ahora que lo pienso, lo que se hace a ojo dura más: se hace con ganas.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le prepara el bocadillo de las diez para el camino, con chistorra. Geodude baja la cuesta rodando y grita desde lejos: «¡La planta de arriba, en una semana!»." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le prepara el bocadillo para el camino, con chistorra. Geodude baja la cuesta rodando y grita desde lejos: «¡La planta de arriba, en una semana!»." }
       }
     },
     {
@@ -58,14 +58,14 @@
       "subtitulo": "Cuarta visita · el dominguero",
       "nodos": {
         "inicio": { "quien": "charizard", "emocion": "Surprised", "texto": "Algo baja la cuesta rodando a toda velocidad, sin frenar, y se estampa contra la puerta. La puerta aguanta. El marco, no tanto.", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "(Se levanta un Graveler con casco de bici y lycra. No sonríe: la lycra aprieta.) Buenas, jefe. He crecido. Ahora tengo cuatro brazos y ningún freno.", "sigue": "manolo" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "(Se levanta un Graveler con casco de bici y lycra.) Buenas, jefe. He crecido. Ahora tengo cuatro brazos y ningún freno.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Geodude? ¿Y esa lycra?", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Worried", "texto": "Los domingos salgo con la grupeta: puertos de montaña. En la subida no me gana nadie. La bajada… la bajada la hago rodando. Sin querer.", "sigue": "brock" },
-        "brock": { "quien": "huesped", "emocion": "Normal", "texto": "Noticias de Plateada: las goteras de Brock, arregladas. Casi. Su Onix dice que le hago cosquillas. Y Brock está enamorado de una enfermera. Otra vez.", "sigue": "pared" },
-        "pared": { "quien": "huesped", "emocion": "Angry", "texto": "(Da dos golpes en la pared con el nudillo. Con los cuatro.) Jefe. Sigue torcida. Dos dedos. No me lo puedo creer.", "opciones": [ { "texto": "«No la toques. Ya es costumbre»", "sigue": "costumbre", "efectos": { "afinidad": 1, "flags": { "geodude_bici": "costumbre" } } }, { "texto": "«¿Y el marco que acabas de romper?»", "sigue": "marco", "efectos": { "flags": { "geodude_bici": "marco" } } } ] },
+        "n3": { "quien": "huesped", "emocion": "Worried", "texto": "Los domingos salgo con la grupeta a subir puertos. En la subida no me gana nadie. La bajada… la hago rodando. Sin querer.", "sigue": "brock" },
+        "brock": { "quien": "huesped", "emocion": "Normal", "texto": "Noticias de Plateada: las goteras de Brock, arregladas. Casi. Y Brock se ha vuelto a enamorar de una enfermera.", "sigue": "pared" },
+        "pared": { "quien": "huesped", "emocion": "Angry", "texto": "(Da dos golpes en la pared. Con los cuatro nudillos.) Jefe. Sigue torcida. Dos dedos. No me lo puedo creer.", "anim": "enfado", "opciones": [ { "texto": "«No la toques. Ya es costumbre»", "sigue": "costumbre", "efectos": { "afinidad": 1, "flags": { "geodude_bici": "costumbre" } } }, { "texto": "«¿Y el marco que acabas de romper?»", "sigue": "marco", "efectos": { "flags": { "geodude_bici": "marco" } } } ] },
         "costumbre": { "quien": "huesped", "emocion": "Normal", "texto": "Costumbre, eso es. Cada vez que vuelvo, le doy dos golpes y me quejo. Como el bocadillo de las diez: eso no se quita.", "sigue": "fin" },
         "marco": { "quien": "huesped", "emocion": "Pain", "texto": "(Mira el marco. Mira sus cuatro brazos.) Eso te lo arreglo yo en una semana. Bueno, en dos domingos, que entre semana tengo puerto.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Esa noche, Charizard le sujeta la puerta del cuarto con la cola mientras Graveler intenta pararse. Le cuesta tres vueltas al pasillo." }
+        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Esa noche, Charizard le sujeta la puerta del cuarto con la cola mientras Graveler intenta frenar. Le cuesta tres vueltas al pasillo." }
       }
     },
     {
@@ -76,13 +76,13 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Surprised", "texto": "(Un Golem enorme asoma por la puerta con cara de susto.) Jefe, no se asuste. Soy yo. Que yo tampoco me acostumbro.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Geodude? ¿Graveler? ¿Qué te ha pasado ahora?", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Me cambiaron una semana por un albañil de Ciudad Verde, para una obra. Intercambio, lo llaman. Y volví así, con esta cara de sorpresa, que ya no se me quita.", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Pero vengo a lo importante. El muro de la primera piedra, el del rincón: lo he terminado. Recto. Comprobado. Fin de obra.", "sigue": "mascleta" },
-        "mascleta": { "quien": "huesped", "emocion": "Surprised", "texto": "¡Y un fin de obra sin mascletà no es un fin de obra! Me he traído cuatrocientos petardos. Ya están en el prado, en fila. A ojo.", "sigue": "charizard" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Me cambiaron una semana con un albañil de Ciudad Verde, para una obra. Y volví así, con esta cara de sorpresa que ya no se me quita.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Pero vengo a lo importante: el muro de la primera piedra está terminado. Recto. Comprobado. Fin de obra.", "sigue": "mascleta" },
+        "mascleta": { "quien": "huesped", "emocion": "Surprised", "texto": "¡Y un fin de obra sin mascletà no es un fin de obra! Cuatrocientos petardos, ya en fila en el prado. A ojo.", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard mira la fila de petardos, mira la llama de su cola y da un paso atrás. Por primera vez en su vida, no quiere quemar nada.", "sigue": "manolo2" },
-        "manolo2": { "quien": "manolo", "emocion": "Worried", "texto": "Hombre, que hay huéspedes durmiendo. Y gente que no soporta el ruido.", "sigue": "n4" },
-        "n4": { "quien": "huesped", "emocion": "Normal", "texto": "Ya. Siempre hay alguien que pide silencio. ¿Lo dejamos en una traca, entonces? Una sola. Pequeña. De albañil.", "opciones": [ { "texto": "«Una traca, y la enciende Charizard»", "sigue": "traca", "efectos": { "afinidad": 1, "flags": { "geodude_traca": "traca" } } }, { "texto": "«Nada de petardos: brindamos con potaje»", "sigue": "potaje", "efectos": { "afinidad": 1, "flags": { "geodude_traca": "potaje" } } } ] },
-        "traca": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard acerca la cola a la mecha con mucho cuidado. Pa-pa-pa-pum: una traca cortita, en fila. Recta. Golem aplaude, con cara de sorpresa.", "sigue": "fin" },
+        "manolo2": { "quien": "manolo", "emocion": "Worried", "texto": "Hombre, que hay huéspedes durmiendo.", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Normal", "texto": "Ya. Siempre hay alguien que pide silencio. ¿Lo dejamos en una traca? Una sola. Pequeña. De albañil.", "opciones": [ { "texto": "«Una traca, y la enciende Charizard»", "sigue": "traca", "efectos": { "afinidad": 1, "flags": { "geodude_traca": "traca" } } }, { "texto": "«Nada de petardos: brindamos con potaje»", "sigue": "potaje", "efectos": { "afinidad": 1, "flags": { "geodude_traca": "potaje" } } } ] },
+        "traca": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard acerca la cola a la mecha con mucho cuidado. Pa-pa-pa-pum: una traca cortita, en fila. Recta. Golem aplaude.", "anim": "flash", "sigue": "fin" },
         "potaje": { "quien": "huesped", "emocion": "Normal", "texto": "(Levanta el plato de potaje.) Por la primera piedra. Por la pared torcida. Y por el jefe, que nunca me pidió factura.", "sigue": "fin" },
         "fin": { "quien": "huesped", "emocion": "Normal", "texto": "(Da dos golpes a la pared.) Sigue torcida, jefe. No la arregles nunca. Así tienes algo mío.", "sigue": "adios" },
         "adios": { "quien": "charizard", "emocion": "Happy", "texto": "Al alba, Golem baja la cuesta rodando y esta vez no frena por nada. Charizard lo sigue con la vista hasta que el ruido se pierde en el valle." }

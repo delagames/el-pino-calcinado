@@ -9,11 +9,11 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Buenas noches, Kanto! ¡Llega Voltorb, desde la Central de Energía! ¡Una habitación para uno y el público en pie!", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "(Manolo, por instinto, le busca el botón para abrirlo. Voltorb da un saltito hacia atrás.)", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Worried", "texto": "¡Eh, eh! Que no soy una Poké Ball. Ni un balón. Lo de redondo es genética. Por favor: nada de botarme. Ni lanzarme. Ni encestarme.", "opciones": [
+        "n2": { "quien": "huesped", "emocion": "Worried", "texto": "¡Eh, eh! Que no soy una Poké Ball. Ni un balón. Lo de redondo es genética. Nada de botarme, ni lanzarme, ni encestarme.", "opciones": [
           { "texto": "«Tranquilo, aquí no se bota a nadie»", "efectos": { "afinidad": 1 }, "sigue": "tranquilo" },
           { "texto": "«¿Y de qué equipo eres?»", "sigue": "equipo" }
         ] },
-        "tranquilo": { "quien": "huesped", "emocion": "Sad", "texto": "Gracias. La última vez un Hitmonlee me confundió con el balón y me hizo un mate. Dos puntos para él. Para mí, un chichón esférico.", "sigue": "fin" },
+        "tranquilo": { "quien": "huesped", "emocion": "Sad", "texto": "Gracias. La última vez un Hitmonlee me confundió con el balón y me hizo un mate. Dos puntos para él. Para mí, un chichón.", "sigue": "fin" },
         "equipo": { "quien": "huesped", "emocion": "Happy", "texto": "¡De todos los que tengan un Gasol! Y de la ACB entera. Y de la NBA a las tres de la mañana. Dormir es para los que no tienen liga.", "sigue": "fin" },
         "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard, que ya iba a darle un toquecito con la cola como a una pelota, la esconde detrás de la espalda y silba." }
       }
@@ -25,8 +25,8 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Manolo, la radio, que hay partido! Final apretado, diez segundos… ¡La tiene él, se levanta, lanza desde su casa…!", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Worried", "texto": "Oye, que te estás poniendo rojo. Más rojo. Y estás… ¿vibrando?", "sigue": "triple" },
-        "triple": { "quien": "huesped", "emocion": "Surprised", "texto": "¡TRIIIPLEEE! ¡Desde el aparcamiento! ¡Lo ha metido desde el aparca…!", "sigue": "pum" },
-        "pum": { "quien": "charizard", "emocion": "Surprised", "texto": "¡PUM! Una explosioncita. Vuela el mantel, Charizard se queda con la cara negra y la radio sigue sonando, impecable.", "sigue": "n3" },
+        "triple": { "quien": "huesped", "emocion": "Surprised", "texto": "¡TRIIIPLEEE! ¡Desde el aparcamiento! ¡Lo ha metido desde el aparca…!", "anim": "chispas", "sigue": "pum" },
+        "pum": { "quien": "charizard", "emocion": "Surprised", "texto": "¡PUM! Una explosioncita. Vuela el mantel, Charizard se queda con la cara negra y la radio sigue sonando, impecable.", "anim": "flash", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Sad", "texto": "Perdón, perdón. Es Autodestrucción. Me pasa con los triples. Y con los tapones. Y con los tiros libres en el último segundo.", "opciones": [
           { "texto": "«Se barre y listo. ¿Quién ha ganado?»", "efectos": { "afinidad": 1 }, "sigue": "gana" },
           { "texto": "«La próxima, escúchalo en el patio»", "sigue": "patio" }
@@ -48,8 +48,8 @@
           { "texto": "«Nárralo, que nadie lo hace como tú»", "efectos": { "flags": { "voltorb_cancha": "narra" } }, "sigue": "narra" }
         ] },
         "juega": { "quien": "huesped", "emocion": "Happy", "texto": "(Voltorb rueda hasta la zona, recibe el pase de Charizard y lanza el balón. El balón, no a sí mismo. ¡Canasta! Dentro de la olla.)", "sigue": "fin" },
-        "narra": { "quien": "huesped", "emocion": "Happy", "texto": "¡Charizard la sube, finta, vuela… y machaca en la olla! ¡El pino ni se inmuta! ¡Señoras y señores, la posada está en llamas! ¡Literalmente!", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al final del partido, Voltorb explota de alegría. Una pequeñita. Nadie se queja. Al alba se va cuesta abajo, botando por gusto y gritando: «¡Habrá revancha!»." }
+        "narra": { "quien": "huesped", "emocion": "Happy", "texto": "¡Charizard la sube, finta, vuela… y machaca en la olla! ¡Señoras y señores, la posada está en llamas! ¡Literalmente!", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al acabar, Voltorb explota de alegría. Una pequeñita. Nadie se queja. Al alba se va cuesta abajo, botando por gusto: «¡Habrá revancha!»." }
       }
     },
     {
@@ -60,14 +60,14 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "(Un Electrode entra rodando muy despacio, con un termo.) Hola, Manolo. Bajito, por favor. Que ahora exploto con nada.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Voltorb? ¡Pero si estás del revés!", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Sad", "texto": "Electrode. He crecido. Me he convertido en mi padre, el de la Central. Y ahora no exploto solo con los triples: exploto con todo.", "sigue": "n3" },
+        "n2": { "quien": "huesped", "emocion": "Sad", "texto": "Electrode. He crecido. Y ahora no exploto solo con los triples: exploto con todo.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Worried", "texto": "Con una puerta que cruje. Con un «¡hola!» muy alto. Con un estornudo. Me llaman «la bomba con patas». Y no tengo patas: eso es lo que más me duele.", "sigue": "termo" },
-        "termo": { "quien": "huesped", "emocion": "Normal", "texto": "Por eso voy con tila a todas partes. (Da un sorbito.) Esta noche hay final. Quiero verla entera sin explotar ni una vez.", "sigue": "charizard" },
-        "charizard": { "quien": "charizard", "emocion": "Worried", "texto": "A Charizard le pica la nariz. Mira a Electrode. Se tapa la nariz con las dos garras y aguanta el estornudo hasta ponerse morado.", "sigue": "n4" },
+        "termo": { "quien": "huesped", "emocion": "Normal", "texto": "Por eso llevo tila a todas partes. (Da un sorbito.) Esta noche hay final. Quiero verla entera sin explotar ni una vez.", "sigue": "charizard" },
+        "charizard": { "quien": "charizard", "emocion": "Worried", "texto": "A Charizard le pica la nariz. Mira a Electrode. Se tapa la nariz con las garras y aguanta el estornudo hasta ponerse morado.", "sigue": "n4" },
         "n4": { "quien": "huesped", "emocion": "Surprised", "texto": "¡Que empieza! Ay, ay, ay… Me estoy calentando. ¡Ya vibro!", "opciones": [ { "texto": "«Respira conmigo. Contamos hasta diez»", "sigue": "diez", "efectos": { "afinidad": 1, "flags": { "voltorb_tila": "diez" } } }, { "texto": "«Échale más tila al termo»", "sigue": "tila", "efectos": { "flags": { "voltorb_tila": "tila" } } } ] },
-        "diez": { "quien": "manolo", "emocion": "Normal", "texto": "«Uno… dos… tres…» (Manolo respira despacio. Electrode respira con él. Charizard también, sin saber muy bien por qué.) «…y diez.»", "sigue": "partido" },
-        "tila": { "quien": "huesped", "emocion": "Normal", "texto": "(Se bebe el termo entero.) Ya está. Ahora soy un Electrode tranquilo. Un Electrode de infusión. Un Electrode de balneario.", "sigue": "partido" },
-        "partido": { "quien": "huesped", "emocion": "Happy", "texto": "(Último segundo. Triple desde casa. ¡Dentro!) …Ha entrado. Y yo… sigo aquí. Entero. ¡No he explotado! ¡La he visto entera!", "sigue": "fin" },
+        "diez": { "quien": "manolo", "emocion": "Normal", "texto": "Uno… dos… tres… (Manolo respira despacio. Electrode respira con él. Charizard también, sin saber muy bien por qué.) …y diez.", "sigue": "partido" },
+        "tila": { "quien": "huesped", "emocion": "Normal", "texto": "(Se bebe el termo entero.) Ya está. Ahora soy un Electrode tranquilo. Un Electrode de balneario.", "sigue": "partido" },
+        "partido": { "quien": "huesped", "emocion": "Happy", "texto": "(Último segundo. Triple desde casa. ¡Dentro!) …Ha entrado. Y yo sigo aquí. ¡Entero! ¡No he explotado! ¡La he visto entera!", "anim": "confeti", "sigue": "fin" },
         "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Del alivio, Charizard estornuda por fin. Electrode ni se inmuta. Por la mañana se va rodando despacio, con su termo, tarareando el himno." }
       }
     }

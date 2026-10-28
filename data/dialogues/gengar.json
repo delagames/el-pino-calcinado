@@ -23,6 +23,7 @@
       "id": "v2",
       "cuando": { "visita_min": 2 },
       "subtitulo": "Segunda visita · una juerga en el comedor",
+      "de_paso": true,
       "fin_arco": true,
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Ya estoy aquí otra vez, primo! Esta noche me traigo la juerga, como en las bodas de mi gente: palmas, cante y un poquito de susto pa' animar.", "sigue": "charizard" },

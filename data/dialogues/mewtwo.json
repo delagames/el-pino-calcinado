@@ -16,7 +16,7 @@
           { "texto": "«De momento, para cenar.» (Le ofrece una chistorra)", "efectos": { "afinidad": 1 }, "sigue": "chistorra" },
           { "texto": "«Eso no lo sé. Pero la cueva está libre»", "sigue": "cueva" }
         ] },
-        "chistorra": { "quien": "huesped", "emocion": "Surprised", "texto": "Pregunto por el sentido de mi existencia y me da una chistorra. (La sostiene en el aire con la mente. La mira mucho rato. Se la come.)", "sigue": "respuesta" },
+        "chistorra": { "quien": "huesped", "emocion": "Surprised", "texto": "Pregunto por el sentido de mi existencia y me da una chistorra. (La sostiene en el aire con la mente. La mira mucho rato. Se la come.)", "anim": "estrellas", "sigue": "respuesta" },
         "respuesta": { "quien": "huesped", "emocion": "Happy", "texto": "…Es una respuesta. No sé a qué pregunta. Pero es una respuesta.", "sigue": "fin" },
         "cueva": { "quien": "huesped", "emocion": "Normal", "texto": "Una cueva. Como la mía, en Celeste. Allí nadie me pregunta nada. Aquí tampoco, por lo visto. Me vale.", "sigue": "fin" },
         "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Mewtwo se mete en la cueva de la ladera; solo asoma la punta de la cola por la boca. Charizard pasa la noche fuera, sentado, mirándola. Sin pestañear." }
@@ -27,14 +27,13 @@
       "cuando": { "visita_min": 2 },
       "subtitulo": "Segunda visita · tres que se preguntan lo mismo",
       "nodos": {
-        "inicio": { "quien": "charizard", "emocion": "Surprised", "texto": "Sube la furgoneta de Famadesa. Charizard olisquea las ruedas: debajo hay algo rosa. Y en el asiento de al lado del conductor, un saco de chistorra… morado.", "sigue": "manolo" },
+        "inicio": { "quien": "charizard", "emocion": "Surprised", "texto": "Mewtwo acaba de instalarse en la cueva cuando sube la furgoneta de Famadesa, la de la chistorra. Charizard olisquea las ruedas: debajo hay algo rosa. En el asiento, un saco… morado.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¡Mew! ¡Y ese saco es Ditto, que nos conocemos! ¿Qué hacéis aquí los dos?", "sigue": "n1" },
-        "n1": { "quien": "manolo", "emocion": "Normal", "texto": "(Mewtwo ha salido de la cueva. Mew le mira desde debajo de la furgoneta. Y, por una vez, no se vuelve invisible.)", "sigue": "n2" },
+        "n1": { "quien": "manolo", "emocion": "Normal", "texto": "(Mewtwo sale de la cueva. Mew le mira desde debajo de la furgoneta y, por una vez, no se vuelve invisible.)", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Sad", "texto": "Tú eres del que me sacaron. Pensaba que serías más grande. Pensaba que me odiarías.", "sigue": "n3" },
         "n3": { "quien": "manolo", "emocion": "Happy", "texto": "(Mew sale despacio y le toca la mano con la patita. Le dice algo tan bajito que solo lo oye Mewtwo. Por dentro.)", "sigue": "n4" },
         "n4": { "quien": "huesped", "emocion": "Surprised", "texto": "Dice que él tampoco sabe de dónde viene. Que de él venimos todos, y que él no sabe de quién viene él.", "sigue": "ditto" },
-        "ditto": { "quien": "charizard", "emocion": "Surprised", "texto": "Plof. El saco de chistorra se ha convertido en otro Mewtwo. Igualito, pero con la cara de dos puntitos. Saluda con la cola.", "sigue": "n5" },
-        "n5": { "quien": "huesped", "emocion": "Angry", "texto": "¿Qué es esto? ¿Otra copia? ¿La copia de una copia?", "sigue": "n6" },
+        "ditto": { "quien": "charizard", "emocion": "Surprised", "texto": "Plof. El saco de chistorra se ha convertido en otro Mewtwo. Igualito, pero con la cara de dos puntitos. Mewtwo frunce el ceño: ¿la copia de una copia?", "anim": "humo", "sigue": "n6" },
         "n6": { "quien": "manolo", "emocion": "Normal", "texto": "(Ditto le cuenta que a él también le llaman clon fallido. Plof: vuelve a ser Ditto. «Pero yo, cuando quiero, soy yo», dice. Con su propia voz.)", "sigue": "n7" },
         "n7": { "quien": "huesped", "emocion": "Normal", "texto": "Uno del que vienen todos. Uno que es todos. Uno hecho para ser el más fuerte. Y los tres preguntándonos lo mismo. Al lado de una furgoneta.", "opciones": [
           { "texto": "«Pues ya sois tres. Ya no lo preguntas solo»", "efectos": { "afinidad": 1, "flags": { "mewtwo_tres": "juntos" } }, "sigue": "juntos" },
@@ -50,8 +49,9 @@
       "cuando": { "visita_min": 3, "afinidad_min": 1 },
       "subtitulo": "Tercera visita · una taza con su nombre",
       "fin_arco": true,
+      "de_paso": true,
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Manolo. Vuelvo a mi cueva, a Celeste. Pero ya no voy a buscar la respuesta. Creo que la he encontrado. Aquí, entre chistorras.", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Manolo, vengo a despedirme. Vuelvo a mi cueva, en Celeste. Ya no voy a buscar la respuesta: creo que la he encontrado. Aquí, entre chistorras.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "¿Y cuál es, si se puede saber?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Que no importa cómo naces. Ni quién te hizo, ni para qué. Importa lo que haces con lo que tienes. Ustedes hacen camas. Y chistorra.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Happy", "texto": "En esta casa nadie me preguntó de dónde venía. Me preguntaron si había cenado. Era la pregunta buena.", "sigue": "taza" },
@@ -65,7 +65,7 @@
         ] },
         "lluvia": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard ha oído «lluvia», «roja» y «alargada» en la misma frase. Se le cae la baba. Hace un charquito en la entrada.", "sigue": "fin" },
         "todos": { "quien": "huesped", "emocion": "Happy", "texto": "Estarán. Lo he visto. Y yo también, a mi manera: con mi taza, en mi cueva, sabiendo que hay una casa donde me preguntan si he cenado.", "sigue": "fin" },
-        "fin": { "quien": "manolo", "emocion": "Happy", "texto": "(Con la primera luz, Mewtwo se va flotando monte abajo, con la taza en las manos. En el libro, una firma: «Mewtwo. Hecho en un laboratorio. Desayunado aquí».)" }
+        "fin": { "quien": "manolo", "emocion": "Happy", "texto": "(Mewtwo se va flotando monte abajo, con la taza en las manos. En el libro deja una firma: «Mewtwo. Hecho en un laboratorio. Desayunado aquí».)" }
       }
     }
   ]

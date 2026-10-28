@@ -1,36 +1,31 @@
 {
   "id": "dojo",
-  "_nota": "Grupo de una noche: el Dojo Karate de Azafrán, de excursión. Hitmonlee, profesor de polideportivo, todo a lo Bruce Lee, gritos incluidos (fue él quien hizo un mate con Voltorb). Hitmonchan, especialista de cine a lo Jackie Chan, se cae por la escalera «para probar el plano»; trabajó con Bruno y conoce al Machamp de la Legión (solo tiene retrato Normal). Son los hermanos del Dojo: al que gana, le dejan llevarse a uno de los dos. Mankey da cursillos de control de la ira y se enfada en el minuto dos (Angry, Happy, Normal). Primeape, su abuelo, tiene cara de enfado de serie (solo Normal), es mirón de obras y escribe en un foro de pesas (el «estudio» de Machoke). Remate: aquí no se pelea, así que compiten a ver quién aguanta más tranquilo; gana Primeape, con su cara de siempre: «aquí he sido muy feliz».",
+  "_nota": "Evento de excursión (por la mañana, de paso): el autobús del Dojo Karate de Azafrán para delante de la posada y bajan junto al pino. Hitmonlee, profesor de gimnasia, todo a lo Bruce Lee, con gritos (wataaa) y patadas que llegan a cualquier rama. Hitmonchan, especialista de cine a lo Jackie Chan, se cae por los escalones del autobús «para probar el plano» (solo tiene retrato Normal). Son los hermanos del Dojo: al que gana allí le regalan a uno de los dos; aquí almuerzan juntos. Mankey da cursillos de control de la ira y se enfada en el minuto dos (Angry, Happy, Normal). Primeape, el abuelo, tiene cara de enfado de serie (solo Normal) y es mirón de obras. Remate: aquí no se pelea, así que compiten a ver quién aguanta más quieto en el prado; gana Primeape, con su cara de siempre, y deja un cinturón negro en el pino antes de subir al autobús.",
   "entradas": [
     {
       "id": "v1",
       "cuando": { "visita_min": 1 },
-      "subtitulo": "Una noche · el Dojo Karate",
+      "subtitulo": "Una mañana · el Dojo Karate",
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Para el autobús y bajan cuatro con kimono y cinta en la frente. Le hacen una reverencia a la puerta. La puerta no se la devuelve.)", "sigue": "hitmonlee" },
-        "hitmonlee": { "quien": "hitmonlee", "emocion": "Happy", "texto": "¡Hiiiaaa! ¡Buenas noches! Hitmonlee, profesor de polideportivo. ¡Del Dojo Karate de Azafrán, de excursión! ¡Wataaa!", "sigue": "manolo2" },
-        "manolo2": { "quien": "manolo", "emocion": "Worried", "texto": "¿Hace falta gritar tanto para dar las buenas noches?", "sigue": "hitmonlee2" },
-        "hitmonlee2": { "quien": "hitmonlee", "emocion": "Normal", "texto": "Es la técnica. Sin grito no hay patada. Y sin patada… (estira la pierna hasta el perchero y cuelga el kimono) …no cuelgo la ropa.", "sigue": "hitmonchan" },
-        "hitmonchan": { "quien": "hitmonchan", "emocion": "Normal", "texto": "(Hitmonchan entra rodando por los escalones de la puerta, de espaldas.) Tranquilos. Estoy bien. Era para probar el plano. Soy especialista de cine.", "sigue": "charizard" },
-        "charizard": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard le ayuda a levantarse. Hitmonchan vuelve arriba y se cae otra vez, igualito. «La buena es la segunda», dice. Con la misma cara.", "sigue": "hitmonlee3" },
-        "hitmonlee3": { "quien": "hitmonlee", "emocion": "Sad", "texto": "Somos los hermanos del Dojo. Allí, al que gana le dejan llevarse a uno de los dos. Siempre se llevan a uno y el otro se queda. Somos el premio.", "opciones": [
-          { "texto": "«Pues aquí os quedáis los dos a cenar»", "efectos": { "afinidad": 1 }, "sigue": "losdos" },
+        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Por la mañana para un autobús delante de la posada. Bajan cuatro con kimono y cinta en la frente y le hacen una reverencia al pino calcinado.)", "sigue": "hitmonlee" },
+        "hitmonlee": { "quien": "hitmonlee", "emocion": "Happy", "anim": "salta", "texto": "¡Hiiiaaa! ¡Buenos días! Hitmonlee, profesor de gimnasia del Dojo Karate de Azafrán. ¡Venimos de excursión! ¡Wataaa!", "sigue": "hitmonlee2" },
+        "hitmonlee2": { "quien": "hitmonlee", "emocion": "Normal", "texto": "Sin grito no hay patada. (Estira la pierna, larguísima, y cuelga el kimono en la rama más alta del pino.) Y sin patada no cuelgo la ropa.", "sigue": "hitmonchan" },
+        "hitmonchan": { "quien": "hitmonchan", "emocion": "Normal", "anim": "gira", "texto": "(Hitmonchan baja rodando por los escalones del autobús, de espaldas.) Estoy bien. Era para probar el plano. Soy especialista de cine: hago las caídas.", "sigue": "hitmonlee3" },
+        "hitmonlee3": { "quien": "hitmonlee", "emocion": "Sad", "texto": "Somos los hermanos del Dojo. Allí, al que gana un combate le regalan a uno de los dos. Siempre se llevan a uno y el otro se queda.", "opciones": [
+          { "texto": "«Pues hoy no se elige: almorzáis los dos aquí»", "efectos": { "afinidad": 1 }, "sigue": "losdos" },
           { "texto": "«¿Y a cuál se llevan más?»", "sigue": "acual" }
         ] },
         "losdos": { "quien": "hitmonlee", "emocion": "Surprised", "texto": "¿Los dos? ¿Juntos? (Se le saltan las lágrimas.) ¡Es la primera vez que no hay que elegir! ¡Wataaa!", "sigue": "mankey" },
-        "acual": { "quien": "hitmonchan", "emocion": "Normal", "texto": "A él. Por las patadas. Yo tengo puñetazos y caídas, y la gente prefiere patadas. Lo he hablado con mi psicólogo. Que es él.", "sigue": "mankey" },
-        "mankey": { "quien": "mankey", "emocion": "Happy", "texto": "¡Hola! Mankey. Doy cursillos de control de la ira. Respiras, cuentas hasta diez y sonríes. Uno, dos…", "sigue": "mankey2" },
-        "mankey2": { "quien": "mankey", "emocion": "Angry", "texto": "¡¿QUIÉN SE HA SENTADO EN MI SILLA?! (Es él. Se ha sentado él.) …Perdón. Minuto dos. Siempre en el minuto dos. Es mi récord.", "sigue": "primeape" },
-        "primeape": { "quien": "primeape", "emocion": "Normal", "texto": "(Al fondo, un Primeape con cara de pocos amigos.) El abuelo. Y no estoy enfadado: tengo esta cara. Estoy encantado de la vida.", "sigue": "primeape2" },
-        "primeape2": { "quien": "primeape", "emocion": "Normal", "texto": "Llevo toda la tarde mirando la pared de la recepción, con las manos detrás. Tiene una grieta preciosa. Me encanta. Las obras me dan mucha paz.", "sigue": "hitmonchan2" },
-        "hitmonchan2": { "quien": "hitmonchan", "emocion": "Normal", "texto": "En el Alto Mando hice de doble para Bruno. Había un Machamp de la Legión que tampoco cambiaba de cara. Nos entendíamos sin hablar.", "sigue": "hitmonlee4" },
-        "hitmonlee4": { "quien": "hitmonlee", "emocion": "Normal", "texto": "Como en esta casa no se pelea, competimos a otra cosa: a ver quién aguanta más rato tranquilo. Sin moverse. Sin gritar. Sin wataaa.", "sigue": "concurso" },
-        "concurso": { "quien": "charizard", "emocion": "Normal", "texto": "Se sientan en el suelo del comedor. Charizard se une, por no ser menos. A los dos minutos, Mankey se levanta gritando. Luego Hitmonlee: «¡Wataaa!».", "sigue": "concurso2" },
-        "concurso2": { "quien": "charizard", "emocion": "Worried", "texto": "Hitmonchan se cae para probar el plano. Charizard aguanta hasta que huele la chistorra. Solo queda Primeape, quieto, con su cara de enfado.", "sigue": "primeape3" },
-        "primeape3": { "quien": "primeape", "emocion": "Normal", "texto": "(Abre un ojo.) ¿He ganado? Normal. Es que aquí he sido muy feliz. Se me nota, ¿no? (No se le nota nada.)", "sigue": "mankey3" },
-        "mankey3": { "quien": "mankey", "emocion": "Happy", "texto": "¡Abuelo! ¡Has ganado sin enfadarte! Bueno, con cara de enfadado, pero por dentro no. ¡Esto lo meto en el cursillo!", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Tras el estofado se van al autobús haciendo reverencias. En el pomo de la puerta queda atado un cinturón negro: «Para quien lo necesite. Yo ya estoy tranquilo. Primeape»." }
+        "acual": { "quien": "hitmonchan", "emocion": "Normal", "texto": "A él, por las patadas. Yo tengo puñetazos y caídas, y la gente prefiere patadas. Lo he hablado con mi psicólogo. Que es él.", "sigue": "mankey" },
+        "mankey": { "quien": "mankey", "emocion": "Happy", "texto": "¡Hola! Mankey. Doy cursillos para controlar la ira. Respiras, cuentas hasta diez y sonríes. Uno, dos…", "sigue": "mankey2" },
+        "mankey2": { "quien": "mankey", "emocion": "Angry", "anim": "enfado", "texto": "¡¿QUIÉN SE HA SENTADO EN MI SITIO?! (Era él. Se había sentado él.) …Perdón. Minuto dos. Siempre me enfado en el minuto dos.", "sigue": "primeape" },
+        "primeape": { "quien": "primeape", "emocion": "Normal", "texto": "(Detrás, un Primeape con cara de pocos amigos.) Soy el abuelo. No estoy enfadado: tengo esta cara. Estoy encantado de la vida.", "sigue": "primeape2" },
+        "primeape2": { "quien": "primeape", "emocion": "Normal", "texto": "Llevo un rato mirando la grieta de la fachada, con las manos detrás. Preciosa. A mí las obras me dan mucha paz.", "sigue": "hitmonlee4" },
+        "hitmonlee4": { "quien": "hitmonlee", "emocion": "Normal", "texto": "Como en esta casa no se pelea, competimos a otra cosa: a ver quién aguanta más rato quieto y tranquilo. Sin gritar. Sin wataaa.", "sigue": "concurso" },
+        "concurso": { "quien": "charizard", "emocion": "Worried", "anim": "salta", "anim_quien": "mankey", "texto": "Se sientan en el prado. Charizard se apunta. Al minuto dos, Mankey salta gritando. Hitmonlee suelta un «¡wataaa!». Hitmonchan se cae. Sentado.", "sigue": "primeape3" },
+        "primeape3": { "quien": "primeape", "emocion": "Normal", "anim": "confeti", "texto": "(Charizard aguanta hasta que huele la chistorra. Solo queda Primeape. Abre un ojo.) ¿He ganado? Es que aquí estoy muy feliz. Se me nota, ¿no?", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "No se le nota nada. Tras almorzar estofado, suben al autobús haciendo reverencias. En el pino queda atado un cinturón negro: «Yo ya estoy tranquilo. Primeape»." }
       }
     }
   ]

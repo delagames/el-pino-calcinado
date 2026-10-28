@@ -24,7 +24,7 @@
       "cuando": { "visita_min": 2 },
       "subtitulo": "Segunda visita · el número uno",
       "nodos": {
-        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Por la boca de la cueva de la ladera asoma un cuerno que gira como un taladro. Luego, una cabeza enorme, llena de polvo.)", "sigue": "n1" },
+        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Por la boca de la cueva de la ladera asoma un cuerno que gira como un taladro. Luego, una cabeza enorme, llena de polvo.)", "anim": "gira", "anim_quien": "huesped", "sigue": "n1" },
         "n1": { "quien": "huesped", "emocion": "Angry", "texto": "¡Manolo! ¡Soy Rhydon! ¡He evolucionado y me he acordado de una cosa! ¡De una cosa enorme! ¡El número uno soy yo!", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "¿El número uno de qué, hombre?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Happy", "texto": "¡De todo! Fui el primer Pokémon que dibujaron, antes que a nadie. ¿Las estatuas de los gimnasios de Kanto? Tienen mi forma. Mírelas.", "sigue": "n3" },
@@ -42,20 +42,21 @@
       "id": "v3",
       "cuando": { "visita_min": 3, "afinidad_min": 1 },
       "subtitulo": "Tercera visita · el primero de todos",
+      "de_paso": true,
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "(Rhydon saca la cabeza de la cueva.) Manolo, una pregunta seria. Me han dicho por el camino que hay alguien antes que yo. Un tal Mew.", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "(Rhydon sube la ladera y se planta en la puerta, sin entrar.) Manolo, una pregunta seria. Por el camino me han dicho que hay alguien antes que yo. Un tal Mew.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "Dicen que Mew es el antepasado de todos. Que lleva dentro a todos los Pokémon.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Surprised", "texto": "¿A todos? ¿A mí también? …O sea, que antes de ser el número uno ya estaba yo metido dentro de un gatito rosa.", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Happy", "texto": "(Se ríe tanto que tiembla la ladera y cae polvo del techo de la cueva.) ¡Pues que sea él! Un gatito rosa número uno. Me parece justo.", "sigue": "n4" },
+        "n3": { "quien": "huesped", "emocion": "Happy", "texto": "(Se ríe tanto que tiembla el porche y cae polvo del tejado.) ¡Pues que sea él! Un gatito rosa número uno. Me parece justo.", "sigue": "n4" },
         "n4": { "quien": "huesped", "emocion": "Normal", "texto": "Un señor de traje de Ciudad Verde quería ponerme de estatua en su gimnasio. Le he dicho que no. Ya no necesito que me miren.", "sigue": "n5" },
         "n5": { "quien": "huesped", "emocion": "Surprised", "texto": "¡Ah! ¡Y me he acordado! ¡Me he acordado de a qué venía la primera vez!", "opciones": [
           { "texto": "«¿A qué, hombre?»", "efectos": { "afinidad": 1, "flags": { "rhyhorn_gracias": "cena" } }, "sigue": "gracias" },
           { "texto": "«Seguro que a por chistorra»", "efectos": { "flags": { "rhyhorn_gracias": "chistorra" } }, "sigue": "chistorra" }
         ] },
-        "gracias": { "quien": "huesped", "emocion": "Happy", "texto": "A darle las gracias por la cena. Cené tan a gusto que me lo apunté en el pósit. Y luego perdí el pósit. Gracias, Manolo. Ya está. Ya me acuerdo.", "sigue": "fin" },
-        "chistorra": { "quien": "huesped", "emocion": "Happy", "texto": "¡También! Pero sobre todo a darle las gracias por aquella cena. Lo llevaba en el pósit, y el pósit en el cuerno. Gracias, Manolo.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Por la mañana, Rhydon baja la ladera despacito. Charizard le pega en el cuerno un pósit nuevo con una chistorra dibujada. No pone nada más. No hace falta." }
+        "gracias": { "quien": "huesped", "emocion": "Happy", "texto": "A darle las gracias por la cena. Cené tan a gusto que me lo apunté en el pósit. Y luego perdí el pósit. Gracias, Manolo. Ya está. Solo era eso.", "sigue": "fin" },
+        "chistorra": { "quien": "huesped", "emocion": "Happy", "texto": "¡También! Pero sobre todo a darle las gracias por aquella cena. Lo llevaba en el pósit, y el pósit en el cuerno. Gracias, Manolo. Solo era eso.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Rhydon se vuelve ladera abajo, despacito, antes de que se le olvide. Charizard le alcanza y le pega en el cuerno un pósit con una chistorra dibujada. No hace falta más." }
       }
     }
   ]

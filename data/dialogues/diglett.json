@@ -9,7 +9,7 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Del suelo del comedor sale un Diglett con casco y una hucha de lata.) Perdón por el agujero, ahora lo tapo. Le traigo saludos de Meowth.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¡Mi suelo! …¿De Meowth? ¿Qué Meowth?", "sigue": "n1" },
-        "n1": { "quien": "huesped", "emocion": "Happy", "texto": "El del sindicato, el que habla. Está con nosotros en la Cueva Diglett, en huelga: años cavando sin casco. Ya tenemos casco, pero la huelga estaba empezada.", "sigue": "n2" },
+        "n1": { "quien": "huesped", "emocion": "Happy", "texto": "El gato que habla, el del sindicato. Está con nosotros en la huelga de la Cueva Diglett: años cavando sin casco. Ya tenemos casco, pero la huelga ya estaba empezada.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "La hucha es para la caja de resistencia. Lo que se pueda: una baya, una moneda. Meowth dice que un sindicato sin hucha es una tertulia.", "sigue": "mirar" },
         "mirar": { "quien": "manolo", "emocion": "Worried", "texto": "(Manolo se agacha disimulando, para ver qué hay debajo del Diglett. Solo ve tierra. Se agacha un poco más.)", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Qué hace? ¿Se le ha caído algo? (Se hunde un palmo, por si acaso.)", "opciones": [
@@ -30,9 +30,9 @@
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Tus hermanos? ¿Y han estado ahí todo este tiempo?", "sigue": "n1" },
         "n1": { "quien": "huesped", "emocion": "Happy", "texto": "Desde siempre. Somos trillizos. Crecimos de golpe y nos encontramos. Ahora somos Dugtrio. Ya no estoy solo en el agujero.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Y ya que somos tres… (Carraspean los tres.) Hemos montado un trío de boleros para la huelga: Los Tres del Subsuelo. Con la hucha delante.", "sigue": "jynx" },
-        "jynx": { "quien": "huesped", "emocion": "Happy", "texto": "Nos han dicho que aquí para Jynx, la folclórica. Le tenemos preparada una serenata. ♪ Tres cabezas y un solo corazón, que te busca bajo el suelo… ♪", "sigue": "giovanni" },
+        "jynx": { "quien": "huesped", "emocion": "Happy", "texto": "Nos han dicho que aquí para Jynx, la folclórica. Le tenemos preparada una serenata. ♪ Tres cabezas y un solo corazón, que te busca bajo el suelo… ♪", "anim": "notas", "sigue": "giovanni" },
         "giovanni": { "quien": "huesped", "emocion": "Angry", "texto": "Y ayer vino un señor trajeado, de Ciudad Verde. Nos ofreció trabajo en su gimnasio: «Un Dugtrio así lo quiero yo». Le dijimos que no.", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Ese señor quiere Diglett para cavar. Nosotros queremos un convenio. No es lo mismo. Meowth dice que es su antiguo jefe.", "opciones": [
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Meowth dice que ese señor fue su jefe, y que es muy mala gente. Quiere Diglett para cavar. Nosotros queremos un convenio. No es lo mismo.", "opciones": [
           { "texto": "«Bien dicho. Toma, para la hucha»", "efectos": { "afinidad": 1 }, "sigue": "bien" },
           { "texto": "«¿Seguro? Igual pagaba bien…»", "sigue": "paga" }
         ] },
@@ -46,6 +46,7 @@
       "cuando": { "visita_min": 3, "afinidad_min": 1 },
       "subtitulo": "Tercera visita · el bolero del Pino",
       "fin_arco": true,
+      "de_paso": true,
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "(Salen las tres cabezas a la vez, con un papel enrollado.) ¡Manolo! ¡Lo hemos ganado! ¡El convenio! ¡Casco, bocadillo y siesta!", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "¡Enhorabuena, chavales! ¡Eso hay que celebrarlo!", "sigue": "n1" },
@@ -55,9 +56,9 @@
           { "texto": "«¿Un pino que se quema? ¿Quién os lo ha contado?»", "efectos": { "flags": { "diglett_bolero": "pino" } }, "sigue": "pino" }
         ] },
         "pino": { "quien": "huesped", "emocion": "Surprised", "texto": "Nadie. Se nota en la tierra: abajo hay una raíz negra que todavía está calentita. (Se miran.) Mejor lo tocamos y ya está, ¿no?", "sigue": "toca" },
-        "toca": { "quien": "huesped", "emocion": "Happy", "texto": "♪ Ay, pino, pino calcinado, que ardiste para dar calor… ♪ (Cada cabeza va por un tono distinto. Suena fatal. Suena precioso.)", "sigue": "charizard" },
+        "toca": { "quien": "huesped", "emocion": "Happy", "texto": "♪ Ay, pino, pino calcinado, que ardiste para dar calor… ♪ (Cada cabeza va por un tono distinto. Suena fatal. Suena precioso.)", "anim": "notas", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Sad", "texto": "Charizard escucha con los ojos cerrados y la llama de la cola muy bajita. Al final se suena la nariz. Sale una chispa.", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Nos vamos de gira por las cuevas: Monte Moon, el Túnel Roca, la Cueva Diglett. (Las tres a la vez:) Gracias por la hucha, compañero.", "sigue": "fin" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Y ahora nos vamos de gira por las cuevas: Monte Moon, el Túnel Roca, la Cueva Diglett. Hoy mismo. (Las tres a la vez:) Gracias por la hucha, compañero.", "sigue": "fin" },
         "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Se van por debajo del camino, y el bolero sube por las patas de las mesas. Desafinan los tres a la vez, como siempre. Pero juntos." }
       }
     }

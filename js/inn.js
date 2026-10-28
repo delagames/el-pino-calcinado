@@ -3,7 +3,7 @@
 // la noche se cobra, se apunta en el libro y se duerme. Se guarda al acabar cada fase.
 import { loadSprite, Actor, DIR } from './sprites.js';
 import { ROOMS, GROUND, COLORES } from './scene.js';
-import { loadGuestData, guestById, pickArrivals, setVisitas, canAppear } from './guests.js';
+import { loadGuestData, guestById, guestBase, pickArrivals, setVisitas, canAppear } from './guests.js';
 import { load, save, clear } from './save.js';
 import { loadDialogue, nextEntry } from './dialogue.js';
 import { MORAL_INICIAL, CHISTORRA_DIARIA, humor, moodLine, feedLine, nightEvents } from './charizard.js';
@@ -129,7 +129,7 @@ function newGame() {
 const PLANTILLA_BASE = 3;
 const VENTAJA = {
   animo: 'el que llega triste sube un corazón', cocina: 'cocina un plato al día', maletas: 'sube las maletas',
-  obras: 'las obras cuestan menos', propina: 'cobra más propina, por convenio', chistorra: 'trae chistorra cada mañana',
+  obras: 'las obras cuestan menos', propina: 'los huéspedes dejan más propina', chistorra: 'trae chistorra cada mañana',
   limpieza: 'aprueba sola la inspección',
 };
 // Los sucesos (uno cada 4 o 5 días): la inspección, el Team Rocket, la nevada, la tormenta con
@@ -410,7 +410,7 @@ export async function createInn(scene, ui) {
     if (pareja) return { pareja: { key: `sobremesa_${pareja.a}_${pareja.b}`, lineas: pareja.lineas } };
     const n = (st.sobremesa ||= {})[g.id] || 0;
     const linea = mine.lineas[n % mine.lineas.length];
-    const comio = guestById(g.id).pide[g.pide].tipo === 'comida';
+    const comio = guestById(g.id).pide[g.pide]?.tipo === 'comida';
     const plato = comio ? sobremesaData.plato[g.atendido === 'perfecto' ? 'perfecto' : g.atendido === 'frio' ? 'frio' : 'bien'] : null;
     return { ...linea, plato };
   }
@@ -451,7 +451,7 @@ export async function createInn(scene, ui) {
     st.vistas[id] = [...(st.vistas[id] || []), entry.id];
     const infoE = guestById(id);
     const oferta = entry.fin_arco && infoE?.empleo && !(st.plantilla || []).includes(id)
-      ? { id, nombre: infoE.hablante || infoE.especie, puesto: infoE.empleo.puesto, ventaja: VENTAJA[infoE.empleo.ventaja], lleno: (st.plantilla || []).length >= plazas() } : null;
+      ? { id, nombre: infoE.hablante || infoE.especie, puesto: infoE.empleo.puesto, ventaja: VENTAJA[infoE.empleo.ventaja], dePaso: !!entry.de_paso, lleno: (st.plantilla || []).length >= plazas() } : null;
     // Snorlax se queda a vivir junto al pino
     if (id === 'snorlax' && st.flags.snorlax_se_queda) {
       st.hoy = st.hoy.filter(h => h.id !== 'snorlax');
@@ -462,10 +462,42 @@ export async function createInn(scene, ui) {
         actors.get(h.id)?.place(s2.x, s2.y);
       }
     }
+    // quien venía solo de paso (o el grupo de la excursión) se despide y se va: deja sitio a otros
+    if (g && (g.estado === 'excursion' || (entry.de_paso && g.estado === 'puerta'))) {
+      despedir(g);
+      return { seVa: true, oferta };
+    }
     for (const h of st.hoy) refreshGuest(h);
     persist();
     publish();
     return { seVa: false, oferta };
+  }
+
+  // Se va tras la charla, sin dormir: cuenta como visita en el libro y sale en el resumen de la noche
+  function despedir(g) {
+    const info = guestById(g.id);
+    st.hoy = st.hoy.filter(h => h !== g);
+    st.vuelven = st.vuelven.filter(x => x !== g.id);
+    const entry = st.libro[g.id] || { visitas: 0, ultimo: 0 };
+    entry.visitas += 1;
+    entry.ultimo = st.dia;
+    entry.forma = Math.max(entry.forma || 0, (guestBase(g.id).evoluciones || []).filter(e => e.visita <= (g.visita || 1)).length);
+    st.libro[g.id] = entry;
+    // el grupo de la excursión paga lo que ha tomado
+    const paga = g.estado === 'excursion' ? 4 * (info.miembros || []).length : 0;
+    st.monedas += paga;
+    st.dePaso = (st.dePaso?.dia === st.dia ? st.dePaso : { dia: st.dia, filas: [] });
+    st.dePaso.filas.push({ sprite: info.sprite, nombre: info.especie, corazones: null, excursion: g.estado === 'excursion', paga, propina: 0, fama: 0,
+      motivos: [g.estado === 'excursion' ? 'vinieron de excursión por la mañana y se fueron en el autobús' : 'vino de paso: charlasteis y siguió su camino'] });
+    const a = actors.get(g.id);
+    if (a) { a.mood = 'contento'; a.walkTo(-40, GROUND, { dir: DIR.left, speed: 40, then: () => { actors.delete(g.id); publish(); } }); }
+    for (const h of st.hoy.filter(x => x.estado === 'puerta')) {
+      const s2 = guestSpot(h);
+      actors.get(h.id)?.walkTo(s2.x, s2.y, { then: () => refreshGuest(h) });
+    }
+    selected = null;
+    persist();
+    publish();
   }
 
   async function guestActor(g) {
@@ -547,6 +579,7 @@ export async function createInn(scene, ui) {
     if (g.atendido === 'perfecto') m.push('el plato le salió perfecto');
     else if (g.atendido === 'frio') m.push('comió algo frío');
     else if (g.crudo) m.push('el plato salió algo crudo');
+    else if (g.chill) m.push('vino a descansar, sin pedir nada');
     else if (!g.atendido) m.push('nadie le atendió');
     if (g.charlado) m.push('charlasteis un rato');
     if (g.espero || g.esperaFases) m.push('le hiciste esperar en la puerta');
@@ -571,22 +604,7 @@ export async function createInn(scene, ui) {
   async function arrive() {
     st.llegados = true;
     syncEstrellas();
-    // tras el final (todo el libro completo), los de siempre vuelven de visita, ya sin historia nueva
-    const ocupadas = st.hoy.length;   // los que se quedaron por la nevada
-    const llegan = pickArrivals(st, st.finalVisto ? new Set() : terminados())
-      .filter(l => !st.hoy.some(h => h.id === l.id)).slice(0, Math.max(0, bedrooms().length + 1 - ocupadas));
-    st.vuelven = st.vuelven.filter(id => !llegan.some(l => l.id === id));
-    st.ultimoPide = st.ultimoPide || {};
-    for (const [i, l] of llegan.entries()) {
-      st.ultimoPide[l.id] = l.pide;
-      const g = { id: l.id, pide: l.pide, estado: 'puerta', hab: null, atendido: false, visita: (st.vistas[l.id]?.length || 0) + 1 };
-      st.hoy.push(g);
-      const a = await guestActor(g);
-      a.place(-24 - i * 26, GROUND, { anim: 'Walk', dir: DIR.right });
-      a.mood = null;
-      a.walkTo(queueX(i), GROUND, { then: () => { refreshGuest(g); publish(); } });
-    }
-    // la excursión: el grupo baja del autobús y se queda delante de la posada
+    // la excursión: el grupo baja del autobús, se le ve su evento entero y se va; luego suben los demás
     const bus = st.bus?.dia === st.dia ? st.bus : sucesoHoy('excursion') ? st.suceso : null;   // (o la de una partida antigua)
     const grupo = bus && !bus.grupo && cameosPendientes()[0];
     if (grupo) {
@@ -594,13 +612,33 @@ export async function createInn(scene, ui) {
       const g = { id: grupo.id, pide: 0, estado: 'excursion', hab: null, atendido: true, visita: 1 };
       st.hoy.push(g);
       const a = await guestActor(g);
-      a.place(-30, GROUND, { anim: 'Walk', dir: DIR.right });
-      a.walkTo(guestSpot(g).x, GROUND, { then: () => { refreshGuest(g); publish(); } });
+      a.place(guestSpot(g).x, GROUND);
+      refreshGuest(g);
+      persist();
+      publish();
+      if (ui.evento) await ui.evento(g.id);
+    }
+    // tras el final (todo el libro completo), los de siempre vuelven de visita, ya sin historia nueva
+    const ocupadas = st.hoy.length;   // los que se quedaron por la nevada
+    // con el camino nevado no sube nadie: solo están los de anoche
+    const llegan = st.nieve === st.dia ? [] : pickArrivals(st, st.finalVisto ? new Set() : terminados())
+      .filter(l => !st.hoy.some(h => h.id === l.id)).slice(0, Math.max(0, bedrooms().length + 1 - ocupadas));
+    st.vuelven = st.vuelven.filter(id => !llegan.some(l => l.id === id));
+    st.historialPide = st.historialPide || {};
+    for (const [i, l] of llegan.entries()) {
+      if (l.pide != null) (st.historialPide[`${l.id}:${l.dex}`] ||= []).push(l.pide);
+      // quien no pide nada viene a descansar: ya está atendido
+      const chill = l.pide == null;
+      const g = { id: l.id, pide: l.pide, chill, estado: 'puerta', hab: null, atendido: chill, visita: (st.vistas[l.id]?.length || 0) + 1 };
+      st.hoy.push(g);
+      const a = await guestActor(g);
+      a.place(-24 - i * 26, GROUND, { anim: 'Walk', dir: DIR.right });
+      a.mood = null;
+      a.walkTo(queueX(i), GROUND, { then: () => { refreshGuest(g); publish(); } });
     }
     persist();
     publish();
-    if (grupo) ui.say('charizard', 'Happy', `¡Grrr! Ha llegado el autobús: ${grupo.especie}. Vienen a pasar el día, cenar y ver el pino. Tócalos para saludarlos.`);
-    else if (llegan.length) {
+    if (llegan.length) {
       const nombres = llegan.map(l => guestById(l.id).especie);
       ui.say('charizard', 'Surprised', `¡Grrr! Charizard avisa: ${nombres.length === 1 ? 'llega' : 'llegan'} ${listar(nombres)} por el camino. Tócalos para atenderlos.`);
     }
@@ -793,18 +831,6 @@ export async function createInn(scene, ui) {
     if (st.fase === 'noche') return nextDay();
     // quien se queda esperando en la puerta de una hora a otra se va mosqueando
     for (const g of st.hoy) if (g.estado === 'puerta') g.esperaFases = (g.esperaFases || 0) + 1;
-    // el Team Rocket viene al cerrar: con el cerrojo no hay nada que hacer; si no, a espantarlos
-    if (FASES[i + 1] === 'noche' && sucesoHoy('rocket') && !st.suceso.hecho) {
-      st.suceso.hecho = true;
-      if (has('cerrojo')) st.suceso.linea = 'El Team Rocket intentó llevarse la chistorra, pero el cerrojo aguantó. Se les oyó gritar «¡el Team Rocket vuela otra vez!».';
-      else {
-        const r = await ui.minijuego?.('rocket');
-        const roba = !r ? 0 : r.resultado === 'perfecto' ? 0 : Math.min(st.chistorra, r.resultado === 'bien' ? 1 : 3);
-        st.chistorra -= roba;
-        st.suceso.linea = roba ? `El Team Rocket se llevó ${roba} ${roba === 1 ? 'chistorra' : 'chistorras'}. Charizard jura venganza.`
-          : 'El Team Rocket vino a por la chistorra y salió volando. Charizard aún se ríe.';
-      }
-    }
     st.fase = FASES[i + 1];
     selected = null;
     await placeResidents();
@@ -832,7 +858,6 @@ export async function createInn(scene, ui) {
       persist();
       publish();
     } else if (st.fase === 'tarde') ui.say('manolo', 'Normal', 'Cae la tarde. Unos bajan al comedor, otros salen a pasear y alguno se queda en su cuarto.');
-    if (st.fase === 'dia' && sucesoHoy('inspeccion') && !st.suceso.hecho) return inspeccion();
     if (st.fase === 'dia') ui.say('charizard', ...moodLine(st.moral, st.dia));
   }
 
@@ -848,7 +873,31 @@ export async function createInn(scene, ui) {
       : res === 'bien' ? 'La inspección de Sanidad, aprobada por los pelos.' : 'La inspección de Sanidad encontró ceniza hasta en el techo: 20 monedas de multa.';
     persist();
     publish();
-    ui.say('manolo', res === 'quemado' ? 'Sad' : 'Happy', st.suceso.linea);
+  }
+
+  // El Team Rocket viene a por la chistorra recién llegada: con el cerrojo no hay nada que hacer; si no, a espantarlos
+  async function rocket() {
+    st.suceso.hecho = true;
+    if (has('cerrojo')) st.suceso.linea = 'El Team Rocket intentó llevarse la chistorra, pero el cerrojo aguantó. Se les oyó gritar «¡el Team Rocket vuela otra vez!».';
+    else {
+      const r = await ui.minijuego?.('rocket');
+      const roba = !r ? 0 : r.resultado === 'perfecto' ? 0 : Math.min(st.chistorra, r.resultado === 'bien' ? 1 : 3);
+      st.chistorra -= roba;
+      st.suceso.linea = roba ? `El Team Rocket se llevó ${roba} ${roba === 1 ? 'chistorra' : 'chistorras'}. Charizard jura venganza.`
+        : 'El Team Rocket vino a por la chistorra y salió volando. Charizard aún se ríe.';
+    }
+    persist();
+    publish();
+  }
+
+  // Lo que pasa a primera hora, antes de que suban los huéspedes: la inspección o el Team Rocket
+  async function sucesoDeLaManana() {
+    if (st.suceso?.dia !== st.dia || st.suceso.hecho) return;
+    if (st.suceso.id === 'inspeccion') await inspeccion();
+    else if (st.suceso.id === 'rocket') await rocket();
+    else return;
+    ui.say('manolo', /multa|se llevó/.test(st.suceso.linea) ? 'Sad' : 'Happy', st.suceso.linea);
+    await new Promise(r => setTimeout(r, 3500));   // que dé tiempo a leerlo antes de que lleguen
   }
 
   function closeDay() {
@@ -912,7 +961,9 @@ export async function createInn(scene, ui) {
         motivos: motivos(g), vuelve: f >= 4 ? 'volverá pronto' : f <= 1 ? 'tardará en volver' : '' });
     }
     st.monedas += ganado;
+    // los que vinieron de paso y la excursión de la mañana (ya pagaron al irse)
     if (!filas.length) lines.push('Hoy no ha dormido nadie en la posada.');
+    if (st.dePaso?.dia === st.dia) { filas.push(...st.dePaso.filas); ganado += st.dePaso.filas.reduce((x, f) => x + f.paga, 0); }
     let seed = st.dia * 104729 + 7;
     lines.push(...nightEvents(st, () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296)));
     const antes = st.estrellas;
@@ -924,7 +975,7 @@ export async function createInn(scene, ui) {
     // con la nevada nadie puede irse: se quedan otra noche (y vuelven a pagar)
     const nevo = sucesoHoy('nevada');
     const quedan = nevo ? st.hoy.filter(g => g.estado === 'habitacion') : [];
-    for (const g of quedan) Object.assign(g, { atendido: false, charlado: false, espero: false, esperaFases: 0, extra: 0, sobremesa: false, oido: false });
+    for (const g of quedan) Object.assign(g, { atendido: !!g.chill, charlado: false, espero: false, esperaFases: 0, extra: 0, sobremesa: false, oido: false });
     // por la mañana se van los de anoche
     const leaving = st.hoy.filter(g => !quedan.includes(g)).map(g => g.id);
     for (const id of leaving) {
@@ -939,7 +990,8 @@ export async function createInn(scene, ui) {
     if (!st.proveedor && dia >= 7) { st.proveedor = 'cortado'; carta = true; }
     const sale = st.proveedor === 'buscando';
     const sinReparto = st.proveedor === 'cortado' || st.proveedor === 'buscando';
-    const paquete = (sinReparto ? 0 : CHISTORRA_DIARIA + (st.mejoras.includes('mas-chistorra') ? 2 : 0)) + (empleado('chistorra') ? 2 : 0);
+    // con la nevada tampoco sube la furgoneta (la chistorra del empleado sí, que ya vive aquí)
+    const paquete = (sinReparto || nevo ? 0 : CHISTORRA_DIARIA + (st.mejoras.includes('mas-chistorra') ? 2 : 0)) + (empleado('chistorra') ? 2 : 0);
     let seed = dia * 9973 + 5;
     const lluvia = dia > 1 && ((seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296) < 0.25;
     st = { ...st, dia, fase: 'manana', hoy: quedan, llegados: false, ayer: leaving,
@@ -948,7 +1000,7 @@ export async function createInn(scene, ui) {
     if (quedan.length) await placeGuests();
     const suceso = carta || sale || nevo ? null : elegirSuceso(dia);
     if (suceso) { st.suceso = { id: suceso, dia }; st.ultimoSuceso = dia; }
-    if (!carta && cameosPendientes().length && dia - (st.ultimoBus || 0) >= CADA_BUS) { st.bus = { dia }; st.ultimoBus = dia; }
+    if (!carta && !nevo && cameosPendientes().length && dia - (st.ultimoBus || 0) >= CADA_BUS) { st.bus = { dia }; st.ultimoBus = dia; }
     st.huelga = sinReparto && st.chistorra === 0;
     selected = null;
     await placeResidents();
@@ -957,7 +1009,7 @@ export async function createInn(scene, ui) {
     if (carta) ui.say('charizard', 'Surprised', 'Hoy no ha venido la furgoneta. Ha llegado una carta: «Famadesa deja de servir en la montaña». Charizard la lee tres veces, del derecho y del revés.');
     else if (sale) ui.say('charizard', 'Worried', 'Manolo ha salido de madrugada a buscar otro proveedor. Es la primera vez que sale de la posada. Hoy la recepción la lleva Charizard.');
     else if (st.huelga) ui.say('charizard', 'Angry', 'Charizard sigue en huelga en el porche. Sin chistorra no hay fuego.');
-    else if (nevo) ui.say('manolo', 'Surprised', '¡Sigue nevando! Nadie se atreve a bajar al valle: los de anoche se quedan otro día. Mejor para la caja.');
+    else if (nevo) ui.say('manolo', 'Surprised', '¡Sigue nevando! El camino está cortado: ni baja nadie al valle ni sube nadie, ni la furgoneta. Los de anoche se quedan otro día. Mejor para la caja.');
     else if (suceso) ui.say(...AVISO[suceso]);
     else if (lluvia) ui.say('manolo', 'Sigh', 'Llueve. Manolo se queda un rato mirando por la ventana. Hoy vendrán los de agua.');
     else ui.say(...buenosDias[(st.dia - 2) % buenosDias.length]);
@@ -966,8 +1018,8 @@ export async function createInn(scene, ui) {
 
   const AVISO = {
     excursion: ['charizard', 'Surprised', '¡Grrr! Charizard ha visto un autobús de excursión subiendo por la carretera.'],
-    inspeccion: ['manolo', 'Worried', 'Ha llegado una carta: hoy, a mediodía, viene la inspección de Sanidad. ¡Charizard, la ceniza!'],
-    rocket: ['charizard', 'Worried', 'Charizard ha encontrado huellas raras junto a la despensa… y una R pintada en la puerta.'],
+    inspeccion: ['manolo', 'Worried', 'Ha llegado una carta: hoy, a primera hora, viene la inspección de Sanidad. ¡Charizard, la ceniza!'],
+    rocket: ['charizard', 'Worried', 'Charizard ha encontrado huellas raras junto a la despensa… y una R pintada en la puerta. Alguien espera a la furgoneta.'],
     nevada: ['manolo', 'Surprised', '¡Ha nevado! La montaña está blanca. Si sigue así, mañana nadie podrá bajar al valle.'],
     apagon: ['manolo', 'Worried', 'Se está poniendo el cielo negro. Esta noche habrá tormenta, y de las gordas.'],
     estrellas: ['manolo', 'Happy', 'Dicen en la radio que esta noche hay lluvia de estrellas. Habrá que salir a verla.'],
@@ -1005,7 +1057,7 @@ export async function createInn(scene, ui) {
         const info = guestById(g.id);
         const pide = info.pide[g.pide] || {};
         return { id: g.id, sprite: info.sprite, nombre: info.especie, estado: g.estado,
-          hab: g.hab && ROOM[g.hab].nombre, pide: pide.texto, dice: pide.dice, tipo: pide.tipo, atendido: g.atendido,
+          hab: g.hab && ROOM[g.hab].nombre, pide: pide.texto, dice: pide.dice, tipo: pide.tipo, atendido: g.atendido, chill: !!g.chill,
           grande: info.tam === 'grande', tam: info.tam || 'normal', charla: !!charlaOf(g), oido: !!g.oido, preguntado: !!g.preguntado,
           acompanante: info.acompanante || info.miembros?.[1]?.sprite || null, acompananteNombre: info.acompanante_especie || null,
           hablante: info.hablante || info.especie, miembros: info.miembros || null, cameo: !!info.cameo, duerme: info.duerme || null, recuerda: pide.recuerda || pide.dice, visitas: st.libro[g.id]?.visitas || 0, sobremesa: sobremesaOf(g) };
@@ -1032,10 +1084,11 @@ export async function createInn(scene, ui) {
       // primero llega la furgoneta con la chistorra; luego, los huéspedes
       const paquete = st.dia === 1 ? CHISTORRA_DIARIA : (st.paquete ?? CHISTORRA_DIARIA);
       if (paquete === 0) await new Promise(r => setTimeout(r, 3800));   // sin reparto: da tiempo a leer la noticia
-      if (paquete > 0) {
+      if (paquete > 0 && st.nieve !== st.dia) {
         const rotulo = st.proveedor === 'nuevo' ? 'DON PACO' : 'FAMADESA';
         await scene.playVan(() => ui.sfx?.('van') || ui.say('charizard', 'Happy', `¡Ha llegado la furgoneta de la chistorra! ${paquete} más en la despensa, y Charizard ya las ha contado dos veces.`), rotulo);
       }
+      await sucesoDeLaManana();
       await arrive();
       arriving = false;
     }, 700);
@@ -1124,9 +1177,12 @@ export async function createInn(scene, ui) {
       else if (a.residente === 'manolo') ui.say('manolo', 'Happy', 'Manolo se pasa la mano por la calva: «Aquí: cachimbita, chistorra y a dormir».');
       else if (a.residente === 'snorlax') ui.say('snorlax', 'Normal', 'Zzz… (Snorlax ronca junto al pino. Desde que vive en la entrada, nadie levanta la voz en la posada.)');
       else if (a.residente?.startsWith('empleado-')) {
-        const info = guestById(a.residente.slice(9));
-        ui.decir?.({ sprite: info.sprite, nombre: info.hablante || info.especie }, 'Happy',
-          `Aquí, currando: ${info.empleo.puesto}. (${VENTAJA[info.empleo.ventaja][0].toUpperCase()}${VENTAJA[info.empleo.ventaja].slice(1)}.)`);
+        // cada vez que se le toca dice una de sus frases de currar, por orden
+        const id = a.residente.slice(9), info = guestById(id);
+        const frases = info.empleo.frases || guestBase(id)?.empleo?.frases || [`Aquí estoy, de ${info.empleo.puesto}.`];
+        st.frasesEmpleo ||= {};
+        const n = st.frasesEmpleo[id] = (st.frasesEmpleo[id] || 0) + 1;
+        ui.decir?.({ sprite: info.sprite, nombre: info.hablante || info.especie }, 'Happy', frases[(n - 1) % frases.length]);
       }
     },
     get fase() { return st.fase; },

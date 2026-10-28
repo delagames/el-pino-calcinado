@@ -119,14 +119,22 @@ export function pickArrivals(state, terminados = new Set()) {
     .map(g => ({ id: g.id, k: r() + (ayer.has(g.id) ? 1 : 0) + pull(g) }))
     .sort((a, b) => a.k - b.k)
     .map(g => g.id);
-  return [...first, ...rest].slice(0, arrivalsFor(state.dia, state.habitaciones || 3)).map(id => {
+  const llegan = [...first, ...rest].slice(0, arrivalsFor(state.dia, state.habitaciones || 3));
+  // no todos piden algo: más o menos tres de cada cinco; los demás vienen a descansar («chill»)
+  // (los dos primeros días piden todos, que se está aprendiendo)
+  const cuantos = state.dia <= 2 ? llegan.length : Math.max(1, Math.round(llegan.length * 0.6));
+  const conEncargo = new Set([...llegan].sort(() => r() - 0.5).slice(0, cuantos));
+  return llegan.map(id => {
+    if (!conEncargo.has(id)) return { id, pide: null };
     // la forma con la que viene en esta visita (si evoluciona, pide lo de su nueva forma)
     const g = formaDe(guestBase(id), proxima(id));
-    // encargos posibles hoy: sin los que ya no tienen sentido por una mejora y, si se puede,
-    // distinto del de la visita anterior (para no repetir la misma escena)
-    let opts = g.pide.map((p, i) => i).filter(i => !g.pide[i].no_si_mejora || !mejoras.has(g.pide[i].no_si_mejora));
-    const last = (state.ultimoPide || {})[id];
-    if (opts.length > 1) opts = opts.filter(i => i !== last);
-    return { id, pide: opts[Math.floor(r() * opts.length)] ?? 0 };
+    // encargos posibles hoy: sin los que ya no tienen sentido por una mejora y, de esos, los que hace
+    // más tiempo que no pide (primero los que nunca ha pedido), para no repetir la misma escena
+    const opts = g.pide.map((p, i) => i).filter(i => !g.pide[i].no_si_mejora || !mejoras.has(g.pide[i].no_si_mejora));
+    const hist = (state.historialPide || {})[`${id}:${g.dex}`] || [];
+    const hace = i => { const k = hist.lastIndexOf(i); return k < 0 ? -1 : k; };
+    const minimo = Math.min(...opts.map(hace));
+    const mejores = opts.filter(i => hace(i) === minimo);
+    return { id, pide: mejores[Math.floor(r() * mejores.length)] ?? 0, dex: g.dex };
   });
 }

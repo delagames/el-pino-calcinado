@@ -357,6 +357,7 @@ body:has(#popup:not(.hidden)) #toast { display: none; }
   .topbar button.icon, .topbar .book-button { min-height: 36px; }
   .book-button { margin-left: auto; }
   .book-button .largo { display: none; }
+  .topbar .shop-button { margin-left: 6px; }
   /* en vertical, las respuestas van debajo del texto, a lo ancho */
   .dialog { flex-wrap: wrap; row-gap: 6px; }
   .dialog-body { flex: 1 1 calc(100% - 72px); }
@@ -448,3 +449,7 @@ body:has(#popup:not(.hidden)) #toast { display: none; }
 .shop li .stars { display: inline-flex; vertical-align: -1px; }
 .shop li .fama-chip { margin-left: 4px; }
 #stub .card { width: min(560px, 100%); }
+
+/* pruebas (?demo): los botones, en filas que se reparten */
+p.demo { display: flex; flex-wrap: wrap; gap: 6px; }
+.card p.demo button { width: auto; margin: 0; min-height: 0; padding: 4px 8px; font-size: 0.9rem; }

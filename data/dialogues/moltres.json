@@ -43,9 +43,10 @@
       "cuando": { "visita_min": 3, "afinidad_min": 1 },
       "subtitulo": "Tercera visita · una brasa, por si acaso",
       "fin_arco": true,
+      "de_paso": true,
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Me voy, Manolo. En algún sitio encienden otra antorcha y me toca. Pero antes quiero dejarle una cosa.", "sigue": "brasa" },
-        "brasa": { "quien": "manolo", "emocion": "Surprised", "texto": "(Moltres se acerca a la chimenea y deja caer una pluma de fuego. Al tocar la ceniza se queda en brasa: pequeña, roja, tranquila.)", "sigue": "n2" },
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Hoy no me quedo, Manolo. En algún sitio encienden otra antorcha y me toca ir. Pero antes quiero dejarle una cosa.", "sigue": "brasa" },
+        "brasa": { "quien": "manolo", "emocion": "Surprised", "texto": "(Moltres se acerca a la chimenea y deja caer una pluma de fuego. Al tocar la ceniza se queda en brasa: pequeña, roja, tranquila.)", "anim": "fuego", "anim_quien": "huesped", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "No se apaga. Como la de su pino. Por si alguna noche le hace falta. Para lo que sea: para una chistorra… o para otra cosa.", "sigue": "n3" },
         "n3": { "quien": "manolo", "emocion": "Worried", "texto": "¿Otra cosa? ¿Qué otra cosa?", "sigue": "n4" },
         "n4": { "quien": "huesped", "emocion": "Normal", "texto": "Eso lo sabrá usted. Yo solo traigo el fuego. Lo que se enciende con él lo decide cada uno.", "opciones": [
@@ -54,7 +55,7 @@
         ] },
         "cuidar": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard se sienta delante de la chimenea a mirar la brasa, como quien mira el mar. O una chistorra en la parrilla, que para él es lo mismo.", "sigue": "fin" },
         "chistorra": { "quien": "huesped", "emocion": "Normal", "texto": "(Moltres no cambia la cara. Pero la llama de la cresta se le pone amarilla, amarillísima. Es lo más parecido a reírse que tiene.)", "sigue": "fin" },
-        "fin": { "quien": "manolo", "emocion": "Normal", "texto": "(Al alba, Moltres sale del nido y se pierde en el cielo como una cerilla. En la chimenea, la brasa sigue. Manolo la mira más de lo que diría.)" }
+        "fin": { "quien": "manolo", "emocion": "Normal", "texto": "(Moltres sale por la puerta, alza el vuelo desde el pino y se pierde en el cielo como una cerilla. En la chimenea, la brasa sigue. Manolo la mira más de lo que diría.)" }
       }
     }
   ]

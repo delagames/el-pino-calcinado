@@ -10,11 +10,11 @@
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "Yo, yo, Manolo. Dratini, la MC de la montaña. Esta semana soy rapera. Lo de la semana pasada no lo cuento: eso era otra piel.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "(Una serpiente azul con la gorra del revés y una cadena de oro de chocolate. Charizard se acerca a oler la cadena.)", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Mudo la piel cada semana, ¿sabes? Y con cada piel, un estilo. Rapera, gótica, de campo… La que viene, ni idea. Depende de cómo me salga.", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Worried", "texto": "Lo malo es que no sé cuál soy yo. Durante siglos creyeron que los Dratini éramos un mito. A veces me lo creo hasta yo.", "opciones": [
+        "n3": { "quien": "huesped", "emocion": "Worried", "texto": "Lo malo es que no sé cuál soy yo. Durante siglos la gente creyó que los Dratini éramos un mito, que no existíamos. A veces me lo creo hasta yo.", "opciones": [
           { "texto": "«Pues aquí te vemos, con gorra y sin ella»", "efectos": { "afinidad": 1 }, "sigue": "vemos" },
           { "texto": "«¿Y no te cansas de tanto cambio?»", "sigue": "cansas" }
         ] },
-        "vemos": { "quien": "huesped", "emocion": "Happy", "texto": "¿Me veis? ¿A la de la gorra? …Mola. Te dedico un tema. Se llama «Calva de oro». Es un homenaje, ¿eh? Con respeto.", "sigue": "fin" },
+        "vemos": { "quien": "huesped", "emocion": "Happy", "texto": "¿Me veis? ¿A la de la gorra? …Mola. Te dedico un tema. Se llama «Calva de oro». Es un homenaje, ¿eh? Con respeto.", "anim": "baila", "sigue": "fin" },
         "cansas": { "quien": "huesped", "emocion": "Sad", "texto": "Un poco. Cada vez que mudo me quedo un rato sin estilo, sin nada. Y en ese rato no sé ni cómo hablar. Hablo raro. Como ahora.", "sigue": "fin" },
         "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard se come la cadena de chocolate cuando Dratini se mete en el estanque. Por la mañana flota en el agua una piel vieja, con la gorra puesta." }
       }
@@ -27,7 +27,7 @@
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "Buenas tardes, Manolo. Previsión para mañana: sol radiante. Ni una nube. Máximas de veinticuatro. Se lo garantizo.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "(Ha evolucionado: larga, azul, con perlas en el cuello y una voz de telediario. Se ha mudado de piel y de oficio a la vez.)", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Ahora soy Dragonair. Y la mujer del tiempo de la radio del valle. Nunca fallo. Llevo cuarenta y dos días acertando. Seguidos.", "sigue": "noche" },
-        "noche": { "quien": "charizard", "emocion": "Surprised", "texto": "Esa noche Charizard la ve en el estanque con los ojos cerrados y las perlas brillando. Arriba, las nubes se apartan solas. Muy deprisa.", "sigue": "n3" },
+        "noche": { "quien": "charizard", "emocion": "Surprised", "texto": "Al anochecer, Charizard la ve en el estanque con los ojos cerrados y las perlas brillando. Arriba, las nubes se apartan solas. Muy deprisa.", "anim": "estrellas", "anim_quien": "huesped", "sigue": "n3" },
         "n3": { "quien": "manolo", "emocion": "Normal", "texto": "Oye, Dragonair… ¿Tú aciertas el tiempo o lo pones tú?", "sigue": "n4" },
         "n4": { "quien": "huesped", "emocion": "Worried", "texto": "…Los Dragonair podemos cambiar el clima, sí. Solo un poquito. Lo justo para no fallar. Si fallo, ¿quién me va a escuchar?", "opciones": [
           { "texto": "«Te escucharíamos aunque lloviera»", "efectos": { "afinidad": 1 }, "sigue": "lloviera" },
@@ -43,12 +43,13 @@
       "cuando": { "visita_min": 3, "afinidad_min": 1 },
       "subtitulo": "Tercera visita · que llueva",
       "fin_arco": true,
+      "de_paso": true,
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Hoy viene a recogerme mi padre. Dragonite. Da la vuelta al mundo en dieciséis horas, así que llegará tarde. Siempre llega tarde.", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Hoy no me quedo, Manolo. Mi padre viene a recogerme aquí. Es Dragonite: da la vuelta al mundo en dieciséis horas, y aun así llegará tarde. Siempre llega tarde.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Tu padre es un Dragonite? ¿Grandullón, naranja, con cara de peluche?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Sad", "texto": "Ese. Reparte por todo el mundo. Yo cambiaba de piel cada semana, a ver si se fijaba. Lo único que nunca cambia es que llega tarde.", "sigue": "espera" },
         "espera": { "quien": "charizard", "emocion": "Normal", "texto": "Pasa una hora. Dos. Al atardecer aparece una mancha naranja por el valle, volando sin ninguna prisa.", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Angry", "texto": "Tres horas, papá. (Las perlas de Dragonair se encienden. Encima de Dragonite, y solo encima de él, se pone a llover un poquito.)", "sigue": "n4" },
+        "n3": { "quien": "huesped", "emocion": "Angry", "texto": "Tres horas, papá. (Las perlas de Dragonair se encienden. Encima de Dragonite, y solo encima de él, se pone a llover un poquito.)", "anim": "agua", "sigue": "n4" },
         "n4": { "quien": "manolo", "emocion": "Happy", "texto": "(Dragonite aterriza empapado, con un ramo de flores del camino y cara de peluche mojado. No se enfada. Se ríe.)", "sigue": "n5" },
         "n5": { "quien": "huesped", "emocion": "Normal", "texto": "Dice que ya no corre. Que ahora va a su paso, por eso llega tarde… pero que llega. Y que ha parado a coger las flores. Para mí.", "opciones": [
           { "texto": "«Pues que llueva, que también hace falta»", "efectos": { "afinidad": 1, "flags": { "dratini_tiempo": "lluvia" } }, "sigue": "lluvia" },

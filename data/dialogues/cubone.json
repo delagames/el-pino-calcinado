@@ -49,7 +49,7 @@
         ] },
         "posada": { "quien": "huesped", "emocion": "Happy", "texto": "¿Con casco y todo? (Se lo ajusta, muy digno.) Entonces somos tres y medio. Contando a mamá.", "sigue": "fin" },
         "madre": { "quien": "huesped", "emocion": "Happy", "texto": "(Se toca el casco y sonríe por debajo.) Entonces llevarla puesta no es ir triste. Es ir acompañado.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le chamusca los calcetines, muy poquito y a propósito. Cubone se ríe por primera vez. Al alba vuelve a Lavanda con el tarro, prometiendo volver." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le chamusca los calcetines, muy poquito y a propósito. Cubone se ríe por primera vez. Al alba vuelve a Lavanda con el tarro, prometiendo volver.", "anim": "fuego" }
       }
     },
     {
@@ -63,8 +63,8 @@
         "n1": { "quien": "huesped", "emocion": "Happy", "texto": "(Se toca el casco.) Ya no es medio. Me queda bien. Como cuando te pones la ropa de tu madre y un día, sin avisar, te queda bien.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Me he hecho mayor de golpe. Una mañana me desperté y ya no me salían los monólogos. Me salía hablar bajito. Como ella.", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard se le planta delante y se pone de puntillas, para comprobar quién es más alto. Sigue siéndolo él. De sobra. Se queda más tranquilo.", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Vengo a despedirme. Me voy a vivir a la Torre de Lavanda. Allí llegan Cubone solos, cada vez más. Alguien tiene que hacerles la cena.", "sigue": "n4" },
-        "n4": { "quien": "huesped", "emocion": "Sad", "texto": "Yo llegué aquí sin saber ni hablar sin declamar, y me disteis sopa caliente. Quiero ser eso para alguien. Una sopa caliente.", "opciones": [
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Es mi última noche aquí. Mañana me voy a vivir a la Torre de Lavanda: cada vez llegan más Cubone solos, y alguien tiene que hacerles la cena.", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Sad", "texto": "Yo llegué aquí que no sabía hablar sin declamar, y me disteis cena caliente. Quiero ser eso para alguien. Una cena caliente.", "opciones": [
           { "texto": "«Te lleno unos tápers de potaje para el camino»", "efectos": { "afinidad": 1, "flags": { "cubone_torre": "taper" } }, "sigue": "taper" },
           { "texto": "«¿Y a ti quién te va a cuidar?»", "efectos": { "flags": { "cubone_torre": "quien" } }, "sigue": "quien" }
         ] },

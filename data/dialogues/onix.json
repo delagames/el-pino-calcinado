@@ -7,7 +7,7 @@
       "cuando": { "visita_min": 1 },
       "subtitulo": "Primera visita · perdón por ocupar",
       "nodos": {
-        "inicio": { "quien": "charizard", "emocion": "Surprised", "texto": "Tiembla el suelo. Por la ladera baja una fila de rocas enormes, una detrás de otra, como un tren. Se paran en la puerta. Charizard se esconde.", "sigue": "n1" },
+        "inicio": { "quien": "charizard", "emocion": "Surprised", "texto": "Tiembla el suelo. Por la ladera baja una fila de rocas enormes, una detrás de otra, como un tren. Se paran en la puerta. Charizard se esconde.", "anim": "tiembla", "sigue": "n1" },
         "n1": { "quien": "huesped", "emocion": "Normal", "texto": "(Una cabeza de piedra se agacha hasta la ventana de recepción.) Perdón. Buenas. Perdón. Vengo a dormir. Si no es molestia. Perdón.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "Madre mía. ¿Y tú cuánto mides, hijo?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Ocho metros ochenta. Perdón. Me salió así. (Suspira y levanta una nube de polvo.) Perdón por el polvo.", "sigue": "n3" },
@@ -48,21 +48,22 @@
       "cuando": { "visita_min": 3, "afinidad_min": 1 },
       "subtitulo": "Tercera visita · a casa",
       "fin_arco": true,
+      "de_paso": true,
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Onix asoma la cabeza, más quieto que nunca.) Manolo, perdón. Esta mañana ha sonado el teléfono de recepción. Era para mí. Era Brock.", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Las goteras del gimnasio, arregladas. Las ha arreglado un Geodude que dice que le conoce a usted. En una semana. Bueno, en muchas.", "sigue": "n3" },
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Tiembla el suelo: es Onix, pero esta vez no entra en la cueva.) Perdón, Manolo. Solo vengo a despedirme. Me ha llamado Brock.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Ya no hay goteras en el gimnasio. Las ha arreglado un Geodude que dice que le conoce a usted. «En una semana», dijo. Tardó muchas.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Y Brock dice que sin mí el gimnasio parece más grande. Que vuelva a casa.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "¡Pero eso es buena noticia! ¿Por qué pones esa cara?", "sigue": "n4" },
         "n4": { "quien": "huesped", "emocion": "Surprised", "texto": "Es la que tengo, perdón. (Pausa.) Es que aquí me he acostumbrado a una cosa: nadie me pide que ocupe menos.", "sigue": "n5" },
         "n5": { "quien": "huesped", "emocion": "Normal", "texto": "Toda la vida encogiéndome. En los caminos, en los Centros, en las fotos. Aquí me hicisteis una cueva a mi medida. Nadie me había hecho nada a mi medida.", "sigue": "charizard" },
-        "charizard": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard se sienta en la boca de la cueva, junto a la cabeza de Onix, y apoya la espalda en él como en una pared. Una pared que respira.", "sigue": "n6" },
+        "charizard": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard se sienta en el porche, junto a la cabeza de Onix, y apoya la espalda en él como en una pared. Una pared que respira.", "sigue": "n6" },
         "n6": { "quien": "huesped", "emocion": "Normal", "texto": "¿Y si en el gimnasio vuelvo a pedir perdón por todo?", "opciones": [
           { "texto": "«Ocupar sitio no es molestar. Te lo decimos aquí»", "efectos": { "afinidad": 1, "flags": { "onix_casa": "sitio" } }, "sigue": "sitio" },
           { "texto": "«Pide perdón solo cuando tires un pino»", "efectos": { "afinidad": 1, "flags": { "onix_casa": "pinos" } }, "sigue": "pinos" }
         ] },
         "sitio": { "quien": "huesped", "emocion": "Surprised", "texto": "«Ocupar sitio no es molestar». Me lo voy a grabar en la roca. Tengo mucha roca: cabe entera, y con letra grande.", "sigue": "fin" },
         "pinos": { "quien": "huesped", "emocion": "Normal", "texto": "Trato hecho: solo por pinos. (Pausa.) Ya llevo tres. Pero esos ya estaban pedidos.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Con el primer sol, Onix sale marcha atrás y baja la ladera sin pedir perdón a nadie. Solo a un pino. En la cueva queda su forma en la roca, como un molde." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Onix se da la vuelta, despacito, y se va ladera abajo sin pedir perdón a nadie. Solo a un pino. En la cueva aún queda su forma en la roca, como un molde." }
       }
     }
   ]

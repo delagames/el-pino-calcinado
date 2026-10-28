@@ -40,6 +40,7 @@
       "id": "v3",
       "cuando": { "visita_min": 3, "afinidad_min": 1 },
       "subtitulo": "Tercera visita · la función en el comedor",
+      "de_paso": true,
       "fin_arco": true,
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Hoy os hago la función. En silencio. Como debe ser. Que ya está bien de que en este país hable todo el mundo.", "sigue": "funcion" },

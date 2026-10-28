@@ -57,6 +57,43 @@ const MOODS = {
   tarde: { bpm: 76, chords: [[9, 12, 16], [5, 9, 12], [0, 4, 7], [7, 11, 14]], lead: true },
   noche: { bpm: 62, chords: [[0, 4, 7], [9, 12, 16], [5, 9, 12], [7, 11, 14]], lead: false },
   cocina: { bpm: 112, chords: [[0, 4, 7], [5, 9, 12], [0, 4, 7], [7, 11, 14]], lead: true },
+  // Los eventos (las excursiones), cada uno con su tema. Además de lo de arriba:
+  // beats (partes por compás), sub (notas del arpegio por parte), root (nota base), bass (vals, paso,
+  // pedal, oompa), arp (qué nota del acorde en cada subdivisión; null sin arpegio), arpType, leadType,
+  // scale (para la melodía al azar), melodia (compases fijos: semitonos sobre root+24 en corcheas,
+  // null es silencio) y drum (k bombo, s caja, h charles, t timbal, . nada; una letra por subdivisión)
+  feria: { bpm: 168, beats: 3, root: 48, bass: 'vals', arp: null, leadType: 'square', leadVol: 0.1,
+    chords: [[0, 4, 7], [7, 11, 14], [5, 9, 12], [0, 4, 7]],
+    melodia: [[7, null, 4, 7, 12, null], [11, null, 7, 11, 14, null], [9, null, 5, 9, 12, null], [7, 5, 4, 2, 0, null]] },
+  playa: { bpm: 104, root: 50, leadType: 'triangle', arpType: 'triangle', drum: 'k.hhk.hh', scale: [0, 2, 4, 7, 9, 12, 14],
+    chords: [[0, 4, 7], [5, 9, 12], [7, 11, 14], [5, 9, 12]] },
+  acuatico: { bpm: 104, beats: 3, root: 53, bass: 'vals', arpType: 'sine', leadType: 'sine', leadVol: 0.14,
+    chords: [[0, 4, 7], [9, 12, 16], [2, 5, 9], [7, 11, 14]],
+    melodia: [[12, null, 14, 16, null, null], [19, null, 16, 12, null, null], [14, null, 12, 9, null, null], [7, null, null, null, null, null]] },
+  oeste: { bpm: 76, root: 45, bass: 'paso', arp: null, leadType: 'square', leadVol: 0.09, drum: 't..t.t..',
+    chords: [[0, 3, 7], [0, 3, 7], [-2, 2, 5], [-5, -1, 2]],
+    melodia: [[0, null, null, 7, null, null, 5, 3], [0, null, null, null, null, null, null, null], [0, null, 3, 5, 7, null, 10, null], [7, null, null, null, 5, 3, 2, null]] },
+  verbena: { bpm: 120, root: 50, bass: 'oompa', arp: null, leadType: 'sawtooth', leadVol: 0.06, drum: 'k.s.k.s.',
+    chords: [[0, 4, 7], [7, 11, 14], [7, 11, 14], [0, 4, 7]],
+    melodia: [[12, null, 11, 12, 14, null, 12, null], [11, null, 9, 11, 7, null, null, null], [7, 9, 11, 12, 14, null, 17, null], [16, 14, 12, null, null, null, null, null]] },
+  puntolimpio: { bpm: 112, sub: 4, root: 48, arp: [0, 2, 1, 2], arpType: 'square', drum: 'k..hk.h.k..hk.hh', scale: [0, 2, 4, 5, 7, 9, 12],
+    chords: [[0, 4, 7], [0, 5, 9], [2, 7, 11], [0, 4, 7]] },
+  visitasrocket: { bpm: 96, root: 45, bass: 'paso', arp: null, leadType: 'square', leadVol: 0.08, drum: 'h.h.h.hs',
+    chords: [[0, 3, 7], [1, 5, 8], [0, 3, 7], [-1, 2, 7]],
+    melodia: [[0, null, 3, null, 6, null, 7, null], [6, null, 3, null, 0, null, null, null], [0, 1, 0, null, 3, 4, 3, null], [7, null, 6, null, 0, null, null, null]] },
+  dojo: { bpm: 96, root: 50, arp: null, leadType: 'triangle', drum: 'k...k.k.', scale: [0, 1, 5, 7, 8, 12, 13],
+    chords: [[0, 7, 12], [0, 7, 12], [-2, 5, 10], [0, 7, 12]] },
+  psiquicos: { bpm: 66, root: 48, arpType: 'sine', leadType: 'sine', scale: [0, 2, 4, 6, 8, 10, 12],
+    chords: [[0, 4, 8], [2, 6, 10], [0, 4, 8], [-2, 2, 6]] },
+  vendimia: { bpm: 132, beats: 3, root: 50, bass: 'pedal', arp: null, leadType: 'square', leadVol: 0.08, drum: 'k.hk.h', scale: [0, 2, 4, 5, 7, 9, 11, 12],
+    chords: [[0, 4, 7], [-2, 2, 5], [0, 4, 7], [7, 11, 14]] },
+  electricistas: { bpm: 126, sub: 4, root: 45, arp: [0, 1, 2, 1], arpType: 'sawtooth', lead: false, drum: 'k.h.k.h.k.h.k.hh',
+    chords: [[0, 3, 7], [-4, 0, 3], [-2, 2, 5], [-5, -2, 2]] },
+  fosiles: { bpm: 72, root: 45, arpType: 'triangle', leadType: 'triangle', drum: 't..t..t.', scale: [0, 3, 5, 7, 10, 12],
+    chords: [[0, 3, 7], [-4, 0, 3], [0, 3, 7], [-5, -2, 2]] },
+  pajaros: { bpm: 132, root: 45, leadType: 'square', leadVol: 0.1, drum: 'k.s.k.ss',
+    chords: [[0, 3, 7], [-4, 0, 3], [-2, 2, 5], [-5, -1, 2]],
+    melodia: [[12, null, 12, 15, 19, null, 17, 15], [17, null, 15, null, 12, null, null, null], [14, 15, 17, null, 19, null, 22, null], [19, null, null, null, null, null, null, null]] },
 };
 const PENTA = [0, 2, 4, 7, 9, 12, 14, 16];
 
@@ -70,30 +107,82 @@ function note(freq, start, dur, { type = 'triangle', vol = 0.3, bus = musicBus, 
   o.start(start); o.stop(start + dur + 0.05);
 }
 
+// La percusión: ruido filtrado (caja, charles) o un seno que cae de tono (bombo, timbal)
+let noiseBuf = null;
+function drum(kind, t) {
+  if (kind === 'k' || kind === 't') {
+    const o = ctx.createOscillator(), g = ctx.createGain();
+    const [f0, f1, d, v] = kind === 'k' ? [130, 42, 0.14, 0.5] : [190, 90, 0.2, 0.35];
+    o.frequency.setValueAtTime(f0, t); o.frequency.exponentialRampToValueAtTime(f1, t + d);
+    g.gain.setValueAtTime(v, t); g.gain.exponentialRampToValueAtTime(0.0001, t + d);
+    o.connect(g); g.connect(musicBus); o.start(t); o.stop(t + d + 0.02);
+    return;
+  }
+  if (!noiseBuf) {
+    noiseBuf = ctx.createBuffer(1, ctx.sampleRate / 2, ctx.sampleRate);
+    const dd = noiseBuf.getChannelData(0);
+    for (let i = 0; i < dd.length; i++) dd[i] = Math.random() * 2 - 1;
+  }
+  const src = ctx.createBufferSource(), f = ctx.createBiquadFilter(), g = ctx.createGain();
+  const [freq, d, v] = kind === 's' ? [1200, 0.13, 0.22] : [6500, 0.04, 0.1];
+  src.buffer = noiseBuf; f.type = 'highpass'; f.frequency.value = freq;
+  g.gain.setValueAtTime(v, t); g.gain.exponentialRampToValueAtTime(0.0001, t + d);
+  src.connect(f); f.connect(g); g.connect(musicBus); src.start(t); src.stop(t + d + 0.02);
+}
+
 function scheduleBar(t0) {
   const m = MOODS[mood] || MOODS.dia;
-  const beat = 60 / m.bpm;
+  const beat = 60 / m.bpm, beats = m.beats || 4, sub = m.sub || 2;
   const chord = m.chords[bar % m.chords.length];
-  const root = 48;
-  // bajo: la tónica en cada parte fuerte
-  note(MIDI(root + chord[0] - 12), t0, beat * 1.8, { vol: 0.35 });
-  note(MIDI(root + chord[0] - 12), t0 + beat * 2, beat * 1.8, { vol: 0.28 });
-  // arpegio suave en corcheas
-  for (let i = 0; i < 8; i++) {
-    const n = chord[[0, 1, 2, 1, 0, 1, 2, 1][i]];
-    note(MIDI(root + 12 + n), t0 + i * beat / 2, beat * 0.45, { type: 'square', vol: mood === 'noche' ? 0.04 : 0.06 });
+  const root = m.root ?? 48;
+  const bajo = n => MIDI(root + n - 12);
+  // bajo: la tónica en las partes fuertes (o vals, paso, pedal…)
+  if (m.bass === 'vals') {
+    note(bajo(chord[0]), t0, beat * 0.9, { vol: 0.35 });
+    for (let i = 1; i < beats; i++) for (const n of chord.slice(1)) note(MIDI(root + n), t0 + i * beat, beat * 0.4, { type: 'square', vol: 0.04 });
+  } else if (m.bass === 'oompa') {
+    for (let i = 0; i < beats; i++) {
+      if (i % 2) for (const n of chord) note(MIDI(root + n), t0 + i * beat, beat * 0.35, { type: 'square', vol: 0.035 });
+      else note(bajo(chord[i % 4 ? 2 : 0]), t0 + i * beat, beat * 0.6, { vol: 0.35 });
+    }
+  } else if (m.bass === 'paso') {
+    for (let i = 0; i < beats; i++) note(bajo(chord[[0, 1, 2, 1][i % 4]]), t0 + i * beat, beat * 0.7, { vol: 0.3 });
+  } else if (m.bass === 'pedal') {
+    note(bajo(0), t0, beat * beats, { type: 'sawtooth', vol: 0.05, attack: 0.05 });
+    note(bajo(7), t0, beat * beats, { type: 'sawtooth', vol: 0.03, attack: 0.05 });
+  } else {
+    note(bajo(chord[0]), t0, beat * 1.8, { vol: 0.35 });
+    if (beats > 2) note(bajo(chord[0]), t0 + beat * 2, beat * 1.8, { vol: 0.28 });
   }
-  // melodía pentatónica que se repite cada cuatro compases
-  if (m.lead) {
-    let seed = (bar % 4) * 97 + 13;
-    const rnd = () => ((seed = (seed * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff);
-    for (let i = 0; i < 4; i++) {
-      if (rnd() < 0.3) continue;
-      note(MIDI(root + 24 + PENTA[Math.floor(rnd() * PENTA.length)]), t0 + i * beat, beat * 0.9, { vol: 0.12 });
+  // arpegio suave en corcheas (o en semicorcheas)
+  if (m.arp !== null) {
+    const pat = m.arp || [0, 1, 2, 1];
+    for (let i = 0; i < beats * sub; i++) {
+      note(MIDI(root + 12 + chord[pat[i % pat.length]]), t0 + i * beat / sub, beat / sub * 0.9, { type: m.arpType || 'square', vol: mood === 'noche' ? 0.04 : 0.06 });
     }
   }
+  // la melodía: la de su tema si la tiene; si no, al azar sobre su escala, repetida cada cuatro compases
+  const lt = { type: m.leadType || 'triangle', vol: m.leadVol || 0.12 };
+  if (m.melodia) {
+    const comp = m.melodia[bar % m.melodia.length];
+    comp.forEach((n, i) => {
+      if (n == null) return;
+      let len = 1;
+      while (i + len < comp.length && comp[i + len] == null) len++;
+      note(MIDI(root + 24 + n), t0 + i * beat / 2, beat / 2 * len * 0.9, lt);
+    });
+  } else if (m.lead !== false) {
+    const escala = m.scale || PENTA;
+    let seed = (bar % 4) * 97 + 13;
+    const rnd = () => ((seed = (seed * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff);
+    for (let i = 0; i < beats; i++) {
+      if (rnd() < 0.3) continue;
+      note(MIDI(root + 24 + escala[Math.floor(rnd() * escala.length)]), t0 + i * beat, beat * 0.9, lt);
+    }
+  }
+  if (m.drum) [...m.drum].forEach((k, i) => { if (k !== '.') drum(k, t0 + i * beat * beats / m.drum.length); });
   bar += 1;
-  return beat * 4;
+  return beat * beats;
 }
 
 function startMusic() {
@@ -106,7 +195,7 @@ function startMusic() {
   }, 150);
 }
 
-// Cambia la música según la hora del día (o «cocina»)
+// Cambia la música según la hora del día (o «cocina», o el evento que está pasando: «feria», «dojo»…)
 export function setMood(m) {
   if (m === mood) return;
   mood = m;

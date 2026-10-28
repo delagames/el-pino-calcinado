@@ -30,6 +30,7 @@ const counter = createCounter($('#counter-canvas'));
 const kitchen = createKitchen($('#kitchen-canvas'));
 window.__scene = scene;   // para probar la escena desde fuera
 window.__kitchen = kitchen;
+window.__juego = { inn: () => inn, talk: id => talk(id) };   // (para las pruebas)
 let state = null;
 let toastTimer = 0;
 let inn = null;
@@ -56,7 +57,7 @@ function go(next) {
   state = next;
   $('#start').classList.toggle('hidden', next !== 'inicio');
   $('#hud').classList.toggle('hidden', next === 'inicio');
-  $('#stub').classList.toggle('hidden', next !== 'noche');
+  $('#stub').classList.toggle('hidden', next !== 'noche' && next !== 'demo');
   $('#book').classList.toggle('hidden', next !== 'libro');
   $('#counter-view').classList.toggle('hidden', next !== 'mostrador');
   $('#kitchen-view').classList.toggle('hidden', next !== 'cocina');
@@ -258,11 +259,26 @@ function talk(id) {
       { label: '¡Marchando!', action: () => inn.attendGuest(id) }, ...charlar, later,
     ] });
   }
+  // quien viene a descansar no pide nada: lo dice la primera vez y luego, a lo suyo
+  if (h.chill && !h.oido && last.fase !== 'tarde') {
+    inn.markHeard(id);
+    return dialog({ ...who, emotion: 'Happy', text: RELAX[[...id].reduce((a, c) => a + c.charCodeAt(0), last.dia) % RELAX.length], options: charlar.length ? [...charlar, later] : [] });
+  }
   if (h.sobremesa) return sobremesa(h, charlar);
   if (h.charla) return dialog({ ...who, emotion: 'Normal', text: '¿Tienes un momento? Me apetece charlar un rato.', options: [...charlar, later] });
   if (h.atendido === 'frio') return dialog({ ...who, emotion: 'Sad', text: 'Bueno… gracias, supongo. No era lo que me apetecía.' });
   dialog({ ...who, emotion: 'Happy', text: '¡Gracias! Aquí se está de maravilla.' });
 }
+
+// Lo que dice quien viene sin pedir nada (de relax)
+const RELAX = [
+  'Hoy no necesito nada, de verdad. He venido a no hacer nada y lo estoy bordando.',
+  'Todo perfecto: cama, ventana y silencio. No me traigas nada, que me malacostumbro.',
+  'Vengo a desconectar. Si alguien pregunta por mí, no estoy.',
+  'Nada, nada, estoy de relax. Bueno… si pasa Charizard, que salude.',
+  'Qué paz se respira aquí. No pido nada más, de verdad.',
+  'Me voy a echar una siesta de las de pijama y orinal. Luego bajo.',
+];
 
 // Por la tarde, en el comedor: comenta la comida y cuenta algo suyo, o charla con otro
 // huésped que coincide con él; si ya ha hablado hoy, solo se le ve a lo suyo
@@ -286,7 +302,7 @@ function sobremesa(h, charlar) {
 // ---------- cocina (vista C) ----------
 
 const JUEGO = { vuelta: 'Vuelta y vuelta en la parrilla', miel: 'Chorro de miel sobre la tostada', setas: 'Cortar setas al vuelo', espeton: 'Al espetón, girando',
-  potaje: 'Elegir ingredientes y remover la marmita', pizza: 'Amasar, estirar y poner los ingredientes', emplatar: 'Decorar el plato, cada cosa en su sitio' };
+  potaje: 'Elegir ingredientes y remover la marmita', kebab: 'Pasar el cortador por el rollo que gira', pizza: 'Amasar, estirar y poner los ingredientes', emplatar: 'Decorar el plato, cada cosa en su sitio' };
 
 async function startCook(id, especial = false) {
   const cook = inn.cookFor(id);
@@ -303,7 +319,7 @@ async function startCook(id, especial = false) {
 // Los minijuegos de los sucesos (la inspección, el Team Rocket), en la cocina
 const SUCESO_JUEGO = {
   limpiar: { nombre: 'la inspección', who: 'manolo', emocion: 'Worried', texto: '¡Que viene el inspector! Charizard, ¡la ceniza! Toca las manchas, rápido.' },
-  rocket: { nombre: 'el Team Rocket', who: 'charizard', emocion: 'Angry', texto: '¡Grrr! Hay alguien en la ventana de la despensa… ¡Es el Team Rocket! Toca las sombras para espantarlos.' },
+  rocket: { nombre: 'el Team Rocket', who: 'charizard', emocion: 'Angry', texto: '¡Grrr! El Team Rocket quiere llevarse la chistorra recién llegada. ¡Toca las sombras de la ventana para espantarlos!' },
 };
 async function minijuego(juego) {
   const j = SUCESO_JUEGO[juego];
@@ -333,6 +349,7 @@ function charizardTalk() {
 // Dónde se le recibe: en el mostrador, o fuera si no cabe por la puerta (Snorlax, mientras
 // no haya habitación grande) o vive en el agua (Lapras, junto al estanque)
 function whereFor(h) {
+  if (h.cameo) return 'fuera';   // la excursión, delante de la posada
   if (h.tam === 'agua') return 'estanque';
   if (h.tam === 'grande' || h.duerme) return 'fuera';   // y los de la cueva y el nido, que no caben
   return 'dentro';
@@ -392,32 +409,20 @@ function pickRoom(id, free) {
     options: [{ label: 'Que espere un poco', action: () => { inn.markHeard(id, 'espero'); inn.focus(null); say('manolo', 'Normal', `${h.nombre}, espera un momento, que enseguida te atiendo.`); } }] });
 }
 
-async function startTalk(id, after = null) {
+async function startTalk(id, after = null, done = null) {
   const h = last?.huespedes.find(x => x.id === id);
   const talk = inn.beginTalk(id);
-  if (!h || !talk) return;
+  if (!h || !talk) return done?.();
   go('mostrador');
-  await counter.open({ sprite: h.sprite, buddy: h.acompanante, fase: last.fase, lugar: whereFor(h) });
+  // en las excursiones, cada grupo con su decorado (la feria, la playa, el dojo…) y sin acompañante al lado
+  await counter.open({ sprite: h.cameo ? h.miembros[0].sprite : h.sprite, buddy: h.cameo ? null : h.acompanante, fase: last.fase, lugar: whereFor(h), escenario: h.cameo ? h.id : null });
   // el subtítulo dice la visita real (la charla puede llegar en una visita posterior)
   const ORD = ['Primera', 'Segunda', 'Tercera', 'Cuarta', 'Quinta', 'Sexta', 'Séptima', 'Octava', 'Novena', 'Décima'];
   const resto = (talk.entry.subtitulo || '').replace(/^\S+ visita · /, '');
-  const sub = `${ORD[talk.visita - 1] || `Visita ${talk.visita}`} visita${resto ? ` · ${resto}` : ''}`;
-  const run = runEntry(talk.entry, {
+  const sub = h.cameo ? talk.entry.subtitulo || '' : `${ORD[talk.visita - 1] || `Visita ${talk.visita}`} visita${resto ? ` · ${resto}` : ''}`;
+  charla(h, talk.entry, sub, {
     mejoras: inn.mejoras(),
     applyEffects: ef => inn.applyEffects(id, ef),
-    onNode(node) {
-      // «pareja»: habla el acompañante (Nidoran♀); el huésped, con su nombre de hablante si lo tiene
-      // en los grupos de una noche habla cada miembro con su nombre (quien = su id)
-      const miembro = h.miembros?.find(m => m.id === node.quien);
-      const who = miembro ? { sprite: miembro.sprite, nombre: miembro.especie }
-        : node.quien === 'huesped' ? { sprite: h.sprite, nombre: h.hablante || h.nombre }
-        : node.quien === 'pareja' && h.acompanante ? { sprite: h.acompanante, nombre: h.acompananteNombre || h.nombre } : CREW[node.quien];
-      counter.speak(node.quien, node.emocion);
-      const options = node.opciones
-        ? node.opciones.map((o, i) => ({ label: o.texto, action: () => run.choose(i) }))
-        : [{ label: node.sigue ? 'Seguir ▸' : 'Terminar', action: () => run.advance() }];
-      dialog({ ...who, emotion: node.emocion || 'Normal', text: node.texto, options, sub });
-    },
     async onEnd() {
       // si la charla acaba con el huésped yéndose, no se sigue a la recepción
       const { seVa, oferta } = await inn.endTalk(id, talk.entry);
@@ -425,8 +430,45 @@ async function startTalk(id, after = null) {
       if (after && !seVa) return after();
       counter.close();
       go('posada');
+      done?.();
     },
   });
+}
+
+// Recorre una charla en el mostrador: quién habla, su cara, su animación y las respuestas
+let musicaEvento = false;   // mientras suena el tema de un evento, la hora no cambia la música
+function charla(h, entry, sub, { mejoras = [], applyEffects = () => {}, onEnd }) {
+  // cada evento (las excursiones) con su música: la feria, el Oeste, el dojo…
+  if (h.cameo) { musicaEvento = true; setMood(h.id); }
+  const run = runEntry(entry, {
+    mejoras,
+    applyEffects,
+    onEnd() {
+      if (musicaEvento) { musicaEvento = false; setMood(last?.fase || 'manana'); }
+      return onEnd();
+    },
+    onNode(node) {
+      // «pareja»: habla el acompañante (Nidoran♀); el huésped, con su nombre de hablante si lo tiene
+      // en los grupos de una noche habla cada miembro con su nombre (quien = su id)
+      const miembro = h.miembros?.find(m => m.id === node.quien);
+      const who = miembro ? { sprite: miembro.sprite, nombre: miembro.especie }
+        : node.quien === 'huesped' ? { sprite: h.sprite, nombre: h.hablante || h.nombre }
+        : node.quien === 'pareja' && h.acompanante ? { sprite: h.acompanante, nombre: h.acompananteNombre || h.nombre } : CREW[node.quien];
+      // en los grupos sale delante el que habla; «anim» hace su animación (se duerme, baila…)
+      if (miembro) counter.setGuest(miembro.sprite);
+      counter.sombrero(!/quita el sombrero|vuela el sombrero/i.test(node.texto));
+      counter.speak(node.quien, node.emocion, node.anim, node.anim_quien && node.anim_quien !== node.quien ? quienSprite(node.anim_quien) : null);
+      const options = node.opciones
+        ? node.opciones.map((o, i) => ({ label: o.texto, action: () => run.choose(i) }))
+        : [{ label: node.sigue ? 'Seguir ▸' : 'Terminar', action: () => run.advance() }];
+      dialog({ ...who, emotion: node.emocion || 'Normal', text: node.texto, options, sub });
+    },
+  });
+  // el sprite de quien hace la animación cuando no es el que habla
+  function quienSprite(q) {
+    const m = h.miembros?.find(x => x.id === q);
+    return m ? m.sprite : q === 'huesped' ? h.sprite : q === 'pareja' ? h.acompanante : q === 'charizard' ? '0006' : null;
+  }
 }
 
 // Quien termina su historia puede quedarse a trabajar en la posada (si hay plazas en la plantilla)
@@ -436,7 +478,9 @@ function ofertaTrabajo(o, after) {
     return dialog({ ...CREW.manolo, emotion: 'Sigh', text: `A ${o.nombre} le gustaría quedarse a trabajar (${o.puesto}), pero la plantilla está completa. Con unas taquillas nuevas cabría alguien más.`,
       options: [{ label: 'Seguir ▸', action: () => seguir() }] });
   }
-  dialog({ ...CREW.manolo, emotion: 'Happy', text: `Oye, ${o.nombre}… ¿y si te quedas a trabajar con nosotros? Haría falta alguien: ${o.puesto} (${o.ventaja}).`,
+  // a quien venía solo de paso (y ya se despedía) se le ofrece quedarse en vez de irse
+  const pregunta = o.dePaso ? `¡Espera, ${o.nombre}! ¿Y si en vez de irte te quedas a trabajar con nosotros?` : `Oye, ${o.nombre}… ¿y si te quedas a trabajar con nosotros?`;
+  dialog({ ...CREW.manolo, emotion: 'Happy', text: `${pregunta} Haría falta alguien: ${o.puesto} (${o.ventaja}).`,
     options: [
       { label: '¡Contratado!', action: () => { inn.contratar(o.id); dialog({ ...CREW.manolo, emotion: 'Happy', text: `¡Bienvenido a la plantilla, ${o.nombre}! Cachimbita, chistorra… y a currar.`, options: [{ label: 'Seguir ▸', action: () => seguir() }] }); } },
       { label: 'Que siga su camino', action: () => seguir() },
@@ -447,7 +491,7 @@ function ofertaTrabajo(o, after) {
 
 function render(v) {
   last = v;
-  if (state !== 'cocina') setMood(v.fase);
+  if (state !== 'cocina' && !musicaEvento) setMood(v.fase);
   rainSound(!!v.lluvia);
   $('#day').textContent = `Día ${v.dia} · ${FASE_NOMBRE[v.fase]}`;
   $('#stats').innerHTML = `${starsHtml(v.estrellas)} ${v.monedas} monedas · ${v.chistorra} chistorra${v.chistorra === 1 ? '' : 's'} · Charizard ${esc(v.charizard)}`;
@@ -524,7 +568,7 @@ function shop() {
     html += `<li class="${u.tiene ? 'done' : ''}"><div><strong>${esc(u.nombre)} ${pts}</strong><span>${esc(u.falta ? `Antes hay que hacer: ${u.falta}` : u.efecto)}</span></div>${right}</li>`;
   }
   html += '</ul>';
-  card('noche', { title: 'Mejoras', html, button: 'Ver la posada de noche' });
+  card('noche', { title: 'Mejoras', html, button: last?.fase === 'noche' ? 'Ver la posada de noche' : 'Volver a la posada' });
   for (const b of document.querySelectorAll('[data-buy]')) {
     b.addEventListener('click', async () => { if (await inn.buyUpgrade(b.dataset.buy)) shop(); });
   }
@@ -709,8 +753,10 @@ $('#start-new').addEventListener('click', async () => {
 // ---------- eventos ----------
 
 $('#hud-menu').addEventListener('click', () => go('inicio'));
-$('#stub-back').addEventListener('click', () => go('posada'));
+$('#stub-back').addEventListener('click', () => { if (state === 'demo') location.href = location.pathname; else go('posada'); });
 $('[data-action="libro"]').addEventListener('click', libro);
+// la tienda de mejoras, a mano a cualquier hora (si se pasó comprar algo por la noche)
+$('[data-action="tienda"]').addEventListener('click', () => { closeChoice(); inn.focus(null); shop(); });
 $('#advance').addEventListener('click', () => { closeChoice(); inn.advance(); });
 
 scene.onHover((thing, ev) => {
@@ -742,6 +788,46 @@ scene.onClick(thing => {
   else if (thing.sprite) inn.clickActor(thing);
   else inn.clickRoom(thing);
 });
+
+// ---------- pruebas: …/?demo enseña solo lo nuevo, sin tocar la partida ----------
+// (los minijuegos nuevos, cada evento por separado y todas las animaciones)
+const DEMO = new URLSearchParams(location.search).has('demo');
+async function demo() {
+  const data = await loadGuestData();
+  const grupos = data.guests.filter(g => g.cameo);
+  const html = '<p class="muted small">Lo nuevo, para verlo suelto. Aquí no se guarda nada en tu partida.</p>'
+    + '<h4>Cocina</h4><p class="demo">' + [['kebab', 'Kebab de chistorra'], ['pescado', 'Sopa de pescado']].map(([id, n]) => `<button class="secondary" data-demo-cocina="${id}">${n}</button>`).join('') + '</p>'
+    + '<h4>Eventos (por la mañana, cada uno con su decorado)</h4><p class="demo">' + grupos.map(g => `<button class="secondary" data-demo-evento="${g.id}">${esc(g.especie)}</button>`).join('') + '</p>'
+    + '<h4>Animaciones</h4><p class="demo"><button class="secondary" data-demo-anims>Verlas todas</button></p>';
+  card('demo', { title: 'Pruebas', html, button: 'Salir de las pruebas' });
+  for (const b of document.querySelectorAll('[data-demo-cocina]')) b.addEventListener('click', () => demoCocina(b.dataset.demoCocina));
+  for (const b of document.querySelectorAll('[data-demo-evento]')) b.addEventListener('click', () => demoEvento(grupos.find(g => g.id === b.dataset.demoEvento)));
+  $('[data-demo-anims]').addEventListener('click', demoAnims);
+}
+async function demoCocina(id) {
+  const recipe = (await loadRecipes()).recipes.find(r => r.id === id);
+  go('cocina');
+  setMood('cocina');
+  say('manolo', 'Happy', `¡Vamos allá, Charizard! Una de ${recipe.nombre}.`);
+  const { resultado, crudo } = await kitchen.cook(recipe, { moral: 6, nivel: 0.2, onStep: p => say('manolo', 'Normal', p.texto) });
+  say('manolo', resultado === 'quemado' ? 'Sad' : 'Happy', resultado === 'perfecto' ? '¡Perfecto!' : resultado === 'quemado' ? 'Se ha quemado…' : crudo ? 'Bien, aunque algo crudo.' : 'Bien hecho.');
+  demo();
+}
+async function demoEvento(g) {
+  const dlg = await loadDialogue(g.id);
+  const h = { id: g.id, sprite: g.sprite, nombre: g.especie, cameo: true, miembros: g.miembros };
+  go('mostrador');
+  await counter.open({ sprite: g.miembros[0].sprite, fase: 'manana', lugar: 'fuera', escenario: g.id });
+  charla(h, dlg.entradas[0], dlg.entradas[0].subtitulo || '', { onEnd() { counter.close(); demo(); } });
+}
+function demoAnims() {
+  const ANIMS = ['baila', 'duerme', 'gira', 'salta', 'tiembla', 'corazones', 'chispas', 'fuego', 'agua', 'humo', 'estrellas', 'notas', 'sudor', 'enfado', 'flash', 'confeti'];
+  const nodos = Object.fromEntries(ANIMS.map((a, i) => [i ? a : 'inicio', { quien: 'huesped', emocion: 'Happy', texto: `Animación: ${a}.`, anim: a, ...(ANIMS[i + 1] ? { sigue: ANIMS[i + 1] } : {}) }]));
+  const h = { id: 'pikachu', sprite: '0025', nombre: 'Pikachu' };
+  go('mostrador');
+  counter.open({ sprite: '0025', fase: 'dia', lugar: 'dentro' }).then(() =>
+    charla(h, { nodos }, 'Pruebas · animaciones', { onEnd() { counter.close(); demo(); } }));
+}
 
 // ---------- entrada con contraseña (mientras está en pruebas) ----------
 // Solo para que no entre quien se tope con el enlace: se comprueba en el navegador y se recuerda en este aparato.
@@ -783,9 +869,11 @@ document.fonts.load('400 24px "Jersey 10"').catch(() => {}).finally(async () => 
   try {
     say('manolo', 'Happy', 'Todo listo. A ver quién sube hoy por el camino.');
     inn = await createInn(scene, { update: render, toast, night, say, sfx, charizard: charizardTalk, minijuego,
+      evento: id => new Promise(res => startTalk(id, null, res)),
       decir: (who, emotion, text) => dialog({ ...who, emotion, text }),
       show: s => { showScene(s); setTimeout(() => sfx(s.atendido === 'frio' ? 'sad' : 'cheer'), 1700); } });
     await inn.begin();
+    if (DEMO) { refreshStart(); return demo(); }
     if (last?.fase === 'tarde') say('manolo', 'Normal', 'Cae la tarde. Unos bajan al comedor, otros salen a pasear y alguno se queda en su cuarto.');
     else if (last?.fase === 'noche') say('manolo', 'Sigh', 'La posada duerme. Solo se oye crepitar el fogón.');
     refreshStart();
