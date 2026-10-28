@@ -111,15 +111,16 @@ function dialog({ sprite, nombre, emotion = 'Normal', text, options = [], highli
   face.src = portraitUrl(sprite, emotion);
   $('#dialog-name').textContent = nombre;
   $('#dialog-sub').textContent = sub;
-  // en el móvil los textos largos van en tandas: se pasa a la siguiente con ▸ o tocando el cuadro,
-  // y las respuestas salen con la última
-  tandas = pantallaPequena.matches ? paginar(text) : [text];
-  tanda = 0;
+  // los textos largos van en tandas (el cuadro no crece y no tapa la casa): se pasa a la siguiente
+  // con ▸ o tocando el cuadro, y las respuestas salen con la última
+  // (se mide con las respuestas ya puestas, que en el ordenador le quitan ancho al texto)
   pendiente = { options, highlight };
+  tandas = [text]; tanda = 0;
+  mostrarTanda();
+  tandas = paginar(text);
   mostrarTanda();
 }
 
-const pantallaPequena = matchMedia('(max-width: 760px), (max-height: 500px)');
 const MAX_LINEAS = 3;
 let tandas = [], tanda = 0, pendiente = null;
 
@@ -166,6 +167,7 @@ function mostrarTanda() {
       box.append(b);
     }
   }
+  colocarAdvance();
   scene.setHighlight(ultima ? pendiente.highlight : []);
   layout();
   fitViews();
@@ -177,6 +179,17 @@ function siguienteTanda() {
   tanda++;
   mostrarTanda();
 }
+// En vertical, el botón de pasar el día va dentro del cuadro, detrás de las respuestas: todos los
+// botones se reparten las filas y ninguno pisa a otro
+const estrecha = matchMedia('(max-width: 760px)');
+const botonAdvance = $('#advance');   // se guarda: al vaciar las respuestas se lo llevaría por delante
+function colocarAdvance() {
+  if (estrecha.matches) $('#dialog-options').append(botonAdvance);
+  else $('.actions').append(botonAdvance);
+}
+estrecha.addEventListener('change', colocarAdvance);
+colocarAdvance();
+
 // tocar el cuadro (fuera de los botones) también pasa a la siguiente tanda
 $('#dialog').addEventListener('click', ev => { if (!ev.target.closest('button')) siguienteTanda(); });
 
@@ -194,6 +207,7 @@ new ResizeObserver(fitViews).observe($('.actions'));
 
 function closeChoice() {
   $('#dialog-options').innerHTML = '';
+  colocarAdvance();
   scene.setHighlight([]);
 }
 
@@ -655,7 +669,7 @@ window.addEventListener('keydown', ev => {
   if (ev.key === 'Enter' && state === 'inicio') go('posada');
   else if (ev.key === 'Escape') {
     if (state === 'mostrador' || state === 'cocina') return;
-    if (state === 'posada' && $('#dialog-options').children.length) { closeChoice(); inn.focus(null); }
+    if (state === 'posada' && $('#dialog-options').querySelector('button:not(#advance)')) { closeChoice(); inn.focus(null); }
     else go(state === 'posada' ? 'inicio' : state === 'inicio' ? 'inicio' : 'posada');
   }
 });

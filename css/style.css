@@ -168,6 +168,11 @@ button.icon { padding: 0 2px; font-size: 1.1rem; line-height: 1; min-height: 0; 
 #dialog-options { display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-end; gap: 6px; flex: none; align-self: stretch; padding: 0 4px 2px; }
 #dialog-options:empty { display: none; }
 #dialog-options button { font-size: 1rem; min-height: 0; padding: 0 6px 2px; max-width: 280px; white-space: normal; text-align: center; line-height: 1.2; }
+/* en el ordenador el cuadro tiene alto fijo: con tres respuestas o más, van en dos columnas */
+@media (min-width: 761px) {
+  #dialog-options:has(> :nth-child(3)) { display: grid; grid-template-columns: repeat(2, auto); align-content: end; }
+  #dialog-options:has(> :nth-child(3)) button { justify-self: stretch; }
+}
 
 /* ---------- vista B: el mostrador ---------- */
 #counter-view {
@@ -315,16 +320,15 @@ body.fullview #counter-view, body.fullview #kitchen-view { background: #1B2238; 
 
 /* Pantallas estrechas (el móvil se jugará en horizontal, fase 7): retrato a ×2 y botones abajo */
 @media (max-width: 760px) {
-  /* el botón de pasar el día va dentro del cuadro, abajo a la derecha: el cuadro no sube y la casa se ve entera */
-  /* --fit-h: lo que se reserva abajo para calcular el zum de la casa (la casa se coloca luego
-     encima del cuadro de verdad, así que si el cuadro crece, sube por el cielo en vez de quedar tapada) */
+  /* --fit-h: lo que se reserva abajo para calcular el zum de la casa (la casa se coloca encima;
+     solo si el cuadro pasa de ese alto, sube por el cielo en vez de quedar tapada) */
   :root { --bar-h: 168px; --fit-h: 200px; }
-  /* sin respuestas, el botón necesita su fila; con respuestas, va a su lado */
-  .actions:has(.advance:not(.hidden)) .dialog:has(#dialog-options:empty) { padding-bottom: 40px; }
-  .actions:has(.advance:not(.hidden)) #dialog-options::after { content: ''; flex: none; width: 104px; height: 32px; }
-  .advance { position: absolute; right: 24px; bottom: calc(24px + env(safe-area-inset-bottom)); z-index: 4;
-    font-size: 0.85rem; min-height: 32px; padding: 0 6px 2px; }
-  .advance:active { padding: 2px 6px 0; }
+  /* el botón de pasar el día va dentro del cuadro, detrás de las respuestas (main.js lo mete ahí):
+     cada botón ocupa su sitio y no se pisan */
+  #dialog-options > .advance { flex: none; margin-left: auto;
+    font-size: 0.75rem; min-height: 32px; padding: 0 5px 2px; }
+  #dialog-options > .advance:active { padding: 2px 5px 0; }
+  #dialog-options:not(:has(button:not(.hidden))) { display: none; }
   /* barra de arriba en dos filas: menú, día y libro; debajo, la caja y Charizard */
   .topbar { height: auto; flex-wrap: wrap; row-gap: 0; padding: calc(4px + env(safe-area-inset-top)) 8px 4px; }
   .topbar-logo { width: 32px; height: 32px; }
@@ -335,8 +339,9 @@ body.fullview #counter-view, body.fullview #kitchen-view { background: #1B2238; 
   .book-button .largo { display: none; }
   /* en vertical, las respuestas van debajo del texto, a lo ancho */
   .dialog { flex-wrap: wrap; row-gap: 6px; }
-  #dialog-options { flex-basis: 100%; flex-direction: row; flex-wrap: wrap; justify-content: flex-end; align-self: auto; padding: 0 0 4px; }
-  #dialog-options button { max-width: none; font-size: 0.85rem; min-height: 32px; padding: 0 5px 2px; }
+  .dialog-body { flex: 1 1 calc(100% - 72px); }
+  #dialog-options { flex: 1 1 100%; min-width: 0; flex-direction: row; flex-wrap: wrap; justify-content: flex-end; align-self: auto; padding: 0 0 4px; }
+  #dialog-options button { flex: 1 1 auto; max-width: none; font-size: 0.75rem; min-height: 32px; padding: 0 5px 2px; }
   #dialog-options { gap: 4px; }
   .dialog #dialog-face { width: 64px; height: 64px; }
   #start { justify-content: flex-start; padding-top: calc(16px + env(safe-area-inset-top)); overflow-y: auto; }
