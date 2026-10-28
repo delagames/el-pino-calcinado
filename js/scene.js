@@ -257,8 +257,11 @@ export function createInnView(canvas) {
     v = {
       S, dpr, LW, LH, aw,
       wx: Math.round((insets.left * dpr + aw / 2) / S - (FIT.x + FIT.w / 2 + pan)),
-      // en vertical, la casa abajo, pegada al cuadro de diálogo (arriba queda cielo)
-      wy: Math.round((insets.top * dpr + (narrow ? Math.max(0, ah - FIT.h * S - 6 * dpr) : (ah - FIT.h * S) / 2)) / S - FIT.y),
+      // en vertical, la casa abajo, pegada al cuadro de diálogo de verdad (arriba queda cielo): si el
+      // cuadro crece, la casa sube en vez de quedar tapada, sin cambiar el zum
+      wy: Math.round((insets.top * dpr + (narrow
+        ? Math.max(0, H - (insets.top + (insets.dialog || insets.bottom)) * dpr - FIT.h * S - 6 * dpr)
+        : (ah - FIT.h * S) / 2)) / S - FIT.y),
     };
     paintStatic();
   }

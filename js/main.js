@@ -39,11 +39,13 @@ const CREW = { manolo: { sprite: 'manolo', nombre: 'Manolo' }, charizard: { spri
 
 function layout() {
   if (state === 'inicio') scene.setInsets({ top: 0, right: 0, bottom: 0, left: 0 });
-  // el alto reservado abajo es fijo (--bar-h): si el cuadro crece, crece hacia arriba sin mover la casa
+  // el alto reservado abajo es fijo (--fit-h, o --bar-h): si el cuadro crece, crece hacia arriba sin
+  // mover la casa; en vertical, solo si pasa de ese alto (casi nunca: los textos van en tandas) sube la casa
   else {
     const css = getComputedStyle(document.documentElement);
     const top = $('.topbar')?.offsetHeight || parseInt(css.getPropertyValue('--top-h'));
-    scene.setInsets({ top, right: 0, bottom: parseInt(css.getPropertyValue('--bar-h')), left: 0 });
+    const bottom = parseInt(css.getPropertyValue('--fit-h')) || parseInt(css.getPropertyValue('--bar-h'));
+    scene.setInsets({ top, right: 0, bottom, left: 0, dialog: Math.max(bottom, $('.actions .dialog').offsetHeight + 12) });
   }
 }
 
@@ -109,20 +111,74 @@ function dialog({ sprite, nombre, emotion = 'Normal', text, options = [], highli
   face.src = portraitUrl(sprite, emotion);
   $('#dialog-name').textContent = nombre;
   $('#dialog-sub').textContent = sub;
-  $('#dialog-text').textContent = text;
+  // en el móvil los textos largos van en tandas: se pasa a la siguiente con ▸ o tocando el cuadro,
+  // y las respuestas salen con la última
+  tandas = pantallaPequena.matches ? paginar(text) : [text];
+  tanda = 0;
+  pendiente = { options, highlight };
+  mostrarTanda();
+}
+
+const pantallaPequena = matchMedia('(max-width: 760px), (max-height: 500px)');
+const MAX_LINEAS = 3;
+let tandas = [], tanda = 0, pendiente = null;
+
+// Parte el texto por frases (o por palabras, si una frase sola no cabe) en trozos de MAX_LINEAS líneas
+function paginar(text) {
+  const p = $('#dialog-text');
+  const alto = parseFloat(getComputedStyle(p).lineHeight) * MAX_LINEAS + 2;
+  const cabe = t => { p.textContent = t; return p.scrollHeight <= alto; };
+  const out = [];
+  let cur = '';
+  const meter = (pieza, sep) => {
+    const cand = cur ? cur + sep + pieza : pieza;
+    if (cabe(cand)) { cur = cand; return true; }
+    if (cur) { out.push(cur); cur = ''; }
+    if (cabe(pieza)) { cur = pieza; return true; }
+    return false;
+  };
+  for (const frase of text.split(/(?<=[.!?…»)])\s+/)) {
+    if (!meter(frase, ' ')) for (const palabra of frase.split(' ')) if (!meter(palabra, ' ')) cur = palabra;
+  }
+  if (cur) out.push(cur);
+  return out.length ? out : [text];
+}
+
+function mostrarTanda() {
+  const ultima = tanda >= tandas.length - 1;
+  $('#dialog-text').textContent = tandas[tanda];
   const box = $('#dialog-options');
   box.innerHTML = '';
-  for (const [i, o] of options.entries()) {
+  if (!ultima) {
     const b = document.createElement('button');
-    b.textContent = o.label;
-    if (i > 0 || o.secondary || options.length === 1) b.className = 'secondary';
-    b.addEventListener('click', () => { sfx('tap'); closeChoice(); o.action?.(); });
+    b.textContent = '▸';
+    b.className = 'secondary';
+    b.setAttribute('aria-label', 'Seguir leyendo');
+    b.addEventListener('click', siguienteTanda);
     box.append(b);
+  } else {
+    const { options } = pendiente;
+    for (const [i, o] of options.entries()) {
+      const b = document.createElement('button');
+      b.textContent = o.label;
+      if (i > 0 || o.secondary || options.length === 1) b.className = 'secondary';
+      b.addEventListener('click', () => { sfx('tap'); closeChoice(); o.action?.(); });
+      box.append(b);
+    }
   }
-  scene.setHighlight(highlight);
+  scene.setHighlight(ultima ? pendiente.highlight : []);
   layout();
   fitViews();
 }
+
+function siguienteTanda() {
+  if (tanda >= tandas.length - 1) return;
+  sfx('tap');
+  tanda++;
+  mostrarTanda();
+}
+// tocar el cuadro (fuera de los botones) también pasa a la siguiente tanda
+$('#dialog').addEventListener('click', ev => { if (!ev.target.closest('button')) siguienteTanda(); });
 
 // El mostrador y la cocina se encogen para dejar sitio al cuadro de diálogo, crezca lo que crezca
 let lastDlgH = 0;
@@ -133,6 +189,8 @@ function fitViews() {
   document.documentElement.style.setProperty('--dlg-h', `${h}px`);
   window.dispatchEvent(new Event('resize'));
 }
+// también cuando cambia sin pasar por aquí (aparece el botón de pasar el día, gira la pantalla…)
+new ResizeObserver(fitViews).observe($('.actions'));
 
 function closeChoice() {
   $('#dialog-options').innerHTML = '';
