@@ -1,6 +1,6 @@
 // Service worker: la posada se puede instalar como app y jugar sin conexión.
 // Primero intenta la red (así siempre se ve la última versión) y, si no hay, tira de la copia.
-const CACHE = 'el-pino-calcinado-v1';
+const CACHE = 'el-pino-calcinado-v2';
 const CORE = [
   "./",
   "index.html",
@@ -66,7 +66,10 @@ self.addEventListener('activate', ev => {
 
 self.addEventListener('fetch', ev => {
   if (ev.request.method !== 'GET' || !ev.request.url.startsWith(self.location.origin)) return;
-  ev.respondWith(fetch(ev.request).then(res => {
+  // «no-cache»: pregunta siempre al servidor si hay versión nueva (GitHub Pages deja los archivos
+  // diez minutos en la caché del navegador y el móvil seguía con el CSS viejo); la página en sí no lo admite
+  const req = ev.request.mode === 'navigate' ? ev.request : new Request(ev.request, { cache: 'no-cache' });
+  ev.respondWith(fetch(req).then(res => {
     if (res.ok) {
       const copy = res.clone();
       caches.open(CACHE).then(c => c.put(ev.request, copy));

@@ -230,6 +230,7 @@ export function createInnView(canvas) {
     tw: r() < 0.2, dim: r() < 0.5,
   }));
   let narrow = false, pan = -18, panMax = 0;   // cámara: en vertical empieza mirando un poco hacia la puerta
+  let camTarget = null;                        // a dónde se va moviendo sola la cámara (siguiendo a la furgoneta)
   let outlines = new Map();
   const buildOutlines = () => { outlines = new Map(ROOMS.map(rm => [rm, perimeter(rm.poly
     || [[rm.x, rm.y], [rm.x + rm.w - 1, rm.y], [rm.x + rm.w - 1, rm.y + rm.h - 1], [rm.x, rm.y + rm.h - 1]])])); };
@@ -266,9 +267,9 @@ export function createInnView(canvas) {
     paintStatic();
   }
 
-  // mueve la cámara (en píxeles del mundo) sin cambiar el zum
-  function setPan(p) {
-    const q = Math.max(-panMax, Math.min(panMax, p));
+  // mueve la cámara (en píxeles del mundo) sin cambiar el zum; «libre», sin los topes de arrastrar
+  function setPan(p, libre = false) {
+    const q = libre ? p : Math.max(-panMax, Math.min(panMax, p));
     if (Math.round(q) === Math.round(pan)) { pan = q; return; }
     pan = q;
     v.wx = Math.round((insets.left * v.dpr + v.aw / 2) / v.S - (FIT0.x + FIT0.w / 2 + pan));
@@ -831,6 +832,11 @@ export function createInnView(canvas) {
     // el pixel art se anima a saltos: con ~30 fotogramas por segundo sobra (y el móvil lo agradece)
     if (t - drawn < 30) { requestAnimationFrame(frame); return; }
     drawn = t;
+    // la cámara se acerca poco a poco a donde tiene que mirar (y al acabar, vuelve)
+    if (camTarget != null) {
+      setPan(pan + (camTarget - pan) * 0.18, true);
+      if (!van && Math.abs(camTarget - pan) < 0.5) { setPan(camTarget); camTarget = null; }
+    }
     const c = lc;
     c.setTransform(1, 0, 0, 1, 0, 0);
     c.drawImage(stat, 0, 0);
@@ -1005,7 +1011,9 @@ export function createInnView(canvas) {
       x = VAN.park; moving = false;
       if (!crate && e > VAN.in + 400) { crate = true; van.onDrop?.(); }
     } else if (e < VAN.in + VAN.stop + VAN.out) { const k = (e - VAN.in - VAN.stop) / VAN.out; x = VAN.park - (VAN.park + 120) * k * k; }
-    else { const done = van.done; van = null; done(); return; }
+    else { const done = van.done; if (van.pan0 != null) camTarget = van.pan0; van = null; done(); return; }
+    // en vertical la furgoneta llega por fuera del encuadre: la cámara la sigue (sin pasarse de donde estaba)
+    if (panMax > 0) camTarget = Math.min(van.pan0 ??= pan, x + 38 + (v.aw / v.S) * 0.15 - (FIT0.x + FIT0.w / 2));
     x = Math.round(x);
     // furgoneta grande: caja de 60 px y cabina de 16, rótulo con letras al doble
     const y = GROUND, top = y - 28, L = 60;

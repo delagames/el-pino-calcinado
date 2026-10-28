@@ -90,6 +90,8 @@ function toast(text) {
 function hideToast() {
   $('#toast').classList.add('hidden');
 }
+// tocar el aviso lo quita
+$('#toast').addEventListener('click', hideToast);
 
 function esc(s) {
   return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -122,13 +124,13 @@ function dialog({ sprite, nombre, emotion = 'Normal', text, options = [], highli
   mostrarTanda();
 }
 
-const MAX_LINEAS = 3;
+const pantallaBaja = matchMedia('(max-width: 760px) and (max-height: 760px)');
 let tandas = [], tanda = 0, pendiente = null;
 
-// Parte el texto por frases (o por palabras, si una frase sola no cabe) en trozos de MAX_LINEAS líneas
+// Parte el texto por frases (o por palabras, si una frase sola no cabe) en trozos de tres líneas (dos en móviles bajos)
 function paginar(text) {
   const p = $('#dialog-text');
-  const alto = parseFloat(getComputedStyle(p).lineHeight) * MAX_LINEAS + 2;
+  const alto = parseFloat(getComputedStyle(p).lineHeight) * (pantallaBaja.matches ? 2 : 3) + 2;
   const cabe = t => { p.textContent = t; return p.scrollHeight <= alto; };
   const out = [];
   let cur = '';
@@ -205,6 +207,7 @@ function fitViews() {
 }
 // también cuando cambia sin pasar por aquí (aparece el botón de pasar el día, gira la pantalla…)
 new ResizeObserver(fitViews).observe($('.actions'));
+window.addEventListener('resize', fitViews);   // (solo vuelve a avisar si el alto ha cambiado: no hace bucle)
 
 function closeChoice() {
   $('#dialog-options').innerHTML = '';
@@ -492,6 +495,7 @@ async function libro() {
   $('#book-count').textContent = `Vistos: ${seen.length} / 151`;
   for (const b of document.querySelectorAll('[data-tab]')) b.classList.toggle('active', b.dataset.tab === bookTab);
   const list = $('#book-list'), detail = $('#book-detail');
+  const scroll = list.scrollTop;   // al tocar un Pokémon, la lista se queda donde estaba
   list.innerHTML = '';
   if (bookTab === 'recetario') {
     const recipes = (await loadRecipes()).recipes;
@@ -520,6 +524,7 @@ async function libro() {
     li.addEventListener('click', () => { bookSel = g.id; libro(); });
     list.append(li);
   }
+  list.scrollTop = scroll;
   const g = guests.find(x => x.id === bookSel);
   const e = book.libro[g.id];
   if (!e) {
@@ -666,7 +671,24 @@ scene.onClick(thing => {
   else inn.clickRoom(thing);
 });
 
+// ---------- entrada con contraseña (mientras está en pruebas) ----------
+// Solo para que no entre quien se tope con el enlace: se comprueba en el navegador y se recuerda en este aparato.
+// Se guarda la huella de la contraseña (FNV-1a), no la palabra.
+const PASE = '537e3882', PASE_KEY = 'el-pino-calcinado-pase';
+const huella = t => { let h = 0x811c9dc5; for (const c of t) { h ^= c.charCodeAt(0); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(16); };
+const dentro = () => { try { return localStorage.getItem(PASE_KEY) === PASE; } catch { return false; } };
+const cerrado = () => !$('#gate').classList.contains('hidden');
+if (dentro()) $('#gate').classList.add('hidden');
+else $('#gate-pass').focus();
+$('#gate').addEventListener('submit', ev => {
+  ev.preventDefault();
+  if (huella($('#gate-pass').value.trim().toLowerCase()) !== PASE) { $('#gate-error').classList.remove('hidden'); $('#gate-pass').select(); return; }
+  try { localStorage.setItem(PASE_KEY, PASE); } catch { /* sin almacenamiento: habrá que ponerla cada vez */ }
+  $('#gate').classList.add('hidden');
+});
+
 window.addEventListener('keydown', ev => {
+  if (cerrado()) return;
   if (ev.key === 'Enter' && state === 'inicio') go('posada');
   else if (ev.key === 'Escape') {
     if (state === 'mostrador' || state === 'cocina') return;

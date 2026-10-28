@@ -747,10 +747,12 @@ export function createKitchen(canvas) {
   window.addEventListener('keyup', e => { if (e.code === 'Space') press(false); });
 
   function resize() {
-    // hueco libre: el contenedor menos lo que ocupa el cuadro de diálogo (su padding de abajo)
+    // hueco libre: hasta donde empieza el cuadro de diálogo (medido, que su alto cambia con el texto)
     const parent = canvas.parentElement, cs = getComputedStyle(parent);
     const extra = (hint?.offsetHeight || 0) + 6;   // y la línea de ayuda
-    const box = { width: parent.clientWidth - 16, height: parent.clientHeight - parseFloat(cs.paddingBottom) - 16 - extra };
+    const dlg = document.querySelector('.actions .dialog');
+    const libre = dlg?.offsetHeight ? dlg.getBoundingClientRect().top - parent.getBoundingClientRect().top : parent.clientHeight - parseFloat(cs.paddingBottom);
+    const box = { width: parent.clientWidth - 16, height: libre - 16 - extra };
     const dpr = window.devicePixelRatio || 1;
     const S = Math.max(1, Math.floor(Math.min(box.width * dpr / W, box.height * dpr / H)));
     canvas.width = W; canvas.height = H;
