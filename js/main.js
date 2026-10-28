@@ -44,6 +44,7 @@ function layout() {
   else {
     const css = getComputedStyle(document.documentElement);
     const top = $('.topbar')?.offsetHeight || parseInt(css.getPropertyValue('--top-h'));
+    document.documentElement.style.setProperty('--top-real', `${top}px`);
     const bottom = parseInt(css.getPropertyValue('--fit-h')) || parseInt(css.getPropertyValue('--bar-h'));
     scene.setInsets({ top, right: 0, bottom, left: 0, dialog: Math.max(bottom, $('.actions .dialog').offsetHeight + 12) });
   }
