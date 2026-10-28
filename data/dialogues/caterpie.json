@@ -1,0 +1,63 @@
+{
+  "id": "caterpie",
+  "_nota": "Caterpie, oruga pesadita empeñada en hacerse amiga de quien le tiene asco: le escribe cartas a Misty, a la que le horrorizan los bichos (como el Caterpie de Ash). Evoluciona en Metapod en la v2 (adolescente encerrado en el capullo como en su cuarto: a todo contesta «Fortaleza», el meme del combate de dos Metapod) y en Butterfree en la v3, que se va con la migración («¡Adiós, Butterfree!»). Machop hace de cartero. Bandera caterpie_vuela.",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · la carta para Misty",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Hola, hola, hola! Soy Caterpie, del Bosque Verde. Antes de nada: ¿le doy asco? Lo pregunto siempre, para ir sabiendo.", "opciones": [
+          { "texto": "«¿Asco? Aquí no le da asco nadie a nadie»", "efectos": { "afinidad": 1 }, "sigue": "noasco" },
+          { "texto": "«Un poquito, pero se me pasa»", "sigue": "poquito" }
+        ] },
+        "noasco": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Nadie? ¿Ni un poquito? (Se le ponen las antenas de punta.) Qué sitio más bonito. Me lo apunto para contárselo a Misty.", "sigue": "misty" },
+        "poquito": { "quien": "huesped", "emocion": "Normal", "texto": "Es normal. A todos se nos pasa. A Misty todavía no, pero se le pasará. Para eso le escribo.", "sigue": "misty" },
+        "misty": { "quien": "huesped", "emocion": "Worried", "texto": "Misty, la del gimnasio de Celeste. Quiero ser su amigo, pero le dan pánico los bichos. Le he escrito catorce cartas. No me contesta.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "Un Machop muy fuerte que va a retarla me ha dicho que le lleva la quince. ¿Usted tendría un sobre? Uno bonito, que se note.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Sigh", "texto": "Te entiendo, chaval. A mí me pasa algo parecido con los tipo agua: entra uno y se me cierra un ojo. Y ellos no tienen la culpa de nada.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Surprised", "texto": "¿A usted le dan miedo los de agua? ¡Pues escríbales cartas! A mí me funciona. Bueno, todavía no. Pero me va a funcionar.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le ayuda a cerrar el sobre con un poquito de calor, para que pegue. Solo se chamusca una esquina. Caterpie dice que así parece más antigua." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · Fortaleza",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Llega un Metapod. No anda: lo traen rodando dos Weedle del Bosque Verde y lo dejan de pie en el mostrador.) Fortaleza.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Caterpie? ¿Eres tú? ¡Qué cambiado estás!", "sigue": "n1" },
+        "n1": { "quien": "huesped", "emocion": "Angry", "texto": "Fortaleza.", "sigue": "manolo2" },
+        "manolo2": { "quien": "manolo", "emocion": "Worried", "texto": "Me recuerda a aquel combate de la tele, el de dos Metapod. Tres horas endureciéndose, y empate.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "Fortaleza. (Se le nota orgulloso por dentro del capullo: uno de los dos era su primo.)", "sigue": "cuarto" },
+        "cuarto": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard sube a Metapod al cuarto verde en brazos, como un paquete de Famadesa. Metapod cierra la puerta. No sale ni a cenar.", "sigue": "buzon" },
+        "buzon": { "quien": "manolo", "emocion": "Normal", "texto": "(Esa tarde, en el buzón: un sobre de Ciudad Celeste. Dentro, un dibujo de Misty con cara de susto… y un Caterpie con corazones. Lo ha dejado un Machop.)", "opciones": [
+          { "texto": "Pasárselo por debajo de la puerta", "efectos": { "afinidad": 1 }, "sigue": "puerta" },
+          { "texto": "Llamar y leérselo en voz alta", "sigue": "leer" }
+        ] },
+        "puerta": { "quien": "huesped", "emocion": "Surprised", "texto": "(Dentro se oye el papel. Un silencio largo. Y luego, muy bajito:) …Fortaleza. (Pero suena distinto. Suena a gracias.)", "sigue": "fin" },
+        "leer": { "quien": "huesped", "emocion": "Angry", "texto": "¡FORTALEZA! (Metapod se endurece tanto que cruje el somier. Manolo deja el dibujo en el suelo y se va de puntillas.)", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "A medianoche, Charizard pega la oreja a la puerta. Metapod ha pegado el dibujo en la pared con babilla. Le ha quedado torcido. Le da igual." }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · la migración",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "(Por la ventana entra un Butterfree, volando a trompicones, y se posa en la calva de Manolo.) ¡Hola! ¡Soy yo! ¡Ya hablo con frases enteras!", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¡Caterpie! ¡Metapod! ¡Lo que seas ahora, bájate de mi cabeza, que resbala!", "sigue": "n1" },
+        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "Butterfree. Y le quería decir una cosa que la otra vez no me salía: gracias por no obligarme a salir. Salí cuando estuve listo.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Sad", "texto": "Esta noche pasa la migración por encima del pino. Me voy con ellos, al sur. No sé cuándo volveré.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Happy", "texto": "Ah, y Misty me ha vuelto a escribir. Dice que de mariposa ya no le doy tanto asco. «Tanto». ¡Es un avance!", "opciones": [
+          { "texto": "«Vuela, que ya sabes cómo»", "efectos": { "afinidad": 1, "flags": { "caterpie_vuela": "migracion" } }, "sigue": "vuela" },
+          { "texto": "«¿Y no te quedas una noche más?»", "efectos": { "flags": { "caterpie_vuela": "una_noche" } }, "sigue": "noche" }
+        ] },
+        "vuela": { "quien": "huesped", "emocion": "Happy", "texto": "¡Voy! Le dejo el dibujo de Misty en la pared del cuarto verde. Para el próximo bicho que crea que le tienen asco.", "sigue": "fin" },
+        "noche": { "quien": "huesped", "emocion": "Worried", "texto": "No puedo, que se me va la bandada. Pero le dejo mi capullo vacío en el armario. Es muy resistente. Sirve de hucha.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al anochecer, cientos de Butterfree dan una vuelta al pino antes de irse. Charizard enciende la cola para alumbrarles. Uno se queda atrás un segundo, y saluda." }
+      }
+    }
+  ]
+}

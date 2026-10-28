@@ -10,7 +10,7 @@ import { playIntro } from './intro.js';
 import { playFinal } from './final.js';
 import { runEntry } from './dialogue.js';
 import { createKitchen, loadRecipes } from './kitchen.js';
-import { loadGuestData, kantoVistos } from './guests.js';
+import { loadGuestData, kantoVistos, pokedex } from './guests.js';
 import { loadDialogue } from './dialogue.js';
 import { setMood, setRain as rainSound, sfx, getPrefs, setMusic, setSfx, cry, cancion } from './audio.js';
 
@@ -230,6 +230,9 @@ function talk(id) {
   if (last.fase === 'noche') return dialog({ ...who, text: 'Zzz… zzz…' });
   // quien espera en la puerta pasa directo al mostrador (check-in)
   if (h.estado === 'puerta') return checkIn(id);
+  // los de la excursión: si aún no se ha charlado con ellos, charla en grupo; si no, a lo suyo
+  if (h.estado === 'excursion') return h.charla ? startTalk(id)
+    : dialog({ ...who, emotion: 'Happy', text: '¡Qué sitio más bonito! Luego cenamos y nos vamos, que el autobús no espera.' });
   const charlar = h.charla ? [{ label: 'Charlar', action: () => startTalk(id) }] : [];
   const later = { label: 'Ahora no', action: () => { inn.focus(null); say('manolo', 'Normal', 'Enseguida vuelvo, ¿eh?'); } };
   // lo que necesita lo cuenta la primera vez que lo tocas en su cuarto; luego solo lo recuerda
@@ -240,7 +243,9 @@ function talk(id) {
   if (!h.atendido && h.tipo === 'comida') {
     const cook = inn.cookFor(id);
     const cocinar = cook && !cook.falta
-      ? [{ label: `Cocinar ${cook.recipe.nombre}`, action: () => startCook(id) }]
+      ? [{ label: `Cocinar ${cook.recipe.nombre}`, action: () => startCook(id) },
+        ...(cook.especial ? [{ label: `La especialidad: ${cook.especial.nombre}`, action: () => startCook(id, true) }] : []),
+        ...(cook.ayudante ? [{ label: `Que cocine ${cook.ayudante}`, action: () => inn.cocinaAyudante(id) }] : [])]
       : cook?.huelga ? [{ label: 'Charizard está en huelga', action: () => say('charizard', 'Angry', 'Charizard se cruza de brazos en el porche. Sin chistorra no hay fuego.') }]
       : cook ? [{ label: 'No queda chistorra…', action: () => say('manolo', 'Sad', 'Se ha acabado la chistorra. Habrá que esperar al paquete de mañana.') }] : [];
     return dialog({ ...who, text: pide, options: [
@@ -282,16 +287,31 @@ function sobremesa(h, charlar) {
 const JUEGO = { vuelta: 'Vuelta y vuelta en la parrilla', miel: 'Chorro de miel sobre la tostada', setas: 'Cortar setas al vuelo', espeton: 'Al espetón, girando',
   potaje: 'Elegir ingredientes y remover la marmita', pizza: 'Amasar, estirar y poner los ingredientes', emplatar: 'Decorar el plato, cada cosa en su sitio' };
 
-async function startCook(id) {
+async function startCook(id, especial = false) {
   const cook = inn.cookFor(id);
   if (!cook || cook.falta) return;
-  const nombre = cook.recipe.nombre;
+  const recipe = especial && cook.especial ? cook.especial : cook.recipe;
   go('cocina');
   setMood('cocina');
-  say('manolo', 'Happy', `¡Vamos allá, Charizard! Una de ${nombre}. Mantén pulsado para avivar el fuego.`);
-  const { resultado, crudo } = await kitchen.cook(cook.recipe, { moral: cook.moral, apoyo: cook.apoyo, nivel: cook.nivel, onStep: p => say('manolo', 'Normal', p.texto) });
+  say('manolo', 'Happy', especial ? `¡La especialidad de la casa: ${recipe.nombre}! Charizard, esto es para nota.` : `¡Vamos allá, Charizard! Una de ${recipe.nombre}.`);
+  const { resultado, crudo } = await kitchen.cook(recipe, { moral: cook.moral, apoyo: cook.apoyo, nivel: cook.nivel, onStep: p => say('manolo', 'Normal', p.texto) });
   go('posada');
-  inn.serveCooked(id, resultado, { crudo });
+  inn.serveCooked(id, resultado, { crudo, receta: recipe.id });
+}
+
+// Los minijuegos de los sucesos (la inspección, el Team Rocket), en la cocina
+const SUCESO_JUEGO = {
+  limpiar: { nombre: 'la inspección', who: 'manolo', emocion: 'Worried', texto: '¡Que viene el inspector! Charizard, ¡la ceniza! Toca las manchas, rápido.' },
+  rocket: { nombre: 'el Team Rocket', who: 'charizard', emocion: 'Angry', texto: '¡Grrr! Hay alguien en la ventana de la despensa… ¡Es el Team Rocket! Toca las sombras para espantarlos.' },
+};
+async function minijuego(juego) {
+  const j = SUCESO_JUEGO[juego];
+  go('cocina');
+  setMood('cocina');
+  say(j.who, j.emocion, j.texto);
+  const res = await kitchen.cook({ id: juego, nombre: j.nombre, juego, pasos: [{ texto: j.texto }] }, { moral: 6, nivel: 0.3, onStep: () => {} });
+  go('posada');
+  return res;
 }
 
 // ---------- Charizard ----------
@@ -386,7 +406,10 @@ async function startTalk(id, after = null) {
     applyEffects: ef => inn.applyEffects(id, ef),
     onNode(node) {
       // «pareja»: habla el acompañante (Nidoran♀); el huésped, con su nombre de hablante si lo tiene
-      const who = node.quien === 'huesped' ? { sprite: h.sprite, nombre: h.hablante || h.nombre }
+      // en los grupos de una noche habla cada miembro con su nombre (quien = su id)
+      const miembro = h.miembros?.find(m => m.id === node.quien);
+      const who = miembro ? { sprite: miembro.sprite, nombre: miembro.especie }
+        : node.quien === 'huesped' ? { sprite: h.sprite, nombre: h.hablante || h.nombre }
         : node.quien === 'pareja' && h.acompanante ? { sprite: h.acompanante, nombre: h.acompananteNombre || h.nombre } : CREW[node.quien];
       counter.speak(node.quien, node.emocion);
       const options = node.opciones
@@ -396,12 +419,27 @@ async function startTalk(id, after = null) {
     },
     async onEnd() {
       // si la charla acaba con el huésped yéndose, no se sigue a la recepción
-      const { seVa } = await inn.endTalk(id, talk.entry);
+      const { seVa, oferta } = await inn.endTalk(id, talk.entry);
+      if (oferta) return ofertaTrabajo(oferta, after);
       if (after && !seVa) return after();
       counter.close();
       go('posada');
     },
   });
+}
+
+// Quien termina su historia puede quedarse a trabajar en la posada (si hay plazas en la plantilla)
+function ofertaTrabajo(o, after) {
+  const seguir = () => { if (after) return after(); counter.close(); go('posada'); };
+  if (o.lleno) {
+    say('manolo', 'Sigh', `A ${o.nombre} le gustaría quedarse a trabajar (${o.puesto}), pero la plantilla está completa. Con unas taquillas nuevas cabría alguien más.`);
+    return setTimeout(seguir, 50);
+  }
+  dialog({ ...CREW.manolo, emotion: 'Happy', text: `Oye, ${o.nombre}… ¿y si te quedas a trabajar con nosotros? Haría falta alguien: ${o.puesto} (${o.ventaja}).`,
+    options: [
+      { label: '¡Contratado!', action: () => { inn.contratar(o.id); say('manolo', 'Happy', `¡Bienvenido a la plantilla, ${o.nombre}! Cachimbita, chistorra… y a currar.`); setTimeout(seguir, 1200); } },
+      { label: 'Que siga su camino', action: () => seguir() },
+    ] });
 }
 
 // ---------- lo que publica la posada ----------
@@ -497,8 +535,6 @@ let bookTab = 'libro', bookSel = null;
 async function libro() {
   const data = await loadGuestData();
   const book = inn.bookView();
-  const guests = [...data.guests].sort((a, b) => a.dex - b.dex);
-  const seen = guests.filter(g => book.libro[g.id]);
   $('#book-count').textContent = `Kanto: ${kantoVistos(book.libro)} / 151`;
   for (const b of document.querySelectorAll('[data-tab]')) b.classList.toggle('active', b.dataset.tab === bookTab);
   const list = $('#book-list'), detail = $('#book-detail');
@@ -507,7 +543,7 @@ async function libro() {
   if (bookTab === 'recetario') {
     const recipes = (await loadRecipes()).recipes;
     list.classList.add('hidden');
-    detail.innerHTML = '<h3>Recetario</h3><ul class="recipes">' + recipes.map(r => {
+    detail.innerHTML = '<h3>Recetario</h3><ul class="recipes">' + recipes.filter(r => !r.especial || book.flags[r.desbloquea]).map(r => {
       const e = book.recetario[r.id];
       const caras = (e?.gustan || []).map(id => {
         const g = data.guests.find(x => x.id === id);
@@ -522,36 +558,51 @@ async function libro() {
     return;
   }
   list.classList.remove('hidden');
-  if (!bookSel || !guests.some(g => g.id === bookSel)) bookSel = (seen[0] || guests[0]).id;
-  for (const g of guests) {
-    const visto = !!book.libro[g.id];
+  // la Pokédex entera: del 1 al 151 (más los de otras regiones que hayan pasado); cada número, con
+  // la historia a la que pertenece (evoluciones, la pareja de Nidoran, los grupos de una noche)
+  const porDex = new Map(pokedex(book.libro).map(f => [f.dex, f]));
+  const filas = [...Array(151)].map((_, i) => porDex.get(i + 1) || { dex: i + 1, visto: false });
+  for (const f of porDex.values()) if (f.dex > 151 && f.visto) filas.push(f);
+  if (!filas.some(f => f.dex === bookSel)) bookSel = (filas.find(f => f.visto && f.guest) || filas[0]).dex;
+  for (const f of filas) {
     const li = document.createElement('li');
-    li.className = (g.id === bookSel ? 'selected ' : '') + (visto ? '' : 'unseen');
-    li.innerHTML = `<span class="dexno">#${String(g.dex).padStart(3, '0')}</span> ${visto ? esc(g.especie) : '???'}`;
-    li.addEventListener('click', () => { bookSel = g.id; libro(); });
+    li.className = (f.dex === bookSel ? 'selected ' : '') + (f.visto ? '' : 'unseen');
+    li.innerHTML = `<span class="dexno">#${String(f.dex).padStart(3, '0')}</span> ${f.visto ? esc(f.especie) : '???'}`;
+    li.addEventListener('click', () => { bookSel = f.dex; libro(); });
     list.append(li);
   }
   list.scrollTop = scroll;
-  const g = guests.find(x => x.id === bookSel);
-  const e = book.libro[g.id];
-  if (!e) {
-    detail.innerHTML = `<div class="dex-card"><img class="dex-face unseen" src="${portraitUrl(g.sprite, 'Normal')}" alt="" width="40" height="40">
-      <div><h3>#${String(g.dex).padStart(3, '0')} · ???</h3><p class="muted">Aún no ha pasado por la posada.</p>${pista(g)}</div></div>`;
+  const fila = filas.find(f => f.dex === bookSel);
+  const num = `#${String(fila.dex).padStart(3, '0')}`;
+  const g = fila.guest && data.guests.find(x => x.id === fila.guest);
+  const e = g && book.libro[g.id];
+  if (!fila.guest && fila.visto) {
+    detail.innerHTML = `<div class="dex-card"><img class="dex-face" src="${portraitUrl(fila.sprite, 'Happy')}" alt="" width="40" height="40">
+      <div><h3>${num} · ${esc(fila.especie)}</h3><p>Vive en la posada con Manolo. Come chistorra, sube maletas y quema cosas sin querer.</p></div></div>`;
+  } else if (!g) {
+    detail.innerHTML = `<div class="dex-card"><div class="dex-face unseen"></div>
+      <div><h3>${num} · ???</h3><p class="muted">Aún no ha pasado por la posada. Nadie sabe nada de él… todavía.</p></div></div>`;
+  } else if (!fila.visto) {
+    detail.innerHTML = `<div class="dex-card"><img class="dex-face unseen" src="${portraitUrl(fila.sprite, 'Normal')}" alt="" width="40" height="40">
+      <div><h3>${num} · ???</h3><p class="muted">${e ? 'Ya ha pasado por la posada, pero aún no se le ha visto así.' : 'Aún no ha pasado por la posada.'}</p>${e ? '' : pista(g)}</div></div>`;
   } else {
     const af = book.afinidad[g.id] || 0;
     const dlg = await loadDialogue(g.id);
     const capitulos = (book.vistas[g.id] || []).map(id => dlg?.entradas.find(x => x.id === id)?.subtitulo).filter(Boolean);
     const gusta = Object.entries(book.recetario).filter(([, r]) => r.gustan.includes(g.id)).map(([id]) => id);
     const recipes = (await loadRecipes()).recipes;
-    detail.innerHTML = `<div class="dex-card"><img class="dex-face" src="${portraitUrl(g.sprite, af >= 3 ? 'Happy' : 'Normal')}" alt="" width="40" height="40">
-      <div><h3>#${String(g.dex).padStart(3, '0')} · ${esc(g.especie)}</h3>
-      <p class="types">${(g.tipos || []).map(t => `<span class="type type-${t}">${esc(t)}</span>`).join('')}</p>
+    const forma = (g.evoluciones || []).find(x => x.dex === fila.dex) || g;
+    detail.innerHTML = `<div class="dex-card"><img class="dex-face" src="${portraitUrl(fila.sprite, af >= 3 ? 'Happy' : 'Normal')}" alt="" width="40" height="40">
+      <div><h3>${num} · ${esc(fila.especie)}</h3>
+      ${g.cameo ? `<p class="muted">Vino con ${esc(g.especie)}</p>` : ''}
+      <p class="types">${(forma.tipos || g.tipos || []).map(t => `<span class="type type-${t}">${esc(t)}</span>`).join('')}</p>
       <p>${e.visitas} ${e.visitas === 1 ? 'visita' : 'visitas'} · la última, el día ${e.ultimo}</p>
-      <p>Afinidad ${heartsHtml(af)}</p>
-      ${e.felicidad != null ? `<p>Última estancia ${heartsHtml(e.felicidad)}</p>` : ''}</div></div>
+      ${g.cameo ? '' : `<p>Afinidad ${heartsHtml(af)}</p>`}
+      ${e.felicidad != null && !g.cameo ? `<p>Última estancia ${heartsHtml(e.felicidad)}</p>` : ''}</div></div>
       <p class="reason">${esc(g.razon)}</p>
+      ${book.plantilla.includes(g.id) ? `<p class="reason">Trabaja en la posada: ${esc(g.empleo?.puesto || '')}.</p>` : ''}
       <h4>Su historia</h4>${g.aparece?.no_si && book.flags[g.aparece.no_si] ? '<p class="muted">Se ha quedado a vivir en la posada.</p>' : book.terminados?.has(g.id) ? '<p class="muted">Historia completa: se despidió de la posada.</p>' : ''}${capitulos.length ? `<ol class="chapters">${capitulos.map(c => `<li>${esc(c)}</li>`).join('')}</ol>` : '<p class="muted">Aún no habéis charlado.</p>'}
-      <h4>Le gusta</h4><p>${gusta.length ? gusta.map(id => esc(recipes.find(r => r.id === id).nombre)).join(', ') : '<span class="muted">Todavía no lo sabes: cocínale algo rico.</span>'}</p>`;
+      ${g.cameo ? '' : `<h4>Le gusta</h4><p>${gusta.length ? gusta.map(id => esc(recipes.find(r => r.id === id).nombre)).join(', ') : '<span class="muted">Todavía no lo sabes: cocínale algo rico.</span>'}</p>`}`;
   }
   go('libro');
 }
@@ -727,7 +778,8 @@ document.fonts.load('400 24px "Jersey 10"').catch(() => {}).finally(async () => 
   scene.start();
   try {
     say('manolo', 'Happy', 'Todo listo. A ver quién sube hoy por el camino.');
-    inn = await createInn(scene, { update: render, toast, night, say, sfx, charizard: charizardTalk,
+    inn = await createInn(scene, { update: render, toast, night, say, sfx, charizard: charizardTalk, minijuego,
+      decir: (who, emotion, text) => dialog({ ...who, emotion, text }),
       show: s => { showScene(s); setTimeout(() => sfx(s.atendido === 'frio' ? 'sad' : 'cheer'), 1700); } });
     await inn.begin();
     if (last?.fase === 'tarde') say('manolo', 'Normal', 'Cae la tarde. Unos bajan al comedor, otros salen a pasear y alguno se queda en su cuarto.');

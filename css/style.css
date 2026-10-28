@@ -244,6 +244,7 @@ body.fullview #counter-view, body.fullview #kitchen-view { background: #1B2238; 
 .dex-card { display: flex; gap: 12px; align-items: center; }
 .dex-face { width: 120px; height: 120px; border: var(--px) solid var(--contorno); outline: var(--px) solid #B8C2E8; flex: none; }
 .dex-face.unseen { filter: brightness(0); }
+.dex-face.unseen:not(img) { background: #100C14; }   /* los que aún no tienen historia: hueco negro */
 .types { display: flex; gap: 6px; }
 .type { padding: 0 6px; border: 2px solid var(--contorno); font-size: 0.85rem; background: #5F6777; }
 .type-fuego { background: #E2653F; } .type-agua { background: #4F8FAF; } .type-planta { background: #4F873F; }

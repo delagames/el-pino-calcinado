@@ -34,6 +34,22 @@
       "efecto": "Los tipo agua duermen en la charca. Atrae a Lapras y a Squirtle le encanta."
     },
     {
+      "id": "cueva",
+      "nombre": "Cueva en la roca",
+      "grupo": "Obras",
+      "precio": 180,
+      "puntos": 3,
+      "efecto": "Junto al camino, para los que no caben en casa: Onix, Gyarados y otros enormes."
+    },
+    {
+      "id": "nido",
+      "nombre": "Nido en lo alto del pino",
+      "grupo": "Obras",
+      "precio": 240,
+      "puntos": 4,
+      "efecto": "Para los pájaros grandes, que vienen de muy lejos."
+    },
+    {
       "id": "fogon-apoyo",
       "nombre": "Fogón de apoyo",
       "grupo": "Cocina",
@@ -72,6 +88,14 @@
       "precio": 150,
       "puntos": 3,
       "efecto": "Vienen más tipos fuego y roca."
+    },
+    {
+      "id": "taquillas",
+      "nombre": "Taquillas para la plantilla",
+      "grupo": "Comodidades",
+      "precio": 120,
+      "puntos": 1,
+      "efecto": "Dos plazas más para quien se quede a trabajar en la posada."
     },
     {
       "id": "jardin",

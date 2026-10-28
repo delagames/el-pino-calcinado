@@ -129,7 +129,6 @@
         "visita_min": 2
       },
       "subtitulo": "Segunda visita · trae algo en el caparazón",
-      "fin_arco": true,
       "nodos": {
         "inicio": {
           "quien": "huesped",
@@ -176,7 +175,7 @@
         "fin": {
           "quien": "huesped",
           "emocion": "Happy",
-          "texto": "¡Gracias por todo! Me voy con mi piedra calentita. Y si un día hay estanque, que lo estrene otro Squirtle miedoso.",
+          "texto": "¡Gracias por todo! Me voy con mi piedra calentita. Y si un día hay estanque, guardádmelo, que a lo mejor vuelvo a estrenarlo yo.",
           "efectos": {
             "flags": {
               "squirtle_amigo": true
@@ -189,13 +188,50 @@
         "fin_estanque": {
           "quien": "huesped",
           "emocion": "Happy",
-          "texto": "¡Gracias por todo! Me llevo la piedra calentita. Y el estanque, cuídenmelo para el próximo Squirtle miedoso.",
+          "texto": "¡Gracias por todo! Me llevo la piedra calentita. Y el estanque, cuídenmelo, que pienso volver a bañarme en él.",
           "efectos": {
             "flags": {
               "squirtle_amigo": true
             }
           }
         }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3 },
+      "subtitulo": "Tercera visita · me sobra caparazón",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Manolo! ¡Charizard! ¡Soy yo, Squirtle! Bueno, ya no. (Da una vuelta para que le vean la cola peluda.) ¡Wartortle!", "sigue": "tic" },
+        "tic": { "quien": "manolo", "emocion": "Pain", "texto": "(Un Wartortle. Más tipo agua todavía. A Manolo se le cierran los dos ojos y le caen dos gotas por la calva.)", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "La otra noche me atreví a dormir en una cama. Sin barreño, sin estanque, sin nada. Pensé: si Charizard no muerde, la cama tampoco.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Surprised", "texto": "¡Y amanecí así! Me sobra caparazón por todas partes. Y esta cola, dicen, es de vivir muchos años. Yo con dormir tranquilo me conformo.", "sigue": "charizard" },
+        "charizard": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard le olisquea la cola peluda y estornuda. Wartortle le apaga la chispa del estornudo con un chorrito, sin pensarlo.", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Happy", "texto": "¿Lo habéis visto? ¡Me ha salido solo! Por eso vengo: me apunto a los bomberos, con la pandilla del pueblo. Los de las gafas de sol.", "opciones": [ { "texto": "«Un bombero en casa de un dragón. Me gusta»", "sigue": "bombero", "efectos": { "afinidad": 1, "flags": { "squirtle_bombero": "si" } } }, { "texto": "«¿Tú? ¿El que no dormía sin agua cerca?»", "sigue": "miedo", "efectos": { "flags": { "squirtle_bombero": "miedo" } } } ] },
+        "bombero": { "quien": "huesped", "emocion": "Happy", "texto": "¡Eso! Y si un día hay fuego aquí, que no lo habrá, vengo el primero. Bueno, el segundo: el primero será Charizard, que lo habrá empezado.", "sigue": "fin" },
+        "miedo": { "quien": "huesped", "emocion": "Worried", "texto": "Por eso mismo. Los bomberos no son los que no tienen miedo. Son los que llevan el agua encima. Y yo el agua la llevo puesta.", "sigue": "fin" },
+        "fin": { "quien": "huesped", "emocion": "Normal", "texto": "Esta noche duermo en la cama, como los mayores. (Pausa.) Pero si me dejáis un barreño debajo, tampoco me enfado.", "si_mejora": { "estanque": "fin_estanque" } },
+        "fin_estanque": { "quien": "huesped", "emocion": "Normal", "texto": "Esta noche duermo en la cama, como los mayores. (Mira por la ventana.) Pero antes me doy un baño en el estanque. Para despedirme de él." }
+      }
+    },
+    {
+      "id": "v4",
+      "cuando": { "visita_min": 4, "afinidad_min": 1 },
+      "subtitulo": "Cuarta visita · inspección",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Un Blastoise con casco y carpeta se planta en la recepción y saca los cañones.) Buenas tardes. Inspección de incendios. ¿Esto es El Pino… Calcinado?", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "«¿Squirtle? ¡Pero si no cabes por la puerta! ¿Y esos cañones?»", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Jefe de bomberos del distrito. Y aquí, Manolo, tengo un parte de lo más raro: un pino quemado en la puerta, un dragón suelto y cocina de leña.", "sigue": "pino" },
+        "pino": { "quien": "huesped", "emocion": "Worried", "texto": "Empecemos por el pino. (Saca el bolígrafo.) Origen del incendio.", "sigue": "manolo2" },
+        "manolo2": { "quien": "manolo", "emocion": "Normal", "texto": "«Un estornudo de Charizard.»", "sigue": "charizard" },
+        "charizard": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard mira al techo y silba. Le sale una chispa. Blastoise la apaga con un dedo sin levantar la vista de la carpeta.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Ya. Un estornudo. Lo anoto. (Lo anota.) Lo suyo sería limpiarlo a presión: con los cañones lo dejo como nuevo en un momento.", "opciones": [ { "texto": "«Al pino no se le toca: es la historia de la casa»", "sigue": "historia", "efectos": { "afinidad": 1, "flags": { "squirtle_acta": "pino" } } }, { "texto": "«Límpialo, a ver qué hay debajo»", "sigue": "limpia", "efectos": { "flags": { "squirtle_acta": "limpia" } } } ] },
+        "historia": { "quien": "huesped", "emocion": "Sad", "texto": "(Baja los cañones y mira el pino un buen rato.) Tiene razón. No está sucio. Es como mi caparazón: lo que pesa es lo que te ha pasado.", "sigue": "acta" },
+        "limpia": { "quien": "huesped", "emocion": "Surprised", "texto": "(Apunta, se lo piensa y baja los cañones.) No. Debajo de lo negro no hay nada: lo negro es lo que importa. Este pino no se limpia. Se cuida.", "sigue": "acta" },
+        "acta": { "quien": "huesped", "emocion": "Happy", "texto": "(Firma el acta y se la da.) «Apto. Con dragón». Y esto, para el próximo Squirtle miedoso que llegue. (Deja unas gafas de sol en el mostrador.)", "sigue": "estornudo" },
+        "estornudo": { "quien": "charizard", "emocion": "Surprised", "texto": "Justo entonces Charizard estornuda. Blastoise da un bote, se mete en el caparazón y asoma solo los ojos. Se le ha escapado el Squirtle de antes.", "sigue": "fin" },
+        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "(Sale muy digno.) Maniobra de seguridad. Gracias, Manolo. Fuiste el primer señor de fuego que no me echó. Hoy tampoco te cierro yo a ti." }
       }
     }
   ]

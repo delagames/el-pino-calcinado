@@ -34,7 +34,9 @@ async function fetchSprite(id, names) {
   const byName = {};
   for (const node of xml.querySelectorAll('Anim')) byName[node.querySelector('Name').textContent] = node;
   const anims = {};
-  for (const name of names) {
+  // hay Pokémon sin animación de reposo en SpriteCollab (Beedrill, Dragonair): se usa la de andar
+  const wanted = names.includes('Idle') && !byName.Idle && byName.Walk ? [...new Set([...names, 'Walk'])] : names;
+  for (const name of wanted) {
     let node = byName[name];
     if (!node) continue;
     const copy = node.querySelector('CopyOf');
@@ -46,6 +48,7 @@ async function fetchSprite(id, names) {
     const fh = +node.querySelector('FrameHeight').textContent;
     anims[name] = { img, fw, fh, durations, total: durations.reduce((a, b) => a + b, 0), rows: img.height / fh };
   }
+  if (!anims.Idle && anims.Walk) anims.Idle = anims.Walk;
   const shadow = +(xml.querySelector('ShadowSize')?.textContent ?? 1);
   return { id, anims, shadow };
 }
@@ -127,6 +130,14 @@ export class Actor {
   }
 
   draw(c, ms) {
+    // «clip»: solo se ve lo que cae dentro (los enormes asoman por la boca de la cueva)
+    if (this.clip) {
+      const [x, y, w, h] = this.clip;
+      c.save(); c.beginPath(); c.rect(x, y, w, h); c.clip();
+      const clip = this.clip; this.clip = null;
+      try { this.draw(c, ms); } finally { this.clip = clip; c.restore(); }
+      return;
+    }
     if (this.buddy) {
       const b = this.buddy;
       // al dormir, pegaditos (la pareja de Nidoran comparte cama)

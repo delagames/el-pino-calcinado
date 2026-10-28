@@ -22,7 +22,14 @@ const UI = { x: 6, w: 44 };
 
 let recipesData = null;
 export async function loadRecipes() {
-  if (!recipesData) recipesData = await (await fetch('data/recipes.json')).json();
+  if (!recipesData) {
+    recipesData = await (await fetch('data/recipes.json')).json();
+    // las especialidades («base»): el mismo minijuego que su plato, más difícil, con su nombre
+    for (const [i, r] of recipesData.recipes.entries()) {
+      const b = r.base && recipesData.recipes.find(x => x.id === r.base);
+      if (b) recipesData.recipes[i] = { ...b, preferidos: [], ...r, especial: true };
+    }
+  }
   return recipesData;
 }
 export function recipeById(id) {
@@ -170,8 +177,11 @@ function vuelta(recipe, base, k, say) {
       s.waited += dt;
       const wob = k.shaky ? 1 + 0.4 * Math.sin(t / 160) : 1;
       s.pos += s.dir * s.speed * wob * dt;
+      const rebota = s.pos >= 1 || s.pos <= 0;
       if (s.pos >= 1) { s.pos = 2 - s.pos; s.dir = -1; }
       if (s.pos <= 0) { s.pos = -s.pos; s.dir = 1; }
+      // con los días (o en la especialidad), la raya cambia de velocidad en cada rebote
+      if (rebota && k.nivel >= 0.5) s.speed = newSpeed() * (0.75 + Math.random() * 0.6);
       const judge = s.pos < lo ? 'cold' : s.pos > hi ? 'hot' : 'good';
       // si no se toca en un buen rato, se quema sola
       if (taps.length || s.waited > 6) {
@@ -292,6 +302,8 @@ function setas(recipe, base, k, say) {
   const speed = 34 * k.vel;
   let x = W + 10;
   const list = Array.from({ length: N }, () => { const s = { x, cut: null }; x += 22 + Math.random() * 18; return s; });
+  // con los días, una seta podrida (verdosa, con manchas): esa no se corta, se deja pasar
+  if (k.nivel >= 0.4) list[3 + Math.floor(Math.random() * 4)].podrida = true;
   const s = { knife: 0, hot: 0, list };
   say(recipe.pasos[0].texto);
   return {
@@ -304,11 +316,15 @@ function setas(recipe, base, k, say) {
         s.knife = 0.18;
         const m = list.filter(m => !m.cut).sort((a, b) => Math.abs(a.x - KNIFE) - Math.abs(b.x - KNIFE))[0];
         const d = m ? Math.abs(m.x - KNIFE) : 99;
-        if (d <= win) { m.cut = 'good'; }
+        if (m?.podrida && d <= 12) { m.cut = 'podrida'; s.hot += 1; say('¡Esa estaba podrida! Al cubo de la basura.'); }
+        else if (d <= win) { m.cut = 'good'; }
         else if (d <= 12) { m.cut = 'cold'; say('Cortada de cualquier manera… Bueno, al puchero.'); }
         else { s.hot += 1; say('¡Cuidado, que cortas la tabla!'); }
       }
-      for (const m of list) if (!m.cut && m.x < KNIFE - 12) { m.cut = 'cold'; say('Se ha escapado una entera. Irá así al puchero.'); }
+      for (const m of list) if (!m.cut && m.x < KNIFE - 12) {
+        if (m.podrida) { m.cut = 'good'; say('Bien visto: esa estaba podrida.'); }
+        else { m.cut = 'cold'; say('Se ha escapado una entera. Irá así al puchero.'); }
+      }
       if (list.every(m => m.cut) && list[list.length - 1].x < 20) {
         const good = list.filter(m => m.cut === 'good').length;
         return { acierto: good / N - s.hot * 0.06, hot: s.hot, cold: list.filter(m => m.cut === 'cold').length };
@@ -330,10 +346,11 @@ function setas(recipe, base, k, say) {
           }
         } else {
           // sombrero redondo con brillo y el pie
-          const cap = m.cut === 'cold' ? '#7F5F47' : '#A7673F';
+          const cap = m.podrida ? '#6F7F3F' : m.cut === 'cold' ? '#7F5F47' : '#A7673F';
           rect(c, mx - 3, 34, 7, 1, '#100C14'); rect(c, mx - 5, 35, 11, 4, '#100C14'); rect(c, mx - 4, 39, 9, 1, '#100C14');
           rect(c, mx - 2, 35, 5, 1, cap); rect(c, mx - 4, 36, 9, 3, cap);
-          rect(c, mx - 2, 35, 2, 1, '#D7976F'); rect(c, mx - 3, 36, 2, 1, '#D7976F');
+          rect(c, mx - 2, 35, 2, 1, m.podrida ? '#9FAF5F' : '#D7976F'); rect(c, mx - 3, 36, 2, 1, m.podrida ? '#9FAF5F' : '#D7976F');
+          if (m.podrida) { rect(c, mx + 1, 36, 1, 1, '#3F4F1F'); rect(c, mx - 2, 37, 1, 1, '#3F4F1F'); rect(c, mx + 3, 37, 1, 1, '#3F4F1F'); }
           rect(c, mx - 3, 39, 7, 1, '#E7D7B7');                                         // las láminas de debajo
           rect(c, mx - 2, 40, 5, 5, '#100C14'); rect(c, mx - 1, 40, 3, 4, '#F7E7D7'); rect(c, mx + 1, 40, 1, 4, '#D7C7A7');
         }
@@ -734,7 +751,82 @@ function emplatar(recipe, base, k, say) {
   return g;
 }
 
-const GAMES = { llama, vuelta, miel, setas, espeton, potaje, pizza, emplatar };
+// La inspección de Sanidad: la ceniza y la grasa que deja Charizard; tocarlas antes de que llegue el inspector
+function limpiar(recipe, base, k) {
+  const N = 10, T = 14 / k.vel;
+  const manchas = Array.from({ length: N }, (_, i) => ({ x: 20 + ((i * 37 + Math.random() * 20) % 110), y: 14 + ((i * 23 + Math.random() * 14) % 50), r: 3 + (i % 3), tipo: i % 3 ? 'ceniza' : 'grasa', ok: false, brillo: 0 }));
+  const s = { t: 0, manchas };
+  return {
+    hint: 'Toca la ceniza y la grasa antes de que llegue el inspector',
+    update(dt, t, { taps }) {
+      s.t += dt;
+      for (const m of manchas) m.brillo = Math.max(0, m.brillo - dt);
+      for (const p of taps) {
+        if (!p) continue;
+        const m = manchas.filter(m => !m.ok).sort((a, b) => Math.hypot(a.x - p.x, a.y - p.y) - Math.hypot(b.x - p.x, b.y - p.y))[0];
+        if (m && Math.hypot(m.x - p.x, m.y - p.y) <= m.r + 7) { m.ok = true; m.brillo = 0.5; }
+      }
+      const hechas = manchas.filter(m => m.ok).length;
+      if (hechas === N || s.t > T) return { acierto: hechas / N, hot: 0, cold: N - hechas };
+      return null;
+    },
+    draw(c, t) {
+      for (const m of manchas) {
+        if (m.ok) { if (m.brillo > 0) { rect(c, m.x - 3, m.y, 7, 1, '#FFF7BF'); rect(c, m.x, m.y - 3, 1, 7, '#FFF7BF'); } continue; }
+        const col = m.tipo === 'grasa' ? '#8F6F2F' : '#4F4A57';
+        for (let dy = -m.r; dy <= m.r; dy++) { const w = Math.round(Math.sqrt(m.r * m.r - dy * dy)); rect(c, m.x - w, m.y + dy, w * 2 + 1, 1, col); }
+        rect(c, m.x - 1, m.y - 1, 1, 1, m.tipo === 'grasa' ? '#C7A75F' : '#6F6A77');
+      }
+      // el reloj del inspector, arriba
+      rect(c, UI.x, 4, UI.w, 3, '#100C14'); rect(c, UI.x, 4, UI.w * Math.max(0, 1 - s.t / T), 3, '#C73F2F');
+    },
+    state: s,
+    sound: () => 0,
+  };
+}
+
+// El Team Rocket viene a por la chistorra: sombras en la ventana de la despensa; tocarlas para espantarlas
+function rocket(recipe, base, k) {
+  const N = 8, VEN = [[38, 14], [70, 14], [102, 14]];
+  const s = { t: 0, n: 0, sombra: null, espera: 0.8, bien: 0, mal: 0, susto: 0 };
+  return {
+    hint: 'Toca las sombras de la ventana antes de que se lleven la chistorra',
+    update(dt, t, { taps }) {
+      s.t += dt; s.susto = Math.max(0, s.susto - dt);
+      if (!s.sombra) {
+        s.espera -= dt;
+        if (s.espera <= 0) { s.sombra = { v: Math.floor(Math.random() * 3), vida: (1.15 - 0.03 * s.n) / k.vel }; s.n += 1; }
+      } else {
+        s.sombra.vida -= dt;
+        const [vx, vy] = VEN[s.sombra.v];
+        if (taps.some(p => !p || (Math.abs(p.x - (vx + 10)) < 16 && Math.abs(p.y - (vy + 14)) < 18))) { s.bien += 1; s.susto = 0.4; s.sombra = null; s.espera = 0.4 + Math.random() * 0.7; }
+        else if (s.sombra.vida <= 0) { s.mal += 1; s.sombra = null; s.espera = 0.4 + Math.random() * 0.7; }
+      }
+      if (s.n >= N && !s.sombra) return { acierto: s.bien / N, hot: s.mal, cold: 0 };
+      return null;
+    },
+    draw(c, t) {
+      // de noche: la despensa a oscuras y tres ventanas con luna
+      c.globalAlpha = 0.55; rect(c, 0, 0, W, H, '#100C24'); c.globalAlpha = 1;
+      for (const [i, [x, y]] of VEN.entries()) {
+        rect(c, x - 1, y - 1, 22, 30, '#100C14'); rect(c, x, y, 20, 28, '#1B2238');
+        rect(c, x + 9, y, 1, 28, '#100C14'); rect(c, x, y + 13, 20, 1, '#100C14');
+        if (s.sombra?.v === i) {
+          // la silueta: dos cabezas (una con melena y otra con el pelo hacia atrás) y una R en el pecho
+          rect(c, x + 3, y + 8, 6, 20, '#000000'); rect(c, x + 11, y + 9, 6, 19, '#000000');
+          rect(c, x + 2, y + 4, 8, 7, '#000000'); rect(c, x + 11, y + 5, 7, 6, '#000000'); rect(c, x + 1, y + 6, 2, 9, '#000000');
+          rect(c, x + 5, y + 16, 2, 3, '#C73F2F'); rect(c, x + 13, y + 16, 2, 3, '#C73F2F');
+        }
+      }
+      if (s.susto > 0) { rect(c, 60, 50, 3, 3, '#FFF7BF'); rect(c, 90, 48, 3, 3, '#FFF7BF'); }
+      for (let i = 0; i < N; i++) rect(c, UI.x + i * 5, 72, 4, 4, i < s.bien ? '#6F9F4F' : i < s.bien + s.mal ? '#C73F2F' : '#5F5A67');
+    },
+    state: s,
+    sound: () => 0,
+  };
+}
+
+const GAMES = { llama, vuelta, miel, setas, espeton, potaje, pizza, emplatar, limpiar, rocket };
 // qué hay que hacer en cada uno, para la cuenta atrás
 const COMO = {
   llama: 'Mantén pulsado para más fuego y suelta para bajarlo.',
@@ -745,9 +837,11 @@ const COMO = {
   potaje: 'Toca solo lo que va en el potaje.',
   pizza: 'Amasa, estira y pon los ingredientes.',
   emplatar: 'Arrastra cada cosa a su sitio en la tarta.',
+  limpiar: 'Toca las manchas antes de que llegue el inspector.',
+  rocket: 'Toca las sombras de la ventana para espantarlas.',
 };
 // los de preparar: Charizard mira desde un lado en vez de hacer de fogón debajo
-const PREP = new Set(['setas', 'potaje', 'pizza', 'emplatar']);
+const PREP = new Set(['setas', 'potaje', 'pizza', 'emplatar', 'limpiar', 'rocket']);
 
 export function createKitchen(canvas) {
   const c = canvas.getContext('2d');
@@ -791,6 +885,8 @@ export function createKitchen(canvas) {
   // Cocina una receta con su minijuego. moral: 0-10 de Charizard; nivel: 0-1 según los días.
   // onStep(paso) avisa de lo que dice Manolo en cada momento.
   async function cook(recipe, { moral = 5, apoyo = false, nivel = 0, onStep = () => {} } = {}) {
+    // la especialidad: el mismo juego, más rápido, más exigente y con sus giros desde el principio
+    if (recipe.especial) nivel = Math.min(1, nivel + 0.5);
     const base = await loadRecipes();
     const cs = await loadSprite('0006', ['Idle']);
     // en los de fuego Charizard hace de fogón, debajo; en los de preparar mira desde la izquierda

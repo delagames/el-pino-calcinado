@@ -1,6 +1,6 @@
 // Service worker: la posada se puede instalar como app y jugar sin conexión.
 // Primero intenta la red (así siempre se ve la última versión) y, si no hay, tira de la copia.
-const CACHE = 'el-pino-calcinado-v5';
+const CACHE = 'el-pino-calcinado-v6';
 const CORE = [
   "./",
   "index.html",
@@ -64,6 +64,12 @@ const CORE = [
   "data/dialogues/kangaskhan.json",
   "data/dialogues/lickitung.json",
   "data/dialogues/meowth.json",
+  "data/dialogues/caterpie.json",
+  "data/dialogues/charmander.json",
+  "data/dialogues/feria.json",
+  "data/dialogues/pidgey.json",
+  "data/dialogues/spearow.json",
+  "data/dialogues/weedle.json",
   "assets/ui/Jersey10-OFL.txt",
   "assets/ui/Jersey10-Regular.ttf",
   "assets/ui/boton-pulsado.png",

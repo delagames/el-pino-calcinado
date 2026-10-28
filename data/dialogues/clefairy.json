@@ -38,7 +38,6 @@
       "id": "v3",
       "cuando": { "visita_min": 3, "afinidad_min": 1 },
       "subtitulo": "Tercera visita · el castillo",
-      "fin_arco": true,
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "Manolo, ya tengo ahorros para ir al castillo de verdad. El de los fuegos artificiales y las tazas que giran. Pero no sé si ir.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Porque aquí hay un dragón, un pino, bailes con luna y un señor que me deja cantar en el desayuno. Esto ya es un poco castillo.", "opciones": [
@@ -47,7 +46,27 @@
         ] },
         "viaje": { "quien": "huesped", "emocion": "Happy", "texto": "¡Una postal con purpurina! Y a la vuelta les traigo orejas. A usted y a Charizard. Vais a ir monísimos.", "sigue": "fin" },
         "posada": { "quien": "huesped", "emocion": "Happy", "texto": "♪ Mi castillo es de madera y huele a chistorraaa… ♪ Me ha salido sola. Es la canción más bonita que he hecho.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Clefairy le pone a Manolo su corona y a Charizard le hace otra de servilleta, que arde al momento. Al alba se va cuesta abajo, cantando su despedida." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Clefairy le pone a Manolo su corona y a Charizard le hace otra de servilleta, que arde al momento. Al alba se va cuesta abajo cantando. La canción dice que volverá." }
+      }
+    },
+    {
+      "id": "v4",
+      "cuando": { "visita_min": 4, "afinidad_min": 1 },
+      "subtitulo": "Cuarta visita · lo oye todo",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "(Entra de puntillas una Clefable, tapándose las orejas con las manos.) Manolo… shhh. Más bajito. Le oigo latir hasta la calva.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "(Susurrando.) «¿Clefairy?»", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Volví del castillo por el Monte Moon y cogí dos Piedras Lunares de recuerdo: una para mí y otra para la Jigglypuff que canta. Se la di por el camino.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Sad", "texto": "La mía la toqué sin querer al guardarla. Y, ¡plof!, Clefable. Ahora oigo caer un alfiler a un kilómetro. El mundo es un escándalo, Manolo.", "sigue": "ruido" },
+        "ruido": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard intenta no hacer ruido. Le cruje una escama. Clefable da un respingo y Charizard se queda quieto como una estatua de dragón.", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Worried", "texto": "Ya no puedo ni cantar: me oigo tan fuerte que me asusto yo sola. La que lo cantaba todo… y ahora solo quiere silencio.", "opciones": [ { "texto": "«Pues escucha. A lo mejor ahora te toca eso»", "sigue": "escucha", "efectos": { "afinidad": 1, "flags": { "clefairy_piedra": "dada", "clefairy_escucha": "escuchar" } } }, { "texto": "«Te busco unas orejeras»", "sigue": "orejeras", "efectos": { "flags": { "clefairy_piedra": "dada", "clefairy_escucha": "orejeras" } } } ] },
+        "escucha": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Escuchar? …Nunca lo había probado. Siempre estaba cantando por encima.", "sigue": "noche" },
+        "orejeras": { "quien": "huesped", "emocion": "Happy", "texto": "(Se pone las orejeras y suspira.) Ay, qué gusto. Pero esta noche me las quito un ratito. Quiero probar una cosa.", "sigue": "noche" },
+        "noche": { "quien": "manolo", "emocion": "Sigh", "texto": "(De madrugada, Manolo la encuentra sentada en la escalera, con los ojos cerrados, escuchando la posada dormida.)", "sigue": "n5" },
+        "n5": { "quien": "huesped", "emocion": "Happy", "texto": "Shhh. Escuche. La chimenea. Alguien muy grande que ronca al fondo. El pino crujiendo. Y Charizard, que sueña con chistorra y relame.", "sigue": "n6" },
+        "n6": { "quien": "huesped", "emocion": "Happy", "texto": "Es la canción más bonita que he oído nunca. Y no la he cantado yo. (Muy bajito.) ♪ …♪ Bueno, la tarareo un poquito.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al alba, Clefable se va de puntillas. Charizard la despide sin un ruido, moviendo solo la punta de la cola. Ella lo oye igual, y sonríe." }
       }
     }
   ]

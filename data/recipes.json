@@ -29,7 +29,8 @@
         "eevee",
         "pikachu",
         "exeggcute",
-        "dodrio"
+        "dodrio",
+        "charmander"
       ],
       "genero": "f",
       "juego": "vuelta"
@@ -60,7 +61,8 @@
         "oddish",
         "psyduck",
         "cubone",
-        "chansey"
+        "chansey",
+        "voltorb"
       ],
       "genero": "f",
       "juego": "llama"
@@ -79,7 +81,8 @@
         "mew",
         "geodude",
         "alakazam",
-        "kangaskhan"
+        "kangaskhan",
+        "caterpie"
       ],
       "genero": "m",
       "juego": "miel"
@@ -97,7 +100,8 @@
         "bulbasaur",
         "machamp",
         "arbok",
-        "farfetchd"
+        "farfetchd",
+        "pidgey"
       ],
       "genero": "m",
       "juego": "setas"
@@ -113,7 +117,8 @@
       "preferidos": [
         "lapras",
         "magikarp",
-        "lickitung"
+        "lickitung",
+        "weedle"
       ],
       "genero": "f",
       "juego": "espeton"
@@ -138,7 +143,8 @@
         "snorlax",
         "machoke",
         "kadabra",
-        "slowpoke"
+        "slowpoke",
+        "geodude"
       ],
       "genero": "m"
     },
@@ -158,7 +164,9 @@
         "porygon",
         "ditto",
         "meowth",
-        "dragonite"
+        "dragonite",
+        "spearow",
+        "jigglypuff"
       ],
       "genero": "f"
     },
@@ -174,8 +182,51 @@
       "preferidos": [
         "jigglypuff",
         "clefairy",
-        "nidoran"
+        "nidoran",
+        "oddish"
       ],
+      "genero": "f"
+    },
+    {
+      "id": "chistorra-puerro",
+      "nombre": "chistorra con puerro",
+      "base": "chistorra",
+      "desbloquea": "farfetchd_receta",
+      "genero": "f"
+    },
+    {
+      "id": "sopa-centro",
+      "nombre": "sopa del Centro Pokémon",
+      "base": "sopa",
+      "desbloquea": "chansey_desconecta",
+      "genero": "f"
+    },
+    {
+      "id": "tarta-boda",
+      "nombre": "tarta de la boda",
+      "base": "tarta",
+      "desbloquea": "nidoran_nidito",
+      "genero": "f"
+    },
+    {
+      "id": "potaje-campeon",
+      "nombre": "potaje del campeón",
+      "base": "potaje",
+      "desbloquea": "machop_final",
+      "genero": "m"
+    },
+    {
+      "id": "pizza-pino",
+      "nombre": "pizza Pino Calcinado",
+      "base": "pizza",
+      "desbloquea": "dodrio_consenso",
+      "genero": "f"
+    },
+    {
+      "id": "pan-abuela",
+      "nombre": "tostada de la abuela Kangaskhan",
+      "base": "pan",
+      "desbloquea": "kangaskhan_pasos",
       "genero": "f"
     }
   ]

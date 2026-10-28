@@ -882,6 +882,121 @@
       "gesto": "(Las tres cabezas de Dodrio comentan la cena a tres voces. La del medio levanta el ala para pedir turno.)",
       "paseo": "(Dodrio da vueltas al prado corriendo a toda velocidad. Las tres cabezas discuten hacia dónde ir. Van hacia las tres.)",
       "cuarto": "(Dodrio está en su cuarto. Se oyen tres ronquidos distintos, y de vez en cuando, uno que le lleva la contraria a los otros.)"
+    },
+    "charmander": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "Mi tío no habla, pero gruñe en tres idiomas: el de la chistorra, el del enfado y el de «abrígate»."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "¿Va a llover? Lo pregunto por nada. (La llama de la cola se le encoge un poquito.)"
+        },
+        {
+          "emocion": "Happy",
+          "texto": "Hoy la chistorra me ha salido perfecta. Mi tío se ha comido tres para comprobarlo."
+        },
+        {
+          "emocion": "Angry",
+          "texto": "No me mires la cola. Lo que diga la cola no cuenta."
+        }
+      ],
+      "gesto": "(Charmander remueve la sartén con mucho cuidado. Cada vez que Charizard asoma por la cocina, la llama de la cola le sube un poquito.)",
+      "paseo": "(Charmander pasea por el prado mirando al cielo, con el paraguas cerrado bajo el brazo. Por si acaso.)",
+      "cuarto": "(Charmander está en el cuarto rojo. Por debajo de la puerta se ve el brillo de la cola: hoy está tranquilo.)"
+    },
+    "caterpie": {
+      "lineas": [
+        {
+          "emocion": "Happy",
+          "texto": "¿Usted cree que a Misty le gustarán las cartas con dibujos? Yo dibujo fatal, pero con mucho cariño."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "En el colegio del Bosque Verde me sentaba con un Weedle. Él pinchaba y yo babeaba. Éramos inseparables."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Un Pidgey me ha mirado raro en el pasillo. Hemos firmado una tregua. Por escrito, que yo de cartas sé mucho."
+        },
+        {
+          "emocion": "Sad",
+          "texto": "A veces me encierro un rato a pensar. Muy encerrado. Que no me hable nadie, por favor."
+        }
+      ],
+      "gesto": "(Caterpie escribe una carta en la mesa del comedor. Tacha una palabra, la vuelve a escribir, y dibuja un corazón al lado.)",
+      "paseo": "(Caterpie pasea despacio por el prado, mordisqueando hojas y mirando hacia Ciudad Celeste.)",
+      "cuarto": "(Caterpie está en el cuarto verde. Por debajo de la puerta asoma un papel a medio escribir.)"
+    },
+    "weedle": {
+      "lineas": [
+        {
+          "emocion": "Worried",
+          "texto": "¿La mesa está bien aparcada? No, nada, es deformación profesional."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Para cualquier trámite en esta posada, ventanilla dos. No hay ventanilla dos. Es para que se vayan."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "Hoy no he multado a nadie. Mi jefe dirá que es un fracaso. Yo creo que ha sido un día precioso."
+        },
+        {
+          "emocion": "Angry",
+          "texto": "Ese Snorlax lleva ahí fuera desde antes de que pintaran la zona azul. Eso ya no es aparcar: es vivir."
+        }
+      ],
+      "gesto": "(Weedle revisa el talonario en la mesa del comedor. Escribe una multa, la mira, la arruga y escribe «perdone».)",
+      "paseo": "(Weedle recorre el camino de la posada mirando las rayas azules del suelo, una por una.)",
+      "cuarto": "(Weedle está en el cuarto amarillo. Por debajo de la puerta asoma un impreso, sellado.)"
+    },
+    "pidgey": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "Si alguien pregunta, yo no he visto nada. Y si no pregunta nadie, tampoco."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "¿Usted me distingue de los otros Pidgey? Sea sincero. No, mejor no sea sincero."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Me han dicho que en Kanto hay un Pidgeot esperando a su entrenador desde hace años. Yo me pongo en su lugar y se me encoge el buche."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "Desde la ventana de la despensa se ve todo el valle. Y la despensa. Sobre todo la despensa."
+        }
+      ],
+      "gesto": "(Pidgey se sienta en el respaldo de una silla, muy quieto, y mira la puerta de la despensa sin pestañear.)",
+      "paseo": "(Pidgey da vueltas alrededor del pino calcinado, cada vez un poco más alto. Desde abajo, nadie sabe cuál de todos es.)",
+      "cuarto": "(Pidgey está en su cuarto. Por la rendija de la puerta asoma la luz de una linterna.)"
+    },
+    "spearow": {
+      "lineas": [
+        {
+          "emocion": "Angry",
+          "texto": "La banda llega mañana. Eso dije ayer. Mañana también lo diré, que es lo bonito de mañana."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "¿Le molesta la gomina en la almohada? Pues lo siento mucho, caballero. Antes no lo sentía. Ahora sí."
+        },
+        {
+          "emocion": "Surprised",
+          "texto": "¿Ese Pidgey es de la Ruta 1? De pequeño le picoteaba el plumaje. Ahora le pediría perdón. Muy educadamente."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Yo no persigo a nadie, caballero. Yo acompaño, muy de cerca y durante mucho tiempo."
+        }
+      ],
+      "gesto": "(Spearow se repeina la cresta con un peine diminuto, mirándose en la cuchara, y le guiña un ojo a su reflejo.)",
+      "paseo": "(Spearow pasea por el camino con andares de matón, y saluda muy educado a todo el que se cruza.)",
+      "cuarto": "(Spearow está en su cuarto. Se oye una radio con rumba de los ochenta, muy bajita, para no molestar.)"
     }
   },
   "parejas": [
@@ -2157,6 +2272,563 @@
           "manolo",
           "Sigh",
           "(A los diez minutos, Mr. Mime ya tiene su propia sección en el programa. Se llama «Lo que nadie dice». La dice él todas las noches.)"
+        ]
+      ]
+    },
+    {
+      "a": "charmander",
+      "b": "squirtle",
+      "lineas": [
+        [
+          "squirtle",
+          "Worried",
+          "¿Tú duermes con un paraguas al lado? Yo duermo con un vaso de agua. Por si acaso."
+        ],
+        [
+          "charmander",
+          "Surprised",
+          "¿Te da miedo el agua?"
+        ],
+        [
+          "squirtle",
+          "Normal",
+          "Me da miedo que no haya. ¿Y a ti?"
+        ],
+        [
+          "charmander",
+          "Sad",
+          "A mí me da miedo que haya mucha. Encima. Esperando."
+        ],
+        [
+          "squirtle",
+          "Happy",
+          "Pues hacemos un trato: tú me guardas el fuego lejos, y yo te guardo el agua en el vaso."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Esa noche, los dos duermen con la puerta abierta. Un paraguas en una, un vaso en la otra. Charizard vigila el pasillo.)"
+        ]
+      ]
+    },
+    {
+      "a": "charmander",
+      "b": "eevee",
+      "lineas": [
+        [
+          "eevee",
+          "Happy",
+          "Hola, guapo. ¿Esa llamita de la cola es porque estoy yo aquí?"
+        ],
+        [
+          "charmander",
+          "Angry",
+          "¡No! Es… es la cocina. Que hace calor."
+        ],
+        [
+          "eevee",
+          "Happy",
+          "Ya. ¿Me traes un vaso de agua, cielo?"
+        ],
+        [
+          "charmander",
+          "Normal",
+          "…Vale. (Va corriendo. Vuelve corriendo. Se le olvida que no le hace caso a nadie.)"
+        ],
+        [
+          "manolo",
+          "Sigh",
+          "(A su tío no le obedece ni para recoger un plato. A Eevee le ha traído el agua, una servilleta y un cojín.)"
+        ]
+      ]
+    },
+    {
+      "a": "caterpie",
+      "b": "machop",
+      "lineas": [
+        [
+          "caterpie",
+          "Happy",
+          "¡Machop! ¿Le diste la carta? ¿Qué cara puso? ¿Me nombró?"
+        ],
+        [
+          "machop",
+          "Worried",
+          "Se la di antes del combate. Puso la cara de cuando ve un bicho. Luego sacó a Starmie y ya no me acuerdo de mucho más."
+        ],
+        [
+          "caterpie",
+          "Worried",
+          "¿Y la carta?"
+        ],
+        [
+          "machop",
+          "Happy",
+          "Se la guardó en el bolsillo. No la tiró. ¡Eso es un sí, Caterpie! En el gimnasio, lo que no se tira es que vale."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Caterpie se pasa la tarde escribiendo la siguiente. Machop le hace flexiones al lado, para animarle.)"
+        ]
+      ]
+    },
+    {
+      "a": "caterpie",
+      "b": "weedle",
+      "lineas": [
+        [
+          "weedle",
+          "Surprised",
+          "¡Caterpie! ¡Del colegio del Bosque Verde! ¡Tú eras el que babeaba en los pupitres!"
+        ],
+        [
+          "caterpie",
+          "Happy",
+          "¡Y tú el que pinchaba los globos del cumpleaños! ¿A qué te dedicas ahora?"
+        ],
+        [
+          "weedle",
+          "Worried",
+          "Zona azul. Multo a la gente. Bueno, lo intento. ¿Y tú?"
+        ],
+        [
+          "caterpie",
+          "Normal",
+          "Escribo cartas de amistad a quien me tiene asco. Tampoco me contesta nadie."
+        ],
+        [
+          "weedle",
+          "Happy",
+          "Pues somos dos. ¡Escríbeme a mí! Te contesto seguro. Con sello oficial."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Se pasan la tarde intercambiando papeles: uno escribe cartas y el otro multas. Las dos cosas dicen lo mismo: «gracias por venir».)"
+        ]
+      ]
+    },
+    {
+      "a": "weedle",
+      "b": "snorlax",
+      "lineas": [
+        [
+          "weedle",
+          "Worried",
+          "Disculpe, señor Snorlax… está usted en zona azul. Desde hace… ¿cuánto?"
+        ],
+        [
+          "snorlax",
+          "Normal",
+          "…Zzz… ¿Qué día es hoy?"
+        ],
+        [
+          "weedle",
+          "Normal",
+          "Martes."
+        ],
+        [
+          "snorlax",
+          "Happy",
+          "Entonces desde el otro martes. O el de antes. Llegué y me quedé. Póngame lo que sea, que no me muevo."
+        ],
+        [
+          "weedle",
+          "Sad",
+          "Es que la multa dice «retire el vehículo». Y el vehículo es usted."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Weedle acaba echándose la siesta apoyado en la barriga de Snorlax. La multa se la lleva el viento. Nadie la persigue.)"
+        ]
+      ]
+    },
+    {
+      "a": "weedle",
+      "b": "dragonite",
+      "lineas": [
+        [
+          "weedle",
+          "Worried",
+          "Disculpe… tiene usted la mochila térmica en doble fila. En mitad del comedor."
+        ],
+        [
+          "dragonite",
+          "Worried",
+          "¡Es un minuto, colega! Que tengo un pedido para Ciudad Azulona y otro para Johto. ¡Me bajan las estrellas!"
+        ],
+        [
+          "weedle",
+          "Normal",
+          "Yo tendría que multarle. Pero si le multo, le bajan las estrellas. Y si no, me las bajan a mí."
+        ],
+        [
+          "dragonite",
+          "Happy",
+          "Pues hacemos una cosa: tú no me multas y yo te pongo cinco estrellas en la app. Como controlador."
+        ],
+        [
+          "manolo",
+          "Sigh",
+          "(Weedle no sabe si eso es soborno. Lo consulta con el reglamento toda la tarde. Dragonite ya ha dado dos vueltas al mundo.)"
+        ]
+      ]
+    },
+    {
+      "a": "pidgey",
+      "b": "arbok",
+      "lineas": [
+        [
+          "pidgey",
+          "Worried",
+          "Perdone… ¿usted es la de los prismáticos? ¿La que me espiaba?"
+        ],
+        [
+          "arbok",
+          "Surprised",
+          "¿Espiar yo? Cielo, yo observo. Y tú eres de lo más interesante que he observado. No haces nada. Nunca. Con un estilo…"
+        ],
+        [
+          "pidgey",
+          "Normal",
+          "Es que nadie se fija en mí. Me gustaría saber qué ve usted."
+        ],
+        [
+          "arbok",
+          "Happy",
+          "Que eres el único Pidgey que mira hacia la despensa a todas horas. Y eso, cielo, en mi oficio es un sospechoso o un testigo."
+        ],
+        [
+          "manolo",
+          "Worried",
+          "(Pidgey se pone muy tieso y cambia de tema. Arbok sonríe y se apunta algo en una servilleta.)"
+        ]
+      ]
+    },
+    {
+      "a": "pidgey",
+      "b": "pikachu",
+      "lineas": [
+        [
+          "pikachu",
+          "Happy",
+          "Oye, tú me suenas. ¿Has salido en mi serie?"
+        ],
+        [
+          "pidgey",
+          "Normal",
+          "En todos los capítulos. Al fondo, volando. En el de la estrella fugaz fui el tercero por la izquierda."
+        ],
+        [
+          "pikachu",
+          "Surprised",
+          "¿Y nunca te han dado una frase?"
+        ],
+        [
+          "pidgey",
+          "Worried",
+          "Una vez dije «Pidgey». Me la cortaron en el montaje."
+        ],
+        [
+          "pikachu",
+          "Sad",
+          "…Tuve un compañero Pidgeot. Se quedó cuidando una bandada. Mi entrenador le dijo que volvería. Todavía me acuerdo."
+        ],
+        [
+          "manolo",
+          "Sad",
+          "(Pikachu le firma un autógrafo a Pidgey. Debajo pone: «Para el mejor de la Ruta 1». Pidgey lo guarda bajo el ala.)"
+        ]
+      ]
+    },
+    {
+      "a": "spearow",
+      "b": "magikarp",
+      "lineas": [
+        [
+          "spearow",
+          "Normal",
+          "Buenas tardes. Soy el cobrador. No se asuste. Solo vengo a sentarme cerca de usted. Muy cerca."
+        ],
+        [
+          "magikarp",
+          "Worried",
+          "Bro, bro, bro. Esto es un malentendido. Esa deuda es una inversión a largo plazo. Mindset Gyarados."
+        ],
+        [
+          "spearow",
+          "Surprised",
+          "¿Y cuándo es el largo plazo, caballero?"
+        ],
+        [
+          "magikarp",
+          "Sad",
+          "…Cuando evolucione. O sea, mañana. Llevo diciendo mañana desde el año pasado."
+        ],
+        [
+          "spearow",
+          "Normal",
+          "Entonces me siento aquí hasta mañana. Tengo todo el tiempo del mundo. Me pagan por horas."
+        ],
+        [
+          "manolo",
+          "Sigh",
+          "(Pasan la tarde juntos en silencio. Al final, Magikarp le ofrece a Spearow un curso gratis. Spearow lo rechaza muy educadamente.)"
+        ]
+      ]
+    },
+    {
+      "a": "spearow",
+      "b": "pidgey",
+      "lineas": [
+        [
+          "pidgey",
+          "Worried",
+          "Tú eres de los Spearow que nos picoteaban en la Ruta 1."
+        ],
+        [
+          "spearow",
+          "Angry",
+          "Y tú de los Pidgey que se escondían en la hierba alta. ¿Qué pasa?"
+        ],
+        [
+          "pidgey",
+          "Normal",
+          "Nada. Que ahora vigilo yo. Así que aquí no se picotea a nadie."
+        ],
+        [
+          "spearow",
+          "Surprised",
+          "…Si te digo la verdad, yo picoteaba porque nadie me hacía caso. Como a ti."
+        ],
+        [
+          "pidgey",
+          "Normal",
+          "Pues ya somos dos. Siéntate. Hay estofado."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Cenan en la misma mesa, sin mirarse mucho. Al final se pasan el pan. En la Ruta 1, esto es un tratado de paz.)"
+        ]
+      ]
+    },
+    {
+      "a": "bulbasaur",
+      "b": "squirtle",
+      "lineas": [
+        [
+          "squirtle",
+          "Worried",
+          "Perdona… ¿eso que llevas a la espalda es una planta? Lo pregunto por nada. Por saber."
+        ],
+        [
+          "bulbasaur",
+          "Angry",
+          "¿Quién lo pregunta? ¿Tú eres de la Benemérita? Ese caparazón tiene toda la pinta de uniforme."
+        ],
+        [
+          "squirtle",
+          "Surprised",
+          "¿Yo? ¡No! Bueno, la pandilla de mi pueblo se ha hecho bomberos. Y yo también. O casi."
+        ],
+        [
+          "bulbasaur",
+          "Happy",
+          "Bombero. Eso está bien: tú apagas y yo riego. Entre los dos, el dragón no quema nada."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Charizard se pone entre los dos con las alas abiertas, como en la portada de un juego. Nadie sabe de cuál, pero queda precioso.)"
+        ]
+      ]
+    },
+    {
+      "a": "growlithe",
+      "b": "ditto",
+      "lineas": [
+        [
+          "growlithe",
+          "Happy",
+          "¡Guau! ¡Hueles a chistorra! ¿Has estado en la despensa?"
+        ],
+        [
+          "ditto",
+          "Normal",
+          "¿Yo? (Plof. Ahora es un Growlithe idéntico.) ¡Guau! ¡Hueles a chistorra! ¿Has estado en la despensa?"
+        ],
+        [
+          "growlithe",
+          "Surprised",
+          "¡Eh! ¡Ese soy yo! ¡Y si huelo a chistorra es porque el que ha estado eres tú!"
+        ],
+        [
+          "ditto",
+          "Happy",
+          "(Plof. Ahora es un Charizard con la cara morada.) Grrr. Yo no he sido."
+        ],
+        [
+          "manolo",
+          "Sigh",
+          "(Desde la barra, Manolo apunta en la libreta: «chistorra, dos menos». Ya no pregunta quién.)"
+        ]
+      ]
+    },
+    {
+      "a": "voltorb",
+      "b": "pikachu",
+      "lineas": [
+        [
+          "voltorb",
+          "Happy",
+          "¡Señoras y señores, en el comedor, en directo, la estrella de la tele! ¡Pikachuuu!"
+        ],
+        [
+          "pikachu",
+          "Worried",
+          "Baja la voz, que no llevo maquillaje. Mi mánager dice que sin focos no existo."
+        ],
+        [
+          "voltorb",
+          "Surprised",
+          "¿Que no existes? ¡Si echas más chispas que yo! Y yo exploto."
+        ],
+        [
+          "pikachu",
+          "Happy",
+          "…Pues mira, eso es verdad. Mi primo Raichu también lo dice. Bueno, lo dice cuando me pide dinero."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Se pasan la tarde echándose chispas. Se funden dos bombillas y la radio coge sola una emisora de Ciudad Carmín.)"
+        ]
+      ]
+    },
+    {
+      "a": "jigglypuff",
+      "b": "snorlax",
+      "lineas": [
+        [
+          "jigglypuff",
+          "Happy",
+          "Puff… ¿Te canto algo? Cortito. Muy suave."
+        ],
+        [
+          "snorlax",
+          "Normal",
+          "…Zzz."
+        ],
+        [
+          "jigglypuff",
+          "Surprised",
+          "¡Si ya estás dormido! ¡Y todavía no he empezado!"
+        ],
+        [
+          "snorlax",
+          "Normal",
+          "…Canta. Zzz. Te escucho."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Jigglypuff canta la canción entera. Snorlax ronca a compás. Es el único público que se duerme antes de empezar y la oye hasta el final.)"
+        ]
+      ]
+    },
+    {
+      "a": "clefairy",
+      "b": "lickitung",
+      "lineas": [
+        [
+          "lickitung",
+          "Normal",
+          "(Susurra.) Shhh. Estoy grabando el silencio."
+        ],
+        [
+          "clefairy",
+          "Happy",
+          "♪ El silencio es de oroooo… ♪"
+        ],
+        [
+          "lickitung",
+          "Normal",
+          "(Susurra.) Eso no es silencio."
+        ],
+        [
+          "clefairy",
+          "Worried",
+          "Perdón. (Muy bajito.) ♪ …es de oro… ♪"
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Lickitung la graba igual. El vídeo se titula «princesa susurrando» y es el que más visitas tiene de toda su cuenta.)"
+        ]
+      ]
+    },
+    {
+      "a": "oddish",
+      "b": "chansey",
+      "lineas": [
+        [
+          "oddish",
+          "Happy",
+          "¡Señora enfermera! ¿Le dejo una muestra? Es milagrosa. Para el pelo, para el olor, para lo que haga falta."
+        ],
+        [
+          "chansey",
+          "Worried",
+          "¿Milagrosa? ¿Tiene prospecto? ¿Registro sanitario? ¿Contraindicaciones?"
+        ],
+        [
+          "oddish",
+          "Surprised",
+          "Tiene… hojas."
+        ],
+        [
+          "chansey",
+          "Normal",
+          "(Saca el termómetro, por costumbre.) Abra la boca y diga «ah». …No, perdone. Estoy de vacaciones. Estoy de vacaciones."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Al final, Chansey se lleva la muestra «para analizarla». Esa noche, su cuarto huele a jardín.)"
+        ]
+      ]
+    },
+    {
+      "a": "geodude",
+      "b": "lickitung",
+      "lineas": [
+        [
+          "geodude",
+          "Normal",
+          "(Da dos golpes a la pared con el nudillo.) Esto está torcido."
+        ],
+        [
+          "lickitung",
+          "Normal",
+          "(Susurra.) Shhh. ¿Puedes repetir eso? Más flojito. Los golpecitos, digo."
+        ],
+        [
+          "geodude",
+          "Normal",
+          "¿Los golpes? Es mi oficio. Toc, toc. Dos dedos de caída."
+        ],
+        [
+          "lickitung",
+          "Normal",
+          "(Lo graba con los ojos cerrados.) Toc, toc. Dos dedos. Esto es oro."
+        ],
+        [
+          "manolo",
+          "Sigh",
+          "(El vídeo se titula «albañil midiendo una pared» y tiene un millón de visitas. Geodude sigue sin entender qué ha pasado.)"
         ]
       ]
     }

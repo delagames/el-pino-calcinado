@@ -37,7 +37,6 @@
       "id": "v3",
       "cuando": { "visita_min": 3, "afinidad_min": 1 },
       "subtitulo": "Tercera visita · el último cargamento",
-      "fin_arco": true,
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Jefe, le voy a confesar una cosa, que usted se ha portado. Lo que traigo en la lancha cada vez que vengo… es esto.", "sigue": "bolsa" },
         "bolsa": { "quien": "huesped", "emocion": "Happy", "texto": "(Abre el bulbo y saca un saquito.) Semillas de baya de mi abuela, de la ría. Las paso a escondidas porque aquí dicen que son «de fuera». ¡Son semillas, home!", "opciones": [
@@ -46,7 +45,61 @@
         ] },
         "pino": { "quien": "huesped", "emocion": "Happy", "texto": "¿Junto al pino quemado? Allí la tierra tiene ceniza, y la ceniza es buen abono. Mi abuela diría que ahí crece hasta lo que no debe. Hecho, jefe.", "sigue": "fin" },
         "abuela": { "quien": "huesped", "emocion": "Happy", "texto": "Usted es un señor. Pero le dejo una. Una sola. Si algún día le crece algo raro en el huerto… aquí no ha pasado nada.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le da un golpecito en el bulbo, como quien choca la mano. Al alba, Bulbasaur baja hacia la ría y ya no vuelve. Aquí no ha pasado nada." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le da un golpecito en el bulbo, como quien choca la mano. Al alba, Bulbasaur baja hacia la ría. Dice que no volverá. Lo dice como lo dice todo: mirando a otro lado." }
+      }
+    },
+    {
+      "id": "v4",
+      "cuando": { "visita_min": 4, "afinidad_min": 1 },
+      "subtitulo": "Cuarta visita · mi cliente no tiene nada que declarar",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Entra un Ivysaur con corbata y maletín, y deja una tarjeta en el mostrador: «Ivysaur, abogado».) Buenas, jefe. Soy yo. No ha pasado nada.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "«¿Bulbasaur? ¡Si has crecido el doble! ¿Y ese capullo que llevas a la espalda?»", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Worried", "texto": "No es un capullo: es un bulto sin identificar. Pesa tanto que ya no me pongo a dos patas. Y huele dulce. Eso es lo que me preocupa.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Cuando huele dulce es que va a florecer. Y una flor no se esconde, jefe. Por eso me he sacado Derecho a distancia: para cuando salga todo a la luz.", "sigue": "charizard" },
+        "charizard": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard le olisquea el capullo. Huele a caramelo. Pone cara de que eso es una prueba, y las pruebas, en esta casa, se las come él.", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Angry", "texto": "¡Quieto ahí! Ese capullo está bajo secreto profesional. Jefe, dígale al dragón que mi cliente no tiene nada que declarar.", "opciones": [ { "texto": "«¿Y quién es tu cliente?»", "sigue": "cliente", "efectos": { "afinidad": 1, "flags": { "bulbasaur_abogado": "cliente" } } }, { "texto": "«Ese capullo huele a que va a dar guerra»", "sigue": "guerra", "efectos": { "flags": { "bulbasaur_abogado": "guerra" } } } ] },
+        "cliente": { "quien": "huesped", "emocion": "Happy", "texto": "Mi cliente soy yo, jefe. Y mi abuela, y los primos de la ría. Si alguien pregunta por nosotros, ya sabe: mejor llame a Ivysaur.", "sigue": "fin" },
+        "guerra": { "quien": "huesped", "emocion": "Sad", "texto": "Guerra no, jefe. Lo que da es miedo. Mi abuela decía: lo que florece, se ve. Y yo llevo toda la vida haciendo que no se vea nada.", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Esa noche, Ivysaur estudia en el comedor con el código abierto por el capítulo de las semillas. Charizard le guarda el sitio y le roba un caramelo.)" }
+      }
+    },
+    {
+      "id": "v5",
+      "cuando": { "visita_min": 5, "afinidad_min": 1, "flags": { "bulbasaur_semillas": "pino" } },
+      "subtitulo": "Quinta visita · aquí ha pasado de todo",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "(Un Venusaur enorme se para junto al pino quemado. En el lomo lleva una flor abierta como un paraguas.) Jefe. Ya está. Ha florecido.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Ahí, donde plantamos las semillas de mi abuela, hay un bayal que da gloria verlo. La ceniza, jefe. Ya se lo dije: aquí crece hasta lo que no debe.", "sigue": "humo" },
+        "humo": { "quien": "charizard", "emocion": "Angry", "texto": "Pero hoy Charizard no está para flores: lleva toda la mañana echando humo por la nariz. Se ha acabado la chistorra y la furgoneta de Famadesa no llega.", "sigue": "flor" },
+        "flor": { "quien": "huesped", "emocion": "Normal", "texto": "(Venusaur abre la flor despacio y un olor dulce llena el porche.) Tranquilo, grandullón. Respira. La flor está para esto.", "sigue": "calma" },
+        "calma": { "quien": "charizard", "emocion": "Happy", "texto": "A Charizard se le va apagando el humo. Se sienta junto a Venusaur, apoya la cabeza en la flor y se queda dormido como un cachorro.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Happy", "texto": "¿Lo ve, jefe? Toda la vida escondiendo la planta, y resulta que lo mejor que tenía era enseñarla.", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Normal", "texto": "Lo dejo todo. El maletín, la lancha y lo otro. Me retiro a la huerta de la ría. Ahora solo trafico con tomates de concurso.", "opciones": [ { "texto": "«Pues véndeme los tomates para la posada»", "sigue": "tomates", "efectos": { "afinidad": 1, "flags": { "bulbasaur_flor": "tomates" } } }, { "texto": "«Retírate tranquilo, que te lo has ganado»", "sigue": "retiro", "efectos": { "afinidad": 1, "flags": { "bulbasaur_flor": "huerta" } } } ] },
+        "tomates": { "quien": "huesped", "emocion": "Happy", "texto": "¿Usted de socio? Con factura, ¿eh?, que ahora soy legal. La primera caja se la mando en la furgoneta de la chistorra. Que no pregunten.", "sigue": "semilla" },
+        "retiro": { "quien": "huesped", "emocion": "Happy", "texto": "Me lo he ganado, sí. Y sin abogado. Bueno, con uno: yo. Que es el único que me ha creído siempre.", "sigue": "semilla" },
+        "semilla": { "quien": "huesped", "emocion": "Normal", "texto": "(Le pone en la mano una semilla y un papelito.) Una semilla. Legal. Con factura. Por si un día quiere que en esta casa florezca algo.", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Happy", "texto": "(Al alba, Venusaur baja hacia la ría despacio, oliendo a flor. Charizard lo despide desde el pino. Aquí ha pasado de todo, y todo bueno.)" }
+      }
+    },
+    {
+      "id": "v5_abuela",
+      "cuando": { "visita_min": 5, "afinidad_min": 1, "flags": { "bulbasaur_semillas": "abuela" } },
+      "subtitulo": "Quinta visita · aquí ha pasado de todo",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "(Un Venusaur enorme se para junto al pino quemado. En el lomo lleva una flor abierta como un paraguas.) Jefe. Ya está. Ha florecido.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "¿Y la semilla de mi abuela, la que le dejé? (Mira el huerto.) Ahí está, hecha un bayal. Ya le dije que algún día le crecería algo raro.", "sigue": "humo" },
+        "humo": { "quien": "charizard", "emocion": "Angry", "texto": "Pero hoy Charizard no está para flores: lleva toda la mañana echando humo por la nariz. Se ha acabado la chistorra y la furgoneta de Famadesa no llega.", "sigue": "flor" },
+        "flor": { "quien": "huesped", "emocion": "Normal", "texto": "(Venusaur abre la flor despacio y un olor dulce llena el porche.) Tranquilo, grandullón. Respira. La flor está para esto.", "sigue": "calma" },
+        "calma": { "quien": "charizard", "emocion": "Happy", "texto": "A Charizard se le va apagando el humo. Se sienta junto a Venusaur, apoya la cabeza en la flor y se queda dormido como un cachorro.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Happy", "texto": "¿Lo ve, jefe? Toda la vida escondiendo la planta, y resulta que lo mejor que tenía era enseñarla.", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Normal", "texto": "Lo dejo todo. El maletín, la lancha y lo otro. Me retiro a la huerta de la ría. Ahora solo trafico con tomates de concurso.", "opciones": [ { "texto": "«Pues véndeme los tomates para la posada»", "sigue": "tomates", "efectos": { "afinidad": 1, "flags": { "bulbasaur_flor": "tomates" } } }, { "texto": "«Retírate tranquilo, que te lo has ganado»", "sigue": "retiro", "efectos": { "afinidad": 1, "flags": { "bulbasaur_flor": "huerta" } } } ] },
+        "tomates": { "quien": "huesped", "emocion": "Happy", "texto": "¿Usted de socio? Con factura, ¿eh?, que ahora soy legal. La primera caja se la mando en la furgoneta de la chistorra. Que no pregunten.", "sigue": "semilla" },
+        "retiro": { "quien": "huesped", "emocion": "Happy", "texto": "Me lo he ganado, sí. Y sin abogado. Bueno, con uno: yo. Que es el único que me ha creído siempre.", "sigue": "semilla" },
+        "semilla": { "quien": "huesped", "emocion": "Normal", "texto": "(Le pone en la mano una semilla y un papelito.) Una semilla. Legal. Con factura. Por si un día quiere que en esta casa florezca algo.", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Happy", "texto": "(Al alba, Venusaur baja hacia la ría despacio, oliendo a flor. Charizard lo despide desde el pino. Aquí ha pasado de todo, y todo bueno.)" }
       }
     }
   ]

@@ -56,13 +56,13 @@
       "especie": "Jigglypuff",
       "dex": 39,
       "sprite": "0039",
-      "razon": "No duerme y canta por las noches.",
+      "razon": "No dormía y cantaba por las noches para no pensar. Cuando alguien la escuchó hasta el final, pudo dormir. Ahora tiene energía para todo y un gremio de exploradores.",
       "gustos": [
         "pan tostado con miel",
         "sopa de bayas"
       ],
       "aparece": {},
-      "arco": 3,
+      "arco": 4,
       "pide": [
         {
           "tipo": "servicio",
@@ -88,7 +88,44 @@
         "normal",
         "hada"
       ],
-      "atrae": "farolillos"
+      "atrae": "farolillos",
+      "evoluciones": [
+        {
+          "visita": 4,
+          "dex": 40,
+          "sprite": "0040",
+          "especie": "Wigglytuff",
+          "tipos": [
+            "normal",
+            "hada"
+          ],
+          "gustos": [
+            "pizza familiar",
+            "tarta de bayas"
+          ],
+          "pide": [
+            {
+              "tipo": "servicio",
+              "texto": "Una manzana perfecta",
+              "objeto": "manzana",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "¡Amigo! ¿Me das una manzana? Una perfecta. Si no es perfecta, no pasa nada. (Le tiembla el labio.) No pasa nada.",
+              "hecho": "Manolo le trae la manzana más roja de la cesta. Wigglytuff la abraza, le da las gracias y se la come entera. Los vasos dejan de temblar.",
+              "recuerda": "¿Y mi manzana, amigo? (Se le empieza a hinchar el moflete.) No pasa nada. Todavía."
+            },
+            {
+              "tipo": "comida",
+              "texto": "Una pizza para el gremio",
+              "plato": "pizza familiar",
+              "receta": "pizza",
+              "objeto": "plato",
+              "dice": "¡Una pizza familiar, amigo! Una entera. Es para el gremio. El gremio soy yo. ¡Pero como mucho!",
+              "recuerda": "¡Amigo, amigo! ¿Y la pizza? ¡El gremio tiene hambre!"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "snorlax",
@@ -126,12 +163,12 @@
       "especie": "Growlithe",
       "dex": 58,
       "sprite": "0058",
-      "razon": "Viene por la chistorra: la huele desde el valle.",
+      "razon": "Vino por la chistorra, que huele desde el valle. Empezó de rival de Charizard por la última y acabó partiéndola a medias. Ahora es agente de policía, y sigue igual de glotón.",
       "gustos": [
         "chistorra a la brasa"
       ],
       "aparece": {},
-      "arco": 4,
+      "arco": 5,
       "pide": [
         {
           "tipo": "comida",
@@ -155,6 +192,38 @@
       ],
       "tipos": [
         "fuego"
+      ],
+      "evoluciones": [
+        {
+          "visita": 5,
+          "dex": 59,
+          "sprite": "0059",
+          "especie": "Arcanine",
+          "tipos": [
+            "fuego"
+          ],
+          "pide": [
+            {
+              "tipo": "servicio",
+              "texto": "Una lupa para el caso",
+              "objeto": "lupa",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "¿Me presta una lupa, señor Manolo? Es para el caso. Tengo olfato, pero una lupa da más categoría.",
+              "hecho": "Manolo le da una lupa. Arcanine examina la puerta de la despensa, encuentra una miga de chistorra y se la come. Prueba destruida.",
+              "recuerda": "¿Y la lupa? Que se me enfrían las pistas. Y las pistas huelen a chistorra."
+            },
+            {
+              "tipo": "comida",
+              "texto": "Chistorra. Para el caso.",
+              "plato": "chistorra a la brasa",
+              "receta": "chistorra",
+              "objeto": "chistorra",
+              "dice": "Necesito una chistorra a la brasa. Es una prueba. Para comparar. ¡Guau! Digo… procedimiento.",
+              "recuerda": "¿Y la chistorra? ¡La prueba! Digo… ¡mi chistorra!"
+            }
+          ]
+        }
       ]
     },
     {
@@ -162,12 +231,12 @@
       "especie": "Squirtle",
       "dex": 7,
       "sprite": "0007",
-      "razon": "Busca la habitación del estanque: le da miedo dormir sin agua cerca.",
+      "razon": "Llegó con miedo a dormir sin agua cerca. Aprendió a dormir en una cama, se hizo bombero y ya no le teme al fuego… salvo cuando Charizard estornuda.",
       "gustos": [
         "sopa de bayas"
       ],
       "aparece": {},
-      "arco": 2,
+      "arco": 4,
       "pide": [
         {
           "tipo": "servicio",
@@ -192,6 +261,68 @@
       ],
       "tipos": [
         "agua"
+      ],
+      "evoluciones": [
+        {
+          "visita": 3,
+          "dex": 8,
+          "sprite": "0008",
+          "especie": "Wartortle",
+          "tipos": [
+            "agua"
+          ],
+          "pide": [
+            {
+              "tipo": "servicio",
+              "texto": "Un extintor para practicar",
+              "objeto": "extintor",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "¿Tienes un extintor? Es para practicar. Los bomberos tenemos que saber usarlo… aunque yo lo llevo de serie.",
+              "hecho": "Manolo le baja el extintor de la cocina. Wartortle le lee las instrucciones en voz alta a Charizard, muy serio, dos veces.",
+              "recuerda": "¿Y el extintor? Que sin practicar no me dejan entrar en la pandilla."
+            },
+            {
+              "tipo": "comida",
+              "texto": "Sopa de bayas templada",
+              "plato": "sopa de bayas",
+              "receta": "sopa",
+              "objeto": "plato",
+              "dice": "¿Hay sopa de bayas? Templada, como siempre. Que ya soy mayor, pero caliente me sigue dando cosa.",
+              "recuerda": "¿Y la sopa? Templadita, ¿eh? Como la otra vez."
+            }
+          ]
+        },
+        {
+          "visita": 4,
+          "dex": 9,
+          "sprite": "0009",
+          "especie": "Blastoise",
+          "tipos": [
+            "agua"
+          ],
+          "pide": [
+            {
+              "tipo": "servicio",
+              "texto": "Revisar el extintor de la cocina",
+              "objeto": "extintor",
+              "quien": "manolo",
+              "gesto": "Normal",
+              "dice": "Antes de cenar, enséñeme el extintor de la cocina. Es la inspección. No es nada personal.",
+              "hecho": "Manolo le trae el extintor. Blastoise lo revisa, lo sacude y le pone una pegatina: «Revisado. Con dragón al lado».",
+              "recuerda": "El extintor, Manolo. Sin extintor no le firmo el acta."
+            },
+            {
+              "tipo": "comida",
+              "texto": "Sopa de bayas templada",
+              "plato": "sopa de bayas",
+              "receta": "sopa",
+              "objeto": "plato",
+              "dice": "Una sopa de bayas, por favor. Templada. Un jefe de bomberos no puede quemarse la lengua: da mala imagen.",
+              "recuerda": "¿Y la sopa? Templada, recuerde. Lo tengo en la carpeta."
+            }
+          ]
+        }
       ]
     },
     {
@@ -230,12 +361,12 @@
       "especie": "Oddish",
       "dex": 43,
       "sprite": "0043",
-      "razon": "Trae una baya «milagrosa» para el pelo de Manolo.",
+      "razon": "Trajo una baya «milagrosa» para el pelo de Manolo. El pelo no salió, pero le salió una colonia que huele fortísimo, y con ella acabó de perfumista.",
       "gustos": [
         "sopa de bayas"
       ],
       "aparece": {},
-      "arco": 2,
+      "arco": 4,
       "pide": [
         {
           "tipo": "servicio",
@@ -261,6 +392,78 @@
       "tipos": [
         "planta",
         "veneno"
+      ],
+      "evoluciones": [
+        {
+          "visita": 3,
+          "dex": 44,
+          "sprite": "0044",
+          "especie": "Gloom",
+          "tipos": [
+            "planta",
+            "veneno"
+          ],
+          "gustos": [
+            "tarta de bayas",
+            "sopa de bayas"
+          ],
+          "pide": [
+            {
+              "tipo": "servicio",
+              "texto": "Un frasco para la colonia",
+              "objeto": "perfume",
+              "quien": "manolo",
+              "gesto": "Pain",
+              "dice": "¿Tiene un frasco vacío? Con tapón. Bien cerrado. Es para la colonia. Bueno, es para que no se salga.",
+              "hecho": "Manolo le da un frasco y Gloom lo llena. Manolo lo tapa muy deprisa. Aun así, al pasillo le llora un poco la pared.",
+              "recuerda": "¿Y el frasco? Que la colonia se está escapando sola por la ventana."
+            },
+            {
+              "tipo": "comida",
+              "texto": "Algo dulce, que huela bien",
+              "plato": "tarta de bayas",
+              "receta": "tarta",
+              "objeto": "plato",
+              "dice": "¿Me hace una tarta de bayas? Es para tener algo que huela bien cerca. Además de mí, digo.",
+              "recuerda": "¿Y la tarta? Que aquí huele mucho a mí y poco a tarta."
+            }
+          ]
+        },
+        {
+          "visita": 4,
+          "dex": 45,
+          "sprite": "0045",
+          "especie": "Vileplume",
+          "tipos": [
+            "planta",
+            "veneno"
+          ],
+          "gustos": [
+            "tarta de bayas",
+            "sopa de bayas"
+          ],
+          "pide": [
+            {
+              "tipo": "servicio",
+              "texto": "Un frasco de perfume para el viaje",
+              "objeto": "perfume",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "¿Me rellena el frasco de perfume? Es para retocarme antes de bajar a cenar. Aunque con la pamela no me ve nadie.",
+              "hecho": "Manolo le rellena el frasco. Vileplume se perfuma debajo de la pamela y el comedor entero huele a jardín. Charizard estornuda, por variar.",
+              "recuerda": "El frasco, señor calvo. Sin retocarme no bajo, que tengo una imagen."
+            },
+            {
+              "tipo": "comida",
+              "texto": "Tarta de bayas, que es de fiesta",
+              "plato": "tarta de bayas",
+              "receta": "tarta",
+              "objeto": "plato",
+              "dice": "Una tarta de bayas, por favor. Vengo de un aniversario y me he quedado con ganas de algo de fiesta.",
+              "recuerda": "¿Y la tarta? Debajo de la pamela se me está poniendo cara de hambre. No se ve, pero se me pone."
+            }
+          ]
+        }
       ]
     },
     {
@@ -469,7 +672,7 @@
       "especie": "Bulbasaur",
       "dex": 1,
       "sprite": "0001",
-      "razon": "Viene de las rías con «la planta» a cuestas. La planta es su bulbo. Él insiste en que no ha pasado nada.",
+      "razon": "Viene de las rías con «la planta» a cuestas. La planta es su bulbo, que crece, huele dulce y un día florece. Él insiste en que no ha pasado nada.",
       "gustos": [
         "estofado de setas"
       ],
@@ -477,7 +680,7 @@
         "dia_min": 3,
         "estrellas": 2
       },
-      "arco": 3,
+      "arco": 5,
       "tipos": [
         "planta",
         "veneno"
@@ -501,6 +704,70 @@
           "objeto": "plato",
           "dice": "Póngame algo de monte. Setas, por ejemplo. Lo que crece en la tierra no hace preguntas.",
           "recuerda": "¿Y las setas, jefe? Tengo que estar en la lancha antes del amanecer."
+        }
+      ],
+      "evoluciones": [
+        {
+          "visita": 4,
+          "dex": 2,
+          "sprite": "0002",
+          "especie": "Ivysaur",
+          "tipos": [
+            "planta",
+            "veneno"
+          ],
+          "pide": [
+            {
+              "tipo": "servicio",
+              "texto": "Un maletín para los papeles",
+              "objeto": "maletin",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "Jefe, ¿me deja un maletín? Para los papeles. Un abogado sin maletín es un señor con prisa.",
+              "hecho": "Manolo le presta un maletín viejo. Ivysaur mete dentro el código, un caramelo de menta y nada más. Lo cierra con mucha ceremonia.",
+              "recuerda": "Jefe, el maletín. Que tengo los papeles sueltos, y los papeles sueltos hablan."
+            },
+            {
+              "tipo": "comida",
+              "texto": "Setas, como siempre",
+              "plato": "estofado de setas",
+              "receta": "estofado",
+              "objeto": "plato",
+              "dice": "Un estofado de setas, jefe. Lo de siempre. El cliente habitual tiene derecho a lo de siempre.",
+              "recuerda": "¿Y el estofado? Le recuerdo que hacer esperar a un abogado sale caro."
+            }
+          ]
+        },
+        {
+          "visita": 5,
+          "dex": 3,
+          "sprite": "0003",
+          "especie": "Venusaur",
+          "tipos": [
+            "planta",
+            "veneno"
+          ],
+          "pide": [
+            {
+              "tipo": "servicio",
+              "texto": "Una regadera para la flor",
+              "objeto": "regadera",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "Jefe, la flor necesita agua. Esta vez lo digo alto: ¡agua para la flor! Ya no tengo nada que esconder.",
+              "hecho": "Manolo le riega la flor a la vista de todos. Venusaur no mira a los lados ni una vez. Charizard se queda un rato oliéndola.",
+              "recuerda": "Jefe, lo del agua. Que una flor mustia no calma a nadie."
+            },
+            {
+              "tipo": "comida",
+              "texto": "Setas, que son de la tierra",
+              "plato": "estofado de setas",
+              "receta": "estofado",
+              "objeto": "plato",
+              "dice": "Póngame un estofado de setas. Lo que crece en la tierra no hace preguntas. Y yo ya tampoco.",
+              "recuerda": "¿Y las setas, jefe? Que en la huerta me esperan los tomates."
+            }
+          ]
         }
       ]
     },
@@ -581,7 +848,11 @@
           "dice": "¿Tienes algo con proteína de verdad? Garbanzos, por ejemplo. Una olla. Pequeña. Bueno, mediana.",
           "recuerda": "¿Y el potaje? Estoy en volumen y el volumen no espera."
         }
-      ]
+      ],
+      "empleo": {
+        "puesto": "mozo de las maletas",
+        "ventaja": "maletas"
+      }
     },
     {
       "id": "machamp",
@@ -628,7 +899,7 @@
       "especie": "Voltorb",
       "dex": 100,
       "sprite": "0100",
-      "razon": "Fanático del baloncesto con forma de balón. Grita «¡triple!» por todo y, si se emociona demasiado, explota un poquito.",
+      "razon": "Fanático del baloncesto con forma de balón. Gritaba «¡triple!» por todo y explotaba un poquito; de Electrode explota con cualquier cosa, y aprende a ver un partido sin estallar.",
       "gustos": [
         "pizza familiar"
       ],
@@ -636,7 +907,7 @@
         "dia_min": 2,
         "estrellas": 1
       },
-      "arco": 3,
+      "arco": 4,
       "tipos": [
         "electrico"
       ],
@@ -659,6 +930,42 @@
           "objeto": "plato",
           "dice": "¿Una pizza familiar? Es que hay partido, y un partido sin pizza no es un partido. Es un debate.",
           "recuerda": "¿Y la pizza? ¡Que empieza el último cuarto!"
+        }
+      ],
+      "evoluciones": [
+        {
+          "visita": 4,
+          "dex": 101,
+          "sprite": "0101",
+          "especie": "Electrode",
+          "tipos": [
+            "electrico"
+          ],
+          "gustos": [
+            "sopa de bayas",
+            "pizza familiar"
+          ],
+          "pide": [
+            {
+              "tipo": "servicio",
+              "texto": "Una bolsita de tila para el termo",
+              "objeto": "tila",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "¿Tienes tila? Una bolsita. O dos. Es que hay partido y no quiero volarle el tejado a nadie.",
+              "hecho": "Manolo le prepara la tila en el termo. Electrode da un sorbito y deja de vibrar. Charizard, por si acaso, se aleja dos pasos igual.",
+              "recuerda": "¿Y la tila? (Empieza a vibrar.) Que no es por nada. Bueno, es por todo."
+            },
+            {
+              "tipo": "comida",
+              "texto": "Sopa de bayas, que calma",
+              "plato": "sopa de bayas",
+              "receta": "sopa",
+              "objeto": "plato",
+              "dice": "Esta vez nada de pizza: una sopa de bayas. Calentita, suave. Lo que comería un Electrode que no quiere explotar.",
+              "recuerda": "¿Y la sopa? Que me estoy poniendo nervioso. Y ya sabes lo que pasa."
+            }
+          ]
         }
       ]
     },
@@ -862,7 +1169,7 @@
       "especie": "Clefairy",
       "dex": 35,
       "sprite": "0035",
-      "razon": "Súper fan de Disney: lo canta todo, habla con los pájaros y busca su castillo. Iba a ser la mascota, pero esa es otra historia.",
+      "razon": "Súper fan de Disney: lo cantaba todo, hablaba con los pájaros y buscaba su castillo. Con la Piedra Lunar lo oye todo, y aprende a escuchar.",
       "gustos": [
         "tarta de bayas",
         "pan tostado con miel"
@@ -871,7 +1178,7 @@
         "dia_min": 2,
         "estrellas": 1
       },
-      "arco": 3,
+      "arco": 4,
       "tipos": [
         "hada"
       ],
@@ -894,6 +1201,38 @@
           "objeto": "plato",
           "dice": "♪ Una tarta de bayas, por favooor… ♪ Con muchas bayas, como en los banquetes de las pelis.",
           "recuerda": "♪ La tarta no llegaaa… ♪ Es una canción nueva. Se titula así."
+        }
+      ],
+      "evoluciones": [
+        {
+          "visita": 4,
+          "dex": 36,
+          "sprite": "0036",
+          "especie": "Clefable",
+          "tipos": [
+            "hada"
+          ],
+          "pide": [
+            {
+              "tipo": "servicio",
+              "texto": "Unas orejeras para el ruido",
+              "objeto": "orejeras",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "(Susurra.) ¿Tiene unas orejeras? Es que oigo hasta los pensamientos de Charizard. Y piensa muy alto. En chistorra, sobre todo.",
+              "hecho": "Manolo le trae unas orejeras de lana. Clefable se las pone, cierra los ojos y sonríe. Por fin el mundo suena a tamaño normal.",
+              "recuerda": "(Susurra.) Las orejeras… Que el reloj de la recepción me está dando martillazos."
+            },
+            {
+              "tipo": "comida",
+              "texto": "Tarta, como en los banquetes",
+              "plato": "tarta de bayas",
+              "receta": "tarta",
+              "objeto": "plato",
+              "dice": "Una tarta de bayas, por favor. Como en los banquetes. Pero sin que nadie cante al traerla, ¿eh?",
+              "recuerda": "(Susurra.) La tarta no llega… Lo susurro, que antes lo cantaba."
+            }
+          ]
         }
       ]
     },
@@ -1093,7 +1432,11 @@
           "dice": "Un estofado de setas, por favor. Sin pato. Lo digo por si acaso: SIN pato.",
           "recuerda": "¿Y el estofado? Recuerde: setas sí, pato no."
         }
-      ]
+      ],
+      "empleo": {
+        "puesto": "cocinero de apoyo",
+        "ventaja": "cocina"
+      }
     },
     {
       "id": "slowpoke",
@@ -1185,7 +1528,7 @@
       "especie": "Geodude",
       "dex": 74,
       "sprite": "0074",
-      "razon": "Albañil de obra: una piedra con brazos y casco. Todo lo hace «en una semana», ve torcida cualquier pared de la posada y el bocadillo de las diez es sagrado.",
+      "razon": "Albañil de obra: una piedra con brazos y casco. Todo lo hace «en una semana», ve torcida cualquier pared de la posada y el bocadillo de las diez es sagrado. Con los años, dominguero de bici y pirotécnico de fin de obra.",
       "gustos": [
         "pan tostado con miel",
         "chistorra a la brasa"
@@ -1194,7 +1537,7 @@
         "dia_min": 3,
         "estrellas": 1
       },
-      "arco": 3,
+      "arco": 5,
       "tipos": [
         "roca",
         "tierra"
@@ -1218,6 +1561,82 @@
           "objeto": "plato",
           "dice": "Son las diez. ¿Me pones algo en pan? Lo que sea, pero en pan: a las diez, en la obra, todo va en pan.",
           "recuerda": "Que son las diez y cuarto, jefe. Un albañil sin bocadillo es un pedrusco."
+        }
+      ],
+      "empleo": {
+        "puesto": "jefe de obra",
+        "ventaja": "obras"
+      },
+      "evoluciones": [
+        {
+          "visita": 4,
+          "dex": 75,
+          "sprite": "0075",
+          "especie": "Graveler",
+          "tipos": [
+            "roca",
+            "tierra"
+          ],
+          "gustos": [
+            "potaje de garbanzos",
+            "pan tostado con miel"
+          ],
+          "pide": [
+            {
+              "tipo": "servicio",
+              "texto": "Agua en el botellín de la bici",
+              "objeto": "botellin",
+              "quien": "manolo",
+              "gesto": "Pain",
+              "dice": "Jefe, ¿me llenas el botellín? Mañana hay puerto. Y un ciclista sin agua es un pedrusco cuesta abajo. Bueno, eso lo soy igual.",
+              "hecho": "Manolo le llena el botellín. Graveler se lo engancha a la lycra, da dos golpecitos al cuadro de la bici y dice «esto está torcido».",
+              "recuerda": "¿Y el botellín, jefe? Que la grupeta sale a las siete."
+            },
+            {
+              "tipo": "comida",
+              "texto": "Un potaje de los de obra",
+              "plato": "potaje de garbanzos",
+              "receta": "potaje",
+              "objeto": "plato",
+              "dice": "Ponme un potaje de garbanzos, jefe. Los domingos se suben puertos con potaje, no con barritas.",
+              "recuerda": "¿Y el potaje? Que tengo las piernas… bueno, los brazos, vacíos."
+            }
+          ]
+        },
+        {
+          "visita": 5,
+          "dex": 76,
+          "sprite": "0076",
+          "especie": "Golem",
+          "tipos": [
+            "roca",
+            "tierra"
+          ],
+          "gustos": [
+            "potaje de garbanzos",
+            "chistorra a la brasa"
+          ],
+          "pide": [
+            {
+              "tipo": "servicio",
+              "texto": "Un casco de obra para el fin de obra",
+              "objeto": "casco",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "Jefe, ¿me dejas el casco de siempre? Me queda pequeño, pero un fin de obra sin casco no vale.",
+              "hecho": "Manolo le da el casco. A Golem le queda en lo alto como un sombrerito. Da tres golpes a la pared y pone cara de sorpresa: sigue torcida.",
+              "recuerda": "¿Y el casco, jefe? Que sin casco no se firma el fin de obra."
+            },
+            {
+              "tipo": "comida",
+              "texto": "Potaje para brindar",
+              "plato": "potaje de garbanzos",
+              "receta": "potaje",
+              "objeto": "plato",
+              "dice": "Un potaje de garbanzos, jefe. Para brindar. En la obra, los finales se celebran con cuchara.",
+              "recuerda": "¿Y el potaje? Que se enfría el brindis."
+            }
+          ]
         }
       ]
     },
@@ -1258,7 +1677,11 @@
           "dice": "Una pizza familiar, compañero. Es para la asamblea. La asamblea soy yo, pero tengo mucha hambre.",
           "recuerda": "La asamblea sigue esperando la pizza. Y la asamblea se impacienta."
         }
-      ]
+      ],
+      "empleo": {
+        "puesto": "delegado sindical (y cobrador)",
+        "ventaja": "propina"
+      }
     },
     {
       "id": "chansey",
@@ -1298,7 +1721,11 @@
           "dice": "Una sopa de bayas, calentita. En el Centro como de pie, de un vaso de plástico, entre dos Rattata con fiebre.",
           "recuerda": "¿Y la sopa? Me estoy quedando dormida esperando. Bueno, eso es bueno."
         }
-      ]
+      ],
+      "empleo": {
+        "puesto": "enfermera de la posada",
+        "ventaja": "animo"
+      }
     },
     {
       "id": "dragonite",
@@ -1339,7 +1766,11 @@
           "dice": "¿Me hace una pizza familiar? Llevo mil repartidas y nunca me he comido ninguna. Esta, para mí. Sin hacerle foto.",
           "recuerda": "¿Y mi pizza? La tengo en «preparando» desde hace un rato."
         }
-      ]
+      ],
+      "empleo": {
+        "puesto": "repartidor de chistorra",
+        "ventaja": "chistorra"
+      }
     },
     {
       "id": "alakazam",
@@ -1499,7 +1930,11 @@
           "dice": "(Susurra.) ¿Tienen algo que cruja bonito? Es para comer delante del micro. La piel de la baya Zidra asada suena como un abrazo.",
           "recuerda": "(Susurra.) ¿Y la baya? Ya tengo el micro puesto y no se oye nada. Literalmente."
         }
-      ]
+      ],
+      "empleo": {
+        "puesto": "limpieza a fondo",
+        "ventaja": "limpieza"
+      }
     },
     {
       "id": "dodrio",
@@ -1540,6 +1975,523 @@
           "dice": "(Izquierda) ¡Chistorra! (Derecha) Pizza. (Medio) …Pedimos chistorra, que la Izquierda llegó primero. Moción aprobada.",
           "recuerda": "(Medio) La chistorra, por favor. La Derecha ya ha empezado a decir que no llega nunca."
         }
+      ]
+    },
+    {
+      "id": "charmander",
+      "especie": "Charmander",
+      "dex": 4,
+      "sprite": "0004",
+      "razon": "El sobrino de Charizard, de prácticas de cocina. Llega empapado bajo un paraguas enorme: le da pánico la lluvia. La llama de la cola le chiva todo lo que siente.",
+      "gustos": [
+        "chistorra a la brasa"
+      ],
+      "aparece": {
+        "dia_min": 3,
+        "estrellas": 1
+      },
+      "arco": 3,
+      "tipos": [
+        "fuego"
+      ],
+      "empleo": {
+        "puesto": "pinche de cocina",
+        "ventaja": "cocina"
+      },
+      "pide": [
+        {
+          "tipo": "servicio",
+          "texto": "Un paraguas, por si acaso",
+          "objeto": "paraguas",
+          "quien": "charizard",
+          "gesto": "Worried",
+          "dice": "¿Tienen un paraguas? Uno grande. No es que vaya a llover dentro… pero por si acaso.",
+          "hecho": "Charizard le abre el paraguas encima, dentro de casa. La llama de la cola deja de temblarle.",
+          "recuerda": "El paraguas… Es que he oído un trueno. O una tripa. Pero por si acaso."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Chistorra para el aprendiz",
+          "plato": "chistorra a la brasa",
+          "receta": "chistorra",
+          "objeto": "chistorra",
+          "dice": "Mi tío dice que, para aprender a hacer chistorra, primero hay que comérsela. Muchas veces. Es el método.",
+          "recuerda": "¿Y la chistorra? Es para estudiar, de verdad."
+        }
+      ],
+      "evoluciones": [
+        {
+          "visita": 2,
+          "dex": 5,
+          "sprite": "0005",
+          "especie": "Charmeleon",
+          "tipos": [
+            "fuego"
+          ],
+          "pide": [
+            {
+              "tipo": "servicio",
+              "texto": "Un paraguas (no es para él)",
+              "objeto": "paraguas",
+              "quien": "charizard",
+              "gesto": "Angry",
+              "dice": "Grrr… ¿Hay un paraguas? No es para mí. Es para… nadie. Déjalo en el cuarto y ya está.",
+              "hecho": "Charizard deja el paraguas en el cuarto rojo. Charmeleon gruñe. La cola le brilla de gusto y lo delata.",
+              "recuerda": "Grrr. El paraguas. Que no es para mí, ¿eh?"
+            },
+            {
+              "tipo": "comida",
+              "texto": "Chistorra, mucha",
+              "plato": "chistorra a la brasa",
+              "receta": "chistorra",
+              "objeto": "chistorra",
+              "dice": "Chistorra. Mucha. Y no me mires mientras como.",
+              "recuerda": "Grrr. ¿La chistorra, o qué?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caterpie",
+      "especie": "Caterpie",
+      "dex": 10,
+      "sprite": "0010",
+      "razon": "Una oruga pesadita que quiere ser amiga de Misty, a la que le horrorizan los bichos. Lleva catorce cartas sin respuesta y lo primero que pregunta es si da asco.",
+      "gustos": [
+        "pan tostado con miel"
+      ],
+      "aparece": {
+        "dia_min": 2,
+        "estrellas": 1
+      },
+      "arco": 3,
+      "tipos": [
+        "bicho"
+      ],
+      "pide": [
+        {
+          "tipo": "servicio",
+          "texto": "Un sobre bonito",
+          "objeto": "sobre",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Me da un sobre? Bonito, si puede ser. Es para la carta número quince a Misty.",
+          "hecho": "Manolo le da un sobre con un pino dibujado. Caterpie le pone tres sellos y una pegatina de corazón, por si acaso.",
+          "recuerda": "¿Y el sobre? Que la carta se me arruga de tanto releerla."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Algo dulce para crecer",
+          "plato": "pan tostado con miel",
+          "receta": "pan",
+          "objeto": "plato",
+          "dice": "¿Hay algo dulce? Las orugas crecemos comiendo. Y yo quiero crecer pronto, a ver si Misty me mira distinto.",
+          "recuerda": "¿Y el pan con miel? Que tengo que crecer, y así no hay manera."
+        }
+      ],
+      "evoluciones": [
+        {
+          "visita": 2,
+          "dex": 11,
+          "sprite": "0011",
+          "especie": "Metapod",
+          "tipos": [
+            "bicho"
+          ],
+          "pide": [
+            {
+              "tipo": "servicio",
+              "texto": "Un sobre (por la ranura)",
+              "objeto": "sobre",
+              "quien": "manolo",
+              "gesto": "Normal",
+              "dice": "Fortaleza. (Mira fijamente la ranura de la puerta. Quiere un sobre.)",
+              "hecho": "Manolo pasa el sobre por debajo de la puerta. Desde dentro, muy bajito: «Fortaleza». Suena a gracias.",
+              "recuerda": "…Fortaleza. (Mira la ranura de la puerta. Sigue sin sobre.)"
+            },
+            {
+              "tipo": "comida",
+              "texto": "Pan con miel (no lo dirá)",
+              "plato": "pan tostado con miel",
+              "receta": "pan",
+              "objeto": "plato",
+              "dice": "Fortaleza. (Mira de reojo el tarro de miel.)",
+              "recuerda": "Fortaleza. Fortaleza. (Tiene hambre.)"
+            }
+          ]
+        },
+        {
+          "visita": 3,
+          "dex": 12,
+          "sprite": "0012",
+          "especie": "Butterfree",
+          "tipos": [
+            "bicho",
+            "volador"
+          ],
+          "pide": [
+            {
+              "tipo": "servicio",
+              "texto": "Un último sobre",
+              "objeto": "sobre",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "¿Me da un último sobre? Para decirle a Misty que me voy al sur con la migración.",
+              "hecho": "Manolo le da el sobre. Butterfree lo cierra con polvo de las alas: brilla un poco y huele a primavera.",
+              "recuerda": "El sobre, Manolo, que se me va la bandada."
+            },
+            {
+              "tipo": "comida",
+              "texto": "Pan con mucha miel",
+              "plato": "pan tostado con miel",
+              "receta": "pan",
+              "objeto": "plato",
+              "dice": "¿Hay pan con miel? Desde que vuelo me he aficionado a la miel. Cosas de mariposa.",
+              "recuerda": "¿Y la miel? Para el viaje, que es muy largo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "weedle",
+      "especie": "Weedle",
+      "dex": 13,
+      "sprite": "0013",
+      "razon": "Becario de la zona azul que han pintado en el camino de la posada. No se atreve a multar: le sale «gracias por venir». Visita a visita, va ascendiendo.",
+      "gustos": [
+        "baya Zidra asada"
+      ],
+      "aparece": {
+        "dia_min": 3,
+        "estrellas": 1
+      },
+      "arco": 3,
+      "tipos": [
+        "bicho",
+        "veneno"
+      ],
+      "pide": [
+        {
+          "tipo": "servicio",
+          "texto": "Un talonario nuevo",
+          "objeto": "talonario",
+          "quien": "manolo",
+          "gesto": "Worried",
+          "dice": "¿Tiene un talonario nuevo? El mío se me ha gastado escribiendo «perdone usted».",
+          "hecho": "Manolo le da una libreta de la cocina. Weedle la estrena multando a una mosca. Le desea buen día.",
+          "recuerda": "Perdone que insista… ¿el talonario? Bueno, si no es molestia."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Algo ácido para el valor",
+          "plato": "baya Zidra asada",
+          "receta": "zidra",
+          "objeto": "plato",
+          "dice": "¿Tiene algo ácido? En el Bosque Verde comía Zidras para darme valor. Mañana tengo que multar a alguien.",
+          "recuerda": "¿Y la Zidra? Es que sin valor no multo. Bueno, con valor tampoco."
+        }
+      ],
+      "evoluciones": [
+        {
+          "visita": 2,
+          "dex": 14,
+          "sprite": "0014",
+          "especie": "Kakuna",
+          "tipos": [
+            "bicho",
+            "veneno"
+          ],
+          "pide": [
+            {
+              "tipo": "servicio",
+              "texto": "Un talonario, por triplicado",
+              "objeto": "talonario",
+              "quien": "manolo",
+              "gesto": "Normal",
+              "dice": "Se requiere un talonario. Por triplicado: original y dos copias.",
+              "hecho": "Manolo le trae tres libretas. Kakuna las sella sin mover nada. Nadie sabe cómo.",
+              "recuerda": "Consta que el talonario no ha llegado. Se abrirá expediente."
+            },
+            {
+              "tipo": "comida",
+              "texto": "Una Zidra asada (con instancia)",
+              "plato": "baya Zidra asada",
+              "receta": "zidra",
+              "objeto": "plato",
+              "dice": "Solicito una baya Zidra asada. Se tramitará en el plazo de tres a cinco días hábiles.",
+              "recuerda": "La solicitud de la Zidra sigue en trámite. Le recuerdo que el silencio administrativo es negativo."
+            }
+          ]
+        },
+        {
+          "visita": 3,
+          "dex": 15,
+          "sprite": "0015",
+          "especie": "Beedrill",
+          "tipos": [
+            "bicho",
+            "veneno"
+          ],
+          "pide": [
+            {
+              "tipo": "servicio",
+              "texto": "¡Un talonario, rápido!",
+              "objeto": "talonario",
+              "quien": "manolo",
+              "gesto": "Angry",
+              "dice": "¡Un talonario! ¡Rápido! ¡Que se me escapan los que se paran!",
+              "hecho": "Manolo le lanza el talonario. Beedrill lo caza al vuelo y multa a dos sillas antes de que nadie parpadee.",
+              "recuerda": "¡El talonario! ¡Que hay una mecedora parada ahí fuera!"
+            },
+            {
+              "tipo": "comida",
+              "texto": "Una Zidra para llevar",
+              "plato": "baya Zidra asada",
+              "receta": "zidra",
+              "objeto": "plato",
+              "dice": "¡Una Zidra asada para llevar! ¡Me la como volando!",
+              "recuerda": "¡La Zidra! ¡Que ya llevo tres vueltas al comedor!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pidgey",
+      "especie": "Pidgey",
+      "dex": 16,
+      "sprite": "0016",
+      "razon": "El Pidgey del montón: ha salido de fondo en todas las escenas de Kanto y nadie lo distingue de otro. Viene a una posada donde, a lo mejor, alguien se fija en él.",
+      "gustos": [
+        "estofado de setas"
+      ],
+      "aparece": {
+        "dia_min": 2,
+        "estrellas": 1
+      },
+      "arco": 3,
+      "tipos": [
+        "normal",
+        "volador"
+      ],
+      "pide": [
+        {
+          "tipo": "servicio",
+          "texto": "Una linterna",
+          "objeto": "linterna",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Me deja una linterna? Es para que me vean de noche. Que de día ya no me ve nadie.",
+          "hecho": "Manolo le deja la linterna de la despensa. Pidgey se pasa la noche alumbrándose a sí mismo en la ventana. Por fin se le ve.",
+          "recuerda": "¿Y la linterna? No pasa nada, ¿eh? Estoy acostumbrado a que se olviden de mí."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Algo que tenga nombre",
+          "plato": "estofado de setas",
+          "receta": "estofado",
+          "objeto": "plato",
+          "dice": "¿Hay estofado? En la Ruta 1 comemos lo que sale. Hoy me apetece algo que tenga nombre.",
+          "recuerda": "¿El estofado? Perdone, es que soy el Pidgey de antes. El de la linterna. Bueno, uno de ellos."
+        }
+      ],
+      "evoluciones": [
+        {
+          "visita": 2,
+          "dex": 17,
+          "sprite": "0017",
+          "especie": "Pidgeotto",
+          "tipos": [
+            "normal",
+            "volador"
+          ],
+          "pide": [
+            {
+              "tipo": "servicio",
+              "texto": "Una linterna para la ronda",
+              "objeto": "linterna",
+              "quien": "manolo",
+              "gesto": "Normal",
+              "dice": "Necesito una linterna para la ronda. Por motivos de seguridad. No pregunte.",
+              "hecho": "Manolo le da la linterna. Pidgeotto hace la ronda toda la noche. A la despensa le dedica tres vueltas.",
+              "recuerda": "Sigo sin linterna. Así no se puede vigilar. (Misma cara de siempre.)"
+            },
+            {
+              "tipo": "comida",
+              "texto": "Estofado para el turno de noche",
+              "plato": "estofado de setas",
+              "receta": "estofado",
+              "objeto": "plato",
+              "dice": "Un estofado de setas. Para aguantar el turno de noche. Que nadie más vigila.",
+              "recuerda": "El estofado. Le recuerdo que estoy de servicio. Sin cenar."
+            }
+          ]
+        },
+        {
+          "visita": 3,
+          "dex": 18,
+          "sprite": "0018",
+          "especie": "Pidgeot",
+          "tipos": [
+            "normal",
+            "volador"
+          ],
+          "pide": [
+            {
+              "tipo": "servicio",
+              "texto": "Una linterna para la bandada",
+              "objeto": "linterna",
+              "quien": "manolo",
+              "gesto": "Happy",
+              "dice": "¿Me deja una linterna? Es para la bandada: el que va delante tiene que alumbrar a los de atrás.",
+              "hecho": "Manolo le da la linterna. Pidgeot la cuelga del pino y ensaya el vuelo en formación. Doscientos Pidgey imaginarios le siguen.",
+              "recuerda": "La linterna, Manolo. Mañana salimos de noche."
+            },
+            {
+              "tipo": "comida",
+              "texto": "Estofado antes del viaje",
+              "plato": "estofado de setas",
+              "receta": "estofado",
+              "objeto": "plato",
+              "dice": "Estofado de setas, por favor. Mañana vuelo hasta el mar con doscientos detrás.",
+              "recuerda": "¿Y el estofado? Que doscientos Pidgey dependen de que yo cene."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spearow",
+      "especie": "Spearow",
+      "dex": 21,
+      "sprite": "0021",
+      "razon": "Macarra de cresta engominada y chupa de cuero, con «la banda» siempre aparcando. Tiene cuentas pendientes con Pikachu desde la pedrada del primer episodio.",
+      "gustos": [
+        "pizza familiar"
+      ],
+      "aparece": {
+        "dia_min": 4,
+        "estrellas": 1
+      },
+      "arco": 3,
+      "tipos": [
+        "normal",
+        "volador"
+      ],
+      "pide": [
+        {
+          "tipo": "servicio",
+          "texto": "Una chistera",
+          "objeto": "chistera",
+          "quien": "manolo",
+          "gesto": "Angry",
+          "dice": "Oiga, abuelo, ¿tiene una chistera? Es pa un trabajo. No pregunte qué trabajo.",
+          "hecho": "Manolo le encuentra una chistera vieja de la boda de su prima. A Spearow le aplasta la cresta. Se la deja puesta igual.",
+          "recuerda": "¿Y la chistera, abuelo? Que mañana empiezo. Muy educadamente."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Una pizza para la banda",
+          "plato": "pizza familiar",
+          "receta": "pizza",
+          "objeto": "plato",
+          "dice": "Una pizza familiar. Pa la banda. (No hay banda.) Bueno, pa mí. Pero familiar.",
+          "recuerda": "¿Y la pizza? Que la banda tiene hambre. Bueno, yo."
+        }
+      ],
+      "evoluciones": [
+        {
+          "visita": 3,
+          "dex": 22,
+          "sprite": "0022",
+          "especie": "Fearow",
+          "tipos": [
+            "normal",
+            "volador"
+          ],
+          "duerme": "nido",
+          "aparece": {
+            "mejora": "nido",
+            "dia_min": 4,
+            "estrellas": 1
+          },
+          "pide": [
+            {
+              "tipo": "servicio",
+              "texto": "Una chistera más alta",
+              "objeto": "chistera",
+              "quien": "manolo",
+              "gesto": "Surprised",
+              "dice": "¿Me consigue una chistera más alta, caballero? La de antes ya no me pega con el cuello.",
+              "hecho": "Manolo apila dos chisteras. Fearow se las pone y parece un semáforo de etiqueta.",
+              "recuerda": "La chistera, caballero. Se lo pido con toda la educación del mundo. Otra vez."
+            },
+            {
+              "tipo": "comida",
+              "texto": "Una pizza familiar, para uno",
+              "plato": "pizza familiar",
+              "receta": "pizza",
+              "objeto": "plato",
+              "dice": "Una pizza familiar. Para mí solo. Puedo volar un día entero sin comer, pero no quiero.",
+              "recuerda": "La pizza, caballero. Le espero en el nido. Toda la noche, si hace falta."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "feria",
+      "cameo": true,
+      "especie": "La feria ambulante",
+      "dex": 77,
+      "sprite": "0077",
+      "miembros": [
+        {
+          "id": "ponyta",
+          "especie": "Ponyta",
+          "dex": 77,
+          "sprite": "0077"
+        },
+        {
+          "id": "rapidash",
+          "especie": "Rapidash",
+          "dex": 78,
+          "sprite": "0078"
+        },
+        {
+          "id": "tauros",
+          "especie": "Tauros",
+          "dex": 128,
+          "sprite": "0128"
+        },
+        {
+          "id": "rattata",
+          "especie": "Rattata",
+          "dex": 19,
+          "sprite": "0019"
+        },
+        {
+          "id": "raticate",
+          "especie": "Raticate",
+          "dex": 20,
+          "sprite": "0020"
+        }
+      ],
+      "razon": "La feria ambulante paró una noche en el prado: Ponyta, la del tiovivo, y su madre Rapidash; Tauros, posando en el cerro; y Rattata, que ganó el concurso de talentos echándose la siesta, con su padre Raticate de mánager.",
+      "aparece": {
+        "dia_min": 6,
+        "estrellas": 1
+      },
+      "arco": 1,
+      "tipos": [
+        "fuego",
+        "normal"
+      ],
+      "pide": [],
+      "gustos": [
+        "tarta de bayas"
       ]
     }
   ]

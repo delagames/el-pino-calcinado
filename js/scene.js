@@ -74,6 +74,9 @@ export const ROOMS = [
   { id: 'hab3', nombre: 'Habitación 3', planta: 1, color: 'verde', x: 244, y: 134, w: 72, h: 52 },
   // el estanque solo existe con su mejora (fase 6); es una habitación al aire libre
   { id: 'estanque', nombre: 'Estanque', planta: 0, exterior: true, mejora: 'estanque', x: 326, y: 222, w: 38, h: 30 },
+  // para los que no caben en casa: la cueva en la roca, junto al camino, y el nido en lo alto del pino
+  { id: 'cueva', nombre: 'Cueva', planta: 0, exterior: true, mejora: 'cueva', x: 0, y: 204, w: 30, h: 42 },
+  { id: 'nido', nombre: 'Nido del pino', planta: 2, exterior: true, mejora: 'nido', x: 26, y: 146, w: 30, h: 20 },
   { id: 'buhardilla', nombre: 'Buhardilla', planta: 2, cerrada: true, poly: ATTIC,
     x: ATTIC[0][0], y: ATTIC[1][1], w: ATTIC[2][0] - ATTIC[0][0], h: 130 - ATTIC[1][1] },
 ];
@@ -227,6 +230,7 @@ export function createInnView(canvas) {
   let van = null;              // la furgoneta de la chistorra, mientras reparte
   let crate = false;           // la caja de chistorra junto a la puerta (por la mañana)
   let rain = false;            // días de lluvia
+  let weather = null;          // los sucesos: 'nieve', 'tormenta' (con relámpagos) o 'estrellas' (fugaces)
   const has = id => upgrades.has(id);
   const exists = rm => !rm.mejora || has(rm.mejora);
 
@@ -741,6 +745,29 @@ export function createInnView(canvas) {
 
   // Lo que se ve de cada mejora por fuera y en recepción
   function drawUpgrades(c) {
+    if (has('cueva')) {
+      // una roca con su boca oscura, a la izquierda del pino
+      for (let x = -26; x <= 33; x++) {
+        const h = Math.round(48 - (x - 3) ** 2 / 22 + 3 * Math.sin(x / 3));
+        if (h <= 0) continue;
+        rect(c, x, GROUND - h, 1, h, (x + Math.floor(h / 6)) % 7 === 0 ? P.piedraOscura : P.piedra);
+        dot(c, x, GROUND - h, P.contorno); dot(c, x, GROUND - h + 1, P.piedraLuz);
+      }
+      for (const [x, y] of [[-12, 212], [-4, 222], [8, 204], [22, 214], [27, 230], [-18, 232]]) { rect(c, x, y, 4, 1, P.piedraOscura); dot(c, x + 1, y - 1, P.piedraLuz); }
+      for (let x = 2; x <= 28; x++) {
+        const top = Math.round(212 + (x - 15) ** 2 / 9);
+        rect(c, x, top, 1, GROUND - top, '#1F1A22');
+        dot(c, x, top, P.contorno);
+      }
+    }
+    if (has('nido')) {
+      // el nido: ramitas trenzadas en lo alto del pino
+      for (let dy = 0; dy < 8; dy++) {
+        const half = Math.round(15 * Math.sqrt(1 - (dy / 8.5) ** 2));
+        rect(c, 41 - half, 158 + dy, half * 2, 1, dy === 0 ? '#2F1F17' : dy % 2 ? P.madera : P.maderaOscura);
+      }
+      for (let x = 27; x < 56; x += 3) { dot(c, x, 157 + (x % 2), P.madera); dot(c, x + 1, 166, P.maderaOscura); }
+    }
     if (has('estanque')) {
       for (let dy = 0; dy < 7; dy++) {
         const half = Math.round(17 * Math.sqrt(1 - (dy / 7.5) ** 2));
@@ -991,6 +1018,32 @@ export function createInnView(canvas) {
       }
     }
 
+    // la nevada: copos que caen despacio, de lado a lado, y el suelo blanco
+    if (weather === 'nieve') {
+      c.fillStyle = '#F4EFE6';
+      for (let i = 0; i < 120; i++) {
+        const fx = ((i * 61.7) % (x1 - x0 + 40)) + x0 - 20 + Math.sin(t / 900 + i) * 4;
+        const fy = ((i * 29.3 + t / 1000 * (18 + (i % 4) * 6)) % (WORLD.h + 40)) - 40;
+        c.fillRect(Math.round(fx), Math.round(fy), i % 5 ? 1 : 2, i % 5 ? 1 : 2);
+      }
+      c.fillRect(x0, GROUND, x1 - x0, 2);
+    }
+    // la tormenta: de vez en cuando, un relámpago que lo ilumina todo
+    if (weather === 'tormenta') {
+      const k = (t % 7000) / 7000;
+      if (k < 0.03 || (k > 0.05 && k < 0.065)) { c.globalAlpha = 0.45; c.fillStyle = '#F4EFE6'; c.fillRect(x0, -40, x1 - x0, WORLD.h + 80); c.globalAlpha = 1; }
+    }
+    // lluvia de estrellas: estelas que cruzan el cielo
+    if (weather === 'estrellas') {
+      for (let i = 0; i < 4; i++) {
+        const p = ((t / 2600) + i / 4) % 1;
+        if (p > 0.35) continue;
+        const sx = x0 + ((i * 97 + Math.floor(t / 2600) * 53) % (x1 - x0)), sy = 10 + (i * 23) % 70;
+        for (let j = 0; j < 10; j++) { c.globalAlpha = (1 - j / 10) * (1 - p / 0.35); c.fillStyle = '#FFF7BF'; c.fillRect(Math.round(sx - p * 120 + j * 2), Math.round(sy + p * 50 - j), 1, 1); }
+        c.globalAlpha = 1;
+      }
+    }
+
     // habitaciones libres para elegir: borde que parpadea
     // habitaciones libres para elegir: se iluminan por dentro (latiendo) y llevan borde fijo
     if (highlight.size) {
@@ -1153,6 +1206,7 @@ export function createInnView(canvas) {
       return new Promise(done => { van = { t0: null, done, onDrop, text }; });
     },
     setRain(on) { if (on !== rain) { rain = on; paintStatic(); } },
+    setWeather(w) { weather = w || null; },
     setTime(t) {
       if (t !== 'manana') crate = false;
       if (t === time || !LIT[t]) return;

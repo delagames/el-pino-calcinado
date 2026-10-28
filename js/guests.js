@@ -7,21 +7,55 @@ export async function loadGuestData() {
   return data;
 }
 
-export function guestById(id) {
+// Los huéspedes pueden evolucionar en su propia historia («evoluciones»: desde qué visita salen con
+// otra especie, número y sprite). La posada dice en qué visita va cada uno (setVisitas) y guestById
+// devuelve la forma de ahora; guestBase, la ficha tal cual.
+let visitaDe = () => 1;
+export function setVisitas(fn) { visitaDe = fn; }
+
+export function guestBase(id) {
   return data.guests.find(g => g.id === id);
 }
 
-// La meta del juego: los 151 de Kanto en el libro de visitas. Cuentan los números de la Pokédex
-// de quien ha pasado (y su acompañante, como la Nidoran♀ de la pareja), más Charizard, que vive aquí.
-// Los de otras regiones (Larvitar) se apuntan en el libro pero no suman.
-export function kantoVistos(libro) {
-  const dex = new Set([6]);
+export function formaDe(g, visita) {
+  const evo = (g.evoluciones || []).filter(e => e.visita <= visita).at(-1);
+  return evo ? { ...g, ...evo, base: g } : g;
+}
+
+export function guestById(id) {
+  const g = guestBase(id);
+  return g && g.evoluciones ? formaDe(g, visitaDe(id)) : g;
+}
+
+// Las filas de la Pokédex (el libro de visitas): cada número con la historia a la que pertenece.
+// Una historia cubre varios números si el huésped evoluciona, si viene con acompañante (la pareja de
+// Nidoran) o si es un grupo de una noche (cameo). Charizard vive aquí: siempre visto.
+export function pokedex(libro) {
+  const filas = new Map();
+  const add = (dex, especie, sprite, guest, visto) => {
+    if (!dex) return;
+    const antes = filas.get(dex);
+    if (!antes || (visto && !antes.visto)) filas.set(dex, { dex, especie, sprite, guest, visto });
+  };
+  add(6, 'Charizard', '0006', null, true);
   for (const g of data.guests) {
-    if (!libro[g.id]) continue;
-    if (g.dex && g.dex <= 151) dex.add(g.dex);
-    if (/^\d+$/.test(g.acompanante || '') && +g.acompanante <= 151) dex.add(+g.acompanante);
+    const e = libro[g.id];
+    if (g.cameo) { for (const m of g.miembros || []) add(m.dex, m.especie, m.sprite, g.id, !!e); continue; }
+    const formas = [{ visita: 1, ...g }, ...(g.evoluciones || [])];
+    formas.forEach((f, i) => {
+      const forma = i ? { ...g, ...f } : g;
+      const visto = !!e && (i === 0 || (e.visitas || 0) >= f.visita);
+      add(forma.dex, forma.hablante || forma.especie, forma.sprite, g.id, visto);
+      if (/^\d+$/.test(forma.acompanante || '')) add(+forma.acompanante, forma.acompanante_especie || forma.especie, forma.acompanante, g.id, visto);
+    });
   }
-  return dex.size;
+  return [...filas.values()].sort((a, b) => a.dex - b.dex);
+}
+
+// La meta del juego: los 151 de Kanto en el libro de visitas (los de otras regiones, como
+// Larvitar, se apuntan pero no suman)
+export function kantoVistos(libro) {
+  return pokedex(libro).filter(f => f.visto && f.dex <= 151).length;
 }
 
 // Un huésped puede aparecer si la posada tiene lo que necesita (mejoras, fase 6), si ya
@@ -56,7 +90,9 @@ export function pickArrivals(state, terminados = new Set()) {
   // quien se fue disgustado tarda en volver; quien se fue encantado vuelve antes
   const libro = state.libro || {};
   const mosqueado = id => (libro[id]?.felicidad ?? 3) <= 1 && state.dia - (libro[id]?.ultimo || 0) < 4;
-  const pool = data.guests.filter(g => canAppear(g, state) && !mosqueado(g.id) && !terminados.has(g.id));
+  // los grupos de una noche (cameos) no suben solos: llegan con la excursión
+  // (se mira la forma con la que vendría: si evoluciona en algo que necesita el nido, hace falta el nido)
+  const pool = data.guests.filter(g => !g.cameo && canAppear(formaDe(g, (libro[g.id]?.visitas || 0) + 1), state) && !mosqueado(g.id) && !terminados.has(g.id));
   const ayer = new Set(state.ayer || []);
   const first = (state.vuelven || []).filter(id => pool.some(g => g.id === id));
   // las mejoras atraen o espantan tipos: termal (fuego y roca sí, agua no), jardín (planta), farolillos
@@ -79,7 +115,8 @@ export function pickArrivals(state, terminados = new Set()) {
     .sort((a, b) => a.k - b.k)
     .map(g => g.id);
   return [...first, ...rest].slice(0, arrivalsFor(state.dia, state.habitaciones || 3)).map(id => {
-    const g = guestById(id);
+    // la forma con la que viene en esta visita (si evoluciona, pide lo de su nueva forma)
+    const g = formaDe(guestBase(id), (libro[id]?.visitas || 0) + 1);
     // encargos posibles hoy: sin los que ya no tienen sentido por una mejora y, si se puede,
     // distinto del de la visita anterior (para no repetir la misma escena)
     let opts = g.pide.map((p, i) => i).filter(i => !g.pide[i].no_si_mejora || !mejoras.has(g.pide[i].no_si_mejora));

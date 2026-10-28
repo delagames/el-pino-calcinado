@@ -1,0 +1,63 @@
+{
+  "id": "charmander",
+  "_nota": "Charmander, el sobrino de Charizard, de prácticas de cocina en la posada. Le da pánico la lluvia (como el Charmander del anime que su entrenador dejó esperando bajo el agua) y la llama de la cola le chiva todo lo que siente. Evoluciona en Charmeleon en la v2 (por nivel): edad del pavo, gorra hacia atrás, gruñe en vez de hablar, como el Charmeleon de Ash que dejó de obedecer. Arco: el paraguas, la edad del pavo y la cama hecha (bandera charmander_paraguas).",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · el paraguas",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "(Entra un Charmander chorreando, bajo un paraguas tres veces más grande que él. La llama de la cola le tiembla como una vela.) B-buenas…", "sigue": "n1" },
+        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "Soy el sobrino. Vengo de prácticas de cocina. Mi madre dice que aprenda del mejor. Y que no me moje la cola.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Sobrino de quién, chaval?", "sigue": "tio" },
+        "tio": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard sale de la cocina, lo mira de arriba abajo y, sin decir nada, le pone el ala encima de la cabeza. Como un tejadillo.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Sad", "texto": "Es que una vez me dejaron esperando bajo la lluvia. Mucho rato. Desde entonces llevo paraguas hasta para ir al baño.", "opciones": [
+          { "texto": "«Aquí dentro no llueve nunca, chaval»", "efectos": { "afinidad": 1 }, "sigue": "nollueve" },
+          { "texto": "«Pues mañana, al fogón, que aquí se viene a trabajar»", "sigue": "fogon" }
+        ] },
+        "nollueve": { "quien": "huesped", "emocion": "Happy", "texto": "¿Nunca? (Cierra el paraguas muy despacio, por si acaso. La llama de la cola se le pone el doble de grande.) Vale. Nunca.", "sigue": "fin" },
+        "fogon": { "quien": "huesped", "emocion": "Surprised", "texto": "¡Sí, señor! (Se cuadra. Se le cae el paraguas. Lo recoge corriendo, no vaya a ser que llueva dentro.)", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Esa noche, Charizard le enseña la llama suave del fogón. La primera chistorra sale cruda; la segunda, carbón; la tercera, perfecta. Esa se la come Charizard." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · la edad del pavo",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Angry", "texto": "(Entra un Charmeleon con la gorra hacia atrás y la mochila colgando de un hombro. Deja la mochila en el suelo. Gruñe.) Grrr.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Charmander? ¡Pero si has pegado un estirón que no te conoce ni tu madre!", "sigue": "n1" },
+        "n1": { "quien": "huesped", "emocion": "Angry", "texto": "Charmeleon. Y no me llames chaval. Y no he venido de prácticas: me ha obligado mi madre.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Un colega mío, Charmeleon también, ya no le hace caso a su entrenador. Dice que evolucionar es eso: que ya no te mandan.", "sigue": "grunidos" },
+        "grunidos": { "quien": "charizard", "emocion": "Angry", "texto": "Charizard le gruñe. Charmeleon le gruñe más fuerte. Charizard, más. Se quedan frente a frente, echando humo por la nariz, de igual a igual.", "opciones": [
+          { "texto": "«¿Alguien me traduce esto?»", "sigue": "traduce" },
+          { "texto": "«Venga, al fogón los dos, y sin humos»", "efectos": { "afinidad": 1 }, "sigue": "fogon" }
+        ] },
+        "traduce": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard le explica a Manolo con gestos: «cosas de familia». Charmeleon se cala la gorra. Por debajo, la cola le brilla un poquito.", "sigue": "fin" },
+        "fogon": { "quien": "huesped", "emocion": "Normal", "texto": "…Vale. Pero porque tengo hambre, no porque lo digas tú. (Coge la sartén. La llama de la cola se le pone contenta y lo delata.)", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "De noche, Charmeleon sube al tejado. La cola le brilla sola, como un faro. Un rato después sube Charizard y se sienta a su lado. Ninguno dice nada." }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · la cama hecha",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Charmeleon desayuna sin hablar, rebaña el plato, coge la mochila y se va hacia la puerta. Ni adiós.)", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Sad", "texto": "¿Ni un «gracias», chaval? ¿Después de tres visitas?", "sigue": "n1" },
+        "n1": { "quien": "huesped", "emocion": "Angry", "texto": "Grrr.", "sigue": "tio" },
+        "tio": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard le pone la cola encima del hombro a Manolo y señala con la cabeza hacia arriba. Hacia el cuarto rojo.", "sigue": "cuarto" },
+        "cuarto": { "quien": "manolo", "emocion": "Surprised", "texto": "(Manolo sube. La cama está hecha, con las esquinas metidas. La chimenea, encendida. Y en el paragüero, el paraguas enorme, con una nota.)", "sigue": "nota" },
+        "nota": { "quien": "manolo", "emocion": "Happy", "texto": "(La nota dice, con letra torcida: «Para el próximo pequeño que llegue mojado».)", "sigue": "puerta" },
+        "puerta": { "quien": "huesped", "emocion": "Worried", "texto": "(Manolo baja corriendo. Charmeleon sigue en la puerta, mirando al suelo.) …¿Qué? Lo he dejado porque pesa. No por nada.", "opciones": [
+          { "texto": "«Gracias a ti, chaval»", "efectos": { "afinidad": 1, "flags": { "charmander_paraguas": "gracias" } }, "sigue": "gracias" },
+          { "texto": "«Tu tío está orgulloso, aunque no lo diga»", "efectos": { "flags": { "charmander_paraguas": "orgullo" } }, "sigue": "orgullo" }
+        ] },
+        "gracias": { "quien": "huesped", "emocion": "Happy", "texto": "(Se baja la gorra para que no le vean la cara. La llama de la cola se le pone enorme.) …De nada. Grrr.", "sigue": "fin" },
+        "orgullo": { "quien": "huesped", "emocion": "Sad", "texto": "Ya lo sé. Si no dice nada, es que está orgulloso. Si dice algo, es que me he dejado el fuego encendido. (Sonríe un poco.)", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard traduce el último gruñido: se señala el pecho, luego al sobrino, luego la chistorra. Quiere decir «te quiero» o «me debes una». Las dos cosas." }
+      }
+    }
+  ]
+}
