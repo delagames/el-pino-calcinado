@@ -111,7 +111,7 @@
       "subtitulo": "Quinta visita · los de antes, pero acompañados",
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Llega Slowpoke. Otra vez Slowpoke, sin concha. Detrás, a un metro justo, viene un Cloyster enorme, con pinchos y cara de portero de discoteca.)", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Llega Slowpoke. Otra vez Slowpoke, sin concha. Detrás, a un metro justo, viene un Cloyster enorme, con pinchos y cara de no dejar pasar a nadie sin invitación.)", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¡Slowpoke! ¿Y ese armario con pinchos que te sigue?", "sigue": "cloyster" },
         "cloyster": { "quien": "pareja", "emocion": "Normal", "texto": "Soy yo. Shellder. Me solté para ver mundo, encontré una Piedra Agua en el fondo de una charca y mira. (La cara no se le mueve. No se le moverá.)", "sigue": "n2" },
         "n2": { "quien": "pareja", "emocion": "Normal", "texto": "He sido portera en Carmín. Una señora del Alto Mando con gafas me ofreció trabajo. Pero cada domingo volvía a verle. Y él sin enterarse.", "sigue": "n3" },

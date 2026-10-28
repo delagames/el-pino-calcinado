@@ -23,14 +23,14 @@
         "mankey": { "quien": "mankey", "emocion": "Happy", "texto": "¡Hola! Mankey. Doy cursillos de control de la ira. Respiras, cuentas hasta diez y sonríes. Uno, dos…", "sigue": "mankey2" },
         "mankey2": { "quien": "mankey", "emocion": "Angry", "texto": "¡¿QUIÉN SE HA SENTADO EN MI SILLA?! (Es él. Se ha sentado él.) …Perdón. Minuto dos. Siempre en el minuto dos. Es mi récord.", "sigue": "primeape" },
         "primeape": { "quien": "primeape", "emocion": "Normal", "texto": "(Al fondo, un Primeape con cara de pocos amigos.) El abuelo. Y no estoy enfadado: tengo esta cara. Estoy encantado de la vida.", "sigue": "primeape2" },
-        "primeape2": { "quien": "primeape", "emocion": "Normal", "texto": "Llevo toda la tarde mirando la pared de la recepción, con las manos detrás. Está torcida, dos dedos. Me encanta. Las obras me dan mucha paz.", "sigue": "hitmonchan2" },
+        "primeape2": { "quien": "primeape", "emocion": "Normal", "texto": "Llevo toda la tarde mirando la pared de la recepción, con las manos detrás. Tiene una grieta preciosa. Me encanta. Las obras me dan mucha paz.", "sigue": "hitmonchan2" },
         "hitmonchan2": { "quien": "hitmonchan", "emocion": "Normal", "texto": "En el Alto Mando hice de doble para Bruno. Había un Machamp de la Legión que tampoco cambiaba de cara. Nos entendíamos sin hablar.", "sigue": "hitmonlee4" },
         "hitmonlee4": { "quien": "hitmonlee", "emocion": "Normal", "texto": "Como en esta casa no se pelea, competimos a otra cosa: a ver quién aguanta más rato tranquilo. Sin moverse. Sin gritar. Sin wataaa.", "sigue": "concurso" },
         "concurso": { "quien": "charizard", "emocion": "Normal", "texto": "Se sientan en el suelo del comedor. Charizard se une, por no ser menos. A los dos minutos, Mankey se levanta gritando. Luego Hitmonlee: «¡Wataaa!».", "sigue": "concurso2" },
         "concurso2": { "quien": "charizard", "emocion": "Worried", "texto": "Hitmonchan se cae para probar el plano. Charizard aguanta hasta que huele la chistorra. Solo queda Primeape, quieto, con su cara de enfado.", "sigue": "primeape3" },
         "primeape3": { "quien": "primeape", "emocion": "Normal", "texto": "(Abre un ojo.) ¿He ganado? Normal. Es que aquí he sido muy feliz. Se me nota, ¿no? (No se le nota nada.)", "sigue": "mankey3" },
         "mankey3": { "quien": "mankey", "emocion": "Happy", "texto": "¡Abuelo! ¡Has ganado sin enfadarte! Bueno, con cara de enfadado, pero por dentro no. ¡Esto lo meto en el cursillo!", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Tras el estofado se van al autobús haciendo reverencias. En el mostrador queda un cinturón negro y una nota de Primeape: «Para quien lo necesite. Yo ya estoy tranquilo»." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Tras el estofado se van al autobús haciendo reverencias. En el pomo de la puerta queda atado un cinturón negro: «Para quien lo necesite. Yo ya estoy tranquilo. Primeape»." }
       }
     }
   ]

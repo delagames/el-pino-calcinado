@@ -15,7 +15,7 @@
         "punta": { "quien": "huesped", "emocion": "Normal", "texto": "Me la pisó un Golduck en el entrenamiento. No pasa nada: a nosotras los brazos nos vuelven a crecer. Las ganas de jugar, no tanto.", "sigue": "machop" },
         "machop": { "quien": "huesped", "emocion": "Normal", "texto": "En la grada conocí a un Machop muy majo. Lleva meses retando a Misty. Él pierde cada semana, y yo ni salgo. No sé qué es peor.", "opciones": [
           { "texto": "«Aquí brillas lo que quieras. El estanque es tuyo»", "efectos": { "afinidad": 1 }, "sigue": "estanque" },
-          { "texto": "«Los suplentes también cuentan, chaval»", "sigue": "suplentes" }
+          { "texto": "«Los suplentes también cuentan, chavala»", "sigue": "suplentes" }
         ] },
         "estanque": { "quien": "huesped", "emocion": "Happy", "texto": "¿De verdad? Pues esta noche brillo en su estanque. Que me vean las montañas, que de público no tengo otro.", "sigue": "fin" },
         "suplentes": { "quien": "huesped", "emocion": "Normal", "texto": "Eso dicen siempre los titulares. (Se le apaga un poco el núcleo.) Perdone. Es que llevo tres temporadas oyéndolo.", "sigue": "fin" },
@@ -28,10 +28,10 @@
       "subtitulo": "Segunda visita · la titular",
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Llega una estrella doble, morada, con una joya roja en el centro.) Manolo, soy yo, Staryu. Bueno: Starmie. Misty me dio una Piedra Agua.", "sigue": "tic" },
-        "tic": { "quien": "manolo", "emocion": "Pain", "texto": "(Más agua que nunca: a Manolo se le cierran los dos ojos.) ¡Pero chaval! ¡Si te han salido puntas por detrás!", "sigue": "n2" },
+        "tic": { "quien": "manolo", "emocion": "Pain", "texto": "(Más agua que nunca: a Manolo se le cierran los dos ojos.) ¡Pero bueno, chavala! ¡Si te han salido puntas por detrás!", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Ya soy la titular. La otra Starmie se ha ido de baja. Dicen que estaba quemada: brillaba en siete colores, y un día no encendió.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Sigh", "texto": "Quemada. Esa palabra la conozco yo. A mí, del estrés, se me cayó el pelo. Hasta las cejas.", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "A ella se le apagó el núcleo. Y ahora el Machop aquel me reta a mí, todas las semanas. Lo empapo en diez segundos y me da las gracias.", "sigue": "cara" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "A ella se le apagó el núcleo. Y ahora todos los retadores me tocan a mí. Los empapo en diez segundos y encima me dan las gracias.", "sigue": "cara" },
         "cara": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard le mira la cara buscándole un gesto. No encuentra ninguno. Mira a Manolo, a ver si él sabe si está contenta.", "sigue": "n4" },
         "n4": { "quien": "huesped", "emocion": "Normal", "texto": "No pongo caras: soy una joya. Si quiere saber cómo estoy, míreme el núcleo. (Parpadea en rojo, luego en amarillo, luego no se decide.)", "opciones": [
           { "texto": "«¿Y estás contenta de titular?»", "efectos": { "afinidad": 1 }, "sigue": "contenta" },
@@ -52,8 +52,8 @@
         "manolo": { "quien": "manolo", "emocion": "Sad", "texto": "Siéntate, anda. Esto lo he vivido yo desde el otro lado. Yo era el de fuego, y todos venían con agua.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Y yo soy el agua. (Pausa.) Le pido perdón de parte de todos. Debió de ser horrible tenernos enfrente cada semana.", "sigue": "manolo2" },
         "manolo2": { "quien": "manolo", "emocion": "Happy", "texto": "Lo horrible no erais vosotros. Era no saber parar. Yo paré tarde y me quedé sin pelo. Tú has parado a tiempo: todavía te quedan las puntas.", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Antes de venir pasó el Machop por el gimnasio. No a retarme: a ver cómo estaba. Echamos un pulso, su dedo contra mi punta. Nadie ganó.", "sigue": "n4" },
-        "n4": { "quien": "huesped", "emocion": "Normal", "texto": "Fue el mejor combate del año, y nadie se mojó. Misty dice que vuelva cuando quiera. Pero no sé a qué volver: a titular, al banquillo o a nada.", "opciones": [
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Antes de venir pasó el Machop por el gimnasio. No a retarme: a ver cómo estaba. Me trajo un plátano. Yo no como plátanos, pero me lo guardé.", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Normal", "texto": "Fue lo más bonito del año. Misty dice que vuelva cuando quiera. Pero no sé a qué volver: a titular, al banquillo o a nada.", "opciones": [
           { "texto": "«Vuelve, pero brilla cuando tú quieras, no cuando toque»", "efectos": { "afinidad": 1, "flags": { "staryu_brillo": "cuando_quiera" } }, "sigue": "quiera" },
           { "texto": "«Pide el banquillo un tiempo. Desde ahí también se ve el partido»", "efectos": { "afinidad": 1, "flags": { "staryu_brillo": "banquillo" } }, "sigue": "banquillo" }
         ] },

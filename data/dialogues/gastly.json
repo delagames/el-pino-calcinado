@@ -20,7 +20,7 @@
         ] },
         "ventanas": { "quien": "huesped", "emocion": "Happy", "texto": "¿Por mí? (Se le pone un morado más oscuro, de gusto.) En la orquesta nadie cierra nada. Dicen que el humo, cuanto más se va, mejor queda.", "sigue": "fin" },
         "atate": { "quien": "huesped", "emocion": "Normal", "texto": "Ya lo probé. Me até al Ditto y se convirtió en cometa. Acabamos los dos en Ciudad Azulona.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Esa noche, Charizard cierra todas las ventanas de la posada. Y, por si acaso, duerme con un ala apoyada en la puerta del cuarto morado." }
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Esa noche, Charizard cierra todas las ventanas de la posada. Y duerme con un ala apoyada en la puerta del cuarto morado, de tope." }
       }
     },
     {

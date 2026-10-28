@@ -8,6 +8,7 @@ import { showScene } from './popup.js';
 import { createCounter } from './counter.js';
 import { playIntro } from './intro.js';
 import { playFinal } from './final.js';
+import { descargarFondo } from './fondo.js';
 import { runEntry } from './dialogue.js';
 import { createKitchen, loadRecipes } from './kitchen.js';
 import { loadGuestData, kantoVistos, pokedex } from './guests.js';
@@ -333,7 +334,7 @@ function charizardTalk() {
 // no haya habitación grande) o vive en el agua (Lapras, junto al estanque)
 function whereFor(h) {
   if (h.tam === 'agua') return 'estanque';
-  if (h.tam === 'grande') return 'fuera';
+  if (h.tam === 'grande' || h.duerme) return 'fuera';   // y los de la cueva y el nido, que no caben
   return 'dentro';
 }
 
@@ -432,12 +433,12 @@ async function startTalk(id, after = null) {
 function ofertaTrabajo(o, after) {
   const seguir = () => { if (after) return after(); counter.close(); go('posada'); };
   if (o.lleno) {
-    say('manolo', 'Sigh', `A ${o.nombre} le gustaría quedarse a trabajar (${o.puesto}), pero la plantilla está completa. Con unas taquillas nuevas cabría alguien más.`);
-    return setTimeout(seguir, 50);
+    return dialog({ ...CREW.manolo, emotion: 'Sigh', text: `A ${o.nombre} le gustaría quedarse a trabajar (${o.puesto}), pero la plantilla está completa. Con unas taquillas nuevas cabría alguien más.`,
+      options: [{ label: 'Seguir ▸', action: () => seguir() }] });
   }
   dialog({ ...CREW.manolo, emotion: 'Happy', text: `Oye, ${o.nombre}… ¿y si te quedas a trabajar con nosotros? Haría falta alguien: ${o.puesto} (${o.ventaja}).`,
     options: [
-      { label: '¡Contratado!', action: () => { inn.contratar(o.id); say('manolo', 'Happy', `¡Bienvenido a la plantilla, ${o.nombre}! Cachimbita, chistorra… y a currar.`); setTimeout(seguir, 1200); } },
+      { label: '¡Contratado!', action: () => { inn.contratar(o.id); dialog({ ...CREW.manolo, emotion: 'Happy', text: `¡Bienvenido a la plantilla, ${o.nombre}! Cachimbita, chistorra… y a currar.`, options: [{ label: 'Seguir ▸', action: () => seguir() }] }); } },
       { label: 'Que siga su camino', action: () => seguir() },
     ] });
 }
@@ -481,12 +482,12 @@ function starsHtml(n) {
 function night(s) {
   if (lastNight !== s) sfx('coin');
   lastNight = s;
-  const cara = f => f.corazones == null ? 'Sad' : f.corazones >= 4 ? 'Happy' : f.corazones <= 1 ? 'Angry' : 'Normal';
+  const cara = f => f.excursion ? 'Happy' : f.corazones == null ? 'Sad' : f.corazones >= 4 ? 'Happy' : f.corazones <= 1 ? 'Angry' : 'Normal';
   const filas = s.filas.map(f => `<li>
       <img src="${portraitUrl(f.sprite, cara(f))}" onerror="this.onerror=null;this.src='${portraitUrl(f.sprite, 'Normal')}'" alt="" width="40" height="40">
       <div><strong>${esc(f.nombre)}</strong> ${f.corazones != null ? heartsHtml(f.corazones) : ''}
         <span>${esc(f.motivos.join(' · ') || 'una noche sin más')}${f.vuelve ? ` · ${esc(f.vuelve)}` : ''}</span></div>
-      <div class="gana">${f.corazones != null ? `<b>+${f.paga + f.propina}</b><small>${f.propina ? `${f.propina} de propina` : 'sin propina'}</small>` : '<b>—</b>'}
+      <div class="gana">${f.corazones != null ? `<b>+${f.paga + f.propina}</b><small>${f.propina ? `${f.propina} de propina` : 'sin propina'}</small>` : f.paga ? `<b>+${f.paga}</b>` : '<b>—</b>'}
         ${f.fama > 0 ? '<small class="fama-up">+1 de fama</small>' : f.fama < 0 ? '<small class="fama-down">−1 de fama</small>' : ''}</div>
     </li>`).join('');
   const html = (filas ? `<ul class="resumen">${filas}</ul>` : '')
@@ -515,7 +516,9 @@ function shop() {
     + (yaHoy ? '<p class="muted small">Una obra por noche: mañana, otra.</p>' : '')
     + `<nav class="shop-tabs">${grupos.map(g => `<button class="secondary${g === shopTab ? ' active' : ''}" data-tab="${esc(g)}">${esc(g)}</button>`).join('')}</nav><ul class="shop">`;
   for (const u of list.filter(x => x.grupo === shopTab)) {
-    const right = u.tiene ? '<span class="owned">Hecha</span>'
+    // la foto de recuerdo, una vez comprada: se descarga para el móvil o el ordenador
+    const right = u.tiene && u.id === 'foto' ? '<span class="fondos"><button class="secondary" data-fondo="movil">Móvil</button><button class="secondary" data-fondo="ordenador">Ordenador</button></span>'
+      : u.tiene ? '<span class="owned">Hecha</span>'
       : `<button data-buy="${u.id}" ${u.puede ? '' : 'disabled'}>${u.precio} monedas</button>`;
     const pts = u.puntos && !u.tiene ? `<i class="fama-chip">${starsHtml(1).replace('class="stars"', 'class="stars one"')}+${u.puntos}</i>` : '';
     html += `<li class="${u.tiene ? 'done' : ''}"><div><strong>${esc(u.nombre)} ${pts}</strong><span>${esc(u.falta ? `Antes hay que hacer: ${u.falta}` : u.efecto)}</span></div>${right}</li>`;
@@ -526,6 +529,7 @@ function shop() {
     b.addEventListener('click', async () => { if (await inn.buyUpgrade(b.dataset.buy)) shop(); });
   }
   for (const b of document.querySelectorAll('.shop-tabs [data-tab]')) b.addEventListener('click', () => { shopTab = b.dataset.tab; shop(); });
+  for (const b of document.querySelectorAll('[data-fondo]')) b.addEventListener('click', () => descargarFondo(b.dataset.fondo));
 }
 
 // ---------- libro de visitas (estilo Pokédex) y recetario ----------

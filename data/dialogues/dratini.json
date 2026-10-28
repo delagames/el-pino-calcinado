@@ -45,8 +45,8 @@
       "fin_arco": true,
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Hoy viene a recogerme mi padre. Dragonite. Da la vuelta al mundo en dieciséis horas, así que llegará tarde. Siempre llega tarde.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Tu padre es Dragonite? ¿El grandullón naranja con cara de peluche?", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Sad", "texto": "El mismo. Yo cambiaba de piel cada semana a ver si se fijaba. Lo único que nunca ha cambiado es que llega tarde.", "sigue": "espera" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Tu padre es un Dragonite? ¿Grandullón, naranja, con cara de peluche?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Sad", "texto": "Ese. Reparte por todo el mundo. Yo cambiaba de piel cada semana, a ver si se fijaba. Lo único que nunca cambia es que llega tarde.", "sigue": "espera" },
         "espera": { "quien": "charizard", "emocion": "Normal", "texto": "Pasa una hora. Dos. Al atardecer aparece una mancha naranja por el valle, volando sin ninguna prisa.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Angry", "texto": "Tres horas, papá. (Las perlas de Dragonair se encienden. Encima de Dragonite, y solo encima de él, se pone a llover un poquito.)", "sigue": "n4" },
         "n4": { "quien": "manolo", "emocion": "Happy", "texto": "(Dragonite aterriza empapado, con un ramo de flores del camino y cara de peluche mojado. No se enfada. Se ríe.)", "sigue": "n5" },

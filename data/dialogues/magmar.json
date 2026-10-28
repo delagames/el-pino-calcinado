@@ -62,7 +62,7 @@
         "cena": { "quien": "huesped", "emocion": "Normal", "texto": "(Guarda la carta sin leerla, pegada al pecho, donde no quema.) Vendrá. Blaine no ha dicho que no a una cena en su vida. Vaya comprando chistorra.", "sigue": "colega" },
         "colega": { "quien": "huesped", "emocion": "Normal", "texto": "(Mira a Charizard.) Tú y yo somos lo mismo, ¿sabes? El fuego de alguien. Tú el de Manolo, yo el de Blaine. Eso no se gana ni se pierde.", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le pone en la mano la última chistorra de la parrilla, hecha a fuego bajo, como le enseñó. Magmar se la come despacio. Es nuevo para él.", "sigue": "fin" },
-        "fin": { "quien": "huesped", "emocion": "Worried", "texto": "(Se le humedecen los ojos, y se le evapora al momento.) Gracias, colega. (Al alba baja la cuesta con la carta en el pecho. No la ha leído. No le hace falta.)" }
+        "fin": { "quien": "huesped", "emocion": "Worried", "texto": "(Se le humedecen los ojos, y se le evapora al momento.) Gracias, colega. (Con la primera luz baja la cuesta con la carta en el pecho. No la ha leído. No le hace falta.)" }
       }
     }
   ]

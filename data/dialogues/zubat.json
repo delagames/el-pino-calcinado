@@ -31,7 +31,7 @@
         "n1": { "quien": "huesped", "emocion": "Normal", "texto": "He crecido. Y me he sacado Odontología. Ahora soy dentista de guardia nocturna. La noche sigue siendo mía, pero ahora la uso para algo.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Surprised", "texto": "(Charizard bosteza.) ¡Quieto! ¡Abre otra vez! …Eso de ahí, entre las muelas, ¿es chistorra?", "sigue": "muelas" },
         "muelas": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard cierra la boca de golpe. Luego la abre, despacito. Ahí hay chistorra de hace años. Hay chistorra que ya es de la familia.", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Angry", "texto": "¡Esto es un escándalo! ¡Y Snorlax! ¡Y Jigglypuff, con tanto caramelo para la voz! Desde hoy, en esta casa, guerra al azúcar.", "opciones": [
+        "n3": { "quien": "huesped", "emocion": "Angry", "texto": "¡Esto es un escándalo! ¡Y en esta casa seguro que no es el único! Desde hoy, aquí dentro, guerra al azúcar.", "opciones": [
           { "texto": "«Haz lo que tengas que hacer, doctor»", "efectos": { "afinidad": 1 }, "sigue": "limpieza" },
           { "texto": "«La chistorra no se toca, que es patrimonio»", "sigue": "patrimonio" }
         ] },

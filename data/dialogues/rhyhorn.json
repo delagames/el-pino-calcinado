@@ -12,10 +12,10 @@
         "n2": { "quien": "huesped", "emocion": "Happy", "texto": "¡Eso! A dormir. Qué bien. (Se da la vuelta, sube la escalera, entra en la cocina, sale de la cocina.) …¿Y dónde era?", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Worried", "texto": "Perdone. Solo me cabe una cosa en la cabeza a la vez. Si me acuerdo de la habitación, se me olvida la cena. Y al revés.", "opciones": [
           { "texto": "«Te lo apunto en un pósit y te lo pego en el cuerno»", "efectos": { "afinidad": 1 }, "sigue": "posit" },
-          { "texto": "«Tranquilo: Slowpoke tarda tres días en contestar»", "sigue": "slowpoke" }
+          { "texto": "«Tranquilo: hay Slowpoke que tardan tres días en contestar»", "sigue": "slowpoke" }
         ] },
         "posit": { "quien": "huesped", "emocion": "Happy", "texto": "¡Un pósit! (Se pone bizco para leerlo.) «Habitación, cena, dormir.» …Qué idea más buena. ¿De quién ha sido?", "sigue": "fin" },
-        "slowpoke": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Tres días? Pues me siento a su lado, a ver quién se acuerda antes de qué estábamos hablando.", "sigue": "fin" },
+        "slowpoke": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Tres días? Pues si veo uno, me siento a su lado, a ver quién se acuerda antes de qué estábamos hablando.", "sigue": "fin" },
         "fin": { "quien": "charizard", "emocion": "Happy", "texto": "En la cena, Rhyhorn repite chistorra tres veces porque no se acuerda de haber cenado. En la escalera se vuelve, abre la boca para decir algo… y se le olvida." }
       }
     },
@@ -55,7 +55,7 @@
         ] },
         "gracias": { "quien": "huesped", "emocion": "Happy", "texto": "A darle las gracias por la cena. Cené tan a gusto que me lo apunté en el pósit. Y luego perdí el pósit. Gracias, Manolo. Ya está. Ya me acuerdo.", "sigue": "fin" },
         "chistorra": { "quien": "huesped", "emocion": "Happy", "texto": "¡También! Pero sobre todo a darle las gracias por aquella cena. Lo llevaba en el pósit, y el pósit en el cuerno. Gracias, Manolo.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al alba, Rhydon baja la ladera despacito. Charizard le pega en el cuerno un pósit nuevo con una chistorra dibujada. No pone nada más. No hace falta." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Por la mañana, Rhydon baja la ladera despacito. Charizard le pega en el cuerno un pósit nuevo con una chistorra dibujada. No pone nada más. No hace falta." }
       }
     }
   ]

@@ -60,7 +60,7 @@
         "tarta": { "quien": "huesped", "emocion": "Surprised", "texto": "(Se deshincha de golpe.) ¿Tarta? ¿Para mí? (Se la come de un bocado.) ¡Amigo! ¡Mejor que una manzana! Bueno, igual. Bueno, casi.", "sigue": "rango" },
         "esconde": { "quien": "charizard", "emocion": "Pain", "texto": "Charizard se esconde detrás de Manolo, que se esconde detrás del mostrador. Al final, Charizard le acerca su chistorra, temblando. Funciona.", "sigue": "rango" },
         "rango": { "quien": "huesped", "emocion": "Happy", "texto": "¡Esta casa queda nombrada equipo de exploración! Rango… bronce. No, oro, que tiene dragón. (Le pone a Charizard una chapa en el pecho.)", "sigue": "fin" },
-        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "Me voy, que el gremio no se dirige solo. Y ahora canto por gusto, no para no pensar. ¡La próxima la escucháis entera, como siempre! ¡Amigo!" }
+        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "Me voy, que el gremio no se dirige solo. Y ahora canto por gusto, no para no pensar. ¡Gracias por escucharme hasta el final! ¡Amigo, amigo, hasta siempre!" }
       }
     }
   ]

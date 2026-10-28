@@ -29,7 +29,7 @@
         "n1": { "quien": "huesped", "emocion": "Normal", "texto": "Kakuna, funcionario de carrera. Plaza fija en la ventanilla. Sin el 3-B no me puedo alojar. Ni sin fotocopia del DNI. Y falta un papel.", "sigue": "manolo2" },
         "manolo2": { "quien": "manolo", "emocion": "Worried", "texto": "¿Qué papel?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "No se sabe. Siempre falta uno. Es la base del sistema.", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Happy", "texto": "Un Psyduck que oposita viene a verme a la ventanilla. Dice que soy su ídolo. Que de mayor quiere estar tan quieto como yo.", "opciones": [
+        "n3": { "quien": "huesped", "emocion": "Happy", "texto": "Dicen que un Psyduck que oposita me tiene de ídolo. Que de mayor quiere estar tan quieto como yo.", "opciones": [
           { "texto": "«Te relleno yo el 3-B, con buena letra»", "efectos": { "afinidad": 1 }, "sigue": "relleno" },
           { "texto": "«Aquí se entra sin papeles, como en casa»", "sigue": "sinpapeles" }
         ] },

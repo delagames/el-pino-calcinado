@@ -15,12 +15,12 @@
         "nido": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard mira a uno y a otro. Luego mira el nido del pino, que de repente parece muy pequeño. Suben los dos. El nido cruje. Aguanta.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Worried", "texto": "Señora Articuno… ¿es verdad lo que cuentan? ¿Que se aparece a los que se pierden en la nieve?", "sigue": "articuno3" },
         "articuno3": { "quien": "articuno", "emocion": "Normal", "texto": "Me aparezco, sí. Dicho así suena a desgracia. Me aparezco y luego les enseño el camino. Casi siempre, el de esta casa.", "sigue": "articuno4" },
-        "articuno4": { "quien": "articuno", "emocion": "Normal", "texto": "Una Lapras que subió del sur, tiritando. Un Larvitar que lloraba por una tal Gótica. Y unos cuantos más. Les dejé escarcha hasta su puerta.", "opciones": [
+        "articuno4": { "quien": "articuno", "emocion": "Normal", "texto": "Pájaros sin bandada, viajeros con el corazón roto, alguno que tiritaba… Y otros que ni se enteraron. A todos les dejé escarcha hasta su puerta.", "opciones": [
           { "texto": "«Gracias por traérnoslos»", "sigue": "gracias" },
           { "texto": "«¿Y por qué aquí, y no a otro sitio?»", "sigue": "porque" }
         ] },
         "gracias": { "quien": "articuno", "emocion": "Normal", "texto": "No hay de qué. Desde arriba, una posada con la luz encendida se ve muy bien. Sobre todo si tiene un pino que brilla por dentro.", "sigue": "zapdos2" },
-        "porque": { "quien": "articuno", "emocion": "Normal", "texto": "Porque aquí nadie pregunta de dónde vienes. Solo si has cenado.", "sigue": "zapdos2" },
+        "porque": { "quien": "articuno", "emocion": "Normal", "texto": "Porque es la única luz del puerto que no se apaga nunca. Y porque aquí a nadie le preguntan por qué se ha perdido.", "sigue": "zapdos2" },
         "zapdos2": { "quien": "zapdos", "emocion": "Normal", "texto": "¿Y del amarillo qué? ¿Nadie habla del amarillo? ¡Que he alumbrado medio puerto! Sin mí, el autobús acaba en Johto.", "sigue": "articuno5" },
         "articuno5": { "quien": "articuno", "emocion": "Normal", "texto": "Lo de los equipos es un invento de los humanos. Como el de la roja de mi prima Moltres. Nosotros somos pájaros.", "sigue": "zapdos3" },
         "zapdos3": { "quien": "zapdos", "emocion": "Normal", "texto": "¡Eso lo dices porque el azul tiene más gente! (Un trueno. Una nevada. Otro trueno.)", "sigue": "fin" },

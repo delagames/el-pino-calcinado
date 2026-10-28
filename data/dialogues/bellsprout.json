@@ -34,7 +34,7 @@
         ] },
         "chistorra": { "quien": "huesped", "emocion": "Normal", "texto": "(Hace «ding» una sola vez. Charizard aparece en la cocina antes de que se acabe el sonido.) …Por fin alguien que me entiende. Ding.", "sigue": "fin" },
         "tono": { "quien": "huesped", "emocion": "Normal", "texto": "Eso dice Clefairy: que en el Monte Moon bailan con un solo tono toda la noche. Ding. (No sonríe, pero lo dice contento.)", "sigue": "fin" },
-        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Esa noche, a cada hora en punto: «ding». Nadie sabe a qué toca. Al desayunar, Weepinbell pregunta si alguien tiene una Piedra Hoja. Dice que tiene hambre de algo grande.)" }
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Esa noche, a cada hora en punto: «ding». Nadie sabe a qué toca. En el desayuno, Weepinbell pregunta por una Piedra Hoja. Tiene hambre de algo grande.)" }
       }
     },
     {
@@ -55,7 +55,7 @@
         "mano": { "quien": "huesped", "emocion": "Normal", "texto": "(Ensayan media tarde. Como no tiene manos, le da a Manolo una hoja. Luego se la come.) …Casi. Lo que cuenta es la intención.", "sigue": "n3" },
         "james": { "quien": "huesped", "emocion": "Normal", "texto": "Eso pensaba. Me han dicho que hay un tal James, del Team Rocket, al que su Victreebel saluda así cada vez. Y que él grita mucho. De alegría, supongo.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Me voy a buscar a ese James. Ya no quiero ser modelo: por fin tengo una boca de mi tamaño. Bueno, del tamaño de mi hambre. Y estoy contento.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al alba, Victreebel se va cuesta abajo dando saltitos y tocando la campanilla para avisar. Charizard le despide con la cola. Desde lejos. Muy lejos." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Por la mañana, Victreebel se va camino abajo dando saltitos y tocando la campanilla para avisar. Charizard le despide con la cola. Desde lejos. Muy lejos." }
       }
     }
   ]

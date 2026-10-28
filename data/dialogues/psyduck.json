@@ -8,7 +8,7 @@
       "subtitulo": "Primera visita · tema 37 de 90",
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "Buenas… Una habitación tranquila, por favor. Muy tranquila. Preparo oposiciones. Al Ayuntamiento de Ciudad Celeste.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Pain", "texto": "(Tipo agua: a Manolo se le cierra un ojo y le cae una gota. Psyducks venían muchos a su gimnasio.) Hombre, qué bien. ¿Y cuánto llevas?", "sigue": "n2" },
+        "manolo": { "quien": "manolo", "emocion": "Pain", "texto": "(Tipo agua: a Manolo se le cierra un ojo y le cae una gota. De Psyduck le venían muchos al gimnasio.) Hombre, qué bien. ¿Y cuánto llevas?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Pain", "texto": "Doce años. Noventa temas. Azul lo importante, verde lo muy importante, rojo lo que cae seguro, amarillo… no me acuerdo. Ay, la cabeza.", "opciones": [
           { "texto": "«Te doy la del fondo, la más silenciosa»", "efectos": { "afinidad": 1 }, "sigue": "fondo" },
           { "texto": "«¿Doce años? ¿No será mejor otra cosa?»", "sigue": "otra" }

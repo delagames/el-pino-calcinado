@@ -767,7 +767,7 @@ function limpiar(recipe, base, k) {
         if (m && Math.hypot(m.x - p.x, m.y - p.y) <= m.r + 7) { m.ok = true; m.brillo = 0.5; }
       }
       const hechas = manchas.filter(m => m.ok).length;
-      if (hechas === N || s.t > T) return { acierto: hechas / N, hot: 0, cold: N - hechas };
+      if (hechas === N || s.t > T) return { acierto: hechas / N, hot: N - hechas, cold: 0 };
       return null;
     },
     draw(c, t) {
@@ -799,7 +799,7 @@ function rocket(recipe, base, k) {
       } else {
         s.sombra.vida -= dt;
         const [vx, vy] = VEN[s.sombra.v];
-        if (taps.some(p => !p || (Math.abs(p.x - (vx + 10)) < 16 && Math.abs(p.y - (vy + 14)) < 18))) { s.bien += 1; s.susto = 0.4; s.sombra = null; s.espera = 0.4 + Math.random() * 0.7; }
+        if (taps.some(p => p && Math.abs(p.x - (vx + 10)) < 16 && Math.abs(p.y - (vy + 14)) < 18)) { s.bien += 1; s.susto = 0.4; s.sombra = null; s.espera = 0.4 + Math.random() * 0.7; }
         else if (s.sombra.vida <= 0) { s.mal += 1; s.sombra = null; s.espera = 0.4 + Math.random() * 0.7; }
       }
       if (s.n >= N && !s.sombra) return { acierto: s.bien / N, hot: s.mal, cold: 0 };

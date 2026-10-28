@@ -153,6 +153,14 @@
       "puntos": 0,
       "retirada": true,
       "efecto": ""
+    },
+    {
+      "id": "foto",
+      "nombre": "Foto de recuerdo en la posada",
+      "grupo": "Recuerdos",
+      "precio": 1400,
+      "puntos": 0,
+      "efecto": "Manolo y Charizard en la puerta de la posada, de noche, junto al pino. Para descargarla y ponerla de fondo de pantalla en el móvil o en el ordenador."
     }
   ]
 }

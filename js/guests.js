@@ -44,7 +44,9 @@ export function pokedex(libro) {
     const formas = [{ visita: 1, ...g }, ...(g.evoluciones || [])];
     formas.forEach((f, i) => {
       const forma = i ? { ...g, ...f } : g;
-      const visto = !!e && (i === 0 || (e.visitas || 0) >= f.visita);
+      // visto si ya ha pasado con esa forma (las partidas antiguas, sin «forma», van por visitas)
+      const alcanzada = e?.forma ?? (g.evoluciones || []).filter(x => x.visita <= (e?.visitas || 0)).length;
+      const visto = !!e && (i === 0 || alcanzada >= i);
       add(forma.dex, forma.hablante || forma.especie, forma.sprite, g.id, visto);
       if (/^\d+$/.test(forma.acompanante || '')) add(+forma.acompanante, forma.acompanante_especie || forma.especie, forma.acompanante, g.id, visto);
     });
@@ -94,7 +96,8 @@ export function pickArrivals(state, terminados = new Set()) {
   const mosqueado = id => (libro[id]?.felicidad ?? 3) <= 1 && state.dia - (libro[id]?.ultimo || 0) < 4;
   // los grupos de una noche (cameos) no suben solos: llegan con la excursión
   // (se mira la forma con la que vendría: si evoluciona en algo que necesita el nido, hace falta el nido)
-  const pool = data.guests.filter(g => !g.cameo && canAppear(formaDe(g, (libro[g.id]?.visitas || 0) + 1), state) && !mosqueado(g.id) && !terminados.has(g.id));
+  const proxima = id => ((state.vistas || {})[id]?.length || 0) + 1;   // el capítulo (y la forma) con que vendría
+  const pool = data.guests.filter(g => !g.cameo && canAppear(formaDe(g, proxima(g.id)), state) && !mosqueado(g.id) && !terminados.has(g.id));
   const ayer = new Set(state.ayer || []);
   const first = (state.vuelven || []).filter(id => pool.some(g => g.id === id));
   // las mejoras atraen o espantan tipos: termal (fuego y roca sí, agua no), jardín (planta), farolillos
@@ -118,7 +121,7 @@ export function pickArrivals(state, terminados = new Set()) {
     .map(g => g.id);
   return [...first, ...rest].slice(0, arrivalsFor(state.dia, state.habitaciones || 3)).map(id => {
     // la forma con la que viene en esta visita (si evoluciona, pide lo de su nueva forma)
-    const g = formaDe(guestBase(id), (libro[id]?.visitas || 0) + 1);
+    const g = formaDe(guestBase(id), proxima(id));
     // encargos posibles hoy: sin los que ya no tienen sentido por una mejora y, si se puede,
     // distinto del de la visita anterior (para no repetir la misma escena)
     let opts = g.pide.map((p, i) => i).filter(i => !g.pide[i].no_si_mejora || !mejoras.has(g.pide[i].no_si_mejora));

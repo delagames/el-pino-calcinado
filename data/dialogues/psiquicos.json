@@ -27,7 +27,7 @@
         "abra4": { "quien": "abra", "emocion": "Normal", "texto": "(Abra está despierto. Del todo. Con los ojos un poco abiertos.) Me quedo despierto para despedirme. Una hora entera. Por ustedes.", "sigue": "charizard2" },
         "charizard2": { "quien": "charizard", "emocion": "Worried", "texto": "Pasa media hora. Abra da cabezadas. Charizard le sujeta la frente con una garra para que no se caiga encima de la baya Zidra.", "sigue": "abra5" },
         "abra5": { "quien": "abra", "emocion": "Happy", "texto": "(A los cincuenta y nueve minutos.) …Adiós, Manolo. Adiós, dragón. Ha sido la mejor hora despierto de mi vida. (¡Fium!)", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Surprised", "texto": "Abra aparece dormido en el autobús antes que nadie. Exeggutor se despide con las tres cabezas. En el mostrador quedan el pañuelico y un antifaz de dormir." }
+        "fin": { "quien": "charizard", "emocion": "Surprised", "texto": "Abra aparece dormido en el autobús antes que nadie. Exeggutor se despide con las tres cabezas. Junto al pañuelico, Abra se ha dejado su antifaz. Charizard se lo prueba." }
       }
     }
   ]

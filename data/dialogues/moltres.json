@@ -26,7 +26,7 @@
       "subtitulo": "Segunda visita · la antorcha de la Liga",
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Manolo. Me han dicho que usted fue líder. Pueblo Ceniza, tipo fuego. Yo encendí la antorcha de la Liga Añil. Varias veces.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Sigh", "texto": "Fui. Ahora es una medalla en un cajón. ¿Y usted cómo se entera de esas cosas?", "sigue": "n2" },
+        "manolo": { "quien": "manolo", "emocion": "Sigh", "texto": "Fui. Ahora soy una medalla en un cuadro y una calva. ¿Y usted cómo se entera de esas cosas?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Los de fuego nos conocemos. Dicen que su gimnasio no se apagaba nunca. Que la gente iba a verle aunque fuera a perder.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Lo que nadie sabe es lo que cansa. Enciendes la antorcha, todo el mundo aplaude y luego… nadie te pregunta si tienes frío.", "sigue": "cara" },
         "cara": { "quien": "manolo", "emocion": "Normal", "texto": "(Moltres no cambia la cara. Nunca. Pero a Manolo le parece que la llama de la cresta se le ha bajado un poco.)", "opciones": [

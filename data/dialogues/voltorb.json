@@ -68,7 +68,7 @@
         "diez": { "quien": "manolo", "emocion": "Normal", "texto": "«Uno… dos… tres…» (Manolo respira despacio. Electrode respira con él. Charizard también, sin saber muy bien por qué.) «…y diez.»", "sigue": "partido" },
         "tila": { "quien": "huesped", "emocion": "Normal", "texto": "(Se bebe el termo entero.) Ya está. Ahora soy un Electrode tranquilo. Un Electrode de infusión. Un Electrode de balneario.", "sigue": "partido" },
         "partido": { "quien": "huesped", "emocion": "Happy", "texto": "(Último segundo. Triple desde casa. ¡Dentro!) …Ha entrado. Y yo… sigo aquí. Entero. ¡No he explotado! ¡La he visto entera!", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Del alivio, Charizard estornuda por fin. Electrode ni se inmuta. Al alba se va cuesta abajo rodando despacio, con su termo, tarareando el himno." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Del alivio, Charizard estornuda por fin. Electrode ni se inmuta. Por la mañana se va rodando despacio, con su termo, tarareando el himno." }
       }
     }
   ]

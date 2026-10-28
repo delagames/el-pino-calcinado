@@ -448,7 +448,7 @@
               "texto": "Un frasco de perfume para el viaje",
               "objeto": "perfume",
               "quien": "manolo",
-              "gesto": "Happy",
+              "gesto": "Normal",
               "dice": "¿Me rellena el frasco de perfume? Es para retocarme antes de bajar a cenar. Aunque con la pamela no me ve nadie.",
               "hecho": "Manolo le rellena el frasco. Vileplume se perfuma debajo de la pamela y el comedor entero huele a jardín. Charizard estornuda, por variar.",
               "recuerda": "El frasco, señor calvo. Sin retocarme no bajo, que tengo una imagen."
@@ -992,7 +992,7 @@
           "texto": "Un café con aceite MCT",
           "objeto": "cafe",
           "quien": "manolo",
-          "gesto": "Sigh",
+          "gesto": "Normal",
           "dice": "Campeón, un café con aceite MCT. Sin azúcar. El azúcar es para los que no tienen visión.",
           "hecho": "Manolo no sabe qué es el MCT y le echa un chorrito del aceite de la chistorra. Magikarp lo prueba: «Esto es… disruptivo».",
           "recuerda": "¿Y mi café con MCT? Se me está desenfocando el foco."
@@ -1925,7 +1925,7 @@
               "texto": "Un casco de obra para el fin de obra",
               "objeto": "casco",
               "quien": "manolo",
-              "gesto": "Happy",
+              "gesto": "Surprised",
               "dice": "Jefe, ¿me dejas el casco de siempre? Me queda pequeño, pero un fin de obra sin casco no vale.",
               "hecho": "Manolo le da el casco. A Golem le queda en lo alto como un sombrerito. Da tres golpes a la pared y pone cara de sorpresa: sigue torcida.",
               "recuerda": "¿Y el casco, jefe? Que sin casco no se firma el fin de obra."

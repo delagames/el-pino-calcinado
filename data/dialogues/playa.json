@@ -32,7 +32,7 @@
         "bandera": { "quien": "tentacool", "emocion": "Happy", "texto": "¡Bandera roja en la cocina! ¡Nadie se meta! ¡Zona de miel! (Se mete ella.)", "sigue": "pino" },
         "pino": { "quien": "tentacruel", "emocion": "Normal", "texto": "(Tentacruel mira por la ventana el pino negro.) Hicieron la casa alrededor del árbol, sin talarlo. Aprobado. Lo firmo con los ochenta tentáculos.", "sigue": "seadra2" },
         "seadra2": { "quien": "seadra", "emocion": "Normal", "texto": "(Mientras todos mojan pan, Seadra se queda dormido de pie, por primera vez en meses. Horsea le tapa con una toalla de playa.)", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "A medianoche el autobús baja hacia Carmín. Charizard se pasa un buen rato despegándose miel de las garras. En el mostrador se ha quedado una toalla de playa." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "A medianoche el autobús baja hacia Carmín. Charizard se pasa un rato despegándose miel de las garras. En el porche se ha quedado tendida una toalla de playa." }
       }
     }
   ]

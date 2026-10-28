@@ -60,7 +60,7 @@
         "cerca": { "quien": "huesped", "emocion": "Happy", "texto": "¿Aquí? Si en esta casa el único sin pelo es usted… (Le guiña un ojo.) Vale. Al pie del camino. A usted le haré masajes de calva.", "sigue": "cola" },
         "cola": { "quien": "huesped", "emocion": "Normal", "texto": "(Mira a Charizard, que lleva toda la noche mirándole las colas.) Anda, dragón. Una. Solo una. Y sin tirar.", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard toca una cola con la punta de la garra, como quien toca una pompa de jabón. No pasa nada. Bueno, sí: se le queda cara de tonto toda la noche.", "sigue": "fin" },
-        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "Maldición, ninguna: a ti te tocan mil años de buena suerte. (Al alba se va cuesta abajo, con las nueve colas al viento, peinadas una a una.)" }
+        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "Maldición, ninguna: a ti te tocan mil años de buena suerte. (Por la mañana se va camino abajo, con las nueve colas al viento, peinadas una a una.)" }
       }
     }
   ]

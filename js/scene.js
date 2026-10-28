@@ -102,7 +102,8 @@ export function setPisos(n) {
   if (n === LAYOUT.pisos) return false;
   LAYOUT.pisos = n;
   LAYOUT.lift = n * PISO;
-  for (let i = ROOMS.length - 1; i >= 0; i--) if (ROOMS[i].planta >= 2 && ROOMS[i].id !== 'buhardilla') ROOMS.splice(i, 1);
+  // (solo las habitaciones de las plantas: la buhardilla y el nido del pino se quedan)
+  for (let i = ROOMS.length - 1; i >= 0; i--) if (/^hab\d+$/.test(ROOMS[i].id) && ROOMS[i].planta >= 2) ROOMS.splice(i, 1);
   PLANTAS.slice(0, n).forEach((fila, k) => fila.forEach(({ id, color }, j) => {
     ROOMS.push({ id, nombre: `Habitación ${id.slice(3)}`, planta: k + 2, color, x: [94, 169, 244][j], y: 134 - PISO * (k + 1), w: 72, h: 52 });
   }));
@@ -1081,7 +1082,7 @@ export function createInnView(canvas) {
     ctx.imageSmoothingEnabled = false;
     ctx.drawImage(low, 0, 0, v.LW, v.LH, 0, 0, v.LW * v.S, v.LH * v.S);
     // si la casa sigue por arriba, una flechita parpadeante avisa de que se puede arrastrar para verla
-    if (panYMax > 0 && panY < panYMax - 2 && Math.floor(t / 500) % 2) {
+    if (panYMax > 8 && panY < panYMax - 2 && Math.floor(t / 500) % 2) {
       const px = Math.max(2, Math.round(v.dpr * 2)), cx = Math.round(canvas.width / 2), cy = Math.round((insets.top + 10) * v.dpr);
       ctx.fillStyle = '#F4EFE6';
       for (let i = 0; i < 4; i++) ctx.fillRect(cx - (i + 1) * px, cy + i * px, (i + 1) * 2 * px, px);

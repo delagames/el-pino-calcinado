@@ -33,7 +33,7 @@
         "manolo4": { "quien": "manolo", "emocion": "Normal", "texto": "«¿Y tú por qué te la tomaste?»", "sigue": "raichu5" },
         "raichu5": { "quien": "raichu", "emocion": "Happy", "texto": "Porque quería. (Se le ilumina la cara, y no es el cable.) Que es lo mismo que hizo él: elegir. Él eligió ser Pikachu y yo, Raichu. Empate.", "sigue": "magneton4" },
         "magneton4": { "quien": "magneton", "emocion": "Happy", "texto": "Lo apunto en la base de datos: «Raichu, titular de sí mismo». ¿Le llamo mañana para confirmarlo? A la hora de la siesta.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Se van de madrugada, con la luz encendida y la radio en marcha. En el mostrador queda una bombilla nueva: «Por las molestias. La cuadrilla»." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Se van de madrugada, con la luz encendida y la radio en marcha. En la caja de fusibles hay una bombilla nueva y una nota: «Por las molestias. La cuadrilla»." }
       }
     }
   ]

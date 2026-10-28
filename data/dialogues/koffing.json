@@ -29,7 +29,7 @@
         "n1": { "quien": "huesped", "emocion": "Normal", "texto": "Somos uno, Manolo. Weezing. Dos cabezas y una sola cara: ponga la que ponga, me sale esta. (La cabeza pequeña asiente, con la misma cara.)", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "He evolucionado igual que el Weezing del Team Rocket. Ahora sí me cogen. Les he escrito a Arbok y a Meowth para que me recomienden.", "sigue": "cartas" },
         "cartas": { "quien": "manolo", "emocion": "Normal", "texto": "(Manolo le da dos cartas que han llegado a su nombre. Una huele a perfume de serpiente. La otra lleva en el sello un puño y una moneda.)", "sigue": "arbok" },
-        "arbok": { "quien": "huesped", "emocion": "Normal", "texto": "Arbok dice: «Cielo, ni contrato, ni pagas extra, y siempre salíamos volando. Aunque echo de menos a James. Eso no se lo cuentes a nadie».", "sigue": "meowth" },
+        "arbok": { "quien": "huesped", "emocion": "Normal", "texto": "Arbok dice: «Cielo, ni contrato, ni pagas extra, y siempre salíamos volando. Aunque echo de menos a Jessie. Eso no se lo cuentes a nadie».", "sigue": "meowth" },
         "meowth": { "quien": "huesped", "emocion": "Normal", "texto": "Y Meowth: «Compañero, el Team Rocket no tiene convenio. Si te afilias a algo, que sea al sindicato». Lo ha subrayado tres veces.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "…Manolo, ¿y si no me cogen? ¿Para qué quiero dos cabezas, si ninguna sirve para ser malo?", "opciones": [
           { "texto": "«Para pensártelo dos veces antes de hacer el mal»", "efectos": { "afinidad": 1 }, "sigue": "doble" },
@@ -56,7 +56,7 @@
         ] },
         "posada": { "quien": "huesped", "emocion": "Normal", "texto": "(Se pone la rosa y lo recita a coro, con las dos cabezas.) «¡Cachimbita, chistorra y a dormir! ¡Y el que toque a un Koffing, sale volando!» …Me lo quedo.", "sigue": "fin" },
         "suyo": { "quien": "huesped", "emocion": "Normal", "texto": "(Lo piensa con las dos cabezas.) «¡Si hay líos en el bosque, que se preparen ellos!» …¿Suena a malo? Pues lo digo de bueno.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al alba, Weezing baja flotando con su gorra de guarda y la rosa entre los dientes. Charizard le dice adiós con la cola hasta que el humo morado se pierde en el pinar." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Temprano, Weezing baja flotando con su gorra de guarda y la rosa entre los dientes. Charizard le dice adiós con la cola hasta que el humo morado se pierde en el pinar." }
       }
     }
   ]

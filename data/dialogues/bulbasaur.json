@@ -45,7 +45,7 @@
         ] },
         "pino": { "quien": "huesped", "emocion": "Happy", "texto": "¿Junto al pino quemado? Allí la tierra tiene ceniza, y la ceniza es buen abono. Mi abuela diría que ahí crece hasta lo que no debe. Hecho, jefe.", "sigue": "fin" },
         "abuela": { "quien": "huesped", "emocion": "Happy", "texto": "Usted es un señor. Pero le dejo una. Una sola. Si algún día le crece algo raro en el huerto… aquí no ha pasado nada.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le da un golpecito en el bulbo, como quien choca la mano. Al alba, Bulbasaur baja hacia la ría. Dice que no volverá. Lo dice como lo dice todo: mirando a otro lado." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le choca el bulbo con la garra. Al alba, Bulbasaur baja hacia la ría. Dice que no volverá. Lo dice como lo dice todo: mirando a otro lado." }
       }
     },
     {

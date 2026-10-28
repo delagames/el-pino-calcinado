@@ -28,7 +28,7 @@
         "viento": { "quien": "charizard", "emocion": "Surprised", "texto": "Sopla el viento. A Sandshrew se le vuela el sombrero y se ríe. A Sandslash se le cae otra púa y se ríe. A Manolo no se le mueve nada. Nada de nada.", "sigue": "gana" },
         "gana": { "quien": "sandslash", "emocion": "Happy", "texto": "…Ha ganado el forastero. Claro: sin púas ni pelo, el viento no tiene de dónde tirar. Es usted el más duro del oeste.", "sigue": "sandshrew3" },
         "sandshrew3": { "quien": "sandshrew", "emocion": "Happy", "texto": "Papá, cuando sea mayor quiero ser como él. ¡Sin nada que se mueva!", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Cenan potaje y se van de espaldas, al atardecer, despacito, como en las películas. En el mostrador queda un sombrero vaquero: para Manolo, «por el sol»." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Cenan potaje y se van de espaldas, al atardecer, despacito, como en las películas. En el perchero se ha quedado un sombrero vaquero: para Manolo, «por el sol»." }
       }
     }
   ]

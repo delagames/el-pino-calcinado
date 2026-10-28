@@ -1,6 +1,6 @@
 {
   "id": "visitasrocket",
-  "_nota": "Grupo de una noche: dos que preguntan por los del Team Rocket. Ekans, la sobrina de Arbok («snake» al revés), quiere aprender a cotillear y le salen los chismes al revés: siempre buenos. Persian, el gato del jefe de Ciudad Verde: pijo, de cojín de terciopelo, el que el jefe acaricia y Meowth envidia; no ha trabajado nunca. Arbok y Meowth ya no se alojan aquí: Manolo les enseña sus firmas en el libro. Remate: Persian se pone a secar platos con Charizard y descubre que trabajar le gusta; Ekans abre «Radio Buenas Noticias».",
+  "_nota": "Grupo de una noche: dos que preguntan por los del Team Rocket. Ekans, la sobrina de Arbok («snake» al revés), quiere aprender a cotillear y le salen los chismes al revés: siempre buenos. Persian, el gato del jefe de Ciudad Verde: pijo, de cojín de terciopelo, el que el jefe acaricia y Meowth envidia; no ha trabajado nunca. Manolo les apunta el recado en el libro de visitas (vale tanto si Arbok y Meowth ya pasaron como si no). Remate: Persian se pone a secar platos con Charizard y descubre que trabajar le gusta; Ekans abre «Radio Buenas Noticias».",
   "entradas": [
     {
       "id": "v1",
@@ -11,14 +11,14 @@
         "inicio": { "quien": "manolo", "emocion": "Normal", "texto": "(Del autobús de la excursión bajan una Ekans pequeñita con unos prismáticos de juguete y un Persian que no baja: espera a que le pongan un cojín en el escalón.)", "sigue": "persian" },
         "persian": { "quien": "persian", "emocion": "Normal", "texto": "Persian. Del jefe. Sí, de ese jefe. ¿Tienen cojín de terciopelo? Yo en el suelo no me siento, que se me engancha el pelo.", "sigue": "ekans" },
         "ekans": { "quien": "ekans", "emocion": "Happy", "texto": "¡Hola! Soy Ekans, la sobrina de Arbok. Ekans es «snake» al revés, ¿lo sabía? Buscamos a mi tía y a un Meowth que habla. ¿Están por aquí?", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Sad", "texto": "«Ya no se alojan aquí, pequeña. Pero dejaron recuerdo.»", "sigue": "libro" },
-        "libro": { "quien": "manolo", "emocion": "Normal", "texto": "(Manolo abre el libro de visitas: la firma de Arbok, con una lengüita dibujada, y la de Meowth, con un puño y una moneda.)", "sigue": "persian2" },
+        "manolo": { "quien": "manolo", "emocion": "Sad", "texto": "«Por aquí pasa mucha gente, pequeña. Si vienen, les doy el recado.»", "sigue": "libro" },
+        "libro": { "quien": "manolo", "emocion": "Normal", "texto": "(Manolo apunta el recado en el libro de visitas: «Ekans y Persian preguntan por Arbok y Meowth». Ekans dibuja una lengüita al lado.)", "sigue": "persian2" },
         "persian2": { "quien": "persian", "emocion": "Angry", "texto": "Meowth. El que habla. El jefe lo nombra a veces, ¿sabe? Para reñirle. A mí me acaricia y a él le riñe. Por algo será.", "sigue": "ekans2" },
         "ekans2": { "quien": "ekans", "emocion": "Happy", "texto": "¡Mi tía me iba a enseñar a cotillear! A ver… (Mira con los prismáticos.) Chisme: ¡el dragón ha fregado todos los platos y nadie se lo ha pedido!", "sigue": "manolo2" },
         "manolo2": { "quien": "manolo", "emocion": "Surprised", "texto": "«Eso no es un chisme, criatura. Eso es una buena noticia.»", "sigue": "ekans3" },
         "ekans3": { "quien": "ekans", "emocion": "Sad", "texto": "¿Otra vez? Siempre me pasa. Me sale todo al revés, como el nombre. Mi tía dice que así no voy a llegar a ningún sitio.", "opciones": [
           { "texto": "«Pues monta una radio de buenas noticias»", "efectos": { "afinidad": 1 }, "sigue": "radio" },
-          { "texto": "«Tu tía, al final, también contaba cosas bonitas»", "sigue": "tia" }
+          { "texto": "«Seguro que tu tía también sabe contar cosas bonitas»", "sigue": "tia" }
         ] },
         "radio": { "quien": "ekans", "emocion": "Happy", "texto": "¡Radio Buenas Noticias! ¡Ya tengo la primera! (Mira con los prismáticos.) «El gato del jefe está fregando». …Espera. ¿Está fregando?", "sigue": "persian3" },
         "tia": { "quien": "ekans", "emocion": "Surprised", "texto": "¿Lo de Clefairy bailando en la luna? …Pues yo quiero contar de esas. ¡Mire, otra! (Prismáticos.) «El gato del jefe está fregando». …¿Perdón?", "sigue": "persian3" },
@@ -26,7 +26,7 @@
         "charizard": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le pasa un plato. Persian lo seca. Charizard le pasa otro. Nadie dice nada. Van cogiendo ritmo.", "sigue": "persian4" },
         "persian4": { "quien": "persian", "emocion": "Happy", "texto": "No he trabajado nunca, ¿sabe? Ni un día. El jefe me tiene en un cojín. …Esto de secar platos relaja muchísimo. ¿Se cobra?", "sigue": "manolo3" },
         "manolo3": { "quien": "manolo", "emocion": "Happy", "texto": "«En chistorra, como todo el mundo en esta casa.»", "sigue": "persian5" },
-        "persian5": { "quien": "persian", "emocion": "Normal", "texto": "Si vuelve el Meowth ese, díganle que tenía razón con lo del convenio. Pero no le digan que lo he dicho yo.", "sigue": "ekans4" },
+        "persian5": { "quien": "persian", "emocion": "Normal", "texto": "Si pasa el Meowth ese, díganle que tenía razón con lo del convenio. Pero no le digan que lo he dicho yo.", "sigue": "ekans4" },
         "ekans4": { "quien": "ekans", "emocion": "Happy", "texto": "¡Radio Buenas Noticias, último boletín de la noche! «El gato del jefe ha encontrado trabajo». ¡Esta es buenísima! ¡Se lo cuento a mi tía!", "sigue": "fin" },
         "fin": { "quien": "charizard", "emocion": "Happy", "texto": "A medianoche se van en el autobús. Persian se lleva un trapo de cocina de recuerdo y deja el cojín de terciopelo en la silla de Charizard. Charizard duerme en él." }
       }

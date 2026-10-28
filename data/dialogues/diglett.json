@@ -8,15 +8,15 @@
       "subtitulo": "Primera visita · la hucha",
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Del suelo del comedor sale un Diglett con casco y una hucha de lata.) Perdón por el agujero, ahora lo tapo. Le traigo saludos de Meowth.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¡Mi suelo! …¿De Meowth? ¿El sindicalista?", "sigue": "n1" },
-        "n1": { "quien": "huesped", "emocion": "Happy", "texto": "Ese. Está con nosotros en la Cueva Diglett. Estamos en huelga: años cavando sin casco. Ahora ya tenemos casco, pero la huelga estaba empezada.", "sigue": "n2" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¡Mi suelo! …¿De Meowth? ¿Qué Meowth?", "sigue": "n1" },
+        "n1": { "quien": "huesped", "emocion": "Happy", "texto": "El del sindicato, el que habla. Está con nosotros en la Cueva Diglett, en huelga: años cavando sin casco. Ya tenemos casco, pero la huelga estaba empezada.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "La hucha es para la caja de resistencia. Lo que se pueda: una baya, una moneda. Meowth dice que un sindicato sin hucha es una tertulia.", "sigue": "mirar" },
         "mirar": { "quien": "manolo", "emocion": "Worried", "texto": "(Manolo se agacha disimulando, para ver qué hay debajo del Diglett. Solo ve tierra. Se agacha un poco más.)", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Qué hace? ¿Se le ha caído algo? (Se hunde un palmo, por si acaso.)", "opciones": [
           { "texto": "«Nada, nada. Toma, para la hucha»", "efectos": { "afinidad": 1 }, "sigue": "hucha" },
           { "texto": "«Perdona, chaval: ¿qué tienes ahí abajo?»", "sigue": "debajo" }
         ] },
-        "hucha": { "quien": "huesped", "emocion": "Happy", "texto": "(Clin.) ¡Gracias, compañero! Meowth ya me dijo que aquí había buena gente. Y que el dragón no está afiliado, pero simpatiza.", "sigue": "fin" },
+        "hucha": { "quien": "huesped", "emocion": "Happy", "texto": "(Clin.) ¡Gracias, compañero! Meowth dice que donde hay chimenea hay buena gente. Y que los dragones no se afilian, pero simpatizan.", "sigue": "fin" },
         "debajo": { "quien": "huesped", "emocion": "Worried", "texto": "¿Ahí abajo? Pues… lo de siempre. Más Diglett, supongo. Nunca lo he mirado. Me da vergüenza preguntar.", "sigue": "fin" },
         "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard intenta mirar también, alumbrando con la cola. Diglett se hunde del todo y asoma por el otro lado del comedor. Ya van dos agujeros." }
       }

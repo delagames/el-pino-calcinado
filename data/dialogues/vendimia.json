@@ -28,7 +28,7 @@
         "scyther5": { "quien": "scyther", "emocion": "Happy", "texto": "(Chis, chis, chis. Entre cuerno y cuerno, toca el chiflo: fiu-fiu-fiuuu.) Listo. Como nuevos. Gratis, anda. Por esta vez.", "sigue": "pinsir3" },
         "pinsir3": { "quien": "pinsir", "emocion": "Normal", "texto": "…Gracias. (Pausa.) El año que viene vendimiamos juntos otra vez. (Lo dice con el mismo ceño. Pero es otro ceño.)", "sigue": "tangela3" },
         "tangela3": { "quien": "tangela", "emocion": "Happy", "texto": "(Al ritmo del chiflo, Tangela sacude la melena arriba y abajo. Vuelan pámpanos por todo el comedor.) ¡Fiu-fiu-fiuuu! ¡Eso es heavy, tío!", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "A medianoche se van con la garrafa vacía. Charizard barre pámpanos hasta el alba. En el mostrador, Scyther ha dejado un chiflo de afilador, «para que nos llamen»." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "A medianoche se van con la garrafa vacía. Charizard barre pámpanos hasta el alba. Colgado de la puerta, Scyther ha dejado un chiflo de afilador, «para que nos llamen»." }
       }
     }
   ]

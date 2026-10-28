@@ -19,7 +19,7 @@
         "chistorra": { "quien": "huesped", "emocion": "Surprised", "texto": "Pregunto por el sentido de mi existencia y me da una chistorra. (La sostiene en el aire con la mente. La mira mucho rato. Se la come.)", "sigue": "respuesta" },
         "respuesta": { "quien": "huesped", "emocion": "Happy", "texto": "…Es una respuesta. No sé a qué pregunta. Pero es una respuesta.", "sigue": "fin" },
         "cueva": { "quien": "huesped", "emocion": "Normal", "texto": "Una cueva. Como la mía, en Celeste. Allí nadie me pregunta nada. Aquí tampoco, por lo visto. Me vale.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Mewtwo se mete en la cueva de la ladera; solo asoma la punta de la cola por la boca. Charizard pasa la noche fuera, sentado, mirándola. Por si acaso." }
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Mewtwo se mete en la cueva de la ladera; solo asoma la punta de la cola por la boca. Charizard pasa la noche fuera, sentado, mirándola. Sin pestañear." }
       }
     },
     {
@@ -57,7 +57,7 @@
         "n3": { "quien": "huesped", "emocion": "Happy", "texto": "En esta casa nadie me preguntó de dónde venía. Me preguntaron si había cenado. Era la pregunta buena.", "sigue": "taza" },
         "taza": { "quien": "manolo", "emocion": "Happy", "texto": "(Manolo saca una taza del armario. Con rotulador pone «MEWTWO».) Toma, para tu cueva. Aquí cada uno tiene la suya.", "sigue": "n4" },
         "n4": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Con mi nombre? (La coge con las dos manos. No con la mente: con las manos.) Nunca había tenido nada que no fuera un experimento.", "sigue": "n5" },
-        "n5": { "quien": "huesped", "emocion": "Normal", "texto": "Le diré una cosa, que yo veo un poco más allá. A su libro de visitas ya casi no le quedan huecos. Cuando se llene, pasará algo bueno.", "sigue": "n6" },
+        "n5": { "quien": "huesped", "emocion": "Normal", "texto": "Le diré una cosa, que yo veo un poco más allá. Su libro de visitas se va llenando. Cuando no le quede ni un hueco, pasará algo bueno.", "sigue": "n6" },
         "n6": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Algo bueno? ¿Como qué?", "sigue": "n7" },
         "n7": { "quien": "huesped", "emocion": "Happy", "texto": "Veo… una lluvia. Roja. Alargada. Y sus dos caras en un sitio rarísimo, envueltas en plástico. No le digo más. Ni yo lo entiendo.", "opciones": [
           { "texto": "«Ojalá sea lluvia de chistorra»", "efectos": { "afinidad": 1, "flags": { "mewtwo_taza": "lluvia" } }, "sigue": "lluvia" },
@@ -65,7 +65,7 @@
         ] },
         "lluvia": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard ha oído «lluvia», «roja» y «alargada» en la misma frase. Se le cae la baba. Hace un charquito en la entrada.", "sigue": "fin" },
         "todos": { "quien": "huesped", "emocion": "Happy", "texto": "Estarán. Lo he visto. Y yo también, a mi manera: con mi taza, en mi cueva, sabiendo que hay una casa donde me preguntan si he cenado.", "sigue": "fin" },
-        "fin": { "quien": "manolo", "emocion": "Happy", "texto": "(Al alba, Mewtwo se va flotando monte abajo, con la taza en las manos. En el libro, una firma: «Mewtwo. Hecho en un laboratorio. Desayunado aquí».)" }
+        "fin": { "quien": "manolo", "emocion": "Happy", "texto": "(Con la primera luz, Mewtwo se va flotando monte abajo, con la taza en las manos. En el libro, una firma: «Mewtwo. Hecho en un laboratorio. Desayunado aquí».)" }
       }
     }
   ]

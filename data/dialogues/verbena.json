@@ -23,7 +23,7 @@
           { "texto": "«Charizard, deja que te mire, hombre»", "efectos": { "afinidad": 1 }, "sigue": "mirar" },
           { "texto": "«¡Venga, esas campanadas, aunque sea octubre!»", "sigue": "campanadas" }
         ] },
-        "mirar": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard se sienta y deja la cola quieta, como una lamparita. Venomoth se pone a su lado, encantada. Venonat le gradúa la vista al dragón, por si acaso.", "sigue": "campanadas" },
+        "mirar": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard se sienta y deja la cola quieta, como una lamparita. Venomoth se pone a su lado, encantada. Venonat aprovecha para graduarle la vista al dragón.", "sigue": "campanadas" },
         "campanadas": { "quien": "doduo", "emocion": "Happy", "texto": "(Las dos cabezas, con capa de lentejuelas:) ¡Atentos, que vienen los cuartos! (Izquierda:) ¡Que no son los cuartos! (Derecha:) ¡Que sí!", "sigue": "bayas" },
         "bayas": { "quien": "manolo", "emocion": "Happy", "texto": "(Manolo reparte doce bayas por cabeza, que uvas no hay. Una por campanada. Doduo, que tiene dos bocas, se come veinticuatro.)", "sigue": "doduo4" },
         "doduo4": { "quien": "doduo", "emocion": "Surprised", "texto": "(Izquierda:) ¡Feliz año nuevo! (Derecha:) ¡Que estamos en octubre! (Izquierda:) ¡Pues feliz octubre! (Las dos:) …Nos ha salido perfecto.", "sigue": "dormida" },

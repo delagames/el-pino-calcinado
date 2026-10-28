@@ -30,7 +30,7 @@
         "ola": { "quien": "poliwrath", "emocion": "Happy", "texto": "¡Y para cerrar, el abuelo! (Poliwrath cruza el estanque más rápido que el mejor nadador humano y levanta una ola hasta la cocina.)", "sigue": "chimenea" },
         "chimenea": { "quien": "charizard", "emocion": "Surprised", "texto": "La ola apaga la chimenea. Silencio total. Charizard mira el fuego apagado, mira el estanque… y aplaude. Seel aplaude con él.", "sigue": "seel2" },
         "seel2": { "quien": "seel", "emocion": "Happy", "texto": "¡Ar, ar, ar! ¡Por fin uno que aplaude conmigo! ¡Tú te vienes de gira!", "sigue": "fin" },
-        "fin": { "quien": "manolo", "emocion": "Happy", "texto": "(A medianoche la furgoneta se va brillando. Charizard vuelve a encender la chimenea, aplaudiendo bajito todavía. En el mostrador queda un silbato de socorrista.)" }
+        "fin": { "quien": "manolo", "emocion": "Happy", "texto": "(A medianoche la furgoneta se va brillando. Charizard vuelve a encender la chimenea, aplaudiendo bajito todavía. Colgado del pino queda un silbato de socorrista.)" }
       }
     }
   ]

@@ -49,7 +49,7 @@
         ] },
         "posada": { "quien": "huesped", "emocion": "Happy", "texto": "¿Con casco y todo? (Se lo ajusta, muy digno.) Entonces somos tres y medio. Contando a mamá.", "sigue": "fin" },
         "madre": { "quien": "huesped", "emocion": "Happy", "texto": "(Se toca el casco y sonríe por debajo.) Entonces llevarla puesta no es ir triste. Es ir acompañado.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le chamusca los calcetines, muy poquito y a propósito. Cubone se ríe por primera vez. Al alba vuelve a Lavanda con el tarro, prometiendo volver a enseñar el calcetín." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le chamusca los calcetines, muy poquito y a propósito. Cubone se ríe por primera vez. Al alba vuelve a Lavanda con el tarro, prometiendo volver." }
       }
     },
     {
@@ -71,7 +71,7 @@
         "taper": { "quien": "huesped", "emocion": "Happy", "texto": "¿Tápers? (Se le quiebra un poco la voz.) Mamá decía que una casa se conoce por los tápers que te da al irte. Esta es de las buenas.", "sigue": "madre" },
         "quien": { "quien": "huesped", "emocion": "Normal", "texto": "Ella. Y los pequeños, que me van a cuidar sin saberlo. Ya os lo dije: en Lavanda somos de familias que no se van del todo.", "sigue": "madre" },
         "madre": { "quien": "huesped", "emocion": "Happy", "texto": "Sigo hablándole cada noche, ¿sabe? Pero ya no le pido nada. Solo le cuento qué tal el día. Hoy le contaré este.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al alba, Charizard le carga la mochila de tápers y le chamusca un calcetín, muy poquito, a propósito. Marowak se ríe bajito y se va hacia Lavanda." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al alba, Charizard le carga la mochila de tápers y le chamusca un calcetín, como la otra vez. Marowak se ríe bajito y se va hacia Lavanda." }
       }
     }
   ]

@@ -118,6 +118,11 @@ export class Actor {
   bounds() {
     const a = this.animData;
     const b = { x: this.x - a.fw / 2 + 4, y: this.y - FEET - a.fh / 2 + 4, w: a.fw - 8, h: a.fh / 2 + FEET - 2 };
+    if (this.clip) {
+      const [cx, cy, cw, ch] = this.clip;
+      const x0 = Math.max(b.x, cx), y0 = Math.max(b.y, cy), x1 = Math.min(b.x + b.w, cx + cw), y1 = Math.min(b.y + b.h, cy + ch);
+      return { x: x0, y: y0, w: Math.max(0, x1 - x0), h: Math.max(0, y1 - y0) };
+    }
     if (!this.buddy) return b;
     const bx = this.x + this.buddySide() * BUDDY_DX;
     const x0 = Math.min(b.x, bx - 8), x1 = Math.max(b.x + b.w, bx + 8);

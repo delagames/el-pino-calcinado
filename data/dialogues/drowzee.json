@@ -17,7 +17,7 @@
         "pase": { "quien": "huesped", "emocion": "Happy", "texto": "¡Faltaría más! Servilleta, cubiertos y cerrar la puerta al salir. Y si alguien ronca, no le corto el sueño, que es de mala educación.", "sigue": "noche" },
         "mios": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Los suyos? (Le mira la frente, muy interesado.) Más adelante. Los sueños del dueño se dejan para el final. Suelen ser muy… contundentes.", "sigue": "noche" },
         "noche": { "quien": "manolo", "emocion": "Normal", "texto": "(De madrugada, Manolo baja a por agua y ve a Drowzee pasillo arriba y pasillo abajo, con la libreta, como un camarero de los de antes.)", "sigue": "notas" },
-        "notas": { "quien": "huesped", "emocion": "Happy", "texto": "(En el desayuno, lee sus notas.) Snorlax: un banquete de siete platos, cinco estrellas. Charizard: chistorra. Todo chistorra. Tres estrellas, por monótono.", "sigue": "fin" },
+        "notas": { "quien": "huesped", "emocion": "Happy", "texto": "(En el desayuno, lee sus notas.) Habitación dos: un banquete de siete platos, cinco estrellas. Charizard: chistorra. Todo chistorra. Tres estrellas, por monótono.", "sigue": "fin" },
         "fin": { "quien": "charizard", "emocion": "Angry", "texto": "Charizard lee la nota por encima de su hombro y se ofende muchísimo. Esa noche sueña con chistorra a propósito. Con más chistorra que nunca." }
       }
     },
@@ -64,7 +64,7 @@
         "porche": { "quien": "manolo", "emocion": "Happy", "texto": "(Manolo sale al porche con la cachimbita, mira el monte un rato y la guarda. Decidido por él. Hypno apunta algo en la libreta y sonríe.)", "sigue": "sueno" },
         "dejada": { "quien": "manolo", "emocion": "Sigh", "texto": "(Manolo deja la cachimbita en la repisa de la chimenea, como un trofeo viejo.) Ahí se queda, para mirarla. Que mirar no es fumar.", "sigue": "sueno" },
         "sueno": { "quien": "huesped", "emocion": "Happy", "texto": "(Esa noche, con permiso, Hypno prueba un último sueño de Manolo y sale sonriendo.) La posada llena. Todas las luces encendidas. Cinco estrellas.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al alba, Hypno se va balanceando el péndulo, sin mirarlo. Charizard tampoco lo mira, por si acaso. Y se come una chistorra de más, por si acaso." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Por la mañana, Hypno se va balanceando el péndulo, sin mirarlo. Charizard tampoco lo mira. Y se come una chistorra de más, para comprobar que le sigue gustando." }
       }
     }
   ]

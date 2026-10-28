@@ -56,7 +56,7 @@
           { "texto": "«Escribídselo los tres en el libro de visitas»", "efectos": { "afinidad": 1, "flags": { "hermanoseevee_paz": "libro" } }, "sigue": "libro" }
         ] },
         "dile": { "quien": "huesped", "emocion": "Happy", "texto": "Se lo diré. Despacito, que Jolteon va muy rápido y Vaporeon se disuelve. Pero se lo diré. Y si no me escuchan, se lo esponjo.", "sigue": "fin" },
-        "libro": { "quien": "huesped", "emocion": "Happy", "texto": "¡En el libro! Así lo ve Eevee la próxima vez que pase. Y mis hermanos, en sus cartas, ya lo han firmado. Se han cansado de pelearse, dicen.", "sigue": "fin" },
+        "libro": { "quien": "huesped", "emocion": "Happy", "texto": "¡En el libro! Y le mandamos una foto a Eevee. Mis hermanos, en sus cartas, ya lo han firmado. Se han cansado de pelearse, dicen.", "sigue": "fin" },
         "fin": { "quien": "manolo", "emocion": "Happy", "texto": "(Al alba, en el libro de visitas hay tres huellas: una chamuscada y, pegadas de las cartas, una mojada y otra que da calambre.)", "sigue": "fin2" },
         "fin2": { "quien": "manolo", "emocion": "Happy", "texto": "(Debajo, con la letra de Flareon: «Para Eevee. Sé lo que quieras. O nada. Te queremos igual». Charizard le pone al lado un corazón de hollín.)" }
       }
