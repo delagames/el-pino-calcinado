@@ -98,6 +98,42 @@ function outside(c, fase, t, pond) {
   }
 }
 
+// El plano del toro (Tauros en la feria): solo el cielo, el cerro y su silueta negra de perfil,
+// como el toro de los carteles de carretera. Píxeles del toro al doble
+function planoToro(c, fase, t) {
+  const [top, low, mont] = SKY[fase] || SKY.noche;
+  rect(c, 0, 0, W, 40, top); rect(c, 0, 40, W, 40, low);
+  for (let y = 36; y < 44; y += 2) for (let x = (y / 2) % 2; x < W; x += 2) rect(c, x, y, 1, 1, low);
+  disc(c, 128, 20, 6, '#FFF3C7');
+  c.fillStyle = mont;
+  for (let x = 0; x < W; x++) { const h = Math.round(10 + 4 * Math.sin(x / 13) + 2 * Math.sin(x / 5)); c.fillRect(x, 66 - h, 1, h); }
+  // el cerro, redondo, y el césped de delante
+  for (let dy = 0; dy < 26; dy++) { const half = Math.round(70 * Math.sqrt(1 - ((26 - dy) / 26.5) ** 2)); rect(c, 80 - half, 54 + dy, half * 2, 1, dy < 2 ? '#7F9F4F' : '#5F7F3F'); }
+  for (let x = 14; x < 146; x += 9) rect(c, x, 58 + Math.round(Math.abs(x - 80) / 7) + (x % 3), 1, 2, '#4F6F37');
+  // el toro, quieto (solo se le mueve el rabo)
+  const k = 2, x0 = 80 - 15 * k, y0 = 55 - TORO.arte.length * k;
+  TORO.arte.forEach((r, dy) => [...r].forEach((ch, dx) => { if (ch === 'X') rect(c, x0 + dx * k, y0 + dy * k, k, k, '#100C14'); }));
+  if (Math.floor(t / 700) % 2) rect(c, x0 + 29 * k, y0 + 9 * k, k, k * 2, '#100C14');
+}
+const TORO = { arte: [
+  'X.....X.......................',
+  'X....X........................',
+  '.X..X.........................',
+  '..XXXX........................',
+  '..XXXXXXX.....................',
+  '.XXXXXXXXXXXXXXXXXXXXXX.......',
+  'XXXXXXXXXXXXXXXXXXXXXXXXX.....',
+  'XXXXXXXXXXXXXXXXXXXXXXXXXX...X',
+  '.XXXXXXXXXXXXXXXXXXXXXXXXXX.X.',
+  '..XXXXXXXXXXXXXXXXXXXXXXXXXX..',
+  '...XXXXXXXXXXXXXXXXXXXXXXXXX..',
+  '....XXXXXXXXXXXXXXXXXXXXXXX...',
+  '....XXXX..XX.......XXX.XXXX...',
+  '....XX....XX.......XX...XX....',
+  '....XX....XX.......XX...XX....',
+  '....X.....X........X.....X....',
+] };
+
 // El sombrero vaquero de los del Oeste, encima de la cabeza (k: lo que mide cada píxel)
 const SOMBRERO = ['....LLLLLL....', '...LBBBBBBL...', '...LBBBBBBL...', '...LDDDDDDL...', 'LLLLBBBBBBLLLL', 'LBBBBBBBBBBBBL', '.LLLLLLLLLLLL.'];
 function sombrero(c, x, y, k) {
@@ -367,6 +403,7 @@ export function createCounter(canvas) {
   let lugar = 'dentro';   // 'dentro' (mostrador), 'fuera' (frente al pino) o 'estanque'
   let decor = null;       // el decorado del evento (las excursiones), si lo hay
   let sinSombrero = false; // en el Oeste, cuando se lo quita (o se le vuela)
+  let silueta = false;     // de perfil y en negro sobre un cerro, como el toro de los carteles de carretera (Tauros)
 
   const ANIMS = ['Idle', 'Hop', 'Sleep'];
   let guestSprite = null, cabeza = null, fx = null;   // fx: la animación del momento («anim» de un nodo)
@@ -375,6 +412,7 @@ export function createCounter(canvas) {
     fase = f;
     lugar = l;
     decor = ESCENARIO[escenario] ? escenario : null;
+    silueta = false;
     fx = null;
     llora = false;
     const cs = await loadSprite('0006', ANIMS);
@@ -447,6 +485,8 @@ export function createCounter(canvas) {
   function drawFrame(t) {
     if (t - drawn < 30) return;   // ~30 fps bastan
     drawn = t;
+    // un plano aparte (el toro en el cerro): ocupa toda la escena y luego se vuelve a donde estábamos
+    if (silueta) { planoToro(c, fase, t); return; }
     if (lugar === 'dentro') backdrop(c, fase, t);
     else outside(c, fase, t, lugar === 'estanque' || decor === 'acuatico');
     if (decor) ESCENARIO[decor](c, t, fase);
@@ -491,5 +531,5 @@ export function createCounter(canvas) {
   }
 
   window.addEventListener('resize', () => running && resize());
-  return { open, close, speak, setGuest, sombrero: puesto => { sinSombrero = !puesto; } };
+  return { open, close, speak, setGuest, sombrero: puesto => { sinSombrero = !puesto; }, silueta: si => { silueta = !!si; } };
 }

@@ -13,7 +13,7 @@ import { runEntry } from './dialogue.js';
 import { createKitchen, loadRecipes } from './kitchen.js';
 import { loadGuestData, kantoVistos, pokedex } from './guests.js';
 import { loadDialogue } from './dialogue.js';
-import { setMood, setRain as rainSound, sfx, getPrefs, setMusic, setSfx, cry, cancion } from './audio.js';
+import { setMood, setRain as rainSound, sfx, getPrefs, setMusic, setSfx, cry, cancion, tarareo, sfxAnim } from './audio.js';
 
 const $ = sel => document.querySelector(sel);
 
@@ -105,12 +105,13 @@ function esc(s) {
 // Muestra quién habla, lo que dice y, si hay, las respuestas posibles
 let lastVoice = null;
 function dialog({ sprite, nombre, emotion = 'Normal', text, options = [], highlight = [], sub = '' }) {
-  // cuando empieza a hablar un Pokémon se le oye; Jigglypuff, si canta, canta de verdad
-  if (sprite !== lastVoice && sprite !== 'manolo') {
-    if (sprite === '0039' && /cant|tarare|canci/i.test(text)) cancion();
-    else if (sprite !== '0006' || /gr+r/i.test(text)) cry(sprite);
-  }
-  lastVoice = sprite;
+  // cuando empieza a hablar un Pokémon (o le cambia la cara) se le oye, con el tono de su emoción;
+  // si canta, canta de verdad (Jigglypuff y Wigglytuff, su nana; los demás, un tarareo)
+  const canta = sprite !== 'manolo' && /♪|\btararea\b|\(canta\b/i.test(text);
+  if (canta && (sprite === '0039' || sprite === '0040')) cancion();
+  else if (canta) tarareo(sprite);
+  else if (`${sprite}:${emotion}` !== lastVoice && sprite !== 'manolo' && (sprite !== '0006' || /gr+r/i.test(text))) cry(sprite, emotion);
+  lastVoice = `${sprite}:${emotion}`;
   const face = $('#dialog-face');
   // si ese Pokémon no tiene retrato para esa emoción, el normal
   face.onerror = emotion === 'Normal' ? null : () => { face.onerror = null; face.src = portraitUrl(sprite, 'Normal'); };
@@ -457,6 +458,8 @@ function charla(h, entry, sub, { mejoras = [], applyEffects = () => {}, onEnd })
       // en los grupos sale delante el que habla; «anim» hace su animación (se duerme, baila…)
       if (miembro) counter.setGuest(miembro.sprite);
       counter.sombrero(!/quita el sombrero|vuela el sombrero/i.test(node.texto));
+      counter.silueta(node.silueta);
+      if (node.anim) setTimeout(() => sfxAnim(node.anim), 250);   // y la animación suena
       counter.speak(node.quien, node.emocion, node.anim, node.anim_quien && node.anim_quien !== node.quien ? quienSprite(node.anim_quien) : null);
       const options = node.opciones
         ? node.opciones.map((o, i) => ({ label: o.texto, action: () => run.choose(i) }))
@@ -798,11 +801,28 @@ async function demo() {
   const html = '<p class="muted small">Lo nuevo, para verlo suelto. Aquí no se guarda nada en tu partida.</p>'
     + '<h4>Cocina</h4><p class="demo">' + [['kebab', 'Kebab de chistorra'], ['pescado', 'Sopa de pescado']].map(([id, n]) => `<button class="secondary" data-demo-cocina="${id}">${n}</button>`).join('') + '</p>'
     + '<h4>Eventos (por la mañana, cada uno con su decorado)</h4><p class="demo">' + grupos.map(g => `<button class="secondary" data-demo-evento="${g.id}">${esc(g.especie)}</button>`).join('') + '</p>'
-    + '<h4>Animaciones</h4><p class="demo"><button class="secondary" data-demo-anims>Verlas todas</button></p>';
+    + '<h4>Animaciones</h4><p class="demo"><button class="secondary" data-demo-anims>Verlas todas</button></p>'
+    + '<h4>Sonidos (cada uno: normal, contento y triste)</h4><p class="demo"><button class="secondary" data-demo-nana>La nana de Jigglypuff</button>'
+    + voces(data).map(v => `<button class="secondary" data-demo-grito="${v.sprite}">${esc(v.nombre)}</button>`).join('') + '</p>';
   card('demo', { title: 'Pruebas', html, button: 'Salir de las pruebas' });
   for (const b of document.querySelectorAll('[data-demo-cocina]')) b.addEventListener('click', () => demoCocina(b.dataset.demoCocina));
   for (const b of document.querySelectorAll('[data-demo-evento]')) b.addEventListener('click', () => demoEvento(grupos.find(g => g.id === b.dataset.demoEvento)));
   $('[data-demo-anims]').addEventListener('click', demoAnims);
+  $('[data-demo-nana]').addEventListener('click', () => cancion());
+  for (const b of document.querySelectorAll('[data-demo-grito]')) b.addEventListener('click', () => {
+    ['Normal', 'Happy', 'Sad'].forEach((e, i) => setTimeout(() => cry(b.dataset.demoGrito, e), i * 900));
+  });
+}
+// Todos los que hablan en el juego, una vez cada uno: huéspedes, sus evoluciones, acompañantes y grupos
+function voces(data) {
+  const out = new Map([['0006', 'Charizard']]);
+  for (const g of data.guests) {
+    if (g.cameo) { for (const m of g.miembros || []) out.set(m.sprite, m.especie); continue; }
+    out.set(g.sprite, g.hablante || g.especie);
+    if (/^\d+$/.test(g.acompanante || '')) out.set(g.acompanante, g.acompanante_especie || g.especie);
+    for (const e of g.evoluciones || []) out.set(e.sprite, e.hablante || e.especie);
+  }
+  return [...out].map(([sprite, nombre]) => ({ sprite, nombre })).sort((a, b) => a.sprite.localeCompare(b.sprite));
 }
 async function demoCocina(id) {
   const recipe = (await loadRecipes()).recipes.find(r => r.id === id);

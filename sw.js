@@ -1,6 +1,6 @@
 // Service worker: la posada se puede instalar como app y jugar sin conexión.
 // Primero intenta la red (así siempre se ve la última versión) y, si no hay, tira de la copia.
-const CACHE = 'el-pino-calcinado-v12';
+const CACHE = 'el-pino-calcinado-v15';
 const CORE = [
   "./",
   "index.html",

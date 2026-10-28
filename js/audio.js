@@ -264,10 +264,13 @@ export function sfx(name) {
 
 // ---------- gritos de los Pokémon y la canción de Jigglypuff ----------
 
-// Un tono que se desliza de f0 a f1 (y vuelta a f2 si se da), con vibrato opcional
+// Un tono que se desliza de f0 a f1 (y vuelta a f2 si se da), con vibrato opcional.
+// «tono» sube o baja todo el grito (según la emoción del que habla)
+let tono = 1;
 function sweep(f0, f1, start, dur, { type = 'square', vol = 0.12, f2 = null, vib = 0 } = {}) {
   const o = ctx.createOscillator(), g = ctx.createGain();
   o.type = type;
+  f0 *= tono; f1 *= tono; if (f2 != null) f2 *= tono;
   o.frequency.setValueAtTime(f0, start);
   if (f2 == null) o.frequency.exponentialRampToValueAtTime(f1, start + dur);
   else { o.frequency.exponentialRampToValueAtTime(f1, start + dur * 0.5); o.frequency.exponentialRampToValueAtTime(f2, start + dur); }
@@ -328,9 +331,63 @@ const CRIES = {
 };
 CRIES.marinilla = CRIES['0060'];
 
-export function cry(id) {
+// Los que no tienen grito hecho a mano (los nuevos, las evoluciones, los de los eventos) tienen uno
+// propio sacado de su número: siempre el mismo para cada uno y distinto entre ellos. Los más grandes
+// (número de evolución alto) suenan más graves
+function gritoDe(id) {
+  let h = 2166136261;
+  for (const ch of String(id)) h = Math.imul(h ^ ch.charCodeAt(0), 16777619) >>> 0;
+  const r = k => ((h >>> (k * 5)) & 31) / 31;
+  const base = 220 + r(0) * 620, tipo = ['triangle', 'square', 'sine', 'sawtooth'][Math.floor(r(1) * 4)];
+  const vol = tipo === 'sawtooth' ? 0.07 : tipo === 'square' ? 0.1 : 0.13;
+  switch (Math.floor(r(2) * 5)) {
+    case 0: return t => { sweep(base, base * 0.85, t, 0.12, { type: tipo, vol }); sweep(base * 1.2, base * 0.9, t + 0.16, 0.22, { type: tipo, vol }); };   // dos sílabas
+    case 1: return t => [0, 0.07, 0.14, 0.21].forEach(d => sweep(base, base * 1.1, t + d, 0.06, { type: tipo, vol }));                                     // trino
+    case 2: return t => sweep(base * 0.6, base * 0.4, t, 0.5, { type: tipo, vol, vib: 10 + r(3) * 20 });                                                    // gruñido
+    case 3: return t => sweep(base, base * 1.6, t, 0.3, { type: tipo, vol, vib: r(3) * 15 });                                                               // pío que sube
+    default: return t => [0, 0.13, 0.26].forEach((d, i) => sweep(base * (1 + (i === 2 ? 0.25 : 0)), base * 0.9, t + d, i === 2 ? 0.22 : 0.1, { type: tipo, vol }));   // tres sílabas, como su nombre
+  }
+}
+// cómo suena según la emoción: contento, más agudo; triste o enfadado, más grave
+const TONO = { Happy: 1.15, Joyous: 1.2, Inspired: 1.12, Surprised: 1.3, Worried: 1.05, Sad: 0.82, Crying: 0.78, 'Teary-Eyed': 0.85, Sigh: 0.85, Angry: 0.8, Pain: 0.9, Determined: 0.95 };
+
+export function cry(id, emotion = 'Normal') {
   if (!ensure() || !prefs.sfx) return;
-  (CRIES[id] || (t => sweep(500, 700, t, 0.15, { type: 'triangle', vol: 0.1 })))(ctx.currentTime + 0.02);
+  tono = TONO[emotion] || 1;
+  try { (CRIES[id] || (CRIES[id] = gritoDe(id)))(ctx.currentTime + 0.02); } finally { tono = 1; }
+}
+
+// Un tarareo corto con la voz de cada uno (los que cantan y no son Jigglypuff)
+export function tarareo(id) {
+  if (!ensure() || !prefs.sfx) return;
+  let h = 0;
+  for (const ch of String(id)) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
+  const base = 64 + (h % 12), t0 = ctx.currentTime + 0.05;
+  [0, 4, 7, 4, 9, 7].forEach((n, i) => sweep(MIDI(base + n), MIDI(base + n), t0 + i * 0.22, 0.2, { type: 'triangle', vol: 0.12, vib: 5 }));
+}
+
+// El sonido de cada animación de los eventos (se duerme, chispas, confeti…)
+export function sfxAnim(tipo) {
+  if (!ensure() || !prefs.sfx) return;
+  const t = ctx.currentTime + 0.02;
+  switch (tipo) {
+    case 'duerme': [0, 0.9].forEach(d => { sweep(110, 160, t + d, 0.5, { type: 'triangle', vol: 0.14, vib: 12 }); sweep(160, 90, t + d + 0.5, 0.35, { type: 'triangle', vol: 0.08 }); }); break;   // ronquido
+    case 'baila': [0, 0.15, 0.3, 0.45, 0.6, 0.75].forEach((d, i) => sweep(i % 2 ? 1500 : 1100, 700, t + d, 0.04, { type: 'square', vol: 0.08 })); break;   // tap, tap (claqué)
+    case 'gira': sweep(300, 900, t, 0.25, { type: 'sine', vol: 0.1, f2: 300 }); sweep(300, 900, t + 0.25, 0.25, { type: 'sine', vol: 0.1, f2: 300 }); break;
+    case 'salta': sweep(300, 900, t, 0.18, { type: 'square', vol: 0.1 }); break;
+    case 'tiembla': sweep(200, 200, t, 0.5, { type: 'triangle', vol: 0.1, vib: 60 }); break;
+    case 'corazones': [0, 4, 7, 12].forEach((n, i) => sweep(MIDI(79 + n), MIDI(79 + n), t + i * 0.09, 0.25, { type: 'sine', vol: 0.1 })); break;
+    case 'chispas': for (let i = 0; i < 5; i++) sweep(2400 - i * 200, 600, t + i * 0.05, 0.05, { type: 'sawtooth', vol: 0.06 }); break;
+    case 'fuego': sfx('fuego'); break;
+    case 'agua': sfx('agua'); break;
+    case 'humo': sweep(900, 300, t, 0.6, { type: 'sawtooth', vol: 0.03, vib: 80 }); break;
+    case 'estrellas': [0, 0.1, 0.2, 0.3].forEach((d, i) => sweep(MIDI(88 + i * 3), MIDI(88 + i * 3), t + d, 0.3, { type: 'sine', vol: 0.07 })); break;
+    case 'notas': [0, 2, 4, 7].forEach((n, i) => sweep(MIDI(72 + n), MIDI(72 + n), t + i * 0.18, 0.16, { type: 'triangle', vol: 0.1 })); break;
+    case 'sudor': sweep(1400, 700, t, 0.15, { type: 'sine', vol: 0.08 }); break;
+    case 'enfado': sweep(160, 120, t, 0.3, { type: 'square', vol: 0.12 }); sweep(150, 110, t + 0.32, 0.3, { type: 'square', vol: 0.12 }); break;
+    case 'flash': sfx('golpe'); break;
+    case 'confeti': sfx('cheer'); [0, 4, 7, 12].forEach((n, i) => sweep(MIDI(76 + n), MIDI(76 + n), t + 0.35 + i * 0.1, 0.3, { type: 'square', vol: 0.06 })); break;
+  }
 }
 
 // La nana de Jigglypuff: melodía propia en 3/4, dulce y con vibrato; la música baja mientras suena
