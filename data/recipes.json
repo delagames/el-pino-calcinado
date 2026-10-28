@@ -1,0 +1,157 @@
+{
+  "zonas": {
+    "suave": [
+      0.08,
+      0.42
+    ],
+    "media": [
+      0.36,
+      0.72
+    ],
+    "fuerte": [
+      0.66,
+      1.0
+    ]
+  },
+  "recipes": [
+    {
+      "id": "chistorra",
+      "nombre": "chistorra a la brasa",
+      "chistorra": 1,
+      "pasos": [
+        {
+          "texto": "¡Vuelta y vuelta! A la parrilla, y la vuelta cuando esté dorada."
+        }
+      ],
+      "preferidos": [
+        "growlithe",
+        "machop",
+        "eevee"
+      ],
+      "genero": "f",
+      "juego": "vuelta"
+    },
+    {
+      "id": "sopa",
+      "nombre": "sopa de bayas",
+      "pasos": [
+        {
+          "zona": "media",
+          "segundos": 2,
+          "texto": "Fuego medio para que arranque."
+        },
+        {
+          "zona": "suave",
+          "segundos": 3,
+          "texto": "Suave, suavecito, que no hierva."
+        },
+        {
+          "zona": "media",
+          "segundos": 2,
+          "texto": "Un poco más para templarla."
+        }
+      ],
+      "preferidos": [
+        "squirtle",
+        "jigglypuff",
+        "oddish"
+      ],
+      "genero": "f",
+      "juego": "llama"
+    },
+    {
+      "id": "pan",
+      "nombre": "pan tostado con miel",
+      "pasos": [
+        {
+          "texto": "Charizard tuesta el pan. Ahora la miel, por encima y sin chorrear."
+        }
+      ],
+      "preferidos": [
+        "jigglypuff",
+        "jynx"
+      ],
+      "genero": "m",
+      "juego": "miel"
+    },
+    {
+      "id": "estofado",
+      "nombre": "estofado de setas",
+      "pasos": [
+        {
+          "texto": "Primero las setas, en rodajas. ¡Ojo con los dedos!"
+        }
+      ],
+      "preferidos": [
+        "machop",
+        "bulbasaur"
+      ],
+      "genero": "m",
+      "juego": "setas"
+    },
+    {
+      "id": "zidra",
+      "nombre": "baya Zidra asada",
+      "pasos": [
+        {
+          "texto": "La baya al espetón. Que se dore por todos lados y fuera."
+        }
+      ],
+      "preferidos": [
+        "lapras"
+      ],
+      "genero": "f",
+      "juego": "espeton"
+    },
+    {
+      "id": "potaje",
+      "nombre": "potaje de garbanzos",
+      "juego": "potaje",
+      "ingredientes": [
+        "garbanzos",
+        "chorizo",
+        "patata",
+        "zanahoria"
+      ],
+      "pasos": [
+        {
+          "texto": "Marmita de potaje: garbanzos, chorizo, patata y zanahoria. Y nada más, ¿eh?"
+        }
+      ],
+      "preferidos": [
+        "machop",
+        "snorlax"
+      ],
+      "genero": "m"
+    },
+    {
+      "id": "pizza",
+      "nombre": "pizza familiar",
+      "juego": "pizza",
+      "chistorra": 1,
+      "pasos": [
+        {
+          "texto": "Una pizza familiar con chistorra. Primero, a amasar."
+        }
+      ],
+      "preferidos": [
+        "snorlax"
+      ],
+      "genero": "f"
+    },
+    {
+      "id": "tarta",
+      "nombre": "tarta de bayas",
+      "juego": "emplatar",
+      "pasos": [
+        {
+          "texto": "Tarta de bayas. Ahora a decorarla bonita, cada cosa en su sitio."
+        }
+      ],
+      "preferidos": [
+        "jigglypuff"
+      ],
+      "genero": "f"
+    }
+  ]
+}

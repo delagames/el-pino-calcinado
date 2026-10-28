@@ -1,0 +1,52 @@
+{
+  "id": "mrmime",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · un mimo que no se calla",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "¡Buenas! Mimo de profesión. Aunque con este Gobierno, el que no habla es porque no le dejan.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Los mimos no eran de no hablar?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Eso era antes. Antes de que Sánchez me subiera el IVA del maquillaje blanco. ¡Del maquillaje! ¿A dónde vamos a llegar?", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Y no me hable del Maduro ese, que habla con pajaritos. ¡Con pajaritos! Yo hablo con paredes invisibles, pero por lo menos cobro.", "opciones": [
+          { "texto": "Aquí no se habla de política", "efectos": { "afinidad": 1 }, "sigue": "nopolitica" },
+          { "texto": "Cuénteme, cuénteme", "sigue": "cuente" }
+        ] },
+        "nopolitica": { "quien": "huesped", "emocion": "Normal", "texto": "Muy bien dicho. Usted es de los míos: de orden. Me callo. …Pero que conste que me callo porque quiero, no porque me lo mande nadie.", "sigue": "fin" },
+        "cuente": { "quien": "huesped", "emocion": "Normal", "texto": "Pues verá, todo empezó con los impuestos, luego vino lo del Falcon, luego lo de las autonomías, luego…", "sigue": "cuente2" },
+        "cuente2": { "quien": "charizard", "emocion": "Sad", "texto": "Cuarenta minutos después, Charizard se ha quedado dormido de pie. Mr. Mime sigue por el siglo XIX.", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "Usted descanse, que mañana seguro que hay mucho de lo que quejarse." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · todo le parece mal",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "¿Diez monedas la noche? Esto con un Gobierno serio no pasaba. Antes por diez monedas te daban la cama, la cena y un pin.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Y el Charizard ese, ¿tiene los papeles en regla? Porque echa humo sin licencia, que lo he visto yo.", "sigue": "charizard" },
+        "charizard": { "quien": "charizard", "emocion": "Angry", "texto": "Charizard le echa una bocanada de humo a la cara. Con licencia o sin ella.", "opciones": [
+          { "texto": "Le invito a una chistorra si se calla cinco minutos", "efectos": { "afinidad": 1 }, "sigue": "trato" },
+          { "texto": "Charizard es de aquí de toda la vida", "sigue": "deaqui" }
+        ] },
+        "trato": { "quien": "huesped", "emocion": "Normal", "texto": "(Mr. Mime se lo piensa. Abre la boca. La cierra. Y por primera vez en años, hace mimo: se come una chistorra invisible con mucha ceremonia.)", "sigue": "trato2" },
+        "trato2": { "quien": "manolo", "emocion": "Happy", "texto": "¡Mira tú! Si es que lo hace bien y todo, cuando no habla.", "sigue": "fin" },
+        "deaqui": { "quien": "huesped", "emocion": "Normal", "texto": "Ah, bueno, si es de aquí de toda la vida, entonces es de los nuestros. Haberlo dicho antes.", "sigue": "fin" },
+        "fin": { "quien": "huesped", "emocion": "Normal", "texto": "Me voy a la cama. A ver si con el colchón por lo menos no hay que pagar un impuesto nuevo." }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · la función en el comedor",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Hoy os hago la función. En silencio. Como debe ser. Que ya está bien de que en este país hable todo el mundo.", "sigue": "funcion" },
+        "funcion": { "quien": "charizard", "emocion": "Surprised", "texto": "Mr. Mime atrapado en una caja invisible. Mr. Mime subiendo una escalera invisible. Mr. Mime con una pancarta invisible que, por la cara que pone, dice algo muy fuerte.", "sigue": "aplausos" },
+        "aplausos": { "quien": "manolo", "emocion": "Happy", "texto": "¡Bravo! ¡Bravísimo! Es lo mejor que he visto en años. Y lo más silencioso.", "sigue": "fin" },
+        "fin": { "quien": "huesped", "emocion": "Normal", "texto": "Gracias, gracias. Aquí se respeta el arte. No como en el Ministerio de Cultura. …Vale, ya me callo.", "efectos": { "flags": { "mrmime_funcion": true } } }
+      }
+    }
+  ]
+}

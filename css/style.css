@@ -1,0 +1,402 @@
+/* Interfaz en pixel art: marcos 9-slice de tools/build_ui.py (assets/ui), ya ampliados
+   ×3, y la fuente pixelada Jersey 10. Un píxel nativo de la interfaz = 3 px CSS. */
+@font-face {
+  font-family: 'Jersey 10';
+  src: url('../assets/ui/Jersey10-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  --noche: #1F2742;
+  --contorno: #100C14;
+  --marfil: #F4EFE6;
+  --brasa: #FFB347;
+  --suave: #A9B3D9;
+  --texto-oscuro: #1B2238;
+  --sombra-texto: #0B0F1E;
+  --px: 3px;
+  --bar-h: 156px;
+  --top-h: 56px;
+  --letra: 'Jersey 10', monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--noche);
+  color: var(--marfil);
+  font-family: var(--letra);
+  font-weight: 400;
+  font-size: 24px;
+  -webkit-font-smoothing: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img { image-rendering: pixelated; }
+
+#scene {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  touch-action: none;
+}
+
+.hidden { display: none !important; }
+.muted { color: var(--suave); }
+.small { font-size: 0.85rem; }
+
+h2 {
+  font-weight: 400;
+  margin: 0 0 6px;
+  font-size: 1.3rem;
+  color: var(--brasa);
+  text-shadow: var(--px) var(--px) 0 var(--sombra-texto);
+}
+
+/* ---------- marcos ---------- */
+.window {
+  border: 12px solid transparent;
+  border-image: url('../assets/ui/ventana.png') 12 fill / 12px stretch;
+}
+
+button {
+  font: inherit;
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: var(--marfil);
+  text-shadow: 0 var(--px) 0 rgba(16, 12, 20, 0.45);
+  background: none;
+  border: 12px solid transparent;
+  border-image: url('../assets/ui/boton.png') 12 fill / 12px stretch;
+  padding: 0 8px 2px;
+  min-height: 42px;
+  cursor: pointer;
+}
+button:hover { filter: brightness(1.1); }
+button:active { border-image-source: url('../assets/ui/boton-pulsado.png'); padding: 2px 8px 0; }
+button:focus-visible { outline: var(--px) solid var(--brasa); outline-offset: var(--px); }
+button.secondary, button.icon { border-image-source: url('../assets/ui/boton-secundario.png'); }
+button.secondary:active, button.icon:active { border-image-source: url('../assets/ui/boton-secundario-pulsado.png'); }
+button.icon { padding: 0 2px; font-size: 1.1rem; line-height: 1; min-height: 0; min-width: 44px; }
+
+/* ---------- pantallas a toda ventana ---------- */
+.screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 16px;
+  text-align: center;
+}
+
+#start {
+  background: rgba(16, 20, 38, 0.82);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  animation: fade-in 0.6s steps(6);
+}
+/* El logo es de 270×186 px nativos: se muestra a múltiplos enteros para no deformar los píxeles */
+.start-logo { width: 540px; max-width: 92vw; }
+@media (min-width: 900px) and (min-height: 760px) { .start-logo { width: 810px; } }
+#start-open { font-size: 1.35rem; padding: 0 20px 2px; }
+#start .small { text-shadow: 0 2px 0 var(--sombra-texto); }
+.notice {
+  position: absolute;
+  bottom: 10px;
+  left: 16px;
+  right: 16px;
+  font-size: 0.75rem;
+  color: rgba(169, 179, 217, 0.7);
+}
+
+#stub { background: rgba(16, 20, 38, 0.7); animation: fade-in 0.2s steps(4); z-index: 10; }
+.card { max-width: 440px; padding: 10px 14px 12px; }
+.card p { line-height: 1.45; margin: 0 0 16px; }
+
+/* ---------- vista A ---------- */
+.topbar {
+  position: fixed;
+  z-index: 2;
+  top: 0; left: 0; right: 0;
+  height: var(--top-h);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  pointer-events: none;
+}
+.topbar > * { pointer-events: auto; }
+.topbar-logo { width: 40px; height: 40px; }
+.day { font-size: 1.25rem; text-shadow: var(--px) var(--px) 0 var(--sombra-texto); }
+
+.stats { margin-left: auto; margin-right: 6px; font-size: 1rem; color: var(--brasa); text-shadow: var(--px) var(--px) 0 var(--sombra-texto); }
+
+/* ---------- cuadro de diálogo, abajo y centrado ---------- */
+.actions {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  min-height: var(--bar-h);
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 980px) 1fr;   /* el cuadro en el centro, Pasar el día a la derecha */
+  z-index: 3;   /* siempre por delante del mostrador y la cocina */
+  align-items: end;
+  gap: 12px;
+  padding: 0 12px calc(12px + env(safe-area-inset-bottom));
+}
+.actions .dialog { grid-column: 2; }
+.advance { grid-column: 3; justify-self: end; font-size: 1.05rem; }
+.book-button { font-size: 0.95rem; min-height: 0; padding: 0 6px 2px; }
+.dialog { display: flex; align-items: center; gap: 12px; padding: 0 6px 0 2px; width: 100%; min-width: 0; }
+/* Retrato de 40×40 a ×3, con marco de un píxel nativo */
+#dialog-face { width: 120px; height: 120px; flex: none; border: var(--px) solid var(--contorno); outline: var(--px) solid var(--brasa); }
+.dialog-body { min-width: 0; flex: 1; }
+#dialog-name { display: block; font-weight: 400; color: var(--brasa); font-size: 1.1rem; text-shadow: 0 2px 0 var(--sombra-texto); }
+#dialog-name { display: inline; margin-right: 8px; }
+#dialog-sub { font-size: 0.85rem; color: var(--suave); }
+#dialog-text { margin: 2px 0 0; font-size: 1.15rem; line-height: 1.35; }
+/* las respuestas van siempre abajo a la derecha del cuadro */
+.dialog { position: relative; }
+#dialog-options { display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-end; gap: 6px; flex: none; align-self: stretch; padding: 0 4px 2px; }
+#dialog-options:empty { display: none; }
+#dialog-options button { font-size: 1rem; min-height: 0; padding: 0 6px 2px; max-width: 280px; white-space: normal; text-align: center; line-height: 1.2; }
+
+/* ---------- vista B: el mostrador ---------- */
+#counter-view {
+  position: fixed;
+  /* cubre toda la pantalla; la escena se centra en el hueco que deja el cuadro de diálogo */
+  inset: 0; padding-bottom: var(--dlg-h, var(--bar-h));
+  display: flex; align-items: center; justify-content: center;
+  background: #100C14;
+  animation: fade-in 0.25s steps(4);
+}
+#counter-canvas, #kitchen-canvas { image-rendering: pixelated; }
+body.fullview .topbar { display: none; }
+body.fullview #counter-view, body.fullview #kitchen-view { background: #1B2238; }
+#kitchen-view {
+  position: fixed;
+  inset: 0; padding-bottom: var(--dlg-h, var(--bar-h));
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  background: #100C14;
+  touch-action: none; user-select: none;
+}
+#kitchen-canvas { cursor: pointer; }
+.kitchen-hint { margin: 0; padding: 0 12px; text-align: center; font-size: 0.9rem; color: var(--suave); }
+
+.card .total { color: var(--brasa); }
+.card { max-height: calc(100vh - 32px); overflow-y: auto; max-width: 560px; }
+.start-row { display: flex; gap: 8px; }
+.start-row button { font-size: 0.95rem; }
+
+/* tienda de mejoras en el fin del día */
+.shop-title { margin: 14px 0 4px; font-weight: 400; color: var(--brasa); }
+.shop { list-style: none; margin: 0 0 14px; padding: 0; text-align: left; }
+.shop li { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 4px 0; border-bottom: 1px dashed #3A4466; }
+.shop li div { min-width: 0; }
+.shop li strong { display: block; font-weight: 400; }
+.shop li span { display: block; font-size: 0.8rem; color: var(--suave); line-height: 1.3; }
+.shop li.done strong { color: var(--suave); }
+.shop .shop-group { color: var(--brasa); font-size: 0.9rem; border: none; padding-top: 8px; }
+.shop button { font-size: 0.9rem; min-height: 0; padding: 0 6px 2px; flex: none; }
+.shop button:disabled { filter: grayscale(1) brightness(0.7); cursor: default; }
+.owned { color: #6F9F4F; flex: none; }
+
+/* libro de visitas con pinta de Pokédex */
+#book { background: rgba(16, 20, 38, 0.8); z-index: 10; }
+.dex { width: min(920px, 100%); max-height: calc(100vh - 32px); display: flex; flex-direction: column; gap: 8px; padding: 0 10px 10px; }
+.dex-top { display: flex; align-items: center; gap: 8px; background: #C73F2F; margin: 0 -10px; padding: 8px 12px; border-bottom: var(--px) solid var(--contorno); }
+.dex-top h2 { margin: 0 0 0 8px; color: var(--marfil); }
+#book-count { margin-left: auto; color: var(--marfil); }
+.dex-light { width: 30px; height: 30px; background: #4FB7EF; border: var(--px) solid var(--contorno); outline: var(--px) solid var(--marfil); }
+.dex-dot { width: 12px; height: 12px; border: 2px solid var(--contorno); }
+.dex-dot.r { background: #FF5F5F; } .dex-dot.y { background: #FFD74F; } .dex-dot.g { background: #6FDF6F; }
+.dex-tabs { display: flex; gap: 6px; }
+.dex-tabs button { font-size: 0.95rem; min-height: 0; padding: 0 6px 2px; }
+.dex-tabs button.active { border-image-source: url('../assets/ui/boton.png'); }
+.dex-body { display: flex; gap: 12px; min-height: 0; flex: 1; overflow: hidden; text-align: left; }
+#book-list { list-style: none; margin: 0; padding: 0; width: 230px; flex: none; overflow-y: auto; }
+#book-list li { padding: 3px 6px; cursor: pointer; border: 2px solid transparent; }
+#book-list li.selected { border-color: var(--brasa); background: rgba(255, 179, 71, 0.12); }
+#book-list li.unseen { color: var(--suave); }
+#book-list .dexno { color: var(--brasa); }
+#book-detail { flex: 1; overflow-y: auto; padding-right: 4px; }
+#book-detail h3 { margin: 0 0 4px; font-weight: 400; color: var(--brasa); font-size: 1.3rem; }
+#book-detail h4 { margin: 12px 0 4px; font-weight: 400; color: var(--brasa); }
+#book-detail p { margin: 2px 0; line-height: 1.35; }
+.dex-card { display: flex; gap: 12px; align-items: center; }
+.dex-face { width: 120px; height: 120px; border: var(--px) solid var(--contorno); outline: var(--px) solid #B8C2E8; flex: none; }
+.dex-face.unseen { filter: brightness(0); }
+.types { display: flex; gap: 6px; }
+.type { padding: 0 6px; border: 2px solid var(--contorno); font-size: 0.85rem; background: #5F6777; }
+.type-fuego { background: #E2653F; } .type-agua { background: #4F8FAF; } .type-planta { background: #4F873F; }
+.type-lucha { background: #A7372F; } .type-hada { background: #E2577F; } .type-hielo { background: #6FAFD7; }
+.type-veneno { background: #7F4F9F; } .type-psiquico { background: #D74F8F; } .type-normal { background: #8F8F7F; }
+.reason { color: var(--suave); }
+.chapters { margin: 0; padding-left: 20px; }
+.recipes { list-style: none; margin: 0; padding: 0; }
+.recipes li { padding: 6px 0; border-bottom: 1px dashed #3A4466; }
+.recipes li strong { display: block; font-weight: 400; color: var(--marfil); }
+.recipes li span { display: block; font-size: 0.85rem; color: var(--suave); }
+.faces { display: flex; align-items: center; gap: 4px; font-size: 0.85rem; margin-top: 4px; }
+.faces img { width: 40px; height: 40px; border: 2px solid var(--contorno); }
+#book-close { align-self: center; }
+.book { margin: 0 0 16px; padding: 0 0 0 18px; text-align: left; line-height: 1.5; }
+
+/* ---------- escena de un encargo ---------- */
+#popup { background: rgba(16, 20, 38, 0.6); animation: fade-in 0.2s steps(4); z-index: 5; bottom: var(--bar-h); }
+.popup-card { padding: 8px 10px 12px; max-width: 420px; }
+/* La escena es de 128×64 píxeles nativos, a ×3 */
+#popup-canvas { display: block; width: 384px; height: 192px; image-rendering: pixelated; border: var(--px) solid var(--contorno); max-width: 100%; }
+#popup-close { margin-top: 10px; }
+
+#tooltip, #toast {
+  position: fixed;
+  color: var(--texto-oscuro);
+  border: 9px solid transparent;
+  border-image: url('../assets/ui/globo.png') 12 fill / 9px stretch;
+}
+#tooltip {
+  pointer-events: none;
+  padding: 0 4px;
+  font-size: 1rem;
+  white-space: nowrap;
+  transform: translate(-50%, calc(-100% - 14px));
+}
+#tooltip small { color: #6B7389; font-size: 0.9rem; }
+
+#toast {
+  left: 50%;
+  bottom: calc(var(--bar-h) + 12px);
+  transform: translateX(-50%);
+  padding: 2px 8px;
+  max-width: min(460px, calc(100vw - 32px));
+  text-align: center;
+  line-height: 1.4;
+  animation: fade-in 0.15s steps(3);
+}
+
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+.settings label { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+.settings input { width: 18px; height: 18px; accent-color: var(--brasa); }
+
+/* en el móvil se juega en vertical: en horizontal (pantallas bajas y táctiles), aviso de girarlo */
+#rotate { display: none; }
+@media (orientation: landscape) and (max-height: 500px) and (pointer: coarse) {
+  #rotate {
+    display: flex; position: fixed; inset: 0; z-index: 50;
+    flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+    background: var(--noche); text-align: center; padding: 24px;
+  }
+  #rotate img { animation: girar 2s steps(8) infinite; }
+}
+@keyframes girar { 0%, 30% { transform: rotate(0); } 60%, 100% { transform: rotate(-90deg); } }
+
+/* pantallas bajas en horizontal (móviles): cuadro y barra más compactos */
+@media (max-height: 500px) and (orientation: landscape) {
+  :root { --bar-h: 96px; --top-h: 40px; }
+  .topbar { padding: 2px 8px; }
+  .topbar-logo { width: 28px; height: 28px; }
+  .day { font-size: 0.95rem; }
+  .stats, .book-button { font-size: 0.8rem; }
+  #dialog-face { width: 80px; height: 80px; }
+  #dialog-text { font-size: 0.9rem; }
+  #dialog-options button { font-size: 0.85rem; }
+  .actions { padding-bottom: 4px; gap: 6px; }
+}
+
+/* Pantallas estrechas (el móvil se jugará en horizontal, fase 7): retrato a ×2 y botones abajo */
+@media (max-width: 760px) {
+  /* el botón de pasar el día va dentro del cuadro, abajo a la derecha: el cuadro no sube y la casa se ve entera */
+  :root { --bar-h: 168px; }
+  .actions:has(.advance:not(.hidden)) .dialog { padding-bottom: 40px; }
+  .advance { position: absolute; right: 24px; bottom: calc(24px + env(safe-area-inset-bottom)); z-index: 4;
+    font-size: 0.85rem; min-height: 32px; padding: 0 6px 2px; }
+  .advance:active { padding: 2px 6px 0; }
+  /* barra de arriba en dos filas: menú, día y libro; debajo, la caja y Charizard */
+  .topbar { height: auto; flex-wrap: wrap; row-gap: 0; padding: calc(4px + env(safe-area-inset-top)) 8px 4px; }
+  .topbar-logo { width: 32px; height: 32px; }
+  .topbar .stats { order: 5; flex-basis: 100%; margin: 0; text-align: left; line-height: 1.2; font-size: 0.75rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .topbar .day { font-size: 0.95rem; }
+  .topbar button.icon, .topbar .book-button { min-height: 36px; }
+  .book-button { margin-left: auto; }
+  .book-button .largo { display: none; }
+  /* en vertical, las respuestas van debajo del texto, a lo ancho */
+  .dialog { flex-wrap: wrap; row-gap: 6px; }
+  #dialog-options { flex-basis: 100%; flex-direction: row; flex-wrap: wrap; justify-content: flex-end; align-self: auto; padding: 0 0 4px; }
+  #dialog-options button { max-width: none; font-size: 0.85rem; min-height: 32px; padding: 0 5px 2px; }
+  #dialog-options { gap: 4px; }
+  .dialog #dialog-face { width: 64px; height: 64px; }
+  #start { justify-content: flex-start; padding-top: calc(16px + env(safe-area-inset-top)); overflow-y: auto; }
+  .notice { position: static; margin-top: auto; }
+  .actions { grid-template-columns: 1fr; gap: 6px; }
+  .actions .dialog, .advance { grid-column: 1; }
+  .book-button { font-size: 0.8rem; }
+  #dialog-face { width: 80px; height: 80px; }
+  #dialog-text { font-size: 0.95rem; }
+  .day { font-size: 1rem; }
+  .stats { font-size: 0.8rem; text-align: right; }
+}
+
+/* felicidad del huésped: cinco corazones de pixel art */
+.hearts { display: inline-flex; gap: 2px; vertical-align: -2px; margin: 0 2px; }
+.hearts i { width: 14px; height: 14px; background: url('../assets/ui/corazon-vacio.png') center / 100% no-repeat; image-rendering: pixelated; }
+.hearts i.on { background-image: url('../assets/ui/corazon.png'); }
+
+/* estrellas de la posada (fama), en pixel art */
+.stars { display: inline-flex; gap: 1px; vertical-align: -2px; margin-right: 4px; }
+.stars i { width: 14px; height: 14px; background: url('../assets/ui/estrella-vacia.png') center / 100% no-repeat; image-rendering: pixelated; }
+.stars i.on { background-image: url('../assets/ui/estrella.png'); }
+.fama { margin: 4px 0 8px; }
+
+/* la intro: escenas de pixel art con su texto */
+#intro { position: fixed; inset: 0; z-index: 50; background: #100C14; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 12px 16px; }
+#intro canvas { image-rendering: pixelated; border: 2px solid #3A3248; cursor: pointer; max-width: 100%; }
+/* cuadro de texto a lo Pokémon: blanco con doble borde y la flechita que parpadea */
+.intro-box { position: relative; width: min(760px, 100%); min-height: 6.4rem; padding: 8px 34px 10px 16px; text-align: left; cursor: pointer;
+  background: #F8F8F8; color: #283048; border: 4px solid #283048; box-shadow: inset 0 0 0 3px #F8F8F8, inset 0 0 0 6px #5F87C7; }
+.intro-who { display: block; color: #C73F2F; font-weight: 400; font-size: 1.05rem; line-height: 1.1; }
+.intro-text { margin: 0; font-size: 1.25rem; line-height: 1.3; }
+.intro-more { position: absolute; right: 12px; bottom: 6px; color: #C73F2F; font-size: 0.9rem; }
+.intro-buttons { display: flex; gap: 10px; }
+.pista { color: var(--brasa, #FFB347); margin-top: 4px; }
+
+/* fin del día: una fila por huésped */
+.resumen { list-style: none; margin: 0 0 10px; padding: 0; text-align: left; }
+.resumen li { display: flex; align-items: center; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #3A4466; }
+.resumen img { width: 60px; height: 60px; flex: none; border: 2px solid var(--contorno); outline: 2px solid #B8C2E8; }
+.resumen li > div:first-of-type { flex: 1; min-width: 0; }
+.resumen strong { font-weight: 400; color: var(--marfil); }
+.resumen span { display: block; font-size: 0.8rem; color: var(--suave); line-height: 1.25; }
+.resumen .hearts { display: inline-flex; }
+.resumen .gana { flex: none; display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+.resumen .gana b { font-weight: 400; color: var(--brasa); font-size: 1.3rem; line-height: 1; }
+.resumen .gana small { font-size: 0.75rem; color: var(--suave); }
+.resumen .fama-up { color: #FFD347 !important; }
+.resumen .fama-down { color: #E2653F !important; }
+.suceso { font-size: 0.9rem; margin: 4px 0 !important; color: var(--suave); }
+.card .total b { font-weight: 400; color: var(--brasa); }
+#to-shop { margin: 0 0 12px; }
+
+/* tienda: cabecera mínima, pestañas y la lista de esa pestaña */
+.shop-head { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 0 0 8px; color: var(--brasa); }
+.shop-head .stars i { width: 21px; height: 21px; }
+.shop-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; margin-bottom: 6px; }
+.shop-tabs button { font-size: 0.9rem; min-height: 0; padding: 0 6px 2px; }
+.shop-tabs button.active { border-image-source: url('../assets/ui/boton.png'); }
+.fama-chip { font-style: normal; font-size: 0.8rem; color: #FFD347; white-space: nowrap; }
+.fama-chip .stars { margin-right: 1px; }
+.fama-chip .stars i:not(.on) { display: none; }
+.shop li { padding: 8px 0; }
+.shop button { min-width: 64px; }
+.shop li .stars { display: inline-flex; vertical-align: -1px; }
+.shop li .fama-chip { margin-left: 4px; }
+#stub .card { width: min(560px, 100%); }

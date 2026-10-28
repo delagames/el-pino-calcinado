@@ -1,0 +1,113 @@
+{
+  "id": "machop",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · va camino de Ciudad Celeste",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Buenas! Mañana bajo a Ciudad Celeste. Voy a retar a Misty.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Llevo un mes rompiendo rocas. ¡Unas rocas enormes!", "opciones": [
+          { "texto": "¡Así se hace! A por ella", "efectos": { "afinidad": 1 }, "sigue": "animar" },
+          { "texto": "Misty usa tipo agua, ¿eh?", "sigue": "agua" },
+          { "texto": "Tú verás, chaval", "efectos": { "afinidad": -1 }, "sigue": "pasar" }
+        ] },
+        "animar": { "quien": "manolo", "emocion": "Happy", "texto": "¡Esa es la actitud! Mañana desayunas fuerte, que corre de mi cuenta.", "sigue": "fin1" },
+        "agua": { "quien": "manolo", "emocion": "Pain", "texto": "Agua… Mucha agua. Muchísima agua. (A Manolo se le cierra un ojo y le cae una gota.)", "sigue": "agua2" },
+        "agua2": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Está usted bien, señor?", "sigue": "agua3" },
+        "agua3": { "quien": "manolo", "emocion": "Sigh", "texto": "Sí, sí. Cosas mías. Tú rompe rocas, que eso nunca falla.", "sigue": "fin1" },
+        "pasar": { "quien": "huesped", "emocion": "Sad", "texto": "Ah… vale. Gracias igual.", "sigue": "fin1" },
+        "fin1": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard le mira los nudillos al Machop y asiente, muy serio. Respeto entre luchadores." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · vuelve del gimnasio",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Sad", "texto": "He perdido. Misty sacó a Starmie y me dejó empapado en diez segundos.", "opciones": [
+          { "texto": "Perder también es entrenar", "efectos": { "afinidad": 1 }, "sigue": "consuelo" },
+          { "texto": "Habrá que romper más rocas", "sigue": "rocas" },
+          { "texto": "¿Seguro que esto es lo tuyo?", "efectos": { "afinidad": -1 }, "sigue": "duda" }
+        ] },
+        "consuelo": { "quien": "manolo", "emocion": "Normal", "texto": "La primera vez que perdí me pasé tres días sin salir de casa. Al cuarto volví a la carga.", "sigue": "consuelo2" },
+        "consuelo2": { "quien": "huesped", "emocion": "Happy", "texto": "¿De verdad? Entonces me quedan dos días de pena y uno de descanso.", "sigue": "fin" },
+        "rocas": { "quien": "huesped", "emocion": "Normal", "texto": "Las rocas no tienen agua. Igual ese es el problema…", "sigue": "fin" },
+        "duda": { "quien": "huesped", "emocion": "Angry", "texto": "¡Claro que es lo mío! …Creo.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Sad", "texto": "Charizard le pasa una toalla seca. Sabe lo que es acabar empapado." }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3 },
+      "subtitulo": "Tercera visita · otra derrota",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Angry", "texto": "¡Otra vez! Esta vez aguanté un minuto entero antes de salir volando por la ventana.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Worried", "texto": "Señor, usted fue líder de gimnasio, ¿verdad? Lo pone en el cuadro del comedor.", "opciones": [
+          { "texto": "Sí. Hace mucho", "efectos": { "afinidad": 1 }, "sigue": "si" },
+          { "texto": "Eso es solo un cuadro", "sigue": "no" }
+        ] },
+        "si": { "quien": "manolo", "emocion": "Sigh", "texto": "Gimnasio de tipo fuego, en un pueblo pequeño. Ya no existe. Otro día te lo cuento.", "sigue": "fin" },
+        "no": { "quien": "huesped", "emocion": "Normal", "texto": "Ya… Pues tiene usted una medalla de fuego en un cuadro y una calva de líder retirado.", "sigue": "no2" },
+        "no2": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Calva de qué?", "sigue": "fin" },
+        "fin": { "quien": "huesped", "emocion": "Sad", "texto": "Voy a dormir. Mañana más rocas." }
+      }
+    },
+    {
+      "id": "v4",
+      "cuando": { "visita_min": 4 },
+      "subtitulo": "Cuarta visita · Manolo le cuenta lo suyo",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Sad", "texto": "Cuatro derrotas. Estoy pensando en dejarlo, señor.", "sigue": "historia" },
+        "historia": { "quien": "manolo", "emocion": "Sigh", "texto": "Siéntate. Te debo una historia. Mi gimnasio era de fuego. Y todo el que venía, venía con agua.", "sigue": "historia2" },
+        "historia2": { "quien": "manolo", "emocion": "Pain", "texto": "Squirtles, Psyducks, un Gyarados una vez… Año tras año. Del estrés se me cayó todo el pelo. Hasta las cejas.", "sigue": "historia3" },
+        "historia3": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Por eso es usted…? ¿Por eso no tiene…?", "sigue": "historia4" },
+        "historia4": { "quien": "manolo", "emocion": "Normal", "texto": "Por eso. Un día dije basta, cerré el gimnasio y me vine aquí con Charizard. Lo que te digo ahora es…", "opciones": [
+          { "texto": "«Dejarlo no es perder. Yo soy feliz aquí»", "efectos": { "flags": { "machop_consejo": "dejar" } }, "sigue": "dejar" },
+          { "texto": "«Aprendí a perder. Tú sigue, que tú puedes»", "efectos": { "flags": { "machop_consejo": "seguir" }, "afinidad": 1 }, "sigue": "seguir" }
+        ] },
+        "dejar": { "quien": "huesped", "emocion": "Normal", "texto": "Feliz… Nunca lo había pensado así. Lo consultaré con la almohada.", "sigue": "fin" },
+        "seguir": { "quien": "huesped", "emocion": "Happy", "texto": "¡Usted aguantó años de agua! Yo puedo aguantar a una Misty.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard suelta un resoplido de humo. Lleva años sin oír a Manolo hablar del gimnasio." }
+      }
+    },
+    {
+      "id": "v5",
+      "cuando": { "visita_min": 5 },
+      "subtitulo": "Quinta visita · tiene un plan",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Tengo un plan! Si los tipo agua me empapan, entreno bajo la cascada del monte.", "opciones": [
+          { "texto": "Eso es pensar", "efectos": { "afinidad": 1 }, "sigue": "bien" },
+          { "texto": "Te vas a resfriar", "sigue": "frio" }
+        ] },
+        "bien": { "quien": "manolo", "emocion": "Happy", "texto": "Si te acostumbras al agua, el agua ya no asusta. Ojalá se me hubiera ocurrido a mí.", "sigue": "fin" },
+        "frio": { "quien": "huesped", "emocion": "Normal", "texto": "Para eso está la chimenea de la posada, ¿no?", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Angry", "texto": "Charizard se aparta del Machop mojado. Por si acaso." }
+      }
+    },
+    {
+      "id": "v6-gana",
+      "cuando": { "visita_min": 6, "afinidad_min": 3, "flags": { "machop_consejo": "seguir" } },
+      "subtitulo": "Sexta visita · vuelve con algo en el puño",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "Señor… ¡Mire! ¡La medalla Cascada! ¡He ganado a Misty!", "sigue": "n2" },
+        "n2": { "quien": "manolo", "emocion": "Happy", "texto": "¡Ja! ¡Lo sabía! Esta noche cenas gratis. Chistorra para todos.", "sigue": "n3" },
+        "n3": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard levanta la cabeza de golpe al oír «chistorra para todos».", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Happy", "texto": "Usted me dijo que siguiera. Siempre que pase por aquí, me paro en El Pino Calcinado.", "efectos": { "afinidad": 1, "flags": { "machop_final": "gana" } } }
+      }
+    },
+    {
+      "id": "v6-deja",
+      "cuando": { "visita_min": 6 },
+      "subtitulo": "Sexta visita · ha tomado una decisión",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Señor, lo he decidido: dejo los gimnasios. No era lo mío, y no pasa nada.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "Voy a montar una escuela de romper rocas en el pueblo. Para críos. Sin agua.", "sigue": "n3" },
+        "n3": { "quien": "manolo", "emocion": "Happy", "texto": "Me parece de maravilla. Dejarlo no es perder: a mí me trajo hasta aquí.", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Happy", "texto": "Le guardo la primera plaza a Charizard, por si quiere dar clases de llamarada.", "efectos": { "flags": { "machop_final": "deja" } } }
+      }
+    }
+  ]
+}

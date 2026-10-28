@@ -1,0 +1,547 @@
+{
+  "residentes": [
+    {
+      "id": "charizard",
+      "especie": "Charizard",
+      "dex": 6,
+      "sprite": "0006"
+    },
+    {
+      "id": "manolo",
+      "especie": "Humano",
+      "nombre": "Manolo",
+      "sprite": "manolo"
+    }
+  ],
+  "guests": [
+    {
+      "id": "machop",
+      "especie": "Machop",
+      "dex": 66,
+      "sprite": "0066",
+      "razon": "Va al gimnasio de Ciudad Celeste a retar a Misty.",
+      "gustos": [
+        "chistorra a la brasa",
+        "estofado de setas"
+      ],
+      "aparece": {},
+      "arco": 6,
+      "pide": [
+        {
+          "tipo": "servicio",
+          "texto": "Hielo para los nudillos",
+          "hecho": "Charizard le acerca el hielo… y lo derrite sin querer. Manolo trae más.",
+          "quien": "charizard",
+          "gesto": "Sad",
+          "objeto": "hielo",
+          "dice": "¡Uf! ¿Tienes hielo? He entrenado contra una roca y tengo los nudillos hechos polvo.",
+          "recuerda": "¿Me traes ya el hielo? Los nudillos me laten."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Algo con mucha proteína",
+          "plato": "potaje de garbanzos",
+          "objeto": "plato",
+          "dice": "Mañana reto a Misty. Necesito algo con mucha proteína.",
+          "receta": "potaje",
+          "recuerda": "¿Hay algo de comer con proteína? Tengo un hambre de lobo."
+        }
+      ],
+      "tipos": [
+        "lucha"
+      ]
+    },
+    {
+      "id": "jigglypuff",
+      "especie": "Jigglypuff",
+      "dex": 39,
+      "sprite": "0039",
+      "razon": "No duerme y canta por las noches.",
+      "gustos": [
+        "pan tostado con miel",
+        "sopa de bayas"
+      ],
+      "aparece": {},
+      "arco": 3,
+      "pide": [
+        {
+          "tipo": "servicio",
+          "texto": "Leche caliente para la garganta",
+          "hecho": "Manolo le sube un vaso de leche con miel. Jigglypuff ensaya un «la» muy bajito.",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "objeto": "leche",
+          "dice": "Puff… ¿Hay leche caliente? Es para la garganta, por si luego canto un poquito.",
+          "recuerda": "¿Y la leche caliente? Se me está quedando la voz ronca."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Algo dulce",
+          "plato": "tarta de bayas",
+          "objeto": "plato",
+          "dice": "¿Tenéis algo dulce? Lo dulce me pone de buen humor.",
+          "receta": "tarta",
+          "recuerda": "¿Hay ya algo dulce?"
+        }
+      ],
+      "tipos": [
+        "normal",
+        "hada"
+      ],
+      "atrae": "farolillos"
+    },
+    {
+      "id": "snorlax",
+      "especie": "Snorlax",
+      "dex": 143,
+      "sprite": "0143",
+      "razon": "Llega, se queda y no se va nunca.",
+      "gustos": [
+        "todo"
+      ],
+      "aparece": {
+        "dia_min": 3,
+        "no_si": "snorlax_se_queda",
+        "estrellas": 2
+      },
+      "arco": 1,
+      "pide": [
+        {
+          "tipo": "comida",
+          "texto": "Comida. Toda.",
+          "plato": "pizza familiar",
+          "objeto": "plato",
+          "dice": "Comida. Toda.",
+          "receta": "pizza",
+          "recuerda": "…Comida."
+        }
+      ],
+      "tam": "grande",
+      "tipos": [
+        "normal"
+      ]
+    },
+    {
+      "id": "growlithe",
+      "especie": "Growlithe",
+      "dex": 58,
+      "sprite": "0058",
+      "razon": "Cliente fijo por la chistorra.",
+      "gustos": [
+        "chistorra a la brasa"
+      ],
+      "aparece": {},
+      "arco": 4,
+      "pide": [
+        {
+          "tipo": "comida",
+          "texto": "Chistorra. Mucha chistorra.",
+          "plato": "chistorra a la brasa",
+          "objeto": "chistorra",
+          "dice": "¡Guau! ¿Hay chistorra? ¡Mucha chistorra!",
+          "receta": "chistorra",
+          "recuerda": "¿Y mi chistorra? ¡Huele desde aquí!"
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Que le rasquen detrás de la oreja",
+          "hecho": "Manolo le rasca la oreja. Charizard mira la escena con mucha envidia.",
+          "quien": "charizard",
+          "gesto": "Angry",
+          "objeto": "mano",
+          "dice": "¿Me rascas detrás de la oreja? Solo un poquito… bueno, un muchito.",
+          "recuerda": "¿Me rascas ya la oreja? Solo un poquito."
+        }
+      ],
+      "tipos": [
+        "fuego"
+      ]
+    },
+    {
+      "id": "squirtle",
+      "especie": "Squirtle",
+      "dex": 7,
+      "sprite": "0007",
+      "razon": "Busca la habitación del estanque: le da miedo dormir sin agua cerca.",
+      "gustos": [
+        "sopa de bayas"
+      ],
+      "aparece": {},
+      "arco": 2,
+      "pide": [
+        {
+          "tipo": "servicio",
+          "texto": "Un barreño de agua junto a la cama",
+          "hecho": "Manolo le llena un barreño. Se le cierra un ojo y le cae una gota, pero lo sube igual.",
+          "quien": "manolo",
+          "gesto": "Pain",
+          "objeto": "barreno",
+          "dice": "¿Me podrías poner un barreño de agua junto a la cama? Es que sin agua cerca no duermo…",
+          "no_si_mejora": "estanque",
+          "recuerda": "¿Me pones ya el barreño junto a la cama?"
+        },
+        {
+          "tipo": "comida",
+          "texto": "Sopa de bayas templada",
+          "plato": "sopa de bayas",
+          "objeto": "plato",
+          "dice": "¿Hay sopa de bayas? Templada, por favor, que caliente me da cosa.",
+          "receta": "sopa",
+          "recuerda": "¿Y la sopa de bayas? Templadita, ¿eh?"
+        }
+      ],
+      "tipos": [
+        "agua"
+      ]
+    },
+    {
+      "id": "lapras",
+      "especie": "Lapras",
+      "dex": 131,
+      "sprite": "0131",
+      "razon": "Cuenta historias de otras regiones.",
+      "gustos": [
+        "baya Zidra asada"
+      ],
+      "aparece": {
+        "mejora": "estanque",
+        "estrellas": 2
+      },
+      "arco": 3,
+      "pide": [
+        {
+          "tipo": "comida",
+          "texto": "Algo para entrar en calor",
+          "plato": "baya Zidra asada",
+          "objeto": "plato",
+          "dice": "Vengo de muy lejos y el viento de la montaña es frío. ¿Algo para entrar en calor?",
+          "receta": "zidra",
+          "recuerda": "¿Tienes ya algo calentito?"
+        }
+      ],
+      "tipos": [
+        "agua",
+        "hielo"
+      ],
+      "tam": "agua"
+    },
+    {
+      "id": "oddish",
+      "especie": "Oddish",
+      "dex": 43,
+      "sprite": "0043",
+      "razon": "Trae una baya «milagrosa» para el pelo de Manolo.",
+      "gustos": [
+        "sopa de bayas"
+      ],
+      "aparece": {},
+      "arco": 2,
+      "pide": [
+        {
+          "tipo": "servicio",
+          "texto": "Una maceta con tierra para dormir plantado",
+          "hecho": "Manolo le prepara una maceta junto a la ventana. Oddish se planta, feliz.",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "objeto": "maceta",
+          "dice": "¿Me dejas una maceta con tierra? Duermo mejor plantado.",
+          "recuerda": "¿Y la maceta para dormir plantado?"
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un rato al sol de la ventana",
+          "hecho": "Manolo abre la contraventana. Oddish se queda quieto, tomando el sol.",
+          "quien": "manolo",
+          "gesto": "Normal",
+          "objeto": "sol",
+          "dice": "¿Puedo tomar el sol un rato en la ventana? Es mi desayuno.",
+          "recuerda": "¿Me abres la ventana para tomar el sol?"
+        }
+      ],
+      "tipos": [
+        "planta",
+        "veneno"
+      ]
+    },
+    {
+      "id": "mrmime",
+      "especie": "Mr. Mime",
+      "dex": 122,
+      "sprite": "0122",
+      "razon": "Un mimo que no se calla ni debajo del agua. Opina de todo, sobre todo de política.",
+      "gustos": [
+        "chistorra a la brasa"
+      ],
+      "aparece": {
+        "dia_min": 2,
+        "estrellas": 2
+      },
+      "arco": 3,
+      "tipos": [
+        "psiquico",
+        "hada"
+      ],
+      "pide": [
+        {
+          "tipo": "servicio",
+          "texto": "El periódico de hoy",
+          "objeto": "periodico",
+          "quien": "manolo",
+          "gesto": "Sigh",
+          "dice": "¿Tienes el periódico? Quiero ver qué ha liado hoy el Gobierno. Bueno, ya lo sé: algo malo.",
+          "hecho": "Manolo le trae el periódico. Mr. Mime lo lee en voz alta, con gestos y quejándose a cada página.",
+          "recuerda": "¿Y el periódico? Que me estoy perdiendo lo que ha liado hoy el Gobierno."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Chistorra, como Dios manda",
+          "plato": "chistorra a la brasa",
+          "receta": "chistorra",
+          "objeto": "chistorra",
+          "dice": "Ponme chistorra, que es de aquí de toda la vida y no esas modernidades que se comen ahora.",
+          "recuerda": "¿Y mi chistorra de toda la vida?"
+        }
+      ]
+    },
+    {
+      "id": "marina",
+      "especie": "Marinilla y su Poliwag",
+      "dex": 60,
+      "sprite": "marinilla",
+      "razon": "Entrenadora de tipo agua. Reconoce a Manolo y quiere que vuelva a ser líder una noche.",
+      "gustos": [
+        "sopa de bayas"
+      ],
+      "aparece": {
+        "dia_min": 4,
+        "estrellas": 2
+      },
+      "arco": 4,
+      "tipos": [
+        "agua"
+      ],
+      "pide": [
+        {
+          "tipo": "servicio",
+          "texto": "Un cubo de agua para Poliwag",
+          "objeto": "barreno",
+          "quien": "manolo",
+          "gesto": "Pain",
+          "dice": "¿Me das un cubo de agua para Poliwag? Se me reseca con el polvo del camino.",
+          "hecho": "Manolo llena un cubo para el Poliwag. Se le cierra un ojo, le cae una gota, y aun así le sonríe.",
+          "recuerda": "¿Me das el cubo de agua para Poliwag?"
+        },
+        {
+          "tipo": "comida",
+          "texto": "Algo de cuchara",
+          "plato": "estofado de setas",
+          "receta": "estofado",
+          "objeto": "plato",
+          "dice": "Algo de cuchara, si puede ser. Nos hemos pateado medio monte y Poliwag tiene hambre.",
+          "recuerda": "¿Hay ya algo de cuchara?"
+        }
+      ],
+      "acompanante": "0060",
+      "acompanante_especie": "Poliwag"
+    },
+    {
+      "id": "gengar",
+      "especie": "Gengar",
+      "dex": 94,
+      "sprite": "0094",
+      "razon": "Un fantasma gitano con mucho arte: atraviesa paredes, canta por bulerías y da sustos de cariño.",
+      "gustos": [
+        "pan tostado con miel"
+      ],
+      "aparece": {
+        "dia_min": 3,
+        "estrellas": 3
+      },
+      "arco": 2,
+      "tipos": [
+        "fantasma",
+        "veneno"
+      ],
+      "pide": [
+        {
+          "tipo": "servicio",
+          "texto": "Que le apaguen la vela",
+          "objeto": "vela",
+          "quien": "manolo",
+          "gesto": "Surprised",
+          "dice": "Mi arma, ¿me apaga usté la vela de la mesilla? Que con luz no hay quien duerma, y a mí me quita el duende.",
+          "hecho": "Manolo apaga la vela. En la oscuridad se oye un «¡gracias, primo!» y una risa que pone los pelos de punta. A Manolo no, que no tiene.",
+          "recuerda": "Primo, ¿me apagas ya la vela?"
+        },
+        {
+          "tipo": "comida",
+          "texto": "Pan con miel",
+          "plato": "pan tostado con miel",
+          "receta": "pan",
+          "objeto": "plato",
+          "dice": "¿Hay algo dulcecito? Un pan con miel, que los fantasmas también tenemos nuestro antojillo.",
+          "recuerda": "¿Y el pan con miel, mi arma?"
+        }
+      ]
+    },
+    {
+      "id": "larvitar",
+      "especie": "Larvitar",
+      "dex": 246,
+      "sprite": "0246",
+      "razon": "Viene con el corazón hecho escombros: su Gótica Culona lo ha dejado. Escribe poemas en las servilletas.",
+      "gustos": [
+        "tarta de bayas"
+      ],
+      "aparece": {
+        "dia_min": 3,
+        "estrellas": 2
+      },
+      "arco": 3,
+      "tipos": [
+        "roca",
+        "tierra"
+      ],
+      "pide": [
+        {
+          "tipo": "servicio",
+          "texto": "Pañuelos, muchos",
+          "objeto": "panuelos",
+          "quien": "manolo",
+          "gesto": "Sad",
+          "dice": "¿Tenéis pañuelos? Muchos. Un paquete no me llega ni para el primer recuerdo.",
+          "hecho": "Manolo le deja una caja de pañuelos entera. Larvitar la vacía antes de que se cierre la puerta.",
+          "recuerda": "…¿Y los pañuelos? Es que se me ha vuelto a acordar."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Algo dulce para el desamor",
+          "plato": "tarta de bayas",
+          "receta": "tarta",
+          "objeto": "plato",
+          "dice": "¿Hay algo dulce? Leí que el azúcar cura el desamor. Seguramente es mentira, pero por probar.",
+          "recuerda": "¿Y lo dulce? Es para el corazón, no para mí."
+        }
+      ]
+    },
+    {
+      "id": "jynx",
+      "especie": "Jynx",
+      "dex": 124,
+      "sprite": "0124",
+      "razon": "Folclórica de gira por Kanto. Viene a descansar la voz y a que nadie la mire. Que la miren, pero poco.",
+      "gustos": [
+        "pan tostado con miel"
+      ],
+      "aparece": {
+        "dia_min": 4,
+        "estrellas": 3
+      },
+      "arco": 3,
+      "tipos": [
+        "hielo",
+        "psiquico"
+      ],
+      "pide": [
+        {
+          "tipo": "servicio",
+          "texto": "Un abanico, que sale a escena",
+          "objeto": "abanico",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Tiene usted un abanico, mi arma? Una artista no sale ni al pasillo sin abanico.",
+          "hecho": "Manolo le trae un abanico. Jynx lo abre de golpe, se tapa media cara y dice «gracias» como quien saluda a un estadio.",
+          "recuerda": "¿Y mi abanico? Que me da el sofoco y no respondo."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Algo con miel para la garganta",
+          "plato": "pan tostado con miel",
+          "receta": "pan",
+          "objeto": "plato",
+          "dice": "Algo con miel, por favor, que mañana tengo que cantar y la garganta es mi Cantora.",
+          "recuerda": "¿Y lo de la miel? La voz no espera, mi arma."
+        }
+      ]
+    },
+    {
+      "id": "bulbasaur",
+      "especie": "Bulbasaur",
+      "dex": 1,
+      "sprite": "0001",
+      "razon": "Viene de las rías con «la planta» a cuestas. La planta es su bulbo. Él insiste en que no ha pasado nada.",
+      "gustos": [
+        "estofado de setas"
+      ],
+      "aparece": {
+        "dia_min": 3,
+        "estrellas": 2
+      },
+      "arco": 3,
+      "tipos": [
+        "planta",
+        "veneno"
+      ],
+      "pide": [
+        {
+          "tipo": "servicio",
+          "texto": "Una regadera para la planta",
+          "objeto": "regadera",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "Oiga, jefe. La planta necesita agua. Sin preguntas. ¿Tiene una regadera o algo discreto?",
+          "hecho": "Manolo le riega el bulbo con la regadera. Bulbasaur mira a los lados por si alguien lo ve. Nadie lo ve. Bueno, Charizard.",
+          "recuerda": "Jefe, lo del agua para la planta. Que se me pone mustia y luego hay que dar explicaciones."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Algo de monte, que no llame la atención",
+          "plato": "estofado de setas",
+          "receta": "estofado",
+          "objeto": "plato",
+          "dice": "Póngame algo de monte. Setas, por ejemplo. Lo que crece en la tierra no hace preguntas.",
+          "recuerda": "¿Y las setas, jefe? Tengo que estar en la lancha antes del amanecer."
+        }
+      ]
+    },
+    {
+      "id": "eevee",
+      "especie": "Eevee",
+      "dex": 133,
+      "sprite": "0133",
+      "razon": "No sabe en qué evolucionar. Depende de quién le guste esa semana, y le gusta todo el mundo.",
+      "gustos": [
+        "chistorra a la brasa"
+      ],
+      "aparece": {
+        "dia_min": 2,
+        "estrellas": 2
+      },
+      "arco": 3,
+      "tipos": [
+        "normal"
+      ],
+      "pide": [
+        {
+          "tipo": "servicio",
+          "texto": "Un espejo para ponerse guapa",
+          "objeto": "espejo",
+          "quien": "manolo",
+          "gesto": "Happy",
+          "dice": "¿Me traes un espejo, guapo? Quiero estar mona para cenar. Por si hay alguien interesante. Tú, por ejemplo.",
+          "hecho": "Manolo le deja un espejo. Eevee se mira, se guiña el ojo y luego se lo guiña a Manolo. Manolo se pone rojo como Charizard.",
+          "recuerda": "¿Y el espejo, guapetón? Que así no puedo ligar."
+        },
+        {
+          "tipo": "comida",
+          "texto": "Chistorra, de la que hace Charizard",
+          "plato": "chistorra a la brasa",
+          "receta": "chistorra",
+          "objeto": "chistorra",
+          "dice": "Dicen que la chistorra la hace Charizard con su propio fuego. Qué fuerte. Qué… caliente. Una, por favor.",
+          "recuerda": "¿Y mi chistorra? Dile a Charizard que la quiero hecha por él, con cariño."
+        }
+      ]
+    }
+  ]
+}

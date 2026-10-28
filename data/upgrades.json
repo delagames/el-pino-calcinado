@@ -1,0 +1,134 @@
+{
+  "upgrades": [
+    {
+      "id": "buhardilla",
+      "nombre": "Reparar la buhardilla",
+      "grupo": "Obras",
+      "precio": 60,
+      "puntos": 3,
+      "efecto": "Una habitación más, arriba del todo."
+    },
+    {
+      "id": "planta-2",
+      "nombre": "Construir la segunda planta",
+      "grupo": "Obras",
+      "precio": 160,
+      "puntos": 4,
+      "efecto": "Tres habitaciones nuevas: amarilla, morada y marrón."
+    },
+    {
+      "id": "planta-3",
+      "nombre": "Construir la tercera planta",
+      "grupo": "Obras",
+      "precio": 280,
+      "puntos": 5,
+      "requiere": "planta-2",
+      "efecto": "Tres habitaciones más: roja, azul y verde."
+    },
+    {
+      "id": "estanque",
+      "nombre": "Estanque",
+      "grupo": "Obras",
+      "precio": 90,
+      "puntos": 3,
+      "efecto": "Los tipo agua duermen en la charca. Atrae a Lapras y a Squirtle le encanta."
+    },
+    {
+      "id": "fogon-apoyo",
+      "nombre": "Fogón de apoyo",
+      "grupo": "Cocina",
+      "precio": 80,
+      "puntos": 1,
+      "efecto": "Cocinar es más fácil: zonas más anchas y la llama más quieta."
+    },
+    {
+      "id": "cerrojo",
+      "nombre": "Despensa con cerrojo",
+      "grupo": "Cocina",
+      "precio": 40,
+      "puntos": 0,
+      "efecto": "Ya casi no desaparece chistorra por la noche."
+    },
+    {
+      "id": "mas-chistorra",
+      "nombre": "Más chistorra",
+      "grupo": "Cocina",
+      "precio": 50,
+      "puntos": 0,
+      "efecto": "Dos chistorras más en cada paquete de la mañana."
+    },
+    {
+      "id": "chimenea",
+      "nombre": "Chimenea en recepción",
+      "grupo": "Comodidades",
+      "precio": 70,
+      "puntos": 2,
+      "efecto": "+2 de propina de los que se van a gusto. A Larvitar le encanta."
+    },
+    {
+      "id": "termal",
+      "nombre": "Baño termal",
+      "grupo": "Comodidades",
+      "precio": 150,
+      "puntos": 3,
+      "efecto": "Vienen más tipos fuego y roca."
+    },
+    {
+      "id": "jardin",
+      "nombre": "Jardín de bayas",
+      "grupo": "Comodidades",
+      "precio": 60,
+      "puntos": 2,
+      "efecto": "Vienen más tipos planta."
+    },
+    {
+      "id": "farolillos",
+      "nombre": "Farolillos en el alero",
+      "grupo": "Decoración",
+      "precio": 30,
+      "puntos": 1,
+      "efecto": "A Jigglypuff y a Gengar les encantan."
+    },
+    {
+      "id": "macetas",
+      "nombre": "Macetas en las ventanas",
+      "grupo": "Decoración",
+      "precio": 25,
+      "puntos": 1,
+      "efecto": "A Oddish y a Bulbasaur les encantan."
+    },
+    {
+      "id": "alfombra",
+      "nombre": "Alfombra roja en recepción",
+      "grupo": "Decoración",
+      "precio": 35,
+      "puntos": 1,
+      "efecto": "A Jynx y a Marinilla les encanta."
+    },
+    {
+      "id": "banderines",
+      "nombre": "Banderines en el comedor",
+      "grupo": "Decoración",
+      "precio": 20,
+      "puntos": 1,
+      "efecto": "A Mr. Mime y a Eevee les encantan."
+    },
+    {
+      "id": "cuadro",
+      "nombre": "El cuadro del gimnasio",
+      "grupo": "Decoración",
+      "precio": 40,
+      "puntos": 2,
+      "efecto": "A Machop y a Growlithe les encanta."
+    },
+    {
+      "id": "habitacion-grande",
+      "nombre": "Habitación grande",
+      "grupo": "Obras",
+      "precio": 0,
+      "puntos": 0,
+      "retirada": true,
+      "efecto": ""
+    }
+  ]
+}

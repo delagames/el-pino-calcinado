@@ -1,0 +1,58 @@
+{
+  "id": "growlithe",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · ha olido la chistorra desde el valle",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Guau! ¡Huele a chistorra desde el camino! ¿Es aquí? ¡Es aquí!", "sigue": "charizard" },
+        "charizard": { "quien": "charizard", "emocion": "Angry", "texto": "Charizard se pone delante de la despensa con los brazos cruzados.", "opciones": [
+          { "texto": "Aquí hay chistorra para todos", "efectos": { "afinidad": 1 }, "sigue": "todos" },
+          { "texto": "La chistorra es de Charizard", "sigue": "suya" }
+        ] },
+        "todos": { "quien": "charizard", "emocion": "Sad", "texto": "Charizard mira a Manolo como si le hubiera traicionado.", "sigue": "fin" },
+        "suya": { "quien": "huesped", "emocion": "Sad", "texto": "Ah… Bueno. Pues la huelo y ya.", "sigue": "fin" },
+        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "¡Volveré! ¡Y la próxima vez, la última chistorra es mía!" }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · la guerra de la última chistorra",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Angry", "texto": "¡Grrr! ¡Charizard se ha comido la última chistorra delante de mí! ¡Y me ha guiñado un ojo!", "sigue": "charizard" },
+        "charizard": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard se lame los dientes, muy satisfecho.", "opciones": [
+          { "texto": "Charizard, eso no se hace", "efectos": { "afinidad": 1 }, "sigue": "rina" },
+          { "texto": "Quien primero llega…", "sigue": "llega" }
+        ] },
+        "rina": { "quien": "charizard", "emocion": "Sad", "texto": "Charizard baja la cabeza. Un poquito. Muy poquito.", "sigue": "fin" },
+        "llega": { "quien": "huesped", "emocion": "Angry", "texto": "¡Mañana me levanto antes que él!", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "Madre mía, estos dos. Al final voy a tener que pedir el doble de chistorra." }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3 },
+      "subtitulo": "Tercera visita · madrugón",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Surprised", "texto": "Me he levantado a las cinco para pillar la chistorra… y Charizard ya estaba en la despensa. ¿Duerme ahí?", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "Duerme junto al fogón. Que es lo mismo que dormir en la despensa, pero con excusa.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Pues… la verdad es que es muy rápido. Y huele muy bien a brasa. Para ser un Charizard.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard levanta una ceja. Eso ha sonado casi a un piropo." }
+      }
+    },
+    {
+      "id": "v4",
+      "cuando": { "visita_min": 4 },
+      "subtitulo": "Cuarta visita · la chistorra a medias",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard sale de la cocina con la última chistorra… y la parte en dos con una garra.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Es… para mí? ¿La mitad?", "sigue": "n3" },
+        "n3": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard asiente y suelta una nubecilla de humo con forma de corazón. O de chistorra. No se sabe.", "sigue": "fin" },
+        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "¡Guau! ¡Amigos de chistorra! Desde hoy, la última siempre a medias.", "efectos": { "flags": { "growlithe_amigo": true }, "afinidad": 1 } }
+      }
+    }
+  ]
+}

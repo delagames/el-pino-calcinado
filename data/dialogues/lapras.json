@@ -1,0 +1,150 @@
+{
+  "id": "lapras",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": {
+        "visita_min": 1
+      },
+      "subtitulo": "Primera visita · viene de muy lejos",
+      "nodos": {
+        "inicio": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "Qué estanque tan bonito. Hacía lunas que no veía uno así de tranquilo.",
+          "sigue": "n2"
+        },
+        "n2": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Vengo de las islas del sur. Allí los Pokémon cantan cuando sube la marea. ¿Queréis que os cuente?",
+          "opciones": [
+            {
+              "texto": "Cuéntanos",
+              "efectos": {
+                "afinidad": 1
+              },
+              "sigue": "cuenta"
+            },
+            {
+              "texto": "Otro día, que hay faena",
+              "sigue": "fin"
+            }
+          ]
+        },
+        "cuenta": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "Dicen que si cantas bajito al mar, el mar te devuelve la canción a la mañana siguiente. Yo lo he visto.",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "manolo",
+          "emocion": "Pain",
+          "texto": "(Un Lapras. Tipo agua. Y hielo. A Manolo se le cierra un ojo, pero esta vez sonríe a la vez.)"
+        }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": {
+        "visita_min": 2
+      },
+      "subtitulo": "Segunda visita · pregunta por el pino",
+      "nodos": {
+        "inicio": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Ese tronco negro de la entrada… ¿Por qué se llama así la posada?",
+          "sigue": "manolo"
+        },
+        "manolo": {
+          "quien": "manolo",
+          "emocion": "Happy",
+          "texto": "¡Ah! El día que llegamos, Charizard estornudó. Y ¡fuuush! Pino calcinado. Así de simple.",
+          "sigue": "charizard"
+        },
+        "charizard": {
+          "quien": "charizard",
+          "emocion": "Worried",
+          "texto": "Charizard mira para otro lado y se rasca la cola. Demasiado rápido.",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Un estornudo… Qué curioso. En el sur se cuenta otra historia sobre un líder de fuego. Pero eso será otro día."
+        }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": {
+        "visita_min": 3,
+        "afinidad_min": 1
+      },
+      "subtitulo": "Tercera visita · la verdad del pino",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Te prometí la historia del sur. Va de un líder de fuego que perdió su último combate contra un Gyarados.",
+          "sigue": "n2"
+        },
+        "n2": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Esa misma noche, en lo alto de un monte, a su Charizard se le escapó una ventosidad tan grande que prendió un pino entero. Dicen que se oyó hasta en las islas.",
+          "sigue": "n3"
+        },
+        "n3": {
+          "quien": "manolo",
+          "emocion": "Sigh",
+          "texto": "…Fue un pedo. De los nervios del combate. El pino ardió entero y yo me quedé mirándolo hasta que se hizo de día.",
+          "sigue": "n4"
+        },
+        "n4": {
+          "quien": "manolo",
+          "emocion": "Normal",
+          "texto": "Lo del estornudo me lo inventé, que queda más digno. Pero tú ya lo sabías.",
+          "opciones": [
+            {
+              "texto": "«Gracias por contármelo»",
+              "efectos": {
+                "afinidad": 1
+              },
+              "sigue": "gracias"
+            },
+            {
+              "texto": "«Mejor seguimos con lo del estornudo»",
+              "sigue": "gracioso"
+            }
+          ]
+        },
+        "gracias": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "Las mejores posadas se levantan donde alguien decidió quedarse. Aunque fuera por un pedo.",
+          "sigue": "fin"
+        },
+        "gracioso": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "Entendido. Yo no diré nada. Bueno, igual a los Lapras del sur sí.",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "charizard",
+          "emocion": "Worried",
+          "texto": "Charizard se tapa la cara con las alas. Desde aquel día no puede mirar a un pino a los ojos.",
+          "efectos": {
+            "flags": {
+              "pino_verdad": true
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#1F2742">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Pino Calcinado">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>El Pino Calcinado</title>
+  <link rel="icon" type="image/svg+xml" href="assets/logo/icono.svg">
+  <link rel="apple-touch-icon" href="assets/logo/icono-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <canvas id="scene"></canvas>
+
+  <!-- Inicio -->
+  <section id="start" class="screen">
+    <img class="start-logo" src="assets/logo/logo-principal-transparente.svg" alt="El Pino Calcinado: Cachimbita, chistorra y a dormir">
+    <button id="start-open">Abrir la posada</button>
+    <button id="start-new" class="secondary hidden">Nueva partida</button>
+    <button id="start-story" class="secondary">Ver la historia</button>
+    <button id="start-full" class="secondary hidden">Pantalla completa</button>
+    <p id="ios-tip" class="muted small hidden">En iPhone, para jugar sin las barras de Safari: botón Compartir → «Añadir a pantalla de inicio», y ábrelo desde el icono.</p>
+    <div class="start-row">
+      <button id="start-export" class="secondary hidden">Exportar partida</button>
+      <button id="start-import" class="secondary">Importar partida</button>
+      <input id="import-file" type="file" accept="application/json,.json" hidden>
+    </div>
+    <p class="muted small">Pulsa Intro para entrar</p>
+    <div class="start-row settings">
+      <label><input id="opt-music" type="checkbox"> Música</label>
+      <label><input id="opt-sfx" type="checkbox"> Efectos</label>
+    </div>
+    <footer class="notice">Proyecto personal sin ánimo de lucro, no afiliado a Nintendo, Creatures ni GAME FREAK.</footer>
+  </section>
+
+  <!-- Vista A: la posada -->
+  <div id="hud" class="hidden">
+    <header class="topbar">
+      <button id="hud-menu" class="icon" title="Volver al inicio (Esc)">☰</button>
+      <img class="topbar-logo" src="assets/logo/logo-marca.svg" alt="">
+      <span id="day" class="day">Día 1 · mañana</span>
+      <span id="stats" class="stats"></span>
+      <button data-action="libro" class="secondary book-button">Libro<span class="largo"> de visitas</span></button>
+    </header>
+    <div class="actions">
+      <!-- Cuadro de diálogo: quien habla (huésped, Manolo o Charizard), lo que dice y tus respuestas -->
+      <section id="dialog" class="dialog window" aria-live="polite">
+        <img id="dialog-face" alt="" width="40" height="40">
+        <div class="dialog-body">
+          <strong id="dialog-name"></strong><span id="dialog-sub"></span>
+          <p id="dialog-text"></p>
+        </div>
+        <div id="dialog-options"></div>
+      </section>
+      <button id="advance" class="advance">Pasar al día</button>
+    </div>
+  </div>
+
+  <!-- Vista B: el mostrador, para las charlas -->
+  <section id="counter-view" class="hidden"><canvas id="counter-canvas" width="160" height="80"></canvas></section>
+
+  <!-- Vista C: la cocina -->
+  <section id="kitchen-view" class="hidden"><canvas id="kitchen-canvas" width="160" height="80"></canvas>
+    <p class="kitchen-hint">Mantén pulsado para avivar el fuego · suelta para bajarlo (o la barra espaciadora)</p></section>
+
+  <!-- Libro de visitas, con pinta de Pokédex, y recetario -->
+  <section id="book" class="screen hidden">
+    <div class="dex window">
+      <header class="dex-top"><span class="dex-light"></span><span class="dex-dot r"></span><span class="dex-dot y"></span><span class="dex-dot g"></span>
+        <h2>Libro de visitas</h2><span id="book-count"></span></header>
+      <nav class="dex-tabs"><button data-tab="libro" class="secondary">Huéspedes</button><button data-tab="recetario" class="secondary">Recetario</button></nav>
+      <div class="dex-body"><ul id="book-list"></ul><div id="book-detail"></div></div>
+      <button id="book-close">Volver a la posada</button>
+    </div>
+  </section>
+
+  <!-- Tarjeta del fin del día (con la tienda de mejoras) -->
+  <section id="stub" class="screen hidden">
+    <div class="card window">
+      <h2 id="stub-title"></h2>
+      <p id="stub-text"></p>
+      <button id="stub-back">Volver a la posada</button>
+    </div>
+  </section>
+
+  <!-- Escena de un encargo -->
+  <section id="popup" class="screen hidden">
+    <div class="window popup-card">
+      <canvas id="popup-canvas" width="128" height="64"></canvas>
+      <button id="popup-close">Seguir</button>
+    </div>
+  </section>
+
+  <!-- En el móvil se juega en vertical -->
+  <section id="rotate"><img src="assets/logo/logo-marca.svg" alt="" width="96" height="96">
+    <p>Gira el móvil: la posada se juega en vertical</p></section>
+
+  <div id="tooltip" class="hidden"></div>
+  <div id="toast" class="hidden"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+{
+  "id": "snorlax",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": {
+        "visita_min": 1
+      },
+      "subtitulo": "Primera visita · ocupa toda la puerta",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "…Comida.",
+          "sigue": "manolo"
+        },
+        "manolo": {
+          "quien": "manolo",
+          "emocion": "Surprised",
+          "texto": "Madre mía. No cabes por la puerta, hijo. Ni por la puerta ni en ninguna habitación.",
+          "sigue": "charizard"
+        },
+        "charizard": {
+          "quien": "charizard",
+          "emocion": "Worried",
+          "texto": "Charizard intenta empujarlo para dentro. Snorlax no se mueve ni un milímetro.",
+          "opciones": [
+            {
+              "texto": "Darle lo que sobró ayer",
+              "efectos": {
+                "afinidad": 1
+              },
+              "sigue": "come"
+            },
+            {
+              "texto": "«Aquí no hay sitio, lo siento»",
+              "sigue": "nosemueve"
+            }
+          ]
+        },
+        "nosemueve": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "…",
+          "sigue": "nosemueve2"
+        },
+        "nosemueve2": {
+          "quien": "manolo",
+          "emocion": "Sigh",
+          "texto": "No se va a mover, ¿verdad? Bueno. Charizard, saca lo que sobró ayer.",
+          "sigue": "come"
+        },
+        "come": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "(Snorlax se come las sobras, el pan, la fruta y un trapo de cocina que había cerca.)",
+          "sigue": "duerme"
+        },
+        "duerme": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "Zzz… zzz…",
+          "sigue": "decide"
+        },
+        "decide": {
+          "quien": "manolo",
+          "emocion": "Happy",
+          "texto": "Pues ya está. Se ha dormido junto al pino de la entrada. Desde hoy, el Snorlax es de la casa.",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "charizard",
+          "emocion": "Angry",
+          "texto": "Charizard mira el plato vacío de las sobras. Ahí había una chistorra que era suya.",
+          "efectos": {
+            "flags": {
+              "snorlax_se_queda": true
+            }
+          }
+        }
+      }
+    }
+  ]
+}

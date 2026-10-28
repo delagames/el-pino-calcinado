@@ -1,0 +1,202 @@
+{
+  "id": "squirtle",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": {
+        "visita_min": 1
+      },
+      "subtitulo": "Primera visita · el primer tipo agua de la posada",
+      "nodos": {
+        "inicio": {
+          "quien": "huesped",
+          "emocion": "Worried",
+          "texto": "Ho-hola. ¿Es aquí donde se puede dormir?",
+          "sigue": "tic"
+        },
+        "tic": {
+          "quien": "manolo",
+          "emocion": "Pain",
+          "texto": "(Un Squirtle. Tipo agua. A Manolo se le cierra un ojo y le cae una gota por la calva.)",
+          "sigue": "guardia"
+        },
+        "guardia": {
+          "quien": "charizard",
+          "emocion": "Angry",
+          "texto": "Charizard se pone en guardia, la cola en alto y humo saliéndole por la nariz.",
+          "opciones": [
+            {
+              "texto": "«Tranquilo, Charizard. Es un cliente»",
+              "efectos": {
+                "afinidad": 1
+              },
+              "sigue": "calma"
+            },
+            {
+              "texto": "Quedarte quieto, por si acaso",
+              "sigue": "quieto"
+            }
+          ]
+        },
+        "calma": {
+          "quien": "charizard",
+          "emocion": "Sad",
+          "texto": "Charizard baja la cola, refunfuña y se sienta. Pero no le quita ojo.",
+          "sigue": "pregunta"
+        },
+        "quieto": {
+          "quien": "huesped",
+          "emocion": "Surprised",
+          "texto": "¡Perdón, perdón! Ya me voy, si molesto…",
+          "opciones": [
+            {
+              "texto": "¡No, no! Pasa, por favor",
+              "efectos": {
+                "afinidad": 1
+              },
+              "sigue": "pregunta"
+            },
+            {
+              "texto": "Es que aquí somos de fuego",
+              "efectos": {
+                "afinidad": -1,
+                "se_va": true
+              },
+              "sigue": "fuego"
+            }
+          ]
+        },
+        "fuego": {
+          "quien": "huesped",
+          "emocion": "Sad",
+          "texto": "Ya… Siempre pasa lo mismo. Me buscaré otro sitio con agua cerca. Adiós."
+        },
+        "pregunta": {
+          "quien": "huesped",
+          "emocion": "Worried",
+          "texto": "¿Tienen una habitación con estanque? Es que me da miedo dormir sin agua cerca.",
+          "opciones": [
+            {
+              "texto": "No hay estanque, pero algo se nos ocurrirá",
+              "efectos": {
+                "afinidad": 1
+              },
+              "sigue": "barreño"
+            },
+            {
+              "texto": "¿Miedo? ¿Tú? Pero si eres de agua",
+              "sigue": "miedo"
+            }
+          ],
+          "si_mejora": {
+            "estanque": "estanque"
+          }
+        },
+        "miedo": {
+          "quien": "huesped",
+          "emocion": "Sad",
+          "texto": "Por eso. Sin agua me siento como un Magikarp en la arena.",
+          "sigue": "barreño"
+        },
+        "barreño": {
+          "quien": "manolo",
+          "emocion": "Normal",
+          "texto": "Aquí estanque no hay, pero algo se nos ocurrirá. Tú pide lo que necesites, que para eso estamos.",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "¡Gracias! Usted es el primer señor de fuego que no me echa."
+        },
+        "estanque": {
+          "quien": "huesped",
+          "emocion": "Surprised",
+          "texto": "¡¿Eso de ahí fuera es un estanque?! ¡Entonces puedo dormir con agua cerca! ¿Me dejáis quedarme en él?",
+          "sigue": "estanque2"
+        },
+        "estanque2": {
+          "quien": "manolo",
+          "emocion": "Pain",
+          "texto": "(A Manolo se le cierra un ojo.) Claro que sí. Para eso lo hicimos.",
+          "sigue": "fin"
+        }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": {
+        "visita_min": 2
+      },
+      "subtitulo": "Segunda visita · trae algo en el caparazón",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "¡He vuelto! Dormí genial la otra vez. Le he traído una cosa a Charizard.",
+          "sigue": "regalo"
+        },
+        "regalo": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Es una piedra lisa del río. Calentita si la dejas al sol. Para que no me tenga manía.",
+          "sigue": "charizard"
+        },
+        "charizard": {
+          "quien": "charizard",
+          "emocion": "Surprised",
+          "texto": "Charizard mira la piedra. Mira al Squirtle. Mira a Manolo.",
+          "opciones": [
+            {
+              "texto": "«Venga, Charizard, dale las gracias»",
+              "efectos": {
+                "afinidad": 1
+              },
+              "sigue": "gracias"
+            },
+            {
+              "texto": "Dejar que se apañen ellos",
+              "sigue": "gracias"
+            }
+          ]
+        },
+        "gracias": {
+          "quien": "charizard",
+          "emocion": "Happy",
+          "texto": "Charizard coge la piedra, la calienta con un poco de fuego y se la devuelve tibia. El Squirtle se la abraza.",
+          "sigue": "leccion"
+        },
+        "leccion": {
+          "quien": "manolo",
+          "emocion": "Happy",
+          "texto": "Mira tú. Los de agua también son clientes. Y de los buenos.",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "¡Hasta la próxima! Y cuando tengan estanque, ¡avíseme el primero!",
+          "efectos": {
+            "flags": {
+              "squirtle_amigo": true
+            }
+          },
+          "si_mejora": {
+            "estanque": "fin_estanque"
+          }
+        },
+        "fin_estanque": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "¡Hasta la próxima! Y la próxima, ¡derechito al estanque!",
+          "efectos": {
+            "flags": {
+              "squirtle_amigo": true
+            }
+          }
+        }
+      }
+    }
+  ]
+}

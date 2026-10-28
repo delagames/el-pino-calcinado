@@ -1,0 +1,40 @@
+{
+  "id": "gengar",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · sale de la pared",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Buuuh! ¡Ay, primo, que te he asustao! ¡Qué arte tiene usté con esa cara!", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¡Casi me da algo! ¿Se puede saber por dónde has entrado?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "Por la pared, mi arma, ¿por dónde va a ser? Yo soy gitano y fantasma, y a mucha honra: las puertas, pa' los payos y pa' los vivos.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Vengo de ver a la familia. Mi abuela, la Tía Remedios, que en paz descanse y no descansa nunca: se pasa las noches cantando en el cementerio del pueblo.", "opciones": [
+          { "texto": "Aquí tu familia también es bienvenida", "efectos": { "afinidad": 1 }, "sigue": "familia" },
+          { "texto": "Mientras no traigas sustos…", "sigue": "sustos" }
+        ] },
+        "familia": { "quien": "huesped", "emocion": "Happy", "texto": "¡Ay, gachó, que me vas a hacer llorar ectoplasma! Eso en mi casa se agradece toda la vida. Usté ya es de la familia, primo.", "sigue": "vela" },
+        "sustos": { "quien": "huesped", "emocion": "Happy", "texto": "Sustos, los justitos. Uno o dos. Tres como mucho, que es mi naturaleza y la de mi abuelo, que también era de Gengar y de fragua.", "sigue": "vela" },
+        "vela": { "quien": "huesped", "emocion": "Normal", "texto": "Eso sí: camita sin velas, que la luz me quita el duende. Y si hay algo de jalar, yo pago, ¿eh? Que el parné lo llevo en el pinrel, que es donde no se pierde.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard se ha escondido detrás del mostrador. Los fantasmas no son lo suyo." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · una juerga en el comedor",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Ya estoy aquí otra vez, primo! Esta noche me traigo la juerga, como en las bodas de mi gente: palmas, cante y un poquito de susto pa' animar.", "sigue": "charizard" },
+        "charizard": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard asoma la cabeza por detrás del mostrador. Esta vez solo tiembla un poco.", "opciones": [
+          { "texto": "«Charizard, que es buena gente»", "efectos": { "afinidad": 1 }, "sigue": "palmas" },
+          { "texto": "«Sin sustos, que se me desmaya el dragón»", "sigue": "palmas" }
+        ] },
+        "palmas": { "quien": "huesped", "emocion": "Happy", "texto": "¡Venga, chavó, échame unas palmas! ¡Así, así! ¡Pero qué compás tienes tú en esas garras, si pareces de los Montoya!", "sigue": "cante" },
+        "cante": { "quien": "huesped", "emocion": "Happy", "texto": "♪ Ay, que me voy pa' la posaaada, la del pino calcinaaao… ♪ Esto me lo enseñó mi abuelo, que decía que como Camarón no ha cantao nadie, ni vivo ni muerto. Y él de eso sabía.", "sigue": "juerga" },
+        "juerga": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard da palmas. Al principio con miedo. Luego con ganas. Al final, con una llamarada al compás que deja el comedor caliente como un horno.", "sigue": "fin" },
+        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "¡Olé! Esto es lo que yo camelo: una buena casa y buena gente. Aquí vuelvo, primo, y la próxima me traigo a la familia entera.", "efectos": { "flags": { "gengar_juerga": true } } }
+      }
+    }
+  ]
+}

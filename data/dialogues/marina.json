@@ -1,0 +1,241 @@
+{
+  "id": "marina",
+  "_nota": "Hilo largo de la sección 2: Marinilla insiste en que Manolo vuelva a ser líder por una noche. En la v4 se cierra: se ha echado novio y se le quitan las ganas de combatir (bandera marinilla_novio).",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": {
+        "visita_min": 1
+      },
+      "subtitulo": "Primera visita · le reconoce",
+      "nodos": {
+        "inicio": {
+          "quien": "huesped",
+          "emocion": "Surprised",
+          "texto": "Perdone… ¿Usted no es Manolo? ¿El líder del gimnasio de fuego de Pueblo Ceniza?",
+          "sigue": "manolo"
+        },
+        "manolo": {
+          "quien": "manolo",
+          "emocion": "Pain",
+          "texto": "(Una entrenadora con un Poliwag. Agua. A Manolo se le cierra un ojo.) Era. Hace mucho. Ahora llevo una posada.",
+          "sigue": "n2"
+        },
+        "n2": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "¡Lo sabía! Le vi combatir de pequeña. Por eso entreno tipo agua: ¡para algún día ganarle a usted! ¿Un combate, por los viejos tiempos?",
+          "opciones": [
+            {
+              "texto": "«Aquí: cachimbita, chistorra y a dormir»",
+              "efectos": {
+                "afinidad": 1
+              },
+              "sigue": "lema"
+            },
+            {
+              "texto": "«Ya no combato. Lo siento»",
+              "sigue": "no"
+            }
+          ]
+        },
+        "lema": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Cachimbita, chistorra y… Vale. Entendido. Pero no me rindo, ¿eh? Volveré.",
+          "sigue": "fin"
+        },
+        "no": {
+          "quien": "huesped",
+          "emocion": "Sad",
+          "texto": "Qué pena. Era usted el mejor. Aunque perdiera siempre contra el agua.",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "charizard",
+          "emocion": "Surprised",
+          "texto": "Charizard ha levantado la cabeza al oír «combate». Hacía años que no lo oía en esta casa."
+        }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": {
+        "visita_min": 2
+      },
+      "subtitulo": "Segunda visita · una propuesta",
+      "nodos": {
+        "inicio": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "Le traigo una propuesta. En Pueblo Ceniza van a hacer una fiesta. Quieren reabrir el gimnasio una sola noche. Con usted de líder.",
+          "sigue": "manolo"
+        },
+        "manolo": {
+          "quien": "manolo",
+          "emocion": "Sigh",
+          "texto": "Una noche… Con todos los de agua haciendo cola, ¿no? Ya me sé ese cuento.",
+          "sigue": "n2"
+        },
+        "n2": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Esta vez no va de ganar. La gente quiere verle. Dicen que nadie encendía el gimnasio como usted.",
+          "opciones": [
+            {
+              "texto": "«¿Y la posada? ¿Quién la lleva?»",
+              "sigue": "posada"
+            },
+            {
+              "texto": "«Charizard, ¿tú qué dices?»",
+              "efectos": {
+                "afinidad": 1
+              },
+              "sigue": "charizard"
+            }
+          ]
+        },
+        "posada": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Una noche se apaña cualquiera. Charizard sabe dar las llaves, ¿no? Y si no, se cierra un día y ya está.",
+          "sigue": "fin"
+        },
+        "charizard": {
+          "quien": "charizard",
+          "emocion": "Happy",
+          "texto": "Charizard suelta una llamarada al techo sin querer. Le brillan los ojos. Luego mira a Manolo y se encoge, por si acaso.",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "manolo",
+          "emocion": "Normal",
+          "texto": "Déjame pensarlo. Y deja de mirarme así, Charizard."
+        }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": {
+        "visita_min": 3,
+        "afinidad_min": 1
+      },
+      "subtitulo": "Tercera visita · hay que decidir",
+      "nodos": {
+        "inicio": {
+          "quien": "huesped",
+          "emocion": "Worried",
+          "texto": "La fiesta es pronto. Necesito una respuesta, Manolo. ¿Vuelve a ser líder una noche?",
+          "sigue": "pino"
+        },
+        "pino": {
+          "quien": "manolo",
+          "emocion": "Sigh",
+          "texto": "(Manolo mira por la ventana el pino calcinado de la entrada. Charizard no dice nada, pero no le quita ojo.)",
+          "opciones": [
+            {
+              "texto": "«Lo pensaré de verdad»",
+              "efectos": {
+                "flags": {
+                  "manolo_decide": "pensando"
+                }
+              },
+              "sigue": "pensar"
+            },
+            {
+              "texto": "«Dame hasta que florezcan los cerezos»",
+              "efectos": {
+                "flags": {
+                  "manolo_decide": "primavera"
+                }
+              },
+              "sigue": "pensar"
+            }
+          ]
+        },
+        "pensar": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "Con eso me vale. Volveré a por la respuesta. Y usted, Charizard, vaya calentando motores.",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "charizard",
+          "emocion": "Happy",
+          "texto": "Charizard se pasa la noche mirando el pino. Hace años que no estaba tan despierto."
+        }
+      }
+    },
+    {
+      "id": "v4",
+      "cuando": {
+        "visita_min": 4
+      },
+      "subtitulo": "Cuarta visita · viene acompañada",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "¡Manolo! Vengo a por la respuesta… Bueno, no. Vengo a otra cosa. Le presento a Rubén. Es socorrista. Nos conocimos en la piscina de Ciudad Celeste.",
+          "sigue": "manolo"
+        },
+        "manolo": {
+          "quien": "manolo",
+          "emocion": "Surprised",
+          "texto": "(Detrás de Marinilla asoma un chaval con bañador rojo y silbato, muy moreno. Saluda con la mano. A Manolo se le cierra un ojo, por si acaso.)",
+          "sigue": "n2"
+        },
+        "n2": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Lo del combate… Mire, ya no me apetece. Toda la vida entrenando para ganarle a usted y resulta que lo que me gustaba era el agua, no pelearme. Ahora damos clases de natación a Magikarp.",
+          "opciones": [
+            {
+              "texto": "«Me alegro muchísimo por ti, chiquilla»",
+              "efectos": {
+                "afinidad": 1,
+                "flags": {
+                  "marinilla_novio": "contenta"
+                }
+              },
+              "sigue": "alegro"
+            },
+            {
+              "texto": "«¿Y la fiesta del pueblo?»",
+              "efectos": {
+                "flags": {
+                  "marinilla_novio": "fiesta"
+                }
+              },
+              "sigue": "fiesta"
+            }
+          ]
+        },
+        "alegro": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "Gracias. De pequeña quería ser como usted. Ahora quiero ser como usted ahora: tranquila, con su posada y su gente.",
+          "sigue": "charizard"
+        },
+        "fiesta": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "Se hace igual, pero sin combate: usted pone la chistorra y Charizard enciende la hoguera. Rubén vigila que nadie se queme. Es su trabajo.",
+          "sigue": "charizard"
+        },
+        "charizard": {
+          "quien": "charizard",
+          "emocion": "Sad",
+          "texto": "Charizard suelta un suspiro de humo: se había hecho ilusiones con el combate. Poliwag le da una palmadita en la pata. Y luego otra, con la cola.",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "manolo",
+          "emocion": "Happy",
+          "texto": "Venga, pasad, que os doy la habitación de las vistas. Y tú, Rubén: aquí no se silba. Aquí cachimbita, chistorra y a dormir."
+        }
+      }
+    }
+  ]
+}

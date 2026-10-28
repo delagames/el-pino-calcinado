@@ -1,0 +1,48 @@
+{
+  "id": "jigglypuff",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · trae un micrófono",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Hola! ¿Aquí se puede cantar? Yo canto muy bajito. Casi nada. Un poquito.", "opciones": [
+          { "texto": "Canta lo que quieras", "efectos": { "afinidad": 1 }, "sigue": "si" },
+          { "texto": "Mejor de día, que de noche se duerme", "sigue": "dia" }
+        ] },
+        "si": { "quien": "huesped", "emocion": "Happy", "texto": "¡Bien! Esta noche os hago un concierto. Bajito, ¿eh?", "sigue": "fin" },
+        "dia": { "quien": "huesped", "emocion": "Worried", "texto": "De día… Vale. Lo intentaré. Es que de noche es cuando más me apetece.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard mira al Jigglypuff, mira el micrófono y bosteza muy despacio, como si ya tuviera sueño." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · los demás se quejan",
+      "nodos": {
+        "inicio": { "quien": "manolo", "emocion": "Sigh", "texto": "La otra noche cantaste hasta las cuatro. Medio comedor amaneció dormido en la sopa.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Sad", "texto": "Lo siento… Es que cuando dejo de cantar empiezo a pensar. Y pensar no me gusta.", "opciones": [
+          { "texto": "¿En qué piensas?", "efectos": { "afinidad": 1 }, "sigue": "piensa" },
+          { "texto": "Pues piensa bajito", "sigue": "bajito" }
+        ] },
+        "piensa": { "quien": "huesped", "emocion": "Sad", "texto": "En que todos se duermen cuando canto. Nadie me ha oído nunca terminar una canción.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "Pues mira: la próxima vez la cantas por la tarde, en el comedor, y Charizard y yo aguantamos despiertos hasta el final.", "sigue": "fin" },
+        "bajito": { "quien": "huesped", "emocion": "Worried", "texto": "Pensar bajito… Lo probaré.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard se pone dos bayas en las orejas. Por si acaso." }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 2 },
+      "subtitulo": "Tercera visita · la canción entera",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "¿Sigue en pie lo de escucharme hasta el final?", "sigue": "canta" },
+        "canta": { "quien": "huesped", "emocion": "Happy", "texto": "♪ Jiggly… jiggly… puuuff… ♪", "sigue": "aguanta" },
+        "aguanta": { "quien": "charizard", "emocion": "Pain", "texto": "Charizard aguanta los párpados con las garras. A Manolo se le cae la cabeza dos veces. Pero no se duermen.", "sigue": "final" },
+        "final": { "quien": "huesped", "emocion": "Happy", "texto": "¡La he terminado! ¡Alguien la ha oído entera! Ahora ya puedo dormir sin cantar.", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Happy", "texto": "Precioso. Y ahora, todos a la cama. Que mañana hay que madrugar.", "efectos": { "flags": { "jigglypuff_duerme": true } } }
+      }
+    }
+  ]
+}

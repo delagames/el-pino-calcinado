@@ -1,0 +1,53 @@
+{
+  "id": "bulbasaur",
+  "_nota": "Bulbasaur, de las rías, habla como el capo de una serie. El malentendido: «la planta» que lleva es su bulbo. Arco en tres visitas: la llegada sospechosa, el registro de Charizard y lo que traía de verdad (bandera bulbasaur_semillas).",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · aquí no ha pasado nada",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Buenas noches, jefe. Una habitación. Al fondo, sin ventanas a la carretera. Vengo con la planta y la planta necesita discreción.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Worried", "texto": "¿La… planta? Mire, chaval, esta es una casa decente. Aquí lo más fuerte que hay es la cachimba.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Angry", "texto": "¿Qué insinúa usted? Yo soy un Pokémon de bien. He venido en lancha por la ría y luego por el monte, como hacen los de bien. Aquí no ha pasado nada.", "opciones": [
+          { "texto": "«Mientras no me dé problemas, adelante»", "efectos": { "afinidad": 1 }, "sigue": "trato" },
+          { "texto": "«Enséñeme esa planta»", "sigue": "ensena" }
+        ] },
+        "trato": { "quien": "huesped", "emocion": "Happy", "texto": "Usted y yo nos vamos a entender, jefe. Un hombre que no hace preguntas vale más que una lancha nueva.", "sigue": "fin" },
+        "ensena": { "quien": "huesped", "emocion": "Normal", "texto": "(Bulbasaur se da la vuelta despacio y señala el bulbo que lleva a la espalda.) Esta es la planta. La llevo desde que nací. ¿Contento?", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard pasa la noche de guardia en el pasillo, con la llama de la cola muy bajita, como en las películas." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · el registro",
+      "nodos": {
+        "inicio": { "quien": "charizard", "emocion": "Angry", "texto": "Charizard le corta el paso en la puerta y le olisquea el bulbo, muy serio, como un perro de aduanas.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Angry", "texto": "¡Eh, eh! ¡Sin orden no se registra a nadie, carallo! Jefe, dígale al dragón que la planta está limpia.", "opciones": [
+          { "texto": "«Charizard, déjale, que es buena gente»", "efectos": { "afinidad": 1 }, "sigue": "deja" },
+          { "texto": "«Pues que olisquee, que no pasa nada»", "sigue": "olisquea" }
+        ] },
+        "deja": { "quien": "huesped", "emocion": "Happy", "texto": "Gracias, jefe. Para que vea que no hay nada raro: ahí dentro hay hojas, sol y un poco de rocío. Nada más. Bueno, y un caramelo de menta.", "sigue": "fin" },
+        "olisquea": { "quien": "huesped", "emocion": "Pain", "texto": "¡Que me hace cosquillas! ¡Vale, vale! ¡Huele a menta porque llevo un caramelo! ¡Es lo único que paso, lo juro por mi abuela!", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Manolo se lleva la mano a la frente. En el bulbo solo había un caramelo de menta. Charizard se lo ha comido, como prueba.)" }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · el último cargamento",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Jefe, le voy a confesar una cosa, que usted se ha portado. Lo que traigo en la lancha cada vez que vengo… es esto.", "sigue": "bolsa" },
+        "bolsa": { "quien": "huesped", "emocion": "Happy", "texto": "(Abre el bulbo y saca un saquito.) Semillas de baya de mi abuela, de la ría. Las paso a escondidas porque en Kanto dicen que son «de fuera». Fuera, fuera… Son semillas, home.", "opciones": [
+          { "texto": "«Plántalas junto al pino»", "efectos": { "afinidad": 1, "flags": { "bulbasaur_semillas": "pino" } }, "sigue": "pino" },
+          { "texto": "«Quédatelas, que son de tu abuela»", "efectos": { "flags": { "bulbasaur_semillas": "abuela" } }, "sigue": "abuela" }
+        ] },
+        "pino": { "quien": "huesped", "emocion": "Happy", "texto": "¿Junto al pino quemado? Allí la tierra tiene ceniza, y la ceniza es buen abono. Mi abuela diría que ahí crece hasta lo que no debe. Hecho, jefe.", "sigue": "fin" },
+        "abuela": { "quien": "huesped", "emocion": "Happy", "texto": "Usted es un señor. Pero le dejo una. Una sola. Si algún día le crece algo raro en el huerto… aquí no ha pasado nada.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le da un golpecito en el bulbo, como quien choca la mano. Desde hoy son socios. De qué, no lo sabe nadie." }
+      }
+    }
+  ]
+}

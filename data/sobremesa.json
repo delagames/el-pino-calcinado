@@ -1,0 +1,688 @@
+{
+  "_nota": "Lo que cuentan los huéspedes por la tarde en el comedor. «lineas» se dicen una por tarde, en orden y sin repetir hasta agotarlas; «gesto» es lo que se ve si vuelves a tocarlos la misma tarde. «plato» es lo que comentan de la comida si la pidieron. «parejas» son charlas entre dos huéspedes que coinciden en el comedor (una sola vez). «paseo» y «cuarto» son lo que se ve de quien no baja al comedor esa tarde.",
+  "plato": {
+    "perfecto": "¡Lo de antes estaba de escándalo! Dígale a Charizard que tiene manos de oro. Bueno, de fuego.",
+    "bien": "La comida, rica. Sin florituras, pero rica.",
+    "frio": "Lo de la despensa… pues mira, se come. Otro día, con fuego."
+  },
+  "huespedes": {
+    "machop": {
+      "lineas": [
+        {
+          "emocion": "Happy",
+          "texto": "¡Ciento doce flexiones antes de la cena! Y eso que hoy era día de descanso."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Misty tiene un Starmie que da miedo. Pero yo tengo unos bíceps que dan más."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "¿Usted cree que a Misty se le gana a puñetazos? Es que es lo único que sé hacer."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "Esta silla aguanta bien. En el último sitio rompí tres. Sin querer, ¿eh?"
+        }
+      ],
+      "gesto": "(Machop levanta la mesa con un brazo, por entrenar. Luego la deja con cuidado.)",
+      "paseo": "(Machop hace sentadillas junto al camino con una roca a la espalda. La roca parece cansada.)",
+      "cuarto": "(Machop hace flexiones en su cuarto. Se oye el suelo crujir en cada una.)"
+    },
+    "jigglypuff": {
+      "lineas": [
+        {
+          "emocion": "Happy",
+          "texto": "Puff… ¿Le canto algo? Solo una. Cortita. Prometo que esta vez no se duerme nadie."
+        },
+        {
+          "emocion": "Sad",
+          "texto": "Siempre que canto, la gente se duerme. Y yo me quedo sola con el micro. Puff…"
+        },
+        {
+          "emocion": "Normal",
+          "texto": "En este comedor hay buen eco. Para cantar, digo. Para nada más."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "Hoy he cantado al pino de la entrada. No se ha dormido. ¡Mi primer público despierto!"
+        }
+      ],
+      "gesto": "(Jigglypuff tararea bajito. A Charizard se le cierran los ojos junto al fogón.)",
+      "paseo": "(Jigglypuff canta bajito a las flores del camino. Las flores, de momento, aguantan despiertas.)",
+      "cuarto": "(Jigglypuff ensaya escalas en su cuarto. Desde el pasillo, Charizard bosteza.)"
+    },
+    "growlithe": {
+      "lineas": [
+        {
+          "emocion": "Happy",
+          "texto": "¡Guau! ¿Ese olor es chistorra? ¿No? ¿Seguro? Lo huelo igual."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Mi entrenador dice que como mucho. Yo digo que él come poco. Uno de los dos tiene razón."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "¡Me encanta esta posada! Huele a leña, a chistorra y a Charizard. Huele a casa."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "¿Charizard está enfadado conmigo? Le he olido la cola. Es que olía a brasa rica."
+        }
+      ],
+      "gesto": "(Growlithe persigue su propia cola debajo de la mesa. La pilla. Se sorprende.)",
+      "paseo": "(Growlithe persigue mariposas por el prado. No pilla ninguna. Le da exactamente igual.)",
+      "cuarto": "(Growlithe se ha quedado en su cuarto mordisqueando una zapatilla que nadie reclama.)"
+    },
+    "squirtle": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "Esto del comedor está bien. Aunque hay mucho tipo fuego por metro cuadrado."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "¿Charizard muerde? Lo pregunto por nada. Por saber."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "He visto el estanque desde la ventana. Algún día me bañaré ahí. Cuando sea valiente."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "En mi pueblo los Squirtle llevamos gafas de sol. Aquí no me atrevo: hay demasiada niebla."
+        }
+      ],
+      "gesto": "(Squirtle sorbe agua de un vaso muy despacio, sin quitarle ojo a Charizard.)",
+      "paseo": "(Squirtle pasea despacito, sin alejarse mucho del agua. Por si acaso.)",
+      "cuarto": "(Squirtle se ha quedado en su cuarto, al lado del barreño. Por si acaso.)"
+    },
+    "lapras": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "En las islas del sur la tarde dura más. El sol se queda a escuchar las olas."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "Una vez llevé a cuatro niños a cruzar el mar. Me cantaron todo el viaje. Desafinaban mucho."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Esta montaña es bonita. Pero echo de menos que algo se mueva debajo de mí."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "Manolo pone cara rara cuando me ve. Como si le doliera algo. Pero luego sonríe, que es lo que cuenta."
+        }
+      ],
+      "gesto": "(Lapras mira el atardecer por la ventana y canturrea algo muy antiguo.)",
+      "cuarto": "(Lapras se mece en el agua mirando el atardecer y canturrea algo muy antiguo.)"
+    },
+    "oddish": {
+      "lineas": [
+        {
+          "emocion": "Happy",
+          "texto": "¡La baya es milagrosa, de verdad! A mi tío le salió pelo en una semana. Bueno, hojas. Pero algo es algo."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "A esta hora es cuando mejor se está. El sol ya no quema y la tierra está calentita."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "Manolo no se ha frotado la baya en la cabeza, ¿verdad? Se le nota. Bueno, no se le nota nada."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "Si me riega un poquito antes de dormir, mañana le doy una flor. Trato hecho."
+        }
+      ],
+      "gesto": "(Oddish se ha medio enterrado en una maceta del comedor. Solo asoman las hojas.)",
+      "paseo": "(Oddish se ha plantado en la tierra junto al camino para tomar el último sol de la tarde.)",
+      "cuarto": "(Oddish se ha quedado en la maceta de su cuarto, medio dormido, con las hojas al sol de la ventana.)"
+    },
+    "mrmime": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "¿Usted ha visto el precio de la gasolina? Para venir aquí he tenido que hacer como que conducía. ¡Mimo, pero no tonto!"
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Esto antes era otra cosa. Antes había respeto, había valores, había mimos callados. Ahora mira."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Le digo yo que Sánchez y Maduro se ven a escondidas. ¿Pruebas? Ninguna. ¿Pero a que no me lo puede negar?"
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Esta posada es de lo poco que queda de la España de verdad. Chistorra, chimenea y nadie preguntándome los pronombres."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "A mí que no me hablen de regiones nuevas, de Galar ni de nada. Aquí hay ciento cincuenta y uno y punto. ¡Arriba Kanto!"
+        }
+      ],
+      "gesto": "(Mr. Mime hace como que lee un periódico invisible, resopla y, de repente, se pone en pie: «¡Arriba Kanto!». Luego se vuelve a sentar.)",
+      "paseo": "(Mr. Mime pasea haciendo como que empuja un muro invisible. Gruñe que «antes los muros eran más fuertes».)",
+      "cuarto": "(Mr. Mime escribe en su cuarto una carta al director del periódico. Va por la sexta página.)"
+    },
+    "marina": {
+      "lineas": [
+        {
+          "emocion": "Happy",
+          "texto": "Poliwag se ha encariñado con la posada. Ya no quiere volver a la Poké Ball."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "De pequeña tenía un póster suyo en la habitación, Manolo. Con Charizard y todo. Ahora parece mentira."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "¿Echa de menos los combates? No me conteste. Ya le veo mirar a Charizard cuando cree que nadie mira."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "Poliwag le ha echado un chorrito a Charizard sin querer. Charizard ni se ha inmutado. Qué temple."
+        }
+      ],
+      "gesto": "(Marinilla le seca la cabeza a Poliwag con una servilleta. Poliwag se deja, feliz.)",
+      "paseo": "(Marinilla y Poliwag pasean hasta el pino. Poliwag intenta apagar la brasa con un chorrito. No hay manera.)",
+      "cuarto": "(Marinilla repasa en su cuarto viejos recortes del gimnasio de Pueblo Ceniza.)"
+    },
+    "gengar": {
+      "lineas": [
+        {
+          "emocion": "Happy",
+          "texto": "¡Ay, qué rica la sobremesa, mi arma! En mi familia la sobremesa dura hasta el desayuno, con guitarra y palmas."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Mi primo el Haunter se casa en primavera. Boda gitana de tres días, primo. Está usté invitao, y el dragón también."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "Tengo una tía que lee la mano. A los fantasmas no, que no tenemos raya. Pero a usté se la leía de mil amores."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "Esta casa tiene duende, ¿eh? Y no lo digo por mí. Bueno, un poquito por mí."
+        }
+      ],
+      "gesto": "(Gengar se arranca por bulerías bajito y lleva el compás con los nudillos en la mesa.)",
+      "paseo": "(Gengar da una vuelta por fuera saludando a las piedras: dice que alguna es prima suya.)",
+      "cuarto": "(Gengar se ha quedado en su cuarto con la luz apagada, tocando las palmas bajito.)"
+    },
+    "larvitar": {
+      "lineas": [
+        {
+          "emocion": "Sad",
+          "texto": "¿Le importa si pongo una canción? Es de Camela. La nuestra. Bueno, la suya. Ya no es de nadie."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Mi madre dice que hay muchas Góticas en el mar. Yo le digo que las Góticas no nadan, mamá."
+        },
+        {
+          "emocion": "Sad",
+          "texto": "Me he comido una roca entera para no pensar. Es lo que hacemos los Larvitar. Sigo pensando."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "Hoy solo he llorado dos veces. Bueno, tres. La tercera fue por el atardecer, que es muy bonito aquí."
+        }
+      ],
+      "gesto": "(Larvitar escribe poemas en una servilleta y suspira tan fuerte que tiembla la mesa.)",
+      "paseo": "(Larvitar pasea solo, dando patadas a las piedras. Luego les pide perdón: son de su tipo.)",
+      "cuarto": "(Larvitar se ha encerrado en su cuarto con el disco de Camela. Se le oye llorar entre canción y canción.)"
+    },
+    "jynx": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "A mí la vida me ha dado muchas vueltas, mi arma. Pero yo, como el hielo: dura por fuera y fresquita por dentro."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Esta chistorra… esta chistorra es de las de antes. Se lo digo yo, que he comido en todos los camerinos de Kanto."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Una vez estuve una temporada encerrada, ¿sabe? En el Monte Plateado, de retiro. Mucha nieve y nada de cobertura. Lo pasé muy mal y salí muy guapa."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "¿Ve a ese de ahí? Me ha mirado. No me mires… Bueno, mírame un poco, que para eso me he pintado."
+        }
+      ],
+      "gesto": "(Jynx se abanica con mucho arte. Cada vez que alguien pasa, se tapa media cara y sonríe: «dientes, dientes».)",
+      "paseo": "(Jynx pasea por el camino cantando bajito. Las Pidgey se paran a escucharla en el pino.)",
+      "cuarto": "(Jynx ensaya en su cuarto delante del espejo. De vez en cuando se oye «¡olé!» y un taconazo.)"
+    },
+    "bulbasaur": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "Jefe, si pregunta alguien, yo llevo aquí desde el martes. Comiendo setas. Con usted."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "En mi tierra la planta crece sola. Aquí arriba hace frío, pero la ceniza del pino es buena. Eso lo noto."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "¿Fariña? Harina, jefe. En gallego es harina. Para el pan. ¿Qué se pensaba usted?"
+        },
+        {
+          "emocion": "Worried",
+          "texto": "Ese Squirtle de ahí… ¿no será de la Benemérita? Tiene caparazón de uniforme, ya le digo."
+        }
+      ],
+      "gesto": "(Bulbasaur se sienta de espaldas a la pared, mirando a la puerta. Por si acaso. Por si acaso qué, no lo dice.)",
+      "paseo": "(Bulbasaur toma el sol junto al pino quemado, con el bulbo bien abierto. Dice que es fotosíntesis, no un negocio.)",
+      "cuarto": "(Bulbasaur se ha encerrado en su cuarto. Se le oye hablar por teléfono en voz baja: «la lancha, a las cinco»)."
+    },
+    "eevee": {
+      "lineas": [
+        {
+          "emocion": "Happy",
+          "texto": "¿Has visto qué brazos tiene Machop? Cuatro no, ¿eh? Esos son los Machamp. Pero dos, bien puestos."
+        },
+        {
+          "emocion": "Happy",
+          "texto": "Charizard me ha guiñado un ojo. Bueno, a lo mejor era humo. Yo lo cuento como guiño."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Llevo tres piedras en la mochila: fuego, agua y trueno. Por si me enamoro de golpe. Hay que ir preparada."
+        },
+        {
+          "emocion": "Worried",
+          "texto": "Manolo, ¿tú crees que soy muy enamoradiza? …No contestes. Mejor guiña un ojo. Así. Uy, qué mono."
+        }
+      ],
+      "gesto": "(Eevee se pasea entre las mesas moviendo la cola. Ha dejado una servilleta con un corazón en cada sitio.)",
+      "paseo": "(Eevee pasea por el camino saludando a todo el que pasa. A uno le ha pedido el número. Era un Geodude.)",
+      "cuarto": "(Eevee se peina en su cuarto delante del espejo. Va por la quinta coleta. Ninguna la convence.)"
+    }
+  },
+  "parejas": [
+    {
+      "a": "mrmime",
+      "b": "gengar",
+      "lineas": [
+        [
+          "mrmime",
+          "Normal",
+          "¡Oiga! ¡Que este señor ha entrado por la pared! ¡Esto es un okupa de manual!"
+        ],
+        [
+          "gengar",
+          "Happy",
+          "¿Okupa yo, primo? Yo he pagao mi habitación y le he traído al Manolo un bizcocho de mi madre. Lo de la pared es costumbre."
+        ],
+        [
+          "mrmime",
+          "Normal",
+          "…Pues el bizcocho tiene buena pinta, no le voy a decir que no."
+        ],
+        [
+          "gengar",
+          "Happy",
+          "¡Eso! Siéntese, que se lo parto. En mi casa, el que se sienta a la mesa ya es familia."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Mr. Mime acaba la tarde dando palmas. Mal, pero dando palmas.)"
+        ]
+      ]
+    },
+    {
+      "a": "growlithe",
+      "b": "mrmime",
+      "lineas": [
+        [
+          "mrmime",
+          "Normal",
+          "Esto es chistorra de verdad, chaval. No como la que quieren traer de Bruselas, con sus normas y sus etiquetas."
+        ],
+        [
+          "growlithe",
+          "Surprised",
+          "¡Guau! ¿En Bruselas hay chistorra? ¿Está rica? ¿Me llevas?"
+        ],
+        [
+          "mrmime",
+          "Normal",
+          "…No es eso, hombre. Da igual. Toma, cómete la mía."
+        ],
+        [
+          "growlithe",
+          "Happy",
+          "¡Bruselas es lo mejor!"
+        ]
+      ]
+    },
+    {
+      "a": "growlithe",
+      "b": "squirtle",
+      "lineas": [
+        [
+          "growlithe",
+          "Happy",
+          "¡Hola! ¡Eres de agua! ¡Nunca he olido a uno de agua! ¿Puedo?"
+        ],
+        [
+          "squirtle",
+          "Worried",
+          "Prefiero que no… ¡Achís! Perdona. Me das un poco de calor."
+        ],
+        [
+          "growlithe",
+          "Surprised",
+          "¡Me has mojado el hocico! ¡Otra vez! ¡Otra vez!"
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Se pasan la tarde así: uno estornuda chispas y el otro las apaga. El suelo del comedor acaba encharcado.)"
+        ]
+      ]
+    },
+    {
+      "a": "machop",
+      "b": "jigglypuff",
+      "lineas": [
+        [
+          "jigglypuff",
+          "Happy",
+          "Puff… ¿Te canto algo mientras entrenas? Dicen que la música ayuda."
+        ],
+        [
+          "machop",
+          "Happy",
+          "¡Venga! ¡Ritmo para las flexiones! Una… dos… tre…"
+        ],
+        [
+          "machop",
+          "Sad",
+          "Zzz… zzz…"
+        ],
+        [
+          "jigglypuff",
+          "Angry",
+          "¡Otro más! ¡Puff! ¡Siempre igual!"
+        ]
+      ]
+    },
+    {
+      "a": "lapras",
+      "b": "marina",
+      "lineas": [
+        [
+          "marina",
+          "Surprised",
+          "¿Usted es el Lapras que cruza a la gente por el mar del sur? ¡Mi abuela me contaba historias suyas!"
+        ],
+        [
+          "lapras",
+          "Happy",
+          "Entonces tu abuela también cantaba desafinado. Me acuerdo de ella: una niña con un Poliwag."
+        ],
+        [
+          "marina",
+          "Happy",
+          "¡Era su Poliwag! Este es su nieto. Bueno, su bisnieto."
+        ],
+        [
+          "manolo",
+          "Normal",
+          "(Poliwag se sube al lomo de Lapras y ya no se baja en toda la tarde.)"
+        ]
+      ]
+    },
+    {
+      "a": "oddish",
+      "b": "gengar",
+      "lineas": [
+        [
+          "gengar",
+          "Normal",
+          "Oye, chiquillo, ¿esa baya de verdad hace crecer el pelo? Que al Manolo le hace falta un milagro."
+        ],
+        [
+          "oddish",
+          "Happy",
+          "¡Funciona! Hay que frotarla en la cabeza a la luz de la luna."
+        ],
+        [
+          "gengar",
+          "Happy",
+          "¡A la luz de la luna! Eso mi abuela lo hacía con el romero. Esta noche se la frotamos entre los dos, primo, mientras duerme."
+        ],
+        [
+          "manolo",
+          "Pain",
+          "(Manolo, que lo ha oído todo desde la barra, decide dormir esta noche con gorro.)"
+        ]
+      ]
+    },
+    {
+      "a": "larvitar",
+      "b": "jigglypuff",
+      "lineas": [
+        [
+          "jigglypuff",
+          "Happy",
+          "Puff… Te canto una de amor, ¿vale? Para animarte."
+        ],
+        [
+          "larvitar",
+          "Sad",
+          "Vale… pero que no sea de amor. Ni de desamor. Ni de nada que tenga que ver con caderas."
+        ],
+        [
+          "jigglypuff",
+          "Normal",
+          "Puff… Pues entonces una de rocas."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(A la segunda estrofa, Larvitar se ha dormido. Es la primera noche que duerme del tirón desde la ruptura.)"
+        ]
+      ]
+    },
+    {
+      "a": "larvitar",
+      "b": "gengar",
+      "lineas": [
+        [
+          "gengar",
+          "Normal",
+          "Primo, ¿qué te pasa, que tienes la cara más larga que un pasodoble?"
+        ],
+        [
+          "larvitar",
+          "Sad",
+          "Mi Gótica Culona me ha dejado. Dice que soy muy duro. ¡Soy tipo roca!"
+        ],
+        [
+          "gengar",
+          "Happy",
+          "¡Ay, mi arma! Las penas con arte son menos penas. Ven, que te enseño unas bulerías pa' llorar con compás."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Larvitar acaba la tarde dando palmas a destiempo. Pero las da con ganas.)"
+        ]
+      ]
+    },
+    {
+      "a": "mrmime",
+      "b": "larvitar",
+      "lineas": [
+        [
+          "mrmime",
+          "Normal",
+          "Mira, chaval: eso de las Góticas es una moda de fuera. Búscate una Pokémon de aquí, de toda la vida. Una Clefairy, una Chansey…"
+        ],
+        [
+          "larvitar",
+          "Sad",
+          "Yo soy de Johto, señor."
+        ],
+        [
+          "mrmime",
+          "Normal",
+          "…Bueno, nadie es perfecto. ¡Arriba Kanto!"
+        ]
+      ]
+    },
+    {
+      "a": "eevee",
+      "b": "growlithe",
+      "lineas": [
+        [
+          "eevee",
+          "Happy",
+          "Hola, perrito de fuego. ¿Siempre hueles así de bien o es la chistorra?"
+        ],
+        [
+          "growlithe",
+          "Surprised",
+          "¡Guau! ¿Yo? Es la chistorra. Bueno, a lo mejor un poco yo."
+        ],
+        [
+          "eevee",
+          "Happy",
+          "Si evoluciono en Flareon, ¿me llevas de paseo?"
+        ],
+        [
+          "growlithe",
+          "Happy",
+          "¡Te llevo aunque no evoluciones! ¡Y te doy media chistorra! …Un cuarto. Un cuarto de chistorra."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Growlithe mueve tanto la cola que tira dos vasos. Nadie se lo tiene en cuenta.)"
+        ]
+      ]
+    },
+    {
+      "a": "mrmime",
+      "b": "jynx",
+      "lineas": [
+        [
+          "mrmime",
+          "Normal",
+          "¡Usted es la de la tele! ¡Esto sí que es arte, y no lo de ahora! ¡Esto es Kanto de verdad!"
+        ],
+        [
+          "jynx",
+          "Normal",
+          "Ay, qué hombre más salao. ¿Y usted a qué se dedica, mi arma?"
+        ],
+        [
+          "mrmime",
+          "Normal",
+          "Soy mimo. Pero de los de antes. De los que no hablan… casi nunca."
+        ],
+        [
+          "jynx",
+          "Normal",
+          "Pues haga como que me trae un vaso de agua, que me ha dado la emoción."
+        ],
+        [
+          "manolo",
+          "Sigh",
+          "(Mr. Mime le trae un vaso invisible. Jynx se lo bebe entero. Manolo, por si acaso, trae uno de verdad.)"
+        ]
+      ]
+    },
+    {
+      "a": "jigglypuff",
+      "b": "jynx",
+      "lineas": [
+        [
+          "jigglypuff",
+          "Happy",
+          "¡Señora Jynx! ¿Me deja cantarle una canción? Es una nana. Dura poquito."
+        ],
+        [
+          "jynx",
+          "Normal",
+          "Cante, mi niña, cante. Que a mí no me duerme nadie desde el ochenta y…"
+        ],
+        [
+          "manolo",
+          "Surprised",
+          "(Jynx se queda dormida a media frase, con el abanico abierto. Jigglypuff, por una vez, no se enfada: le parece un honor.)"
+        ]
+      ]
+    },
+    {
+      "a": "bulbasaur",
+      "b": "oddish",
+      "lineas": [
+        [
+          "oddish",
+          "Happy",
+          "¡Hola! ¡Tú también tienes planta! ¿Me enseñas la tuya?"
+        ],
+        [
+          "bulbasaur",
+          "Worried",
+          "Baja la voz, chaval. La planta no se enseña. La planta se lleva."
+        ],
+        [
+          "oddish",
+          "Surprised",
+          "Ah… La mía también se lleva. En la cabeza. ¿Es lo mismo?"
+        ],
+        [
+          "bulbasaur",
+          "Happy",
+          "…Es lo mismo, sí. Eres de los míos. Toma, una semilla. No le digas a nadie de dónde ha salido."
+        ]
+      ]
+    },
+    {
+      "a": "eevee",
+      "b": "larvitar",
+      "lineas": [
+        [
+          "eevee",
+          "Normal",
+          "¿Por qué lloras, cosa? ¿Mal de amores? Ven, que de eso sé un montón."
+        ],
+        [
+          "larvitar",
+          "Sad",
+          "Me dejó mi Gótica. Por un Machamp."
+        ],
+        [
+          "eevee",
+          "Happy",
+          "Pues ella se lo pierde. Tú tienes unos ojos muy bonitos. Y eres de roca: no te rompes."
+        ],
+        [
+          "larvitar",
+          "Happy",
+          "…¿De verdad? Nadie me había dicho lo de los ojos."
+        ],
+        [
+          "manolo",
+          "Happy",
+          "(Larvitar se pasa la tarde sonriendo. Eevee ya está ligando con otro, pero el trabajo está hecho.)"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "larvitar",
+  "_nota": "Larvitar viene con el corazón roto: su Gótica Culona lo ha dejado. Arco en tres visitas: el drama, el poema y pasar página (bandera larvitar_supera).",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · el corazón hecho escombros",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Crying", "texto": "Perdone que llore en su recepción. Es que me ha dejado. Mi Gótica Culona. Después de tres años.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Worried", "texto": "Vaya, chaval. ¿Y qué ha pasado?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Pain", "texto": "Dice que soy muy duro. ¡Soy tipo roca! ¿Qué esperaba, un Jigglypuff? Y encima se ha llevado el disco de Camela.", "opciones": [
+          { "texto": "«Ya vendrán otras, que eres muy joven»", "sigue": "otras" },
+          { "texto": "«Toma, una chistorra. Cura casi todo»", "efectos": { "afinidad": 1 }, "sigue": "chistorra" }
+        ] },
+        "otras": { "quien": "huesped", "emocion": "Crying", "texto": "No habrá otra como ella. Tenía unas caderas que tapaban el sol. Literalmente: en verano daba sombra.", "sigue": "fin" },
+        "chistorra": { "quien": "huesped", "emocion": "Normal", "texto": "…Está buena. No cura nada, pero está buena. Gracias, señor.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Sad", "texto": "Charizard le pone la cola encima del hombro. Le chamusca un poco la camiseta, pero el gesto cuenta." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · un poema",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "He escrito un poema. Para ella. ¿Puedo leérselo? Es cortito. Bueno, tiene catorce estrofas.", "opciones": [
+          { "texto": "«Venga, léelo»", "efectos": { "afinidad": 1 }, "sigue": "poema" },
+          { "texto": "«Mejor léeme solo una»", "sigue": "una" }
+        ] },
+        "poema": { "quien": "huesped", "emocion": "Crying", "texto": "«Eres la luna de mi caverna, la arena de mi tormenta. Te fuiste con tu falda negra y me dejaste la cuenta del restaurante».", "sigue": "manolo" },
+        "una": { "quien": "huesped", "emocion": "Crying", "texto": "«Me dejaste por mensaje, en visto y sin emoticono. Yo, que por ti me hice gótico, ahora lloro en tono monocromo».", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Sigh", "texto": "(A Manolo se le escapa una lágrima. No sabe si por el poema o por lo de la cuenta del restaurante.)", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Sad", "texto": "Charizard suelta una llamita triste. Le ha tocado la fibra lo de la falda negra." }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · pasar página",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Angry", "texto": "La he visto en Pokéstagram. Con un Machamp. ¡Cuatro brazos, señor! ¡Cuatro! Para abrazarla mejor, imagino.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "Mira, chaval. Yo una vez perdí algo que quería mucho. Y aquí estoy, con una posada y un dragón. No me ha ido tan mal.", "opciones": [
+          { "texto": "«Evoluciona y que se entere»", "efectos": { "flags": { "larvitar_supera": "evolucionar" } }, "sigue": "evolucionar" },
+          { "texto": "«Quédate unos días y descansa»", "efectos": { "afinidad": 1, "flags": { "larvitar_supera": "descansar" } }, "sigue": "descansar" }
+        ] },
+        "evolucionar": { "quien": "huesped", "emocion": "Happy", "texto": "Tiene razón. Voy a evolucionar. Pupitar, y luego Tyranitar. Y cuando me vea con dos metros y una montaña en la espalda… que se lo piense.", "sigue": "fin" },
+        "descansar": { "quien": "huesped", "emocion": "Happy", "texto": "Unos días aquí… Cachimbita, chistorra y a dormir, ¿no? Creo que eso es justo lo que me hace falta.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Por primera vez, Larvitar sonríe. Charizard lo celebra quemando sin querer una servilleta con un poema. Nadie lo lamenta." }
+      }
+    }
+  ]
+}

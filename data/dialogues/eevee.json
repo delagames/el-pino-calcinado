@@ -1,0 +1,52 @@
+{
+  "id": "eevee",
+  "_nota": "Eevee, ligona: le gusta todo el mundo y no sabe en qué evolucionar porque depende de quién le guste esa semana. Arco en tres visitas: liga con Manolo y Charizard, pide consejo y decide (bandera eevee_decide).",
+  "entradas": [
+    {
+      "id": "v1",
+      "cuando": { "visita_min": 1 },
+      "subtitulo": "Primera visita · ¿y tú quién eres, guapo?",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "Hola, guapo. ¿Eres el dueño? Qué manos de dueño tienes. ¿Cocinas tú o es ese dragón tan… robusto?", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "(A Manolo se le cae la llave de la habitación. Se agacha a cogerla y se da con el mostrador.)", "opciones": [
+          { "texto": "«Cocina Charizard. Yo pongo la chistorra»", "efectos": { "afinidad": 1 }, "sigue": "chari" },
+          { "texto": "«Aquí se viene a descansar, señorita»", "sigue": "seria" }
+        ] },
+        "chari": { "quien": "huesped", "emocion": "Happy", "texto": "¿El grandote cocina? Uy. Un dragón que cocina es como un poema con alas. ¿Tiene novia? Pregunto por una amiga. La amiga soy yo.", "sigue": "fin" },
+        "seria": { "quien": "huesped", "emocion": "Happy", "texto": "Descansar, claro. Pero descansar acompañada descansa el doble. Lo dicen los científicos. Bueno, lo digo yo.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard se ha puesto colorado. Más todavía. Se le escapa una nube de humo con forma de corazón y la deshace a manotazos." }
+      }
+    },
+    {
+      "id": "v2",
+      "cuando": { "visita_min": 2 },
+      "subtitulo": "Segunda visita · ¿en qué evoluciono?",
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "Manolo, necesito consejo. Puedo evolucionar en ocho cosas distintas. Ocho. Y cada vez que me enamoro, cambio de idea.", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Si me quedo con Charizard, Flareon. Si me quedo con aquel Growlithe tan majo, Flareon también. Si me quedo con un Squirtle… Vaporeon, y a ti se te cierra un ojo. ¿Lo ves? Es dificilísimo.", "opciones": [
+          { "texto": "«Evoluciona por ti, no por nadie»", "efectos": { "afinidad": 1 }, "sigue": "porti" },
+          { "texto": "«Flareon, que aquí todos somos de fuego»", "sigue": "flareon" }
+        ] },
+        "porti": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Por mí? Nadie me había dicho eso nunca. …Qué mono eres cuando das consejos. Uy. Ya me estoy enamorando otra vez.", "sigue": "fin" },
+        "flareon": { "quien": "huesped", "emocion": "Happy", "texto": "Flareon… Calentita y con melena. Me lo apunto. Aunque el otro día vi un Umbreon por el camino que… bueno, ya veremos.", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Manolo suspira. Ha criado a un dragón y ha llevado un gimnasio, pero esto le viene grande.)" }
+      }
+    },
+    {
+      "id": "v3",
+      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "subtitulo": "Tercera visita · lo ha decidido",
+      "fin_arco": true,
+      "nodos": {
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Manolo! Lo he decidido. No voy a evolucionar. Me quedo Eevee. Así me puede gustar todo el mundo sin tener que elegir piedra.", "sigue": "manolo" },
+        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "Es lo más sensato que he oído en esta posada. Y aquí ha dormido un mimo.", "opciones": [
+          { "texto": "«Aquí siempre tendrás tu cuarto»", "efectos": { "afinidad": 1, "flags": { "eevee_decide": "eevee" } }, "sigue": "cuarto" },
+          { "texto": "«¿Y Charizard? Lo vas a dejar hecho polvo»", "efectos": { "flags": { "eevee_decide": "charizard" } }, "sigue": "charizard" }
+        ] },
+        "cuarto": { "quien": "huesped", "emocion": "Happy", "texto": "Ay, Manolo. Si tuvieras pelo, me casaba contigo. Bueno, sin pelo también, pero no se lo digas a nadie.", "sigue": "fin" },
+        "charizard": { "quien": "huesped", "emocion": "Happy", "texto": "¿Charizard? A Charizard le guardo un sitio en mi corazón. En la parte calentita, que es la que le pega.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard asoma por la puerta de la cocina con una chistorra hecha solo para ella. Tiene forma de corazón. Más o menos." }
+      }
+    }
+  ]
+}
