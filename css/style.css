@@ -558,3 +558,5 @@ body:has(#popup:not(.hidden)) #dialog-options { pointer-events: none; opacity: 0
 #stub p.demo.otra-chips button { flex: 0 1 auto; }
 .otra-quienes button.active { color: var(--brasa); }
 .otra-escenas { padding: 6px 0 0; border-top: 1px dashed #3A4466; }
+/* avisos de la portada sobre el guardado, en rojo */
+.aviso-rojo { color: #FF7F5F; max-width: 34em; margin: 2px auto; line-height: 1.25; text-shadow: 0 1px 0 #100C14; }

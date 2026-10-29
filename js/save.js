@@ -28,6 +28,18 @@ export function save(state) {
   }
 }
 
+// ¿deja este navegador guardar? (escribe y lee una prueba; con las cookies bloqueadas o en algunos modos privados, no)
+export function sePuedeGuardar() {
+  try {
+    localStorage.setItem('el-pino-calcinado-prueba', '1');
+    const ok = localStorage.getItem('el-pino-calcinado-prueba') === '1';
+    localStorage.removeItem('el-pino-calcinado-prueba');
+    return ok;
+  } catch {
+    return false;
+  }
+}
+
 export function clear() {
   try { localStorage.removeItem(KEY); } catch { /* sin almacenamiento: no hay nada que borrar */ }
 }

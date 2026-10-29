@@ -3,7 +3,7 @@
 // abajo: al tocar a un huésped dice lo que necesita y debajo salen tus respuestas.
 import { createInnView, COLORES } from './scene.js';
 import { createInn, hasSave, FASE_NOMBRE } from './inn.js';
-import { copias, codigoDe, textoDe, pedirPersistencia } from './save.js';
+import { copias, codigoDe, textoDe, pedirPersistencia, sePuedeGuardar } from './save.js';
 import { portraitUrl } from './sprites.js';
 import { showScene } from './popup.js';
 import { createCounter } from './counter.js';
@@ -963,6 +963,8 @@ $('#opt-sfx').addEventListener('change', e => setSfx(e.target.checked));
 
 // que el navegador no borre la partida cuando le falte sitio
 pedirPersistencia();
+// y si no deja guardar, que se diga claro en la portada (no solo un aviso que se va)
+$('#sin-guardar').classList.toggle('hidden', sePuedeGuardar());
 
 // Se puede instalar como app (PWA) y jugar sin conexión
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
