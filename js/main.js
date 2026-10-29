@@ -1022,7 +1022,9 @@ scene.onClick(thing => {
 
 // ---------- pruebas: …/?demo enseña solo lo nuevo, sin tocar la partida ----------
 // (los minijuegos nuevos, cada evento por separado y todas las animaciones)
-const DEMO = new URLSearchParams(location.search).has('demo');
+// las pruebas (?demo, ?final) solo en el ordenador del autor, no en la versión publicada
+const LOCAL = ['localhost', '127.0.0.1', ''].includes(location.hostname);
+const DEMO = LOCAL && new URLSearchParams(location.search).has('demo');
 const ENCARGOS = new URLSearchParams(location.search).has('encargos');   // ?demo&encargos: directo a las escenas de los encargos
 async function demo() {
   const data = await loadGuestData();
@@ -1191,7 +1193,7 @@ function demoAnims() {
 }
 
 // para ver el final sin jugar entero: …/?final
-if (new URLSearchParams(location.search).has('final')) playFinal(151).then(() => { location.href = location.pathname; });
+if (LOCAL && new URLSearchParams(location.search).has('final')) playFinal(151).then(() => { location.href = location.pathname; });
 
 window.addEventListener('keydown', ev => {
   if (ev.key === 'Enter' && state === 'inicio') go('posada');
