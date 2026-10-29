@@ -50,6 +50,7 @@ const STAND_X = { hab1: 150, hab2: 186, hab3: 302, buhardilla: 236, estanque: 34
 const FUERA = new Set(['estanque', 'cueva', 'nido']);
 const SUELO = { estanque: [GROUND - 2, GROUND - 1], cueva: [GROUND + 1, GROUND], nido: [164, 164] };   // [durmiendo, de pie]
 const BOCA_CUEVA = [4, 210, 21, 37];
+const ARCO_CUEVA = [14, 222, 7];   // el techo de la boca: centro, altura y curvatura (como se pinta en scene.js)
 // las plantas de arriba repiten la distribución de la primera
 for (const [a, b, c2] of [['hab4', 'hab5', 'hab6'], ['hab7', 'hab8', 'hab9']]) {
   Object.assign(BED_X, { [a]: BED_X.hab1, [b]: BED_X.hab2, [c2]: BED_X.hab3 });
@@ -615,7 +616,10 @@ export async function createInn(scene, ui) {
     const antes = a.hearts, ahora = felicidad(g);
     if (antes != null && ahora != null && ahora !== antes && st.fase !== 'noche') a.pop = { t: performance.now(), up: ahora > antes };
     a.mood = moodOf(g);
-    a.clip = g.estado === 'habitacion' && g.hab === 'cueva' ? BOCA_CUEVA : null;
+    // en la cueva solo se le ve lo que cabe por la boca (con su arco, como la roca), asomando desde dentro
+    const enCueva = g.estado === 'habitacion' && g.hab === 'cueva';
+    a.clip = enCueva ? BOCA_CUEVA : null;
+    a.arco = enCueva ? ARCO_CUEVA : null;
     // Larvitar llora por las esquinas hasta que pasa página (o hasta que se va contento)
     a.llora = g.id === 'larvitar' && !st.flags.larvitar_supera && felicidad(g) < 4;
     a.hearts = felicidad(g);

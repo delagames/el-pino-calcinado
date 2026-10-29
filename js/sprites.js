@@ -172,7 +172,11 @@ export class Actor {
     // «clip»: solo se ve lo que cae dentro (los enormes asoman por la boca de la cueva)
     if (this.clip) {
       const [x, y, w, h] = this.clip;
-      c.save(); c.beginPath(); c.rect(x, y, w, h); c.clip();
+      // (con «arco», el recorte sigue la boca de una cueva: el techo en parábola, más alto en el centro)
+      c.save(); c.beginPath();
+      if (this.arco) { const [cx, top, k] = this.arco; c.moveTo(x, y + h); for (let i = x; i <= x + w; i++) c.lineTo(i, top + (i - cx) ** 2 / k); c.lineTo(x + w, y + h); c.closePath(); }
+      else c.rect(x, y, w, h);
+      c.clip();
       const clip = this.clip; this.clip = null;
       try { this.draw(c, ms); } finally { this.clip = clip; c.restore(); }
       return;
