@@ -117,7 +117,8 @@ const RESIDENT_SPOTS = {
     noche: { x: 124, y: FLOOR0, anim: 'Sleep', nota: 'se ha dormido en el mostrador' },
   },
   // desde que se quedó, Snorlax duerme junto al pino de la entrada (a su izquierda, sin tapar la cola)
-  snorlax: Object.fromEntries(['manana', 'dia', 'tarde', 'noche'].map(f => [f, { x: 12, y: GROUND, anim: 'Sleep', nota: 'duerme junto al pino' }])),
+  // (un pelín más abajo, para que se pinte delante de quien duerma en la cueva, que le queda detrás)
+  snorlax: Object.fromEntries(['manana', 'dia', 'tarde', 'noche'].map(f => [f, { x: 12, y: GROUND + 2, anim: 'Sleep', nota: 'duerme junto al pino' }])),
 };
 const SNORLAX = { id: 'snorlax', especie: 'Snorlax', sprite: '0143' };
 
@@ -347,12 +348,28 @@ export async function createInn(scene, ui) {
   function queueX(i) {
     // (con Snorlax viviendo junto al pino, el último sitio no cabe)
     const slots = st.huelga ? [82, 40] : st.flags.snorlax_se_queda ? QUEUE.slice(0, 3) : QUEUE;
-    return slots[i] ?? -40 - (i - slots.length) * 26;
+    if (i >= slots.length) return -40 - (i - slots.length) * 26;
+    // (cada uno, separado del de delante según lo que miden los dos: Gyarados ya no tapa a Onix)
+    const cola = st.hoy.filter(h => h.estado === 'puerta');
+    let x = slots[0];
+    for (let k = 1; k <= i; k++) x -= Math.max(slots[k - 1] - slots[k], (ancho(cola[k - 1]) + ancho(cola[k])) / 2 + 2);
+    return Math.round(x);
   }
 
-  function guestSpot(g) {
+  // lo que mide de ancho (el cuerpo de verdad), para repartir sitio en la cola y en el comedor
+  const ancho = g => actors.get(g?.id)?.cuerpo?.().ancho ?? 16;
+  // los del comedor, uno al lado del otro sin pisarse (de izquierda a derecha, entre 168 y 244)
+  function asiento(g) {
+    const sentados = enComedor(), xs = [SEATS[0]];
+    for (let k = 1; k < sentados.length; k++) xs.push(xs[k - 1] + Math.max(SEATS[k] - SEATS[k - 1], (ancho(sentados[k - 1]) + ancho(sentados[k])) / 2 + 1));
+    const sobra = Math.max(0, xs.at(-1) - 244);
+    return Math.round(Math.max(168, xs[sentados.indexOf(g)] - sobra));
+  }
+
+  const guestSpot = g => ajusteFuera(g, sitioBase(g));
+  function sitioBase(g) {
     // los de la excursión, de picnic fuera de la casa: a la derecha (si no está ocupada) o junto al pino
-    if (g.estado === 'excursion') return { x: !has('estanque') ? 362 : !has('termal') ? 384 : 369, y: GROUND, anim: 'Idle' };
+    if (g.estado === 'excursion') return { x: Math.min(!has('estanque') ? 362 : !has('termal') ? 384 : 369, Math.round(372 - ancho(g) / 2)), y: GROUND, anim: 'Idle' };
     if (g.estado === 'puerta') {
       const i = st.hoy.filter(h => h.estado === 'puerta').indexOf(g);
       return { x: queueX(i), y: GROUND, anim: 'Idle' };
@@ -361,11 +378,20 @@ export async function createInn(scene, ui) {
     if (st.fase === 'noche') return { x: BED_X[g.hab], y: SUELO[g.hab]?.[0] ?? room.y + room.h - 8, anim: 'Sleep' };
     if (st.fase === 'tarde') {
       const donde = tardeDe(g);
-      if (donde === 'comedor') return { x: SEATS[enComedor().indexOf(g)], y: FLOOR0, anim: 'Idle' };
+      if (donde === 'comedor') return { x: asiento(g), y: FLOOR0, anim: 'Idle' };
       if (donde === 'paseo') return { x: paseoSpots()[dePaseo().indexOf(g)], y: GROUND, anim: 'Idle' };
       // si no, en su cuarto (o en el estanque, quien vive en el agua)
     }
     return { x: STAND_X[g.hab], y: SUELO[g.hab]?.[1] ?? room.y + room.h - 2, anim: 'Idle' };
+  }
+  // fuera, los grandes se recolocan: en el estanque, metidos en el agua; en la cueva, con la cabeza dentro de la boca
+  function ajusteFuera(g, spot) {
+    const c = actors.get(g.id)?.cuerpo?.();
+    if (!c || !FUERA.has(g.hab) || g.estado !== 'habitacion') return spot;
+    if (g.hab === 'estanque' && c.alto > 28) return { ...spot, y: spot.y + 6 };
+    // (la cabeza un poco por debajo del techo, que se le vea la cara: con la cresta de Gyarados rozando el arco)
+    if (g.hab === 'cueva') return { ...spot, y: Math.max(spot.y, Math.round(212 + 6 + c.fh / 2 - c.top)) };
+    return spot;
   }
 
   function moodOf(g) {
@@ -620,7 +646,9 @@ export async function createInn(scene, ui) {
     a.mood = moodOf(g);
     // en la cueva solo se le ve lo que cabe por la boca (con su arco, como la roca), asomando desde dentro
     const enCueva = g.estado === 'habitacion' && g.hab === 'cueva';
-    a.clip = enCueva ? BOCA_CUEVA : null;
+    // (y en el estanque, los grandes, como Lapras, solo de la línea del agua para arriba)
+    const enAgua = g.estado === 'habitacion' && g.hab === 'estanque' && (a.cuerpo?.().alto ?? 0) > 28;
+    a.clip = enCueva ? BOCA_CUEVA : enAgua ? [300, 100, 90, GROUND - 3 - 100] : null;
     a.arco = enCueva ? ARCO_CUEVA : null;
     // Larvitar llora por las esquinas hasta que pasa página (o hasta que se va contento)
     a.llora = g.id === 'larvitar' && !st.flags.larvitar_supera && felicidad(g) < 4;

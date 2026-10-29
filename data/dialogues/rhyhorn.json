@@ -7,7 +7,7 @@
       "cuando": { "visita_min": 1 },
       "subtitulo": "Primera visita · ¿a qué venía yo?",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Rhyhorn entra en la recepción, se para en medio y mira alrededor.) …Buenas. Venía a… a algo. Estoy seguro de que venía a algo.", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Rhyhorn llega hasta la puerta, se planta en medio del camino y mira alrededor.) …Buenas. Venía a… a algo. Estoy seguro de que venía a algo.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "¿A dormir, quizá? Esto es una posada.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Happy", "texto": "¡Eso! A dormir. Qué bien. (Se da la vuelta, sube la escalera, entra en la cocina, sale de la cocina.) …¿Y dónde era?", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Worried", "texto": "Perdone. Solo me cabe una cosa en la cabeza a la vez. Si me acuerdo de la habitación, se me olvida la cena. Y al revés.", "opciones": [

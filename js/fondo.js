@@ -135,7 +135,8 @@ function pon(c, sprite, x, y, { dir = DIR.down, k = null, anim = 'Idle', sombra 
   const e = k || escala(sprite);
   c.save(); c.translate(Math.round(x), Math.round(y)); c.scale(e, e); a.draw(c, t); c.restore();
 }
-const escala = s => caja(s).alto > 56 ? 1 : 2;
+// (a ×1 los altos y también los muy anchos: los pájaros con las alas abiertas, Onix y Gyarados enroscados)
+const escala = s => caja(s).alto > 56 || caja(s).ancho > 44 ? 1 : 2;
 // Lo que ocupa de verdad el primer fotograma (sin el hueco transparente): ancho y alto desde los pies
 const cajas = new Map();
 function caja(sprite, dir = DIR.down) {
@@ -606,9 +607,13 @@ async function fotoBoda(c, w, h, d) {
   if (m) banderines(c, 8, base - 96, px + 4, base - 70, 8);
   // los invitados, en fila detrás de los novios
   const cx = m ? Math.round(w / 2) : 300;
+  // (a cada lado, uno tras otro según lo que mide cada uno, y sin salirse del borde de la foto)
+  const borde = { '-1': m ? 64 : 84, '1': m ? 64 : 84 };
   gente.filter(Boolean).forEach((s, i) => {
-    const lado = i % 2 ? 1 : -1, n = Math.floor(i / 2);
-    pon(c, s, Math.round(cx + lado * ((m ? 64 : 84) + (m ? 40 : 46) * n)), base + (m ? 34 : 24));
+    const lado = i % 2 ? 1 : -1, medio = caja(s).ancho * escala(s) / 2;
+    const x = cx + lado * (borde[lado] + medio);
+    borde[lado] += medio * 2 + 4;
+    pon(c, s, Math.round(Math.min(w - medio - 2, Math.max(medio + 2, x))), base + (m ? 34 : 24));
   });
   // el arco de flores: dos postes y medio círculo de flores por encima de las cabezas de los novios
   const ar = m ? 50 : 54, ay = base + (m ? 76 : 70), alto = m ? 82 : 84;

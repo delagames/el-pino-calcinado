@@ -7,7 +7,7 @@
       "cuando": { "visita_min": 1 },
       "subtitulo": "Primera visita · la banda",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Angry", "texto": "(Entra un Spearow de cresta engominada y chupa de cuero, abriendo la puerta de una patada.) ¡Una habitación pa' mí y pa' la banda, abuelo!", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Angry", "texto": "(Llega un Spearow de cresta engominada y chupa de cuero, dándole una patada al letrero de la puerta.) ¡Una habitación pa' mí y pa' la banda, abuelo!", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Qué banda, chaval?", "sigue": "n1" },
         "n1": { "quien": "huesped", "emocion": "Normal", "texto": "La banda. (Mira atrás. No hay nadie.) Están aparcando. Hoy vengo solo, vale, pero en espíritu somos cuarenta.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Angry", "texto": "Oiga, ¿aquí se aloja el Pikachu de la tele? Tengo cuentas pendientes. Su entrenador le tiró una piedra a mi tío. Y luego vino el rayo.", "sigue": "manolo2" },

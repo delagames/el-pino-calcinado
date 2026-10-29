@@ -717,16 +717,19 @@ export function createCounter(canvas) {
     // Se mide su cuerpo real para que asome de la barra siempre igual.
     const a = gs.anims.Idle, body = measure(a.img, a.fw, a.fh);
     // fuera se le ve entero, de pie en el césped (o en el agua del estanque)
-    const ground = lugar === 'dentro' ? BAR + 9 : lugar === 'estanque' ? 74 : 72;
+    const ground = lugar === 'dentro' ? BAR + 9 : 72;   // (en el estanque también: si no, a los largos, como Dragonair, se les cortaba la cola)
     const cabe = lugar === 'dentro' ? 58 : 62;
     // a ×2 si cabe; si no, a ×1; los enormes (Articuno con las alas abiertas), aún más pequeños
-    let scale = [2, 1, 0.75, 0.5].find(k => (body.bottom - body.top) * k <= cabe && (k < 2 || body.alto * k <= cabe + 6) && body.alto * k <= 70 && body.ancho * k <= 96) || 0.5;
+    // (con un paso a ×1,5 para los altos que a ×1 se quedaban diminutos, como Dragonite; y los muy anchos, como
+    // los pájaros con las alas abiertas, sin pasar de 72 px, que no tapen a Charizard)
+    let scale = [2, 1.5, 1, 0.75, 0.5].find(k => (body.bottom - body.top) * k <= cabe && (k < 2 || body.alto * k <= cabe + 6) && body.alto * k <= 70 && body.ancho * k <= 72) || 0.5;
     if (pequeno) scale = scale === 2 ? 1.5 : scale * 0.75;
     const feetY = ground / scale + 6 + a.fh / 2 - body.bottom;
     const g = new Actor(gs, { x: (lugar === 'dentro' ? 84 : 80) / scale - (buddy ? 9 : 0), y: feetY, dir: lado ? DIR.downLeft : DIR.down });
     await addBuddy(g, buddy, ANIMS);
     if (guestSprite !== sprite) return;
     g.ajuste = 6 + a.fh / 2 - body.bottom;   // de los pies de verdad al punto de apoyo del fotograma (para los planos)
+    g.sombraArriba = Math.max(0, g.ajuste);    // y la sombra, ahí, no por debajo (Gyarados parecía flotar)
     guest = g;
     guestScale = scale;
     // a un tercio de la cabeza, más o menos: de ahí caen las lágrimas

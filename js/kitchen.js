@@ -1357,7 +1357,10 @@ function cafe(recipe, base, k, say) {
         if (tipo === s.tipo && Math.floor(t / 300) % 2) { c.strokeStyle = '#FFD27A'; c.lineWidth = 1; c.strokeRect(x - 2.5, y - 2.5, 12, 19); }
       }
       // quien lo pide, al otro lado de la barra
-      pinta(c, k.spr[d.sprite], 151, 66, t, DIR.left);   // (a la derecha de la cafetera, sin meterse debajo)
+      // (a la derecha de la cafetera, sin meterse debajo; los grandes, como Gyarados, a la mitad, que quepan en la barra)
+      const cli = k.spr[d.sprite], grande = cli && cli.cuerpo().ancho > 34;
+      if (grande) { c.save(); c.translate(140, 66); c.scale(0.5, 0.5); pinta(c, cli, 0, 0, t, DIR.left); c.restore(); }
+      else pinta(c, cli, 151, 66, t, DIR.left);
       rect(c, 0, 56, W, 2, '#B7834F'); rect(c, 0, 58, W, 22, '#6F4527');
       for (let x = 8; x < W; x += 24) rect(c, x, 62, 18, 14, '#5F3F27');
       // el plato, el vaso y lo que lleva dentro

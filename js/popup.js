@@ -439,6 +439,8 @@ export async function showScene({ guest, pide, helper, fase = 'noche', atendido 
   if (sitio === 'cueva') s.outdoor = s.prado = s.cueva = true;
   const NIDO = FLOOR - 24;
   const guestA = new Actor(gs, { x: GUEST_X, y: s.nido ? NIDO : FLOOR, dir: DIR.left });
+  // los enormes (Gyarados enroscado) no caben en la escena de 128×64: un poco más pequeños
+  { const cu = guestA.cuerpo(); if (cu.alto > 52 || cu.ancho > 64) guestA.scale = 0.75; }
   await addBuddy(guestA, guest.acompanante, ['Idle', 'Walk', 'Hop']);
   const actors = [guestA];
   const props = [];          // { art, x, y, on: actor, front }

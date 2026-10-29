@@ -142,7 +142,7 @@ export class Actor {
       return { x: x0, y: y0, w: Math.max(0, x1 - x0), h: Math.max(0, y1 - y0) };
     }
     if (!this.buddy) return b;
-    const bx = this.x + this.buddySide() * BUDDY_DX;
+    const bx = this.x + this.buddySide() * this.sepBuddy();
     const x0 = Math.min(b.x, bx - 8), x1 = Math.max(b.x + b.w, bx + 8);
     return { ...b, x: x0, w: x1 - x0 };
   }
@@ -150,7 +150,7 @@ export class Actor {
   // ¿Hay cuerpo de verdad en ese punto? (mira los píxeles del fotograma, con un margen de 3 px: así los
   // enormes, como Onix, no tapan con su caja los cuartos de al lado)
   tocaEn(px, py, ms = performance.now()) {
-    if (this.buddy && Math.abs(px - (this.x + this.buddySide() * BUDDY_DX)) <= 8) return true;
+    if (this.buddy && Math.abs(px - (this.x + this.buddySide() * this.sepBuddy())) <= 8) return true;
     const { a, col, row } = this.frame(ms);
     const al = alfa(a.img);
     if (!al) return true;
@@ -161,6 +161,23 @@ export class Actor {
       if (al.data[((row * a.fh + fy) * al.w + col * a.fw + fx) * 4 + 3] > 0) return true;
     }
     return false;
+  }
+
+  // Lo que ocupa el cuerpo de verdad en el primer fotograma de Idle (mirando de frente): ancho, alto y dónde
+  // empieza y acaba (en píxeles del fotograma). Sirve para repartir sitio a los grandes sin que se pisen
+  cuerpo() {
+    const s = this.sprite;
+    if (s._cuerpo) return s._cuerpo;
+    const a = s.anims.Idle || this.animData, al = alfa(a.img);
+    if (!al) return (s._cuerpo = { ancho: a.fw / 2, alto: a.fh / 2, top: a.fh / 4, bottom: a.fh * 3 / 4, fw: a.fw, fh: a.fh });
+    let l = a.fw, r = -1, t = a.fh, b = -1;
+    for (let y = 0; y < a.fh; y++) for (let x = 0; x < a.fw; x++) if (al.data[(y * al.w + x) * 4 + 3] > 0) { l = Math.min(l, x); r = Math.max(r, x); t = Math.min(t, y); b = Math.max(b, y); }
+    return (s._cuerpo = r < 0 ? { ancho: 8, alto: 8, top: 0, bottom: 0, fw: a.fw, fh: a.fh } : { ancho: r - l + 1, alto: b - t + 1, top: t, bottom: b, fw: a.fw, fh: a.fh });
+  }
+
+  // cuánto se separa el acompañante: lo justo para que se vean los dos (los grandes, más)
+  sepBuddy() {
+    return this.buddy ? Math.max(BUDDY_DX, Math.round((this.cuerpo().ancho + this.buddy.cuerpo().ancho) / 2 * 0.7)) : BUDDY_DX;
   }
 
   // El acompañante (el Poliwag de Marinilla) va a su lado, detrás según hacia dónde mira
@@ -184,7 +201,7 @@ export class Actor {
     if (this.buddy) {
       const b = this.buddy;
       // al dormir, pegaditos (la pareja de Nidoran comparte cama)
-      const dx = this.anim === 'Sleep' ? BUDDY_DX - 5 : BUDDY_DX;
+      const dx = this.anim === 'Sleep' ? this.sepBuddy() - 5 : this.sepBuddy();
       Object.assign(b, { x: this.x + this.buddySide() * dx, y: this.y + 1, dir: this.dir,
         anim: b.sprite.anims[this.anim] ? this.anim : 'Idle' });
       b.draw(c, ms);
@@ -194,8 +211,10 @@ export class Actor {
     if (!this.sinSombra) {   // (en los planos cortos no hay suelo debajo donde poner la sombra)
       c.globalAlpha = 0.3;
       c.fillStyle = '#000000';
-      c.fillRect(Math.round(this.x - sw / 2 + 1), Math.round(this.y - 1), sw - 2, 3);
-      c.fillRect(Math.round(this.x - sw / 2), Math.round(this.y), sw, 1);
+      // («sombraArriba»: los que tienen mucho hueco bajo el cuerpo en el fotograma, como Gyarados: la sombra, a sus pies de verdad)
+      const sy = this.y - (this.sombraArriba || 0);
+      c.fillRect(Math.round(this.x - sw / 2 + 1), Math.round(sy - 1), sw - 2, 3);
+      c.fillRect(Math.round(this.x - sw / 2), Math.round(sy), sw, 1);
       c.globalAlpha = 1;
     }
     c.drawImage(a.img, col * a.fw, row * a.fh, a.fw, a.fh,
