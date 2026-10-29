@@ -1217,7 +1217,8 @@ document.fonts.load('400 24px "Jersey 10"').catch(() => {}).finally(async () => 
       // la posada a la vista, sin charla, cocina ni escena de encargo encima (para lo que salta solo, como las maletas)
       libre: () => state === 'posada' && $('#popup').classList.contains('hidden'),
       decir: (who, emotion, text) => dialog({ ...who, emotion, text }),
-      show: s => { showScene(s); setTimeout(() => sfx(s.atendido === 'frio' ? 'sad' : 'cheer'), 1700); } });
+      // (devuelve cuándo se cierra la escena, por si hay que esperar a que acabe)
+      show: s => new Promise(res => { showScene(s, res); setTimeout(() => sfx(s.atendido === 'frio' ? 'sad' : 'cheer'), 1700); }) });
     await inn.begin();
     if (DEMO) { refreshStart(); return demo(); }
     if (last?.fase === 'tarde') say('manolo', 'Normal', 'Cae la tarde. Unos bajan al comedor, otros salen a pasear y alguno se queda en su cuarto.');

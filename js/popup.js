@@ -1671,14 +1671,12 @@ export async function showScene({ guest, pide, helper, fase = 'noche', atendido 
   const termal = async ({ hondo = 6, suave = false, alivio } = {}) => {
     // el termal está fuera, a la derecha de la casa (lejos del pino): se baña ahí aunque duerma en la cueva
     Object.assign(s, { outdoor: true, prado: true, cueva: false, pino: false });
-    const poza = prop(Array(8).fill('.'.repeat(30)), 55, FLOOR - 4, { draw: drawPoza, calor: false });
+    // (el agua ya viene caliente del minijuego, donde Charizard la ha puesto a su punto: aquí solo se baña)
+    const poza = prop(Array(8).fill('.'.repeat(30)), 55, FLOOR - 4, { draw: drawPoza, calor: true });
+    const vaho = every(140, 9000, () => emit('steam', 58 + Math.random() * 26, FLOOR - 3));
     const { a } = await trae(null, { sprite: cs, to: 36 });
     face(a, 'r');
-    // la calienta: a fuego vivo, o con mucho tiento
-    await fuego(a, suave ? 4 : 12);
-    poza.calor = true;
     if (suave) di('TIENTO', a, { color: 'y', life: 1000 });
-    const vaho = every(140, 9000, () => emit('steam', 58 + Math.random() * 26, FLOOR - 3));
     await wait(500);
     // el huésped se mete
     await walk(G, 72, suave ? 16 : 30);

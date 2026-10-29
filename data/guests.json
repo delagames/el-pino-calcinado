@@ -284,7 +284,7 @@
           "termal": "caliente",
           "solo_si_mejora": "termal",
           "dice": "¿Me dejáis un rato en el termal? Calentito, no hirviendo, que luego huelo a perro mojado y no hay quien me aguante.",
-          "hecho": "Charizard calienta el termal. Growlithe se mete, se sacude encima de todos y sale oliendo a perro mojado, pero feliz.",
+          "hecho": "Con el termal ya calentito, Growlithe se mete, se sacude encima de todos y sale oliendo a perro mojado, pero feliz.",
           "recuerda": "¿Y el termal? Calentito, ¿eh? No a hervir."
         }
       ],
@@ -995,7 +995,7 @@
           "quien": "manolo",
           "gesto": "Happy",
           "dice": "Oiga, jefe. La planta necesita agua. Sin preguntas. ¿Tiene una regadera o algo discreto?",
-          "hecho": "Manolo le riega el bulbo con la regadera. Bulbasaur mira a los lados por si alguien lo ve. Nadie lo ve. Bueno, Charizard.",
+          "hecho": "Manolo le trae la regadera. Bulbasaur mira a los lados por si alguien lo ve. Nadie lo ve. Bueno, Charizard.",
           "recuerda": "Jefe, lo del agua para la planta. Que se me pone mustia y luego hay que dar explicaciones."
         },
         {
@@ -1086,7 +1086,7 @@
               "quien": "manolo",
               "gesto": "Happy",
               "dice": "Jefe, la flor necesita agua. Esta vez lo digo alto: ¡agua para la flor! Ya no tengo nada que esconder.",
-              "hecho": "Manolo le riega la flor a la vista de todos. Venusaur no mira a los lados ni una vez. Charizard se queda un rato oliéndola.",
+              "hecho": "Manolo le trae la regadera a la vista de todos. Venusaur no mira a los lados ni una vez. Charizard se queda un rato oliendo la flor.",
               "recuerda": "Jefe, lo del agua. Que una flor mustia no calma a nadie."
             },
             {
@@ -2672,7 +2672,7 @@
           "termal": "hirviendo",
           "solo_si_mejora": "termal",
           "dice": "Jefe, ¿está el termal? Póngamelo hirviendo, que el agua templada me ablanda la roca.",
-          "hecho": "Charizard calienta el termal hasta que borbotea. Geodude se mete hasta las cejas y suelta un suspiro de piedra pómez.",
+          "hecho": "El termal borbotea. Geodude se mete hasta las cejas y suelta un suspiro de piedra pómez.",
           "recuerda": "El baño, jefe. Hirviendo, que se me enfrían las piedras."
         }
       ],
@@ -5348,7 +5348,7 @@
           "termal": "templado",
           "solo_si_mejora": "termal",
           "dice": "¿Me preparáis un baño en el termal? Templadito, por favor: con el agua muy caliente se me encrespan las seis colas.",
-          "hecho": "Charizard templa el agua con mucho tiento. Vulpix se mete de puntillas y sale con las seis colas como recién peinadas.",
+          "hecho": "Con el agua templada, con mucho tiento, Vulpix se mete de puntillas y sale con las seis colas como recién peinadas.",
           "recuerda": "¿Y el baño templadito? Mis colas lo están esperando."
         }
       ],
@@ -5463,7 +5463,7 @@
           "termal": "caliente",
           "solo_si_mejora": "termal",
           "dice": "¿Cabría en el termal? Aunque sea la cabeza. Calentito, que llevo tres días bajo tierra y tengo la roca tiesa.",
-          "hecho": "Charizard calienta el termal. Onix mete la cabeza, luego un trozo, luego otro. Al final no queda agua, pero está muy a gusto.",
+          "hecho": "Con el termal ya caliente, Onix mete la cabeza, luego un trozo, luego otro. Al final no queda agua, pero está muy a gusto.",
           "recuerda": "El termal… aunque sea la cabeza. Calentito, por favor."
         }
       ]
@@ -5533,7 +5533,7 @@
           "termal": "hirviendo",
           "solo_si_mejora": "termal",
           "dice": "¿Eso de ahí fuera es un termal? Ponlo a hervir. Si no sale humo, no es un baño: es un charco.",
-          "hecho": "Charizard sopla hasta que el termal humea. Magmar se mete, suspira y el agua sube dos grados más solo de tenerlo dentro.",
+          "hecho": "El termal humea. Magmar se mete, suspira y el agua sube dos grados más solo de tenerlo dentro.",
           "recuerda": "El termal, hirviendo. ¿O es que ahí fuera hay un charco?"
         }
       ]

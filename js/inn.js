@@ -877,11 +877,18 @@ export async function createInn(scene, ui) {
       datos = { punto: pide.termal, sprite: info.sprite, especie: info.especie, psyduck: Math.random() < 0.35 };
       texto = `${info.especie} quiere el termal ${pide.termal}. Charizard, tú calientas: mantén pulsado para más fuego y suelta para que se enfríe.`;
     }
+    // la planta: primero se le da la regadera (o la linterna), con su escena, y luego se riega a escondidas
+    const antes = juego === 'planta';
+    if (antes) {
+      ui.say(pide.quien || 'manolo', pide.gesto || 'Happy', hechoDe(pide));
+      await mostrar({ guest: info, pide, helper: pide.quien || 'manolo', fase: st.fase, atendido: true, hab: g.hab });
+    }
     const r = await jugar(juego, { datos, texto, who, emocion });
     jugando = false;
     const res = nota(r) || 'bien';
     g.atendido = true;
-    let line = [pide.quien || 'manolo', pide.gesto || 'Happy', hechoDe(pide)];
+    let line = antes ? ['manolo', 'Happy', `La planta, ${pide.objeto === 'linterna' ? 'alumbrada' : 'regada'} y sin que nadie se entere. ${quien} se queda mirándola muy orgulloso.`]
+      : [pide.quien || 'manolo', pide.gesto || 'Happy', hechoDe(pide)];
     if (juego === 'cafe') {
       if (res === 'perfecto') { g.extra = (g.extra || 0) + 1; g.propinaExtra = (g.propinaExtra || 0) + 5; (g.mj ||= []).push(`el café, un ${datos.tipo} de pizarra`); line = ['manolo', 'Happy', `Un ${datos.tipo} de pizarra. ${info.especie} lo prueba, cierra los ojos y deja la propina debajo del platillo.`]; }
       if (res === 'mal' || (r?.suyo && r.suyo !== 'good')) {
@@ -911,7 +918,7 @@ export async function createInn(scene, ui) {
       if (res === 'mal') { g.fallo = 'el termal no estaba a su gusto'; line = ['manolo', 'Sad', `El agua no estaba ${datos.punto} ni de lejos. ${info.especie} sale del termal refunfuñando y chorreando.`]; }
     }
     if (line) ui.say(...line);
-    mostrar({ guest: info, pide, helper: pide.quien || 'manolo', fase: st.fase, atendido: g.atendido, hab: g.hab });
+    if (!antes) mostrar({ guest: info, pide, helper: pide.quien || 'manolo', fase: st.fase, atendido: g.atendido, hab: g.hab });
     refreshGuest(g);
     persist();
     publish();
