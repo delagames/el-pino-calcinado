@@ -1,6 +1,6 @@
 // Service worker: la posada se puede instalar como app y jugar sin conexión.
 // Primero intenta la red (así siempre se ve la última versión) y, si no hay, tira de la copia.
-const CACHE = 'el-pino-calcinado-v25';
+const CACHE = 'el-pino-calcinado-v30';
 const CORE = [
   "./",
   "index.html",
@@ -111,7 +111,18 @@ const CORE = [
   "assets/logo/logo-marca.svg",
   "assets/logo/icono.svg",
   "assets/logo/icono-192.png",
-  "assets/logo/icono-512.png"
+  "assets/logo/icono-512.png",
+  "assets/sprites/0006/AnimData.xml",
+  "assets/sprites/0006/Hop-Anim.png",
+  "assets/sprites/0006/Idle-Anim.png",
+  "assets/sprites/0006/Shoot-Anim.png",
+  "assets/sprites/0006/Sleep-Anim.png",
+  "assets/sprites/0006/Walk-Anim.png",
+  "assets/sprites/manolo/AnimData.xml",
+  "assets/sprites/manolo/Cook-Anim.png",
+  "assets/sprites/manolo/Idle-Anim.png",
+  "assets/sprites/manolo/Sleep-Anim.png",
+  "assets/sprites/manolo/Walk-Anim.png"
 ];
 
 self.addEventListener('install', ev => {
@@ -129,11 +140,14 @@ self.addEventListener('fetch', ev => {
   // «no-cache»: pregunta siempre al servidor si hay versión nueva (GitHub Pages deja los archivos
   // diez minutos en la caché del navegador y el móvil seguía con el CSS viejo); la página en sí no lo admite
   const req = ev.request.mode === 'navigate' ? ev.request : new Request(ev.request, { cache: 'no-cache' });
-  ev.respondWith(fetch(req).then(res => {
+  const red = fetch(req).then(res => {
     if (res.ok) {
       const copy = res.clone();
       caches.open(CACHE).then(c => c.put(ev.request, copy));
     }
     return res;
-  }).catch(() => caches.match(ev.request)));
+  });
+  // con mala cobertura no se espera eternamente: a los 4 s, lo guardado (si lo hay); si no, lo que llegue
+  const lento = new Promise(r => setTimeout(r, 4000)).then(() => caches.match(ev.request)).then(c => c || red);
+  ev.respondWith(Promise.race([red, lento]).catch(() => caches.match(ev.request)));
 });

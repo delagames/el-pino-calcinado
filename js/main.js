@@ -9,7 +9,7 @@ import { showScene } from './popup.js';
 import { createCounter } from './counter.js';
 import { playIntro } from './intro.js';
 import { playFinal } from './final.js';
-import { descargarFondo } from './fondo.js';
+import { descargarFondo, dibujaFondo, FOTOS } from './fondo.js';
 import { runEntry } from './dialogue.js';
 import { createKitchen, loadRecipes } from './kitchen.js';
 import { loadGuestData, kantoVistos, pokedex, formaDe } from './guests.js';
@@ -36,6 +36,7 @@ let state = null;
 let toastTimer = 0;
 let inn = null;
 let last = null;      // lo último que publicó la posada
+let repitiendo = false;   // se está viendo o jugando algo de «Otra vez» (tras el final)
 
 // Manolo y Charizard: carpeta de retratos y nombre
 const CREW = { manolo: { sprite: 'manolo', nombre: 'Manolo' }, charizard: { sprite: '0006', nombre: 'Charizard' },
@@ -62,14 +63,14 @@ function go(next) {
   $('#book').classList.toggle('hidden', next !== 'libro');
   $('#counter-view').classList.toggle('hidden', next !== 'mostrador');
   $('#kitchen-view').classList.toggle('hidden', next !== 'cocina');
-  $('#advance').classList.toggle('hidden', next === 'mostrador' || next === 'cocina');
+  $('#advance').classList.toggle('hidden', next === 'mostrador' || next === 'cocina' || repitiendo);
   // recepción y cocina ocupan toda la pantalla (solo queda el cuadro de diálogo)
   document.body.classList.toggle('fullview', next === 'mostrador' || next === 'cocina');
   scene?.setPaused(next === 'mostrador' || next === 'cocina' || next === 'libro');
   scene.setInteractive(next === 'posada');
   hideToast();
   if (next === 'inicio') refreshStart();
-  if (next === 'posada') inn?.wake();
+  if (next === 'posada' && !repitiendo) inn?.wake();   // (si se vuelve a ver una escena tras el final, no empieza el día)
   layout();
 }
 
@@ -114,9 +115,15 @@ function dialog({ sprite, nombre, emotion = 'Normal', text, options = [], highli
   else if (`${sprite}:${emotion}` !== lastVoice && sprite !== 'manolo' && (sprite !== '0006' || /gr+r/i.test(text))) cry(sprite, emotion);
   lastVoice = `${sprite}:${emotion}`;
   const face = $('#dialog-face');
+  // la cara nueva no se ve hasta que carga (si no, un momento sale el nombre nuevo con la cara de antes);
   // si ese Pokémon no tiene retrato para esa emoción, el normal
-  face.onerror = emotion === 'Normal' ? null : () => { face.onerror = null; face.src = portraitUrl(sprite, 'Normal'); };
-  face.src = portraitUrl(sprite, emotion);
+  const url = portraitUrl(sprite, emotion);
+  if (face.getAttribute('src') !== url) {
+    face.style.visibility = 'hidden';
+    face.onload = () => { face.style.visibility = ''; };
+    face.onerror = emotion === 'Normal' ? () => { face.style.visibility = ''; } : () => { face.onerror = () => { face.style.visibility = ''; }; face.src = portraitUrl(sprite, 'Normal'); };
+    face.src = url;
+  }
   $('#dialog-name').textContent = nombre;
   $('#dialog-sub').textContent = sub;
   // los textos largos van en tandas (el cuadro no crece y no tapa la casa): se pasa a la siguiente
@@ -320,6 +327,7 @@ const JUEGO = { vuelta: 'Vuelta y vuelta en la parrilla', miel: 'Chorro de miel 
   potaje: 'Elegir ingredientes y remover la marmita', kebab: 'Pasar el cortador por el rollo que gira', pizza: 'Amasar, estirar y poner los ingredientes', emplatar: 'Decorar el plato, cada cosa en su sitio' };
 
 async function startCook(id, especial = false) {
+  if (inn.ocupado?.()) return;
   const cook = inn.cookFor(id);
   if (!cook || cook.falta) return;
   const recipe = especial && cook.especial ? cook.especial : cook.recipe;
@@ -590,23 +598,27 @@ function night(s) {
 // ---------- la tienda de mejoras: por pestañas, cada una con lo que hace y su precio ----------
 let shopTab = null;
 const shopCount = () => inn.upgradesView().filter(u => u.puede).length;
-function shop() {
+async function shop() {
   const list = inn.upgradesView();
   const grupos = [...new Set(list.map(u => u.grupo))];
-  if (!grupos.includes(shopTab)) shopTab = grupos.find(g => list.some(u => u.grupo === g && u.puede)) || grupos[0];
+  // tras el final, una pestaña más: volver a ver escenas y jugar minijuegos sueltos, pagando
+  if (inn.finalVisto()) grupos.push(TAB_FINAL);
+  if (!grupos.includes(shopTab)) shopTab = grupos.find(g => list.some(u => u.grupo === g && u.puede)) || (inn.finalVisto() ? TAB_FINAL : grupos[0]);
   // las obras, una por noche (lo demás se compra mientras haya dinero)
   const yaHoy = shopTab === 'Obras' && list.some(u => u.bloqueada && !u.tiene && !u.falta);
   const v = last;
   let html = `<div class="shop-head">${starsHtml(v.estrellas)}<span>${v.monedas} monedas</span><button class="secondary volver-arriba" id="shop-back">Volver</button></div>`
     + (yaHoy ? '<p class="muted small">Una obra por noche: mañana, otra.</p>' : '')
-    + `<nav class="shop-tabs">${grupos.map(g => `<button class="secondary${g === shopTab ? ' active' : ''}" data-tab="${esc(g)}">${esc(g)}</button>`).join('')}</nav><ul class="shop">`;
+    + `<nav class="shop-tabs">${grupos.map(g => `<button class="secondary${g === shopTab ? ' active' : ''}${g === TAB_FINAL ? ' tab-final' : ''}" data-tab="${esc(g)}">${esc(g)}</button>`).join('')}</nav>`;
+  if (shopTab === TAB_FINAL) return otraVez(html, ctxPartida());
+  html += '<ul class="shop">';
   for (const u of list.filter(x => x.grupo === shopTab)) {
-    // la foto de recuerdo, una vez comprada: se descarga para el móvil o el ordenador
-    const right = u.tiene && u.id === 'foto' ? '<span class="fondos"><button class="secondary" data-fondo="movil">Móvil</button><button class="secondary" data-fondo="ordenador">Ordenador</button></span>'
+    // las fotos de recuerdo, una vez compradas: se descargan para el móvil o el ordenador
+    const right = u.tiene && u.foto ? `<span class="fondos"><button class="secondary" data-fondo="${u.foto}:movil">Móvil</button><button class="secondary" data-fondo="${u.foto}:ordenador">Ordenador</button></span>`
       : u.tiene ? '<span class="owned">Hecha</span>'
       : `<button data-buy="${u.id}" ${u.puede ? '' : 'disabled'}>${u.precio} monedas</button>`;
     const pts = u.puntos && !u.tiene ? `<i class="fama-chip">${starsHtml(1).replace('class="stars"', 'class="stars one"')}+${u.puntos}</i>` : '';
-    const nota = u.falta ? `Antes hay que hacer: ${u.falta}` : u.faltanEstrellas ? `Solo para una posada de ${u.faltanEstrellas} estrellas.` : u.efecto;
+    const nota = u.falta ? `Antes hay que hacer: ${u.falta}` : u.faltanEstrellas ? `Solo para una posada de ${u.faltanEstrellas} estrellas.` : u.faltaRecuerdo && !u.tiene ? u.faltaRecuerdo : u.efecto;
     html += `<li class="${u.tiene ? 'done' : ''}"><div><strong>${esc(u.nombre)} ${pts}</strong><span>${esc(nota)}</span></div>${right}</li>`;
   }
   html += '</ul>';
@@ -614,9 +626,128 @@ function shop() {
   for (const b of document.querySelectorAll('[data-buy]')) {
     b.addEventListener('click', async () => { if (await inn.buyUpgrade(b.dataset.buy)) shop(); });
   }
+  enlazarFondos(() => inn.datosFoto());
+  enlazarTienda();
+}
+// las pestañas y el «Volver» de arriba de la tienda
+function enlazarTienda() {
   for (const b of document.querySelectorAll('.shop-tabs [data-tab]')) b.addEventListener('click', () => { shopTab = b.dataset.tab; shop(); });
-  for (const b of document.querySelectorAll('[data-fondo]')) b.addEventListener('click', () => descargarFondo(b.dataset.fondo));
   $('#shop-back').addEventListener('click', () => $('#stub-back').click());
+}
+// Los botones de descargar foto («foto:formato»); mientras se dibuja, el botón espera
+function enlazarFondos(datos) {
+  for (const b of document.querySelectorAll('[data-fondo]')) b.addEventListener('click', async () => {
+    const [foto, tipo] = b.dataset.fondo.split(':');
+    b.disabled = true;
+    try { await descargarFondo(foto, tipo, datos()); } finally { b.disabled = false; }
+  });
+}
+
+// ---------- tras el final: «Otra vez» (volver a ver escenas y jugar minijuegos sueltos, pagando) ----------
+// Lo que se ve o se juega aquí no cambia la partida: solo cuesta monedas. Las escenas, solo las de quien ya ha
+// pasado por la posada (los planos, si se ha visto su capítulo). Un minijuego perfecto se apunta en el récord;
+// no da monedas, que esto es para gastar lo que sobra.
+const TAB_FINAL = 'Otra vez';
+const PRECIO = { minijuego: 30, plano: 60, evento: 50, encargo: 20 };
+const mayuscula = t => t.charAt(0).toUpperCase() + t.slice(1);
+let otraQuien = null;   // de quién se están viendo los encargos (se queda abierto al volver)
+
+// Todo lo que se puede volver a ver o jugar, con lo que hay desbloqueado (ctx.todo: todo, para las pruebas)
+async function repertorio(ctx) {
+  const data = await loadGuestData();
+  const recetas = (await loadRecipes()).recipes;
+  const { libro = {}, vistas = {}, flags = {} } = ctx.book || {};
+  const conocido = id => ctx.todo || !!libro[id];
+  const visto = (id, e) => ctx.todo || (vistas[id] || []).includes(e);
+  const minijuegos = [
+    ...recetas.filter(r => !r.desbloquea || ctx.todo || flags[r.desbloquea]).map(r => ({ id: `receta:${r.id}`, nombre: mayuscula(r.nombre), jugar: fin => demoCocina(r.id, fin) })),
+    ...MJ_DEMO.map(def => ({ id: `mj:${def[0]}`, nombre: def[1], jugar: fin => demoMinijuego(def, fin) })),
+  ].map(x => ({ ...x, tipo: 'minijuego', precio: PRECIO.minijuego }));
+  const planos = PLANOS_DEMO.filter(([id, e]) => visto(id, e))
+    .map(def => ({ tipo: 'plano', precio: PRECIO.plano, nombre: def[3], jugar: fin => demoPlano(def, data, fin) }));
+  const eventos = data.guests.filter(g => g.cameo && conocido(g.id))
+    .map(g => ({ tipo: 'evento', precio: PRECIO.evento, nombre: g.especie, jugar: fin => demoEvento(g, fin) }));
+  // los encargos de cada huésped conocido, en las formas que se le han visto
+  const encargos = [];
+  for (const g of data.guests) {
+    if (g.cameo || !conocido(g.id)) continue;
+    const formas = ctx.todo ? (g.evoluciones || []).length : (libro[g.id].forma || 0);
+    const lista = [];
+    for (const f of [g, ...(g.evoluciones || []).slice(0, formas).map(e => ({ ...g, ...e, base: g }))]) {
+      for (const p of f.pide || []) if (p.tipo !== 'comida') {
+        lista.push({ tipo: 'encargo', precio: PRECIO.encargo, nombre: f.base ? `${f.especie}: ${p.texto}` : p.texto, jugar: fin => verEncargo(f, p, fin) });
+      }
+    }
+    if (lista.length) encargos.push({ quien: g.especie, lista });
+  }
+  return { minijuegos, planos, eventos, encargos };
+}
+function verEncargo(guest, pide, fin) {
+  go('posada');
+  showScene({ guest, pide, helper: pide.quien || 'manolo', fase: 'dia', atendido: true }, () => fin());
+}
+
+// El panel: head es la cabecera (la de la tienda, con sus pestañas, o la de las pruebas)
+async function otraVez(head, ctx) {
+  const r = await repertorio(ctx);
+  const monedas = ctx.monedas(), records = ctx.records();
+  const items = [];
+  const boton = it => { items.push(it); return `<button class="secondary" data-otra="${items.length - 1}" ${monedas >= it.precio ? '' : 'disabled'}>${esc(it.nombre)}</button>`; };
+  const seccion = (titulo, precio, lista, vacio) => `<h4 class="otra-h">${titulo} <small>· ${precio} monedas</small></h4>`
+    + (lista.length ? `<p class="demo otra-chips">${lista.map(boton).join('')}</p>` : `<p class="muted small">${vacio}</p>`);
+  const nEncargos = r.encargos.reduce((a, g) => a + g.lista.length, 0);
+  if (!r.encargos[otraQuien]) otraQuien = null;
+  const html = head
+    + '<p class="muted small">Ya has visto el final. Con lo que sobra en la caja se puede volver a ver lo que pasó en la posada y jugar a los minijuegos sueltos. Nada de esto cambia la partida: solo cuesta monedas.</p>'
+    + `<h4 class="otra-h">Minijuegos <small>· ${PRECIO.minijuego} monedas la partida</small></h4><p class="muted small">Si sale perfecto, se apunta en el récord (entre paréntesis, los perfectos).</p>`
+    + '<p class="demo otra-chips otra-vez">' + r.minijuegos.map(it => {
+      // el récord: cuántas veces ha salido perfecto
+      const rec = records[it.id];
+      items.push(it);
+      return `<button class="secondary${rec?.perfectos ? ' record' : ''}" data-otra="${items.length - 1}" ${monedas >= it.precio ? '' : 'disabled'}>${esc(it.nombre)}${rec?.perfectos ? ` (${rec.perfectos})` : ''}</button>`;
+    }).join('') + '</p>'
+    + seccion('Planos de las historias', PRECIO.plano, r.planos, 'Aún no se ha visto ninguno.')
+    + seccion('Excursiones', PRECIO.evento, r.eventos, 'Aún no ha subido ningún autobús.')
+    // los encargos, por huésped: se toca su nombre y salen sus escenas debajo
+    + `<h4 class="otra-h">Escenas de los encargos <small>· ${PRECIO.encargo} monedas cada una</small></h4>`
+    + (nEncargos ? `<p class="muted small">${nEncargos} escenas de ${r.encargos.length} huéspedes. Toca uno para ver las suyas.</p>`
+      + `<p class="demo otra-chips otra-quienes">${r.encargos.map((g, i) => `<button class="secondary${i === otraQuien ? ' active' : ''}" data-quien="${i}">${esc(g.quien)}</button>`).join('')}</p>`
+      + r.encargos.map((g, i) => `<p class="demo otra-chips otra-escenas${i === otraQuien ? '' : ' hidden'}" data-escenas="${i}"><b class="otra-quien">${esc(g.quien)}</b>${g.lista.map(boton).join('')}</p>`).join('')
+      : '<p class="muted small">Aún no ha pasado nadie por la posada.</p>');
+  ctx.pintar(html);
+  for (const b of document.querySelectorAll('[data-quien]')) b.addEventListener('click', () => {
+    otraQuien = +b.dataset.quien;
+    for (const x of document.querySelectorAll('[data-quien]')) x.classList.toggle('active', x === b);
+    for (const x of document.querySelectorAll('[data-escenas]')) x.classList.toggle('hidden', +x.dataset.escenas !== otraQuien);
+    document.querySelector(`[data-escenas="${otraQuien}"]`)?.scrollIntoView({ block: 'nearest' });
+  });
+  for (const b of document.querySelectorAll('[data-otra]')) b.addEventListener('click', () => {
+    const it = items[b.dataset.otra];
+    if (!ctx.pagar(it.precio)) return toast('No llega con lo que hay en la caja.');
+    repitiendo = !ctx.demo;
+    // (que no se quede en el cuadro lo último que se dijo)
+    if (it.tipo !== 'minijuego') say('manolo', 'Happy', '¿Te acuerdas, Charizard? Fue así, tal cual.');
+    it.jugar(res => {
+      repitiendo = false;
+      if (it.tipo === 'minijuego' && res) {
+        const rec = ctx.apuntar(it.id, res.resultado);
+        if (res.resultado === 'perfecto') toast(rec.perfectos > 1 ? `¡Perfecto! Ya van ${rec.perfectos}. Charizard pide que lo apuntéis en la pizarra de la cocina.` : '¡Perfecto! Apuntado en el récord. Charizard lo celebra echando humo.');
+      }
+      ctx.volver();
+    });
+  });
+}
+// En la partida: cobra de la caja y apunta los récords en el guardado
+function ctxPartida() {
+  return {
+    book: inn.bookView(), monedas: () => last?.monedas ?? 0, pagar: n => inn.pagar(n),
+    records: () => inn.records(), apuntar: (id, res) => inn.apuntarRecord(id, res),
+    volver: () => { shopTab = TAB_FINAL; shop(); },
+    pintar(html) {
+      card('noche', { title: 'Mejoras', html, button: last?.fase === 'noche' ? 'Ver la posada de noche' : 'Volver a la posada' });
+      enlazarTienda();
+    },
+  };
 }
 
 // ---------- libro de visitas (estilo Pokédex) y recetario ----------
@@ -793,10 +924,12 @@ function refreshStart() {
 
 // El final (también se puede volver a ver desde el inicio)
 async function verFinal() {
+  const primera = !inn.finalVisto();
   await playFinal(kantoVistos(inn.bookView().libro));
   inn.marcarFinal();
   refreshStart();
   if (state === 'noche') go('posada');
+  if (primera) toast(`En la tienda hay una pestaña nueva, «${TAB_FINAL}»: volver a ver escenas y jugar a los minijuegos sueltos con lo que sobre en la caja.`);
 }
 
 // la primera vez (sin partida guardada) se cuenta la historia antes de abrir
@@ -890,6 +1023,7 @@ scene.onClick(thing => {
 // ---------- pruebas: …/?demo enseña solo lo nuevo, sin tocar la partida ----------
 // (los minijuegos nuevos, cada evento por separado y todas las animaciones)
 const DEMO = new URLSearchParams(location.search).has('demo');
+const ENCARGOS = new URLSearchParams(location.search).has('encargos');   // ?demo&encargos: directo a las escenas de los encargos
 async function demo() {
   const data = await loadGuestData();
   const grupos = data.guests.filter(g => g.cameo);
@@ -898,8 +1032,9 @@ async function demo() {
     + '<h4>Minijuegos nuevos</h4><p class="demo">' + MJ_DEMO.map(([id, n], i) => `<button class="secondary" data-demo-mj="${i}">${n}</button>`).join('') + '</p>'
     + '<h4>Eventos (por la mañana, cada uno con su decorado)</h4><p class="demo">' + grupos.map(g => `<button class="secondary" data-demo-evento="${g.id}">${esc(g.especie)}</button>`).join('') + '</p>'
     + '<h4>Planos cortos de las historias</h4><p class="demo">' + PLANOS_DEMO.map(([id, , , n], i) => `<button class="secondary" data-demo-plano="${i}">${n}</button>`).join('') + '</p>'
-    + '<details class="demo"><summary>Escenas de los encargos (una por huésped)</summary><p class="demo">'
+    + `<details class="demo" id="demo-encargos" ${ENCARGOS ? 'open' : ''}><summary>Escenas de los encargos (una por huésped)</summary><p class="demo"><button data-demo-encargos-todas>Verlas todas seguidas (Seguir pasa a la siguiente)</button></p><p class="demo">`
     + encargosDemo(data).map(([f, p], i) => `<button class="secondary" data-demo-encargo="${i}">${esc(f.especie)}: ${esc(p.objeto)}</button>`).join('') + '</p></details>'
+    + '<h4>Recuerdos y lo de después del final</h4><p class="demo"><button class="secondary" data-demo-fotos>Las fotos de recuerdo</button><button class="secondary" data-demo-final>El panel «Otra vez» (tras el final)</button></p>'
     + '<h4>Animaciones</h4><p class="demo"><button class="secondary" data-demo-anims>Verlas todas</button></p>'
     + '<details class="demo"><summary>Sonidos (cada uno: normal, contento y triste)</summary><p class="demo"><button class="secondary" data-demo-nana>La nana de Jigglypuff</button>'
     + voces(data).map(v => `<button class="secondary" data-demo-grito="${v.sprite}">${esc(v.nombre)}</button>`).join('') + '</p></details>';
@@ -908,6 +1043,10 @@ async function demo() {
   for (const b of document.querySelectorAll('[data-demo-mj]')) b.addEventListener('click', () => demoMinijuego(MJ_DEMO[b.dataset.demoMj]));
   for (const b of document.querySelectorAll('[data-demo-evento]')) b.addEventListener('click', () => demoEvento(grupos.find(g => g.id === b.dataset.demoEvento)));
   $('[data-demo-anims]').addEventListener('click', demoAnims);
+  $('[data-demo-fotos]').addEventListener('click', demoFotos);
+  $('[data-demo-final]').addEventListener('click', demoFinal);
+  if (ENCARGOS) $('#demo-encargos').scrollIntoView();
+  $('[data-demo-encargos-todas]').addEventListener('click', () => demoEncargosSeguidos(encargosDemo(data)));
   for (const b of document.querySelectorAll('[data-demo-encargo]')) b.addEventListener('click', () => {
     const [guest, pide] = encargosDemo(data)[b.dataset.demoEncargo];
     go('posada');
@@ -935,29 +1074,55 @@ const MJ_DEMO = [['lena', 'Leña para la nevada'], ['velas', 'Las velas del apag
   ['cafe', 'El café a la malagueña', { tipo: 'sombra', especie: 'Mr. Mime', sprite: '0122' }], ['despensa', '¿Quién se come la chistorra?', { culpable: '0006' }],
   ['planta', 'La planta del Bulbasaur', { modo: 'regadera', sprite: '0001' }], ['maletas', 'El Tetris de maletas'], ['camino', 'Abrir el camino'],
   ['termal', 'El punto del termal', { punto: 'hirviendo', sprite: '0074', especie: 'Geodude', psyduck: true }]];
-async function demoMinijuego([juego, , datos = {}]) {
-  const r = await minijuego(juego, { datos, nivel: 0.3, volver: false });
+async function demoMinijuego(def, despues = demo) {
+  const r = await minijuegoSuelto(def);
   say('manolo', r.resultado === 'perfecto' ? 'Happy' : r.resultado === 'bien' ? 'Normal' : 'Sad',
     r.resultado === 'perfecto' ? '¡Perfecto!' : r.resultado === 'bien' ? `Bien${r.crudo ? ', por los pelos' : ''}.` : 'Mal: eso no ha salido.');
-  demo();
+  despues(r);
 }
-async function demoCocina(id) {
+// un minijuego de los sucesos, suelto, con sus datos de ejemplo (sin pasar por la posada)
+const minijuegoSuelto = ([juego, , datos = {}]) => minijuego(juego, { datos, nivel: 0.3, volver: false });
+async function demoCocina(id, despues = demo) {
   const recipe = (await loadRecipes()).recipes.find(r => r.id === id);
   go('cocina');
   setMood('cocina');
   say('manolo', 'Happy', `¡Vamos allá, Charizard! Una de ${recipe.nombre}.`);
-  const { resultado, crudo } = await kitchen.cook(recipe, { moral: 6, nivel: 0.2, onStep: p => say('manolo', 'Normal', p.texto) });
+  const r = await kitchen.cook(recipe, { moral: 6, nivel: 0.2, onStep: p => say('manolo', 'Normal', p.texto) });
+  const { resultado, crudo } = r;
   say('manolo', resultado === 'quemado' ? 'Sad' : 'Happy', resultado === 'perfecto' ? '¡Perfecto!' : resultado === 'quemado' ? 'Se ha quemado (o echado a perder)…' : resultado === 'crudo' ? 'Sin hacer: así no se puede servir.' : crudo ? 'Bien, aunque algo crudo.' : 'Bien hecho.');
-  demo();
+  despues(r);
 }
-async function demoEvento(g) {
+async function demoEvento(g, despues = demo) {
   const dlg = await loadDialogue(g.id);
   const h = { id: g.id, sprite: g.sprite, nombre: g.especie, cameo: true, miembros: g.miembros };
   go('mostrador');
   await counter.open({ sprite: g.miembros[0].sprite, fase: 'manana', lugar: 'fuera', escenario: g.id });
-  charla(h, dlg.entradas[0], dlg.entradas[0].subtitulo || '', { onEnd() { counter.close(); demo(); } });
+  charla(h, dlg.entradas[0], dlg.entradas[0].subtitulo || '', { onEnd() { counter.close(); despues(); } });
 }
 // Los planos cortos: el momento suelto de su historia, con el huésped en la forma que tiene en ese capítulo
+// las 200 escenas una detrás de otra: «Seguir» salta a la siguiente y «Parar» vuelve a la lista
+function demoEncargosSeguidos(lista) {
+  let i = 0, parado = false;
+  const parar = document.createElement('button');
+  parar.textContent = 'Parar';
+  Object.assign(parar.style, { position: 'fixed', top: '96px', right: '8px', zIndex: 9999 });
+  const rotulo = document.createElement('div');
+  Object.assign(rotulo.style, { position: 'fixed', top: '92px', left: '0', right: '0', zIndex: 9998, color: '#FFF7BF',
+    background: '#100C14E0', padding: '14px 100px 14px 12px', fontSize: '20px' });
+  document.body.append(parar, rotulo);
+  const acabar = () => { parado = true; parar.remove(); rotulo.remove(); $('#popup-close')?.click(); demo(); };
+  parar.addEventListener('click', acabar);
+  go('posada');
+  const siguiente = () => {
+    if (parado) return;
+    if (i >= lista.length) return acabar();
+    const [guest, pide] = lista[i];
+    rotulo.textContent = `${i + 1}/${lista.length} · ${guest.especie}: ${pide.objeto}`;
+    i += 1;
+    showScene({ guest, pide, helper: pide.quien || 'manolo', fase: 'dia', atendido: true }, () => setTimeout(siguiente, 150));
+  };
+  siguiente();
+}
 // todos los encargos de servicio, de cada huésped y de cada una de sus formas
 function encargosDemo(data) {
   const out = [];
@@ -968,7 +1133,7 @@ function encargosDemo(data) {
 const PLANOS_DEMO = [['charmander', 'v2', 'fin', 'El tejado (Charmeleon)'], ['jigglypuff', 'v3', 'canta', 'La canción de Jigglypuff'],
   ['psyduck', 'v3', 'hoguera', 'La hoguera de Psyduck'], ['gengar', 'v2', 'cante', 'El cante de Gengar'], ['jynx', 'v2', 'canta', 'La copla de Jynx'],
   ['magmar', 'v2', 'resultado', 'El duelo de Magmar'], ['machoke', 'v1', 'ventana', 'El posado de Machoke'], ['nidoran', 'v5', 'brindis', 'La boda de los Nidoran']];
-async function demoPlano([id, entrada, nodo], data) {
+async function demoPlano([id, entrada, nodo], data, despues = demo) {
   const dlg = await loadDialogue(id);
   const e = dlg.entradas.find(x => x.id === entrada);
   const g = formaDe(data.guests.find(x => x.id === id), e.cuando?.visita_min || 1);
@@ -976,7 +1141,45 @@ async function demoPlano([id, entrada, nodo], data) {
   const { sigue, opciones, ...n } = e.nodos[nodo];
   go('mostrador');
   await counter.open({ sprite: g.sprite, buddy: g.acompanante, fase: 'tarde', lugar: 'dentro' });
-  charla(h, { nodos: { inicio: n } }, `Pruebas · ${e.subtitulo || ''}`, { onEnd() { counter.close(); demo(); } });
+  charla(h, { nodos: { inicio: n } }, despues === demo ? `Pruebas · ${e.subtitulo || ''}` : e.subtitulo || '', { onEnd() { counter.close(); despues(); } });
+}
+// Las fotos de recuerdo, cada una en sus dos formatos, para verlas y descargarlas sin comprarlas.
+// Salen con la partida guardada (su día y sus huéspedes) o, si no hay, con todos los huéspedes.
+async function demoFotos() {
+  const ups = (await (await fetch('data/upgrades.json')).json()).upgrades.filter(u => u.foto);
+  const data = await loadGuestData();
+  const propios = inn.datosFoto();
+  const datos = propios.conocidos.length > 4 ? propios
+    : { dia: propios.dia, sobrino: '0005', conocidos: data.guests.filter(g => !g.cameo).map(g => (g.evoluciones || []).at(-1)?.sprite || g.sprite) };
+  const html = '<div class="shop-head"><span class="libre">Pruebas: se ven sin comprarlas</span><button class="secondary volver-arriba" id="fotos-volver">Volver</button></div>'
+    + ups.map(u => `<section class="foto-demo"><h4>${esc(u.nombre)} <small>· ${u.precio} monedas</small></h4><p class="muted small">${esc(u.efecto)}${u.pista ? ` (${esc(u.pista)})` : ''}</p>`
+      + `<div class="foto-ver" data-foto="${u.foto}"></div><p class="demo"><button class="secondary" data-fondo="${u.foto}:movil">Descargar para el móvil</button><button class="secondary" data-fondo="${u.foto}:ordenador">Descargar para el ordenador</button></p></section>`).join('');
+  card('demo', { title: 'Fotos de recuerdo', html, button: 'Salir de las pruebas' });
+  $('#fotos-volver').addEventListener('click', () => demo());
+  enlazarFondos(() => datos);
+  // las miniaturas, una a una (son grandes: 1080×2336 y 1920×1080)
+  for (const caja of document.querySelectorAll('.foto-ver')) for (const tipo of ['movil', 'ordenador']) {
+    const lienzo = await dibujaFondo(caja.dataset.foto, tipo, datos);
+    if (!caja.isConnected) return;
+    lienzo.className = `foto-${tipo}`;
+    lienzo.title = `${FOTOS[caja.dataset.foto].titulo} (${tipo === 'movil' ? 'móvil' : 'ordenador'}: ${lienzo.width}×${lienzo.height})`;
+    caja.append(lienzo);
+  }
+}
+// El panel de «Otra vez» con todo abierto: aquí no se cobra ni se guarda nada (los récords, solo mientras dura)
+const recordsDemo = {};
+function demoFinal() {
+  otraVez('<div class="shop-head"><span class="libre">Pruebas: todo abierto, no se cobra ni se guarda</span><button class="secondary volver-arriba" id="otra-volver">Volver</button></div>', {
+    todo: true, demo: true, monedas: () => 99999, pagar: () => true, records: () => recordsDemo,
+    apuntar(id, res) {
+      const r = recordsDemo[id] ||= { jugadas: 0, perfectos: 0 };
+      r.jugadas += 1;
+      if (res === 'perfecto') r.perfectos += 1;
+      return r;
+    },
+    volver: demoFinal,
+    pintar(html) { card('demo', { title: 'Otra vez', html, button: 'Salir de las pruebas' }); $('#otra-volver').addEventListener('click', () => demo()); },
+  });
 }
 function demoAnims() {
   const ANIMS = ['baila', 'duerme', 'gira', 'salta', 'vuela', 'tiembla', 'corazones', 'chispas', 'fuego', 'agua', 'humo', 'estrellas', 'notas', 'sudor', 'enfado', 'flash', 'confeti'];
@@ -987,29 +1190,10 @@ function demoAnims() {
     charla(h, { nodos }, 'Pruebas · animaciones', { onEnd() { counter.close(); demo(); } }));
 }
 
-// ---------- entrada con contraseña (mientras está en pruebas) ----------
-// Solo para que no entre quien se tope con el enlace: se comprueba en el navegador y se recuerda en este aparato.
-// Se guarda la huella de la contraseña (FNV-1a), no la palabra.
-const PASE = '537e3882', PASE_KEY = 'el-pino-calcinado-pase';
-const huella = t => { let h = 0x811c9dc5; for (const c of t) { h ^= c.charCodeAt(0); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(16); };
-const dentro = () => { try { return localStorage.getItem(PASE_KEY) === PASE; } catch { return false; } };
-const cerrado = () => !$('#gate').classList.contains('hidden');
-// para ver el final sin jugar entero: …/?final (directo, nada más pasar la contraseña)
-const soloFinal = new URLSearchParams(location.search).has('final');
-const verSoloFinal = () => { if (soloFinal && !cerrado()) playFinal(151).then(() => { location.href = location.pathname; }); };
-if (dentro()) $('#gate').classList.add('hidden');
-else $('#gate-pass').focus();
-verSoloFinal();
-$('#gate').addEventListener('submit', ev => {
-  ev.preventDefault();
-  if (huella($('#gate-pass').value.trim().toLowerCase()) !== PASE) { $('#gate-error').classList.remove('hidden'); $('#gate-pass').select(); return; }
-  try { localStorage.setItem(PASE_KEY, PASE); } catch { /* sin almacenamiento: habrá que ponerla cada vez */ }
-  $('#gate').classList.add('hidden');
-  verSoloFinal();
-});
+// para ver el final sin jugar entero: …/?final
+if (new URLSearchParams(location.search).has('final')) playFinal(151).then(() => { location.href = location.pathname; });
 
 window.addEventListener('keydown', ev => {
-  if (cerrado()) return;
   if (ev.key === 'Enter' && state === 'inicio') go('posada');
   else if (ev.key === 'Escape') {
     if (state === 'mostrador' || state === 'cocina') return;
@@ -1028,6 +1212,8 @@ document.fonts.load('400 24px "Jersey 10"').catch(() => {}).finally(async () => 
     say('manolo', 'Happy', 'Todo listo. A ver quién sube hoy por el camino.');
     inn = await createInn(scene, { update: render, toast, night, say, sfx, charizard: charizardTalk, minijuego,
       evento: id => new Promise(res => startTalk(id, null, res)),
+      // la posada a la vista, sin charla, cocina ni escena de encargo encima (para lo que salta solo, como las maletas)
+      libre: () => state === 'posada' && $('#popup').classList.contains('hidden'),
       decir: (who, emotion, text) => dialog({ ...who, emotion, text }),
       show: s => { showScene(s); setTimeout(() => sfx(s.atendido === 'frio' ? 'sad' : 'cheer'), 1700); } });
     await inn.begin();

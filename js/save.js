@@ -36,9 +36,12 @@ export function clear() {
 function leerCopias() {
   try { return JSON.parse(localStorage.getItem(COPIAS) || '[]'); } catch { return []; }
 }
+// (las copias de antes de que hubiera id de partida valen para la que haya)
+const esDe = (c, partida) => !c.datos?.partida || c.datos.partida === partida;
+// (solo las de esta partida, y sin los días «del futuro» si se ha vuelto atrás a una copia)
 function guardarCopia(datos) {
   try {
-    const lista = leerCopias().filter(c => c.dia !== datos.dia);
+    const lista = leerCopias().filter(c => esDe(c, datos.partida) && c.dia < datos.dia);
     lista.push({ dia: datos.dia, fecha: Date.now(), datos });
     lista.sort((a, b) => b.dia - a.dia);
     localStorage.setItem(COPIAS, JSON.stringify(lista.slice(0, DIAS_COPIA + 1)));
@@ -46,8 +49,9 @@ function guardarCopia(datos) {
 }
 // las de días anteriores al que se está jugando (la del día de hoy es la propia partida)
 export function copias() {
-  const hoy = load()?.dia ?? Infinity;
-  return leerCopias().filter(c => c.dia < hoy).slice(0, DIAS_COPIA);
+  const actual = load();
+  const hoy = actual?.dia ?? Infinity;
+  return leerCopias().filter(c => c.dia < hoy && esDe(c, actual?.partida)).slice(0, DIAS_COPIA);
 }
 
 // ---------- que el navegador no la borre cuando le falte sitio ----------

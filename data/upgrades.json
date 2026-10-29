@@ -4,7 +4,7 @@
       "id": "buhardilla",
       "nombre": "Reparar la buhardilla",
       "grupo": "Obras",
-      "precio": 60,
+      "precio": 90,
       "puntos": 3,
       "efecto": "Una habitación más, arriba del todo."
     },
@@ -12,7 +12,7 @@
       "id": "planta-2",
       "nombre": "Construir la segunda planta",
       "grupo": "Obras",
-      "precio": 160,
+      "precio": 240,
       "puntos": 4,
       "efecto": "Tres habitaciones nuevas: amarilla, morada y marrón."
     },
@@ -20,7 +20,7 @@
       "id": "planta-3",
       "nombre": "Construir la tercera planta",
       "grupo": "Obras",
-      "precio": 280,
+      "precio": 420,
       "puntos": 5,
       "requiere": "planta-2",
       "efecto": "Tres habitaciones más: roja, azul y verde.",
@@ -30,7 +30,7 @@
       "id": "estanque",
       "nombre": "Estanque",
       "grupo": "Obras",
-      "precio": 90,
+      "precio": 135,
       "puntos": 3,
       "efecto": "Los tipo agua duermen en la charca. Atrae a Lapras y a Squirtle le encanta."
     },
@@ -38,7 +38,7 @@
       "id": "cueva",
       "nombre": "Cueva en la roca",
       "grupo": "Obras",
-      "precio": 180,
+      "precio": 270,
       "puntos": 3,
       "efecto": "Junto al camino, para los que no caben en casa: Onix, Gyarados y otros enormes."
     },
@@ -46,7 +46,7 @@
       "id": "nido",
       "nombre": "Nido en lo alto del pino",
       "grupo": "Obras",
-      "precio": 240,
+      "precio": 360,
       "puntos": 4,
       "efecto": "Para los pájaros grandes, que vienen de muy lejos."
     },
@@ -54,7 +54,7 @@
       "id": "fogon-apoyo",
       "nombre": "Fogón de apoyo",
       "grupo": "Cocina",
-      "precio": 80,
+      "precio": 120,
       "puntos": 1,
       "efecto": "Cocinar es más fácil: zonas más anchas y la llama más quieta."
     },
@@ -62,7 +62,7 @@
       "id": "cerrojo",
       "nombre": "Despensa con cerrojo",
       "grupo": "Cocina",
-      "precio": 40,
+      "precio": 60,
       "puntos": 0,
       "efecto": "Ya casi no desaparece chistorra por la noche."
     },
@@ -70,7 +70,7 @@
       "id": "mas-chistorra",
       "nombre": "Más chistorra",
       "grupo": "Cocina",
-      "precio": 50,
+      "precio": 75,
       "puntos": 0,
       "efecto": "Dos chistorras más en cada paquete de la mañana."
     },
@@ -78,7 +78,7 @@
       "id": "chimenea",
       "nombre": "Chimenea en recepción",
       "grupo": "Comodidades",
-      "precio": 70,
+      "precio": 105,
       "puntos": 2,
       "efecto": "+2 de propina de los que se van a gusto. A Larvitar le encanta."
     },
@@ -86,7 +86,7 @@
       "id": "termal",
       "nombre": "Baño termal",
       "grupo": "Comodidades",
-      "precio": 150,
+      "precio": 225,
       "puntos": 3,
       "efecto": "Vienen más tipos fuego y roca."
     },
@@ -94,7 +94,7 @@
       "id": "taquillas",
       "nombre": "Taquillas para la plantilla",
       "grupo": "Comodidades",
-      "precio": 120,
+      "precio": 180,
       "puntos": 1,
       "efecto": "Dos plazas más para quien se quede a trabajar en la posada."
     },
@@ -102,7 +102,7 @@
       "id": "jardin",
       "nombre": "Jardín de bayas",
       "grupo": "Comodidades",
-      "precio": 60,
+      "precio": 90,
       "puntos": 2,
       "efecto": "Vienen más tipos planta."
     },
@@ -110,7 +110,7 @@
       "id": "farolillos",
       "nombre": "Farolillos en el alero",
       "grupo": "Decoración",
-      "precio": 30,
+      "precio": 45,
       "puntos": 1,
       "efecto": "A Jigglypuff y a Gengar les encantan."
     },
@@ -118,7 +118,7 @@
       "id": "macetas",
       "nombre": "Macetas en las ventanas",
       "grupo": "Decoración",
-      "precio": 25,
+      "precio": 40,
       "puntos": 1,
       "efecto": "A Oddish y a Bulbasaur les encantan."
     },
@@ -126,7 +126,7 @@
       "id": "alfombra",
       "nombre": "Alfombra roja en recepción",
       "grupo": "Decoración",
-      "precio": 35,
+      "precio": 50,
       "puntos": 1,
       "efecto": "A Jynx y a Marinilla les encanta."
     },
@@ -134,7 +134,7 @@
       "id": "banderines",
       "nombre": "Banderines en el comedor",
       "grupo": "Decoración",
-      "precio": 20,
+      "precio": 30,
       "puntos": 1,
       "efecto": "A Mr. Mime y a Eevee les encantan."
     },
@@ -142,7 +142,7 @@
       "id": "cuadro",
       "nombre": "El cuadro del gimnasio",
       "grupo": "Decoración",
-      "precio": 40,
+      "precio": 60,
       "puntos": 2,
       "efecto": "A Machop y a Growlithe les encanta."
     },
@@ -157,11 +157,63 @@
     },
     {
       "id": "foto",
-      "nombre": "Foto de recuerdo en la posada",
+      "nombre": "Foto de noche, en la puerta",
       "grupo": "Recuerdos",
       "precio": 1400,
       "puntos": 0,
-      "efecto": "Manolo y Charizard en la puerta de la posada, de noche, junto al pino. Para descargarla y ponerla de fondo de pantalla en el móvil o en el ordenador."
+      "efecto": "Manolo y Charizard en la puerta de la posada, con la luna llena y el pino calcinado. Para el fondo de pantalla del móvil o del ordenador.",
+      "foto": "noche"
+    },
+    {
+      "id": "foto-grupo",
+      "nombre": "La foto de grupo",
+      "grupo": "Recuerdos",
+      "precio": 1600,
+      "puntos": 0,
+      "foto": "grupo",
+      "efecto": "Todos los que han pasado por la posada, en filas delante de la casa, a la tarde. Los grandes, detrás; los bajitos, delante con Manolo y Charizard. Cuantos más conozcas, más gente sale."
+    },
+    {
+      "id": "foto-tejado",
+      "nombre": "El tejado, al atardecer",
+      "grupo": "Recuerdos",
+      "precio": 900,
+      "puntos": 0,
+      "foto": "tejado",
+      "tras": "charmander",
+      "pista": "Cuando el sobrino de Charizard haya pasado por la posada.",
+      "efecto": "Charizard y su sobrino sentados en la cumbrera, de espaldas, con las colas encendidas y las dos últimas chistorras a medias."
+    },
+    {
+      "id": "foto-nevada",
+      "nombre": "La posada nevada",
+      "grupo": "Recuerdos",
+      "precio": 1100,
+      "puntos": 0,
+      "foto": "nevada",
+      "efecto": "Nieve hasta las rodillas, las ventanas encendidas, un monigote con nariz de chistorra y Charizard derritiendo su corro."
+    },
+    {
+      "id": "foto-boda",
+      "nombre": "La boda de los Nidoran",
+      "grupo": "Recuerdos",
+      "precio": 1300,
+      "puntos": 0,
+      "foto": "boda",
+      "capitulo": "nidoran:v5",
+      "pista": "Cuando se hayan casado los Nidoran.",
+      "efecto": "Los novios bajo el arco de flores, Manolo de padrino, Charizard de testigo, la tarta de tres pisos y confeti para dar y tomar."
+    },
+    {
+      "id": "foto-bulbasaur",
+      "nombre": "Bulbasaur huyendo de la policía",
+      "grupo": "Recuerdos",
+      "precio": 1200,
+      "puntos": 0,
+      "foto": "bulbasaur",
+      "historia": "bulbasaur",
+      "pista": "Cuando Bulbasaur haya contado algo de lo suyo (y de su planta).",
+      "efecto": "De noche, carretera abajo con la maceta a cuestas y la agente Mara detrás con la sirena puesta. En la puerta, Manolo silba como si nada y Charizard no quiere mirar."
     }
   ]
 }

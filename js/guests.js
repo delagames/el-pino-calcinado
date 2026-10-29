@@ -78,7 +78,7 @@ export function canAppear(guest, state) {
 
 // Cuántos llegan: 2 los primeros días y luego más, hasta una más que habitaciones hay
 export function arrivalsFor(day, rooms = 3) {
-  return Math.min(rooms + 1, 2 + Math.floor((day - 1) / 2));
+  return Math.min(rooms + 1, 9, 2 + Math.floor((day - 1) / 2));   // (9 como mucho: que el día no se haga eterno)
 }
 
 // Generador con semilla: el mismo día sale siempre igual aunque se recargue
@@ -122,7 +122,16 @@ export function pickArrivals(state, terminados = new Set(), visitaProxima = null
     .map(g => ({ id: g.id, k: r() + (ayer.has(g.id) ? 1 : 0) + pull(g) }))
     .sort((a, b) => a.k - b.k)
     .map(g => g.id);
-  const llegan = [...first, ...rest].slice(0, arrivalsFor(state.dia, state.habitaciones || 3));
+  const max = arrivalsFor(state.dia, state.habitaciones || 3);
+  let lista = [...first, ...rest];
+  // si no hay bastantes con historia pendiente, alguno de los que ya la acabaron vuelve de visita (dos como mucho;
+  // cuatro si ya casi no quedan historias, que la posada no se quede vacía)
+  if (lista.length < max && terminados.size) {
+    const viejos = data.guests.filter(g => !g.cameo && terminados.has(g.id) && !ayer.has(g.id) && !mosqueado(g.id) && canAppear(formaDe(g, proxima(g.id)), state))
+      .map(g => ({ id: g.id, k: r() })).sort((a, b) => a.k - b.k).slice(0, Math.min(lista.length <= 2 ? 4 : 2, max - lista.length)).map(g => g.id);
+    lista = [...lista, ...viejos];
+  }
+  const llegan = lista.slice(0, max);
   // no todos piden algo: más o menos tres de cada cinco; los demás vienen a descansar («chill»)
   // (los dos primeros días piden todos, que se está aprendiendo)
   const cuantos = state.dia <= 2 ? llegan.length : Math.max(1, Math.round(llegan.length * 0.6));

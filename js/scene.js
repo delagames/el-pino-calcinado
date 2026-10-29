@@ -1215,6 +1215,9 @@ export function createInnView(canvas) {
   return {
     resize,
     setInsets(val) { insets = { ...insets, ...val }; resize(); },
+    // de coordenadas del mundo a la pantalla (en px CSS), para las pruebas
+    aPantalla(x, y) { const rc = canvas.getBoundingClientRect(); return { x: rc.left + (x + v.wx) * v.S / v.dpr, y: rc.top + (y + v.wy) * v.S / v.dpr }; },
+    actores: () => [...actors],
     setActors(list) { actors = list; },
     setHighlight(ids) { highlight = new Set(ids); },
     setPaused(on) {

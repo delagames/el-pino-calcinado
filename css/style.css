@@ -106,10 +106,6 @@ button.icon { padding: 0 2px; font-size: 1.1rem; line-height: 1; min-height: 0; 
   /* si no cabe (pantallas bajas), se baja con scroll en vez de cortar el logo por arriba */
   justify-content: flex-start; overflow-y: auto;
 }
-/* entrada con contraseña: por encima de todo */
-#gate { z-index: 60; background: #1B2238; justify-content: center; }
-#gate input { font: inherit; font-size: 1.1rem; width: min(280px, 80vw); padding: 6px 10px; text-align: center;
-  color: var(--texto-oscuro); background: var(--marfil); border: var(--px) solid var(--contorno); }
 /* El logo es de 270×186 px nativos: se muestra a múltiplos enteros para no deformar los píxeles;
    en pantallas bajas se encoge para que quepan los botones */
 .start-logo { width: min(540px, 92vw, 46vh); margin-top: auto; flex: none; }
@@ -505,3 +501,60 @@ ul.copias { list-style: none; margin: 0 0 10px; padding: 0; }
 ul.copias li { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 4px 0; border-bottom: 1px dashed #3A4466; }
 ul.copias button { min-height: 0; padding: 2px 8px; font-size: 0.85rem; }
 #cod-texto { width: 100%; box-sizing: border-box; font: inherit; font-size: 0.8rem; padding: 6px; color: var(--texto-oscuro); background: var(--marfil); border: var(--px) solid var(--contorno); resize: vertical; word-break: break-all; }
+
+/* ---------- auditoría de interfaz (29-oct) ---------- */
+/* móviles estrechos (≤380 px): la barra de arriba no salta de filas al cambiar la hora */
+@media (max-width: 380px) {
+  .topbar { column-gap: 4px; padding-left: 6px; padding-right: 6px; }
+  .topbar .day { font-size: 0.82rem; flex: 1 1 0; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .topbar .shop-button { margin-left: 4px; }
+  .topbar button.icon, .topbar .book-button, .topbar .shop-button { padding-left: 6px; padding-right: 6px; }
+}
+/* tienda: la cabecera se parte en dos filas si no cabe, y en el móvil el precio va debajo de la descripción */
+.shop-head { flex-wrap: wrap; justify-content: center; }
+@media (max-width: 520px) {
+  .shop li { flex-wrap: wrap; }
+  .shop li div { flex: 1 1 100%; }
+  .shop li button { margin-left: auto; }
+}
+/* portada en ventana baja: los botones no se aplastan (se baja con scroll) */
+@media (max-height: 700px) { #start > * { flex-shrink: 0; } }
+/* apaisado bajo: las respuestas no se comen el ancho del texto, y el libro gana alto */
+@media (max-height: 480px) and (orientation: landscape) {
+  #dialog-options { flex: 0 1 auto; }
+  .dex { max-height: calc(100dvh - 8px); }
+  .dex-body { flex-direction: row; }
+  #book-list { max-height: none; width: 38%; border-bottom: none; }
+  #book-detail { min-height: 0; overflow-y: auto; }
+}
+/* el libro no cambia de alto al elegir una ficha corta (móvil) */
+@media (max-width: 760px) and (min-height: 481px) { .dex { height: calc(100dvh - 24px); } }
+/* intro y final: el cuadro de texto con alto fijo (cinco líneas), para que la escena no suba y baje */
+.intro-box { min-height: calc(5 * 1.3 * 1.25rem + 1.2rem + 18px); }
+/* la escena de un encargo a escala entera (×3) en el ordenador */
+.popup-card { max-width: 428px; }
+/* tu partida: botones a lo ancho */
+#stub .demo button { flex: 1 1 auto; }
+/* contraste de la línea de datos de arriba sobre el cielo claro */
+.topbar .stats { text-shadow: 0 1px 0 #100C14, 1px 0 0 #100C14, -1px 0 0 #100C14, 0 -1px 0 #100C14; }
+
+/* ---------- fotos de recuerdo y «Otra vez» (tras el final) ---------- */
+/* la pestaña que sale tras el final, en brasa para que se vea */
+.shop-tabs .tab-final { color: var(--brasa); }
+.otra-h { margin: 14px 0 4px; }
+.otra-h small { color: var(--suave); font-size: 0.85rem; }
+.card p.demo button.record { color: var(--brasa); }
+.otra-quien { flex: 1 1 100%; font-weight: 400; color: var(--marfil); margin-top: 6px; }
+.shop-head span.libre { white-space: normal; text-align: center; }
+/* las miniaturas de las fotos en las pruebas: a escala, nítidas */
+.foto-demo { margin: 0 0 16px; }
+.foto-ver { display: flex; gap: 8px; align-items: flex-start; margin: 6px 0; }
+.foto-ver canvas { image-rendering: pixelated; border: var(--px) solid var(--contorno); height: auto; min-width: 0; }
+.foto-ver .foto-movil { flex: 0 0 28%; width: 28%; }
+.foto-ver .foto-ordenador { flex: 1 1 auto; width: 68%; }
+/* mientras se ve la escena de un encargo, lo de abajo no se pulsa (que no se pase el día a mitad de escena) */
+body:has(#popup:not(.hidden)) #dialog-options { pointer-events: none; opacity: 0.55; }
+/* en «Otra vez», botones a su ancho (son muchos: no a lo ancho de la tarjeta) */
+#stub p.demo.otra-chips button { flex: 0 1 auto; }
+.otra-quienes button.active { color: var(--brasa); }
+.otra-escenas { padding: 6px 0 0; border-top: 1px dashed #3A4466; }

@@ -232,9 +232,35 @@ function pond(c, s) {
   c.fillStyle = ['#3F7F4F', '#4F6343', '#1B2240'][k]; c.fillRect(0, 38, W, 1);
   // en el prado (sin charca ni mesita): el pino calcinado de la entrada y matas de hierba
   if (s.prado) {
-    c.fillStyle = C.L; c.fillRect(18, 10, 3, 30); c.fillRect(14, 16, 11, 1); c.fillRect(15, 22, 9, 1); c.fillRect(13, 28, 13, 1);
+    if (!s.cueva && s.pino !== false) { c.fillStyle = C.L; c.fillRect(18, 10, 3, 30); c.fillRect(14, 16, 11, 1); c.fillRect(15, 22, 9, 1); c.fillRect(13, 28, 13, 1); }
     c.fillStyle = ['#3F7F4F', '#4F6343', '#1B2240'][k];
     for (const x of [8, 44, 66, 90, 116]) { c.fillRect(x, 48, 1, 2); c.fillRect(x + 2, 47, 1, 3); c.fillRect(x + 4, 49, 1, 1); }
+    if (s.nido) {
+      // el pino calcinado de cerca: el tronco negro, dos ramas peladas y el nido arriba, donde duerme
+      c.fillStyle = C.L; c.fillRect(GUEST_X - 3, 2, 6, FLOOR + 1 - 2);
+      c.fillRect(GUEST_X - 16, 14, 13, 1); c.fillRect(GUEST_X + 3, 9, 14, 1); c.fillRect(GUEST_X + 3, 40, 10, 1);
+      c.fillStyle = '#2A2430'; c.fillRect(GUEST_X - 2, 2, 1, FLOOR - 1);
+      const nido = ['#8F6F3F', '#6F5737', '#3F3327'][k], paja = ['#B7975F', '#8F774F', '#57473A'][k];
+      for (let dy = 0; dy < 5; dy++) { const hw = 14 - Math.abs(dy - 1) * 2; c.fillStyle = dy ? nido : paja; c.fillRect(GUEST_X - hw, FLOOR - 24 + dy, hw * 2, 1); }
+      c.fillStyle = paja; for (const x of [-11, -6, -1, 4, 9]) c.fillRect(GUEST_X + x, FLOOR - 22, 2, 1);
+    }
+    if (s.cueva) {
+      // la ladera de roca y, detrás del huésped, la boca oscura de la cueva
+      const roca = ['#8F8577', '#6F5F67', '#2F2B3F'][k], veta = ['#6F675F', '#4F4450', '#22202F'][k], luz = ['#AFA597', '#8F7F87', '#3B3750'][k];
+      for (let x = 50; x < W; x++) {
+        const top = Math.round(Math.max(4, 34 - (x - 50) * 0.55 + 2 * Math.sin(x / 4)));
+        c.fillStyle = roca; c.fillRect(x, top, 1, FLOOR + 1 - top);
+        c.fillStyle = luz; c.fillRect(x, top, 1, 1);
+      }
+      c.fillStyle = veta;
+      for (const [x, y, w] of [[60, 34, 6], [70, 24, 5], [118, 16, 6], [120, 40, 5], [58, 46, 4], [112, 50, 7]]) c.fillRect(x, y, w, 1);
+      for (let y = FLOOR - 34; y <= FLOOR; y++) {
+        const hw = y >= FLOOR - 16 ? 18 : Math.round(18 * Math.sqrt(Math.max(0, 1 - ((FLOOR - 16 - y) / 18) ** 2)));
+        if (!hw) continue;
+        c.fillStyle = veta; c.fillRect(GUEST_X - hw - 1, y, hw * 2 + 2, 1);
+        c.fillStyle = '#14101A'; c.fillRect(GUEST_X - hw, y, hw * 2, 1);
+      }
+    }
     return;
   }
   for (let dy = 0; dy < 12; dy++) {
@@ -350,6 +376,13 @@ const PARTICLES = {
 
 // un reloj de pared: esfera, doce y las dos agujas (que corren a p.speed vueltas por segundo)
 function drawReloj(c, x, y, p, t) {
+  if (p.fuera) {
+    // fuera no hay reloj de pared: el paso del tiempo lo cuenta el sol (o la luna) cruzando el cielo
+    const ang = (t / 1000) * p.speed * Math.PI * 2 / 12;
+    const cx = Math.round(x) + 4 + Math.round(Math.sin(ang) * 8), cy = Math.round(y) + 6 - Math.round(Math.abs(Math.cos(ang)) * 3);
+    c.fillStyle = p.fuera === 'dia' ? '#FFE7A7' : C.W; disc(c, cx, cy, 2);
+    return;
+  }
   const cx = Math.round(x) + 4, cy = Math.round(y) + 4;
   c.fillStyle = C.K; disc(c, cx, cy, 4); c.fillStyle = C.W; disc(c, cx, cy, 3);
   c.fillStyle = C.L; c.fillRect(cx, cy - 3, 1, 1);
@@ -365,7 +398,7 @@ const layer = () => { const cv = document.createElement('canvas'); cv.width = W;
 
 let running = null;
 
-export async function showScene({ guest, pide, helper, fase = 'noche', atendido = true, hab = null }, onClose) {
+export async function showScene({ guest, pide, helper, fase = 'noche', atendido = true, hab = null, proveedor = null }, onClose) {
   const box = document.querySelector('#popup');
   const canvas = document.querySelector('#popup-canvas');
   const c = canvas.getContext('2d');
@@ -373,17 +406,35 @@ export async function showScene({ guest, pide, helper, fase = 'noche', atendido 
   const token = {};
   running = token;
 
-  const [gs, ms, cs] = await Promise.all([
-    loadSprite(guest.sprite, ['Idle', 'Walk', 'Eat', 'Hop', 'Sleep']),
-    loadSprite('manolo', ['Idle', 'Walk', 'Sleep']),
-    loadSprite('0006', ['Idle', 'Walk', 'Hop', 'Sleep', 'Shoot']),
-  ]);
+  let gs, ms, cs;
+  try {
+    [gs, ms, cs] = await Promise.all([
+      loadSprite(guest.sprite, ['Idle', 'Walk', 'Eat', 'Hop', 'Sleep']),
+      loadSprite('manolo', ['Idle', 'Walk', 'Sleep']),
+      loadSprite('0006', ['Idle', 'Walk', 'Hop', 'Sleep', 'Shoot']),
+    ]);
+  } catch (err) {
+    // sin conexión (o falta un sprite): no hay escena, pero el juego sigue
+    console.warn('[escena]', err);
+    if (running === token) { running = null; box.classList.add('hidden'); onClose?.(); }
+    return;
+  }
   if (running !== token) return;
 
   // ---------- estado de la escena ----------
   // por la ventana se ve el cielo de la hora; el sol entra en su escena aunque sea tarde
-  const s = { day: pide.objeto === 'sol' || fase === 'manana' || fase === 'dia', shutter: pide.objeto === 'sol' ? 0 : 1, beam: 0, outdoor: hab === 'estanque', tarde: fase === 'tarde', lights: [] };
-  const guestA = new Actor(gs, { x: GUEST_X, y: FLOOR, dir: DIR.left });
+  // dónde duerme: el cuarto que le dieron o, si no se sabe (las pruebas), el sitio que le toca por
+  // tamaño (los de agua, al estanque; los enormes, a la cueva; los pájaros grandes, al nido del pino)
+  const sitio = hab || (guest.tam === 'agua' ? 'estanque' : guest.duerme) || null;
+  const s = { day: pide.objeto === 'sol' || fase === 'manana' || fase === 'dia', shutter: pide.objeto === 'sol' ? 0 : 1, beam: 0, outdoor: sitio === 'estanque', tarde: fase === 'tarde', lights: [] };
+  // Snorlax no cabe por la puerta: todo lo suyo pasa fuera, junto al pino calcinado (y lo del nido, al pie del pino)
+  if (guest.id === 'snorlax') s.outdoor = s.prado = true;
+  // los del nido, arriba, en lo alto del pino calcinado (Manolo se lo sube desde abajo)
+  if (sitio === 'nido') { s.outdoor = s.prado = s.nido = true; s.pino = false; }
+  // los de la cueva de la ladera (Onix, Gyarados, Rhydon, Mewtwo): en la boca de la cueva
+  if (sitio === 'cueva') s.outdoor = s.prado = s.cueva = true;
+  const NIDO = FLOOR - 24;
+  const guestA = new Actor(gs, { x: GUEST_X, y: s.nido ? NIDO : FLOOR, dir: DIR.left });
   await addBuddy(guestA, guest.acompanante, ['Idle', 'Walk', 'Hop']);
   const actors = [guestA];
   const props = [];          // { art, x, y, on: actor, front }
@@ -579,7 +630,7 @@ export async function showScene({ guest, pide, helper, fase = 'noche', atendido 
   const luz = l => { s.lights.push(l); return l; };
   const apagaLuz = l => { const i = s.lights.indexOf(l); if (i >= 0) s.lights.splice(i, 1); };
   const fogonazo = (ms = 500) => { s.flash = { t0: now, ms }; };
-  const reloj = (x, y, speed = 1) => prop(Array(9).fill('.........'), x, y, { draw: drawReloj, speed });
+  const reloj = (x, y, speed = 1) => prop(Array(9).fill('.........'), x, y, { draw: drawReloj, speed, fuera: s.outdoor && (s.day ? 'dia' : 'noche') });
   const fin = async (...as) => {
     const ps = [];
     for (const [i, a] of as.filter(Boolean).entries()) { if (i) await wait(250); ps.push(leave(a)); }
@@ -982,10 +1033,20 @@ export async function showScene({ guest, pide, helper, fase = 'noche', atendido 
       await fin(a, ch);
     },
     async 'pano@onix'() {
+      // el otro paño de Onix es la toalla del termal: mete la cabeza, luego un trozo, luego otro… y no queda agua
+      if (pide.termal) return termal({ hondo: 4, alivio: async poza => {
+        for (let i = 0; i < 2; i++) { await every(40, 320, () => { G.x -= 0.5; }); G.y = Math.min(FLOOR + 10, G.y + 3); burst('drop', 70, FLOOR - 4, 8, 10); await wait(350); }
+        poza.vacia = true; poza.calor = false;
+        burst('drop', 60, FLOOR - 4, 10, 14); burst('drop', 84, FLOOR - 4, 10, 14);
+        await wait(300);
+        di('AY', G, { color: 'S', life: 1100 });
+        corazones(G, 2, 500);
+      } });
       const { a, p } = await ponerle(ART.pano, 'front');
-      // limpia el marco, la puerta y medio pasillo
-      await moveTo(p, 14, 12, 500, 6);
-      for (let x = 14; x <= 60; x += 6) { await moveTo(p, x, 12 + (x % 12 ? 0 : 3), 180, 2); emit('spark', x + 3, 12); }
+      // limpia lo que tiene a mano: el marco, la puerta y medio pasillo (en la cueva, la boca de roca)
+      const [x0, x1, y0] = s.cueva ? [GUEST_X - 22, GUEST_X + 16, FLOOR - 36] : [14, 60, 12];
+      await moveTo(p, x0, y0, 500, 6);
+      for (let x = x0; x <= x1; x += 6) { await moveTo(p, x, y0 + (x % 12 ? 0 : 3), 180, 2); emit('spark', x + 3, y0); }
       drop(p);
       sudor(a);
       await wait(400);
@@ -1068,11 +1129,18 @@ export async function showScene({ guest, pide, helper, fase = 'noche', atendido 
       for (let i = 0; i < 4; i++) { di('GYARADOS', G, { color: 'R', life: 700, rise: 3 }); await wait(420); }
       // a la décima, salta… y se da con el techo
       const y0 = G.y;
-      const ty = G.y - (caja(G).y0 - 1);
-      await every(16, 260, () => { G.y = Math.max(ty, G.y - 4); });
-      emit('spark', G.x, 2); di('BONK', { x: G.x, y: 10 }, { color: 'y' });
-      shake(G, 300, 1);
-      await every(16, 300, () => { G.y = Math.min(y0, G.y + 5); });
+      if (s.outdoor) {
+        // en el estanque no hay techo: salta muy alto y cae de panza en el agua
+        await brinca(G, 1, 22, 700);
+        burst('drop', G.x, FLOOR - 4, 12, 12);
+        di('PLAF', G, { color: 'c' });
+      } else {
+        const ty = G.y - (caja(G).y0 - 1);
+        await every(16, 260, () => { G.y = Math.max(ty, G.y - 4); });
+        emit('spark', G.x, 2); di('BONK', { x: G.x, y: 10 }, { color: 'y' });
+        shake(G, 300, 1);
+        await every(16, 300, () => { G.y = Math.min(y0, G.y + 5); });
+      }
       G.y = y0;
       await wait(800);
       s.espejo = null;
@@ -1525,9 +1593,12 @@ export async function showScene({ guest, pide, helper, fase = 'noche', atendido 
       await wait(900);
     },
     async 'cafe@pidgeotto'() {
-      const { a, p } = await dejar(ART.cafe, { to: 60 });
+      // se lo deja en el alféizar de la ventana, y Pidgeotto se lo toma allí, vigilando el camino
+      const { a, p } = await trae(ART.cafe, { to: 40 });
       a.dir = DIR.left;
+      if (!s.outdoor) await moveTo(p, 16, 28 - p.art.length, 400, 6); else await toss(p, GUEST_X - 12, 420, 8);
       await fin(a);
+      if (!s.outdoor) { await walk(G, 40, 40); face(G, 'l'); }
       anim(G, 'Eat'); await wait(400); drop(p); idle(G);
       // sin quitarle ojo al camino: no pasa nadie. Él vigila igual
       for (let i = 0; i < 3; i++) { face(G, 'l'); await wait(600); face(G, 'u'); await wait(300); }
@@ -1570,6 +1641,7 @@ export async function showScene({ guest, pide, helper, fase = 'noche', atendido 
     caja: ['LLLLLLL', 'LWW.WWL', 'LpppppL', 'LpWWWpL', 'LpppppL', 'LLLLLLL'],
     cajaVacia: ['LLLLLLL', 'L.....L', 'LpppppL', 'LpWWWpL', 'LpppppL', 'LLLLLLL'],
     plato: ['..LLL..', '.LRWRL.', 'LWWWWWL', '.LLLLL.'],
+    chimenea: ['LLLLLLLLLLLL', 'LMMMMMMMMMML', 'LLLLLLLLLLLL', '.LMMMMMMMML.', '.LMLLLLLLML.', '.LMLRYRYLML.', '.LMLYRYRLML.', '.LMLLLLLLML.', '.LLLLLLLLLL.'],
   };
   // un cuadro colgado torcido (cada columna un poco más alta que la anterior), con su paisajito
   const drawTorcido = (ctx, x, y) => {
@@ -1590,13 +1662,15 @@ export async function showScene({ guest, pide, helper, fase = 'noche', atendido 
     const cx = Math.round(x) + 15, top = Math.round(y) + 2;
     for (let dy = 0; dy < 6; dy++) {
       const half = Math.round(15 * Math.sqrt(1 - (dy / 6.5) ** 2));
-      ctx.fillStyle = dy === 0 ? C.L : dy < 2 ? (p.calor ? '#F7C7A7' : C.c) : dy < 4 ? (p.calor ? '#E78F6F' : C.B) : '#376F8F';
+      ctx.fillStyle = dy === 0 ? C.L : p.vacia ? (dy < 3 ? '#8F6037' : '#6F4A2F') : dy < 2 ? (p.calor ? '#F7C7A7' : C.c) : dy < 4 ? (p.calor ? '#E78F6F' : C.B) : '#376F8F';
       ctx.fillRect(cx - half, top + dy, half * 2, 1);
     }
     ctx.fillStyle = C.M; for (const dx of [-16, -12, 12, 15]) ctx.fillRect(cx + dx, top - 1, 2, 2);
-    if (p.calor && Math.floor(t / 200) % 2) { ctx.fillStyle = C.W; ctx.fillRect(cx - 6 + (Math.floor(t / 400) % 3) * 5, top + 1, 1, 1); }
+    if (p.calor && !p.vacia && Math.floor(t / 200) % 2) { ctx.fillStyle = C.W; ctx.fillRect(cx - 6 + (Math.floor(t / 400) % 3) * 5, top + 1, 1, 1); }
   };
   const termal = async ({ hondo = 6, suave = false, alivio } = {}) => {
+    // el termal está fuera, a la derecha de la casa (lejos del pino): se baña ahí aunque duerma en la cueva
+    Object.assign(s, { outdoor: true, prado: true, cueva: false, pino: false });
     const poza = prop(Array(8).fill('.'.repeat(30)), 55, FLOOR - 4, { draw: drawPoza, calor: false });
     const { a } = await trae(null, { sprite: cs, to: 36 });
     face(a, 'r');
@@ -1613,7 +1687,7 @@ export async function showScene({ guest, pide, helper, fase = 'noche', atendido 
     await every(50, hondo * 60, () => { G.y = Math.min(FLOOR + hondo, G.y + 1); });
     burst('drop', 70, FLOOR - 4, 6, 8);
     await wait(400);
-    await alivio?.();
+    await alivio?.(poza);
     await wait(1400);
     G.clip = null; G.y = FLOOR;
     await fin(a);
@@ -1912,8 +1986,9 @@ export async function showScene({ guest, pide, helper, fase = 'noche', atendido 
       await fin(a);
     },
     async 'posit@golduck'() {
-      // lo pega en la chimenea: «Tema 1: no te agobies». Manolo lo deja ahí
-      prop(['LLLLLLLLLLLL', 'LMMMMMMMMMML', 'LLLLLLLLLLLL', '.LMMMMMMMML.', '.LMLLLLLLML.', '.LMLRYRYLML.', '.LMLYRYRLML.', '.LMLLLLLLML.', '.LLLLLLLLLL.'], 40, FLOOR - 9);
+      // lo pega en la chimenea (dentro, aunque duerma en el estanque): «Tema 1: no te agobies». Manolo lo deja ahí
+      s.outdoor = false;
+      if (/chimenea/.test(pide.hecho)) prop(ARTX.chimenea, 40, FLOOR - 9);
       const { a, p } = await trae(ART.posit, { to: 54 });
       await moveTo(p, 43, FLOOR - 15, 400, 6);
       emit('spark', 46, FLOOR - 15);
@@ -1937,7 +2012,7 @@ export async function showScene({ guest, pide, helper, fase = 'noche', atendido 
     },
     async 'posit@weedle'() {
       s.outdoor = s.prado = true;
-      const van = enSuelo(ART.furgoneta, 40);
+      const van = enSuelo(proveedor === 'nuevo' ? ART.furgoneta.map(f => f.replace(/R/g, 'g')) : ART.furgoneta, 40);
       const { a, p } = await ponerle(ART.posit, 'front', { to: 70 });
       await fin(a);
       // llena de notas amables la furgoneta de Famadesa
@@ -1946,11 +2021,13 @@ export async function showScene({ guest, pide, helper, fase = 'noche', atendido 
         await moveTo(n, van.x + 3 + (i % 3) * 5, van.y + 2 + Math.floor(i / 3) * 3, 260, 6);
       }
       drop(p);
-      const driver = make(ms, -20);
-      await walk(driver, 22, 36);
-      lagrimas(driver, 3);
-      corazones(driver, 2);
-      await wait(1500);
+      // el conductor (que no es Manolo) se emociona dentro de la cabina
+      const cab = { x: van.x + 20, y: van.y + 3 };
+      await wait(400);
+      for (let i = 0; i < 4; i++) later(i * 300, () => emit('drop', cab.x, cab.y, { vx: -3, vy: -4 }));
+      for (let i = 0; i < 3; i++) later(200 + i * 330, () => emit('heart', cab.x, cab.y - 2));
+      di('SNIF', cab, { color: 'W', dy: -4, life: 1200 });
+      await wait(1700);
     },
     async 'posit@rhyhorn'() {
       const { a, p } = await ponerle(ART.posit, 'face', { dy: -2 });
@@ -1986,6 +2063,7 @@ export async function showScene({ guest, pide, helper, fase = 'noche', atendido 
       leave(a);
       // las seis cabecitas la tocan por turnos hasta las tres…
       const clock = reloj(44, 5, 3);
+      anochece(0.45, 600);
       for (let i = 0; i < 6; i++) { p.dx = -8 + (i % 6) * 3; di('DING', p, { color: 'y', dx: 2, life: 700, rise: 4 }); await wait(320); }
       clock.speed = 0;
       // …y Charizard acaba bailando la jota
@@ -2270,8 +2348,9 @@ export async function showScene({ guest, pide, helper, fase = 'noche', atendido 
     async 'pinza@slowbro'() {
       const { a, p } = await ponerle(ART.pinza, 'tail', { dy: -4 });
       await fin(a);
-      // Shellder se la pone como un lazo y se mira en el barreño. Slowbro no se entera
-      enSuelo(ART.barreno, 60);
+      // Shellder se la pone como un lazo y se mira en el agua (en el estanque, la suya; en un cuarto, un barreño).
+      // Slowbro no se entera
+      if (!s.outdoor) enSuelo(ART.barreno, 60);
       chispas(propPos(p).x + 2, propPos(p).y, 4, 6, 4);
       for (let i = 0; i < 3; i++) later(i * 400, () => emit('heart', propPos(p).x + 2, propPos(p).y - 2));
       await wait(1200);
@@ -2524,17 +2603,16 @@ export async function showScene({ guest, pide, helper, fase = 'noche', atendido 
       await react(1800);
     },
     async 'rosa@eevee'() {
-      const mcs = await loadSprite('0067', ['Idle', 'Walk']);
-      const ch = make(cs, -22), mc = make(mcs, -40);
-      walk(ch, 20, 40); walk(mc, 40, 40);
+      const ch = make(cs, -22);
+      walk(ch, 30, 40);
       const { a, p } = await ponerle(ART.rosa, 'front', { to: 60 });
-      // se la ofrece a Charizard, luego a Machoke y luego a Manolo
-      for (const who of [ch, mc, a]) { await ponA(p, who, 'face', { dy: 2 }); emit('heart', who.x, arriba(who)); await wait(450); }
+      // se la ofrece a Charizard, luego a Manolo y luego otra vez a Charizard
+      for (const who of [ch, a, ch]) { await ponA(p, who, 'face', { dy: 2 }); emit('heart', who.x, arriba(who)); await wait(450); }
       // al final se la pone ella detrás de la oreja
       await ponA(p, G, 'head', { dx: 4, dy: 3 });
       corazones(G, 3);
       await wait(1300);
-      await fin(a, mc, ch);
+      await fin(a, ch);
     },
 
     // ===== la tila =====
@@ -3053,6 +3131,7 @@ export async function showScene({ guest, pide, helper, fase = 'noche', atendido 
     // ===== la pancarta =====
     async pancarta() {
       const sign = /HUELGA|Dugtrio/i.test(pide.hecho) ? cartel('HUELGA') : cartel('CONVENIO YA', { palos: true });
+      if (/chimenea/.test(pide.hecho)) { s.outdoor = false; prop(ARTX.chimenea, 40, FLOOR - 9); }
       const { a, p } = await trae(ART.pancarta, { to: 54 });
       p.art = sign;
       await ponA(p, G, 'above', { dy: 2 });
@@ -3442,11 +3521,15 @@ export async function showScene({ guest, pide, helper, fase = 'noche', atendido 
       await fin(a, ch);
     },
     async mochila() {
-      const { a, p } = await dejar(ART.mochila, { to: GUEST_X - 46, x: GUEST_X - 22 });
-      face(a, 'r');
-      // le suelda la cremallera con la llama de la cola
-      await fuego(a, 12);
-      await every(80, 900, () => emit('spark', p.x + 2 + Math.random() * 4, p.y + 2));
+      const { a, p } = await dejar(ART.mochila, { to: GUEST_X - 38, x: GUEST_X - 22 });
+      // se da la vuelta y le suelda la cremallera con la llama de la cola (no con la boca)
+      face(a, 'l');
+      await wait(250);
+      await every(60, 1100, () => {
+        const q = punto(a, 'tail');
+        emit('flame', q.x, q.y, { vx: 10 + Math.random() * 8, vy: (Math.random() - 0.5) * 4 });
+        if (Math.random() < 0.5) emit('spark', p.x + 2 + Math.random() * 4, p.y + 2);
+      });
       p.art = ART.mochilaCaliente;
       vapor(p, 1800);
       await wait(400);
@@ -3605,7 +3688,11 @@ export async function showScene({ guest, pide, helper, fase = 'noche', atendido 
     c.globalAlpha = 1;
     if (!m.wall) { c.fillStyle = C.L; c.fillRect(m.x + 1, m.y + m.h + 1, 2, FLOOR - m.y - m.h - 1); c.fillRect(m.x + m.w - 3, m.y + m.h + 1, 2, FLOOR - m.y - m.h - 1); }
   }
-  const espejo = (x = 66, { w = 12, h = 20, wall = false, y, sc } = {}) => { s.espejo = { x, y: y ?? (wall ? 14 : FLOOR - h - 3), w, h, wall, sc }; return s.espejo; };
+  // fuera no hay pared donde colgarlo: el espejo de pared se queda de pie en el suelo
+  const espejo = (x = 66, { w = 12, h = 20, wall = false, y, sc } = {}) => {
+    if (s.outdoor && wall) { wall = false; y = FLOOR - h - 3; }
+    s.espejo = { x, y: y ?? (wall ? 14 : FLOOR - h - 3), w, h, wall, sc }; return s.espejo;
+  };
 
   function frame(t) {
     if (running !== token) return;

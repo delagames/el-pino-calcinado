@@ -169,11 +169,11 @@ function llama(recipe, base, k, say) {
 // verde, en el medio. Abajo (gris) se queda cruda; arriba (rojo) se quema. Cada vuelta, un poco más rápida.
 function vuelta(recipe, base, k, say) {
   const N = 4;
-  const w = 0.12 + k.ancho;                      // media franja verde (más estrecha los últimos días)
+  const w = 0.12 + k.ancho * 0.5;                // media franja verde (algo más estrecha los últimos días)
   const lo = 0.5 - w, hi = 0.5 + w;
   const s = { sides: [0, 0], down: 0, flips: [], flipT: 0, pos: 0, dir: 1, speed: 0, waited: 0 };
   // la raya recorre la barra entera en ~0,8 s (y más deprisa con los días y con cada vuelta)
-  const newSpeed = () => (1.15 + 0.3 * Math.random()) * k.vel * (1 + 0.1 * s.flips.length);
+  const newSpeed = () => (1.15 + 0.3 * Math.random()) * (1 + 0.2 * k.nivel) * (1 + 0.08 * s.flips.length);
   s.speed = newSpeed();
   say(recipe.pasos[0].texto);
   return {
@@ -332,7 +332,9 @@ function setas(recipe, base, k, say) {
         else { m.cut = 'cold'; say('Se ha escapado una entera. Irá así al puchero.'); }
       }
       if (list.every(m => m.cut) && list[list.length - 1].x < 20) {
-        const good = list.filter(m => m.cut === 'good').length;
+        // (dejar pasar la podrida vale si se ha estado cortando; sin tocar nada no hay mérito)
+        const cortadas = list.filter(m => m.cut === 'good' && !m.podrida).length;
+        const good = cortadas ? list.filter(m => m.cut === 'good').length : 0;
         return { acierto: good / N - s.hot * 0.06, hot: s.hot, cold: list.filter(m => m.cut === 'cold').length };
       }
       return null;
@@ -644,7 +646,7 @@ function pizza(recipe, base, k, say) {
         const amasar = Math.min(1, s.kneads / NK);
         const estirar = s.roto ? 0.2 : Math.max(0, 1 - Math.abs(s.estirado - R0) / 8);
         const poner = spots.filter(o => o.got === 'good').length / spots.length - s.fuera * 0.1;
-        return { acierto: (amasar + estirar + poner) / 3, hot: (s.roto ? 1 : 0) + s.fuera + (s.estirado > R0 + 4 ? 1 : 0),
+        return { acierto: poner > 0 ? (amasar + estirar + poner) / 3 : Math.min(0.1, (amasar + estirar) / 3), hot: (s.roto ? 1 : 0) + s.fuera + (s.estirado > R0 + 4 ? 1 : 0),
           cold: (1 - amasar) * 2 + (s.estirado < R0 - 4 ? 1 : 0) + spots.filter(o => !o.got).length * 0.5 };
       }
       return null;
@@ -769,19 +771,20 @@ function emplatar(recipe, base, k, say) {
 function limpiar(recipe, base, k) {
   const N = 10, T = 14 / k.vel;
   const manchas = Array.from({ length: N }, (_, i) => ({ x: 44 + ((i * 37 + Math.random() * 20) % 108), y: 14 + ((i * 23 + Math.random() * 14) % 50), r: 3 + (i % 3), tipo: i % 3 ? 'ceniza' : 'grasa', ok: false, brillo: 0 }));
-  const s = { t: 0, manchas };
+  const s = { t: 0, manchas, fallos: 0 };
   return {
-    hint: 'Toca la ceniza y la grasa antes de que llegue el inspector',
+    hint: 'Toca la ceniza y la grasa antes de que llegue el inspector (sin restregar a lo loco)',
     update(dt, t, { taps }) {
       s.t += dt;
       for (const m of manchas) m.brillo = Math.max(0, m.brillo - dt);
       for (const p of taps) {
         if (!p) continue;
         const m = manchas.filter(m => !m.ok).sort((a, b) => Math.hypot(a.x - p.x, a.y - p.y) - Math.hypot(b.x - p.x, b.y - p.y))[0];
-        if (m && Math.hypot(m.x - p.x, m.y - p.y) <= m.r + 7) { m.ok = true; m.brillo = 0.5; }
+        if (m && Math.hypot(m.x - p.x, m.y - p.y) <= m.r + 3) { m.ok = true; m.brillo = 0.5; }
+        else { s.fallos += 1; s.t += 0.5; }   // restregar donde no hay nada esparce la ceniza: el inspector se acerca
       }
       const hechas = manchas.filter(m => m.ok).length;
-      if (hechas === N || s.t > T) return { acierto: hechas / N, hot: N - hechas, cold: 0 };
+      if (hechas === N || s.t > T) return { acierto: hechas / N - 0.04 * s.fallos, hot: N - hechas, cold: 0 };
       return null;
     },
     draw(c, t) {
@@ -802,7 +805,8 @@ function limpiar(recipe, base, k) {
 // El Team Rocket viene a por la chistorra: sombras en la ventana de la despensa; tocarlas para espantarlas
 function rocket(recipe, base, k) {
   const N = 8, VEN = [[38, 14], [70, 14], [102, 14]];
-  const s = { t: 0, n: 0, sombra: null, espera: 0.8, bien: 0, mal: 0, susto: 0 };
+  const s = { t: 0, n: 0, sombra: null, espera: 0.8, bien: 0, mal: 0, falsas: 0, susto: 0 };
+  const ventana = p => VEN.findIndex(([vx, vy]) => Math.abs(p.x - (vx + 10)) <= 11 && Math.abs(p.y - (vy + 14)) <= 15);
   return {
     hint: 'Toca las sombras de la ventana antes de que se lleven la chistorra',
     update(dt, t, { taps }) {
@@ -813,10 +817,11 @@ function rocket(recipe, base, k) {
       } else {
         s.sombra.vida -= dt;
         const [vx, vy] = VEN[s.sombra.v];
-        if (taps.some(p => p && Math.abs(p.x - (vx + 10)) < 16 && Math.abs(p.y - (vy + 14)) < 18)) { s.bien += 1; s.susto = 0.4; s.sombra = null; s.espera = 0.4 + Math.random() * 0.7; }
+        if (taps.some(p => p && ventana(p) === s.sombra.v)) { s.bien += 1; s.susto = 0.4; s.sombra = null; s.espera = 0.4 + Math.random() * 0.7; }
         else if (s.sombra.vida <= 0) { s.mal += 1; s.sombra = null; s.espera = 0.4 + Math.random() * 0.7; }
       }
-      if (s.n >= N && !s.sombra) return { acierto: s.bien / N, hot: s.mal, cold: 0 };
+      for (const p of taps) if (p && (!s.sombra || ventana(p) !== s.sombra.v) && !(s.susto > 0.35)) s.falsas += 1;
+      if (s.n >= N && !s.sombra) return { acierto: (s.bien - 0.5 * s.falsas) / N, hot: s.mal + s.falsas, cold: 0 };
       return null;
     },
     draw(c, t) {
@@ -996,7 +1001,7 @@ function fondoNieve(c) {
 }
 function lena(recipe, base, k, say) {
   const N = 6, X0 = 60, X1 = 108, LY = 46;          // por dónde va el hacha y la altura del tronco
-  const win = Math.max(2, 3.5 + k.ancho * 40);        // media marca buena, en píxeles
+  const win = Math.max(3, 4 + k.ancho * 30);          // media marca buena, en píxeles
   const nudos = new Set();
   while (nudos.size < (k.nivel >= 0.5 ? 2 : 1)) nudos.add(1 + Math.floor(Math.random() * (N - 1)));
   const s = { i: 0, ax: X0, dir: 1, speed: 0, mark: 0, golpes: 0, nudo: false, marks: [], waited: 0, anim: 0, cae: null, sigue: false, piezas: [], pila: 0, t: 0, win, grieta: null };
@@ -1004,7 +1009,7 @@ function lena(recipe, base, k, say) {
   const tronco = () => {
     Object.assign(s, { mark: marca(), golpes: 0, nudo: nudos.has(s.i), waited: 0, grieta: null });
     s.ax = Math.random() < 0.5 ? X0 : X1; s.dir = s.ax === X0 ? 1 : -1;
-    s.speed = (34 + 12 * Math.random()) * k.vel * (1 + 0.1 * s.i);
+    s.speed = (32 + 10 * Math.random()) * (1 + 0.2 * k.nivel) * (1 + 0.06 * s.i);
     if (s.i === 3) say('Se me está escarchando la calva. ¡Charizard, arrímate un poco!');
   };
   tronco();
@@ -1352,7 +1357,7 @@ function cafe(recipe, base, k, say) {
         if (tipo === s.tipo && Math.floor(t / 300) % 2) { c.strokeStyle = '#FFD27A'; c.lineWidth = 1; c.strokeRect(x - 2.5, y - 2.5, 12, 19); }
       }
       // quien lo pide, al otro lado de la barra
-      pinta(c, k.spr[d.sprite], 136, 64, t, DIR.left);
+      pinta(c, k.spr[d.sprite], 151, 66, t, DIR.left);   // (a la derecha de la cafetera, sin meterse debajo)
       rect(c, 0, 56, W, 2, '#B7834F'); rect(c, 0, 58, W, 22, '#6F4527');
       for (let x = 8; x < W; x += 24) rect(c, x, 62, 18, 14, '#5F3F27');
       // el plato, el vaso y lo que lleva dentro
@@ -1414,8 +1419,8 @@ function despensa(recipe, base, k, say) {
   const d = recipe.datos || {};
   const N = 4, R = Math.round(13 - 2 * k.nivel);
   const SPOTS = [[24, 12], [58, 10], [100, 12], [136, 11], [33, 34], [70, 33], [112, 35], [46, 58], [96, 59], [136, 57]];
-  const need = (0.8 + 0.3 * k.nivel) * Math.sqrt(k.vel);   // segundos de luz encima para pillarlo
-  const life = (2.8 - 0.6 * k.nivel) / k.vel;
+  const need = (0.8 + 0.15 * k.nivel) * Math.sqrt(k.vel);  // segundos de luz encima para pillarlo
+  const life = (3 - 0.3 * k.nivel) / k.vel;
   const s = { t: 0, bx: 80, by: 40, ojos: null, n: 0, caught: 0, espera: 0.8, prog: 0, flash: 0, fin: false, marks: [], R };
   const aparece = () => {
     const libres = SPOTS.filter(p => !s.ojos || p !== s.ojos.p);
@@ -1447,7 +1452,7 @@ function despensa(recipe, base, k, say) {
       if (Math.hypot(o.x - s.bx, o.y - s.by) <= R - 3) s.prog += dt;
       else s.prog = Math.max(0, s.prog - dt * 0.5);
       // los últimos días, al notar la luz, se escabulle a otro escondite (una vez)
-      if (o.salto && s.prog > need * 0.45) { o.salto = false; const p = SPOTS[(SPOTS.indexOf(o.p) + 3) % SPOTS.length]; Object.assign(o, { p, x: p[0], y: p[1] }); s.prog = 0; }
+      if (o.salto && s.prog > need * 0.45) { o.salto = false; const p = SPOTS[(SPOTS.indexOf(o.p) + 3) % SPOTS.length]; Object.assign(o, { p, x: p[0], y: p[1] }); o.vida += 0.8; }
       if (s.prog >= need) {
         s.caught += 1; s.marks.push('good'); s.flash = 0.35; s.ojos = null; s.espera = 0.6;
         say(['¡Te vi! Ahí detrás de los tarros.', '¡Quieto ahí! ¿Eso que masticas qué es?', '¡Pillado otra vez!', '¡A la luz, ladronzuelo!'][s.caught - 1] || '¡Pillado!');
@@ -1501,12 +1506,13 @@ function planta(recipe, base, k, say) {
   const d = recipe.datos || {};
   const luz = d.modo === 'linterna', legal = !!d.legal;
   const INTENTOS = 3, RIEGOS = 3, T = 12;          // tres intentos; en cada uno, tres riegos antes de que se acabe el tiempo
-  const RIEGO = 0.65, PASA = 1.3 / k.vel, CARCEL = 2.4;
-  // el coche de la agente Mara pasa cuando le da la gana: sin aviso y con huecos al azar
-  const hueco = () => 1.1 + Math.random() * 3.2 / k.vel;
-  const s = { t: 0, riegos: 0, riego: 0, coche: null, prox: 0.6 + Math.random() * 2.5, carcel: 0, presos: 0,
+  const RIEGO = 0.7, PASA = 1.3 / k.vel, CARCEL = 2.4;
+  // el coche de la agente Mara pasa cuando le da la gana: sin aviso y con huecos al azar, cortos (regar a lo loco
+  // acaba en la trena), pero siempre más largos que un riego (quien espera a que pase, riega a salvo)
+  const hueco = () => 1.25 + Math.random() * 1.6 / k.vel;
+  const s = { t: 0, riegos: 0, riego: 0, coche: null, prox: 0.4 + Math.random() * 1.4, carcel: 0, presos: 0,
     marks: [], gotas: [], saludo: false };
-  const nuevoIntento = () => { s.t = 0; s.riegos = 0; s.riego = 0; s.coche = null; s.prox = 0.6 + Math.random() * 2.5; s.gotas = []; };
+  const nuevoIntento = () => { s.t = 0; s.riegos = 0; s.riego = 0; s.coche = null; s.prox = 0.4 + Math.random() * 1.4; s.gotas = []; };
   return {
     hint: luz ? 'Toca para dar luz a la planta · que no te vea la agente Mara' : 'Toca para regar · que no te vea la agente Mara',
     state: s,
@@ -1517,10 +1523,10 @@ function planta(recipe, base, k, say) {
         if (s.carcel > 0) return null;
         if (s.presos >= INTENTOS) return { acierto: 0, hot: 3, cold: 0, extra: { pillado: true, legal } };
         nuevoIntento();
-        say(s.presos === 1 ? 'Fianza pagada. Otra vez, y ahora con más disimulo.' : 'Último intento. Como nos vuelva a ver, ya no hay fianza que valga.');
+        say(s.presos === 1 ? 'Fianza pagada: cinco monedas. Otra vez, y ahora con más disimulo.' : 'Otras cinco de fianza. Último intento: como nos vuelva a ver, ya no hay fianza que valga.');
         return null;
       }
-      s.t += dt;
+      if (s.coche == null) s.t += dt;   // mientras pasa el coche, el reloj espera
       // el coche: aparece, cruza la ventana y se va
       if (s.coche == null) { s.prox -= dt; if (s.prox <= 0) s.coche = 0; }
       else { s.coche += dt; if (s.coche >= PASA) { s.coche = null; s.prox = hueco(); } }
@@ -1539,7 +1545,7 @@ function planta(recipe, base, k, say) {
         s.riego -= dt;
         if (s.riego <= 0 && ++s.riegos >= RIEGOS) {
           s.marks.push('good');
-          return { acierto: s.presos === 0 ? 1 : s.presos === 1 ? 0.5 : 0.35, hot: s.presos, cold: 0, extra: { pillado: false, legal } };
+          return { acierto: s.presos === 0 ? 1 : s.presos === 1 ? 0.5 : 0.35, hot: s.presos, cold: 0, extra: { pillado: false, legal, fianzas: s.presos } };
         }
       }
       for (const g of s.gotas) { g.y += g.vy * dt; g.vy += 140 * dt; }
@@ -1634,6 +1640,7 @@ function maletas(recipe, base, k, say) {
   const N = 6, CART = { x: 80, y: 64 }, HANG = 34;   // la maleta cuelga a esta altura
   const COLS = ['#C73F2F', '#4F8FDF', '#6F9F4F', '#E7B74F', '#8F4FAF', '#B7834F'];
   const s = { i: 0, ph: Math.random() * 6, cx: 80, w: 0, h: 0, col: '#C73F2F', cae: null, pila: [], fuera: [], marks: [], vt: 0, topX: CART.x, topW: 34, topY: CART.y, pausa: 0 };
+  s.cx = 80 + 42 * Math.sin(s.ph);   // donde está Charizard desde el primer fotograma
   const nueva = () => { Object.assign(s, { w: 14 + Math.round(Math.random() * 8), h: 4 + (Math.random() < 0.5 ? 1 : 0), col: COLS[s.i % COLS.length], vt: 0 }); };
   nueva();
   const suelta = () => { s.cae = { x: s.cx, y: HANG, vy: 0 }; };
@@ -1642,7 +1649,7 @@ function maletas(recipe, base, k, say) {
     state: s,
     update(dt, t, { taps }) {
       // Charizard va y viene por el rellano con la maleta colgada de la cola
-      const w = (1.6 + 0.15 * s.i) * k.vel * (k.nivel >= 0.5 ? 1 + 0.35 * Math.sin(t / 700) : 1);
+      const w = (1.5 + 0.08 * s.i) * (1 + 0.2 * k.nivel) * (k.nivel >= 0.5 ? 1 + 0.2 * Math.sin(t / 700) : 1);
       if (!s.cae) s.ph += w * dt * (k.shaky ? 1 + 0.4 * Math.sin(t / 150) : 1);
       s.cx = 80 + 42 * Math.sin(s.ph);
       if (k.chari) { k.chari.x = s.cx - 4; k.chari.y = 24; }
@@ -1654,7 +1661,8 @@ function maletas(recipe, base, k, say) {
           s.i += 1;
           if (s.i >= N) {
             const n = j => s.marks.filter(m => m === j).length;
-            return { acierto: (n('good') + 0.5 * n('cold')) / N, hot: n('hot'), cold: n('cold') };
+            const ac = (n('good') + 0.4 * n('cold')) / N;
+            return { acierto: n('hot') ? Math.min(ac, 0.5) : ac, hot: n('hot'), cold: n('cold') };
           }
           nueva();
         }
@@ -1663,7 +1671,7 @@ function maletas(recipe, base, k, say) {
       if (!s.cae) {
         s.vt += dt;
         // si no se toca, Charizard se harta y la suelta donde caiga (y se va rodando)
-        if (taps.length || s.vt > 3.5) { suelta(); s.cae.sola = !taps.length; }
+        if (taps.length || s.vt > 5) { suelta(); s.cae.sola = !taps.length; }
         return null;
       }
       s.cae.vy += 260 * dt; s.cae.y += s.cae.vy * dt;
@@ -1673,7 +1681,7 @@ function maletas(recipe, base, k, say) {
           s.marks.push('hot'); s.fuera.push({ x: s.cae.x, y: s.topY - s.h, vy: -40, w: s.w, h: s.h, col: s.col });
           say(['¡Escaleras abajo! Esa ya no sube.', '¡Otra que se va rodando!', 'Charizard mira la maleta bajar la escalera. Ni se inmuta.'][s.marks.filter(m => m === 'hot').length % 3], s.marks.length % 2 ? 'manolo' : 'charizard');
         } else {
-          const j = Math.abs(off) <= 3 + k.ancho * 40 ? 'good' : 'cold';
+          const j = Math.abs(off) <= 4 + k.ancho * 40 ? 'good' : 'cold';
           s.marks.push(j);
           s.pila.push({ x: s.cae.x, y: s.topY - s.h, w: s.w, h: s.h, col: s.col });
           s.topX = s.cae.x; s.topW = s.w; s.topY -= s.h;
@@ -1704,7 +1712,7 @@ function maletas(recipe, base, k, say) {
         maleta(mx, my, s.w, s.h, s.col);
       }
       pips(c, [...s.marks, ...Array(N - s.marks.length).fill(null)], s.marks.length, 72);
-      if (!s.cae && s.pausa <= 0) reloj(c, s.vt / 3.5, 70);
+      if (!s.cae && s.pausa <= 0) reloj(c, s.vt / 5, 70);
     },
     sound: () => 0,
   };
@@ -1793,7 +1801,7 @@ function camino(recipe, base, k, say) {
 }
 
 // ----- 9. El punto del termal -----
-export const PUNTOS = { templado: [0.3, 0.52], caliente: [0.52, 0.74], hirviendo: [0.76, 1] };
+export const PUNTOS = { templado: [0.3, 0.52], caliente: [0.52, 0.74], hirviendo: [0.76, 0.94] };
 function fondoTermal(c) {
   for (let y = 0; y < 50; y += 4) rect(c, 0, y, W, 4, mix('#8F6F9F', '#F7B77F', y / 50));
   montes(c, 50, '#6F5F7F');
@@ -1830,10 +1838,17 @@ function termal(recipe, base, k, say) {
       const reaccion = psy && (Math.abs(s.t - psy.t0) < 0.5 || Math.abs(s.t - psy.t0 - psy.dur) < 0.5);
       if (s.t > 1 && !reaccion) {
         s.total += dt;
-        if (s.f >= lo && (s.f <= hi || hi >= 1)) s.good += dt; else if (s.f > hi) s.hot += dt; else s.cold += dt;
+        const bien = s.f >= lo && s.f <= hi;
+        if (bien) s.good += dt; else if (s.f > hi) s.hot += dt; else s.cold += dt;
+        if (s.psyAhora) { s.psyT = (s.psyT || 0) + dt; if (bien) s.psyBien = (s.psyBien || 0) + dt; }
       }
       // (sin encender el fuego ni una vez no hay baño que valga)
-      if (s.t >= DUR) return { acierto: s.calentado ? s.good / Math.max(0.01, s.total) : 0, hot: s.hot, cold: s.cold };
+      if (s.t >= DUR) {
+        let ac = s.calentado ? s.good / Math.max(0.01, s.total) : 0;
+        // si se coció al Psyduck, como mucho «bien»
+        if (s.psyT > 0.3 && (s.psyBien || 0) / s.psyT < 0.6) ac = Math.min(ac, 0.45);
+        return { acierto: ac, hot: s.hot, cold: s.cold };
+      }
       return null;
     },
     draw(c, t) {
@@ -1905,6 +1920,7 @@ export function createKitchen(canvas) {
   const c = canvas.getContext('2d');
   const hint = canvas.parentElement.querySelector('.kitchen-hint');
   let chari = null, running = false, holding = false, taps = [], pos = null, session = 0, game = null;
+  let pendiente = null;   // cómo cerrar el cocinado en curso si otro lo pisa
 
   // cada toque nuevo se apunta con su posición en el lienzo (null si es la barra espaciadora)
   function press(on, p = null) {
@@ -1974,12 +1990,15 @@ export function createKitchen(canvas) {
     game = null;
     const make = () => { const g = (GAMES[recipe.juego] || llama)(recipe, base, k, say); g.juego = recipe.juego || 'llama'; return g; };
     // durante la cuenta atrás ya se explica qué hay que hacer (en corto)
-    if (hint) hint.textContent = `¡Preparados…! ${COMO[recipe.juego] || COMO.llama}`;
+    const como = recipe.juego === 'planta' && recipe.datos?.modo === 'linterna' ? 'Toca para dar luz, pero que no te vea la agente Mara.' : COMO[recipe.juego] || COMO.llama;
+    if (hint) hint.textContent = `¡Preparados…! ${como}`;
     let shown = null;
     resize();
     running = true; holding = false; taps = []; pos = null;
+    pendiente?.();
     const token = (session += 1);
     return new Promise(resolve => {
+      pendiente = () => resolve(grade({ acierto: 0, hot: 0, cold: 1 }));
       let last = null, countdown = 2.4, result = null;
       // un fallo en un fotograma se apunta y se sigue: si no, la cocina se quedaba colgada
       function frame(t) {
@@ -1997,7 +2016,7 @@ export function createKitchen(canvas) {
           const input = { holding, taps, pos };
           taps = [];
           const r = game.update(dt, t, input);
-          if (r) { result = grade(r); setTimeout(() => { if (session === token) { running = false; sizzle(null); } resolve(result); }, 900); }
+          if (r) { result = grade(r); setTimeout(() => { if (session === token) { running = false; sizzle(null); pendiente = null; } resolve(result); }, 900); }
         }
         if (game && hint && game.hint !== shown) { shown = game.hint; hint.textContent = shown; }
         sizzle(game ? game.sound() : 0);

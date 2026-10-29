@@ -250,7 +250,7 @@
           "tipo": "servicio",
           "texto": "Que le rasquen detrás de la oreja",
           "hecho": "Manolo le rasca la oreja. Charizard mira la escena con mucha envidia.",
-          "quien": "charizard",
+          "quien": "manolo",
           "gesto": "Angry",
           "objeto": "mano",
           "dice": "¿Me rascas detrás de la oreja? Solo un poquito… bueno, un muchito.",
@@ -1155,7 +1155,7 @@
           "quien": "manolo",
           "gesto": "Happy",
           "dice": "¿Me consigues una rosa, guapo? Alguien del comedor me ha mirado. O no. Da igual, me la llevo por si acaso.",
-          "hecho": "Manolo le da una rosa. Eevee se la ofrece a Charizard, luego a Machoke y luego a Manolo. Al final se la pone ella detrás de la oreja.",
+          "hecho": "Manolo le da una rosa. Eevee se la ofrece a Charizard, luego a Manolo y luego otra vez a Charizard. Al final se la pone ella detrás de la oreja.",
           "recuerda": "¿Y la rosa? Que se me pasa el flechazo."
         },
         {
@@ -1447,7 +1447,7 @@
           "quien": "manolo",
           "gesto": "Happy",
           "dice": "Campeón, un espejo. Cada noche me digo «eres un Gyarados». Si no me lo digo, me lo creo menos.",
-          "hecho": "Manolo le trae el espejo. Magikarp se dice «eres un Gyarados» diez veces. A la décima, salta. Se da con el techo.",
+          "hecho": "Manolo le trae el espejo. Magikarp se dice «eres un Gyarados» diez veces. A la décima, salta tan alto que cae de panza en el agua.",
           "recuerda": "Campeón, el espejo, que tengo las afirmaciones pendientes."
         },
         {
@@ -1655,6 +1655,7 @@
               "gesto": "Happy",
               "dice": "¿Tiene pósits? De colores. Mis opositores los pegan por la casa y aprenden de pared en pared.",
               "hecho": "Manolo le da un taco de pósits. Golduck pega uno en la chimenea: «Tema 1: no te agobies». Manolo lo deja ahí.",
+          "sin_mejora": { "mejora": "chimenea", "hecho": "Manolo le da un taco de pósits. Golduck pega uno en la puerta del comedor: «Tema 1: no te agobies». Manolo lo deja ahí." },
               "recuerda": "¿Los pósits? El sábado tengo clase."
             }
           ]
@@ -2372,7 +2373,7 @@
               "quien": "manolo",
               "gesto": "Happy",
               "dice": "¿Tiene una pinza de la ropa? No es para mí. Es para… (Mira hacia atrás. No ve nada.) No sé. Pero me la han pedido.",
-              "hecho": "Manolo le da una pinza. Shellder se la pone en la concha como un lazo y se mira en el barreño. Slowbro no se entera de nada.",
+              "hecho": "Manolo le da una pinza. Shellder se la pone en la concha como un lazo y se mira en el agua. Slowbro no se entera de nada.",
               "recuerda": "…¿Y la pinza? Me la vuelven a pedir. Desde la cola. Qué raro."
             },
             {
@@ -2806,6 +2807,7 @@
           "gesto": "Happy",
           "dice": "Compañero, ¿me consigues una pancarta? La mía se chamuscó en la última asamblea. No digo quién fue. Tiene cola y alas.",
           "hecho": "Manolo le trae la pancarta. Meowth escribe «CONVENIO YA» y se manifiesta él solo delante de la chimenea. Charizard se une, por si hay merienda.",
+          "sin_mejora": { "mejora": "chimenea", "hecho": "Manolo le trae la pancarta. Meowth escribe «CONVENIO YA» y se manifiesta él solo delante del fogón. Charizard se une, por si hay merienda." },
           "recuerda": "¿Y la pancarta? Una huelga sin pancarta es solo gente parada."
         },
         {
@@ -3598,7 +3600,7 @@
           "quien": "manolo",
           "gesto": "Happy",
           "dice": "¿Me da unos pósits? En vez de multas, dejaré notas: «Está usted mal aparcado, pero tiene un coche muy bonito».",
-          "hecho": "Manolo le da un taco de pósits. Weedle llena de notas amables la furgoneta de Famadesa. El conductor se emociona.",
+          "hecho": "Manolo le da un taco de pósits. Weedle llena de notas amables la furgoneta de la chistorra. El conductor se emociona.",
           "recuerda": "¿Los pósits? Que hay un coche en doble fila y me da apuro."
         },
         {
@@ -4095,7 +4097,7 @@
               "quien": "manolo",
               "gesto": "Happy",
               "dice": "¿Me deja un espejo? Quiero ver los siete colores a la vez. Desde dentro solo veo uno.",
-              "hecho": "Manolo le pone el espejo delante. Starmie gira despacio, el arcoíris rebota en la pared y Charizard intenta cazarlo.",
+              "hecho": "Manolo le pone el espejo delante. Starmie gira despacio, el arcoíris rebota en el agua y Charizard intenta cazarlo.",
               "recuerda": "¿Y el espejo? Los siete colores, a la vez."
             }
           ]
@@ -5058,7 +5060,7 @@
               "quien": "charizard",
               "gesto": "Happy",
               "dice": "¡Charizard! ¡Una corona! El número uno lleva corona. Lo he pensado yo solo. Y me acuerdo.",
-              "hecho": "Charizard le pone una corona en el cuerno. Rhydon se pasea por el comedor saludando. Charizard le hace una reverencia, de broma.",
+              "hecho": "Charizard le pone una corona en el cuerno. Rhydon se pasea por el prado saludando. Charizard le hace una reverencia, de broma.",
               "recuerda": "¡La corona! El número uno no puede ir con el cuerno desnudo."
             }
           ]
@@ -5440,7 +5442,7 @@
           "quien": "manolo",
           "gesto": "Normal",
           "dice": "Perdón. ¿Tendría un paño? Al entrar he rozado el marco y lo he dejado lleno de polvo de roca. Perdón. Lo limpio yo.",
-          "hecho": "Manolo le da un paño. Onix limpia el marco, la puerta y medio pasillo. Manolo le dice que no hacía falta. Onix pide perdón por limpiar.",
+          "hecho": "Manolo le da un paño. Onix limpia la boca de la cueva, la roca de la entrada y medio camino. Manolo le dice que no hacía falta. Onix pide perdón por limpiar.",
           "recuerda": "Perdón… ¿el paño? Es que sigo soltando polvo."
         },
         {
@@ -5969,7 +5971,7 @@
       ],
       "aparece": {
         "mejora": "cueva",
-        "dia_min": 45,
+        "dia_min": 32,
         "estrellas": 5,
         "si_flags": [
           "mew_existe",
@@ -6104,7 +6106,7 @@
       "razon": "Articuno, Zapdos y Moltres se pelearon en el cielo de la posada por quién se quedaba el valle: nieve, rayos y fuego a la vez. Charizard voló entre la tormenta con tres chistorras hechas a su gusto, una para cada una, y se acabó la guerra. Por ahora.",
       "aparece": {
         "mejora": "nido",
-        "dia_min": 40,
+        "dia_min": 30,
         "estrellas": 5
       },
       "arco": 1,
