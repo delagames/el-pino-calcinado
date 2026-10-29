@@ -201,7 +201,7 @@
         },
         {
           "emocion": "Normal",
-          "texto": "Mi primo el Haunter se casa en primavera. Boda gitana de tres días, primo. Está usté invitao, y el dragón también."
+          "texto": "Mi primo, el que hacía humo en la orquesta, se casa en primavera. Boda gitana de tres días, primo. Está usté invitao, y el dragón también."
         },
         {
           "emocion": "Happy",
@@ -2677,6 +2677,7 @@
     },
     {
       "a": "machamp",
+      "tras": ["larvitar:v3"],
       "b": "larvitar",
       "lineas": [
         [
@@ -3300,6 +3301,7 @@
     },
     {
       "a": "chansey",
+      "tras": ["chansey:v3"],
       "b": "psyduck",
       "lineas": [
         [
@@ -3882,6 +3884,7 @@
     },
     {
       "a": "bulbasaur",
+      "tras": ["squirtle:v3"],
       "b": "squirtle",
       "lineas": [
         [
@@ -4130,6 +4133,7 @@
     },
     {
       "a": "staryu",
+      "tras": ["marina:v2"],
       "b": "marina",
       "lineas": [
         [
@@ -4861,6 +4865,7 @@
     },
     {
       "a": "nidoran",
+      "tras": ["oddish:v3"],
       "b": "oddish",
       "lineas": [
         [
@@ -5103,6 +5108,7 @@
     },
     {
       "a": "magmar",
+      "tras": ["growlithe:v5"],
       "b": "growlithe",
       "lineas": [
         [

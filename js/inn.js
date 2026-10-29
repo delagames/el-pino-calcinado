@@ -457,8 +457,10 @@ export async function createInn(scene, ui) {
     if (lugar !== 'comedor') return { gesto: mine[lugar] ? alDia(mine[lugar], [g.id]) : `(${guestById(g.id).especie} ${lugar === 'paseo' ? 'ha salido a dar un paseo' : 'se ha quedado en su cuarto'}.)`, fuera: true };
     if (g.sobremesa) return { gesto: alDia(mine.gesto, [g.id]) };
     const here = new Set([...enComedor(), ...st.hoy.filter(h => h.estado === 'habitacion' && FUERA.has(h.hab) && h.atendido)].map(h => h.id));
+    // («tras»: capítulos que tienen que haberse visto antes, «id:entrada», para que no se adelanten)
+    const visto = c => { const [i, e] = c.split(':'); return (st.vistas[i] || []).includes(e); };
     const pareja = sobremesaData.parejas.find(p => (p.a === g.id || p.b === g.id) && here.has(p.a) && here.has(p.b)
-      && !st.flags[`sobremesa_${p.a}_${p.b}`]);
+      && !st.flags[`sobremesa_${p.a}_${p.b}`] && (p.tras || []).every(visto));
     if (pareja) return { pareja: { key: `sobremesa_${pareja.a}_${pareja.b}`, lineas: pareja.lineas.map(([q, e, t]) => [q, e, alDia(t, [pareja.a, pareja.b])]) } };
     const n = (st.sobremesa ||= {})[g.id] || 0;
     const base = mine.lineas[n % mine.lineas.length];
@@ -1412,6 +1414,7 @@ export async function createInn(scene, ui) {
     const suceso = carta || sale || nevo || vuelve ? null : elegirSuceso(dia, reparto > 0);
     if (nevo || suceso === 'nevada' || suceso === 'estrellas') lluvia = st.lluvia = false;
     if (suceso) { st.suceso = { id: suceso, dia }; st.ultimoSuceso = dia; }
+    if (suceso === 'nevada') st.haNevado = true;   // (para la foto de la nevada)
     if (!carta && !nevo && !sale && cameosPendientes().length && dia - (st.ultimoBus || 0) >= CADA_BUS) { st.bus = { dia }; st.ultimoBus = dia; }
     st.huelga = sinReparto && st.chistorra === 0;
     // los días seguidos que Charizard lleva de morros (para que Manolo avise: les quita un corazón a todos)
@@ -1547,7 +1550,7 @@ export async function createInn(scene, ui) {
       const [capId, capEntrada] = (u.capitulo || '').split(':');
       // (tras: que haya pasado; capitulo: «id:entrada» vista; historia: que se haya visto algún capítulo suyo)
       const faltaRecuerdo = (u.tras && !st.libro[u.tras]) || (u.capitulo && !(st.vistas[capId] || []).includes(capEntrada))
-        || (u.historia && !(st.vistas[u.historia] || []).length) ? u.pista : null;
+        || (u.historia && !(st.vistas[u.historia] || []).length) || (u.nevada && !st.haNevado && !st.nieve) ? u.pista : null;
       return { ...u, precio, tiene: has(u.id), bloqueada, faltaRecuerdo,
       puede: !has(u.id) && st.monedas >= precio && (!u.requiere || has(u.requiere)) && !bloqueada && estrellas() >= (u.estrellas || 0) && !faltaRecuerdo,
       falta: u.requiere && !has(u.requiere) ? upgradesData.find(x => x.id === u.requiere).nombre : null,

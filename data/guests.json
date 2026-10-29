@@ -2000,7 +2000,7 @@
       "especie": "Mew",
       "dex": 151,
       "sprite": "0151",
-      "razon": "Viene escondido debajo de la furgoneta de Famadesa y no quiere salir. Dicen que no existe; él tampoco está muy seguro.",
+      "razon": "Viene escondido debajo de la furgoneta de la chistorra y no quiere salir. Dicen que no existe; él tampoco está muy seguro.",
       "gustos": [
         "pan tostado con miel",
         "chistorra a la brasa"
@@ -2844,7 +2844,7 @@
         "ventaja": "propina",
         "frases": [
           "Compañero Charizard, te traigo la ficha de afiliación. Basta con que firmes con la garra.",
-          "Asamblea a las cinco junto a la chimenea. Orden del día: la chistorra del personal.",
+          "Asamblea a las cinco junto al fogón. Orden del día: la chistorra del personal.",
           "Punto uno del convenio: siesta. Punto dos: siesta. Punto tres: sopa de pescado.",
           "Cobro la propina por convenio. Y el que no la reclama, compañero, no la cobra.",
           "Si el dragón hace horas extra, que se las paguen en chistorra. Lo pongo en el acta."
@@ -3157,9 +3157,9 @@
           "objeto": "campanilla",
           "quien": "manolo",
           "gesto": "Happy",
-          "dice": "¿Tienen algo que suene? Un sonajero, una campanilla… Para que la niña toque eso y no la chimenea.",
+          "dice": "¿Tienen algo que suene? Un sonajero, una campanilla… Para que la niña toque eso y no la estufa.",
           "hecho": "Manolo le da una campanilla. La cría la toca dos horas seguidas. Kangaskhan se duerme sentada, con una sonrisa de dos años de sueño.",
-          "recuerda": "¿La campanilla? Que ya se ha subido a la chimenea."
+          "recuerda": "¿La campanilla? Que ya se ha subido a la estufa."
         },
         {
           "tipo": "comida",
@@ -4477,7 +4477,8 @@
       ],
       "aparece": {
         "dia_min": 10,
-        "estrellas": 2
+        "estrellas": 2,
+        "si_flags": ["meowth_pin"]
       },
       "arco": 3,
       "tipos": [
@@ -5387,7 +5388,7 @@
               "objeto": "abanico",
               "quien": "manolo",
               "gesto": "Surprised",
-              "dice": "Querido, ¿un abanico? Mil años y todavía me sofoca la chimenea. Será el fuego del dragón, que lo tiene muy subido.",
+              "dice": "Querido, ¿un abanico? Mil años y todavía me sofoca el fogón. Será el fuego del dragón, que lo tiene muy subido.",
               "hecho": "Manolo le da un abanico. Ninetales se abanica con elegancia y, de paso, le apaga la cachimbita a Manolo. Pide perdón con mucha clase.",
               "recuerda": "El abanico, querido. Una marquesa no suda."
             }
@@ -5744,6 +5745,7 @@
           "gesto": "Pain",
           "dice": "¿Tiede uda pidza de dariz? …Perdón, la mía se me ha perdido por el camino. Sin pinza no me sale la vertical.",
           "hecho": "Manolo solo tiene pinzas de tender. Vaporeon se pone una. Se le queda la nariz roja, pero la vertical en el estanque le sale perfecta.",
+          "sin_mejora": { "mejora": "estanque", "hecho": "Manolo solo tiene pinzas de tender. Vaporeon se pone una. Se le queda la nariz roja, pero la vertical en el barreño de fregar le sale perfecta." },
           "recuerda": "¿Y la pidza? Es que sin ella hablo así. Y la vertical, ni te cuento."
         },
         {

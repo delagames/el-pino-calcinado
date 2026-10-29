@@ -72,7 +72,7 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "(Un Venusaur enorme se para junto al pino quemado. En el lomo lleva una flor abierta como un paraguas.) Jefe. Ya está. Ha florecido.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Ahí, donde plantamos las semillas de mi abuela, hay un bayal que da gloria verlo. La ceniza, jefe. Ya se lo dije: aquí crece hasta lo que no debe.", "sigue": "humo" },
-        "humo": { "quien": "charizard", "emocion": "Angry", "texto": "Pero Charizard no está para flores: echa humo por la nariz desde que se ha levantado. Se ha acabado la chistorra y la furgoneta no llega.", "anim": "humo", "sigue": "flor" },
+        "humo": { "quien": "charizard", "emocion": "Angry", "texto": "Pero Charizard no está para flores: echa humo por la nariz desde que se ha levantado. Está de morros porque hoy la chistorra venía pequeña.", "anim": "humo", "sigue": "flor" },
         "flor": { "quien": "huesped", "emocion": "Normal", "texto": "(Venusaur abre la flor despacio y un olor dulce llena el porche.) Tranquilo, grandullón. Respira. La flor está para esto.", "sigue": "calma" },
         "calma": { "quien": "charizard", "emocion": "Happy", "texto": "A Charizard se le va apagando el humo. Se sienta junto a Venusaur, apoya la cabeza en la flor y se queda dormido como un cachorro.", "anim": "duerme", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Happy", "texto": "¿Lo ve, jefe? Toda la vida escondiendo la planta, y resulta que lo mejor que tenía era enseñarla.", "sigue": "n4" },
@@ -91,7 +91,7 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "(Un Venusaur enorme se para junto al pino quemado. En el lomo lleva una flor abierta como un paraguas.) Jefe. Ya está. Ha florecido.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "¿Y la semilla de mi abuela, la que le dejé? (Mira el huerto.) Ahí está, hecha un bayal. Ya le dije que algún día le crecería algo raro.", "sigue": "humo" },
-        "humo": { "quien": "charizard", "emocion": "Angry", "texto": "Pero Charizard no está para flores: echa humo por la nariz desde que se ha levantado. Se ha acabado la chistorra y la furgoneta no llega.", "anim": "humo", "sigue": "flor" },
+        "humo": { "quien": "charizard", "emocion": "Angry", "texto": "Pero Charizard no está para flores: echa humo por la nariz desde que se ha levantado. Está de morros porque hoy la chistorra venía pequeña.", "anim": "humo", "sigue": "flor" },
         "flor": { "quien": "huesped", "emocion": "Normal", "texto": "(Venusaur abre la flor despacio y un olor dulce llena el porche.) Tranquilo, grandullón. Respira. La flor está para esto.", "sigue": "calma" },
         "calma": { "quien": "charizard", "emocion": "Happy", "texto": "A Charizard se le va apagando el humo. Se sienta junto a Venusaur, apoya la cabeza en la flor y se queda dormido como un cachorro.", "anim": "duerme", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Happy", "texto": "¿Lo ve, jefe? Toda la vida escondiendo la planta, y resulta que lo mejor que tenía era enseñarla.", "sigue": "n4" },

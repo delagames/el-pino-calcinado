@@ -191,6 +191,8 @@
       "precio": 1100,
       "puntos": 0,
       "foto": "nevada",
+      "nevada": true,
+      "pista": "Cuando haya nevado en la posada.",
       "efecto": "Nieve hasta las rodillas, las ventanas encendidas, un monigote con nariz de chistorra y Charizard derritiendo su corro."
     },
     {

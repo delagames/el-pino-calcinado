@@ -7,7 +7,7 @@
       "cuando": { "visita_min": 1 },
       "subtitulo": "Primera visita · Mew está debajo de la furgoneta",
       "nodos": {
-        "inicio": { "quien": "charizard", "emocion": "Surprised", "texto": "La furgoneta de la chistorra descarga el reparto. Charizard olisquea las ruedas y se queda muy quieto: debajo hay algo rosa que le mira.", "sigue": "manolo" },
+        "inicio": { "quien": "charizard", "emocion": "Surprised", "texto": "La furgoneta de la chistorra está aparcada en la cuesta. Charizard olisquea las ruedas y se queda muy quieto: debajo hay algo rosa que le mira.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Qué has encontrado, Charizard? …¿Eso es un gato rosa?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Worried", "texto": "Aquí debajo no hay nadie. Váyanse. …Bueno, hay alguien. Pero muy poquito.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Sad", "texto": "Soy Mew. Ya sé que no se lo cree. Nadie se lo cree. En los patios de colegio dicen que vivo debajo de un camión, al lado de un barco en Ciudad Carmín.", "sigue": "n4" },

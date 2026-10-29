@@ -10,13 +10,13 @@
         "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "Bu-buenas. Weedle, controlador de la zona azul. Becario. Hoy es mi primer día con el talonario.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Zona azul? ¿Aquí, en mitad del monte?", "sigue": "n1" },
         "n1": { "quien": "huesped", "emocion": "Normal", "texto": "Desde el lunes, todo el camino de la posada es zona azul. Lo ha pintado el Ayuntamiento. Y me lo han dado a mí para practicar.", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Worried", "texto": "Ahí fuera está la furgoneta de la chistorra en doble fila. La tengo que multar. Pero el repartidor es muy grande. Y trae chistorra.", "opciones": [
+        "n2": { "quien": "huesped", "emocion": "Worried", "texto": "Ahí fuera hay un carro en doble fila. Lo tengo que multar. Pero el dueño es muy grande. Y me ha regalado una chistorra.", "opciones": [
           { "texto": "«Tranquilo, que esto se aprende poco a poco»", "efectos": { "afinidad": 1 }, "sigue": "poco" },
           { "texto": "«Pues multa, que es tu trabajo»", "sigue": "multa" }
         ] },
         "poco": { "quien": "huesped", "emocion": "Happy", "texto": "¿Usted cree? Mi jefe dice que el que no multa el primer día ya no multa nunca. Pero mi jefe es un Beedrill y no se para ni a comer.", "sigue": "fin" },
         "multa": { "quien": "huesped", "emocion": "Pain", "texto": "(Sale. Vuelve a los diez minutos, sudando.) Ya está. Ya la he puesto. Me tiembla el aguijón. Creo que la he escrito un poco rara.", "anim": "sudor", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard lee la multa del parabrisas de la furgoneta: «Gracias por venir. Buen viaje. Weedle». El repartidor se la guarda para enmarcarla." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard lee la multa que Weedle ha dejado en el carro: «Gracias por venir. Buen viaje. Weedle». El dueño se la guarda para enmarcarla." }
       }
     },
     {

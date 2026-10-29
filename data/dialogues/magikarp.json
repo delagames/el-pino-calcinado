@@ -196,7 +196,8 @@
     {
       "id": "v4",
       "cuando": {
-        "visita_min": 4
+        "visita_min": 4,
+        "afinidad_min": 1
       },
       "subtitulo": "Cuarta visita · a desayunar, no a morder",
       "nodos": {
@@ -210,7 +211,7 @@
         "n1": {
           "quien": "huesped",
           "emocion": "Happy",
-          "texto": "¡Campeón, que soy yo! ¡Magikarp! Bueno, Gyarados. Vengo a desayunar, como prometí. No hizo falta ningún mindset: solo tiempo.",
+          "texto": "¡Campeón, que soy yo! ¡Magikarp! Bueno, Gyarados. Vengo a desayunar. No hizo falta ningún mindset: solo tiempo.",
           "sigue": "n2"
         },
         "n2": {
