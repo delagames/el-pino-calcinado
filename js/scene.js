@@ -1175,9 +1175,12 @@ export function createInnView(canvas) {
   }
 
   function roomAt(p) {
+    const dentro = rm => rm.poly ? inPoly(p, rm.poly) : p[0] >= rm.x && p[0] < rm.x + rm.w && p[1] >= rm.y && p[1] < rm.y + rm.h;
+    // al dar habitación, las resaltadas mandan aunque haya alguien delante (Onix, en la puerta, tapa la cueva)
+    if (highlight.size) { const rm = ROOMS.filter(exists).find(r => highlight.has(r.id) && dentro(r)); if (rm) return rm; }
     const actor = [...actors].reverse().find(a => {
       const b = a.bounds();
-      return p[0] >= b.x && p[0] < b.x + b.w && p[1] >= b.y && p[1] < b.y + b.h;
+      return p[0] >= b.x && p[0] < b.x + b.w && p[1] >= b.y && p[1] < b.y + b.h && (!a.tocaEn || a.tocaEn(p[0], p[1]));
     });
     if (actor) return actor;
     return ROOMS.filter(exists).find(rm => rm.poly ? inPoly(p, rm.poly)

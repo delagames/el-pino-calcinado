@@ -397,14 +397,18 @@ let shade = null, tintC = null;
 const layer = () => { const cv = document.createElement('canvas'); cv.width = W; cv.height = H; return cv; };
 
 let running = null;
+let cerrarAnterior = null;   // si una escena pisa a otra, la de antes se da por cerrada (quien la esperaba sigue)
 
-export async function showScene({ guest, pide, helper, fase = 'noche', atendido = true, hab = null, proveedor = null }, onClose) {
+export async function showScene({ guest, pide, helper, fase = 'noche', atendido = true, hab = null, proveedor = null, fallo = false }, onClose) {
   const box = document.querySelector('#popup');
   const canvas = document.querySelector('#popup-canvas');
   const c = canvas.getContext('2d');
   box.classList.remove('hidden');
   const token = {};
+  const previa = cerrarAnterior; cerrarAnterior = null;
   running = token;
+  previa?.();
+  cerrarAnterior = () => onClose?.();
 
   let gs, ms, cs;
   try {
@@ -416,7 +420,7 @@ export async function showScene({ guest, pide, helper, fase = 'noche', atendido 
   } catch (err) {
     // sin conexión (o falta un sprite): no hay escena, pero el juego sigue
     console.warn('[escena]', err);
-    if (running === token) { running = null; box.classList.add('hidden'); onClose?.(); }
+    if (running === token) { running = null; cerrarAnterior = null; box.classList.add('hidden'); onClose?.(); }
     return;
   }
   if (running !== token) return;
@@ -1685,6 +1689,19 @@ export async function showScene({ guest, pide, helper, fase = 'noche', atendido 
     await every(50, hondo * 60, () => { G.y = Math.min(FLOOR + hondo, G.y + 1); });
     burst('drop', 70, FLOOR - 4, 6, 8);
     await wait(400);
+    // si el minijuego salió mal, el agua no está a su punto: sale refunfuñando y chorreando
+    if (fallo) {
+      di('¡UF!', G, { color: 'R', life: 1200 });
+      emit('vein', G.x, arriba(G), { stick: G, life: 1600 });
+      await wait(900);
+      G.clip = null; G.y = FLOOR;
+      const goteo = every(120, 1400, () => burst('drop', G.x, arriba(G) + 6, 1, 4));
+      await walk(G, 100, 26);
+      await goteo;
+      await fin(a);
+      void vaho;
+      return;
+    }
     await alivio?.(poza);
     await wait(1400);
     G.clip = null; G.y = FLOOR;
@@ -3605,6 +3622,7 @@ export async function showScene({ guest, pide, helper, fase = 'noche', atendido 
   const close = () => {
     if (running !== token) return;
     running = null;
+    cerrarAnterior = null;
     box.classList.add('hidden');
     onClose?.();
   };

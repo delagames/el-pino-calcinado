@@ -100,7 +100,9 @@ export function pickArrivals(state, terminados = new Set(), visitaProxima = null
   // (se mira la forma con la que vendría: si evoluciona en algo que necesita el nido, hace falta el nido)
   // el capítulo (y la forma) con que vendría: la posada lo sabe mejor (si se saltó un capítulo, el siguiente)
   const proxima = id => visitaProxima?.(id) ?? ((state.vistas || {})[id]?.length || 0) + 1;
-  const pool = data.guests.filter(g => !g.cameo && canAppear(formaDe(g, proxima(g.id)), state) && !mosqueado(g.id) && !terminados.has(g.id));
+  // (quien se fue con un desaire no cuenta hasta que se le pase: así no ocupa un hueco de llegada)
+  const desairado = id => (state.desaire?.[id] || 0) > state.dia;
+  const pool = data.guests.filter(g => !g.cameo && canAppear(formaDe(g, proxima(g.id)), state) && !mosqueado(g.id) && !desairado(g.id) && !terminados.has(g.id));
   const ayer = new Set(state.ayer || []);
   const first = (state.vuelven || []).filter(id => pool.some(g => g.id === id));
   // las mejoras atraen o espantan tipos: termal (fuego y roca sí, agua no), jardín (planta), farolillos

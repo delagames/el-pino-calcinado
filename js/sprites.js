@@ -1,6 +1,7 @@
 // Carga de hojas de SpriteCollab con su AnimData.xml; vale igual para Pokémon y para
 // Manolo (assets/sprites/<id>/). Cada hoja tiene una fila por dirección y un
 // fotograma por columna; las duraciones van en ticks de 1/60 s.
+import { CARAS } from './retratos.js';
 
 export const DIR = { down: 0, downRight: 1, right: 2, upRight: 3, up: 4, upLeft: 5, left: 6, downLeft: 7 };
 
@@ -60,12 +61,29 @@ export async function addBuddy(actor, id, names = ['Idle', 'Sleep', 'Walk']) {
   return actor;
 }
 
+// (si ese retrato no tiene esa cara, la más parecida que tenga; si no, la normal: así no se pide lo que no hay)
+const PARECIDA = { 'Teary-Eyed': ['Sad', 'Crying'], Crying: ['Teary-Eyed', 'Sad'], Sigh: ['Sad', 'Worried'], Pain: ['Sad', 'Worried'], Worried: ['Sad', 'Surprised'], Surprised: ['Happy'], Angry: ['Pain'] };
 export function portraitUrl(id, emotion = 'Normal') {
+  const hay = CARAS[id];
+  if (hay && !hay.includes(emotion)) emotion = (PARECIDA[emotion] || []).find(e => hay.includes(e)) || 'Normal';
   return `assets/portraits/${id}/${emotion}.png`;
 }
 
 // Un personaje puesto en la escena: qué sprite, qué animación, hacia dónde mira y dónde
 // están sus pies (en píxeles nativos de la vista).
+// la transparencia de cada hoja de sprites, leída una vez (para saber si un toque cae sobre el cuerpo)
+const ALFAS = new WeakMap();
+function alfa(img) {
+  if (!ALFAS.has(img)) {
+    try {
+      const cv = document.createElement('canvas'); cv.width = img.width; cv.height = img.height;
+      const x = cv.getContext('2d', { willReadFrequently: true }); x.drawImage(img, 0, 0);
+      ALFAS.set(img, { data: x.getImageData(0, 0, img.width, img.height).data, w: img.width });
+    } catch { ALFAS.set(img, null); }
+  }
+  return ALFAS.get(img);
+}
+
 export class Actor {
   constructor(sprite, { anim = 'Idle', dir = DIR.down, x = 0, y = 0, nombre = '', nota = '', offset = 0 } = {}) {
     Object.assign(this, { sprite, anim, dir, x, y, nombre, nota, offset });
@@ -127,6 +145,22 @@ export class Actor {
     const bx = this.x + this.buddySide() * BUDDY_DX;
     const x0 = Math.min(b.x, bx - 8), x1 = Math.max(b.x + b.w, bx + 8);
     return { ...b, x: x0, w: x1 - x0 };
+  }
+
+  // ¿Hay cuerpo de verdad en ese punto? (mira los píxeles del fotograma, con un margen de 3 px: así los
+  // enormes, como Onix, no tapan con su caja los cuartos de al lado)
+  tocaEn(px, py, ms = performance.now()) {
+    if (this.buddy && Math.abs(px - (this.x + this.buddySide() * BUDDY_DX)) <= 8) return true;
+    const { a, col, row } = this.frame(ms);
+    const al = alfa(a.img);
+    if (!al) return true;
+    const x0 = Math.round(this.x - a.fw / 2), y0 = Math.round(this.y - FEET - a.fh / 2);
+    for (let dy = -3; dy <= 3; dy++) for (let dx = -3; dx <= 3; dx++) {
+      const fx = Math.floor(px) + dx - x0, fy = Math.floor(py) + dy - y0;
+      if (fx < 0 || fy < 0 || fx >= a.fw || fy >= a.fh) continue;
+      if (al.data[((row * a.fh + fy) * al.w + col * a.fw + fx) * 4 + 3] > 0) return true;
+    }
+    return false;
   }
 
   // El acompañante (el Poliwag de Marinilla) va a su lado, detrás según hacia dónde mira

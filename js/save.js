@@ -44,26 +44,33 @@ export function clear() {
   try { localStorage.removeItem(KEY); } catch { /* sin almacenamiento: no hay nada que borrar */ }
 }
 
-// ---------- copias automáticas: una por día (la última de ese día), las de hoy y los tres anteriores ----------
+// ---------- copias automáticas: una por día (la última de ese día), de cada partida por separado ----------
+// Cargar otra partida, empezar de cero o volver a un día no borra las copias de nadie: cada partida guarda
+// las suyas (hasta seis días) y se conservan las de las dos últimas partidas además de la de ahora.
+const POR_PARTIDA = DIAS_COPIA + 3, OTRAS = 2;
 function leerCopias() {
   try { return JSON.parse(localStorage.getItem(COPIAS) || '[]'); } catch { return []; }
 }
-// (las copias de antes de que hubiera id de partida valen para la que haya)
-const esDe = (c, partida) => !c.datos?.partida || c.datos.partida === partida;
-// (solo las de esta partida, y sin los días «del futuro» si se ha vuelto atrás a una copia)
 function guardarCopia(datos) {
   try {
-    const lista = leerCopias().filter(c => esDe(c, datos.partida) && c.dia < datos.dia);
-    lista.push({ dia: datos.dia, fecha: Date.now(), datos });
-    lista.sort((a, b) => b.dia - a.dia);
-    localStorage.setItem(COPIAS, JSON.stringify(lista.slice(0, DIAS_COPIA + 1)));
+    const p = datos.partida;
+    // (las de antes de que hubiera id de partida ya no se saben de quién son: fuera)
+    const resto = leerCopias().filter(c => c.datos?.partida && !(c.datos.partida === p && c.dia === datos.dia));
+    const mias = [{ dia: datos.dia, fecha: Date.now(), datos }, ...resto.filter(c => c.datos.partida === p)]
+      .sort((a, b) => b.dia - a.dia).slice(0, POR_PARTIDA);
+    // de las otras partidas, las de las dos que se jugaron más recientemente
+    const otras = resto.filter(c => c.datos.partida !== p);
+    const recientes = [...new Set(otras.sort((a, b) => b.fecha - a.fecha).map(c => c.datos.partida))].slice(0, OTRAS);
+    localStorage.setItem(COPIAS, JSON.stringify([...mias, ...otras.filter(c => recientes.includes(c.datos.partida))]));
   } catch { /* si no cabe, se sigue sin copias: lo importante es la partida */ }
 }
-// las de días anteriores al que se está jugando (la del día de hoy es la propia partida)
+// las copias de la partida que se está jugando, menos la del día en que está (esa es la propia partida);
+// si se ha vuelto a un día anterior, también salen los días de después, para poder volver a ellos
 export function copias() {
   const actual = load();
-  const hoy = actual?.dia ?? Infinity;
-  return leerCopias().filter(c => c.dia < hoy && esDe(c, actual?.partida)).slice(0, DIAS_COPIA);
+  if (!actual) return [];
+  return leerCopias().filter(c => c.datos?.partida === actual.partida && c.dia !== actual.dia)
+    .sort((a, b) => b.dia - a.dia).slice(0, DIAS_COPIA + 2);
 }
 
 // ---------- que el navegador no la borre cuando le falte sitio ----------

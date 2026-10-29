@@ -1521,7 +1521,7 @@ function planta(recipe, base, k, say) {
       if (s.carcel > 0) {
         s.carcel -= dt;
         if (s.carcel > 0) return null;
-        if (s.presos >= INTENTOS) return { acierto: 0, hot: 3, cold: 0, extra: { pillado: true, legal } };
+        if (s.presos >= INTENTOS) return { acierto: 0, hot: 3, cold: 0, extra: { pillado: true, legal, fianzas: INTENTOS - 1 } };   // (las dos fianzas de antes también se pagan)
         nuevoIntento();
         say(s.presos === 1 ? 'Fianza pagada: cinco monedas. Otra vez, y ahora con más disimulo.' : 'Otras cinco de fianza. Último intento: como nos vuelva a ver, ya no hay fianza que valga.');
         return null;

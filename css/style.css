@@ -560,3 +560,5 @@ body:has(#popup:not(.hidden)) #dialog-options { pointer-events: none; opacity: 0
 .otra-escenas { padding: 6px 0 0; border-top: 1px dashed #3A4466; }
 /* avisos de la portada sobre el guardado, en rojo */
 .aviso-rojo { color: #FF7F5F; max-width: 34em; margin: 2px auto; line-height: 1.25; text-shadow: 0 1px 0 #100C14; }
+/* durante la escena de un encargo, tampoco la barra de arriba (que no se abra otra escena encima) */
+body:has(#popup:not(.hidden)) .topbar { pointer-events: none; }

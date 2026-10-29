@@ -675,6 +675,8 @@ async function repertorio(ctx) {
     const lista = [];
     for (const f of [g, ...(g.evoluciones || []).slice(0, formas).map(e => ({ ...g, ...e, base: g }))]) {
       for (const p of f.pide || []) if (p.tipo !== 'comida') {
+        const nombre = f.base ? `${f.especie}: ${p.texto}` : p.texto;
+        if (lista.some(x => x.nombre === nombre)) continue;   // (dos formas con el mismo encargo: una vez)
         lista.push({ tipo: 'encargo', precio: PRECIO.encargo, nombre: f.base ? `${f.especie}: ${p.texto}` : p.texto, jugar: fin => verEncargo(f, p, fin) });
       }
     }
@@ -840,9 +842,9 @@ async function panelPartida() {
   const lista = copias();
   const fecha = ms => new Date(ms).toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
   const html = `<p class="muted small">La partida se guarda sola al acabar cada parte del día, y también la del final de los días anteriores.</p>
-    <h4>Copias de días anteriores</h4>`
+    <h4>Copias de otros días de esta partida</h4>`
     + (lista.length ? `<ul class="copias">${lista.map((c, i) => `<li><span>Día ${c.dia} <small class="muted">· ${esc(fecha(c.fecha))}</small></span>
-        <button class="secondary" data-copia="${i}">${confirmCopia === i ? '¿Seguro? Vuelves a ese día' : 'Volver a este día'}</button></li>`).join('')}</ul>`
+        <button class="secondary" data-copia="${i}">${confirmCopia === i ? '¿Seguro? Vas a ese día' : 'Ir a este día'}</button></li>`).join('')}</ul>`
       : '<p class="muted small">Aún no hay copias de otros días: se hacen solas al ir jugando.</p>')
     + `<h4>Pasar la partida a otro aparato</h4>
     <p class="muted small">Copia el código y pégalo aquí mismo en el otro aparato (móvil u ordenador).</p>
@@ -1223,7 +1225,11 @@ document.fonts.load('400 24px "Jersey 10"').catch(() => {}).finally(async () => 
       show: s => new Promise(res => { showScene(s, res); setTimeout(() => sfx(s.atendido === 'frio' ? 'sad' : 'cheer'), 1700); }) });
     await inn.begin();
     if (DEMO) { refreshStart(); return demo(); }
-    if (last?.fase === 'tarde') say('manolo', 'Normal', 'Cae la tarde. Unos bajan al comedor, otros salen a pasear y alguno se queda en su cuarto.');
+    // al recargar, una frase que pegue con el momento (no «a ver quién sube» si ya ha subido todo el mundo)
+    if (last?.fase === 'manana' && last.nevado) say('manolo', 'Sigh', 'El camino sigue cortado por la nieve. Hoy no sube nadie: a cuidar a los de anoche.');
+    else if (last?.fase === 'manana' && last.llegados) say('manolo', 'Happy', 'Ya han subido los de hoy. Venga, a darles habitación.');
+    else if (last?.fase === 'dia') say('manolo', 'Normal', 'Media jornada en la posada: encargos, cocina y lo que haga falta.');
+    else if (last?.fase === 'tarde') say('manolo', 'Normal', 'Cae la tarde. Unos bajan al comedor, otros salen a pasear y alguno se queda en su cuarto.');
     else if (last?.fase === 'noche') say('manolo', 'Sigh', 'La posada duerme. Solo se oye crepitar el fogón.');
     refreshStart();
   } catch (err) {

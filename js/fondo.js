@@ -485,7 +485,9 @@ async function fotoGrupo(c, w, h, d) {
   while (gente.length) filasG.push(gente.splice(-porFila));
   for (let f = filasG.length - 1; f >= 0; f--) {
     const fila = filasG[f], y = delante - f * paso;
-    const hueco = (w - 12) / fila.length;
+    // (las filas impares van corridas un cuarto de hueco, al tresbolillo: se reparte el sitio contando con ese
+    // corrimiento para que el último no se salga por la derecha)
+    const hueco = (w - 12) / (fila.length + (f % 2 ? 0.5 : 0));
     fila.forEach((p, i) => pon(c, p.s, Math.round(6 + hueco * (i + 0.5) + (f % 2 ? hueco / 4 : 0)), y, { dir: p.dir ?? DIR.down }));
   }
 }
