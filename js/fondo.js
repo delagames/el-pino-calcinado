@@ -658,14 +658,15 @@ async function fotoBulbasaur(c, w, h, d) {
   const [px, pw, ph] = m ? [96, 150, 86] : [300, 150, 84];
   const { puerta } = posada(c, px, base, pw, ph, { luz: 'noche' });
   pino(c, m ? 30 : 468, base + 2);
+  // el camino de la puerta a la carretera (antes que Manolo y Charizard, para que no les pise los pies)
+  const ry = m ? 470 : 236, rh = m ? 50 : 30;
+  if (m) for (let y = base + 6; y < ry; y++) { const xx = Math.round(puerta - 20 - (y - base) * 0.55); rect(c, xx, y, 34, 1, '#2F3038'); rect(c, xx - 1, y, 1, 1, '#1F2028'); }
+  else for (let y = base + 6; y < ry; y++) { const xx = Math.round(puerta - 16 - (y - base) * 1.2); rect(c, xx, y, 30, 1, '#2F3038'); }
   pon(c, ms, puerta - 24, base + 12, { k: 2 });
   for (const [nx, ny] of [[-40, -46], [-48, -58], [-38, -68]]) nota(c, puerta + nx, base + ny);
   pon(c, cs, puerta + 34, base + 10, { k: 2, dir: DIR.up });
   rect(c, puerta + 46, base - 58, 2, 4, '#7FBFFF'); rect(c, puerta + 45, base - 55, 4, 3, '#7FBFFF'); rect(c, puerta + 46, base - 55, 1, 1, '#FFFFFF');   // la gota de sudor
-  // la carretera, de la posada para abajo, con su raya
-  const ry = m ? 470 : 236, rh = m ? 50 : 30;
-  if (m) for (let y = base + 6; y < ry; y++) { const xx = Math.round(puerta - 20 - (y - base) * 0.55); rect(c, xx, y, 34, 1, '#2F3038'); rect(c, xx - 1, y, 1, 1, '#1F2028'); }
-  else for (let y = base + 6; y < ry; y++) { const xx = Math.round(puerta - 16 - (y - base) * 1.2); rect(c, xx, y, 30, 1, '#2F3038'); }
+  // la carretera, con su raya
   rect(c, 0, ry, w, rh, '#2F3038'); rect(c, 0, ry, w, 2, '#4A4B55'); rect(c, 0, ry + rh - 2, w, 2, '#1F2028');
   for (let x = 4; x < w; x += 24) rect(c, x, ry + Math.round(rh / 2) - 1, 12, 2, '#C7C3A7');
   const rg = azar(3);
