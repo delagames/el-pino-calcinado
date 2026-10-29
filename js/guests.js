@@ -69,6 +69,8 @@ export function canAppear(guest, state) {
   if (need.no_si && (state.flags || {})[need.no_si]) return false;
   // algunos solo vienen cuando ya ha pasado algo en otra historia (los hermanos de Eevee, Mewtwo)
   if (need.si_flags?.some(f => !(state.flags || {})[f])) return false;
+  // y los grupos que hablan de algún huésped, cuando ya se le conoce («tras»: los que tienen que haber venido)
+  if (need.tras?.some(id => !(state.libro || {})[id])) return false;
   // los más especiales solo vienen a una posada con fama
   if (need.estrellas && (state.estrellas || 1) < need.estrellas) return false;
   return true;
@@ -89,14 +91,15 @@ function rng(seed) {
 
 // Primero los que se fueron sin habitación; luego, al azar, evitando a los de ayer.
 // «terminados»: los que ya contaron toda su historia y se despidieron; no vuelven
-export function pickArrivals(state, terminados = new Set()) {
+export function pickArrivals(state, terminados = new Set(), visitaProxima = null) {
   const r = rng(state.dia * 7919 + 13);
   // quien se fue disgustado tarda en volver; quien se fue encantado vuelve antes
   const libro = state.libro || {};
   const mosqueado = id => (libro[id]?.felicidad ?? 3) <= 1 && state.dia - (libro[id]?.ultimo || 0) < 4;
   // los grupos de una noche (cameos) no suben solos: llegan con la excursión
   // (se mira la forma con la que vendría: si evoluciona en algo que necesita el nido, hace falta el nido)
-  const proxima = id => ((state.vistas || {})[id]?.length || 0) + 1;   // el capítulo (y la forma) con que vendría
+  // el capítulo (y la forma) con que vendría: la posada lo sabe mejor (si se saltó un capítulo, el siguiente)
+  const proxima = id => visitaProxima?.(id) ?? ((state.vistas || {})[id]?.length || 0) + 1;
   const pool = data.guests.filter(g => !g.cameo && canAppear(formaDe(g, proxima(g.id)), state) && !mosqueado(g.id) && !terminados.has(g.id));
   const ayer = new Set(state.ayer || []);
   const first = (state.vuelven || []).filter(id => pool.some(g => g.id === id));
@@ -130,7 +133,9 @@ export function pickArrivals(state, terminados = new Set()) {
     const g = formaDe(guestBase(id), proxima(id));
     // encargos posibles hoy: sin los que ya no tienen sentido por una mejora y, de esos, los que hace
     // más tiempo que no pide (primero los que nunca ha pedido), para no repetir la misma escena
-    const opts = g.pide.map((p, i) => i).filter(i => !g.pide[i].no_si_mejora || !mejoras.has(g.pide[i].no_si_mejora));
+    // (y sin los que solo salen con una mejora que aún no hay: el baño, con el termal)
+    const opts = g.pide.map((p, i) => i).filter(i => (!g.pide[i].no_si_mejora || !mejoras.has(g.pide[i].no_si_mejora))
+      && (!g.pide[i].solo_si_mejora || mejoras.has(g.pide[i].solo_si_mejora)));
     const hist = (state.historialPide || {})[`${id}:${g.dex}`] || [];
     const hace = i => { const k = hist.lastIndexOf(i); return k < 0 ? -1 : k; };
     const minimo = Math.min(...opts.map(hace));

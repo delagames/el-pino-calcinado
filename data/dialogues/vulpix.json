@@ -18,7 +18,7 @@
         "peina": { "quien": "huesped", "emocion": "Surprised", "texto": "(Le pasa el cepillo por la calva. Suena a cristal.) Esto no es pelo, cariño: esto es un espejo. Mira, me veo. Me sirve para el salón.", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard se sienta en la silla del salón, muy formal. Como no tiene pelo, Vulpix le lima las garras y le saca brillo a los cuernos.", "sigue": "piedra" },
         "piedra": { "quien": "huesped", "emocion": "Normal", "texto": "Mi criadora me guarda una Piedra Fuego, por si algún día quiero nueve colas. Nueve son muchas para peinar… Ya veremos.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Toda la noche, Charizard se mira las garras a la luz de la chimenea. En la cena coge la chistorra con el meñique estirado." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard se queda un buen rato mirándose las garras a la luz de la lumbre. Y coge la chistorra con el meñique estirado." }
       }
     },
     {
@@ -27,7 +27,7 @@
       "subtitulo": "Segunda visita · nueve colas",
       "nodos": {
         "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Entra una señora dorada, despacio, arrastrando nueve colas por la alfombra como la cola de un vestido de novia.)", "sigue": "n1" },
-        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "Buenas tardes, querido. Ninetales. Nos conocimos cuando yo era una chiquilla de seis colas. Hace siglos. Bueno, hace dos semanas.", "sigue": "manolo" },
+        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "Buenos días, querido. Ninetales. Nos conocimos cuando yo era una chiquilla de seis colas. Hace siglos. Bueno, hace dos semanas.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Vulpix? ¿Eres tú? ¿Y la Piedra Fuego?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Happy", "texto": "Me la puse el martes. Ahora viviré mil años, así que hablo ya como si los tuviera. Para ir haciéndome. Se nota, ¿verdad?", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Té a las cinco, por favor. En taza fina. Y si tiene un monóculo, también. No veo mal, pero queda tan bien…", "sigue": "charizard" },
@@ -39,7 +39,7 @@
         ] },
         "una": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Una menos? ¿Saltarme una cola? (Se lo piensa. Se le escapa una risilla de chiquilla.) Qué escándalo. Qué maravilla.", "sigue": "fin" },
         "te": { "quien": "huesped", "emocion": "Happy", "texto": "Tiene razón, querido. A las cinco se para el mundo. Lo dicen en todas las casas buenas. Y en esta, que es mejor.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "A las cinco en punto, Charizard sube el té en la taza fina, con el meñique estirado. Ninetales le deja sentarse a su lado. Lejos de las colas." }
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard ya ensaya cómo le subirá el té a las cinco: taza fina y meñique estirado. Ninetales le deja sentarse a su lado. Lejos de las colas." }
       }
     },
     {
@@ -48,7 +48,7 @@
       "subtitulo": "Tercera visita · una cola, solo una",
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "Querido, esta es mi última noche aquí. Abro salón propio: «Las Nueve Colas». Peluquería, té y conversación. Por este orden.", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "Querido, esta será mi última noche aquí. Abro salón propio: «Las Nueve Colas». Peluquería, té y conversación. Por este orden.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Sad", "texto": "Te vamos a echar de menos, marquesa. ¿Y dónde lo pones?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Sad", "texto": "(Se le cae el acento de mil años.) Pues… no lo sé. ¿Sabe que fui de un chico de Ciudad Plateada? Brock, el del gimnasio. El de los ojos cerraditos.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Me cuidaba como nadie. Luego me devolvió a mi criadora, que me peinaba a diario: allí estaba mejor, y él lo sabía. Pero le echo de menos. Un poco.", "sigue": "n4" },
@@ -58,9 +58,9 @@
         ] },
         "plateada": { "quien": "huesped", "emocion": "Happy", "texto": "Enfrente de su gimnasio. Ese chico se enamora de una enfermera por semana: que tenga dónde ponerse guapo para las citas.", "sigue": "cola" },
         "cerca": { "quien": "huesped", "emocion": "Happy", "texto": "¿Aquí? Si en esta casa el único sin pelo es usted… (Le guiña un ojo.) Vale. Al pie del camino. A usted le haré masajes de calva.", "sigue": "cola" },
-        "cola": { "quien": "huesped", "emocion": "Normal", "texto": "(Mira a Charizard, que lleva toda la noche mirándole las colas.) Anda, dragón. Una. Solo una. Y sin tirar.", "sigue": "charizard" },
-        "charizard": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard toca una cola con la punta de la garra, como quien toca una pompa de jabón. No pasa nada. Bueno, sí: se le queda cara de tonto toda la noche.", "sigue": "fin" },
-        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "Maldición, ninguna: a ti te tocan mil años de buena suerte. (Por la mañana se va camino abajo, con las nueve colas al viento, peinadas una a una.)", "anim": "estrellas" }
+        "cola": { "quien": "huesped", "emocion": "Normal", "texto": "(Mira a Charizard, que no les quita ojo a las colas desde que ha entrado.) Anda, dragón. Una. Solo una. Y sin tirar.", "sigue": "charizard" },
+        "charizard": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard toca una cola con la punta de la garra, como quien toca una pompa de jabón. No pasa nada. Bueno, sí: se le queda cara de tonto para todo el día.", "sigue": "fin" },
+        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "Maldición, ninguna: a ti te tocan mil años de buena suerte. (Y se atusa las nueve colas, peinadas una a una.)", "anim": "estrellas" }
       }
     }
   ]

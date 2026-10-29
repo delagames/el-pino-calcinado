@@ -20,14 +20,14 @@
           "texto": "Vengo de las islas del sur. Allí los Pokémon cantan cuando sube la marea. ¿Queréis que os cuente?",
           "opciones": [
             {
-              "texto": "Cuéntanos",
+              "texto": "«Cuéntanos»",
               "efectos": {
                 "afinidad": 1
               },
               "sigue": "cuenta"
             },
             {
-              "texto": "Otro día, que hay faena",
+              "texto": "«Otro día, que hay faena»",
               "sigue": "fin"
             }
           ]
@@ -137,7 +137,7 @@
         "fin": {
           "quien": "charizard",
           "emocion": "Worried",
-          "texto": "Charizard se tapa la cara con las alas. Al alba, Lapras se despide rumbo al sur, y Charizard aún no se atreve a mirarle a los ojos.",
+          "texto": "Charizard se tapa la cara con las alas. Lapras le sonríe con mucha dulzura, y Charizard aún no se atreve a mirarle a los ojos.",
           "efectos": {
             "flags": {
               "pino_verdad": true

@@ -7,18 +7,15 @@
       "cuando": { "visita_min": 1 },
       "subtitulo": "Primera visita · con un poquito de retraso",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "…", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "Buenos días. ¿Quiere una habitación?", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "…", "sigue": "manolo2" },
-        "manolo2": { "quien": "manolo", "emocion": "Worried", "texto": "¿Se encuentra bien? ¿Ha cenado algo?", "sigue": "n3" },
+        "inicio": { "quien": "manolo", "emocion": "Worried", "texto": "Buenos días. ¿Quiere una habitación? (Silencio. Mucho silencio.) ¿Se encuentra bien? ¿Ha desayunado algo?", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Happy", "texto": "Sí, una habitación, por favor. Qué amable.", "sigue": "tic" },
-        "tic": { "quien": "manolo", "emocion": "Pain", "texto": "(Al rato, a Manolo se le cierra un ojo y le cae una gota: el tic de los tipo agua. Con un Slowpoke, hasta el tic llega tarde.)", "sigue": "n4" },
-        "n4": { "quien": "huesped", "emocion": "Normal", "texto": "No, no he cenado.", "opciones": [
+        "tic": { "quien": "manolo", "emocion": "Pain", "texto": "(Al rato, a Manolo se le cierra un ojo: el tic de los tipo agua. Con un Slowpoke, hasta el tic llega tarde.)", "sigue": "n4" },
+        "n4": { "quien": "huesped", "emocion": "Normal", "texto": "No, no he desayunado.", "opciones": [
           { "texto": "«Pues ahora le preparo algo»", "efectos": { "afinidad": 1 }, "sigue": "algo" },
           { "texto": "«¿Y de dónde viene usted?»", "sigue": "lejos" }
         ] },
-        "algo": { "quien": "huesped", "emocion": "Happy", "texto": "(Pausa larga.) …Ah, ¿me había dicho algo? Perdone. Voy con un poquito de retraso. Los Slowpoke somos así. Gracias por lo que sea.", "sigue": "fin" },
-        "lejos": { "quien": "huesped", "emocion": "Normal", "texto": "(Mira una mosca. Luego otra.) …De Pueblo Azalea. Del pozo. Tardé tres semanas en llegar. Bueno, una. Las otras dos estuve parado.", "sigue": "fin" },
+        "algo": { "quien": "huesped", "emocion": "Happy", "texto": "(Pausa larga.) …Ah, ¿me había dicho algo? Perdone, voy con un poquito de retraso. Los Slowpoke somos así. Gracias por lo que sea.", "sigue": "fin" },
+        "lejos": { "quien": "huesped", "emocion": "Normal", "texto": "(Mira una mosca. Luego otra.) …De Pueblo Azalea. Tardé tres semanas en llegar. Bueno, una. Las otras dos estuve parado.", "sigue": "fin" },
         "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard le mira la cola, larga y rosa, con ojos de cocinero. Slowpoke no se da cuenta. Se dará cuenta el jueves." }
       }
     },
@@ -54,7 +51,7 @@
         ] },
         "ritmo": { "quien": "huesped", "emocion": "Happy", "texto": "A mi ritmo… (Pausa.) Qué bien suena. Me lo quedo. Dentro de una semana me emocionaré; se lo digo ya para que lo sepa.", "sigue": "fin" },
         "carino": { "quien": "huesped", "emocion": "Happy", "texto": "¿Cariño? (Pausa larga.) …¡Ah! Por eso me corta la chistorra en trocitos. Yo pensaba que era para ir practicando con mi cola.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le pone otra tirita, esta con dibujitos. Por la mañana, al irse, Slowpoke dice «hola». Lo dice por cuando llegó, pero vale igual. Y sonríe muchísimo." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le pone otra tirita, esta con dibujitos. Slowpoke dice «adiós». Lo dice por la última vez que se fue, pero vale igual. Y sonríe muchísimo." }
       }
     },
     {
@@ -63,21 +60,19 @@
       "subtitulo": "Cuarta visita · alguien le muerde la cola",
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "(Llega despacito y se para en el mostrador. Mucho rato.) …A mi ritmo. Sí. Ya me ha llegado, Manolo. Gracias. Me he emocionado en una curva.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "Hombre, me alegro. Te dije eso hace un mes. Oye… ¿tú no tenías la cola de otra manera?", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "¿La cola? Normal. Como siempre. (No se gira. Nunca se gira.) Un poco más pesada, eso sí. Será la edad.", "sigue": "shellder" },
-        "shellder": { "quien": "pareja", "emocion": "Happy", "texto": "¡Hola, hola, señor calvo! ¡Aquí atrás! (En la punta de la cola, una concha con lengua.) Soy Shellder. Somos amigos. Íntimos.", "sigue": "charizard" },
-        "charizard": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard olisquea la concha. Shellder le saca la lengua. Charizard decide que eso ya no es cola, y por tanto no es comida. A Manolo, dos tipo agua de golpe: los dos ojos cerrados.", "sigue": "n3" },
-        "n3": { "quien": "pareja", "emocion": "Worried", "texto": "Nos conocimos en el río. Le mordí la cola sin querer, me gustó el sitio y me quedé. Lleva tres semanas sin darse cuenta.", "sigue": "n4" },
-        "n4": { "quien": "huesped", "emocion": "Happy", "texto": "Últimamente me noto más listo. Y alguien habla cuando yo no hablo. Y me ha salido una concha. Creo que me he hecho mayor, Manolo.", "sigue": "n5" },
-        "n5": { "quien": "pareja", "emocion": "Sad", "texto": "Es que no me suelto ni para dormir. Si me suelto, igual se le olvida que existo. A él se le olvida todo, Manolo.", "opciones": [
+        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "Hombre, me alegro. Te lo dije hace un mes. Oye… ¿tú no tenías la cola de otra manera?", "sigue": "n2" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "¿La cola? Como siempre. (No se gira. Nunca se gira.) Un poco más pesada, será la edad. Y me noto más listo. Me he hecho mayor.", "sigue": "shellder" },
+        "shellder": { "quien": "pareja", "emocion": "Happy", "texto": "¡Hola, señor calvo! ¡Aquí atrás! (Una concha con lengua, en la punta de la cola.) Soy Shellder. Somos íntimos. Le mordí en el río y me quedé.", "sigue": "charizard" },
+        "charizard": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard olisquea la concha. Shellder le saca la lengua: eso ya no es cola, así que no es comida. A Manolo, dos tipo agua de golpe: los dos ojos cerrados.", "sigue": "n5" },
+        "n5": { "quien": "pareja", "emocion": "Sad", "texto": "No me suelto ni para dormir. Si me suelto, igual se le olvida que existo. A él se le olvida todo, Manolo.", "opciones": [
           { "texto": "«Al que se quiere no se le olvida, aunque tarde»", "efectos": { "afinidad": 1 }, "sigue": "olvida" },
           { "texto": "«Pues díselo tú, que él tarda»", "sigue": "dile" }
         ] },
-        "olvida": { "quien": "pareja", "emocion": "Surprised", "texto": "¿Tú crees? (Muerde un poquito menos fuerte.) Igual le doy algo de aire. Un poquito. Un milímetro. Para empezar.", "sigue": "fin" },
+        "olvida": { "quien": "pareja", "emocion": "Surprised", "texto": "¿Tú crees? (Muerde un poquito menos fuerte.) Igual le doy algo de aire. Un milímetro. Para empezar.", "sigue": "fin" },
         "dile": { "quien": "pareja", "emocion": "Angry", "texto": "¡Slowbro! ¡Que estoy aquí detrás! ¡Que soy tu amiga! (Silencio. Mucho silencio.)", "sigue": "dile2" },
-        "dile2": { "quien": "huesped", "emocion": "Happy", "texto": "(Tres minutos después.) …Ah. Hola. Qué ilusión. ¿Desde cuándo?", "sigue": "fin" },
-        "fin": { "quien": "huesped", "emocion": "Normal", "texto": "Bueno, me voy a la cama. (Pausa larga.) Por cierto, Manolo: ¿quién ha dicho «íntimos»?", "sigue": "tirita" },
-        "tirita": { "quien": "charizard", "emocion": "Happy", "texto": "Esa noche, Charizard le pone a Slowbro una tirita en la cola… y otra más pequeña a Shellder, en la concha. No la necesita. Se la deja igual." }
+        "dile2": { "quien": "huesped", "emocion": "Happy", "texto": "(Tres minutos después.) …Ah. Hola. Qué ilusión. (Pausa larga.) Por cierto, Manolo: ¿quién ha dicho «íntimos»?", "sigue": "tirita" },
+        "fin": { "quien": "huesped", "emocion": "Normal", "texto": "Bueno, a ver qué cuarto me toca. (Pausa larga.) Por cierto, Manolo: ¿quién ha dicho «íntimos»?", "sigue": "tirita" },
+        "tirita": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le pone a Slowbro una tirita en la cola… y otra más pequeña a Shellder, en la concha. No la necesita. Se la deja igual." }
       }
     },
     {
@@ -87,20 +82,18 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "(Llega despacito y se para en el mostrador. Mucho rato.) …Cariño. Ya lo he entendido. Charizard me corta la chistorra en trocitos porque me quiere.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "Hombre, pues claro. Te lo dije hace un mes. Oye… ¿tú no tenías la cola de otra manera?", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "¿La cola? Normal. Como siempre. (No se gira. Nunca se gira.) Un poco más pesada, eso sí. Será la edad.", "sigue": "shellder" },
-        "shellder": { "quien": "pareja", "emocion": "Happy", "texto": "¡Hola, hola, señor calvo! ¡Aquí atrás! (En la punta de la cola, una concha con lengua.) Soy Shellder. Somos amigos. Íntimos.", "sigue": "charizard" },
-        "charizard": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard olisquea la concha. Shellder le saca la lengua. Charizard decide que eso ya no es cola, y por tanto no es comida. A Manolo, dos tipo agua de golpe: los dos ojos cerrados.", "sigue": "n3" },
-        "n3": { "quien": "pareja", "emocion": "Worried", "texto": "Nos conocimos en el río. Le mordí la cola sin querer, me gustó el sitio y me quedé. Lleva tres semanas sin darse cuenta.", "sigue": "n4" },
-        "n4": { "quien": "huesped", "emocion": "Happy", "texto": "Últimamente me noto más listo. Y alguien habla cuando yo no hablo. Y me ha salido una concha. Creo que me he hecho mayor, Manolo.", "sigue": "n5" },
-        "n5": { "quien": "pareja", "emocion": "Sad", "texto": "Es que no me suelto ni para dormir. Si me suelto, igual se le olvida que existo. A él se le olvida todo, Manolo.", "opciones": [
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "¿La cola? Como siempre. (No se gira. Nunca se gira.) Un poco más pesada, será la edad. Y me noto más listo. Me he hecho mayor.", "sigue": "shellder" },
+        "shellder": { "quien": "pareja", "emocion": "Happy", "texto": "¡Hola, señor calvo! ¡Aquí atrás! (Una concha con lengua, en la punta de la cola.) Soy Shellder. Somos íntimos. Le mordí en el río y me quedé.", "sigue": "charizard" },
+        "charizard": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard olisquea la concha. Shellder le saca la lengua: eso ya no es cola, así que no es comida. A Manolo, dos tipo agua de golpe: los dos ojos cerrados.", "sigue": "n5" },
+        "n5": { "quien": "pareja", "emocion": "Sad", "texto": "No me suelto ni para dormir. Si me suelto, igual se le olvida que existo. A él se le olvida todo, Manolo.", "opciones": [
           { "texto": "«Al que se quiere no se le olvida, aunque tarde»", "efectos": { "afinidad": 1 }, "sigue": "olvida" },
           { "texto": "«Pues díselo tú, que él tarda»", "sigue": "dile" }
         ] },
-        "olvida": { "quien": "pareja", "emocion": "Surprised", "texto": "¿Tú crees? (Muerde un poquito menos fuerte.) Igual le doy algo de aire. Un poquito. Un milímetro. Para empezar.", "sigue": "fin" },
+        "olvida": { "quien": "pareja", "emocion": "Surprised", "texto": "¿Tú crees? (Muerde un poquito menos fuerte.) Igual le doy algo de aire. Un milímetro. Para empezar.", "sigue": "fin" },
         "dile": { "quien": "pareja", "emocion": "Angry", "texto": "¡Slowbro! ¡Que estoy aquí detrás! ¡Que soy tu amiga! (Silencio. Mucho silencio.)", "sigue": "dile2" },
-        "dile2": { "quien": "huesped", "emocion": "Happy", "texto": "(Tres minutos después.) …Ah. Hola. Qué ilusión. ¿Desde cuándo?", "sigue": "fin" },
-        "fin": { "quien": "huesped", "emocion": "Normal", "texto": "Bueno, me voy a la cama. (Pausa larga.) Por cierto, Manolo: ¿quién ha dicho «íntimos»?", "sigue": "tirita" },
-        "tirita": { "quien": "charizard", "emocion": "Happy", "texto": "Esa noche, Charizard le pone a Slowbro una tirita en la cola… y otra más pequeña a Shellder, en la concha. No la necesita. Se la deja igual." }
+        "dile2": { "quien": "huesped", "emocion": "Happy", "texto": "(Tres minutos después.) …Ah. Hola. Qué ilusión. (Pausa larga.) Por cierto, Manolo: ¿quién ha dicho «íntimos»?", "sigue": "tirita" },
+        "fin": { "quien": "huesped", "emocion": "Normal", "texto": "Bueno, a ver qué cuarto me toca. (Pausa larga.) Por cierto, Manolo: ¿quién ha dicho «íntimos»?", "sigue": "tirita" },
+        "tirita": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le pone a Slowbro una tirita en la cola… y otra más pequeña a Shellder, en la concha. No la necesita. Se la deja igual." }
       }
     },
     {
@@ -109,20 +102,17 @@
       "subtitulo": "Quinta visita · los de antes, pero acompañados",
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Llega Slowpoke, otra vez sin concha. A un metro justo le sigue un Cloyster enorme, con pinchos y cara de no dejar pasar a nadie sin invitación.)", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¡Slowpoke! ¿Y ese armario con pinchos que te sigue?", "sigue": "cloyster" },
-        "cloyster": { "quien": "pareja", "emocion": "Normal", "texto": "Soy yo. Shellder. Me solté para ver mundo, encontré una Piedra Agua en una charca y mira. (La cara no se le mueve. No se le moverá.)", "sigue": "n2" },
-        "n2": { "quien": "pareja", "emocion": "Normal", "texto": "He sido portera de discoteca en Carmín: con esta cara no pasa nadie. Pero cada domingo volvía a verle. Y él sin enterarse.", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Happy", "texto": "Sin Shellder volví a ser Slowpoke. Me di cuenta el martes. Del mes pasado. Me pareció bien: volvemos a ser los de antes, pero acompañados.", "sigue": "charizard" },
-        "charizard": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard mira la cola de Slowpoke, otra vez libre y rosa. Por costumbre, se relame. Cloyster le mira sin mover la cara. Charizard deja de relamerse.", "sigue": "n4" },
-        "n4": { "quien": "pareja", "emocion": "Normal", "texto": "Ya no me agarro, Manolo. Voy detrás, a un metro. Si se para, me paro. Si se le olvida que estoy, le espero. Se le pasa enseguida: en dos días.", "opciones": [
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Llega Slowpoke, otra vez sin concha. A un metro le sigue un armario con pinchos: un Cloyster enorme, con cara de no dejar pasar a nadie.)", "sigue": "cloyster" },
+        "cloyster": { "quien": "pareja", "emocion": "Normal", "texto": "Soy yo, Manolo: Shellder. Me solté para ver mundo y encontré una Piedra Agua. Ahora soy portera de discoteca en Carmín: con esta cara no pasa nadie.", "sigue": "n3" },
+        "n3": { "quien": "huesped", "emocion": "Happy", "texto": "Sin Shellder volví a ser Slowpoke. Me di cuenta el martes. Del mes pasado. Me pareció bien: volvemos a ser los de antes, pero acompañados.", "sigue": "n4" },
+        "n4": { "quien": "pareja", "emocion": "Normal", "texto": "Ya no me agarro, Manolo. Voy detrás, a un metro. Si se para, me paro. Si se le olvida que estoy, le espero: se le pasa en dos días.", "opciones": [
           { "texto": "«Así se quiere: sin agarrar»", "efectos": { "afinidad": 1, "flags": { "slowpoke_cloyster": "sin_agarrar" } }, "sigue": "agarrar" },
           { "texto": "«¿Y no echas de menos ir enganchada?»", "efectos": { "afinidad": 1, "flags": { "slowpoke_cloyster": "domingos" } }, "sigue": "domingos" }
         ] },
         "agarrar": { "quien": "huesped", "emocion": "Happy", "texto": "(Pausa.) …Sin agarrar. Qué bonito. (Pausa más larga.) Ahora entiendo por qué me pesaba tanto la cola. Era cariño. Del que pesa.", "sigue": "fin" },
         "domingos": { "quien": "pareja", "emocion": "Normal", "texto": "Un poco. Los domingos le muerdo la cola un ratito, por los viejos tiempos. Se hace Slowbro media tarde, y luego se le pasa.", "sigue": "fin" },
         "fin": { "quien": "huesped", "emocion": "Happy", "texto": "Mañana nos vamos, Manolo. Gracias por las tiritas, por el potaje y por esperarme siempre. (Pausa.) Esto último lo digo por todas las veces.", "sigue": "camino" },
-        "camino": { "quien": "charizard", "emocion": "Happy", "texto": "Al día siguiente se van por el camino, despacito: Slowpoke delante, Cloyster a un metro. Su adiós llega por carta, tres días después." }
+        "camino": { "quien": "charizard", "emocion": "Happy", "texto": "Mañana se irán despacito: Slowpoke delante, Cloyster a un metro. Y su adiós, conociéndole, llegará por carta tres días después." }
       }
     }
   ]

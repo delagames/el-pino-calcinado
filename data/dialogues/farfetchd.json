@@ -7,9 +7,9 @@
       "cuando": { "visita_min": 1 },
       "subtitulo": "Primera visita · ¡y a cocinar!",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Buenas noches, querida audiencia! Aquí Farfetch'd, de «Con el puerro a cuestas», el programa de cocina más visto después de la teletienda.", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Muy buenos días, querida audiencia! Aquí Farfetch'd, de «Con el puerro a cuestas», el programa de cocina más visto después de la teletienda.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Audiencia? Aquí solo estamos Charizard y yo. Y la cachimba.", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "¡Audiencia de tres, entonces! Chiste de la noche: ¿qué le dice un puerro a otro? «¡Qué puerrada de día!». ¡Tachán!", "sigue": "mira" },
+        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "¡Audiencia de tres, entonces! Chiste del día: ¿qué le dice un puerro a otro? «¡Qué puerrada de día!». ¡Tachán!", "sigue": "mira" },
         "mira": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard no se ríe. Mira al pato. Mira el puerro. Vuelve a mirar al pato. Se relame un poquito.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Worried", "texto": "Eh, eh. Ese dragón me mira como a un menú. En Kanto quedamos pocos, ¿sabe? Dicen que estamos riquísimos con puerro.", "sigue": "n4" },
         "n4": { "quien": "huesped", "emocion": "Worried", "texto": "Y yo lo llevo a todas partes. Ya, ya sé que es como ir por ahí con el aliño puesto. Pero sin él no soy nadie.", "opciones": [
@@ -18,7 +18,7 @@
         ] },
         "nadie": { "quien": "huesped", "emocion": "Happy", "texto": "¡Qué alivio! Póngalo en la carta: «No se sirven huéspedes». Y un chiste para celebrarlo: ¿qué cena un pato? ¡Pa-tatas! …Mañana, mejor.", "sigue": "fin" },
         "suelta": { "quien": "huesped", "emocion": "Angry", "texto": "¿Soltarlo? ¡Jamás! Un Farfetch'd sin puerro es como un plató sin focos: se le ve todo y no luce nada.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard pasa la noche lejos del pato. Pero cada vez que le llega el olor del puerro, se le escapa una chispita por la nariz." }
+        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard pasa el día lejos del pato. Pero cada vez que le llega el olor del puerro, se le escapa una chispita por la nariz." }
       }
     },
     {
@@ -34,7 +34,7 @@
         ] },
         "nitocar": { "quien": "huesped", "emocion": "Sad", "texto": "Entendido. La chistorra es sagrada. Lo apunto para el programa: «En el norte, la chistorra no se toca». Gran frase. Mal guiso.", "sigue": "fin" },
         "juntos": { "quien": "huesped", "emocion": "Happy", "texto": "¡Un especial a dos fogones! Chiste de promo: ¿cuál es el colmo de un pato? ¡Tener a un dragón de pinche! …Esto lo cortamos en montaje.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard gruñe. Pero esa noche, cuando cree que nadie le ve, olisquea el puerro con muchísimo interés." }
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard gruñe. Pero en cuanto cree que nadie le ve, olisquea el puerro con muchísimo interés." }
       }
     },
     {
@@ -52,7 +52,7 @@
         ] },
         "carta": { "quien": "huesped", "emocion": "Happy", "texto": "¿En la carta? ¿Con mi nombre? ¡Mi primer plato en el que el ingrediente no soy yo! (Se seca una lagrimilla con el puerro.)", "sigue": "fin" },
         "tele": { "quien": "huesped", "emocion": "Happy", "texto": "¡El lunes, en horario de máxima audiencia! Y el dragón, de copresentador. Contrato no le hace falta: cobra en chistorra.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le da un abrazo con cuidado de no asarlo. Al alba, el pato se va con su puerro al hombro, oliendo a brasa. Y por una vez, eso no le da miedo." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le da un abrazo con cuidado de no asarlo. El pato se queda oliendo a brasa, con su puerro al hombro. Y por una vez, eso no le da miedo." }
       }
     }
   ]

@@ -13,9 +13,9 @@
           { "texto": "«Aquí no se va contando nada»", "efectos": { "afinidad": 1 }, "sigue": "nada" },
           { "texto": "«¿En serio dice eso?»", "sigue": "serio" }
         ] },
-        "nada": { "quien": "huesped", "emocion": "Surprised", "texto": "…Qué casa más rara. Bueno, me lo guardo. Una tiene muchas cosas guardadas, cielo. Por si acaso.", "sigue": "fin" },
+        "nada": { "quien": "huesped", "emocion": "Surprised", "texto": "…Qué casa más rara. Bueno, me lo guardo. Una tiene muchas cosas guardadas, cielo.", "sigue": "fin" },
         "serio": { "quien": "huesped", "emocion": "Happy", "texto": "Y más. Pero eso te lo cuento mañana, que a una serpiente le gusta dosificar. Ssss.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard la ve subir con unos prismáticos al cuello. Por si acaso, cierra la despensa con la cola." }
+        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard la ve subir con unos prismáticos al cuello. Sin decir nada, cierra la despensa con la cola." }
       }
     },
     {
@@ -31,7 +31,7 @@
         ] },
         "cenar": { "quien": "huesped", "emocion": "Surprised", "texto": "¿No? ¿Y entonces de qué se habla en la mesa? ¿Del tiempo? ¿De las bayas? Qué cosa más exótica.", "sigue": "fin" },
         "volando": { "quien": "huesped", "emocion": "Sad", "texto": "Ay, no, cielo, que volar ya volé bastante. Me porto bien. Por lo menos hasta el postre.", "sigue": "fin" },
-        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Por la noche, en la radio: Jynx y Jigglypuff han acabado cantando a dúo en una verbena, para ver quién gana. Sale precioso. Arbok no da crédito.)" }
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Esa noche, en la radio, Jynx y Jigglypuff acabarán cantando a dúo en una verbena, a ver quién gana. Saldrá precioso. Arbok no dará crédito.)" }
       }
     },
     {
@@ -46,8 +46,8 @@
           { "texto": "«Usa los prismáticos para ver la luna»", "efectos": { "flags": { "arbok_cambia": "luna" } }, "sigue": "luna" }
         ] },
         "amiga": { "quien": "huesped", "emocion": "Surprised", "texto": "¿A mí? Nadie me pregunta a mí. …Pues regular. Echo de menos a Jessie. Y a veces hasta a James. No se lo cuentes a nadie.", "sigue": "fin" },
-        "luna": { "quien": "huesped", "emocion": "Happy", "texto": "¿La luna? …Anda, si hay un Clefairy bailando ahí arriba, en el monte. Eso sí que es noticia. Pero de las bonitas.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard no le cuenta a nadie lo de esta noche: no habla, que es lo mejor para guardar secretos. Al alba, Arbok se va sin nada que contar. Y tan a gusto." }
+        "luna": { "quien": "huesped", "emocion": "Happy", "texto": "¿La luna? …Dicen que de noche hay un Clefairy bailando ahí arriba, en el monte. Eso sí que es noticia. Pero de las bonitas. Esta noche lo miro.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard no le contará a nadie lo de hoy: no habla, que es lo mejor para guardar secretos. Por primera vez, Arbok no tiene nada que contar. Y tan a gusto." }
       }
     }
   ]

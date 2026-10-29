@@ -104,7 +104,7 @@
         "charizard": {
           "quien": "charizard",
           "emocion": "Happy",
-          "texto": "Charizard suelta una llamarada al techo sin querer. Le brillan los ojos. Luego mira a Manolo y se encoge, por si acaso.",
+          "texto": "Charizard suelta una llamarada al techo sin querer. Le brillan los ojos. Luego mira a Manolo y se encoge.",
           "sigue": "fin"
         },
         "fin": {

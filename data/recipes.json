@@ -33,8 +33,7 @@
         "charmander",
         "rhyhorn",
         "magmar",
-        "hermanoseevee",
-        "moltres"
+        "hermanoseevee"
       ],
       "genero": "f",
       "juego": "vuelta"
@@ -293,42 +292,84 @@
       "nombre": "chistorra con puerro",
       "base": "chistorra",
       "desbloquea": "farfetchd_receta",
-      "genero": "f"
+      "genero": "f",
+      "pasos": [
+        {
+          "texto": "Chistorra con puerro: el puerro, de cama; la chistorra, vuelta y vuelta encima. ¡Dorada!"
+        }
+      ]
     },
     {
       "id": "sopa-centro",
       "nombre": "sopa del Centro Pokémon",
       "base": "sopa",
       "desbloquea": "chansey_desconecta",
-      "genero": "f"
+      "genero": "f",
+      "pasos": [
+        {
+          "zona": "media",
+          "segundos": 2,
+          "texto": "La sopa del Centro Pokémon, la de la enfermera: fuego medio para que arranque."
+        },
+        {
+          "zona": "suave",
+          "segundos": 3,
+          "texto": "Suave, suavecito, que no hierva."
+        },
+        {
+          "zona": "media",
+          "segundos": 2,
+          "texto": "Un poco más para templarla, como la sirven allí."
+        }
+      ]
     },
     {
       "id": "tarta-boda",
       "nombre": "tarta de la boda",
       "base": "tarta",
       "desbloquea": "nidoran_nidito",
-      "genero": "f"
+      "genero": "f",
+      "pasos": [
+        {
+          "texto": "La tarta de la boda: tres pisos de bayas. A decorarla como si casáramos a alguien, cada cosa en su sitio."
+        }
+      ]
     },
     {
       "id": "potaje-campeon",
       "nombre": "potaje del campeón",
       "base": "potaje",
       "desbloquea": "machop_final",
-      "genero": "m"
+      "genero": "m",
+      "pasos": [
+        {
+          "texto": "El potaje del campeón: garbanzos, chorizo, patata y zanahoria. Y nada más, que esto es de concurso."
+        }
+      ]
     },
     {
       "id": "pizza-pino",
       "nombre": "pizza Pino Calcinado",
       "base": "pizza",
       "desbloquea": "dodrio_consenso",
-      "genero": "f"
+      "genero": "f",
+      "pasos": [
+        {
+          "texto": "La pizza Pino Calcinado: masa fina, chistorra por encima y un toque de humo. Primero, a amasar."
+        }
+      ]
     },
     {
       "id": "pan-abuela",
       "nombre": "tostada de la abuela Kangaskhan",
       "base": "pan",
       "desbloquea": "kangaskhan_pasos",
-      "genero": "f"
+      "genero": "f",
+      "pasos": [
+        {
+          "texto": "La tostada de la abuela Kangaskhan: pan gordo, bien tostado, y la miel como la ponía ella, sin chorrear."
+        }
+      ]
     }
   ]
 }

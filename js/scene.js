@@ -75,7 +75,7 @@ export const ROOMS = [
   // el estanque solo existe con su mejora (fase 6); es una habitación al aire libre
   { id: 'estanque', nombre: 'Estanque', planta: 0, exterior: true, mejora: 'estanque', x: 326, y: 222, w: 38, h: 30 },
   // para los que no caben en casa: la cueva en la roca, junto al camino, y el nido en lo alto del pino
-  { id: 'cueva', nombre: 'Cueva', planta: 0, exterior: true, mejora: 'cueva', x: 0, y: 204, w: 30, h: 42 },
+  { id: 'cueva', nombre: 'Cueva', planta: 0, exterior: true, mejora: 'cueva', x: 0, y: 212, w: 28, h: 34 },
   { id: 'nido', nombre: 'Nido del pino', planta: 2, exterior: true, mejora: 'nido', x: 26, y: 146, w: 30, h: 20 },
   { id: 'buhardilla', nombre: 'Buhardilla', planta: 2, cerrada: true, poly: ATTIC,
     x: ATTIC[0][0], y: ATTIC[1][1], w: ATTIC[2][0] - ATTIC[0][0], h: 130 - ATTIC[1][1] },
@@ -293,7 +293,7 @@ export function createInnView(canvas) {
     if (Math.round(q) === Math.round(panY)) { panY = q; return; }
     panY = q;
     v.wy = Math.round(baseWy + panY);
-    paintStatic();
+    statSucia = true;
   }
 
   // mueve la cámara (en píxeles del mundo) sin cambiar el zum; «libre», sin los topes de arrastrar
@@ -302,10 +302,12 @@ export function createInnView(canvas) {
     if (Math.round(q) === Math.round(pan)) { pan = q; return; }
     pan = q;
     v.wx = Math.round((insets.left * v.dpr + v.aw / 2) / v.S - (FIT0.x + FIT0.w / 2 + pan));
-    paintStatic();
+    statSucia = true;
   }
 
+  let statSucia = false;   // la cámara se ha movido: la capa fija se repinta en el siguiente fotograma
   function paintStatic() {
+    statSucia = false;
     const c = sc;
     c.setTransform(1, 0, 0, 1, 0, 0);
     paintSky(c);
@@ -322,16 +324,18 @@ export function createInnView(canvas) {
   // Cielo tramado en tres tintas, de arriba abajo
   function paintSky(c) {
     const img = c.createImageData(v.LW, v.LH);
-    const cols = [hex(P.noche), hex(P.cieloMedio), hex(P.cieloBajo)];
+    const px = new Uint32Array(img.data.buffer);
+    // cada color como un entero de 32 bits (el orden de bytes del ImageData es RGBA en memoria)
+    const u32 = ([r, g, b]) => new Uint32Array(new Uint8ClampedArray([r, g, b, 255]).buffer)[0];
+    const cols = [hex(P.noche), hex(P.cieloMedio), hex(P.cieloBajo)].map(u32);
     for (let y = 0; y < v.LH; y++) {
       const wy = y - v.wy;
       const t = Math.max(0, Math.min(1, (wy - 20) / 190)) * 2;
       const band = Math.min(1, Math.floor(t)), f = t - band;
-      for (let x = 0; x < v.LW; x++) {
-        const col = cols[band + (f * 16 > BAYER[wy & 3][(x - v.wx) & 3] + 0.5 ? 1 : 0)];
-        const i = (y * v.LW + x) * 4;
-        img.data[i] = col[0]; img.data[i + 1] = col[1]; img.data[i + 2] = col[2]; img.data[i + 3] = 255;
-      }
+      // los cuatro primeros píxeles de la fila (el tramado se repite cada cuatro) y luego se copian
+      const fila = y * v.LW, n = Math.min(4, v.LW);
+      for (let x = 0; x < n; x++) px[fila + x] = cols[band + (f * 16 > BAYER[wy & 3][(x - v.wx) & 3] + 0.5 ? 1 : 0)];
+      for (let len = n; len < v.LW; len *= 2) px.copyWithin(fila + len, fila, fila + Math.min(len, v.LW - len));
     }
     c.putImageData(img, 0, 0);
   }
@@ -761,15 +765,15 @@ export function createInnView(canvas) {
   function drawUpgrades(c) {
     if (has('cueva')) {
       // una roca con su boca oscura, a la izquierda del pino
-      for (let x = -26; x <= 33; x++) {
-        const h = Math.round(48 - (x - 3) ** 2 / 22 + 3 * Math.sin(x / 3));
+      for (let x = -18; x <= 28; x++) {
+        const h = Math.round(36 - (x - 5) ** 2 / 18 + 2 * Math.sin(x / 3));
         if (h <= 0) continue;
         rect(c, x, GROUND - h, 1, h, (x + Math.floor(h / 6)) % 7 === 0 ? P.piedraOscura : P.piedra);
         dot(c, x, GROUND - h, P.contorno); dot(c, x, GROUND - h + 1, P.piedraLuz);
       }
-      for (const [x, y] of [[-12, 212], [-4, 222], [8, 204], [22, 214], [27, 230], [-18, 232]]) { rect(c, x, y, 4, 1, P.piedraOscura); dot(c, x + 1, y - 1, P.piedraLuz); }
-      for (let x = 2; x <= 28; x++) {
-        const top = Math.round(212 + (x - 15) ** 2 / 9);
+      for (const [x, y] of [[-8, 226], [0, 232], [10, 216], [20, 224], [24, 236], [-12, 238]]) { rect(c, x, y, 4, 1, P.piedraOscura); dot(c, x + 1, y - 1, P.piedraLuz); }
+      for (let x = 4; x <= 24; x++) {
+        const top = Math.round(222 + (x - 14) ** 2 / 7);
         rect(c, x, top, 1, GROUND - top, '#1F1A22');
         dot(c, x, top, P.contorno);
       }
@@ -784,9 +788,10 @@ export function createInnView(canvas) {
     }
     if (has('estanque')) {
       for (let dy = 0; dy < 7; dy++) {
-        const half = Math.round(17 * Math.sqrt(1 - (dy / 7.5) ** 2));
-        rect(c, 344 - half, GROUND + dy, half * 2, 1, dy < 1 ? P.cieloBajo : dy < 3 ? '#4F8FAF' : '#376F8F');
+        const half = Math.round(17 * Math.sqrt(1 - ((dy - 3) / 3.8) ** 2));
+        rect(c, 344 - half, GROUND - 6 + dy, half * 2, 1, dy < 1 ? P.cieloBajo : dy < 3 ? '#4F8FAF' : '#376F8F');
       }
+      rect(c, 334, GROUND - 4, 4, 1, '#9FDFEF'); rect(c, 350, GROUND - 2, 3, 1, '#9FDFEF');   // brillos del agua
       for (const x of [325, 330, 358, 363]) { rect(c, x, GROUND - 2, 4, 3, P.contorno); rect(c, x + 1, GROUND - 2, 2, 2, P.piedraLuz); }
       for (const [x, h] of [[322, 9], [324, 6], [366, 8], [368, 11]]) { rect(c, x, GROUND - h, 1, h, P.verdeOscuro); rect(c, x, GROUND - h, 1, 2, P.zocaloOscuro); }
     }
@@ -897,6 +902,7 @@ export function createInnView(canvas) {
     }
     const c = lc;
     c.setTransform(1, 0, 0, 1, 0, 0);
+    if (statSucia) paintStatic();
     c.drawImage(stat, 0, 0);
     c.setTransform(1, 0, 0, 1, v.wx, v.wy);
     const s = t / 1000;

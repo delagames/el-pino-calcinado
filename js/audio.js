@@ -29,10 +29,15 @@ function ensure() {
 
 // Cualquier toque despierta el audio (el primero lo enciende; los siguientes lo reaniman si el móvil
 // lo había parado), y también al volver a la pestaña o a la app
-const despertar = () => { if (ensure() && !timer) startMusic(); };
+const despertar = () => { if (ensure() && !timer && prefs.music) startMusic(); };
 window.addEventListener('pointerdown', despertar);
 window.addEventListener('keydown', despertar);
-document.addEventListener('visibilitychange', () => { if (!document.hidden && ctx) despertar(); });
+// con la pestaña (o la app) en segundo plano, ni música ni audio: se para todo y se reanuda al volver
+document.addEventListener('visibilitychange', () => {
+  if (!ctx) return;
+  if (document.hidden) { pararMusica(); ctx.suspend().catch(() => {}); }
+  else despertar();
+});
 window.addEventListener('pageshow', () => { if (ctx) despertar(); });
 
 export function getPrefs() { return { ...prefs }; }
@@ -40,6 +45,7 @@ export function getPrefs() { return { ...prefs }; }
 export function setMusic(on) {
   prefs.music = on; savePrefs();
   if (ensure()) musicBus.gain.setTargetAtTime(on ? 0.22 : 0, ctx.currentTime, 0.1);
+  if (on) startMusic(); else pararMusica();
 }
 
 export function setSfx(on) {
@@ -91,6 +97,31 @@ const MOODS = {
     chords: [[0, 3, 7], [-4, 0, 3], [-2, 2, 5], [-5, -2, 2]] },
   fosiles: { bpm: 72, root: 45, arpType: 'triangle', leadType: 'triangle', drum: 't..t..t.', scale: [0, 3, 5, 7, 10, 12],
     chords: [[0, 3, 7], [-4, 0, 3], [0, 3, 7], [-5, -2, 2]] },
+  // los planos cortos de las charlas
+  plano_tejado: { bpm: 66, root: 48, arp: [0, 1, 2, 3, 2, 1], arpType: 'triangle', leadType: 'sine', leadVol: 0.13,
+    chords: [[0, 4, 7, 11], [-3, 0, 4, 7], [5, 9, 12, 16], [7, 11, 14, 17]],
+    melodia: [[16, null, 14, null, 12, null, null, null], [12, null, 11, null, 9, null, null, null], [9, null, 12, null, 16, null, 14, null], [12, null, null, null, null, null, null, null]] },
+  plano_concierto: { bpm: 60, root: 48, lead: false, arpType: 'sine', chords: [[0, 4, 7], [5, 9, 12]] },
+  plano_hoguera: { bpm: 58, root: 45, arpType: 'sine', leadType: 'triangle', scale: [0, 2, 4, 7, 9, 12], chords: [[0, 4, 7], [5, 9, 12], [-3, 0, 4], [7, 11, 14]] },
+  // flamenco: la cadencia andaluza (la menor, sol, fa, mi) con rasgueo y palmas a compás de rumba
+  plano_tablao: { bpm: 118, root: 52, bass: 'paso', arp: null, leadType: 'square', leadVol: 0.07,
+    rasgueo: 'X.x.X.xx', drum: 's.ss.s.s',
+    chords: [[5, 8, 12], [3, 7, 10], [1, 5, 8], [0, 4, 8]],
+    melodia: [[8, 7, 5, null, 5, 4, 5, null], [3, null, 2, 3, 5, null, null, null], [1, 2, 1, null, 0, 1, 0, null], [0, null, null, null, 4, 5, 4, null]] },
+  // copla: lenta y dramática, la cadencia andaluza en re, rasgueo y castañuelas (el «carretilla» de las h)
+  plano_copla: { bpm: 84, root: 50, bass: 'paso', arp: null, leadType: 'triangle', leadVol: 0.13,
+    rasgueo: 'X..xX...', drum: 'hhh.h...',
+    chords: [[5, 8, 12], [3, 7, 10], [1, 5, 8], [0, 4, 7]],
+    melodia: [[12, null, 13, 12, 10, null, 8, null], [10, 8, 7, null, 5, null, null, null], [8, 7, 5, 4, 5, null, 1, null], [0, null, null, null, null, null, null, null]] },
+  plano_parrilla: { bpm: 100, root: 45, bass: 'paso', arp: null, leadType: 'square', leadVol: 0.09, drum: 't.t.t..t',
+    chords: [[0, 3, 7], [0, 3, 7], [-2, 2, 5], [-5, -1, 2]],
+    melodia: [[0, null, 7, null, 5, null, 3, null], [0, null, null, null, null, null, null, null]] },
+  plano_posado: { bpm: 120, root: 48, bass: 'oompa', arp: null, leadType: 'sawtooth', leadVol: 0.07, drum: 'k.s.k.s.',
+    chords: [[0, 4, 7], [5, 9, 12], [7, 11, 14], [0, 4, 7]],
+    melodia: [[0, null, 4, null, 7, null, 7, 7], [9, null, 7, null, 4, null, null, null], [5, null, 9, null, 12, null, 12, 12], [14, null, 12, null, null, null, null, null]] },
+  plano_boda: { bpm: 84, root: 48, arp: null, leadType: 'square', leadVol: 0.1,
+    chords: [[0, 4, 7], [0, 4, 7], [7, 11, 14], [0, 4, 7]],
+    melodia: [[-5, null, 0, null, null, 0, 0, null], [-5, null, 2, null, null, -1, 0, null], [-5, null, 0, null, null, 5, 5, null], [4, null, 2, null, 0, null, null, null]] },
   pajaros: { bpm: 132, root: 45, leadType: 'square', leadVol: 0.1, drum: 'k.s.k.ss',
     chords: [[0, 3, 7], [-4, 0, 3], [-2, 2, 5], [-5, -1, 2]],
     melodia: [[12, null, 12, 15, 19, null, 17, 15], [17, null, 15, null, 12, null, null, null], [14, 15, 17, null, 19, null, 22, null], [19, null, null, null, null, null, null, null]] },
@@ -130,6 +161,8 @@ function drum(kind, t) {
   src.connect(f); f.connect(g); g.connect(musicBus); src.start(t); src.stop(t + d + 0.02);
 }
 
+const n0 = ch => ch[0];
+
 function scheduleBar(t0) {
   const m = MOODS[mood] || MOODS.dia;
   const beat = 60 / m.bpm, beats = m.beats || 4, sub = m.sub || 2;
@@ -153,6 +186,15 @@ function scheduleBar(t0) {
   } else {
     note(bajo(chord[0]), t0, beat * 1.8, { vol: 0.35 });
     if (beats > 2) note(bajo(chord[0]), t0 + beat * 2, beat * 1.8, { vol: 0.28 });
+  }
+  // rasgueo de guitarra flamenca: el acorde de golpe, nota a nota muy seguido, en las partes que toque
+  if (m.rasgueo) {
+    [...m.rasgueo].forEach((r, i) => {
+      if (r === '.') return;
+      const t = t0 + i * beat * beats / m.rasgueo.length, fuerte = r === 'X';
+      chord.forEach((n, j) => note(MIDI(root + 12 + n), t + j * (fuerte ? 0.012 : 0.02), beat * 0.6, { type: 'sawtooth', vol: fuerte ? 0.045 : 0.03 }));
+      note(MIDI(root + n0(chord)), t, beat * 0.4, { type: 'triangle', vol: 0.05 });
+    });
   }
   // arpegio suave en corcheas (o en semicorcheas)
   if (m.arp !== null) {
@@ -185,8 +227,13 @@ function scheduleBar(t0) {
   return beat * beats;
 }
 
+function pararMusica() {
+  clearInterval(timer);
+  timer = null;
+}
+
 function startMusic() {
-  if (timer || !ctx) return;
+  if (timer || !ctx || !prefs.music) return;
   nextBar = ctx.currentTime + 0.1;
   timer = setInterval(() => {
     // si el audio estuvo parado un rato, no se intenta recuperar lo perdido: se sigue desde ahora
@@ -204,12 +251,15 @@ export function setMood(m) {
 
 // ---------- lluvia y chisporroteo (ruido) ----------
 
+let ruidoLargo = null;   // dos segundos de ruido, hechos una vez y reutilizados
 function noiseSource() {
-  const buf = ctx.createBuffer(1, ctx.sampleRate * 2, ctx.sampleRate);
-  const d = buf.getChannelData(0);
-  for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+  if (!ruidoLargo) {
+    ruidoLargo = ctx.createBuffer(1, ctx.sampleRate * 2, ctx.sampleRate);
+    const d = ruidoLargo.getChannelData(0);
+    for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+  }
   const src = ctx.createBufferSource();
-  src.buffer = buf; src.loop = true;
+  src.buffer = ruidoLargo; src.loop = true;
   return src;
 }
 
@@ -375,6 +425,7 @@ export function sfxAnim(tipo) {
     case 'baila': [0, 0.15, 0.3, 0.45, 0.6, 0.75].forEach((d, i) => sweep(i % 2 ? 1500 : 1100, 700, t + d, 0.04, { type: 'square', vol: 0.08 })); break;   // tap, tap (claqué)
     case 'gira': sweep(300, 900, t, 0.25, { type: 'sine', vol: 0.1, f2: 300 }); sweep(300, 900, t + 0.25, 0.25, { type: 'sine', vol: 0.1, f2: 300 }); break;
     case 'salta': sweep(300, 900, t, 0.18, { type: 'square', vol: 0.1 }); break;
+    case 'vuela': [0, 0.25, 0.5, 0.75].forEach(d => sweep(180, 90, t + d, 0.2, { type: 'triangle', vol: 0.12 })); sweep(200, 900, t, 1, { type: 'sawtooth', vol: 0.03, vib: 40 }); break;   // aleteos
     case 'tiembla': sweep(200, 200, t, 0.5, { type: 'triangle', vol: 0.1, vib: 60 }); break;
     case 'corazones': [0, 4, 7, 12].forEach((n, i) => sweep(MIDI(79 + n), MIDI(79 + n), t + i * 0.09, 0.25, { type: 'sine', vol: 0.1 })); break;
     case 'chispas': for (let i = 0; i < 5; i++) sweep(2400 - i * 200, 600, t + i * 0.05, 0.05, { type: 'sawtooth', vol: 0.06 }); break;

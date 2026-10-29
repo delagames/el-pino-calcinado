@@ -10,7 +10,7 @@
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Hola! Bellsprout, modelo. Bueno, aspirante. Pasado mañana tengo casting en Azulona y vengo a ensayar el paseíllo. ¿Me deja el pasillo?", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿El pasillo de la posada?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Es el más largo que he visto. (Desfila de punta a punta, gira y posa. Se mide la cintura con una cinta métrica.) Tres centímetros. Perfecto.", "anim": "gira", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Worried", "texto": "Ahora, la cena. Una pizza familiar. Para mí solo. Bueno, tres. No me mire así: seré de tallo fino, pero tengo la raíz muy profunda.", "opciones": [
+        "n3": { "quien": "huesped", "emocion": "Worried", "texto": "Para almorzar, una pizza familiar. Para mí solo. Bueno, tres. No me mire así: seré de tallo fino, pero tengo la raíz muy profunda.", "opciones": [
           { "texto": "«En mi casa no se viene a pasar hambre»", "efectos": { "afinidad": 1 }, "sigue": "hambre" },
           { "texto": "«¿Tres pizzas y tres centímetros?»", "sigue": "cuentas" }
         ] },
@@ -27,14 +27,14 @@
         "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Entra una campana amarilla con dos hojas, siempre con la misma cara.) Soy Weepinbell. He evolucionado. Tengo forma de campana: adiós pasarela.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Sad", "texto": "Vaya, hombre. ¿Y ahora a qué te dedicas?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Campanero. En el pueblo. Toco a misa, toco a fuego y toco a la hora de comer. (Pone la misma cara para las tres.) Ding.", "anim": "notas", "sigue": "charizard" },
-        "charizard": { "quien": "charizard", "emocion": "Surprised", "texto": "Al oír «a fuego», Charizard sale corriendo con el cubo de fregar y lo vacía en la chimenea. La chimenea estaba apagada.", "sigue": "n3" },
+        "charizard": { "quien": "charizard", "emocion": "Surprised", "texto": "Al oír «a fuego», Charizard sale corriendo con el cubo de fregar y lo vacía en el fogón. El fogón estaba apagado.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Pain", "texto": "Eso me pasa en todas partes. Toco a comer y la gente sale a apagar fuegos. Toco a fuego y van a misa. Es que tengo un solo tono.", "opciones": [
           { "texto": "«Toca a chistorra, que ese lo entiende Charizard»", "efectos": { "afinidad": 1 }, "sigue": "chistorra" },
           { "texto": "«Un solo tono, como los grandes»", "sigue": "tono" }
         ] },
         "chistorra": { "quien": "huesped", "emocion": "Normal", "texto": "(Hace «ding» una sola vez. Charizard aparece en la cocina antes de que se acabe el sonido.) …Por fin alguien que me entiende. Ding.", "sigue": "fin" },
         "tono": { "quien": "huesped", "emocion": "Normal", "texto": "Eso dice Clefairy: que en el Monte Moon bailan toda la noche con una sola nota. Ding. (No sonríe, pero lo dice contento.)", "sigue": "fin" },
-        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Esa noche, a cada hora en punto: «ding». Nadie sabe a qué toca. En el desayuno, Weepinbell pregunta por una Piedra Hoja. Tiene hambre de algo grande.)" }
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Ding. Y otro ding. Nadie sabe a qué toca. Entre ding y ding, Weepinbell pregunta por una Piedra Hoja. Tiene hambre de algo grande.)" }
       }
     },
     {
@@ -53,11 +53,11 @@
           { "texto": "«Vamos a practicar lo de dar la mano»", "efectos": { "afinidad": 1, "flags": { "bellsprout_saludo": "mano" } }, "sigue": "mano" },
           { "texto": "«Guárdate ese saludo para quien lo aprecie»", "efectos": { "flags": { "bellsprout_saludo": "james" } }, "sigue": "james" }
         ] },
-        "mano": { "quien": "huesped", "emocion": "Normal", "texto": "(Ensayan media tarde. Como no tiene manos, le da a Manolo una hoja. Luego se la come.) …Casi. Lo que cuenta es la intención.", "sigue": "n3" },
+        "mano": { "quien": "huesped", "emocion": "Normal", "texto": "(Ensayan toda la mañana. Como no tiene manos, le da a Manolo una hoja. Luego se la come.) …Casi. Lo que cuenta es la intención.", "sigue": "n3" },
         "james": { "quien": "huesped", "emocion": "Normal", "texto": "Eso pensaba. Para quien lo aprecie… Yo sé de uno.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Me voy ya, Manolo. A buscar a un tal James, del Team Rocket: su Victreebel le saludaba así cada día. Dicen que él gritaba mucho. De alegría, supongo.", "sigue": "n4" },
         "n4": { "quien": "huesped", "emocion": "Normal", "texto": "Ya no quiero ser modelo. Por fin tengo una boca del tamaño de mi hambre. Y estoy contento.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Esa misma tarde, Victreebel se va camino abajo dando saltitos, con la boca abierta de siempre. Charizard le despide con la cola. Desde lejos. Muy lejos.", "anim": "salta", "anim_quien": "huesped" }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Victreebel se va camino abajo dando saltitos, con la boca abierta de siempre. Charizard le despide con la cola. Desde lejos. Muy lejos.", "anim": "salta", "anim_quien": "huesped" }
       }
     }
   ]

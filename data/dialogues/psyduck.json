@@ -18,7 +18,7 @@
         "manolo": {
           "quien": "manolo",
           "emocion": "Pain",
-          "texto": "(Tipo agua: a Manolo se le cierra un ojo y le cae una gota. De Psyduck le venían muchos al gimnasio.) Hombre, qué bien. ¿Y cuánto llevas?",
+          "texto": "(Tipo agua: a Manolo se le dispara el tic del ojo. De Psyduck le venían muchos al gimnasio.) Hombre, qué bien. ¿Y cuánto llevas?",
           "sigue": "n2"
         },
         "n2": {
@@ -197,7 +197,8 @@
           "emocion": "Happy",
           "texto": "Charizard prende doce años de apuntes. Arden en cuatro colores. Psyduck mira el fuego y, por primera vez en una década, no le duele la cabeza.",
           "anim": "fuego",
-          "sigue": "fin"
+          "sigue": "fin",
+          "plano": "hoguera"
         },
         "fin": {
           "quien": "huesped",
@@ -218,49 +219,37 @@
         "inicio": {
           "quien": "huesped",
           "emocion": "Normal",
-          "texto": "(Entra un pato azul, alto, de andares elegantes, y se cruza de piernas.) Buenas tardes. Una habitación. La que sea: ya me da igual el ruido.",
+          "texto": "(Entra un pato azul, alto, de andares elegantes.) Buenos días. Una habitación, la que sea: ya me da igual el ruido.",
           "sigue": "manolo"
         },
         "manolo": {
           "quien": "manolo",
           "emocion": "Pain",
-          "texto": "(Tipo agua: se le cierra un ojo y le cae una gota.) Bienvenido, caballero. Perdone, ¿nos conocemos? Tiene usted cara de…",
+          "texto": "(Tipo agua: se le cierra un ojo y le cae una gota.) Bienvenido, caballero. Perdone, ¿nos conocemos?",
           "sigue": "n2"
         },
         "n2": {
           "quien": "huesped",
           "emocion": "Happy",
           "texto": "¡Soy Psyduck, Manolo! Bueno, Golduck. Sin examen no hay estrés; sin estrés, no hay dolor de cabeza. Y sin dolor de cabeza, el pato crece.",
-          "sigue": "cuchara"
-        },
-        "cuchara": {
-          "quien": "charizard",
-          "emocion": "Surprised",
-          "texto": "Charizard le pone una cuchara delante, por probar. Golduck la mira. La cuchara no se dobla. Charizard se queda un poco decepcionado.",
-          "sigue": "n3"
-        },
-        "n3": {
-          "quien": "huesped",
-          "emocion": "Normal",
-          "texto": "Ahora lo psíquico lo controlo: floto cuando quiero, no cuando me duele. Sello impresos de nueve a tres. Nadie flota. Nadie dobla nada.",
           "sigue": "n4"
         },
         "n4": {
           "quien": "huesped",
           "emocion": "Sad",
-          "texto": "Y me aburro, Manolo. Doce años deseando tener las tardes libres, y ahora no sé qué hacer con ellas. Echo de menos subrayar.",
+          "texto": "Ahora sello impresos de nueve a tres. Nadie flota, nadie dobla cucharas. Y me aburro, Manolo: echo de menos subrayar.",
           "sigue": "plazo"
         },
         "plazo": {
           "quien": "charizard",
           "emocion": "Happy",
-          "texto": "Golduck saca una caja de chistorra con un lacito y una nota: «Plazo 1 de 12». Charizard se la abraza como si fuera un huevo.",
+          "texto": "Golduck saca una caja de chistorra con un lacito y una nota: «Plazo 1 de 12. Sin prisa». Charizard se la abraza como si fuera un huevo.",
           "sigue": "n5"
         },
         "n5": {
           "quien": "huesped",
           "emocion": "Happy",
-          "texto": "Así que los sábados preparo gratis a otros opositores, en la biblioteca. Les enseño a subrayar… y a dormir. Lo que más les cuesta es dormir.",
+          "texto": "Así que los sábados preparo gratis a otros opositores. Les enseño a subrayar… y a dormir, que es lo que más les cuesta.",
           "opciones": [
             {
               "texto": "«Lo de los sábados es lo mejor que te he oído nunca»",
@@ -286,25 +275,19 @@
         "maestro": {
           "quien": "huesped",
           "emocion": "Happy",
-          "texto": "¿Verdad? Uno de ellos lleva nueve años. Le he dicho lo que me dijo usted: si es mala, hay chistorra; si es buena, también.",
-          "sigue": "fin"
+          "texto": "¿Verdad? Uno lleva nueve años. Le digo lo que usted me dijo: si es mala, hay chistorra; si es buena, también.",
+          "sigue": "porche"
         },
         "juez": {
           "quien": "huesped",
           "emocion": "Surprised",
-          "texto": "¿Otra oposición? (Se agarra la cabeza por costumbre.) …Ni me duele, mire. Pero por si acaso, no. Ya tengo bastante con ser feliz.",
-          "sigue": "fin"
-        },
-        "fin": {
-          "quien": "huesped",
-          "emocion": "Happy",
-          "texto": "Mañana me voy, que en vacaciones se madruga para no hacer nada. Los otros once plazos se los mando por correo. Sin prisa: ya no tengo prisa.",
+          "texto": "¿Otra oposición? (Se agarra la cabeza por costumbre.) …Ni me duele, mire. Pero no: ya tengo bastante con ser feliz.",
           "sigue": "porche"
         },
         "porche": {
           "quien": "charizard",
           "emocion": "Happy",
-          "texto": "Por la noche, Charizard le ve en el porche, flotando a un palmo del suelo con los ojos cerrados. No le duele nada. Está, simplemente, a gusto.",
+          "texto": "Charizard le ve salir al porche y flotar a un palmo del suelo, con los ojos cerrados. No le duele nada. Está, simplemente, a gusto.",
           "anim": "estrellas",
           "anim_quien": "huesped"
         }

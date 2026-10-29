@@ -15,7 +15,7 @@
         ] },
         "carta": { "quien": "huesped", "emocion": "Surprised", "texto": "Ha salido… el Dragón. Te espera un ser grande y naranja que te quiere mucho y te vacía la despensa. ¡Qué precisa!", "sigue": "fin" },
         "futuro": { "quien": "huesped", "emocion": "Normal", "texto": "Respeto, cariño. Pero veo una chistorra en tu futuro. Y un dragón detrás de ella. Muy rápido.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard le trae la cena. Kadabra mira la cuchara y la cuchara se dobla sola. Charizard sale de espaldas, despacito." }
+        "fin": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard le trae un café. Kadabra mira la cucharilla y la cucharilla se dobla sola. Charizard sale de espaldas, despacito." }
       }
     },
     {
@@ -31,7 +31,7 @@
         ] },
         "todas": { "quien": "huesped", "emocion": "Happy", "texto": "Ay, qué hombre. Te echo las cartas y me pongo yo en el centro. El Mago. Que es lo que soy.", "sigue": "fin" },
         "madera": { "quien": "huesped", "emocion": "Normal", "texto": "De madera se doblan menos, pero se astillan. Y luego el potaje sabe a mueble. Gracias igual, cariño.", "sigue": "fin" },
-        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Esa noche Manolo cena el potaje con tenedor. No es lo ideal.)" }
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Esta noche a Manolo le tocará cenar el potaje con tenedor. No es lo ideal.)" }
       }
     },
     {
@@ -47,7 +47,7 @@
         ] },
         "tirada": { "quien": "huesped", "emocion": "Surprised", "texto": "Lo que fue: un pino ardiendo. Lo que es: una casa llena. Lo que será… ¡Uy! Una cuchara recta. Esa no la había visto nunca.", "sigue": "fin" },
         "nosaber": { "quien": "huesped", "emocion": "Happy", "texto": "Haces bien. El futuro que no se mira llega de sorpresa, que es más bonito. Te dejo la baraja de recuerdo.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le trae la última cuchara de la casa. Kadabra la mira y, por primera vez, no se dobla. Se la lleva de recuerdo y se va riendo camino abajo." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le trae la última cuchara de la casa. Kadabra la mira y, por primera vez, no se dobla. Se la guarda de recuerdo y se ríe como una niña." }
       }
     }
   ]

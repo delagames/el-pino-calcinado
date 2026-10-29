@@ -7,8 +7,8 @@
       "subtitulo": "Primera visita · trae una baya muy rara",
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Hola, señor calvo! Le traigo una baya milagrosa. Si se la frota en la cabeza, ¡le sale pelo!", "opciones": [
-          { "texto": "Probemos, que no se pierde nada", "efectos": { "afinidad": 1, "flags": { "baya_pelo": true } }, "sigue": "frota" },
-          { "texto": "No, gracias. La calva es mía", "sigue": "no" }
+          { "texto": "«Probemos, que no se pierde nada»", "efectos": { "afinidad": 1, "flags": { "baya_pelo": true } }, "sigue": "frota" },
+          { "texto": "«No, gracias. La calva es mía»", "sigue": "no" }
         ] },
         "frota": { "quien": "manolo", "emocion": "Surprised", "texto": "(Manolo se frota la baya por la calva. Huele a menta. Le pica un poco.)", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard se acerca a mirar de cerca la calva de Manolo, muy serio, como quien vigila una olla.", "sigue": "fin" },

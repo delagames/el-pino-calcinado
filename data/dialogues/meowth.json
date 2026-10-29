@@ -10,13 +10,13 @@
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Buenos días, compañero! Una habitación, y que conste en acta: ¿quién es el delegado sindical de esta casa?", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Un Meowth que habla? …Aquí no hay delegado. Estamos el dragón y yo.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Aprendí a hablar solo. Y a andar a dos patas. Larga historia. Ahora lo uso para lo importante: ¿el dragón cobra las horas extra?", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Angry", "texto": "¿Quién le paga la nocturnidad cuando enciende la chimenea? ¿Tiene convenio? ¿Vacaciones? ¿Dentista para los colmillos?", "opciones": [
+        "n3": { "quien": "huesped", "emocion": "Angry", "texto": "¿Quién le paga la nocturnidad cuando enciende el fogón? ¿Tiene convenio? ¿Vacaciones? ¿Dentista para los colmillos?", "opciones": [
           { "texto": "«Le pago en chistorra»", "sigue": "especie" },
           { "texto": "«Charizard está aquí porque quiere»", "efectos": { "afinidad": 1 }, "sigue": "quiere" }
         ] },
         "especie": { "quien": "huesped", "emocion": "Angry", "texto": "¡En especie! Eso es de antes de la Liga Pokémon, compañero. Esto lo hablamos en asamblea. Mañana. Después de cenar.", "sigue": "fin" },
         "quiere": { "quien": "huesped", "emocion": "Surprised", "texto": "Eso dicen todas las patronales. …Aunque mira cómo te mira: cansado, pero contento. Lo apunto como excepción. Provisional.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard mira la pancarta de Meowth. No sabe leer, pero le gusta el dibujo del puño. Esa noche duerme con el puño en alto." }
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard mira la pancarta de Meowth. No sabe leer, pero el dibujo del puño le ha conquistado. Ya ha decidido que esta noche dormirá con el puño en alto." }
       }
     },
     {
@@ -33,7 +33,7 @@
         ] },
         "voz": { "quien": "huesped", "emocion": "Happy", "texto": "…Gracias, compañero. Ella nunca me dijo nada bonito. Me dijo «miau» y se fue. Que en gato es bastante feo.", "sigue": "fin" },
         "quejar": { "quien": "huesped", "emocion": "Normal", "texto": "Eso es. Una voz para pedir lo que es de todos. Si no la quiso ella, que la oigan los patronos. Meowth, así es.", "sigue": "fin" },
-        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Esa noche, Meowth le cuenta lo de Meowzie a Charizard. Charizard no entiende nada, pero le deja su almohada. Hay cosas que no se hablan.)" }
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Meowth le cuenta lo de Meowzie a Charizard. Charizard no entiende nada, pero va a por su almohada y se la deja en brazos. Hay cosas que no se hablan.)" }
       }
     },
     {
@@ -52,7 +52,7 @@
         ] },
         "pin_charizard": { "quien": "huesped", "emocion": "Happy", "texto": "Pues afiliado número uno del Sindicato de El Pino Calcinado. Cuota: una chistorra al mes. Para él, no para mí.", "sigue": "fin" },
         "pin_manolo": { "quien": "huesped", "emocion": "Surprised", "texto": "¿La patronal, afiliada? …Bueno, eres un patrón raro: cocinas, friegas y das las buenas noches a todos. Toma. Te lo has ganado.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Meowth se va por el camino a dos patas, con la pancarta al hombro. Charizard le despide con el puño en alto, como en el dibujo. Meowth, así es." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Meowth se echa la pancarta al hombro y se da la vuelta hacia el camino, a dos patas. Charizard le despide con el puño en alto, como en el dibujo. Meowth, así es." }
       }
     }
   ]

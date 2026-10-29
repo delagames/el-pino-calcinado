@@ -1,32 +1,110 @@
 {
   "id": "acuatico",
-  "_nota": "Grupo de excursión (una mañana, no duermen; requiere el estanque): el espectáculo acuático del gimnasio de Ciudad Celeste (el de las hermanas de Misty), de gira de otoño, para a ensayar en el estanque. Seel aplaude todo por reflejo profesional; Dewgong, primera bailarina, se cree sirena desde que un marinero la confundió con una; Goldeen es Miss Ciudad Celeste, «la Reina del Agua» (sin Angry ni Sad); Seaking remonta un río cada otoño como quien hace el Camino de Santiago y Charizard le sella la credencial (un solo retrato: va concentrado); Poliwhirl, el socorrista, duerme a quien le mira la espiral de la barriga (Charizard cae); el abuelo Poliwrath trae su propio hielo para el chapuzón diario. Remate: número completo, a Manolo le da el tic seis veces, la ola del abuelo empapa a Charizard, que echa vapor y aplaude con Seel. Anim: duerme, notas, gira (Dewgong), agua, humo.",
+  "_nota": "Excursión (una mañana): el espectáculo de Selwo Marina Ciudad Celeste ensaya en el estanque. Seel, el león marino estrella (aplaude todo y trabaja por sardinas); Dewgong, la sirena; Goldeen, Miss Selwo; Seaking, peregrino de ríos; Poliwhirl, socorrista que duerme a Charizard con su espiral; el abuelo Poliwrath rompe hielo y levanta la ola final. Anim: duerme, notas, gira, agua, humo.",
   "entradas": [
     {
       "id": "v1",
-      "cuando": { "visita_min": 1 },
-      "subtitulo": "Una mañana · el espectáculo acuático",
+      "cuando": {
+        "visita_min": 1
+      },
+      "subtitulo": "Una mañana · el espectáculo de Selwo Marina",
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Por la mañana para un autobús con letras de purpurina: «Espectáculo Acuático de Ciudad Celeste. Gira de otoño». Vienen a ensayar en el estanque.)", "sigue": "seel" },
-        "seel": { "quien": "seel", "emocion": "Happy", "texto": "¡Ar, ar! Soy Seel. (Aplaude al pino, a Charizard y a la escoba.) Perdón: es reflejo profesional. En el espectáculo aplaudo todo.", "sigue": "dewgong" },
-        "dewgong": { "quien": "dewgong", "emocion": "Happy", "texto": "Dewgong, primera bailarina. Un marinero me vio dormida en un glaciar y me tomó por una sirena. Desde entonces lo soy. Lo pone en el cartel.", "sigue": "goldeen" },
-        "goldeen": { "quien": "goldeen", "emocion": "Happy", "texto": "Y yo, Goldeen, Miss Ciudad Celeste, la Reina del Agua. (Mueve la aleta como un vestido de baile.) Nos manda el gimnasio de Celeste, el de las hermanas de Misty.", "sigue": "seaking" },
-        "seaking": { "quien": "seaking", "emocion": "Normal", "texto": "(Seaking le pone a Manolo delante una credencial llena de sellos.) Cada otoño remonto un río, como quien hace el Camino de Santiago. ¿Me la sella?", "sigue": "sello" },
-        "sello": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard se la sella con la punta de la garra, caliente: queda un pino quemadito. Seaking no mueve la cara (va siempre concentrado), pero se la guarda con mimo.", "sigue": "poliwhirl" },
-        "poliwhirl": { "quien": "poliwhirl", "emocion": "Normal", "texto": "Poliwhirl, socorrista. Si alguien me mira la espiral de la barriga, le entra sueño. Por eso vigilo la piscina de espaldas.", "sigue": "charizard" },
-        "charizard": { "quien": "charizard", "emocion": "Pain", "anim": "duerme", "texto": "Charizard le mira la barriga. Se le cierran los ojos. Cabecea. Se queda dormido de pie en la orilla.", "sigue": "poliwrath" },
-        "poliwrath": { "quien": "poliwrath", "emocion": "Angry", "texto": "(¡CRAC! Charizard se despierta de golpe: el abuelo, Poliwrath, rompe un bloque de hielo de un puñetazo.) ¡Chapuzón diario, cuarenta años sin faltar!", "sigue": "poliwrath2" },
-        "poliwrath2": { "quien": "poliwrath", "emocion": "Happy", "texto": "¿Que en su estanque no había hielo? Lo he traído yo, en una nevera. Un chapuzón sin hielo no es un chapuzón. ¿Empezamos o qué?", "opciones": [
-          { "texto": "«¡Que empiece la función!»", "efectos": { "afinidad": 1 }, "sigue": "funcion" },
-          { "texto": "«Primero un desayuno, que es muy temprano»", "sigue": "desayuno" }
-        ] },
-        "desayuno": { "quien": "dewgong", "emocion": "Happy", "texto": "Las sirenas desayunamos sopa de bayas. Lo pone en los cuentos. (No lo pone. Pero se toma dos tazones.)", "sigue": "funcion" },
-        "funcion": { "quien": "goldeen", "emocion": "Surprised", "anim": "notas", "texto": "(Suena la música en el prado.) ¡Señoras, señores y dragón! ¡Con ustedes, el Espectáculo Acuático de Ciudad Celeste!", "sigue": "numero" },
-        "numero": { "quien": "manolo", "emocion": "Pain", "anim": "gira", "anim_quien": "dewgong", "texto": "(Dewgong gira, Goldeen salta, Seel hace malabares. Con tanto Pokémon de agua junto, a Manolo le da el tic del ojo seis veces: un guiño por artista.)", "sigue": "ola" },
-        "ola": { "quien": "poliwrath", "emocion": "Happy", "anim": "agua", "texto": "¡Y para cerrar, el abuelo! (Poliwrath cruza el estanque más rápido que el mejor nadador del mundo y levanta una ola hasta la puerta.)", "sigue": "vapor" },
-        "vapor": { "quien": "charizard", "emocion": "Surprised", "anim": "humo", "texto": "La ola empapa a Charizard, que suelta vapor como una olla. Silencio total. Charizard se sacude… y aplaude. Seel aplaude con él.", "sigue": "fin" },
-        "fin": { "quien": "manolo", "emocion": "Happy", "texto": "(A mediodía el autobús se va brillando. Seel grita por la ventanilla: ¡Dragón, tú te vienes de gira! Colgado del pino queda un silbato de socorrista.)" }
+        "inicio": {
+          "quien": "manolo",
+          "emocion": "Surprised",
+          "texto": "(Para un autobús con delfines pintados: «Selwo Marina Ciudad Celeste. Gira de otoño». Vienen a ensayar su espectáculo en el estanque.)",
+          "sigue": "seel"
+        },
+        "seel": {
+          "quien": "seel",
+          "emocion": "Happy",
+          "texto": "¡Ar, ar! Soy Seel, el león marino estrella. (Aplaude al pino, a Charizard y a la escoba.) Perdón: reflejo profesional. ¿Hay sardina?",
+          "sigue": "dewgong"
+        },
+        "dewgong": {
+          "quien": "dewgong",
+          "emocion": "Happy",
+          "texto": "Dewgong, primera bailarina. Un marinero me vio dormida en un glaciar y me tomó por sirena. Desde entonces, lo pone en el cartel.",
+          "sigue": "goldeen"
+        },
+        "goldeen": {
+          "quien": "goldeen",
+          "emocion": "Happy",
+          "texto": "Y yo, Goldeen, Miss Selwo, la Reina del Agua. Hacemos tres funciones al día y una más los sábados, para los cumpleaños.",
+          "sigue": "seaking"
+        },
+        "seaking": {
+          "quien": "seaking",
+          "emocion": "Normal",
+          "texto": "(Le pide a Manolo que le selle su credencial: cada otoño remonta un río, como quien hace el Camino de Santiago. Charizard se la sella con la garra: un pino quemadito.)",
+          "sigue": "poliwhirl"
+        },
+        "poliwhirl": {
+          "quien": "poliwhirl",
+          "emocion": "Normal",
+          "texto": "Poliwhirl, socorrista de la piscina de los delfines. Si me miras la espiral de la barriga, te entra sueño. Por eso vigilo de espaldas.",
+          "sigue": "charizard"
+        },
+        "charizard": {
+          "quien": "charizard",
+          "emocion": "Pain",
+          "anim": "duerme",
+          "texto": "Charizard le mira la barriga. Cabecea. Se queda dormido de pie en la orilla.",
+          "sigue": "poliwrath"
+        },
+        "poliwrath": {
+          "quien": "poliwrath",
+          "emocion": "Angry",
+          "texto": "(¡CRAC! Charizard se despierta de golpe: el abuelo Poliwrath rompe un bloque de hielo de un puñetazo.) ¡Chapuzón diario, cuarenta años sin faltar! ¿Empezamos?",
+          "opciones": [
+            {
+              "texto": "«¡Que empiece la función!»",
+              "efectos": {
+                "afinidad": 1
+              },
+              "sigue": "funcion"
+            },
+            {
+              "texto": "«Primero un desayuno, que es muy temprano»",
+              "sigue": "desayuno"
+            }
+          ]
+        },
+        "desayuno": {
+          "quien": "seel",
+          "emocion": "Happy",
+          "texto": "¡Ar, ar! (Hace el pino sobre una aleta y espera.) …Sin sardina no hay truco. Así funciona Selwo. (Manolo le da una chistorra. Vale igual.)",
+          "sigue": "funcion"
+        },
+        "funcion": {
+          "quien": "goldeen",
+          "emocion": "Surprised",
+          "anim": "notas",
+          "texto": "(Suena la música.) ¡Señoras, señores y dragón! ¡Con ustedes, el espectáculo de Selwo Marina Ciudad Celeste!",
+          "sigue": "numero"
+        },
+        "numero": {
+          "quien": "manolo",
+          "emocion": "Pain",
+          "anim": "gira",
+          "anim_quien": "dewgong",
+          "texto": "(Dewgong gira, Goldeen salta el aro, Seel hace malabares con una pelota. A Manolo le da el tic del ojo seis veces: un guiño por artista.)",
+          "sigue": "ola"
+        },
+        "ola": {
+          "quien": "poliwrath",
+          "emocion": "Happy",
+          "anim": "agua",
+          "texto": "¡Y para cerrar, el abuelo! (Cruza el estanque a toda pastilla y levanta una ola que empapa hasta la «zona de salpicaduras».)",
+          "sigue": "vapor"
+        },
+        "vapor": {
+          "quien": "charizard",
+          "emocion": "Surprised",
+          "anim": "humo",
+          "texto": "La ola empapa a Charizard, que suelta vapor como una olla… y aplaude. Seel aplaude con él. Al irse, Seel grita: «¡Dragón, tú te vienes de gira!»."
+        }
       }
     }
   ]

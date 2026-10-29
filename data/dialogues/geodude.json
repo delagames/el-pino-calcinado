@@ -32,7 +32,7 @@
         ] },
         "presu": { "quien": "huesped", "emocion": "Happy", "texto": "(Escribe en una servilleta.) Planta nueva: cuatro mil. Imprevistos: otros cuatro mil. Bocadillos: aparte. Más o menos.", "sigue": "fin" },
         "ladrillos": { "quien": "huesped", "emocion": "Normal", "texto": "(Mira a Charizard.) Ese tiene alas y fuerza. Y si no, llamo a un Machoke que conozco, que se pasa el día levantando cosas para nada.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard se imagina subiendo ladrillos al tejado toda la semana. O todo el año. Esa noche duerme escondido detrás de la chimenea." }
+        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard se imagina subiendo ladrillos al tejado toda la semana. O todo el año. De momento, se esconde detrás del pino." }
       }
     },
     {
@@ -65,7 +65,7 @@
         "pared": { "quien": "huesped", "emocion": "Angry", "texto": "(Da dos golpes en la pared. Con los cuatro nudillos.) Jefe. Sigue torcida. Dos dedos. No me lo puedo creer.", "anim": "enfado", "opciones": [ { "texto": "«No la toques. Ya es costumbre»", "sigue": "costumbre", "efectos": { "afinidad": 1, "flags": { "geodude_bici": "costumbre" } } }, { "texto": "«¿Y el marco que acabas de romper?»", "sigue": "marco", "efectos": { "flags": { "geodude_bici": "marco" } } } ] },
         "costumbre": { "quien": "huesped", "emocion": "Normal", "texto": "Costumbre, eso es. Cada vez que vuelvo, le doy dos golpes y me quejo. Como el bocadillo de las diez: eso no se quita.", "sigue": "fin" },
         "marco": { "quien": "huesped", "emocion": "Pain", "texto": "(Mira el marco. Mira sus cuatro brazos.) Eso te lo arreglo yo en una semana. Bueno, en dos domingos, que entre semana tengo puerto.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Esa noche, Charizard le sujeta la puerta del cuarto con la cola mientras Graveler intenta frenar. Le cuesta tres vueltas al pasillo." }
+        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard ya se ve esta noche sujetándole la puerta del cuarto con la cola mientras Graveler intenta frenar. Tres vueltas al pasillo, como poco." }
       }
     },
     {
@@ -85,7 +85,7 @@
         "traca": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard acerca la cola a la mecha con mucho cuidado. Pa-pa-pa-pum: una traca cortita, en fila. Recta. Golem aplaude.", "anim": "flash", "sigue": "fin" },
         "potaje": { "quien": "huesped", "emocion": "Normal", "texto": "(Levanta el plato de potaje.) Por la primera piedra. Por la pared torcida. Y por el jefe, que nunca me pidió factura.", "sigue": "fin" },
         "fin": { "quien": "huesped", "emocion": "Normal", "texto": "(Da dos golpes a la pared.) Sigue torcida, jefe. No la arregles nunca. Así tienes algo mío.", "sigue": "adios" },
-        "adios": { "quien": "charizard", "emocion": "Happy", "texto": "Al alba, Golem baja la cuesta rodando y esta vez no frena por nada. Charizard lo sigue con la vista hasta que el ruido se pierde en el valle." }
+        "adios": { "quien": "charizard", "emocion": "Happy", "texto": "Mañana Golem bajará la cuesta rodando y esta vez no frenará por nada. Charizard ya sabe que lo seguirá con la vista hasta que el ruido se pierda en el valle." }
       }
     }
   ]

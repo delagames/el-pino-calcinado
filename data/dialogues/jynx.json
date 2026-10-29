@@ -4,49 +4,169 @@
   "entradas": [
     {
       "id": "v1",
-      "cuando": { "visita_min": 1 },
+      "cuando": {
+        "visita_min": 1
+      },
       "subtitulo": "Primera visita · llega la artista",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Buenos días, mi arma. Una habitación tranquilita, sin prensa. ¡Y no me mires! No me mires, que vengo sin pintar.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "(Manolo mira al suelo, por educación. Charizard la mira de arriba abajo, sin ninguna.)", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Vengo de la gira de Kanto. Doce noches, doce estadios. Y en todos el mismo fotógrafo gritando «¡una sonrisa!». Dientes, dientes, que es lo que les gusta.", "opciones": [
-          { "texto": "«Aquí nadie te va a hacer fotos»", "efectos": { "afinidad": 1 }, "sigue": "tranquila" },
-          { "texto": "«¿Me firma un autógrafo para la caja?»", "sigue": "autografo" }
-        ] },
-        "tranquila": { "quien": "huesped", "emocion": "Normal", "texto": "Ay, qué hombre más apañao. Esto parece Cantora, pero con chimenea. Me quedo.", "sigue": "fin" },
-        "autografo": { "quien": "huesped", "emocion": "Normal", "texto": "Le firmo, le firmo. «Para Manolo, con cariño, y que no me mire nadie». Póngalo detrás de la caja, que da suerte.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard intenta hacer una reverencia y tira el paragüero. Jynx le perdona con un golpe de abanico." }
+        "inicio": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Buenos días, mi arma. Una habitación tranquilita, sin prensa. ¡Y no me mires! No me mires, que vengo sin pintar.",
+          "sigue": "manolo"
+        },
+        "manolo": {
+          "quien": "manolo",
+          "emocion": "Surprised",
+          "texto": "(Manolo mira al suelo, por educación. Charizard la mira de arriba abajo, sin ninguna.)",
+          "sigue": "n2"
+        },
+        "n2": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Vengo de la gira de Kanto. Doce noches, doce estadios. Y en todos el mismo fotógrafo gritando «¡una sonrisa!». Dientes, dientes, que es lo que les gusta.",
+          "opciones": [
+            {
+              "texto": "«Aquí nadie te va a hacer fotos»",
+              "efectos": {
+                "afinidad": 1
+              },
+              "sigue": "tranquila"
+            },
+            {
+              "texto": "«¿Me firma un autógrafo para la caja?»",
+              "sigue": "autografo"
+            }
+          ]
+        },
+        "tranquila": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Ay, qué hombre más apañao. Esto parece Cantora, pero con chistorra. Me quedo.",
+          "sigue": "fin"
+        },
+        "autografo": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Le firmo, le firmo. «Para Manolo, con cariño, y que no me mire nadie». Póngalo detrás de la caja, que da suerte.",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "charizard",
+          "emocion": "Surprised",
+          "texto": "Charizard intenta hacer una reverencia y tira el paragüero. Jynx le perdona con un golpe de abanico."
+        }
       }
     },
     {
       "id": "v2",
-      "cuando": { "visita_min": 2 },
+      "cuando": {
+        "visita_min": 2
+      },
       "subtitulo": "Segunda visita · el ensayo",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Manolo, mi vida, ¿le importa que ensaye un poquito? Bajito. Es que si no canto se me congela el alma. Y soy tipo hielo, imagínese.", "opciones": [
-          { "texto": "«Cante, que aquí hace falta alegría»", "efectos": { "afinidad": 1 }, "sigue": "canta" },
-          { "texto": "«Bajito, que hay gente durmiendo»", "sigue": "bajito" }
-        ] },
-        "canta": { "quien": "huesped", "emocion": "Normal", "texto": "«¡Marinero de luceeees…!» Perdone, es que me vengo arriba. ¡Que me quiten lo bailao, Manolo!", "sigue": "manolo" },
-        "bajito": { "quien": "huesped", "emocion": "Normal", "texto": "Bajito… Bajito no sé, mi arma. Lo intento. «Marinero de luces…» ¿Ve? Un susurro. De estadio, pero un susurro.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "(Desde las habitaciones alguien aplaude. Luego otro. Al final aplaude todo el pasillo, con las zapatillas puestas.)", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le hace los coros dando golpes con la cola en el suelo. Lleva el compás fatal, pero con mucho sentimiento." }
+        "inicio": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Manolo, mi vida, ¿le importa que ensaye un poquito? Bajito. Es que si no canto se me congela el alma. Y soy tipo hielo, imagínese.",
+          "opciones": [
+            {
+              "texto": "«Cante, que aquí hace falta alegría»",
+              "efectos": {
+                "afinidad": 1
+              },
+              "sigue": "canta"
+            },
+            {
+              "texto": "«Bajito, que hay gente desayunando»",
+              "sigue": "bajito"
+            }
+          ]
+        },
+        "canta": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "«¡Marinero de luceeees…!» Perdone, es que me vengo arriba. ¡Que me quiten lo bailao, Manolo!",
+          "sigue": "manolo",
+          "plano": "copla"
+        },
+        "bajito": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Bajito… Bajito no sé, mi arma. Lo intento. «Marinero de luces…» ¿Ve? Un susurro. De estadio, pero un susurro.",
+          "sigue": "manolo"
+        },
+        "manolo": {
+          "quien": "manolo",
+          "emocion": "Happy",
+          "texto": "(Desde el comedor alguien aplaude. Luego otro. Al final aplaude toda la posada, con la tostada en la mano.)",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "charizard",
+          "emocion": "Happy",
+          "texto": "Charizard le hace los coros dando golpes con la cola en el suelo. Lleva el compás fatal, pero con mucho sentimiento."
+        }
       }
     },
     {
       "id": "v3",
-      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "cuando": {
+        "visita_min": 3,
+        "afinidad_min": 1
+      },
       "subtitulo": "Tercera visita · una copla para la posada",
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "Manolo, le he escrito una copla. A usted, al Charizard y a la posada. Me ha salido del tirón, como salen las buenas.", "sigue": "copla" },
-        "copla": { "quien": "huesped", "emocion": "Normal", "texto": "«En lo alto de la sierra hay un pino calcinao, y un hombre con su dragón que nunca me ha preguntao». …Eso es lo que más le agradezco: que aquí nadie pregunta.", "opciones": [
-          { "texto": "«Es lo más bonito que me han dicho nunca»", "efectos": { "afinidad": 1, "flags": { "jynx_cancion": "copla" } }, "sigue": "bonito" },
-          { "texto": "«¿Y si la canta en la fiesta del pueblo?»", "efectos": { "flags": { "jynx_cancion": "fiesta" } }, "sigue": "fiesta" }
-        ] },
-        "bonito": { "quien": "huesped", "emocion": "Normal", "texto": "Pues es suya. Y cuando la cante en la tele diré «esta es para Manolo, que me dio de comer y no me miró». Dientes, dientes.", "sigue": "fin" },
-        "fiesta": { "quien": "huesped", "emocion": "Normal", "texto": "¿En la fiesta? ¿Con prensa? …Bueno. Por usted, una vez. Pero el fotógrafo, que se quede en la puerta.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Sad", "texto": "Charizard se emociona: le cae una lagrimita que se evapora antes de tocar el suelo. Jynx le da un beso en la frente y se va tarareando la copla." }
+        "inicio": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Manolo, le he escrito una copla. A usted, al Charizard y a la posada. Me ha salido del tirón, como salen las buenas.",
+          "sigue": "copla"
+        },
+        "copla": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "«En lo alto de la sierra hay un pino calcinao, y un hombre con su dragón que nunca me ha preguntao». …Eso es lo que más le agradezco: que aquí nadie pregunta.",
+          "opciones": [
+            {
+              "texto": "«Es lo más bonito que me han dicho nunca»",
+              "efectos": {
+                "afinidad": 1,
+                "flags": {
+                  "jynx_cancion": "copla"
+                }
+              },
+              "sigue": "bonito"
+            },
+            {
+              "texto": "«¿Y si la canta en la fiesta del pueblo?»",
+              "efectos": {
+                "flags": {
+                  "jynx_cancion": "fiesta"
+                }
+              },
+              "sigue": "fiesta"
+            }
+          ]
+        },
+        "bonito": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Pues es suya. Y cuando la cante en la tele diré «esta es para Manolo, que me dio de comer y no me miró». Dientes, dientes.",
+          "sigue": "fin"
+        },
+        "fiesta": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "¿En la fiesta? ¿Con prensa? …Bueno. Por usted, una vez. Pero el fotógrafo, que se quede en la puerta.",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "charizard",
+          "emocion": "Sad",
+          "texto": "Charizard se emociona: le cae una lagrimita que se evapora antes de tocar el suelo. Jynx le da un beso en la frente y se pone a tararear la copla."
+        }
       }
     }
   ]

@@ -40,7 +40,7 @@
         ] },
         "iguales": { "quien": "huesped", "emocion": "Surprised", "texto": "(Pone la cara de sorpresa, que es la otra que tiene.) …Nunca lo había pensado así. Ocupar mucho por querer mucho. Perdón. Me ha gustado.", "sigue": "fin" },
         "gusta": { "quien": "huesped", "emocion": "Normal", "texto": "(En la roca no se nota, pero la cueva sube dos grados.) Hay una Onix en Ciudad Verde que hace túneles preciosos… No. Perdón. Eso no se lo cuento.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Esa noche, Charizard le enseña a Onix a hacer la reverencia de declararse, por lo que pueda pasar. Onix la ensaya y tira tres pinos. Pide perdón a cada uno." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard se pone a enseñarle a Onix la reverencia de declararse, por lo que pueda pasar. Onix la ensaya y tira tres pinos. Pide perdón a cada uno." }
       }
     },
     {

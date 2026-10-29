@@ -7,7 +7,7 @@
       "cuando": { "visita_min": 1 },
       "subtitulo": "Primera visita · la banda",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Angry", "texto": "(Entra un Spearow de cresta engominada y chupa de cuero, abriendo la puerta de una patada.) ¡Una habitación pa mí y pa la banda, abuelo!", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Angry", "texto": "(Entra un Spearow de cresta engominada y chupa de cuero, abriendo la puerta de una patada.) ¡Una habitación pa' mí y pa' la banda, abuelo!", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Qué banda, chaval?", "sigue": "n1" },
         "n1": { "quien": "huesped", "emocion": "Normal", "texto": "La banda. (Mira atrás. No hay nadie.) Están aparcando. Hoy vengo solo, vale, pero en espíritu somos cuarenta.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Angry", "texto": "Oiga, ¿aquí se aloja el Pikachu de la tele? Tengo cuentas pendientes. Su entrenador le tiró una piedra a mi tío. Y luego vino el rayo.", "sigue": "manolo2" },
@@ -17,7 +17,7 @@
         ] },
         "cenar": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Cenar? …Bueno. Pero me siento de cara a la puerta, como en las pelis. Por si entra la pasma.", "sigue": "fin" },
         "piedra": { "quien": "huesped", "emocion": "Surprised", "texto": "…Anda. Pues es verdad. ¿Y yo llevo diez años de malas con un ratón? (Se repeina la cresta, pensativo.)", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le pone de cena patatas con kétchup, lo favorito de Pikachu. Spearow prueba, gruñe y repite. «El ratón tiene buen gusto». Tregua." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le pone un plato de patatas con kétchup, lo que más le gusta a Pikachu. Spearow prueba, gruñe y repite. «El ratón tiene buen gusto». Tregua." }
       }
     },
     {
@@ -25,7 +25,7 @@
       "cuando": { "visita_min": 2 },
       "subtitulo": "Segunda visita · el cobrador del frac",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Spearow llega de frac y chistera, con la cresta peinada a un lado.) Buenas tardes, caballero. Vengo de parte de la empresa. Muy educadamente.", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Spearow llega de frac y chistera, con la cresta peinada a un lado.) Buenos días, caballero. Vengo de parte de la empresa. Muy educadamente.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¡Si eres el de la banda!", "sigue": "n1" },
         "n1": { "quien": "huesped", "emocion": "Happy", "texto": "Era. Ahora soy cobrador del frac, de prácticas: sigo al moroso a todas partes, de frac, hasta que paga. Educado y pesado.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Busco a un tal Magikarp. Dejó a deber el salón donde dio un curso de «mindset Gyarados». Quinientas monedas.", "sigue": "n3" },
@@ -35,7 +35,7 @@
         ] },
         "dentro": { "quien": "huesped", "emocion": "Happy", "texto": "Muy amable, caballero. Pero el protocolo dice «en la puerta». (Se quita la chistera para darle las gracias. Dos veces.)", "sigue": "fin" },
         "banda": { "quien": "huesped", "emocion": "Sad", "texto": "La banda… no existe, caballero. Nunca existió. Ahora tengo compañeros de trabajo. Nos dan vales de comida.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Hasta medianoche, Spearow espera en la puerta, tieso, de frac. Charizard le saca un chocolate. Magikarp no aparece, y Spearow sube a dormir." }
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Spearow se planta en la puerta, tieso, de frac: piensa esperar ahí hasta medianoche. Charizard le saca un chocolate. De Magikarp, ni rastro." }
       }
     },
     {
@@ -54,7 +54,7 @@
         ] },
         "perdona": { "quien": "huesped", "emocion": "Normal", "texto": "(Rompe el recibo con el pico y se quita el frac.) Perdonada. Total, ya me han hecho fijo. Y el frac pica.", "sigue": "fin" },
         "cobra": { "quien": "huesped", "emocion": "Angry", "texto": "Eso decía yo… (Mira las monedas. Se come una. Y otra.) …Pues ya está cobrada: me la he comido. (Se quita el frac.)", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al alba, Fearow sale del nido sin frac. Sobre el valle se cruza con la bandada de Pidgey. Por primera vez en la Ruta 1, nadie persigue a nadie." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Fearow sale del nido sin frac y da una vuelta sobre el valle. Se cruza con la bandada de Pidgey. Por primera vez en la Ruta 1, nadie persigue a nadie." }
       }
     }
   ]

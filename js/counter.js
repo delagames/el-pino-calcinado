@@ -70,7 +70,7 @@ function outside(c, fase, t, pond) {
     c.fillRect(x, 58 - h, 1, h);
   }
   if (fase === 'noche') { disc(c, 132, 12, 5, '#F4EFE6'); for (const [x, y] of [[20, 8], [60, 14], [100, 6], [150, 20]]) rect(c, x, y, 1, 1, '#F4EFE6'); }
-  else disc(c, fase === 'tarde' ? 140 : fase === 'manana' ? 26 : 90, fase === 'tarde' ? 40 : 12, 4, '#FFF3C7');
+  else disc(c, fase === 'tarde' ? 140 : fase === 'manana' ? 46 : 90, fase === 'tarde' ? 40 : 12, 4, '#FFF3C7');
   const [g1, g2] = GRASS[fase] || GRASS.noche;
   rect(c, 0, 58, W, 22, g1); rect(c, 0, 58, W, 1, g2);
   for (let x = 3; x < W; x += 7) rect(c, x, 56 + (x % 3), 1, 3, g2);
@@ -155,6 +155,10 @@ function guirnalda(c, x0, y0, x1, y1, comba, t, cols, paso = 6, banderin = false
     else { const on = Math.floor(t / 400 + i) % 3 !== 0; rect(c, x + 2, y + 1, 2, 2, on ? col : '#5F5A67'); if (on) { c.globalAlpha = 0.3; rect(c, x + 1, y, 4, 4, col); c.globalAlpha = 1; } }
   }
 }
+// un cable de la luz, combado entre dos puntos
+function cable(c, x0, y0, x1, y1, comba) {
+  for (let x = x0; x <= x1; x++) { const k = (x - x0) / Math.max(1, x1 - x0); rect(c, x, Math.round(y0 + (y1 - y0) * k + Math.sin(k * Math.PI) * comba), 1, 1, '#100C14'); }
+}
 function arte(c, rows, x, y, pal) {
   rows.forEach((r, dy) => [...r].forEach((ch, dx) => { if (ch !== '.') rect(c, x + dx, y + dy, 1, 1, pal[ch]); }));
 }
@@ -177,10 +181,20 @@ const ESCENARIO = {
     rect(c, x - 16, 60, 20, 4, '#4F8FDF'); for (let i = 0; i < 20; i += 4) rect(c, x - 16 + i, 60, 2, 4, '#FFD27A');
     rect(c, x + 8, 55, 6, 5, '#100C14'); rect(c, x + 9, 55, 4, 4, '#F08F3F'); rect(c, x + 13, 50, 1, 6, '#E2653F');
     disc(c, 64 + Math.round(Math.sin(t / 500) * 2), 61, 2, '#F7577F'); rect(c, 63 + Math.round(Math.sin(t / 500) * 2), 59, 2, 1, '#F4EFE6');
+    // los guiris: la toalla reservando la sombra del pino (negra, roja y amarilla) y el cartel hacia la Malagueta
+    for (const [i, col] of ['#100C14', '#C73F2F', '#FFD23F'].entries()) rect(c, 1, 61 + i, 12, 1, col);
+    rect(c, 0, 60, 14, 1, '#100C14'); rect(c, 0, 64, 14, 1, '#100C14');
+    rect(c, 117, 30, 1, 28, '#6F4527');
+    arte(c, ['XXXXXXXX..', 'XWWWWWWWX.', 'XWBBWBBWWX', 'XWWWWWWWX.', 'XXXXXXXX..'], 108, 28, { X: '#100C14', W: '#F4EFE6', B: '#4F8FDF' });
   },
   // el ballet acuático: banderines azules y blancos sobre el estanque, y surtidores
   acuatico(c, t) {
     guirnalda(c, 20, 10, 122, 12, 6, t, ['#4F8FDF', '#F4EFE6', '#9FDFEF'], 6, true);
+    // el cartel de Selwo Marina con su delfín, en un poste junto a la casa, y el aro de los saltos sobre el agua
+    rect(c, 114, 36, 1, 22, '#6F4527');
+    rect(c, 104, 22, 18, 15, '#100C14'); rect(c, 105, 23, 16, 13, '#2F6FBF'); rect(c, 105, 32, 16, 4, '#9FDFEF');
+    arte(c, ['.....X....', '...XXX....', '.XXXXXXX.X', 'XXWXXXXXXX', '.XXXXXX..X', '....X.....'], 108, 25, { X: '#9FD7FF', W: '#100C14' });
+    for (let a = 0; a < Math.PI * 2; a += 0.35) rect(c, Math.round(96 + Math.cos(a) * 5), Math.round(52 + Math.sin(a) * 6), 1, 1, Math.floor(a * 2) % 2 ? '#F4EFE6' : '#E2453F');
     for (const x of [44, 116]) for (let i = 0; i < 4; i++) {
       const k = ((t / 600) + i / 4) % 1;
       rect(c, x + Math.round((i - 1.5) * k * 6), Math.round(66 - Math.sin(k * Math.PI) * 14), 2, 2, i % 2 ? '#9FDFEF' : '#F4EFE6');
@@ -188,10 +202,10 @@ const ESCENARIO = {
   },
   // el Oeste: cactus, cartel del saloon y un matojo que rueda
   oeste(c, t) {
-    arte(c, ['...LL...', '...GL...', 'L..GL...', 'GL.GL.LL', 'GL.GL.GL', 'GLLGLLGL', '.GGGGGG.', '...GL...', '...GL...', '...GL...', '...GL...', '...GL...'], 100, 46, { L: '#3F6F3F', G: '#6F9F4F' });
-    rect(c, 26, 38, 1, 20, '#6F4527'); rect(c, 36, 38, 1, 20, '#6F4527');
-    rect(c, 24, 34, 15, 7, '#100C14'); rect(c, 25, 35, 13, 5, '#B7834F');
-    for (let i = 0; i < 4; i++) rect(c, 27 + i * 3, 37, 2, 1, '#4F2F1F');
+    arte(c, ['...LL...', '...GL...', 'L..GL...', 'GL.GL.LL', 'GL.GL.GL', 'GLLGLLGL', '.GGGGGG.', '...GL...', '...GL...', '...GL...', '...GL...', '...GL...'], 54, 46, { L: '#3F6F3F', G: '#6F9F4F' });
+    rect(c, 110, 38, 1, 20, '#6F4527'); rect(c, 119, 38, 1, 20, '#6F4527');
+    rect(c, 108, 33, 14, 7, '#100C14'); rect(c, 109, 34, 12, 5, '#B7834F');
+    for (let i = 0; i < 4; i++) rect(c, 110 + i * 3, 36, 2, 1, '#4F2F1F');
     const x = ((t / 30) % 140) - 10, y = 54 - Math.abs(Math.sin(t / 200)) * 4;
     disc(c, Math.round(x), Math.round(y), 3, '#9F7F4F'); rect(c, Math.round(x) - 1, Math.round(y) - 1, 2, 1, '#6F5F37');
   },
@@ -210,7 +224,7 @@ const ESCENARIO = {
       const x = 92 + i * 10;
       rect(c, x, 42, 9, 16, '#100C14'); rect(c, x + 1, 44, 7, 13, a); rect(c, x, 41, 9, 3, b); rect(c, x + 3, 47, 3, 1, '#F4EFE6');
     });
-    rect(c, 30, 54, 5, 4, '#7F7F4F'); rect(c, 31, 53, 3, 1, '#9F9F6F');
+    rect(c, 122 - 4, 52, 4, 6, '#100C14'); rect(c, 119, 53, 2, 4, '#7F7F7F');
   },
   // la visita del Team Rocket: el globo con cara de gato y un cartel con la R
   visitasrocket(c, t) {
@@ -219,16 +233,17 @@ const ESCENARIO = {
     rect(c, x - 7, y - 2, 3, 3, '#F2DCA0'); rect(c, x + 5, y - 2, 3, 3, '#F2DCA0');
     disc(c, x, y + 2, 2, '#DFAF3F'); rect(c, x - 3, y + 6, 1, 2, '#100C14'); rect(c, x + 3, y + 6, 1, 2, '#100C14');
     rect(c, x - 3, y + 15, 1, 6, '#100C14'); rect(c, x + 3, y + 15, 1, 6, '#100C14'); rect(c, x - 4, y + 21, 9, 4, '#8F5F37');
-    rect(c, 28, 30, 13, 15, '#100C14'); rect(c, 29, 31, 11, 13, '#F4EFE6');
-    arte(c, ['XXXX.', 'X...X', 'XXXX.', 'X.X..', 'X..X.', 'X...X'], 32, 34, { X: '#C73F2F' });
-    rect(c, 34, 45, 1, 13, '#6F4527');
+    rect(c, 106, 32, 13, 15, '#100C14'); rect(c, 107, 33, 11, 13, '#F4EFE6');
+    arte(c, ['XXXX.', 'X...X', 'XXXX.', 'X.X..', 'X..X.', 'X...X'], 110, 36, { X: '#C73F2F' });
+    rect(c, 112, 47, 1, 11, '#6F4527');
   },
   // el dojo: tatami en el césped, saco de boxeo colgado del pino y el cartel con el círculo rojo
   dojo(c, t) {
     rect(c, 50, 59, 56, 6, '#100C14'); rect(c, 51, 59, 54, 5, '#C7B76F'); for (let x = 51; x < 105; x += 9) rect(c, x, 59, 1, 5, '#8F7F3F');
     const sw = Math.round(Math.sin(t / 500) * 2);
-    rect(c, 26, 22, 1, 8, '#4F4F57'); rect(c, 24 + sw, 30, 6, 14, '#100C14'); rect(c, 25 + sw, 31, 4, 12, '#C73F2F'); rect(c, 25 + sw, 31, 1, 12, '#E2653F');
-    rect(c, 106, 36, 1, 22, '#6F4527'); rect(c, 100, 26, 13, 11, '#100C14'); rect(c, 101, 27, 11, 9, '#F4EFE6'); disc(c, 106, 31, 3, '#C73F2F');
+    rect(c, 118, 18, 1, 40, '#6F4527'); rect(c, 110, 18, 9, 1, '#6F4527');
+    rect(c, 111, 19, 1, 6, '#4F4F57'); rect(c, 109 + sw, 25, 6, 14, '#100C14'); rect(c, 110 + sw, 26, 4, 12, '#C73F2F'); rect(c, 110 + sw, 26, 1, 12, '#E2653F');
+    rect(c, 56, 40, 1, 18, '#6F4527'); rect(c, 50, 30, 13, 11, '#100C14'); rect(c, 51, 31, 11, 9, '#F4EFE6'); disc(c, 56, 35, 3, '#C73F2F');
   },
   // los psíquicos: mesita con bola de cristal, cucharas que flotan y destellos
   psiquicos(c, t) {
@@ -250,29 +265,271 @@ const ESCENARIO = {
   },
   // los electricistas: poste con cables al pino y a la casa, caja de herramientas y cono
   electricistas(c, t) {
-    rect(c, 70, 14, 2, 44, '#6F4527'); rect(c, 64, 16, 14, 2, '#6F4527');
-    guirnalda(c, 20, 18, 64, 17, 4, t, ['#100C14'], 8, true);
-    guirnalda(c, 78, 17, 122, 20, 4, t, ['#100C14'], 8, true);
-    if (Math.floor(t / 150) % 9 === 0) { rect(c, 66, 14, 2, 2, '#FFF7BF'); rect(c, 75, 18, 2, 2, '#FFD23F'); }
+    rect(c, 110, 14, 2, 44, '#6F4527'); rect(c, 104, 16, 14, 2, '#6F4527');
+    cable(c, 20, 18, 105, 17, 6); cable(c, 116, 17, 122, 20, 1);
+    if (Math.floor(t / 150) % 9 === 0) { rect(c, 106, 14, 2, 2, '#FFF7BF'); rect(c, 115, 18, 2, 2, '#FFD23F'); }
     rect(c, 98, 54, 12, 4, '#100C14'); rect(c, 99, 54, 10, 3, '#C73F2F'); rect(c, 102, 52, 4, 2, '#100C14');
     rect(c, 114, 51, 3, 7, '#F08F3F'); rect(c, 113, 57, 5, 1, '#F08F3F'); rect(c, 114, 54, 3, 1, '#F4EFE6');
   },
   // los fósiles: una excavación con huesos, el ámbar y la pala clavada
-  fosiles(c) {
-    for (let i = 0; i < 8; i++) rect(c, 94 - i * 2, 50 + i, 18 + i * 4, 1, i < 2 ? '#8F6037' : '#6F4527');
-    rect(c, 90, 52, 6, 2, '#F4EFE6'); rect(c, 89, 51, 2, 1, '#F4EFE6'); rect(c, 95, 51, 2, 1, '#F4EFE6');
-    rect(c, 102, 55, 4, 4, '#100C14'); rect(c, 103, 55, 2, 3, '#FFB347');
-    disc(c, 110, 53, 3, '#100C14'); disc(c, 110, 53, 2, '#C7B78F'); rect(c, 109, 53, 2, 1, '#8F7F5F');
-    rect(c, 116, 38, 1, 18, '#6F4527'); rect(c, 114, 50, 5, 6, '#9F9AA7');
+  // los veteranos de La Legión: la pancarta del encuentro entre el pino y la casa, y el mástil con su banderín
+  fosiles(c, t) {
+    cable(c, 20, 14, 38, 16, 1); cable(c, 102, 16, 122, 14, 1);
+    rect(c, 38, 13, 64, 11, '#100C14'); rect(c, 39, 14, 62, 9, '#3F6F3F'); rect(c, 39, 14, 62, 1, '#F4EFE6'); rect(c, 39, 22, 62, 1, '#F4EFE6');
+    for (let x = 43; x < 98; x += 4) rect(c, x, 17, 2 + (x % 3 === 0 ? 1 : 0), 3, '#F4EFE6');   // las letras, de lejos
+    rect(c, 112, 20, 1, 38, '#9F9AA7'); rect(c, 111, 19, 3, 1, '#DFAF3F');
+    const ondea = Math.round(Math.sin(t / 300) * 1.5);
+    for (let k = 0; k < 9; k++) rect(c, 113 + k, 21 + Math.round(k / 3) + (k > 4 ? ondea : 0), 1, 6 - Math.round(k / 2), k % 3 === 2 ? '#C73F2F' : '#3F6F3F');
+    rect(c, 102, 55, 4, 4, '#100C14'); rect(c, 103, 55, 2, 3, '#FFB347');   // el ámbar viejo de Aerodactyl
   },
   // los pájaros legendarios: nubes, copos que caen y alguna pluma con chispa
+  // la guerra de los pájaros: el cielo partido en tres (nieve desde la izquierda, fuego desde la derecha,
+  // rayos en medio) que chocan sobre la posada; cada parte se calma cuando su pájaro come (CIELO)
   pajaros(c, t) {
-    for (const [x, y] of [[40, 10], [92, 6], [70, 18]]) { const dx = Math.round(Math.sin(t / 2000 + x) * 3); disc(c, x + dx, y, 4, '#F4EFE6'); disc(c, x + dx + 5, y + 1, 3, '#F4EFE6'); disc(c, x + dx - 5, y + 1, 3, '#E7E7EF'); }
-    for (let i = 0; i < 6; i++) { const k = ((t / 4000) + i / 6) % 1; rect(c, 28 + i * 16 + Math.round(Math.sin(k * 8) * 3), Math.round(k * 56), 1, 1, '#9FDFEF'); }
-    for (let i = 0; i < 2; i++) { const k = ((t / 5000) + i / 2) % 1; const x = 50 + i * 40 + Math.round(Math.sin(k * 6) * 6), y = Math.round(k * 54);
-      rect(c, x, y, 3, 1, i ? '#FFD23F' : '#4F8FDF'); rect(c, x + 1, y + 1, 3, 1, i ? '#FFD23F' : '#4F8FDF'); }
-    if (Math.floor(t / 120) % 25 === 0) arte(c, ['.XX', 'XX.', '.XX', 'XX.'], 108, 8, { X: '#FFF7BF' });
+    const nieve = CIELO.has('nieve'), fuego = CIELO.has('fuego'), rayo = CIELO.has('rayo');
+    if (!nieve && !fuego && !rayo) {   // en calma: un par de nubes blancas y la nieve que queda en el suelo
+      for (const [x, y] of [[40, 10], [96, 8]]) { disc(c, x, y, 4, '#F4EFE6'); disc(c, x + 5, y + 1, 3, '#F4EFE6'); disc(c, x - 5, y + 1, 3, '#E7E7EF'); }
+      for (let x = 0; x < 122; x += 3) rect(c, x, 58, 2, 1 + (x % 2), '#E7EFF7');
+      return;
+    }
+    // nubarrones, más negros cuanta más guerra queda
+    c.globalAlpha = 0.25 + 0.12 * CIELO.size; rect(c, 0, 0, W, 58, '#3F4757'); c.globalAlpha = 1;
+    for (let x = 0; x < W; x += 9) disc(c, x, 3 + (x % 3), 7, '#5F6777');
+    if (nieve) {
+      c.globalAlpha = 0.35; rect(c, 0, 0, 60, 58, '#9FDFEF'); c.globalAlpha = 1;
+      for (let i = 0; i < 26; i++) { const k = ((t / 3000) + (i * 37 % 26) / 26) % 1; rect(c, Math.round((i * 53) % W + Math.sin(k * 7 + i) * 3), Math.round(k * 62), 2, 2, '#F4EFE6'); }
+      for (let x = 0; x < 122; x += 3) rect(c, x, 58, 2, 1 + (x % 2), '#E7EFF7');
+      // bolas de hielo que salen de la izquierda hacia el centro
+      for (let i = 0; i < 4; i++) {
+        const k = ((t / 1300) + i / 4) % 1, x = Math.round(6 + k * 72), y = Math.round(14 + i * 6 + Math.sin(k * 6 + i) * 3);
+        disc(c, x, y, 3, '#2F4F9F'); disc(c, x, y, 2, '#C7EFFF'); rect(c, x - 1, y - 1, 1, 1, '#FFFFFF');
+        if (k > 0.92) for (let a = 0; a < 6; a++) rect(c, x + Math.round(Math.cos(a) * 5), y + Math.round(Math.sin(a) * 4), 1, 1, '#FFFFFF');
+      }
+    }
+    if (fuego) {
+      c.globalAlpha = 0.3; rect(c, 100, 0, 60, 58, '#FF8F3F'); c.globalAlpha = 1;
+      // bolas de fuego que vienen de la derecha, con su estela
+      for (let i = 0; i < 4; i++) {
+        const k = ((t / 1150) + i / 4) % 1, x = Math.round(154 - k * 72), y = Math.round(16 + i * 6 + Math.sin(k * 5 + i) * 3);
+        for (let e = 1; e < 4; e++) { c.globalAlpha = 0.6 - e * 0.15; disc(c, x + e * 3, y, 2, '#E2653F'); }
+        c.globalAlpha = 1; disc(c, x, y, 3, '#8F2717'); disc(c, x, y, 2, '#FFB347'); rect(c, x - 1, y - 1, 1, 1, '#FFF7BF');
+        if (k > 0.92) for (let a = 0; a < 6; a++) rect(c, x + Math.round(Math.cos(a) * 5), y + Math.round(Math.sin(a) * 4), 1, 1, '#FFD27A');
+      }
+    }
+    if (rayo) {
+      // un rayo en zigzag cada poco, en sitios distintos, con su destello
+      const golpe = Math.floor(t / 900), fase = t % 900;
+      if (fase < 160) {
+        let x = 50 + (golpe * 37) % 60, y = 4;
+        c.fillStyle = '#FFF7BF';
+        while (y < 52) { const nx = x + ((y / 6) % 2 ? 4 : -4); for (let s2 = 0; s2 < 6; s2++) c.fillRect(Math.round(x + (nx - x) * s2 / 6), y + s2, 2, 1); x = nx; y += 6; }
+        if (fase < 60) { c.globalAlpha = 0.35; rect(c, 0, 0, W, H, '#FFFFFF'); c.globalAlpha = 1; }
+      }
+      for (let i = 0; i < 3; i++) if ((Math.floor(t / 120) + i) % 5 === 0) rect(c, 70 + i * 9, 20 + (i * 7) % 14, 2, 2, '#FFD23F');
+    }
   },
+};
+
+// ---------- planos cortos: un momento especial de una charla, a pantalla completa ----------
+// Un nodo con «plano» cambia la escena entera por un dibujo propio durante esa frase (con su música,
+// en main.js) y al pasar de frase se vuelve a lo de siempre. ctx: { guest, chari, k } (k: escala del huésped)
+
+// Pinta a un personaje en (x, y) de la vista, a la escala k, mirando a dir (y con otra animación si se pide)
+function actorEn(c, a, x, y, k, t, { dir = null, anim = null, quieto = false, solo = false } = {}) {
+  if (!a) return;
+  const x0 = a.x, y0 = a.y, d0 = a.dir, an0 = a.anim, b0 = a.buddy;
+  if (solo) a.buddy = null;
+  if (quieto) t = -a.offset;   // siempre el primer fotograma
+  // (y) es donde le quedan los pies de verdad: el fotograma suele tener hueco por debajo del cuerpo
+  a.x = x / k; a.y = y / k + (a.ajuste || 0);
+  if (dir != null) a.dir = dir;
+  if (anim && a.sprite.anims[anim]) a.anim = anim;
+  else if (a.anim === 'Hop') a.anim = 'Idle';   // en los planos nadie da saltitos de alegría (saldrían en el aire)
+  a.sinSombra = true;
+  c.save(); c.scale(k, k); a.draw(c, t); c.restore();
+  a.x = x0; a.y = y0; a.dir = d0; a.anim = an0; a.sinSombra = false; a.buddy = b0;
+}
+// Lo mismo, pero en silueta negra (contra la luna)
+const lienzoSombra = typeof document !== 'undefined' ? document.createElement('canvas') : null;
+function siluetaEn(c, a, x, y, k, t, opts) {
+  if (!a || !lienzoSombra) return;
+  if (lienzoSombra.width !== W || lienzoSombra.height !== H) { lienzoSombra.width = W; lienzoSombra.height = H; }
+  const s = lienzoSombra.getContext('2d');
+  s.globalCompositeOperation = 'source-over'; s.clearRect(0, 0, W, H);
+  s.imageSmoothingEnabled = false;
+  actorEn(s, a, x, y, k, t, opts);
+  s.globalCompositeOperation = 'source-in'; s.fillStyle = '#100C14'; s.fillRect(0, 0, W, H);
+  c.drawImage(lienzoSombra, 0, 0);
+}
+function cieloDe(c, cols, alto = 60) {
+  const h = Math.ceil(alto / cols.length);
+  cols.forEach((col, i) => rect(c, 0, i * h, W, h, col));
+}
+function estrellitas(c, t, n = 14, alto = 40) {
+  for (let i = 0; i < n; i++) if ((Math.floor(t / 400) + i) % 5) rect(c, (i * 47) % W, (i * 29) % alto, 1, 1, '#F4EFE6');
+}
+function brillo(c, x, y, r, col, a = 0.3) { c.globalAlpha = a; disc(c, Math.round(x), Math.round(y), r, col); c.globalAlpha = 1; }
+function llamas(c, cx, base, ancho, alto, t) {
+  for (let i = -ancho; i <= ancho; i++) {
+    const h = Math.max(1, Math.round(alto * (1 - Math.abs(i) / (ancho + 1)) + Math.sin(t / 70 + i * 1.9) * 2));
+    rect(c, cx + i, base - h, 1, h, '#E2653F'); rect(c, cx + i, base - h * 0.6, 1, h * 0.6, '#FFB347');
+    if (h > 4) rect(c, cx + i, base - h * 0.3, 1, h * 0.3, '#FFF7BF');
+  }
+}
+function escenario(c, t, telon = '#7F1F2F') {
+  rect(c, 0, 0, W, H, '#140F24');
+  for (let x = 0; x < 30; x += 4) { rect(c, x, 0, 3, 60, telon); rect(c, W - 3 - x, 0, 3, 60, telon); }
+  rect(c, 0, 0, W, 6, telon); for (let x = 0; x < W; x += 8) disc(c, x + 4, 6, 3, telon);
+  rect(c, 0, 60, W, 20, '#4F2F1F'); for (let x = 0; x < W; x += 12) rect(c, x, 60, 1, 20, '#3F2317'); rect(c, 0, 60, W, 1, '#8F5F37');
+  // el foco
+  c.globalAlpha = 0.18; c.fillStyle = '#FFF7BF';
+  for (let y = 0; y < 66; y++) { const half = 6 + y * 0.45; c.fillRect(Math.round(80 - half), y, Math.round(half * 2), 1); }
+  c.globalAlpha = 0.3; disc(c, 80, 66, 20, '#FFF7BF'); c.globalAlpha = 1;
+}
+const PLANOS = {
+  // el toro del cartel, en el cerro (feria)
+  toro: (c, fase, t) => planoToro(c, fase, t),
+  // Charmeleon y Charizard, sentados de espaldas en el tejado al atardecer, con las colas encendidas
+  tejado(c, fase, t, { guest, chari }) {
+    cieloDe(c, ['#2F2757', '#4F2F6F', '#7F3F6F', '#BF5F5F', '#E2834F', '#F7B35F'], 60);
+    estrellitas(c, t, 10, 18);
+    disc(c, 34, 50, 9, '#FFD27A');
+    c.fillStyle = '#3F2F57';
+    for (let x = 0; x < W; x++) { const h = Math.round(10 + 6 * Math.sin(x / 15) + 3 * Math.sin(x / 6)); c.fillRect(x, 56 - h, 1, h); }
+    // el tejado de tejas, de lado a lado
+    for (let y = 56; y < H; y++) for (let x = 0; x < W; x += 6) rect(c, x + ((y >> 2) % 2) * 3, y, 5, 1, (y >> 2) % 2 ? '#9F3F2F' : '#7F2F23');
+    rect(c, 0, 56, W, 1, '#100C14');
+    rect(c, 132, 38, 8, 18, '#100C14'); rect(c, 133, 39, 6, 17, '#7F7F8F');
+    for (let i = 0; i < 3; i++) { const k = ((t / 2200) + i / 3) % 1; brillo(c, 136 + k * 6, 36 - k * 20, 2 + k * 3, '#C7C3D3', 0.5 * (1 - k)); }
+    const pulso = 0.25 + 0.1 * Math.sin(t / 300);
+    for (const x of [66, 94]) brillo(c, x, 52, 8, '#FFB347', pulso);
+    // sentados, quietos, mirando el atardecer (solo se les mueve la luz de la cola)
+    actorEn(c, chari, 66, 60, 1, t, { dir: DIR.up, quieto: true });
+    actorEn(c, guest, 94, 60, 1, t, { dir: DIR.up, quieto: true });
+  },
+
+  // la canción entera de Jigglypuff: el foco, el micro y Charizard cabeceando de sueño
+  concierto(c, fase, t, { guest, chari, manolo }) {
+    escenario(c, t, '#5F1F4F');
+    rect(c, 79, 30, 2, 22, '#9F9AA7'); disc(c, 80, 29, 2, '#5F5A67');
+    actorEn(c, guest, 80, 56, 1.5, t);
+    for (let i = 0; i < 3; i++) { const q = ((t / 1600) + i / 3) % 1; c.globalAlpha = 1 - q; pinta(c, 'nota', 92 + i * 10 + Math.sin(q * 7) * 3, 34 - q * 26, i % 2 ? '#F7A7C7' : '#FFD27A'); }
+    c.globalAlpha = 1;
+    // en primera fila, de espaldas, Manolo y Charizard aguantando el sueño: cabecean, se les cierran los ojos y vuelven
+    const cabeceo = (fase0) => { const q = ((t / 1700) + fase0) % 1; return q < 0.7 ? Math.round(q / 0.7 * 4) : 0; };
+    const dm = cabeceo(0), dc = cabeceo(0.45);
+    rect(c, 0, 72, W, 8, '#1F1A22');
+    actorEn(c, manolo, 58, 86 + dm, 1, t, { dir: DIR.up, quieto: true });
+    actorEn(c, chari, 102, 86 + dc, 1, t, { dir: DIR.up, quieto: true });
+    if (dm >= 3) pinta(c, 'zeta', 64, 52, '#F4EFE6');
+    if (dc >= 3) pinta(c, 'zeta', 110, 50, '#F4EFE6');
+  },
+
+  // la hoguera de los apuntes de Psyduck, de noche: arden en cuatro colores
+  hoguera(c, fase, t, { guest, chari }) {
+    cieloDe(c, ['#0F1324', '#151B33', '#1B2240'], 58);
+    estrellitas(c, t, 18, 50);
+    // una estrella fugaz que cruza el cielo de vez en cuando
+    const fug = (t % 4200) / 900;
+    if (fug < 1) for (let i = 0; i < 8; i++) { c.globalAlpha = (1 - i / 8) * (1 - fug * 0.5); rect(c, Math.round(20 + fug * 90 - i * 3), Math.round(8 + fug * 16 - i * 0.6), 2, 1, '#FFF7BF'); }
+    c.globalAlpha = 1;
+    rect(c, 0, 58, W, 22, '#1F2B23');
+    brillo(c, 80, 62, 26, '#E2653F', 0.18); brillo(c, 80, 62, 14, '#FFB347', 0.2);
+    rect(c, 68, 62, 24, 3, '#4F2F1F'); rect(c, 70, 64, 20, 2, '#3F2317');
+    llamas(c, 80, 63, 9, 20, t);
+    const COL = ['#F7577F', '#FFD27A', '#6F9F4F', '#4F8FDF'];
+    for (let i = 0; i < 10; i++) {
+      const q = ((t / 2600) + i / 10) % 1;
+      c.globalAlpha = 1 - q;
+      rect(c, Math.round(76 + Math.sin(q * 9 + i) * 10 + (i % 3) * 3), Math.round(46 - q * 44), 3, 2, q > 0.6 ? '#5F5A67' : COL[i % 4]);
+    }
+    c.globalAlpha = 1;
+    for (let i = 0; i < 6; i++) if ((Math.floor(t / 90) + i) % 4 === 0) rect(c, 72 + i * 3, 30 - (i * 7) % 14, 1, 1, '#FFF7BF');
+    actorEn(c, guest, 42, 70, 1, t, { dir: DIR.right, quieto: true });
+    actorEn(c, chari, 122, 70, 1, t, { dir: DIR.left, quieto: true });
+  },
+
+  // el cante de Gengar: un tablao con farolillos, palmas y Charizard llevando el compás con la cola
+  tablao(c, fase, t, { guest, chari, k }) {
+    escenario(c, t, '#7F1F2F');
+    guirnalda(c, 24, 12, 136, 12, 5, t, ['#FFD27A', '#F7577F', '#FFB347']);
+    actorEn(c, guest, 80, 70, Math.min(1.5, k), t);
+    actorEn(c, chari, 28, 72, 1, t, { dir: DIR.downRight });
+    if (Math.floor(t / 280) % 2) for (const [x, y] of [[62, 40], [98, 42]]) pinta(c, 'estrella', x, y, '#FFF7BF');
+    if (Math.floor(t / 280) % 2 === 0) { rect(c, 36, 74, 3, 1, '#C7C3D3'); rect(c, 40, 73, 2, 1, '#C7C3D3'); }
+    for (let i = 0; i < 2; i++) { const q = ((t / 1400) + i / 2) % 1; c.globalAlpha = 1 - q; pinta(c, 'nota', 104 + i * 12, 34 - q * 24, '#FFD27A'); }
+    c.globalAlpha = 1;
+  },
+  // la copla de Jynx: el mantón de flecos detrás, el foco y las castañuelas
+  copla(c, fase, t, { guest, k }) {
+    escenario(c, t, '#3F1F4F');
+    // el mantón colgado al fondo, con sus flores y sus flecos
+    for (let y = 0; y < 28; y++) { const half = 44 - y * 1.5; rect(c, 80 - half, 10 + y, half * 2, 1, '#C73F2F'); }
+    for (const [x, y] of [[60, 16], [80, 22], [100, 16], [70, 28], [90, 28]]) { disc(c, x, y, 3, '#FFD27A'); rect(c, x - 1, y - 1, 2, 2, '#F7577F'); }
+    for (let x = 38; x < 122; x += 3) rect(c, x, 10 + Math.max(0, 28 - Math.abs(x - 80) / 1.5) | 0, 1, 4, '#FFD27A');
+    actorEn(c, guest, 80, 70, Math.min(1.5, k), t);
+    // las castañuelas, a golpe de compás
+    if (Math.floor(t / 200) % 3 === 0) { for (const x of [58, 102]) { rect(c, x, 46, 3, 2, '#7F4F2F'); rect(c, x + 1, 45, 1, 1, '#100C14'); } }
+    for (let i = 0; i < 2; i++) { const q = ((t / 1500) + i / 2) % 1; c.globalAlpha = 1 - q; pinta(c, 'nota', 112 + i * 10, 40 - q * 26, '#FFD27A'); }
+    c.globalAlpha = 1;
+  },
+
+  // el duelo de Magmar: la parrilla de cerca, con la chistorra negra carbón y la dorada de Charizard
+  parrilla(c, fase, t) {
+    rect(c, 0, 0, W, H, '#1F1A22');
+    brillo(c, 80, 70, 60, '#E2653F', 0.22);
+    for (let x = 6; x < W - 6; x += 3) rect(c, x, 60 + Math.round(Math.sin(x + t / 200) * 1), 2, 2, Math.sin(x * 3 + t / 150) > 0 ? '#FFB347' : '#E2653F');
+    for (let y = 34; y <= 54; y += 4) rect(c, 10, y, W - 20, 1, '#9F9AA7');
+    rect(c, 10, 34, 1, 21, '#5F5A67'); rect(c, W - 11, 34, 1, 21, '#5F5A67');
+    // la de Magmar, carbón con ceniza, humeando
+    rect(c, 22, 40, 50, 9, '#100C14'); rect(c, 23, 41, 48, 7, '#2F2626');
+    for (let i = 0; i < 9; i++) rect(c, 26 + i * 5, 42 + (i % 2) * 3, 2, 1, '#5F5A67');
+    for (let i = 0; i < 4; i++) { const q = ((t / 1800) + i / 4) % 1; brillo(c, 30 + i * 11 + Math.sin(q * 6) * 3, 36 - q * 30, 2 + q * 4, '#7F7F8F', 0.5 * (1 - q)); }
+    // la de Charizard, dorada, con su brillo
+    rect(c, 88, 40, 50, 9, '#100C14'); rect(c, 89, 41, 48, 7, '#C7772F'); rect(c, 89, 41, 48, 2, '#E7A75F');
+    for (let i = 0; i < 6; i++) rect(c, 92 + i * 8, 44, 3, 1, '#8F4F1F');
+    if (Math.floor(t / 300) % 2) pinta(c, 'estrella', 128, 34, '#FFF7BF');
+  },
+  // el posado de Machoke a la luz de la luna, en silueta, en la ventana
+  posado(c, fase, t, { guest, k, postura }) {
+    rect(c, 0, 0, W, H, '#2F1F17');
+    rect(c, 30, 4, 100, 64, '#100C14'); rect(c, 32, 6, 96, 60, '#1B2240');
+    estrellitas(c, t, 10, 60);
+    disc(c, 80, 34, 24, '#E7E7EF'); disc(c, 80, 34, 22, '#F4EFE6'); disc(c, 72, 28, 4, '#E7E7EF'); disc(c, 88, 40, 3, '#E7E7EF');
+    rect(c, 79, 6, 2, 60, '#100C14'); rect(c, 32, 35, 96, 2, '#100C14');
+    for (let y = 4; y < 70; y += 3) { rect(c, 18 + (y % 6 ? 1 : 0), y, 12, 3, '#7F2F23'); rect(c, 130 - (y % 6 ? 1 : 0), y, 12, 3, '#7F2F23'); }
+    // marcando bíceps (su animación de cargar fuerza), en silueta contra la luna; si aún no ha cargado, quieto
+    if (postura) siluetaEn(c, postura, 80, 66, Math.min(1.5, k), t, { dir: DIR.down });
+    else siluetaEn(c, guest, 80, 66, Math.min(1.5, k), t, { quieto: true });
+    for (let i = 0; i < 4; i++) if ((Math.floor(t / 250) + i) % 3 === 0) pinta(c, 'estrella', 50 + i * 20, 12 + (i % 2) * 40, '#FFF7BF');
+    rect(c, 26, 66, 108, 4, '#6F4527'); rect(c, 26, 66, 108, 1, '#9F6A3F');
+  },
+
+  // el brindis de la boda de los Nidoran: banderines, la tarta de tres pisos y confeti
+  boda(c, fase, t, { guest }) {
+    cieloDe(c, ['#97C3E7', '#B7E3F7', '#F7D7A7'], 60);
+    guirnalda(c, 0, 6, W, 8, 5, t, ['#F7577F', '#F4EFE6', '#FFD27A', '#9FD7FF'], 6, true);
+    rect(c, 0, 60, W, 20, '#579F5F');
+    // el arco de flores, con los novios debajo
+    for (let a = Math.PI; a <= Math.PI * 2; a += 0.12) {
+      const x = Math.round(62 + Math.cos(a) * 30), y = Math.round(64 + Math.sin(a) * 40);
+      disc(c, x, y, 2, Math.round(a * 10) % 3 ? '#F7A7C7' : '#F4EFE6'); rect(c, x, y, 1, 1, '#FFD27A');
+    }
+    rect(c, 31, 26, 2, 40, '#6F9F4F'); rect(c, 91, 26, 2, 40, '#6F9F4F');
+    // la tarta de tres pisos, a la derecha
+    rect(c, 106, 56, 44, 4, '#100C14'); rect(c, 107, 56, 42, 3, '#F4EFE6');
+    for (const [w, y] of [[24, 46], [18, 38], [12, 31]]) { rect(c, 128 - w / 2 - 1, y - 1, w + 2, 10, '#100C14'); rect(c, 128 - w / 2, y, w, 9, '#F7E7F7'); rect(c, 128 - w / 2, y + 6, w, 1, '#F7A7C7'); }
+    rect(c, 127, 25, 2, 5, '#F4EFE6'); llamas(c, 128, 25, 1, 3, t);
+    // los novios, frente a frente; cada poco se acercan y se dan un beso
+    const beso = (t % 2400) < 900;
+    const d = beso ? 2 : 0;
+    actorEn(c, guest, 52 + d, 66, 1, t, { dir: DIR.right, solo: true, quieto: true });
+    actorEn(c, guest.buddy, 72 - d, 66, 1, t, { dir: DIR.left, quieto: true });
+    rect(c, 69 - d, 38, 8, 2, '#F4EFE6'); c.globalAlpha = 0.6; rect(c, 72 - d, 40, 6, 12, '#F4EFE6'); c.globalAlpha = 1;   // el velo de la novia
+    if (beso) pinta(c, 'corazon', 60, 34 - Math.floor((t % 2400) / 150), '#F7577F');
+    efecto(c, { tipo: 'confeti' }, t, { x: 80, y: 20, h: 20 });
+  },
+
 };
 
 function counterFront(c) {
@@ -286,8 +543,13 @@ function counterFront(c) {
   rect(c, 127, BAR - 9, 1, 1, '#100C14');
 }
 
-// Filas y columnas con píxeles del primer fotograma (mirando de frente)
+// Filas y columnas con píxeles del primer fotograma (mirando de frente); se mide una vez por hoja
+const medidas = new WeakMap();
 function measure(img, fw, fh) {
+  if (!medidas.has(img)) medidas.set(img, medir(img, fw, fh));
+  return medidas.get(img);
+}
+function medir(img, fw, fh) {
   const cv = document.createElement('canvas');
   cv.width = fw; cv.height = fh;
   const x = cv.getContext('2d');
@@ -295,7 +557,18 @@ function measure(img, fw, fh) {
   const d = x.getImageData(0, 0, fw, fh).data;
   let top = fh, bottom = 0;
   for (let y = 0; y < fh; y++) for (let i = 0; i < fw; i++) if (d[(y * fw + i) * 4 + 3] > 0) { top = Math.min(top, y); bottom = Math.max(bottom, y); }
-  return { top, bottom };
+  // y lo que llega a ocupar en todos los fotogramas (las alas de Articuno al batir), para que quepa
+  const n = Math.max(1, Math.floor(img.width / fw));
+  const all = document.createElement('canvas'); all.width = fw * n; all.height = fh;
+  const ax = all.getContext('2d'); ax.drawImage(img, 0, 0, fw * n, fh, 0, 0, fw * n, fh);
+  const da = ax.getImageData(0, 0, fw * n, fh).data;
+  let alto = 0, ancho = 0;
+  for (let f = 0; f < n; f++) {
+    let t = fh, b = 0, l = fw, r = 0;
+    for (let y = 0; y < fh; y++) for (let i = 0; i < fw; i++) if (da[(y * fw * n + f * fw + i) * 4 + 3] > 0) { t = Math.min(t, y); b = Math.max(b, y); l = Math.min(l, i); r = Math.max(r, i); }
+    alto = Math.max(alto, b - t); ancho = Math.max(ancho, r - l);
+  }
+  return { top, bottom, alto, ancho };
 }
 
 // Lágrimas a chorro, dos regueros que caen desde los ojos (por delante del huésped)
@@ -310,6 +583,9 @@ function tears(c, t, { x, y, sep }) {
   }
   c.globalAlpha = 1;
 }
+
+// Qué queda de la tormenta en la guerra de los pájaros (cada nodo puede cambiarlo con «cielo»)
+let CIELO = new Set(['nieve', 'fuego', 'rayo']);
 
 // Los efectos de las animaciones de los eventos, en pixel art: corazones, Zzz, chispas, confeti…
 // (cab: lo alto del que la hace, en píxeles de la vista; ms: desde que empezó)
@@ -371,12 +647,13 @@ function efecto(c, fx, ms, cab) {
     case 'agua':
       ciclo(8, 900).forEach((k, i) => {
         const a = -Math.PI / 2 + (i - 3.5) * 0.35;
-        c.fillStyle = i % 2 ? '#9FDFEF' : '#4F8FDF';
-        c.fillRect(Math.round(x + Math.cos(a) * k * 22), Math.round(y + Math.sin(a) * k * 22 + k * k * 20), 2, 2);
+        const ax = Math.round(x + Math.cos(a) * k * 22), ay = Math.round(y + Math.sin(a) * k * 22 + k * k * 20);
+        c.fillStyle = '#1F3F6F'; c.fillRect(ax - 1, ay - 1, 4, 4);
+        c.fillStyle = i % 2 ? '#9FDFEF' : '#4F8FDF'; c.fillRect(ax, ay, 2, 2);
       });
       break;
     case 'humo':
-      ciclo(4, 1600).forEach((k, i) => { c.globalAlpha = 0.7 * (1 - k); disc(c, Math.round(x - 6 + i * 4 + k * 4), Math.round(y + 4 - k * 18), 2 + Math.round(k * 4), '#C7C3D3'); });
+      ciclo(4, 1600).forEach((k, i) => { c.globalAlpha = 0.85 * (1 - k); disc(c, Math.round(x - 6 + i * 4 + k * 4), Math.round(y + 4 - k * 18), 3 + Math.round(k * 4), '#5F5A67'); disc(c, Math.round(x - 6 + i * 4 + k * 4), Math.round(y + 4 - k * 18), 2 + Math.round(k * 4), '#9F9AA7'); });
       break;
     case 'flash': {
       const k = (ms % 2200) / 350;
@@ -403,7 +680,9 @@ export function createCounter(canvas) {
   let lugar = 'dentro';   // 'dentro' (mostrador), 'fuera' (frente al pino) o 'estanque'
   let decor = null;       // el decorado del evento (las excursiones), si lo hay
   let sinSombrero = false; // en el Oeste, cuando se lo quita (o se le vuela)
-  let silueta = false;     // de perfil y en negro sobre un cerro, como el toro de los carteles de carretera (Tauros)
+  let plano = null;        // un plano corto a pantalla completa (el toro, el tejado, la hoguera…), si lo hay
+  let manolo = null;       // Manolo, que solo sale en algún plano (en el mostrador es quien mira)
+  const posturas = {};     // animaciones de más para algún plano (el bíceps de Machoke), por sprite
 
   const ANIMS = ['Idle', 'Hop', 'Sleep'];
   let guestSprite = null, cabeza = null, fx = null;   // fx: la animación del momento («anim» de un nodo)
@@ -412,19 +691,24 @@ export function createCounter(canvas) {
     fase = f;
     lugar = l;
     decor = ESCENARIO[escenario] ? escenario : null;
-    silueta = false;
+    CIELO = new Set(['nieve', 'fuego', 'rayo']);   // cada evento empieza con la tormenta entera
+    plano = null;
     fx = null;
     llora = false;
     const cs = await loadSprite('0006', ANIMS);
+    if (!manolo) loadSprite('manolo', ['Idle', 'Sleep']).then(s => { manolo = new Actor(s, { dir: DIR.up }); }).catch(() => {});
     guestSprite = null;
     await setGuest(sprite, buddy);
     chari = new Actor(cs, { x: lugar === 'dentro' ? 26 : 38, y: lugar === 'dentro' ? BAR + 10 : 70, dir: DIR.downRight });
+    const ci = cs.anims.Idle; chari.ajuste = 6 + ci.fh / 2 - measure(ci.img, ci.fw, ci.fh).bottom;
     if (!running) { running = true; requestAnimationFrame(frame); }
     resize();
   }
 
   // Pone delante a un huésped (en los grupos, al miembro que habla en cada momento)
-  async function setGuest(sprite, buddy = null) {
+  // «pequeno»: el pequeño del grupo (el hijo junto a su padre), un poco más chico; «lado»: de perfil
+  // (a Omanyte y Omastar, de frente, no se les ve la cara)
+  async function setGuest(sprite, buddy = null, { pequeno = false, lado = false } = {}) {
     if (!sprite || sprite === guestSprite) return;
     guestSprite = sprite;
     const gs = await loadSprite(sprite, ANIMS);
@@ -434,11 +718,15 @@ export function createCounter(canvas) {
     const a = gs.anims.Idle, body = measure(a.img, a.fw, a.fh);
     // fuera se le ve entero, de pie en el césped (o en el agua del estanque)
     const ground = lugar === 'dentro' ? BAR + 9 : lugar === 'estanque' ? 74 : 72;
-    const scale = (body.bottom - body.top) * 2 <= (lugar === 'dentro' ? 58 : 62) ? 2 : 1;
+    const cabe = lugar === 'dentro' ? 58 : 62;
+    // a ×2 si cabe; si no, a ×1; los enormes (Articuno con las alas abiertas), aún más pequeños
+    let scale = [2, 1, 0.75, 0.5].find(k => (body.bottom - body.top) * k <= cabe && (k < 2 || body.alto * k <= cabe + 6) && body.alto * k <= 70 && body.ancho * k <= 96) || 0.5;
+    if (pequeno) scale = scale === 2 ? 1.5 : scale * 0.75;
     const feetY = ground / scale + 6 + a.fh / 2 - body.bottom;
-    const g = new Actor(gs, { x: (lugar === 'dentro' ? 84 : 80) / scale - (buddy ? 9 : 0), y: feetY, dir: DIR.down });
+    const g = new Actor(gs, { x: (lugar === 'dentro' ? 84 : 80) / scale - (buddy ? 9 : 0), y: feetY, dir: lado ? DIR.downLeft : DIR.down });
     await addBuddy(g, buddy, ANIMS);
     if (guestSprite !== sprite) return;
+    g.ajuste = 6 + a.fh / 2 - body.bottom;   // de los pies de verdad al punto de apoyo del fotograma (para los planos)
     guest = g;
     guestScale = scale;
     // a un tercio de la cabeza, más o menos: de ahí caen las lágrimas
@@ -468,7 +756,8 @@ export function createCounter(canvas) {
     const libre = dlg?.offsetHeight ? dlg.getBoundingClientRect().top - parent.getBoundingClientRect().top : parent.clientHeight - parseFloat(cs.paddingBottom);
     const box = { width: parent.clientWidth - 16, height: libre - 16 };
     const dpr = window.devicePixelRatio || 1;
-    const S = Math.max(1, Math.floor(Math.min(box.width * dpr / W, box.height * dpr / H)));
+    const fit = Math.min(box.width * dpr / W, box.height * dpr / H);
+    const S = Math.max(1, fit >= 2 ? Math.floor(fit * 4) / 4 : Math.floor(fit));
     if (canvas.width !== W) canvas.width = W;
     if (canvas.height !== H) canvas.height = H;
     canvas.style.width = `${W * S / dpr}px`;
@@ -486,7 +775,11 @@ export function createCounter(canvas) {
     if (t - drawn < 30) return;   // ~30 fps bastan
     drawn = t;
     // un plano aparte (el toro en el cerro): ocupa toda la escena y luego se vuelve a donde estábamos
-    if (silueta) { planoToro(c, fase, t); return; }
+    if (plano && PLANOS[plano]) {
+      c.imageSmoothingEnabled = false;
+      PLANOS[plano](c, fase, t, { guest, chari, manolo, k: guestScale, postura: postura(guest, plano) });
+      return;
+    }
     if (lugar === 'dentro') backdrop(c, fase, t);
     else outside(c, fase, t, lugar === 'estanque' || decor === 'acuatico');
     if (decor) ESCENARIO[decor](c, t, fase);
@@ -517,6 +810,19 @@ export function createCounter(canvas) {
     if (fx) efecto(c, fx, now - fx.t0, fx.sobre === 'chari' ? { x: chari.x, y: chari.y - 30, h: 24 } : cabeza);
   }
 
+  // Algunos planos usan una animación que no se carga siempre (Machoke marcando bíceps): se pide la primera vez
+  function postura(a, p) {
+    const pide = { posado: 'Charge' }[p];
+    if (!pide || !a) return null;
+    const id = a.sprite.id, key = `${id}:${pide}`;
+    if (!(key in posturas)) {
+      posturas[key] = null;
+      loadSprite(id, ['Idle', pide]).then(s => { posturas[key] = s.anims[pide] ? new Actor(s, { anim: pide }) : null; }).catch(() => {});
+    }
+    if (posturas[key]) posturas[key].ajuste = a.ajuste;
+    return posturas[key];
+  }
+
   // Lo que se mueve el que hace la animación: [dx, dy, dirección] en píxeles de la vista
   function mover(a, ms) {
     const tipo = fx.tipo;
@@ -524,6 +830,7 @@ export function createCounter(canvas) {
     else if (a.anim === 'Sleep' || (a.anim === 'Hop' && performance.now() > hopUntil)) a.anim = 'Idle';
     if (tipo === 'baila') return [Math.round(Math.sin(ms / 160) * 3), -Math.round(Math.abs(Math.sin(ms / 160)) * 4), Math.floor(ms / 320) % 2 ? DIR.downLeft : DIR.downRight];
     if (tipo === 'gira') return [0, 0, [DIR.down, DIR.downRight, DIR.right, DIR.upRight, DIR.up, DIR.upLeft, DIR.left, DIR.downLeft][Math.floor(ms / 90) % 8]];
+    if (tipo === 'vuela') { const s2 = ms / 1000; return [0, s2 < 1 ? -Math.round(s2 * 90) : s2 < 2.6 ? -90 : s2 < 3.6 ? -Math.round((3.6 - s2) * 90) : 0, s2 < 3.6 ? DIR.up : null]; }
     if (tipo === 'salta') { const k = (ms % 1400) / 600; return [0, k < 1 ? -Math.round(Math.sin(k * Math.PI) * 14) : 0, null]; }
     if (tipo === 'tiembla' || (tipo === 'enfado' && ms % 900 < 300)) return [Math.floor(ms / 40) % 2 ? 1 : -1, 0, null];
     if (tipo === 'duerme' && !a.sprite.anims.Sleep) return [0, 2, null];
@@ -531,5 +838,6 @@ export function createCounter(canvas) {
   }
 
   window.addEventListener('resize', () => running && resize());
-  return { open, close, speak, setGuest, sombrero: puesto => { sinSombrero = !puesto; }, silueta: si => { silueta = !!si; } };
+  return { open, close, speak, setGuest, sombrero: puesto => { sinSombrero = !puesto; }, plano: p => { plano = p || null; },
+    cielo: lista => { CIELO = new Set(lista); } };
 }

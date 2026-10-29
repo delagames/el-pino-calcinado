@@ -1,32 +1,117 @@
 {
   "id": "oeste",
-  "_nota": "Grupo de excursión (una mañana, no duermen): los del oeste. Sandslash y su hijo Sandshrew, con sombrero de vaquero, vienen del desierto de Tabernas (Almería), donde ruedan películas del oeste: el padre salió de extra, de cactus. Buscan la sombra más seca para almorzar (si hay estanque, el agua quieta les agobia y almuerzan de pie). A Sandslash se le caen las púas (le vuelven a crecer) y lo vive como una alopecia: viene a hablar de calvas con Manolo, que le avisa del frasco de la Oddish (huele a jardín pero no crece nada). Remate: duelo al sol delante del pino, a ver quién aguanta más serio; gana Manolo, al que el viento no le mueve nada. Se suben al autobús de espaldas y despacito, y dejan un sombrero vaquero. Anim: salta, humo (polvareda), confeti.",
+  "_nota": "Grupo de excursión (una mañana, no duermen): los del oeste. Sandslash y su hijo Sandshrew, con sombrero de vaquero, vienen del desierto de Tabernas (Almería), donde ruedan películas del oeste: el padre salió de extra, de cactus. Buscan la sombra más seca para almorzar (si hay estanque, el agua quieta les agobia y almuerzan de pie). A Sandslash se le caen las púas (le vuelven a crecer) y lo vive como una alopecia: viene a hablar de calvas con Manolo, que le avisa del frasco del Oddish (huele a jardín pero no crece nada). Remate: duelo al sol delante del pino, a ver quién aguanta más serio; gana Manolo, al que el viento no le mueve nada. Se suben al autobús de espaldas y despacito, y dejan un sombrero vaquero. Anim: salta, humo (polvareda), confeti.",
   "entradas": [
     {
       "id": "v1",
-      "cuando": { "visita_min": 1 },
+      "cuando": {
+        "visita_min": 1
+      },
       "subtitulo": "Una mañana · los del oeste",
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Por la mañana bajan del autobús dos con sombrero de vaquero. Suena una armónica que no toca nadie: es el viento entre las ramas del pino.)", "sigue": "sandslash" },
-        "sandslash": { "quien": "sandslash", "emocion": "Normal", "texto": "Buenos días, forastero. Soy Sandslash, y este es mi hijo. Venimos del desierto de Tabernas, en Almería, donde ruedan las películas del oeste.", "sigue": "sandshrew" },
-        "sandshrew": { "quien": "sandshrew", "emocion": "Happy", "anim": "salta", "texto": "¡Soy Sandshrew! ¡Papá salió de extra en una película! ¡De cactus! ¡Tres días de cactus, sin moverse!", "sigue": "seca" },
-        "seca": { "quien": "sandslash", "emocion": "Normal", "texto": "Buscamos la sombra más seca para almorzar. Somos de tierra: la humedad nos sienta como un tiro.", "si_mejora": { "estanque": "seca_estanque" }, "sigue": "potaje" },
-        "seca_estanque": { "quien": "sandslash", "emocion": "Worried", "texto": "Buscamos sombra seca para almorzar… (Ve el estanque.) ¿Eso es agua quieta, al lado de la casa? Almorzamos de pie y nos vamos rápido.", "sigue": "potaje" },
-        "potaje": { "quien": "manolo", "emocion": "Normal", "texto": "Os saco un potaje de garbanzos. Bien espesito, que caldo lleva poco.", "sigue": "sandshrew2" },
-        "sandshrew2": { "quien": "sandshrew", "emocion": "Worried", "texto": "Papá… díselo. Lo de las púas.", "sigue": "puas" },
-        "puas": { "quien": "sandslash", "emocion": "Sad", "texto": "(Se quita el sombrero: le faltan púas en la coronilla.) Se me caen, forastero. Dicen que vuelven a crecer, pero llevo dos semanas esperando.", "sigue": "puas2" },
-        "puas2": { "quien": "sandslash", "emocion": "Normal", "texto": "En el camino me dijeron que aquí había un señor que de calvas sabe mucho.", "sigue": "calva" },
-        "calva": { "quien": "manolo", "emocion": "Sigh", "texto": "(Manolo se pasa la mano por la calva, que brilla al sol.) Mira, vaquero: lo mío no vuelve. Lo tuyo, sí.", "opciones": [
-          { "texto": "«Y mientras, el sombrero te queda de cine»", "efectos": { "afinidad": 1 }, "sigue": "cine" },
-          { "texto": "«Y no compres el frasco de la Oddish: huele a jardín, pero no crece nada»", "sigue": "frasco" }
-        ] },
-        "cine": { "quien": "sandslash", "emocion": "Happy", "texto": "¿De cine? (Se lo pone ladeado.) Eso decía el director. Bueno, se lo decía al cactus de al lado. Pero yo estaba muy cerca.", "sigue": "duelo" },
-        "frasco": { "quien": "sandslash", "emocion": "Surprised", "texto": "¿Ni a usted le funcionó? (Se encasqueta el sombrero hasta las cejas.) Entendido. Que crezcan solas.", "sigue": "duelo" },
-        "duelo": { "quien": "sandshrew", "emocion": "Happy", "texto": "¡Papá! ¡Un duelo como en las pelis! ¡Aquí, al sol, delante del pino! ¡A ver quién aguanta más rato serio!", "sigue": "viento" },
-        "viento": { "quien": "charizard", "emocion": "Surprised", "anim": "humo", "anim_quien": "sandslash", "texto": "Frente a frente. Sopla el viento y levanta polvo. A Sandshrew se le vuela el sombrero y se ríe. A Sandslash se le cae otra púa y se ríe. A Manolo no se le mueve nada.", "sigue": "gana" },
-        "gana": { "quien": "sandslash", "emocion": "Happy", "anim": "confeti", "texto": "…Ha ganado el forastero. Claro: sin púas ni pelo, el viento no tiene de dónde tirar. Es usted el más duro del oeste.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Tras el potaje suben al autobús de espaldas, despacito, como en las películas. En el banco del pino se han dejado un sombrero vaquero: para Manolo, «por el sol»." }
+        "inicio": {
+          "quien": "manolo",
+          "emocion": "Surprised",
+          "texto": "(Bajan del autobús dos con sombrero de vaquero. Suena una armónica que no toca nadie: es el viento en el pino.)",
+          "sigue": "sandslash"
+        },
+        "sandslash": {
+          "quien": "sandslash",
+          "emocion": "Normal",
+          "texto": "Buenos días, forastero. Soy Sandslash y este es mi hijo. Venimos de Tabernas, en Almería, donde se ruedan las pelis del oeste.",
+          "sigue": "sandshrew"
+        },
+        "sandshrew": {
+          "quien": "sandshrew",
+          "emocion": "Happy",
+          "anim": "salta",
+          "texto": "¡Soy Sandshrew! ¡Papá salió de extra en una película! ¡De cactus! ¡Tres días sin moverse!",
+          "sigue": "seca"
+        },
+        "seca": {
+          "quien": "sandslash",
+          "emocion": "Normal",
+          "texto": "Buscamos sombra seca para almorzar. Somos de tierra: la humedad nos sienta como un tiro.",
+          "si_mejora": {
+            "estanque": "seca_estanque"
+          },
+          "sigue": "sandshrew2"
+        },
+        "seca_estanque": {
+          "quien": "sandslash",
+          "emocion": "Worried",
+          "texto": "Buscamos sombra seca para almorzar… (Ve el estanque.) ¿Eso es agua quieta, al lado de la casa? Almorzamos de pie y nos vamos rápido.",
+          "sigue": "sandshrew2"
+        },
+        "sandshrew2": {
+          "quien": "sandshrew",
+          "emocion": "Worried",
+          "texto": "Papá… díselo. Lo de las púas.",
+          "sigue": "puas"
+        },
+        "puas": {
+          "quien": "sandslash",
+          "emocion": "Sad",
+          "texto": "(Se quita el sombrero: le faltan púas en la coronilla.) Se me caen, forastero. Me han dicho que aquí hay un señor que de calvas sabe mucho.",
+          "sigue": "calva"
+        },
+        "calva": {
+          "quien": "manolo",
+          "emocion": "Sigh",
+          "texto": "(Sandslash se vuelve a poner el sombrero. Manolo se pasa la mano por la calva.) Mira, vaquero: lo mío no vuelve. Lo tuyo, sí.",
+          "opciones": [
+            {
+              "texto": "«Y mientras, el sombrero te queda de cine»",
+              "efectos": {
+                "afinidad": 1
+              },
+              "sigue": "cine"
+            },
+            {
+              "texto": "«No compres el frasco del Oddish: huele a jardín, pero no crece nada»",
+              "sigue": "frasco"
+            }
+          ]
+        },
+        "cine": {
+          "quien": "sandslash",
+          "emocion": "Happy",
+          "texto": "¿De cine? (Se lo coloca ladeado.) Eso decía el director. Al cactus de al lado, pero yo estaba muy cerca.",
+          "sigue": "duelo"
+        },
+        "frasco": {
+          "quien": "sandslash",
+          "emocion": "Surprised",
+          "texto": "¿Ni a usted le funcionó? (Se baja el ala hasta las cejas.) Entendido. Que crezcan solas.",
+          "sigue": "duelo"
+        },
+        "duelo": {
+          "quien": "sandshrew",
+          "emocion": "Happy",
+          "texto": "¡Papá, un duelo como en las pelis! ¡Aquí, al sol! ¡A ver quién aguanta más rato serio!",
+          "sigue": "viento"
+        },
+        "viento": {
+          "quien": "charizard",
+          "emocion": "Surprised",
+          "anim": "humo",
+          "anim_quien": "sandshrew",
+          "texto": "Frente a frente. Sopla el viento. A Sandshrew se le vuela el sombrero y se ríe. A Sandslash se le cae otra púa. A Manolo no se le mueve nada.",
+          "sigue": "gana"
+        },
+        "gana": {
+          "quien": "sandslash",
+          "emocion": "Happy",
+          "anim": "confeti",
+          "texto": "…Ha ganado el forastero: sin púas ni pelo, el viento no tiene de dónde tirar. Es el más duro del oeste.",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "charizard",
+          "emocion": "Happy",
+          "texto": "Suben al autobús de espaldas, despacito, como en las películas. En el banco del pino dejan un sombrero vaquero para Manolo, «por el sol»."
+        }
       }
     }
   ]

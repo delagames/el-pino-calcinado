@@ -37,7 +37,7 @@
         ] },
         "doble": { "quien": "huesped", "emocion": "Normal", "texto": "La de la izquierda dice que sí. La de la derecha… también. Es la primera vez que estamos de acuerdo en algo.", "sigue": "fin" },
         "comer": { "quien": "huesped", "emocion": "Normal", "texto": "La pequeña ya está mirando hacia la cocina. Es la que tiene hambre. Yo solo pongo la cara.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Esa noche Weezing echa humo sin querer por toda la escalera. Charizard abre las ventanas y le enseña a echarlo por la chimenea, como él. Practican hasta tarde." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "De los nervios, Weezing echa humo sin querer por todo el recibidor. Charizard abre las ventanas y le enseña a echarlo por el tiro del fogón, como él. Practican un buen rato." }
       }
     },
     {
@@ -57,7 +57,7 @@
         ] },
         "posada": { "quien": "huesped", "emocion": "Normal", "texto": "(Se pone la rosa y lo recita a coro, con las dos cabezas.) «¡Cachimbita, chistorra y a dormir! ¡Y el que toque a un Koffing, sale volando!» …Me lo quedo.", "sigue": "fin" },
         "suyo": { "quien": "huesped", "emocion": "Normal", "texto": "(Lo piensa con las dos cabezas.) «¡Si hay líos en el bosque, que se preparen ellos!» …¿Suena a malo? Pues lo digo de bueno.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Esa misma tarde, Weezing baja flotando hacia el bosque, con su gorra de guarda y la rosa entre los dientes. Charizard le dice adiós con la cola hasta que se pierde en el pinar." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Weezing baja flotando hacia el bosque, con su gorra de guarda y la rosa entre los dientes. Charizard le dice adiós con la cola hasta que se pierde en el pinar." }
       }
     }
   ]

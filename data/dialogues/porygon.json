@@ -13,7 +13,7 @@
           { "texto": "«Le dejo el comedor después de cenar»", "efectos": { "afinidad": 1 }, "sigue": "comedor" },
           { "texto": "«Aquí no se combate, ni con muñecos»", "sigue": "nocombate" }
         ] },
-        "comedor": { "quien": "huesped", "emocion": "Happy", "texto": "¡Figuras, caballero! Muñecos son los de la tómbola. Monto el mapa junto a la chimenea. Línea de visión despejada.", "sigue": "fin" },
+        "comedor": { "quien": "huesped", "emocion": "Happy", "texto": "¡Figuras, caballero! Muñecos son los de la tómbola. Monto el mapa junto a la estufa. Línea de visión despejada.", "sigue": "fin" },
         "nocombate": { "quien": "huesped", "emocion": "Worried", "texto": "No es combate, es estrategia. Aquí no se hace daño nadie. Salvo las peanas, si las pisa un dragón.", "sigue": "fin" },
         "fin": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard coge un Superman para olerlo. Porygon le ruega que lo suelte por la peana, que el dial es delicado." }
       }
@@ -42,7 +42,7 @@
       "fin_arco": true,
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "Manolo, emergencia. He perdido mi chase. La figura rara: un Silver Surfer plateado. Sale uno por caja. O por diez.", "sigue": "charizard" },
-        "charizard": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard mira al techo. Lleva toda la tarde con algo brillante entre las garras, como quien no quiere la cosa.", "opciones": [
+        "charizard": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard mira al techo. Lleva toda la mañana con algo brillante entre las garras, como quien no quiere la cosa.", "opciones": [
           { "texto": "«Charizard, devuélvesela ahora mismo»", "efectos": { "afinidad": 1, "flags": { "porygon_chase": "devuelta" } }, "sigue": "devuelta" },
           { "texto": "«Mira qué carita pone. ¿Se la dejas?»", "efectos": { "flags": { "porygon_chase": "regalada" } }, "sigue": "regalada" }
         ] },

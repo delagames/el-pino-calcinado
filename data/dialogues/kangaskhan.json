@@ -7,17 +7,17 @@
       "cuando": { "visita_min": 1 },
       "subtitulo": "Primera visita · una noche entera",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Pain", "texto": "Una habitación. La más silenciosa. Llevo dos años sin dormir una noche entera. Dos. Años.", "sigue": "cria" },
+        "inicio": { "quien": "huesped", "emocion": "Pain", "texto": "Una habitación. La más silenciosa. Llevo casi tres años sin dormir una noche entera. Casi. Tres. Años.", "sigue": "cria" },
         "cria": { "quien": "huesped", "emocion": "Worried", "texto": "(De la bolsa asoma una cabecita, agarra la campanilla del mostrador y la toca catorce veces.) ¡No, cariño! Eso no se toca. Eso tampoco.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "Déjala, mujer, que la campanilla es para eso. ¿Cuánto tiempo tiene la criatura?", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Dos años y pico. Hasta los tres no sale de la bolsa. Lo dice la Pokédex. Yo lo cuento en noches: setecientas sin dormir.", "sigue": "n3" },
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Le quedan semanas. A los tres años sale de la bolsa, lo dice la Pokédex. Yo lo cuento en noches: más de mil sin dormir.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Sad", "texto": "Y no me quejo, ¿eh? Por ella me pego con un Onix si hace falta. Pero ahora mismo me pego con la almohada y pierdo.", "opciones": [
           { "texto": "«Duerme tú, que la peque la vigilo yo un rato»", "efectos": { "afinidad": 1 }, "sigue": "vigilo" },
           { "texto": "«Aquí hay silencio. Salvo Charizard, que ronca»", "sigue": "silencio" }
         ] },
         "vigilo": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Usted? ¿Seguro? (La cría le mira la calva y le da palmaditas.) …Vale. Pero si llora, me despierta. Y si no llora, también.", "sigue": "fin" },
         "silencio": { "quien": "huesped", "emocion": "Worried", "texto": "¿Ronca? Bah. Yo he dormido al lado de una cría que da patadas desde dentro. Un ronquido es una nana.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard se tumba en el pasillo con la cola encendida, como una lamparita de noche. La cría se queda mirándola hasta que se duerme. Y la madre, de rebote, también." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard enciende la cola, bajita, como una lamparita de noche: esta noche la dejará así en el pasillo. La cría se queda embobada mirándola. Y la madre, de rebote, bosteza." }
       }
     },
     {
@@ -45,14 +45,14 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "Manolo, ha cumplido tres años. Hoy es el día. Quiero que salga de la bolsa aquí, en la posada. Donde dormí por primera vez.", "sigue": "pasos" },
         "pasos": { "quien": "huesped", "emocion": "Worried", "texto": "(La cría saca una pata. Luego otra. Da un paso en el suelo de madera… dos… y se va derechita a por el abuelo.)", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "¡Ven aquí, campeona! ¡Mírala, Charizard, que anda! (A Manolo se le ha metido humo de la chimenea en el ojo. Eso dice.)", "sigue": "n2" },
+        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "¡Ven aquí, campeona! ¡Mírala, Charizard, que anda! (A Manolo se le ha metido humo del fogón en el ojo. Eso dice.)", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Sad", "texto": "Ya no cabe en la bolsa. Ni falta que le hace. Nos vamos a vivir a la pradera, cerca de su abuela. La de verdad. Esta es la despedida, Manolo.", "opciones": [
           { "texto": "«Dile que aquí siempre tendrá un abuelo»", "efectos": { "afinidad": 1, "flags": { "kangaskhan_pasos": "abuelo" } }, "sigue": "abuelo" },
           { "texto": "«Y tú duerme, que ya te toca»", "efectos": { "flags": { "kangaskhan_pasos": "dormir" } }, "sigue": "dormir" }
         ] },
         "abuelo": { "quien": "huesped", "emocion": "Happy", "texto": "Se lo diré todas las noches. (La cría le da a Manolo su biberón vacío.) Es un regalo. Lo más valioso que tiene. Bueno, y su madre.", "sigue": "fin" },
-        "dormir": { "quien": "huesped", "emocion": "Happy", "texto": "Esta noche duermo ocho horas. Seguidas. Por primera vez en tres años. Y si me despierto, será para mirarla andar.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "A la mañana siguiente, Charizard las acompaña hasta el camino. La cría va andando todo el rato, solita. Solo se vuelve una vez, para decir adiós con la mano." }
+        "dormir": { "quien": "huesped", "emocion": "Happy", "texto": "Esta noche duermo ocho horas. Seguidas. Como aquella primera noche, aquí. Y si me despierto, será para mirarla andar.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "La cría ya va andando sola por el recibidor, de la mesa a la puerta y de la puerta a la cola de Charizard. Solo se vuelve una vez, para decir hola con la mano." }
       }
     }
   ]

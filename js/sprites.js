@@ -36,9 +36,9 @@ async function fetchSprite(id, names) {
   const anims = {};
   // hay Pokémon sin animación de reposo en SpriteCollab (Beedrill, Dragonair): se usa la de andar
   const wanted = names.includes('Idle') && !byName.Idle && byName.Walk ? [...new Set([...names, 'Walk'])] : names;
-  for (const name of wanted) {
+  await Promise.all(wanted.map(async name => {
     let node = byName[name];
-    if (!node) continue;
+    if (!node) return;
     const copy = node.querySelector('CopyOf');
     if (copy) node = byName[copy.textContent];
     const sheet = node.querySelector('Name').textContent;
@@ -47,7 +47,7 @@ async function fetchSprite(id, names) {
     const fw = +node.querySelector('FrameWidth').textContent;
     const fh = +node.querySelector('FrameHeight').textContent;
     anims[name] = { img, fw, fh, durations, total: durations.reduce((a, b) => a + b, 0), rows: img.height / fh };
-  }
+  }));
   if (!anims.Idle && anims.Walk) anims.Idle = anims.Walk;
   const shadow = +(xml.querySelector('ShadowSize')?.textContent ?? 1);
   return { id, anims, shadow };
@@ -153,11 +153,13 @@ export class Actor {
     }
     const { a, col, row } = this.frame(ms);
     const sw = SHADOW_W[this.sprite.shadow] ?? 12;
-    c.globalAlpha = 0.3;
-    c.fillStyle = '#000000';
-    c.fillRect(Math.round(this.x - sw / 2 + 1), Math.round(this.y - 1), sw - 2, 3);
-    c.fillRect(Math.round(this.x - sw / 2), Math.round(this.y), sw, 1);
-    c.globalAlpha = 1;
+    if (!this.sinSombra) {   // (en los planos cortos no hay suelo debajo donde poner la sombra)
+      c.globalAlpha = 0.3;
+      c.fillStyle = '#000000';
+      c.fillRect(Math.round(this.x - sw / 2 + 1), Math.round(this.y - 1), sw - 2, 3);
+      c.fillRect(Math.round(this.x - sw / 2), Math.round(this.y), sw, 1);
+      c.globalAlpha = 1;
+    }
     c.drawImage(a.img, col * a.fw, row * a.fh, a.fw, a.fh,
       Math.round(this.x - a.fw / 2), Math.round(this.y - FEET - a.fh / 2), a.fw, a.fh);
   }

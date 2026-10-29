@@ -4,62 +4,273 @@
   "entradas": [
     {
       "id": "v1",
-      "cuando": { "visita_min": 1 },
+      "cuando": {
+        "visita_min": 1
+      },
       "subtitulo": "Primera visita · la hucha",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Del suelo del comedor sale un Diglett con casco y una hucha de lata.) Perdón por el agujero, ahora lo tapo. Le traigo saludos de Meowth.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¡Mi suelo! …¿De Meowth? ¿Qué Meowth?", "sigue": "n1" },
-        "n1": { "quien": "huesped", "emocion": "Happy", "texto": "El gato que habla, el del sindicato. Está con nosotros en la huelga de la Cueva Diglett: años cavando sin casco. Ya tenemos casco, pero la huelga ya estaba empezada.", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "La hucha es para la caja de resistencia. Lo que se pueda: una baya, una moneda. Meowth dice que un sindicato sin hucha es una tertulia.", "sigue": "mirar" },
-        "mirar": { "quien": "manolo", "emocion": "Worried", "texto": "(Manolo se agacha disimulando, para ver qué hay debajo del Diglett. Solo ve tierra. Se agacha un poco más.)", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Qué hace? ¿Se le ha caído algo? (Se hunde un palmo, por si acaso.)", "opciones": [
-          { "texto": "«Nada, nada. Toma, para la hucha»", "efectos": { "afinidad": 1 }, "sigue": "hucha" },
-          { "texto": "«Perdona, chaval: ¿qué tienes ahí abajo?»", "sigue": "debajo" }
-        ] },
-        "hucha": { "quien": "huesped", "emocion": "Happy", "texto": "(Clin.) ¡Gracias, compañero! Meowth dice que donde hay chimenea hay buena gente. Y que los dragones no se afilian, pero simpatizan.", "sigue": "fin" },
-        "debajo": { "quien": "huesped", "emocion": "Worried", "texto": "¿Ahí abajo? Pues… lo de siempre. Más Diglett, supongo. Nunca lo he mirado. Me da vergüenza preguntar.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard intenta mirar también, alumbrando con la cola. Diglett se hunde del todo y asoma por el otro lado del comedor. Ya van dos agujeros." }
+        "inicio": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "(Del suelo del comedor sale un Diglett con casco y una hucha de lata.) Perdón por el agujero, ahora lo tapo. Le traigo saludos de Meowth.",
+          "sigue": "manolo",
+          "si_mejora": {
+            "plantilla:meowth": "inicio_p"
+          }
+        },
+        "manolo": {
+          "quien": "manolo",
+          "emocion": "Surprised",
+          "texto": "¡Mi suelo! …¿De Meowth? ¿El gato del sindicato, el que me quería afiliar a Charizard? ¿En qué lío anda ahora?",
+          "sigue": "n1"
+        },
+        "n1": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "El mismo. Ahora está con nosotros en la huelga de la Cueva Diglett: años cavando sin casco. Ya tenemos casco, pero la huelga ya estaba empezada.",
+          "sigue": "n2"
+        },
+        "n2": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "La hucha es para la caja de resistencia. Lo que se pueda: una baya, una moneda. Meowth dice que un sindicato sin hucha es una tertulia.",
+          "sigue": "mirar"
+        },
+        "mirar": {
+          "quien": "manolo",
+          "emocion": "Worried",
+          "texto": "(Manolo se agacha disimulando, para ver qué hay debajo del Diglett. Solo ve tierra. Se agacha un poco más.)",
+          "sigue": "n3"
+        },
+        "n3": {
+          "quien": "huesped",
+          "emocion": "Surprised",
+          "texto": "¿Qué hace? ¿Se le ha caído algo? (Se hunde un palmo, prudente.)",
+          "opciones": [
+            {
+              "texto": "«Nada, nada. Toma, para la hucha»",
+              "efectos": {
+                "afinidad": 1
+              },
+              "sigue": "hucha"
+            },
+            {
+              "texto": "«Perdona, chaval: ¿qué tienes ahí abajo?»",
+              "sigue": "debajo"
+            }
+          ]
+        },
+        "hucha": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "(Clin.) ¡Gracias, compañero! Meowth dice que donde hay lumbre hay buena gente. Y que los dragones no se afilian, pero simpatizan.",
+          "sigue": "fin"
+        },
+        "debajo": {
+          "quien": "huesped",
+          "emocion": "Worried",
+          "texto": "¿Ahí abajo? Pues… lo de siempre. Más Diglett, supongo. Nunca lo he mirado. Me da vergüenza preguntar.",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "charizard",
+          "emocion": "Normal",
+          "texto": "Charizard intenta mirar también, alumbrando con la cola. Diglett se hunde del todo y asoma por el otro lado del comedor. Ya van dos agujeros."
+        },
+        "inicio_p": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "(Del suelo del comedor sale un Diglett con casco y una hucha de lata.) Perdón por el agujero, ahora lo tapo. ¿Está Meowth? Nos escribió que ahora trabaja aquí.",
+          "sigue": "manolo_p"
+        },
+        "manolo_p": {
+          "quien": "manolo",
+          "emocion": "Surprised",
+          "texto": "¡Mi suelo! …Sí, Meowth trabaja aquí, de delegado. ¿Y tú de qué le conoces?",
+          "sigue": "n1_p"
+        },
+        "n1_p": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "Del sindicato. Iba a venir a nuestra huelga de la Cueva Diglett, pero dice que aquí también hay mucho que pelear. Nos manda octavillas.",
+          "sigue": "n2"
+        }
       }
     },
     {
       "id": "v2",
-      "cuando": { "visita_min": 2 },
+      "cuando": {
+        "visita_min": 2
+      },
       "subtitulo": "Segunda visita · Los Tres del Subsuelo",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Surprised", "texto": "(Del suelo salen tres cabezas a la vez, con tres cascos. La del medio es la de siempre.) ¡Manolo! ¡Lo que había debajo eran mis hermanos!", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Tus hermanos? ¿Y han estado ahí todo este tiempo?", "sigue": "n1" },
-        "n1": { "quien": "huesped", "emocion": "Happy", "texto": "Desde siempre. Somos trillizos. Crecimos de golpe y nos encontramos. Ahora somos Dugtrio. Ya no estoy solo en el agujero.", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Y ya que somos tres… (Carraspean los tres.) Hemos montado un trío de boleros para la huelga: Los Tres del Subsuelo. Con la hucha delante.", "sigue": "jynx" },
-        "jynx": { "quien": "huesped", "emocion": "Happy", "texto": "Nos han dicho que aquí para Jynx, la folclórica. Le tenemos preparada una serenata. ♪ Tres cabezas y un solo corazón, que te busca bajo el suelo… ♪", "anim": "notas", "sigue": "giovanni" },
-        "giovanni": { "quien": "huesped", "emocion": "Angry", "texto": "Y ayer vino un señor trajeado, de Ciudad Verde. Nos ofreció trabajo en su gimnasio: «Un Dugtrio así lo quiero yo». Le dijimos que no.", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Meowth dice que ese señor fue su jefe, y que es muy mala gente. Quiere Diglett para cavar. Nosotros queremos un convenio. No es lo mismo.", "opciones": [
-          { "texto": "«Bien dicho. Toma, para la hucha»", "efectos": { "afinidad": 1 }, "sigue": "bien" },
-          { "texto": "«¿Seguro? Igual pagaba bien…»", "sigue": "paga" }
-        ] },
-        "bien": { "quien": "huesped", "emocion": "Happy", "texto": "(Clin, clin, clin.) ¡Así se hace! Esta noche le cantamos a usted primero. Desafinando los tres, pero a la vez.", "sigue": "fin" },
-        "paga": { "quien": "huesped", "emocion": "Sad", "texto": "Pagaba bien. Pero con él uno cava solo. (Se miran las tres cabezas.) Y nosotros ya hemos estado solos bastante tiempo ahí abajo.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Esa noche, Los Tres del Subsuelo dan su primer concierto en el comedor. Charizard hace de luces con la cola. La hucha pesa el doble." }
+        "inicio": {
+          "quien": "huesped",
+          "emocion": "Surprised",
+          "texto": "(Del suelo salen tres cabezas a la vez, con tres cascos. La del medio es la de siempre.) ¡Manolo! ¡Lo que había debajo eran mis hermanos!",
+          "sigue": "manolo"
+        },
+        "manolo": {
+          "quien": "manolo",
+          "emocion": "Surprised",
+          "texto": "¿Tus hermanos? ¿Y han estado ahí todo este tiempo?",
+          "sigue": "n1"
+        },
+        "n1": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "Desde siempre. Somos trillizos. Crecimos de golpe y nos encontramos. Ahora somos Dugtrio. Ya no estoy solo en el agujero.",
+          "sigue": "n2"
+        },
+        "n2": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Y ya que somos tres… (Carraspean los tres.) Hemos montado un trío de boleros para la huelga: Los Tres del Subsuelo. Con la hucha delante.",
+          "sigue": "jynx"
+        },
+        "jynx": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "Nos han dicho que aquí para Jynx, la folclórica. Le tenemos preparada una serenata. ♪ Tres cabezas y un solo corazón, que te busca bajo el suelo… ♪",
+          "anim": "notas",
+          "sigue": "giovanni"
+        },
+        "giovanni": {
+          "quien": "huesped",
+          "emocion": "Angry",
+          "texto": "Y ayer vino un señor trajeado, de Ciudad Verde. Nos ofreció trabajo en su gimnasio: «Un Dugtrio así lo quiero yo». Le dijimos que no.",
+          "sigue": "n3"
+        },
+        "n3": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Meowth dice que ese señor fue su jefe, y que es muy mala gente. Quiere Diglett para cavar. Nosotros queremos un convenio. No es lo mismo.",
+          "opciones": [
+            {
+              "texto": "«Bien dicho. Toma, para la hucha»",
+              "efectos": {
+                "afinidad": 1
+              },
+              "sigue": "bien"
+            },
+            {
+              "texto": "«¿Seguro? Igual pagaba bien…»",
+              "sigue": "paga"
+            }
+          ]
+        },
+        "bien": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "(Clin, clin, clin.) ¡Así se hace! Esta noche le cantamos a usted primero. Desafinando los tres, pero a la vez.",
+          "sigue": "fin"
+        },
+        "paga": {
+          "quien": "huesped",
+          "emocion": "Sad",
+          "texto": "Pagaba bien. Pero con él uno cava solo. (Se miran las tres cabezas.) Y nosotros ya hemos estado solos bastante tiempo ahí abajo.",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "charizard",
+          "emocion": "Happy",
+          "texto": "Los Tres del Subsuelo afinan allí mismo para su primer concierto, esta noche en el comedor. Charizard ensaya las luces con la cola. La hucha ya pesa el doble."
+        }
       }
     },
     {
       "id": "v3",
-      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "cuando": {
+        "visita_min": 3,
+        "afinidad_min": 1
+      },
       "subtitulo": "Tercera visita · el bolero del Pino",
       "fin_arco": true,
       "de_paso": true,
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "(Salen las tres cabezas a la vez, con un papel enrollado.) ¡Manolo! ¡Lo hemos ganado! ¡El convenio! ¡Casco, bocadillo y siesta!", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "¡Enhorabuena, chavales! ¡Eso hay que celebrarlo!", "sigue": "n1" },
-        "n1": { "quien": "huesped", "emocion": "Normal", "texto": "Meowth lloró. Dijo que era una lágrima de lucha. Luego dijo que era la cebolla del bocadillo. Las dos cosas.", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "Y le hemos compuesto un bolero a la posada: El bolero del Pino. Va de un pino que se quema y de una casa que sale de dentro. ¿Lo tocamos?", "opciones": [
-          { "texto": "«Tocadlo, que aquí se escucha todo»", "efectos": { "afinidad": 1, "flags": { "diglett_bolero": "tocado" } }, "sigue": "toca" },
-          { "texto": "«¿Un pino que se quema? ¿Quién os lo ha contado?»", "efectos": { "flags": { "diglett_bolero": "pino" } }, "sigue": "pino" }
-        ] },
-        "pino": { "quien": "huesped", "emocion": "Surprised", "texto": "Nadie. Se nota en la tierra: abajo hay una raíz negra que todavía está calentita. (Se miran.) Mejor lo tocamos y ya está, ¿no?", "sigue": "toca" },
-        "toca": { "quien": "huesped", "emocion": "Happy", "texto": "♪ Ay, pino, pino calcinado, que ardiste para dar calor… ♪ (Cada cabeza va por un tono distinto. Suena fatal. Suena precioso.)", "anim": "notas", "sigue": "charizard" },
-        "charizard": { "quien": "charizard", "emocion": "Sad", "texto": "Charizard escucha con los ojos cerrados y la llama de la cola muy bajita. Al final se suena la nariz. Sale una chispa.", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Y ahora nos vamos de gira por las cuevas: Monte Moon, el Túnel Roca, la Cueva Diglett. Hoy mismo. (Las tres a la vez:) Gracias por la hucha, compañero.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Se van por debajo del camino, y el bolero sube por las patas de las mesas. Desafinan los tres a la vez, como siempre. Pero juntos." }
+        "inicio": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "(Salen las tres cabezas a la vez, con un papel enrollado.) ¡Manolo! ¡Lo hemos ganado! ¡El convenio! ¡Casco, bocadillo y siesta!",
+          "sigue": "manolo"
+        },
+        "manolo": {
+          "quien": "manolo",
+          "emocion": "Happy",
+          "texto": "¡Enhorabuena, chavales! ¡Eso hay que celebrarlo!",
+          "sigue": "n1"
+        },
+        "n1": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Meowth lloró. Dijo que era una lágrima de lucha. Luego dijo que era la cebolla del bocadillo. Las dos cosas.",
+          "sigue": "n2",
+          "si_mejora": {
+            "plantilla:meowth": "n1_p"
+          }
+        },
+        "n2": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "Y le hemos compuesto un bolero a la posada: El bolero del Pino. Va de un pino que se quema y de una casa que sale de dentro. ¿Lo tocamos?",
+          "opciones": [
+            {
+              "texto": "«Tocadlo, que aquí se escucha todo»",
+              "efectos": {
+                "afinidad": 1,
+                "flags": {
+                  "diglett_bolero": "tocado"
+                }
+              },
+              "sigue": "toca"
+            },
+            {
+              "texto": "«¿Un pino que se quema? ¿Quién os lo ha contado?»",
+              "efectos": {
+                "flags": {
+                  "diglett_bolero": "pino"
+                }
+              },
+              "sigue": "pino"
+            }
+          ]
+        },
+        "pino": {
+          "quien": "huesped",
+          "emocion": "Surprised",
+          "texto": "Nadie. Se nota en la tierra: abajo hay una raíz negra que todavía está calentita. (Se miran.) Mejor lo tocamos y ya está, ¿no?",
+          "sigue": "toca"
+        },
+        "toca": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "♪ Ay, pino, pino calcinado, que ardiste para dar calor… ♪ (Cada cabeza va por un tono distinto. Suena fatal. Suena precioso.)",
+          "anim": "notas",
+          "sigue": "charizard"
+        },
+        "charizard": {
+          "quien": "charizard",
+          "emocion": "Sad",
+          "texto": "Charizard escucha con los ojos cerrados y la llama de la cola muy bajita. Al final se suena la nariz. Sale una chispa.",
+          "sigue": "n3"
+        },
+        "n3": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Y ahora nos vamos de gira por las cuevas: Monte Moon, el Túnel Roca, la Cueva Diglett. Hoy mismo. (Las tres a la vez:) Gracias por la hucha, compañero.",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "charizard",
+          "emocion": "Happy",
+          "texto": "Se van por debajo del camino, y el bolero sube por las patas de las mesas. Desafinan los tres a la vez, como siempre. Pero juntos."
+        },
+        "n1_p": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Se lo contamos a Meowth por carta. Nos ha contestado que ha llorado: una lágrima de lucha. O la cebolla del bocadillo. Las dos cosas.",
+          "sigue": "n2"
+        }
       }
     }
   ]

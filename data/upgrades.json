@@ -23,7 +23,8 @@
       "precio": 280,
       "puntos": 5,
       "requiere": "planta-2",
-      "efecto": "Tres habitaciones más: roja, azul y verde."
+      "efecto": "Tres habitaciones más: roja, azul y verde.",
+      "estrellas": 5
     },
     {
       "id": "estanque",

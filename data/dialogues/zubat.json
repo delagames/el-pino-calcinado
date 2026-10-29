@@ -18,7 +18,7 @@
         ] },
         "quieto": { "quien": "huesped", "emocion": "Sad", "texto": "(Se quita las gafas de sol. Debajo no hay nada, pero se le nota cansado.) …Treinta años sin estarme quieto. Igual ya va siendo hora.", "sigue": "fin" },
         "madrugar": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Madrugar? Qué palabra tan bonita. Yo no lo he hecho nunca. ¿Eso es por la mañana?", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Zubat se cuelga cabeza abajo de la lámpara del cuarto morado y se queda frito en tres segundos. Charizard le baja la persiana, por si las moscas.", "anim": "duerme", "anim_quien": "huesped" }
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Zubat se cuelga un momento cabeza abajo de la lámpara del recibidor y se queda frito en tres segundos. Charizard baja la persiana, por si las moscas.", "anim": "duerme", "anim_quien": "huesped" }
       }
     },
     {
@@ -37,7 +37,7 @@
         ] },
         "limpieza": { "quien": "huesped", "emocion": "Happy", "texto": "(Media hora con la linterna y un palillo. Sale un trozo de chistorra del tamaño de un dedo.) Esto lo enmarco. Es el caso de mi vida.", "sigue": "fin" },
         "patrimonio": { "quien": "huesped", "emocion": "Normal", "texto": "La chistorra, vale. Pero luego, cepillo. Tres minutos. Y no hagáis trampa, que yo los cuento de oído.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Esa noche, Charizard se cepilla los dientes por primera vez. Le sale humo por la espuma. Golbat aplaude desde la lámpara, cabeza abajo." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard se cepilla los dientes por primera vez, allí mismo. Le sale humo por la espuma. Golbat aplaude desde la lámpara, cabeza abajo." }
       }
     },
     {

@@ -52,8 +52,8 @@
         ] },
         "postales": { "quien": "huesped", "emocion": "Happy", "texto": "Una de cada faro. Las traeré yo mismo, a mi paso. Sin valoración. Con un «gracias» me llega.", "sigue": "charizard" },
         "descanso": { "quien": "huesped", "emocion": "Happy", "texto": "Prometido. Los domingos, mirando el mar, como un dragón jubilado. Bueno, medio jubilado.", "sigue": "charizard" },
-        "charizard": { "quien": "charizard", "emocion": "Sad", "texto": "Charizard lo acompaña a la puerta. Se miran. Charizard le tiende la garra. Dragonite le da un abrazo de peluche gigante.", "sigue": "fin" },
-        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Al alba, Dragonite despega sin mirar el móvil. En el libro de visitas ha escrito: «Cinco estrellas. La chistorra, seis».)" }
+        "charizard": { "quien": "charizard", "emocion": "Sad", "texto": "Charizard sale a la puerta a recibirle. Se miran. Charizard le tiende la garra. Dragonite le da un abrazo de peluche gigante.", "sigue": "fin" },
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Lo primero que hace Dragonite es escribir en el libro de visitas: «Cinco estrellas. La chistorra, seis». Y el móvil, apagado.)" }
       }
     }
   ]

@@ -34,7 +34,7 @@
         ] },
         "robo": { "quien": "huesped", "emocion": "Pain", "texto": "Eso es lo malo: cuando imito a Charizard, también me entra su hambre. Lo siento. Se la devuelvo… bueno, ya no se la puedo devolver.", "sigue": "fin" },
         "distinto": { "quien": "huesped", "emocion": "Happy", "texto": "Distinto. Me gusta. Nunca me habían dicho otra palabra que no fuera «igualito». (Se pone un poco más morado de la emoción.)", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard le mira de reojo toda la noche. Por si acaso, cuenta las chistorras dos veces. Le salen las mismas. Raro." }
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard no le quita ojo. Cuenta las chistorras dos veces. Le salen las mismas. Raro." }
       }
     },
     {
@@ -51,7 +51,7 @@
         ] },
         "asi": { "quien": "huesped", "emocion": "Happy", "texto": "¿Así? ¿Sin pelucas ni calvas? (Se queda quieto. No se transforma. Sonríe con sus dos puntitos.) Es rarísimo. Me gusta.", "sigue": "fin" },
         "artista": { "quien": "huesped", "emocion": "Happy", "texto": "¡Claro! El que hace a todos también es alguien: el de la verbena. (Plof: Manolo. Plof: Ditto.) Y el de después de la verbena, también.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le cede su sitio junto a la chimenea al Ditto de verdad, el blandito. Al alba, Ditto se va sin imitar a nadie. Dice «adiós» con su propia voz." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le cede su sitio junto a la lumbre al Ditto de verdad, el blandito. Ditto se lo agradece sin imitar a nadie. Con su propia voz." }
       }
     }
   ]

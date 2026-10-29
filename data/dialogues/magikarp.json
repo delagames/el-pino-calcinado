@@ -18,7 +18,7 @@
         "manolo": {
           "quien": "manolo",
           "emocion": "Pain",
-          "texto": "(Tipo agua: a Manolo se le cierra un ojo y le cae una gota.) ¿Coach de qué, perdone?",
+          "texto": "(Tipo agua: a Manolo le tiembla el párpado y le resbala una gota por la calva.) ¿Coach de qué, perdone?",
           "sigue": "n2"
         },
         "n2": {
@@ -61,7 +61,7 @@
         "fin": {
           "quien": "manolo",
           "emocion": "Sigh",
-          "texto": "(Manolo le da la llave. Magikarp le pide «conectar» en LinkedIn. Manolo no sabe qué es, pero dice que sí, por si acaso.)"
+          "texto": "(Manolo le da la llave. Magikarp le pide «conectar» en LinkedIn. Manolo dice que sí sin tener ni idea de qué es.)"
         }
       }
     },
@@ -118,7 +118,7 @@
         "fin": {
           "quien": "manolo",
           "emocion": "Normal",
-          "texto": "(Esa noche, Manolo ve a Magikarp asomado a la ventana, mirando la luna sin hacerse ninguna foto. Parece otro pez.)"
+          "texto": "(Al rato, Manolo ve a Magikarp asomado a la ventana, mirando el monte sin hacerse ninguna foto. Parece otro pez.)"
         }
       }
     },
@@ -189,7 +189,7 @@
         "fin": {
           "quien": "charizard",
           "emocion": "Happy",
-          "texto": "Charizard le sirve un café normal, sin aceite de nada. Magikarp dice que es el mejor de su vida. Por la mañana se va sin venderle nada a nadie: «¡Volveré, campeón!»."
+          "texto": "Charizard le sirve un café normal, sin aceite de nada. Magikarp dice que es el mejor de su vida. Y no le intenta vender nada a nadie. Ni a Charizard."
         }
       }
     },
@@ -201,46 +201,28 @@
       "subtitulo": "Cuarta visita · a desayunar, no a morder",
       "nodos": {
         "inicio": {
-          "quien": "manolo",
-          "emocion": "Surprised",
-          "texto": "(Amanece. Por el río sube una sombra enorme, azul, con bigotes y muchos dientes. Un Gyarados. A Manolo se le cierra un ojo. Luego, el otro.)",
-          "sigue": "chari"
-        },
-        "chari": {
           "quien": "charizard",
           "emocion": "Worried",
-          "texto": "Charizard se pone delante de Manolo con las alas abiertas. Le tiembla la cola. Le ruge la tripa. Mala señal: así empezó lo del pino.",
+          "texto": "(Amanece. Por el río sube un Gyarados enorme, todo dientes.) Charizard se pone delante de Manolo, alas abiertas. Le tiembla la cola: así empezó lo del pino.",
           "anim": "tiembla",
           "sigue": "n1"
         },
         "n1": {
           "quien": "huesped",
           "emocion": "Happy",
-          "texto": "¡Campeón! ¡Que soy yo! ¡Magikarp! Bueno, Gyarados. Vengo a desayunar. Lo prometí… o me lo prometí a mí, que también cuenta.",
+          "texto": "¡Campeón, que soy yo! ¡Magikarp! Bueno, Gyarados. Vengo a desayunar, como prometí. No hizo falta ningún mindset: solo tiempo.",
           "sigue": "n2"
         },
         "n2": {
           "quien": "manolo",
           "emocion": "Pain",
-          "texto": "(Manolo no consigue abrir ningún ojo.) ¿Ma… Magikarp? ¿El del café con aceite?",
-          "sigue": "n3"
-        },
-        "n3": {
-          "quien": "huesped",
-          "emocion": "Normal",
-          "texto": "El mismo. Sin careta y sin cursos. No hizo falta ningún mindset: solo tiempo. Un día salpiqué y, en vez de no pasar nada, pasó todo.",
-          "sigue": "respira"
-        },
-        "respira": {
-          "quien": "manolo",
-          "emocion": "Worried",
-          "texto": "Charizard, respira. Despacio. Y por delante, por lo que más quieras.",
+          "texto": "(A Manolo se le cierran los dos ojos.) ¿El del café con aceite? Charizard, respira. Despacio. Y por delante, por lo que más quieras.",
           "sigue": "n4"
         },
         "n4": {
           "quien": "huesped",
           "emocion": "Worried",
-          "texto": "Os doy miedo, ¿verdad? Hablo bajito, mira. Por el camino todo el mundo sale corriendo. Un Pidgey se ha desmayado, y solo le he dicho «buenos días».",
+          "texto": "Os doy miedo, ¿verdad? Por el camino todos salen corriendo. Un Pidgey se ha desmayado, y solo le he dicho «buenos días».",
           "opciones": [
             {
               "texto": "«Pasa, que la cueva tiene poza»",
@@ -266,19 +248,19 @@
         "cueva": {
           "quien": "huesped",
           "emocion": "Happy",
-          "texto": "¿Una cueva con poza? ¿Para mí solo? (Se mete de cabeza. Por la boca de la cueva solo asoma la cara, sonriendo con todos los dientes. Que son muchos.)",
+          "texto": "¿Una cueva con poza para mí solo? (Se mete de cabeza. Por la boca solo asoma la cara, sonriendo con todos los dientes. Que son muchos.)",
           "sigue": "fin"
         },
         "minuto": {
           "quien": "huesped",
           "emocion": "Sad",
-          "texto": "Ya. El del gimnasio. Yo a esa hora era un pez de quinientas monedas, campeón. Pero entiendo que la cara es la misma. Me espero en la cueva.",
+          "texto": "Ya. Algún Gyarados le hizo daño, se le ve en la cara. Yo hace nada era un pez de quinientas monedas, campeón. Me espero en la cueva.",
           "sigue": "fin"
         },
         "fin": {
           "quien": "charizard",
           "emocion": "Normal",
-          "texto": "Charizard respira hondo. Por delante, por suerte. Por la noche se sienta de guardia en la boca de la cueva. A las dos horas roncan los dos."
+          "texto": "Charizard respira hondo. Por delante, por suerte. Luego se sienta de guardia en la boca de la cueva. Al rato roncan los dos."
         }
       }
     },
@@ -297,7 +279,7 @@
         "inicio": {
           "quien": "manolo",
           "emocion": "Normal",
-          "texto": "(Manolo saca la mesa de camping a la boca de la cueva, con el pino de frente. Pan tostado, miel y dos cafés: uno normal y otro en un cubo.)",
+          "texto": "(Manolo saca la mesa de camping a la boca de la cueva, frente al pino. Tostadas, miel y dos cafés: uno normal y otro en un cubo.)",
           "sigue": "n1"
         },
         "n1": {
@@ -309,25 +291,19 @@
         "n2": {
           "quien": "manolo",
           "emocion": "Sigh",
-          "texto": "Te debo una historia. Lapras la va contando por todos los mares, pero te la cuento yo: la noche del pino venía de perder. Contra un Gyarados.",
+          "texto": "Te debo una historia. Lapras la va contando por los mares, pero te la cuento yo: la noche del pino venía de perder. Contra un Gyarados.",
           "sigue": "n3"
         },
         "n3": {
           "quien": "manolo",
           "emocion": "Pain",
-          "texto": "Hidrobomba. Charizard al suelo. Colgué la medalla esa misma noche. Y desde entonces, cada vez que veo uno de agua… pues eso. El ojo.",
+          "texto": "Hidrobomba. Charizard al suelo. Colgué la medalla esa misma noche. Y desde entonces, cada vez que veo uno de agua… el ojo.",
           "sigue": "n4"
         },
         "n4": {
           "quien": "huesped",
           "emocion": "Sad",
-          "texto": "¿Sabes lo que es que te miren por la especie y no por quién eres? De Magikarp se reían. De Gyarados salen corriendo. Y por dentro soy el mismo pez.",
-          "sigue": "n5"
-        },
-        "n5": {
-          "quien": "huesped",
-          "emocion": "Normal",
-          "texto": "Aquel Gyarados no era yo. Mírame bien hoy. Y la próxima vez que veas uno, a lo mejor te acuerdas de este.",
+          "texto": "De Magikarp se reían. De Gyarados salen corriendo. Y por dentro soy el mismo pez. Aquel no era yo: la próxima vez que veas uno, acuérdate de este.",
           "opciones": [
             {
               "texto": "(Ponerle la mano en el morro)",
@@ -354,37 +330,25 @@
         "morro": {
           "quien": "manolo",
           "emocion": "Happy",
-          "texto": "(Manolo le pone la mano en el morro. Está fresco y es suave. Espera el tic. No llega. Bueno, un poquito: pero de emoción.)",
-          "sigue": "chari"
+          "texto": "(Manolo le pone la mano en el morro, fresco y suave. Espera el tic. No llega. Bueno, un poquito: pero de emoción.)",
+          "sigue": "n6"
         },
         "pez": {
           "quien": "huesped",
           "emocion": "Happy",
           "texto": "¡Y el más grande! Y eso no lo dice mi visualización, campeón: lo dices tú. Que vale mucho más.",
-          "sigue": "chari"
-        },
-        "chari": {
-          "quien": "charizard",
-          "emocion": "Happy",
-          "texto": "Charizard unta miel en una tostada y se la acerca con la punta de la cola. Gyarados se la come con muchísimo cuidado de no comerse también la cola.",
           "sigue": "n6"
         },
         "n6": {
           "quien": "huesped",
           "emocion": "Normal",
-          "texto": "Oye, campeón… ¿y el gimnasio? ¿No lo echas de menos?",
-          "sigue": "n7"
-        },
-        "n7": {
-          "quien": "manolo",
-          "emocion": "Normal",
-          "texto": "Eso es otra historia. Y todavía no sé cómo acaba. Hoy toca desayunar.",
+          "texto": "(Se come la tostada que le acerca Charizard con la cola, con cuidado de no comerse la cola.) Oye, campeón… ¿y el gimnasio? ¿No lo echas de menos?",
           "sigue": "fin"
         },
         "fin": {
           "quien": "manolo",
           "emocion": "Happy",
-          "texto": "(Después del desayuno, Gyarados se va río abajo gritando: «¡Cinco estrellas, campeón! ¡Y sin curso!». Manolo le dice adiós con los dos ojos abiertos.)"
+          "texto": "Eso es otra historia. Hoy toca desayunar. (Luego Gyarados se va río abajo: «¡Cinco estrellas, campeón!». Manolo le dice adiós con los dos ojos abiertos.)"
         }
       }
     },
@@ -400,7 +364,7 @@
         "inicio": {
           "quien": "manolo",
           "emocion": "Normal",
-          "texto": "(Manolo saca la mesa de camping a la boca de la cueva, con el pino de frente. Pan tostado, miel y dos cafés: uno normal y otro en un cubo.)",
+          "texto": "(Manolo saca la mesa de camping a la boca de la cueva, frente al pino. Tostadas, miel y dos cafés: uno normal y otro en un cubo.)",
           "sigue": "n1"
         },
         "n1": {
@@ -413,30 +377,18 @@
           "quien": "manolo",
           "emocion": "Sigh",
           "texto": "Te debo una historia. La de verdad, no la del estornudo. La noche que ardió el pino yo venía de perder. Contra un Gyarados.",
-          "sigue": "n2b"
-        },
-        "n2b": {
-          "quien": "charizard",
-          "emocion": "Worried",
-          "texto": "Charizard se tapa la cara con las alas. Sabe cómo sigue la historia. Y sabe que la parte del pino es suya.",
           "sigue": "n3"
         },
         "n3": {
           "quien": "manolo",
           "emocion": "Pain",
-          "texto": "Hidrobomba. Charizard al suelo. Colgué la medalla esa misma noche. Y desde entonces, cada vez que veo uno de agua… pues eso. El ojo.",
+          "texto": "(Charizard se tapa la cara con las alas: la parte del pino es suya.) Hidrobomba. Colgué la medalla esa noche. Y desde entonces, con los de agua… el ojo.",
           "sigue": "n4"
         },
         "n4": {
           "quien": "huesped",
           "emocion": "Sad",
-          "texto": "¿Sabes lo que es que te miren por la especie y no por quién eres? De Magikarp se reían. De Gyarados salen corriendo. Y por dentro soy el mismo pez.",
-          "sigue": "n5"
-        },
-        "n5": {
-          "quien": "huesped",
-          "emocion": "Normal",
-          "texto": "Aquel Gyarados no era yo. Mírame bien hoy. Y la próxima vez que veas uno, a lo mejor te acuerdas de este.",
+          "texto": "De Magikarp se reían. De Gyarados salen corriendo. Y por dentro soy el mismo pez. Aquel no era yo: la próxima vez que veas uno, acuérdate de este.",
           "opciones": [
             {
               "texto": "(Ponerle la mano en el morro)",
@@ -463,37 +415,25 @@
         "morro": {
           "quien": "manolo",
           "emocion": "Happy",
-          "texto": "(Manolo le pone la mano en el morro. Está fresco y es suave. Espera el tic. No llega. Bueno, un poquito: pero de emoción.)",
-          "sigue": "chari"
+          "texto": "(Manolo le pone la mano en el morro, fresco y suave. Espera el tic. No llega. Bueno, un poquito: pero de emoción.)",
+          "sigue": "n6"
         },
         "pez": {
           "quien": "huesped",
           "emocion": "Happy",
           "texto": "¡Y el más grande! Y eso no lo dice mi visualización, campeón: lo dices tú. Que vale mucho más.",
-          "sigue": "chari"
-        },
-        "chari": {
-          "quien": "charizard",
-          "emocion": "Happy",
-          "texto": "Charizard unta miel en una tostada y se la acerca con la punta de la cola. Gyarados se la come con muchísimo cuidado de no comerse también la cola.",
           "sigue": "n6"
         },
         "n6": {
           "quien": "huesped",
           "emocion": "Normal",
-          "texto": "Oye, campeón… ¿y el gimnasio? ¿No lo echas de menos?",
-          "sigue": "n7"
-        },
-        "n7": {
-          "quien": "manolo",
-          "emocion": "Normal",
-          "texto": "Eso es otra historia. Y todavía no sé cómo acaba. Hoy toca desayunar.",
+          "texto": "(Se come la tostada que le acerca Charizard con la cola, con cuidado de no comerse la cola.) Oye, campeón… ¿y el gimnasio? ¿No lo echas de menos?",
           "sigue": "fin"
         },
         "fin": {
           "quien": "manolo",
           "emocion": "Happy",
-          "texto": "(Después del desayuno, Gyarados se va río abajo gritando: «¡Cinco estrellas, campeón! ¡Y sin curso!». Manolo le dice adiós con los dos ojos abiertos.)"
+          "texto": "Eso es otra historia. Hoy toca desayunar. (Luego Gyarados se va río abajo: «¡Cinco estrellas, campeón!». Manolo le dice adiós con los dos ojos abiertos.)"
         }
       }
     }

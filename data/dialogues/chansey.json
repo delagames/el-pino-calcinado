@@ -16,7 +16,7 @@
         ] },
         "almohadas": { "quien": "huesped", "emocion": "Happy", "texto": "¿Almohadas de verdad? ¿Que no son de camilla? Ay. (Se le cierran los ojos ahí mismo, en la recepción.)", "sigue": "fin" },
         "diagnostico": { "quien": "huesped", "emocion": "Normal", "texto": "Treinta y seis y medio: está usted perfecto. El humo es del dragón. Tómese una chistorra y a dormir. Que es lo que voy a hacer yo.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "De madrugada, Charizard tose humo sin querer. Chansey aparece en camisón con el termómetro. Ochocientos grados: normal, para él. Vuelve a la cama." }
+        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard tose humo sin querer. Chansey ya está a su lado con el termómetro. Ochocientos grados: normal, para él. Lo apunta igual." }
       }
     },
     {
@@ -51,7 +51,7 @@
         ] },
         "cuidate": { "quien": "huesped", "emocion": "Happy", "texto": "Me lo voy a apuntar en la mano, con boli, para leerlo en cada turno: «cuídate tú». Qué raro suena. Qué bonito.", "sigue": "fin" },
         "termometro": { "quien": "huesped", "emocion": "Surprised", "texto": "Uy, no. El termómetro se queda aquí. Si me lo llevo, le tomo la temperatura a alguien en el autobús. Es más fuerte que yo.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al despedirla, Charizard tose a propósito. Chansey se gira, sonríe… y no saca el termómetro. Se va cuesta abajo dando saltitos, descansada." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard tose a propósito. Chansey se gira, sonríe… y no saca el termómetro. Da un saltito, descansada. Ni lo ha mirado." }
       }
     }
   ]

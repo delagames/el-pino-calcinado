@@ -7,7 +7,7 @@
       "cuando": { "visita_min": 1 },
       "subtitulo": "Primera visita · la peña",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "¡Buenas noches! ¡Somos la peña Los Seis Huevos! ¡Una habitación! —Dos. —¡Una, que somos una peña!", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "¡Buenos días! ¡Somos la peña Los Seis Huevos! ¡Una habitación! —Dos. —¡Una, que somos una peña!", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Y cuántos sois, exactamente?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "¡Seis! —Cinco y medio, que este está agrietado. —¡Es un rasguño! —¿Quién ha hablado? —Yo no. —Ni yo. Es la telepatía, se nos mezcla.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Venimos de fiestas, con la charanga en la cabeza. ¿Hay algo de beber? —¡Agua! —¡Otra ronda! —Una ronda de agua. —¡Eso no existe!", "opciones": [
@@ -33,7 +33,7 @@
         ] },
         "votar": { "quien": "huesped", "emocion": "Normal", "texto": "¡Votación! A mano alzada. —No tenemos manos. —Pues a cabeza alzada. —Empate a tres. —Como siempre. —¡Otra ronda de votos!", "sigue": "fin" },
         "alto": { "quien": "huesped", "emocion": "Normal", "texto": "¿Muy alto? Uy, a mí me dan vértigo las alturas. —Y a mí. —Y a mí. —…Pues ya está votado sin votar.", "sigue": "fin" },
-        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Manolo guarda la Piedra Hoja en la caja de recepción, bajo llave. Por si acaso. En esta casa no se evoluciona sin votar.)" }
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Manolo guarda la Piedra Hoja en la caja de recepción, bajo llave. En esta casa no se evoluciona sin votar.)" }
       }
     },
     {
@@ -52,7 +52,7 @@
         "socio": { "quien": "huesped", "emocion": "Normal", "texto": "¡Socio de honor! ¡Viva Manolo! —¡Viva! —¡Viva! —¿Somos seis gritando o lo he oído en la cabeza? —Da igual. ¡Viva!", "sigue": "charizard" },
         "ronda": { "quien": "huesped", "emocion": "Normal", "texto": "¡La última ronda! De mosto, que mañana hay camino. —Y de chistorra. —Y de tarta. —Y de todo, que es la última.", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard toca la charanga con la cola en una olla. Los seis bailan en corro. Manolo, con el pañuelico al cuello, también.", "sigue": "fin" },
-        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Al alba, la peña baja el camino cantando. Seis voces o una, nunca se supo. En el pino de la entrada queda colgado un pañuelico.)" }
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Mañana la peña bajará el camino cantando, seis voces o una. De momento, ya han dejado un pañuelico colgado en el pino de la entrada.)" }
       }
     }
   ]

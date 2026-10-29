@@ -3,64 +3,253 @@
   "entradas": [
     {
       "id": "v1",
-      "cuando": { "visita_min": 1 },
+      "cuando": {
+        "visita_min": 1
+      },
       "subtitulo": "Primera visita · trae un micrófono",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Hola! ¿Aquí se puede cantar? Yo canto muy bajito. Casi nada. Un poquito.", "opciones": [
-          { "texto": "Canta lo que quieras", "efectos": { "afinidad": 1 }, "sigue": "si" },
-          { "texto": "Mejor de día, que de noche se duerme", "sigue": "dia" }
-        ] },
-        "si": { "quien": "huesped", "emocion": "Happy", "texto": "¡Bien! Esta noche os hago un concierto. Bajito, ¿eh?", "sigue": "fin" },
-        "dia": { "quien": "huesped", "emocion": "Worried", "texto": "De día… Vale. Lo intentaré. Es que de noche es cuando más me apetece.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard mira al Jigglypuff, mira el micrófono y bosteza muy despacio, como si ya tuviera sueño." }
+        "inicio": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "¡Hola! ¿Aquí se puede cantar? Yo canto muy bajito. Casi nada. Un poquito.",
+          "opciones": [
+            {
+              "texto": "«Canta lo que quieras»",
+              "efectos": {
+                "afinidad": 1
+              },
+              "sigue": "si"
+            },
+            {
+              "texto": "«Mejor de día, que de noche se duerme»",
+              "sigue": "dia"
+            }
+          ]
+        },
+        "si": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "¡Bien! Esta noche os hago un concierto. Bajito, ¿eh?",
+          "sigue": "fin"
+        },
+        "dia": {
+          "quien": "huesped",
+          "emocion": "Worried",
+          "texto": "De día… Vale. Lo intentaré. Es que de noche es cuando más me apetece.",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "charizard",
+          "emocion": "Worried",
+          "texto": "Charizard mira al Jigglypuff, mira el micrófono y bosteza muy despacio, como si ya tuviera sueño."
+        }
       }
     },
     {
       "id": "v2",
-      "cuando": { "visita_min": 2 },
+      "cuando": {
+        "visita_min": 2
+      },
       "subtitulo": "Segunda visita · los demás se quejan",
       "nodos": {
-        "inicio": { "quien": "manolo", "emocion": "Sigh", "texto": "La otra noche cantaste hasta las cuatro. Medio comedor amaneció dormido en la sopa.", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Sad", "texto": "Lo siento… Es que cuando dejo de cantar empiezo a pensar. Y pensar no me gusta.", "opciones": [
-          { "texto": "¿En qué piensas?", "efectos": { "afinidad": 1 }, "sigue": "piensa" },
-          { "texto": "Pues piensa bajito", "sigue": "bajito" }
-        ] },
-        "piensa": { "quien": "huesped", "emocion": "Sad", "texto": "En que todos se duermen cuando canto. Nadie me ha oído nunca terminar una canción.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "Pues mira: la próxima vez la cantas por la tarde, en el comedor, y Charizard y yo aguantamos despiertos hasta el final.", "sigue": "fin" },
-        "bajito": { "quien": "huesped", "emocion": "Worried", "texto": "Pensar bajito… Lo probaré.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard se pone dos bayas en las orejas. Por si acaso." }
+        "inicio": {
+          "quien": "manolo",
+          "emocion": "Sigh",
+          "texto": "La otra noche cantaste hasta las cuatro. Medio comedor amaneció dormido en la sopa.",
+          "sigue": "n2"
+        },
+        "n2": {
+          "quien": "huesped",
+          "emocion": "Sad",
+          "texto": "Lo siento… Es que cuando dejo de cantar empiezo a pensar. Y pensar no me gusta.",
+          "opciones": [
+            {
+              "texto": "«¿En qué piensas?»",
+              "efectos": {
+                "afinidad": 1
+              },
+              "sigue": "piensa"
+            },
+            {
+              "texto": "«Pues piensa bajito»",
+              "sigue": "bajito"
+            }
+          ]
+        },
+        "piensa": {
+          "quien": "huesped",
+          "emocion": "Sad",
+          "texto": "En que todos se duermen cuando canto. Nadie me ha oído nunca terminar una canción.",
+          "sigue": "manolo"
+        },
+        "manolo": {
+          "quien": "manolo",
+          "emocion": "Normal",
+          "texto": "Pues mira: la próxima vez la cantas por la tarde, en el comedor, y Charizard y yo aguantamos despiertos hasta el final.",
+          "sigue": "fin"
+        },
+        "bajito": {
+          "quien": "huesped",
+          "emocion": "Worried",
+          "texto": "Pensar bajito… Lo probaré.",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "charizard",
+          "emocion": "Normal",
+          "texto": "Charizard se pone dos bayas en las orejas. Por si acaso."
+        }
       }
     },
     {
       "id": "v3",
-      "cuando": { "visita_min": 3, "afinidad_min": 2 },
+      "cuando": {
+        "visita_min": 3,
+        "afinidad_min": 2
+      },
       "subtitulo": "Tercera visita · la canción entera",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "¿Sigue en pie lo de escucharme hasta el final?", "sigue": "canta" },
-        "canta": { "quien": "huesped", "emocion": "Happy", "texto": "♪ Jiggly… jiggly… puuuff… ♪", "anim": "notas", "sigue": "aguanta" },
-        "aguanta": { "quien": "charizard", "emocion": "Pain", "texto": "Charizard aguanta los párpados con las garras. A Manolo se le cae la cabeza dos veces. Pero no se duermen.", "sigue": "final" },
-        "final": { "quien": "huesped", "emocion": "Happy", "texto": "¡La he terminado! ¡Alguien la ha oído entera! Ahora ya puedo dormir sin cantar.", "sigue": "fin" },
-        "fin": { "quien": "manolo", "emocion": "Happy", "texto": "Precioso. Ahora, a dormir. Y cuando vuelvas, aquí te escuchamos otra vez hasta el final.", "efectos": { "flags": { "jigglypuff_duerme": true } } }
+        "inicio": {
+          "quien": "huesped",
+          "emocion": "Worried",
+          "texto": "¿Sigue en pie lo de escucharme hasta el final?",
+          "sigue": "canta"
+        },
+        "canta": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "♪ Jiggly… jiggly… puuuff… ♪",
+          "anim": "notas",
+          "sigue": "aguanta",
+          "plano": "concierto"
+        },
+        "aguanta": {
+          "quien": "charizard",
+          "emocion": "Pain",
+          "texto": "Charizard aguanta los párpados con las garras. A Manolo se le cae la cabeza dos veces. Pero no se duermen.",
+          "sigue": "final"
+        },
+        "final": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "¡La he terminado! ¡Alguien la ha oído entera! Ahora ya puedo dormir sin cantar.",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "manolo",
+          "emocion": "Happy",
+          "texto": "Precioso. Ahora, a dormir. Y cuando vuelvas, aquí te escuchamos otra vez hasta el final.",
+          "efectos": {
+            "flags": {
+              "jigglypuff_duerme": true
+            }
+          }
+        }
       }
     },
     {
-      "id": "v4", "de_paso": true,
-      "cuando": { "visita_min": 4, "afinidad_min": 2 },
+      "id": "v4",
+      "de_paso": true,
+      "cuando": {
+        "visita_min": 4,
+        "afinidad_min": 2
+      },
       "subtitulo": "Cuarta visita · ¡amigo, amigo!",
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Amigo! ¡Amigo! ¡Hola, hola, hola! (Un Wigglytuff entra dando saltitos y abraza a Manolo, a Charizard y a la percha.)", "anim": "baila", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Jigglypuff? ¿Tú no eras la que no dormía?", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Happy", "texto": "¡Ahora duermo diez horas! Y una Clefairy me regaló una Piedra Lunar. ¡Pum! Wigglytuff. Tengo energía para todo.", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Happy", "texto": "He fundado un gremio de exploradores y vengo a fichar. (Señala a Charizard.) Tú: alas, fuego y buen olfato. ¡Amigo! ¿Te apuntas?", "sigue": "charizard" },
-        "charizard": { "quien": "charizard", "emocion": "Surprised", "texto": "Charizard mira a Manolo. Luego a la despensa. No sabe si en un gremio de exploradores hay chistorra.", "sigue": "manzana" },
-        "manzana": { "quien": "huesped", "emocion": "Normal", "texto": "Antes de firmar… ¿me dais una manzana? Una perfecta. Es que sin mi manzana… (Le tiembla el labio.)", "sigue": "manolo2" },
-        "manolo2": { "quien": "manolo", "emocion": "Worried", "texto": "Pues… se acabaron ayer. Se las comió Charizard.", "sigue": "berrinche" },
-        "berrinche": { "quien": "huesped", "emocion": "Angry", "texto": "¿Sin… manzana? (Se hincha. Tiemblan los vasos, tiembla el pino, un cuadro se cae solo.) ¡¡AMIGO, AMIGOOO!!", "anim": "enfado", "opciones": [ { "texto": "«¡Tarta de bayas, recién hecha!»", "sigue": "tarta", "efectos": { "afinidad": 1, "flags": { "jigglypuff_gremio": "tarta" } } }, { "texto": "Esconderte detrás del mostrador", "sigue": "esconde", "efectos": { "flags": { "jigglypuff_gremio": "susto" } } } ] },
-        "tarta": { "quien": "huesped", "emocion": "Surprised", "texto": "(Se deshincha de golpe.) ¿Tarta? ¿Para mí? (Se la come de un bocado.) ¡Amigo! ¡Mejor que una manzana! Bueno, casi.", "sigue": "rango" },
-        "esconde": { "quien": "charizard", "emocion": "Pain", "texto": "Charizard se esconde detrás de Manolo, y Manolo detrás del mostrador. Al final, Charizard le acerca su chistorra, temblando. Funciona.", "sigue": "rango" },
-        "rango": { "quien": "huesped", "emocion": "Happy", "texto": "¡Esta casa queda nombrada equipo de exploración! Rango oro, que tiene dragón. (Le pone a Charizard una chapa en el pecho.)", "sigue": "fin" },
-        "fin": { "quien": "huesped", "emocion": "Happy", "texto": "¡Me voy, que el gremio no se dirige solo! Gracias por escucharme hasta el final, amigo. (Y se va camino abajo, cantando por gusto.)" }
+        "inicio": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "¡Amigo! ¡Amigo! ¡Hola, hola, hola! (Un Wigglytuff entra dando saltitos y abraza a Manolo, a Charizard y a la percha.)",
+          "anim": "baila",
+          "sigue": "manolo"
+        },
+        "manolo": {
+          "quien": "manolo",
+          "emocion": "Surprised",
+          "texto": "¿Jigglypuff? ¿Tú no eras la que no dormía?",
+          "sigue": "n2"
+        },
+        "n2": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "¡Ahora duermo diez horas! Y una Clefairy me regaló una Piedra Lunar. ¡Pum! Wigglytuff. Tengo energía para todo.",
+          "sigue": "n3"
+        },
+        "n3": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "He fundado un gremio de exploradores y vengo a fichar. (Señala a Charizard.) Tú: alas, fuego y buen olfato. ¡Amigo! ¿Te apuntas?",
+          "sigue": "charizard"
+        },
+        "charizard": {
+          "quien": "charizard",
+          "emocion": "Surprised",
+          "texto": "Charizard mira a Manolo. Luego a la despensa. No sabe si en un gremio de exploradores hay chistorra.",
+          "sigue": "manzana"
+        },
+        "manzana": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Antes de firmar… ¿me dais una manzana? Una perfecta. Es que sin mi manzana… (Le tiembla el labio.)",
+          "sigue": "manolo2"
+        },
+        "manolo2": {
+          "quien": "manolo",
+          "emocion": "Worried",
+          "texto": "Pues… se acabaron ayer. Se las comió Charizard.",
+          "sigue": "berrinche"
+        },
+        "berrinche": {
+          "quien": "huesped",
+          "emocion": "Angry",
+          "texto": "¿Sin… manzana? (Se hincha. Tiemblan los vasos, tiembla el pino, un cuadro se cae solo.) ¡¡AMIGO, AMIGOOO!!",
+          "anim": "enfado",
+          "opciones": [
+            {
+              "texto": "«¡Tarta de bayas, recién hecha!»",
+              "sigue": "tarta",
+              "efectos": {
+                "afinidad": 1,
+                "flags": {
+                  "jigglypuff_gremio": "tarta"
+                }
+              }
+            },
+            {
+              "texto": "Esconderte detrás del mostrador",
+              "sigue": "esconde",
+              "efectos": {
+                "flags": {
+                  "jigglypuff_gremio": "susto"
+                }
+              }
+            }
+          ]
+        },
+        "tarta": {
+          "quien": "huesped",
+          "emocion": "Surprised",
+          "texto": "(Se deshincha de golpe.) ¿Tarta? ¿Para mí? (Se la come de un bocado.) ¡Amigo! ¡Mejor que una manzana! Bueno, casi.",
+          "sigue": "rango"
+        },
+        "esconde": {
+          "quien": "charizard",
+          "emocion": "Pain",
+          "texto": "Charizard se esconde detrás de Manolo, y Manolo detrás del mostrador. Al final, Charizard le acerca su chistorra, temblando. Funciona.",
+          "sigue": "rango"
+        },
+        "rango": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "¡Esta casa queda nombrada equipo de exploración! Rango oro, que tiene dragón. (Le pone a Charizard una chapa en el pecho.)",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "¡Me voy, que el gremio no se dirige solo! Gracias por escucharme hasta el final, amigo. (Y se va camino abajo, cantando por gusto.)"
+        }
       }
     }
   ]

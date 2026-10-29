@@ -8,8 +8,8 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Guau! ¡Huele a chistorra desde el camino! ¿Es aquí? ¡Es aquí!", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Angry", "texto": "Charizard se pone delante de la despensa con los brazos cruzados.", "opciones": [
-          { "texto": "Aquí hay chistorra para todos", "efectos": { "afinidad": 1 }, "sigue": "todos" },
-          { "texto": "La chistorra es de Charizard", "sigue": "suya" }
+          { "texto": "«Aquí hay chistorra para todos»", "efectos": { "afinidad": 1 }, "sigue": "todos" },
+          { "texto": "«La chistorra es de Charizard»", "sigue": "suya" }
         ] },
         "todos": { "quien": "charizard", "emocion": "Sad", "texto": "Charizard mira a Manolo como si le hubiera traicionado.", "sigue": "fin" },
         "suya": { "quien": "huesped", "emocion": "Sad", "texto": "Ah… Bueno. Pues la huelo y ya.", "sigue": "fin" },
@@ -23,8 +23,8 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Angry", "texto": "¡Grrr! ¡Charizard se ha comido la última chistorra delante de mí! ¡Y me ha guiñado un ojo!", "sigue": "charizard" },
         "charizard": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard se lame los dientes, muy satisfecho.", "opciones": [
-          { "texto": "Charizard, eso no se hace", "efectos": { "afinidad": 1 }, "sigue": "rina" },
-          { "texto": "Quien primero llega…", "sigue": "llega" }
+          { "texto": "«Charizard, eso no se hace»", "efectos": { "afinidad": 1 }, "sigue": "rina" },
+          { "texto": "«Quien primero llega…»", "sigue": "llega" }
         ] },
         "rina": { "quien": "charizard", "emocion": "Sad", "texto": "Charizard baja la cabeza. Un poquito. Muy poquito.", "sigue": "fin" },
         "llega": { "quien": "huesped", "emocion": "Angry", "texto": "¡Mañana me levanto antes que él!", "sigue": "fin" },
@@ -59,7 +59,7 @@
       "subtitulo": "Quinta visita · el caso de la chistorra",
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Un Arcanine enorme, con una placa en el collar, se sienta muy derecho en la recepción.) Buenas noches. Agente Arcanine. Vengo por un caso.", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Un Arcanine enorme, con una placa en el collar, se sienta muy derecho en la recepción.) Buenos días. Agente Arcanine. Vengo por un caso.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Growlithe? ¡Pero si pareces un caballo con melena!", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Happy", "texto": "¡Guau! Digo… afirmativo. Una Piedra Fuego, y la Agente Jenny me fichó. En la placa pone «Legendario». Lo he escrito yo.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Al grano. Me han avisado de que en esta posada desaparece chistorra de la despensa. Mucha. Es mi primer caso.", "sigue": "sospechosos" },

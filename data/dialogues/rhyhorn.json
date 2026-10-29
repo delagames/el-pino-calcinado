@@ -14,9 +14,9 @@
           { "texto": "«Te lo apunto en un pósit y te lo pego en el cuerno»", "efectos": { "afinidad": 1 }, "sigue": "posit" },
           { "texto": "«Tranquilo: hay Slowpoke que tardan tres días en contestar»", "sigue": "slowpoke" }
         ] },
-        "posit": { "quien": "huesped", "emocion": "Happy", "texto": "¡Un pósit! (Se pone bizco para leerlo.) «Habitación, cena, dormir.» …Qué idea más buena. ¿De quién ha sido?", "sigue": "fin" },
+        "posit": { "quien": "huesped", "emocion": "Happy", "texto": "¡Un pósit! (Se pone bizco para leerlo.) «Habitación, cena, dormir». …Qué idea más buena. ¿De quién ha sido?", "sigue": "fin" },
         "slowpoke": { "quien": "huesped", "emocion": "Surprised", "texto": "¿Tres días? Pues si veo uno, me siento a su lado, a ver quién se acuerda antes de qué estábamos hablando.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "En la cena, Rhyhorn repite chistorra tres veces porque no se acuerda de haber cenado. En la escalera se vuelve, abre la boca para decir algo… y se le olvida." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le pega un segundo pósit en el cuerno: «Ya has desayunado». Rhyhorn se vuelve, abre la boca para decir algo… y se le olvida." }
       }
     },
     {

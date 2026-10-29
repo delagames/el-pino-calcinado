@@ -13,19 +13,19 @@
         "inicio": {
           "quien": "manolo",
           "emocion": "Normal",
-          "texto": "(Por la mañana para un autobús junto al pino. Bajan cuatro con casco amarillo y mono: la cuadrilla de la Sevillana, la de la luz, que sale del turno de noche.)",
+          "texto": "(Bajan del autobús cuatro con casco amarillo y mono: la cuadrilla de la Sevillana, la de la luz, que sale del turno de noche.)",
           "sigue": "electabuzz"
         },
         "electabuzz": {
           "quien": "electabuzz",
           "emocion": "Happy",
-          "texto": "¡Wenas, mi arma! Electabuzz, electricista. Toa la noche revisando torres en la ruta diez y ni una avería, ¿eh? ¡Ni una! Venimos a desayuná.",
+          "texto": "¡Wenas, mi arma! Electabuzz, electricista. Toa la noche revisando torres y ni una avería, ¿eh? ¡Ni una! Venimos a desayuná.",
           "sigue": "raichu"
         },
         "raichu": {
           "quien": "raichu",
           "emocion": "Normal",
-          "texto": "Raichu. (Se quita el casco.) Sí, illo, el primo de Pikachu, er famoso. No, no soy Pikachu. No, no firmo. Me lo preguntan siempre y luego naide se acuerda de mí.",
+          "texto": "Raichu. Sí, illo, el primo de Pikachu, er famoso. No, no soy Pikachu. No, no firmo. Y luego naide se acuerda de mí.",
           "sigue": "magnemite"
         },
         "magnemite": {
@@ -37,34 +37,28 @@
         "magneton": {
           "quien": "magneton",
           "emocion": "Normal",
-          "texto": "(Magneton, tres Magnemite pegaos, saca el móvil. Suena el teléfono de la posada.) Buenos días, le llamo de la Sevillana. ¿Hablo con er titulá?",
-          "sigue": "magneton2"
-        },
-        "magneton2": {
-          "quien": "magneton",
-          "emocion": "Happy",
-          "texto": "Sí, mi arma, estoy aquí ar lao. Pero es er procedimiento: soy teleoperadó. ¿Le llamo mañana a la hora de la siesta pa ofrecerle más voltios?",
+          "texto": "(Suena el teléfono de la posada: es Magneton, que está aquí al lao.) Wenas, illo, le llamo de la Sevillana. ¿Le llamo mañana a la hora la siesta pa' ofrecerle más voltios?",
           "sigue": "apagon"
         },
         "apagon": {
           "quien": "charizard",
           "emocion": "Surprised",
           "anim": "flash",
-          "texto": "Y entonces, ¡clac!: se apaga todo. La cafetera, la nevera, la radio. Y no hay ni una nube en el cielo. Todos miran a Electabuzz.",
+          "texto": "¡Clac!: se apaga todo. La cafetera, la nevera, la radio. Y ni una nube en el cielo. Todos miran a Electabuzz.",
           "sigue": "raichu2"
         },
         "raichu2": {
           "quien": "raichu",
           "emocion": "Angry",
           "anim": "enfado",
-          "texto": "¡Electabuzz! ¿Ya te has comío otra vez la luz de los fusibles? ¡Que se te nota en la cara, quillo!",
+          "texto": "¡Electabuzz! ¿Ya te has comío la luz de los fusibles? ¡Que se te nota en la cara, quillo!",
           "sigue": "electabuzz2"
         },
         "electabuzz2": {
           "quien": "electabuzz",
           "emocion": "Pain",
           "anim": "chispas",
-          "texto": "(Le sale una chispita por la boca.) …Un poquito na más. Es que tardaba er desayuno. Cuando tengo hambre me como la luz, ozú. Es de nacimiento.",
+          "texto": "(Le sale una chispita por la boca.) …Un poquito na más. Es que tardaba er desayuno. Cuando tengo hambre me como la luz, ozú.",
           "opciones": [
             {
               "texto": "«Tranquilo, que el café lo calienta el dragón»",
@@ -83,38 +77,32 @@
           "quien": "charizard",
           "emocion": "Happy",
           "anim": "fuego",
-          "texto": "Charizard acerca la llama de la cola a la cafetera. El café sale riquísimo. Raichu dice que es er mejor desayuno de toa su vida laborá.",
+          "texto": "Charizard calienta el café con la llama de la cola. Raichu dice que es er mejor desayuno de toa su vida laborá.",
           "sigue": "vuelve"
         },
         "vuelve": {
           "quien": "electabuzz",
           "emocion": "Normal",
           "anim": "chispas",
-          "texto": "(Mete un dedo en el enchufe, se le ponen de punta las antenas y… ¡clac!: vuelve la luz.) Devuerta, mi arma. Y con intereses.",
+          "texto": "(Mete un dedo en el enchufe y… ¡clac!: vuelve la luz.) De vuerta, mi arma. Y con intereses.",
           "sigue": "radio"
         },
         "radio": {
           "quien": "magnemite",
           "emocion": "Happy",
-          "texto": "(La radio se enciende sola. Magnemite grita desde el tejado.) ¡Señá! ¡La tertulia de Dodrio! ¡Tres cabezas y ninguna de acuerdo! ¡Qué arte!",
+          "texto": "(La radio se enciende sola.) ¡Señá! ¡La tertulia de Dodrio! ¡Tres cabezas y ninguna de acuerdo! ¡Qué arte!",
           "sigue": "raichu3"
         },
         "raichu3": {
           "quien": "raichu",
-          "emocion": "Sad",
-          "texto": "Mi primo nunca quiso la Piedra Trueno: quería ganarle a un Raichu siendo Pikachu. Y le ganó, illo. Yo pensé años que ser Raichu era de perdedores.",
-          "sigue": "raichu4"
-        },
-        "raichu4": {
-          "quien": "raichu",
           "emocion": "Happy",
-          "texto": "Pero yo me la tomé porque quise. (Se le ilumina la cara, y no es er cable.) Lo mismo que él: elegí. Él eligió ser Pikachu y yo, Raichu. Empate.",
+          "texto": "Mi primo no quiso la Piedra Trueno: quería ganarle a un Raichu siendo Pikachu. Y le ganó. Pero yo me la tomé porque me dio la gana, quillo. Cada uno lo suyo. Empate.",
           "sigue": "fin"
         },
         "fin": {
           "quien": "charizard",
           "emocion": "Happy",
-          "texto": "Suben al autobús con la luz encendida y la radio puesta. En la caja de fusibles queda una bombilla nueva y una nota: «Por las molestias. La cuadrilla»."
+          "texto": "Suben al autobús con la luz encendida y la radio puesta. En la caja de fusibles queda una bombilla nueva: «Por las molestias. La cuadrilla»."
         }
       }
     }

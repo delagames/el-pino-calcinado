@@ -7,7 +7,7 @@
       "cuando": { "visita_min": 1 },
       "subtitulo": "Primera visita · en directo",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "(Izquierda) ¡Buenas noches y bienvenidos a «Tres en la Posada»! (Derecha) Buenas noches dice, con el frío que hace.", "sigue": "medio" },
+        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "(Izquierda) ¡Buenos días y bienvenidos a «Tres en la Posada»! (Derecha) Buenos días dice, con el frío que hace.", "sigue": "medio" },
         "medio": { "quien": "huesped", "emocion": "Sad", "texto": "(Medio) Por favor, por favor, de uno en uno… (suspira) Una habitación, señor. Doble. Bueno, triple. Es complicado.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "Habitación para uno con tres cabezas. ¿Cuántas almohadas?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Angry", "texto": "(Derecha) ¡Ahí está la noticia! ¡Cobran por cabeza! (Izquierda) ¡Qué va, si es un detalle precioso! (Medio) Vamos a publicidad.", "sigue": "n3" },
@@ -25,7 +25,7 @@
       "cuando": { "visita_min": 2 },
       "subtitulo": "Segunda visita · el gran debate",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Medio) Buenas noches. Hoy, en «Tres en la Posada»: ¿llega la furgoneta de Famadesa tarde o llega cuando tiene que llegar?", "sigue": "derecha" },
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Medio) Muy buenas. Hoy, en «Tres en la Posada»: ¿llega la furgoneta de la chistorra tarde o llega cuando tiene que llegar?", "sigue": "derecha" },
         "derecha": { "quien": "huesped", "emocion": "Angry", "texto": "(Derecha) ¡Tarde! ¡Siempre tarde! ¡Esto antes no pasaba! (Izquierda) Pero llega, ¿eh? Llega con una alegría…", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Sigh", "texto": "Llega a las nueve. Todos los días. No ha fallado ni uno desde que abrimos.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Sad", "texto": "(Medio) Nunca nos ponemos de acuerdo en nada. Ni en el tiempo. Ni en el canal. Nos gritamos hasta en sueños. Es agotador.", "opciones": [
@@ -34,7 +34,7 @@
         ] },
         "radio": { "quien": "huesped", "emocion": "Happy", "texto": "(Izquierda) ¡Nos llama radio! (Derecha) Radio no, televisión, que tenemos imagen. (Medio) …Gracias, Manolo. De parte de las tres.", "sigue": "fin" },
         "votar": { "quien": "huesped", "emocion": "Angry", "texto": "(Derecha) ¡Siempre votan contra mí! (Izquierda) ¡Porque siempre te enfadas! (Medio) Lo intentamos en 2019. Duró un minuto.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard le esconde el mando de la tele del comedor. Por si acaso. Lo deja debajo del cojín y se sienta encima, muy digno." }
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard le esconde el mando de la tele del comedor. Lo deja debajo del cojín y se sienta encima, muy digno." }
       }
     },
     {
@@ -53,7 +53,7 @@
         ] },
         "titular": { "quien": "huesped", "emocion": "Happy", "texto": "(Izquierda) ¡Precioso! (Derecha) No tengo nada en contra. (Medio) Y con esto nos despedimos. Gracias por vernos. Gracias por la casa.", "sigue": "fin" },
         "chistorra": { "quien": "huesped", "emocion": "Happy", "texto": "(Las tres, a la vez) ¡Otra chistorra! (Se miran, asustadas, y se echan a reír.) (Medio) Fin de la emisión. Hasta siempre, posada.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Por la mañana, Dodrio se va corriendo por el camino. Desde la puerta, Charizard oye cómo vuelven a discutir. Pero esta vez se ríen las tres." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard les sirve otra ronda. Al rato vuelven a discutir, cómo no. Pero esta vez se ríen las tres." }
       }
     }
   ]

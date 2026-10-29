@@ -42,13 +42,13 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Sad", "texto": "Manolo, no ha venido nadie. Ni un fan. Ni un periodista. Le firmé un autógrafo a un huésped y se lo comió.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "Aquí la fama dura lo que una chistorra en la mesa. Pero la cama es igual de blanda para todos.", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "¿Sabe que es la primera vez en años que ceno sin fotos? Me he manchado de kétchup hasta la oreja y nadie se ha dado cuenta.", "opciones": [
+        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "¿Sabe que hoy he desayunado sin fotos por primera vez en años? Me he manchado de kétchup hasta la oreja y nadie se ha dado cuenta.", "opciones": [
           { "texto": "«Pues quédate de huésped normal»", "efectos": { "afinidad": 1, "flags": { "pikachu_normal": "huesped" } }, "sigue": "normal" },
           { "texto": "«Toma, un autógrafo mío. Para variar»", "efectos": { "flags": { "pikachu_normal": "autografo" } }, "sigue": "autografo" }
         ] },
-        "normal": { "quien": "huesped", "emocion": "Happy", "texto": "Huésped normal… Qué bien suena. Dígale al mánager que se coja vacaciones. Yo me quedo junto a la chimenea.", "sigue": "fin" },
+        "normal": { "quien": "huesped", "emocion": "Happy", "texto": "Huésped normal… Qué bien suena. Dígale al mánager que se coja vacaciones. Yo me quedo junto a la estufa.", "sigue": "fin" },
         "autografo": { "quien": "huesped", "emocion": "Surprised", "texto": "«Para Pikachu, de Manolo, el de la posada». ¡Es el primero que me firman a mí! Lo voy a enmarcar.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le acerca el kétchup y media chistorra. Cenan juntos, sin una foto. Al alba, Pikachu se va sin firmar nada. Bueno, solo el libro de visitas." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le acerca el kétchup y media chistorra. Se la comen juntos en el porche, sin una foto. Pikachu solo firma una cosa: el libro de visitas." }
       }
     }
   ]

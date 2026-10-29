@@ -453,3 +453,55 @@ body:has(#popup:not(.hidden)) #toast { display: none; }
 /* pruebas (?demo): los botones, en filas que se reparten */
 p.demo { display: flex; flex-wrap: wrap; gap: 6px; }
 .card p.demo button { width: auto; margin: 0; min-height: 0; padding: 4px 8px; font-size: 0.9rem; }
+
+/* la carita de Charizard en la barra de datos (en el móvil se quita la palabra «Charizard») */
+.mini-cara { width: 16px; height: 16px; vertical-align: -3px; image-rendering: pixelated; margin-right: 2px; }
+@media (max-width: 760px) {
+  .stats .largo { display: none; }
+  /* que quepan Libro y Tienda en la misma fila que el día */
+  .topbar .book-button { padding: 0 5px 2px; }
+}
+@media (max-width: 420px) { .topbar-logo { display: none; } }
+/* en el ordenador, «Pasar a la tarde» en una línea */
+@media (min-width: 761px) { .advance { white-space: nowrap; } }
+/* ventanas bajas en horizontal (también de ordenador, aunque sean estrechas): manda lo compacto,
+   que la regla de las estrechas no se lo coma */
+@media (max-height: 500px) and (orientation: landscape) {
+  :root { --bar-h: 96px; --fit-h: 96px; }
+  #dialog-face, .dialog #dialog-face { width: 64px; height: 64px; }
+  .actions { grid-template-columns: 1fr minmax(0, 980px) auto; }
+  .actions .dialog { grid-column: 2; }
+  .advance { grid-column: 3; }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  .dialog { flex-wrap: nowrap; }
+  .dialog-body { flex: 1 1 auto; }
+}
+
+/* portada en móviles bajos (360×640): el logo más pequeño para que quepan los botones sin scroll */
+@media (max-height: 700px) {
+  .start-logo { width: min(540px, 92vw, 36vh); }
+  .start-row button { font-size: 0.85rem; white-space: nowrap; padding: 0 6px; }
+}
+/* resumen del día en pantallas estrechas: cara más pequeña para que el texto respire */
+@media (max-width: 400px) {
+  .resumen li { gap: 6px; }
+  .resumen img { width: 40px; height: 40px; }
+  .resumen .gana small { font-size: 0.7rem; }
+}
+/* tienda: volver también desde arriba, sin bajar hasta el final */
+.shop-head { display: flex; align-items: center; gap: 8px; }
+.shop-head .volver-arriba { margin-left: auto; min-height: 0; padding: 0 8px 2px; font-size: 0.9rem; }
+details.demo summary { cursor: pointer; margin: 8px 0; color: var(--marfil); }
+@media (max-height: 700px) {
+  #start { overflow-x: hidden; gap: 6px; }
+  #start > button, .start-row button { min-height: 0; }
+  #start .small { margin: 2px 0; }
+}
+.shop-head span { white-space: nowrap; }
+.shop strong { line-height: 1.15; display: inline-block; }
+/* tu partida: las copias de otros días y el recuadro del código */
+ul.copias { list-style: none; margin: 0 0 10px; padding: 0; }
+ul.copias li { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 4px 0; border-bottom: 1px dashed #3A4466; }
+ul.copias button { min-height: 0; padding: 2px 8px; font-size: 0.85rem; }
+#cod-texto { width: 100%; box-sizing: border-box; font: inherit; font-size: 0.8rem; padding: 6px; color: var(--texto-oscuro); background: var(--marfil); border: var(--px) solid var(--contorno); resize: vertical; word-break: break-all; }

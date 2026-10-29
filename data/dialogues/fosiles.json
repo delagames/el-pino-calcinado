@@ -1,31 +1,114 @@
 {
   "id": "fosiles",
-  "_nota": "Evento de excursión (por la mañana, de paso): el autobús de los fósiles revividos en el laboratorio de Isla Canela, con Kabutops de guía (es del Museo de Ciudad Plateada). Omanyte es «Lord Helix», al que miles de personas adoraron en internet como a un dios, y no sabe qué hacer con las ofrendas; Kabuto lleva trescientos millones de años sin cambiar de casa ni de opinión y en ese mismo internet le llamaron «el falso profeta»; Omastar no tira nada (dicen que por eso se extinguieron; solo tiene retrato Normal); Aerodactyl, sacado de un trozo de ámbar que lleva colgado, le gruñe a la furgoneta del reparto como si fuera un tiranosaurio (solo Normal). Remate: almuerzan en el prado potaje y chistorra, Kabuto cambia de opinión por primera vez y se marean todos; vuelven al autobús.",
+  "_nota": "Grupo de excursión (una mañana): III Encuentro de Veteranos de La Legión, promoción del Cámbrico. Fósiles como militares viejos: el brigada Kabutops, el sargento Omastar (no tira nada), el cabo Kabuto (no cambia de opinión, rencor del Fósil Domo contra el Hélix del Monte Moon), Omanyte («Lord Helix», la mascota de su promoción) y Aerodactyl, del ámbar viejo, que le grita al autobús. Cantan El novio de la muerte antes del desayuno. Anim: enfado, tiembla, notas, gira.",
   "entradas": [
     {
       "id": "v1",
-      "cuando": { "visita_min": 1 },
-      "subtitulo": "Una mañana · la excursión de Isla Canela",
+      "cuando": {
+        "visita_min": 1
+      },
+      "subtitulo": "Una mañana · los veteranos de La Legión",
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Por la mañana baja del autobús la excursión más rara del mundo: un caracol con espiral, dos cascos con patas, uno con guadañas y un pterodáctilo que gruñe.)", "sigue": "kabutops" },
-        "kabutops": { "quien": "kabutops", "emocion": "Happy", "texto": "¡Buenos días! Kabutops, guía del Museo de Ciudad Plateada. Les presento a mis fósiles, revividos en el laboratorio de Isla Canela. Todos con papeles.", "sigue": "omanyte" },
-        "omanyte": { "quien": "omanyte", "emocion": "Worried", "texto": "Hola. Omanyte. Una vez, en internet, miles de personas me adoraron como a un dios: «Lord Helix». Ahora me dejan ofrendas: chuches, cromos, un calcetín…", "sigue": "omanyte2" },
-        "omanyte2": { "quien": "omanyte", "emocion": "Sad", "texto": "Y yo no sé qué hacer con ellas. Solo soy un caracol. Muy antiguo, eso sí. ¿A usted le han adorado alguna vez?", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "Una vez, en el gimnasio, me pidieron un autógrafo en la calva. No sé si cuenta.", "sigue": "kabuto" },
-        "kabuto": { "quien": "kabuto", "emocion": "Angry", "anim": "enfado", "texto": "Kabuto. Trescientos millones de años sin cambiar de casa ni de opinión. Y en ese internet me llamaron «el falso profeta». ¡Si no he dicho nada en todo ese tiempo!", "sigue": "omastar" },
-        "omastar": { "quien": "omastar", "emocion": "Normal", "texto": "(Omastar baja la última, con la concha llena de piedras, tiques y un paraguas roto.) Yo no tiro nada. Todo sirve. Dicen que por eso nos extinguimos. Exageran.", "sigue": "aerodactyl" },
-        "aerodactyl": { "quien": "aerodactyl", "emocion": "Normal", "anim": "tiembla", "texto": "¡GRRRAAAH! (Aerodactyl ve la furgoneta del reparto aparcada junto al prado. Se le eriza todo y le gruñe como si fuera un tiranosaurio.)", "sigue": "charizard" },
-        "charizard": { "quien": "charizard", "emocion": "Angry", "texto": "Charizard se pone entre Aerodactyl y la furgoneta. No por la furgoneta: por la chistorra que trae dentro.", "sigue": "ambar" },
-        "ambar": { "quien": "kabutops", "emocion": "Normal", "texto": "No le hagan caso. Lo sacaron de un trozo de ámbar y lo lleva colgado del cuello, como un peluche. Ladra mucho, pero no muerde. Casi. ¿Se puede almorzar algo?", "opciones": [
-          { "texto": "«Potaje y chistorra para todos, en el prado»", "efectos": { "afinidad": 1 }, "sigue": "potaje" },
-          { "texto": "«¿Y qué se comía hace trescientos millones de años?»", "sigue": "comian" }
-        ] },
-        "comian": { "quien": "kabuto", "emocion": "Normal", "texto": "Lo mismo de siempre. Y lo mismo seguiré comiendo. No me va a cambiar ahora una posada de montaña.", "sigue": "potaje" },
-        "potaje": { "quien": "manolo", "emocion": "Happy", "texto": "(Manolo saca una mesa al prado, junto al pino: potaje de garbanzos y, en el centro, una bandeja de chistorra a la brasa.)", "sigue": "chistorra" },
-        "chistorra": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard reparte. Aerodactyl deja de gruñir. Omastar se guarda una chistorra en la concha, «por si acaso». Omanyte deja la suya en un plato, como una ofrenda.", "sigue": "kabuto2" },
-        "kabuto2": { "quien": "kabuto", "emocion": "Surprised", "anim": "gira", "texto": "…Esto está buenísimo. (Silencio en la mesa.) He cambiado de opinión. Por primera vez en trescientos millones de años. Qué mareo.", "sigue": "fin" },
-        "fin": { "quien": "manolo", "emocion": "Happy", "texto": "(Kabutops lo apunta en la libreta del museo: «Hoy, Kabuto cambió de opinión». Suben al autobús. Aerodactyl le gruñe a la furgoneta al pasar. Por costumbre.)" }
+        "inicio": {
+          "quien": "manolo",
+          "emocion": "Surprised",
+          "texto": "(Baja del autobús una pancarta: «III Encuentro de Veteranos de La Legión. Promoción del Cámbrico». Debajo, cinco fósiles con la camisa remangada.)",
+          "sigue": "kabutops"
+        },
+        "kabutops": {
+          "quien": "kabutops",
+          "emocion": "Happy",
+          "texto": "¡Firmes! Brigada Kabutops, retirado. Trescientos millones de años de servicio. Venimos a desayunar, que el rancho del autobús es una vergüenza.",
+          "sigue": "omastar"
+        },
+        "omastar": {
+          "quien": "omastar",
+          "emocion": "Normal",
+          "texto": "(Lleva la concha llena de chapas, medallas y un paraguas roto.) Sargento Omastar. Yo no tiro nada: esto me lo dieron en el Devónico. Todo sirve.",
+          "sigue": "kabuto"
+        },
+        "kabuto": {
+          "quien": "kabuto",
+          "emocion": "Angry",
+          "anim": "enfado",
+          "texto": "Cabo Kabuto. En mis tiempos la mili duraba cien millones de años y no se quejaba nadie. ¡Ahora los quintos evolucionan en una tarde!",
+          "sigue": "omanyte"
+        },
+        "omanyte": {
+          "quien": "omanyte",
+          "emocion": "Happy",
+          "texto": "¡Y yo, Omanyte! Ahora La Legión lleva de mascota una cabra. En mi promoción, la mascota era yo. Me llamaban «Lord Helix». Me rezaban y todo.",
+          "sigue": "domo"
+        },
+        "domo": {
+          "quien": "kabuto",
+          "emocion": "Angry",
+          "texto": "¡Eso fue en el Monte Moon! Había que elegir: o el Fósil Hélix o el Fósil Domo. ¡Y eligieron mal! ¡Los del Domo no olvidamos!",
+          "sigue": "calva"
+        },
+        "calva": {
+          "quien": "kabutops",
+          "emocion": "Normal",
+          "texto": "(Mira la calva de Manolo con aprobación.) Usted ha hecho la mili, ¿eh? Ese corte de pelo es reglamentario.",
+          "opciones": [
+            {
+              "texto": "«La hice, sí. En el gimnasio de Ceniza»",
+              "efectos": {
+                "afinidad": 1
+              },
+              "sigue": "mili"
+            },
+            {
+              "texto": "«No, la mili no la hice»",
+              "sigue": "nomili"
+            }
+          ]
+        },
+        "mili": {
+          "quien": "kabutops",
+          "emocion": "Happy",
+          "texto": "¡Lo sabía! ¡Eso se nota en la calva! (Le da una palmada en la espalda con la guadaña. Con cuidado.)",
+          "sigue": "aerodactyl"
+        },
+        "nomili": {
+          "quien": "kabutops",
+          "emocion": "Surprised",
+          "texto": "¿No? (Silencio.) …Pues se nota. (Los cinco niegan con la cabeza a la vez.)",
+          "sigue": "aerodactyl"
+        },
+        "aerodactyl": {
+          "quien": "aerodactyl",
+          "emocion": "Normal",
+          "anim": "tiembla",
+          "texto": "¡GRRRAAAH! ¡A MÍ LA LEGIÓN! (Le grita al autobús. Lo sacaron de un trozo de ámbar viejo y no se fía de nada que tenga ruedas.)",
+          "sigue": "himno"
+        },
+        "himno": {
+          "quien": "charizard",
+          "emocion": "Happy",
+          "anim": "notas",
+          "texto": "Manolo saca el desayuno al prado. Antes de tocarlo, los cinco se ponen firmes y cantan «El novio de la muerte». Charizard se pone firme también, sin saber muy bien por qué.",
+          "sigue": "opinion"
+        },
+        "opinion": {
+          "quien": "kabuto",
+          "emocion": "Surprised",
+          "anim": "gira",
+          "texto": "(Prueba la chistorra.) …Esto está buenísimo. He cambiado de opinión. Por primera vez desde el Cámbrico. Qué mareo. Esto en mis tiempos no pasaba.",
+          "sigue": "imaginaria"
+        },
+        "imaginaria": {
+          "quien": "omastar",
+          "emocion": "Normal",
+          "texto": "(Se guarda tres chistorras en la concha.) Para la imaginaria. Uno nunca sabe.",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "charizard",
+          "emocion": "Happy",
+          "texto": "¡Rompan filas! Suben al autobús a paso legionario, que en unos fósiles es despacito. Aerodactyl le gruñe al autobús al subir. Por costumbre."
+        }
       }
     }
   ]

@@ -45,7 +45,7 @@
         ] },
         "cuarto": { "quien": "huesped", "emocion": "Happy", "texto": "Ay, Manolo. Si tuvieras pelo, me casaba contigo. Bueno, sin pelo también, pero no se lo digas a nadie.", "sigue": "fin" },
         "charizard": { "quien": "huesped", "emocion": "Happy", "texto": "¿Charizard? A Charizard le guardo un sitio en mi corazón. En la parte calentita, que es la que le pega.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le hace una chistorra con forma de corazón, más o menos. Al alba, Eevee se va guiñándole el ojo a todo el mundo. A Charizard, dos veces." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le hace una chistorra con forma de corazón, más o menos. Eevee le guiña el ojo a todo el mundo. A Charizard, dos veces." }
       }
     }
   ]

@@ -8,18 +8,18 @@
       "subtitulo": "Primera visita · se ha escapado del banquillo",
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "(Entra una estrella de mar rodando de canto, como una rueda.) ¡Hola! ¿Eso de ahí fuera es un estanque? ¡Me lo quedo!", "sigue": "tic" },
-        "tic": { "quien": "manolo", "emocion": "Pain", "texto": "(Tipo agua. A Manolo se le cierra un ojo y le cae una gota. La joya de la estrella le hace un reflejo en la calva, como un faro.)", "sigue": "n2" },
+        "tic": { "quien": "manolo", "emocion": "Pain", "texto": "(Tipo agua. A Manolo se le guiña el ojo él solito. La joya de la estrella le hace un reflejo en la calva, como un faro.)", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Soy Staryu, del gimnasio de Ciudad Celeste. Bueno, del banquillo. Tres temporadas de suplente. Me he escapado a ver mundo.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Y Misty sabe que te has ido?", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Pain", "texto": "Ni se ha dado cuenta. Siempre saca a la titular, una Starmie. Yo caliento en la banda, brillando para nadie. Ay. (Le falta media punta.)", "sigue": "punta" },
         "punta": { "quien": "huesped", "emocion": "Normal", "texto": "Me la pisó un Golduck en el entrenamiento. No pasa nada: a nosotras los brazos nos vuelven a crecer. Las ganas de jugar, no tanto.", "sigue": "machop" },
-        "machop": { "quien": "huesped", "emocion": "Normal", "texto": "En la grada conocí a un Machop muy majo. Lleva meses retando a Misty. Él pierde cada semana, y yo ni salgo. No sé qué es peor.", "opciones": [
+        "machop": { "quien": "huesped", "emocion": "Normal", "texto": "En la grada conocí a un Machop muy majo. Retaba a Misty cada semana y perdía cada semana. Pero salía a pelear. Yo ni salgo.", "opciones": [
           { "texto": "«Aquí brillas lo que quieras. El estanque es tuyo»", "efectos": { "afinidad": 1 }, "sigue": "estanque" },
           { "texto": "«Los suplentes también cuentan, chavala»", "sigue": "suplentes" }
         ] },
         "estanque": { "quien": "huesped", "emocion": "Happy", "texto": "¿De verdad? Pues esta noche brillo en su estanque. Que me vean las montañas, que de público no tengo otro.", "sigue": "fin" },
         "suplentes": { "quien": "huesped", "emocion": "Normal", "texto": "Eso dicen siempre los titulares. (Se le apaga un poco el núcleo.) Perdone. Es que llevo tres temporadas oyéndolo.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "De madrugada, Charizard se asoma a la ventana: en el estanque brilla una lucecita, como un faro pequeño. Se queda mirándola hasta dormirse de pie." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard se asoma a la ventana: en el estanque ya brilla una lucecita, como un faro pequeño. Se queda mirándola, embobado, con la boca abierta." }
       }
     },
     {
@@ -39,7 +39,7 @@
         ] },
         "contenta": { "quien": "huesped", "emocion": "Normal", "texto": "Siete colores, todos los días, a la misma hora. Me encanta. (El núcleo hace una pausa rara.) Me encanta, he dicho.", "sigue": "fin" },
         "gasta": { "quien": "huesped", "emocion": "Normal", "texto": "¿Gastarse? Qué va. Soy la gema del mar, lo pone en el cartel. (El núcleo se le pone gris un segundo.) Eso no lo ha visto usted.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Esa noche, en el estanque, Starmie brilla en siete colores hasta las tantas. Charizard ve que entre color y color tarda cada vez un poquito más.", "anim": "estrellas", "anim_quien": "huesped" }
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Starmie se va derecha al estanque a brillar en siete colores. Charizard la mira y ve que entre color y color tarda cada vez un poquito más.", "anim": "estrellas", "anim_quien": "huesped" }
       }
     },
     {
@@ -60,7 +60,7 @@
         "quiera": { "quien": "huesped", "emocion": "Normal", "texto": "(El núcleo se enciende. Un solo color, azul, despacito.) Cuando yo quiera. No sabía que eso se podía elegir.", "sigue": "pano" },
         "banquillo": { "quien": "huesped", "emocion": "Normal", "texto": "(Se le enciende el núcleo, verde, flojito.) Mirar sin que todo dependa de mí. Igual era eso lo que me gustaba del banquillo y no lo sabía.", "sigue": "pano" },
         "pano": { "quien": "huesped", "emocion": "Normal", "texto": "Mañana vuelvo a Celeste. Le dejo el paño en el mostrador, Manolo. Para la medalla del cuadro… por si un día le da por sacarle brillo.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Esa noche el estanque está a oscuras. Charizard se asoma, preocupado, y la ve: dormida como una piedra. Por primera vez, sin brillar. Y a gusto.", "anim": "duerme", "anim_quien": "huesped" }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Starmie se posa en el estanque. Al rato, Charizard se asoma, preocupado, y la ve: dormida como una piedra. Por primera vez, sin brillar. Y a gusto.", "anim": "duerme", "anim_quien": "huesped" }
       }
     }
   ]

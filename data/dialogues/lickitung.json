@@ -24,8 +24,10 @@
       "cuando": { "visita_min": 2 },
       "subtitulo": "Segunda visita · el sonido perfecto",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Susurra.) Manolo… vengo a por algo grande. Llevo años buscando el sonido perfecto. Y creo que está en su chimenea.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "(En voz bajita, que ya va aprendiendo.) ¿La chimenea? Si eso es Charizard, que se echa ahí la siesta.", "sigue": "n2" },
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Susurra.) Manolo… vengo a por algo grande. Llevo años buscando el sonido perfecto. Y creo que está junto a su fogón.", "si_mejora": { "chimenea": "inicio_chimenea" }, "sigue": "manolo" },
+        "inicio_chimenea": { "quien": "huesped", "emocion": "Normal", "texto": "(Susurra.) Manolo… vengo a por algo grande. Llevo años buscando el sonido perfecto. Y creo que está en su chimenea.", "sigue": "manolo_chimenea" },
+        "manolo": { "quien": "manolo", "emocion": "Normal", "texto": "(En voz bajita, que ya va aprendiendo.) ¿El fogón? Si eso es Charizard, que se echa ahí al lado la siesta.", "sigue": "n2" },
+        "manolo_chimenea": { "quien": "manolo", "emocion": "Normal", "texto": "(En voz bajita, que ya va aprendiendo.) ¿La chimenea? Si eso es Charizard, que se echa ahí la siesta.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Exacto. El crepitar de su cola. Pero hay un problema: en una posada siempre hay alguien que canta, alguien que grita las series y algún cuñado que opina.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Normal", "texto": "(Sigue con la misma cara. Siempre la misma cara.) Por dentro estoy desesperado. No se me nota porque es malo para el audio.", "opciones": [
           { "texto": "«Les pido silencio a todos una noche. Por ti»", "efectos": { "afinidad": 1 }, "sigue": "todos" },
@@ -49,9 +51,9 @@
           { "texto": "«Graba una última: el silencio de la posada»", "efectos": { "afinidad": 1, "flags": { "lickitung_viral": "silencio" } }, "sigue": "silencio" },
           { "texto": "«Despídete de tu público desde aquí»", "efectos": { "flags": { "lickitung_viral": "despedida" } }, "sigue": "despedida" }
         ] },
-        "silencio": { "quien": "huesped", "emocion": "Normal", "texto": "(Pone el micro en la mesa. Nadie habla. Solo se oye la chimenea y a alguien que ronca bajito.) …Este no lo subo. Este es para mí.", "sigue": "fin" },
-        "despedida": { "quien": "huesped", "emocion": "Normal", "texto": "(Al micro, en susurros.) Gracias, chicos… a ustedes, y a una posada donde me dejaron hacer el raro. Buenas noches… de verdad.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Al irse, Lickitung le da a Charizard un lametazo de despedida en la frente. Le recorre un escalofrío de la cabeza a la cola. Crepita como nunca. Nadie lo graba." }
+        "silencio": { "quien": "huesped", "emocion": "Normal", "texto": "(Pone el micro en la mesa. Nadie habla. Solo crepita la lumbre y alguien que sorbe el café.) …Este no lo subo. Este es para mí.", "sigue": "fin" },
+        "despedida": { "quien": "huesped", "emocion": "Normal", "texto": "(Al micro, en susurros.) Gracias, chicos… a ustedes, y a una posada donde me dejaron hacer el raro. Hasta siempre… de verdad.", "sigue": "fin" },
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Lickitung le da a Charizard un lametazo de gracias en la frente. Le recorre un escalofrío de la cabeza a la cola. Crepita como nunca. Nadie lo graba." }
       }
     }
   ]

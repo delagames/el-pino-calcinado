@@ -3,6 +3,7 @@
 // abajo: al tocar a un huésped dice lo que necesita y debajo salen tus respuestas.
 import { createInnView, COLORES } from './scene.js';
 import { createInn, hasSave, FASE_NOMBRE } from './inn.js';
+import { copias, codigoDe, textoDe, pedirPersistencia } from './save.js';
 import { portraitUrl } from './sprites.js';
 import { showScene } from './popup.js';
 import { createCounter } from './counter.js';
@@ -11,7 +12,7 @@ import { playFinal } from './final.js';
 import { descargarFondo } from './fondo.js';
 import { runEntry } from './dialogue.js';
 import { createKitchen, loadRecipes } from './kitchen.js';
-import { loadGuestData, kantoVistos, pokedex } from './guests.js';
+import { loadGuestData, kantoVistos, pokedex, formaDe } from './guests.js';
 import { loadDialogue } from './dialogue.js';
 import { setMood, setRain as rainSound, sfx, getPrefs, setMusic, setSfx, cry, cancion, tarareo, sfxAnim } from './audio.js';
 
@@ -57,7 +58,7 @@ function go(next) {
   state = next;
   $('#start').classList.toggle('hidden', next !== 'inicio');
   $('#hud').classList.toggle('hidden', next === 'inicio');
-  $('#stub').classList.toggle('hidden', next !== 'noche' && next !== 'demo');
+  $('#stub').classList.toggle('hidden', next !== 'noche' && next !== 'demo' && next !== 'partida');
   $('#book').classList.toggle('hidden', next !== 'libro');
   $('#counter-view').classList.toggle('hidden', next !== 'mostrador');
   $('#kitchen-view').classList.toggle('hidden', next !== 'cocina');
@@ -136,19 +137,32 @@ function paginar(text) {
   const p = $('#dialog-text');
   const alto = parseFloat(getComputedStyle(p).lineHeight) * (pantallaBaja.matches ? 2 : 3) + 2;
   const cabe = t => { p.textContent = t; return p.scrollHeight <= alto; };
+  if (cabe(text)) return [text];
+  // las frases (sin cortar tras «Mr.» ni «Sr.»), y luego se llena cada tanda palabra a palabra si hace falta
+  const frases = text.split(/(?<=[.!?…»)])(?<!\b(?:Mr|Sr|Sra|Dr)\.)\s+/);
   const out = [];
   let cur = '';
-  const meter = (pieza, sep) => {
-    const cand = cur ? cur + sep + pieza : pieza;
-    if (cabe(cand)) { cur = cand; return true; }
-    if (cur) { out.push(cur); cur = ''; }
-    if (cabe(pieza)) { cur = pieza; return true; }
-    return false;
-  };
-  for (const frase of text.split(/(?<=[.!?…»)])\s+/)) {
-    if (!meter(frase, ' ')) for (const palabra of frase.split(' ')) if (!meter(palabra, ' ')) cur = palabra;
+  for (const frase of frases) {
+    const cand = cur ? `${cur} ${frase}` : frase;
+    if (cabe(cand)) { cur = cand; continue; }
+    // la frase entera no cabe con lo que hay: si lo que hay es muy poco (o la frase no cabe ni sola), se sigue
+    // llenando esta tanda palabra a palabra; si no, la frase empieza tanda nueva
+    if (cur && cur.length >= 40 && cabe(frase)) { out.push(cur); cur = frase; continue; }
+    for (const palabra of frase.split(' ')) {
+      const c2 = cur ? `${cur} ${palabra}` : palabra;
+      if (cabe(c2) || !cur) cur = c2;
+      else { out.push(cur); cur = palabra; }
+    }
   }
   if (cur) out.push(cur);
+  // que ninguna tanda acabe con una o dos palabras sueltas: se le pasan unas cuantas de la anterior
+  for (let k = 1; k < out.length; k++) {
+    let prev = out[k - 1].split(' '), here = out[k].split(' ');
+    while (here.length < 4 && prev.length > 4 && cabe([prev.at(-1), ...here].join(' '))) {
+      here = [prev.pop(), ...here];
+    }
+    out[k - 1] = prev.join(' '); out[k] = here.join(' ');
+  }
   return out.length ? out : [text];
 }
 
@@ -321,14 +335,28 @@ async function startCook(id, especial = false) {
 const SUCESO_JUEGO = {
   limpiar: { nombre: 'la inspección', who: 'manolo', emocion: 'Worried', texto: '¡Que viene el inspector! Charizard, ¡la ceniza! Toca las manchas, rápido.' },
   rocket: { nombre: 'el Team Rocket', who: 'charizard', emocion: 'Angry', texto: '¡Grrr! El Team Rocket quiere llevarse la chistorra recién llegada. ¡Toca las sombras de la ventana para espantarlos!' },
+  // los de los sucesos nuevos y algunos encargos (la posada puede cambiar el texto de entrada)
+  lena: { nombre: 'la leña', who: 'manolo', emocion: 'Worried', texto: 'Con esta nevada hay que partir leña para la chimenea. Toca cuando el hacha pase por la marca. Los troncos con nudo, dos golpes seguidos.' },
+  velas: { nombre: 'las velas', who: 'manolo', emocion: 'Worried', texto: '¡Se ha ido la luz! Con cada relámpago se apaga una vela. Toca las apagadas y Charizard las enciende. A los que duermen, ni tocarlos.' },
+  estrellas: { nombre: 'los deseos', who: 'manolo', emocion: 'Happy', texto: '¡Lluvia de estrellas! Toca las fugaces y pide un deseo. Y si pasa una chistorra fugaz, que no se escape, que Charizard la tiene pedida.' },
+  cafe: { nombre: 'el café', who: 'manolo', emocion: 'Happy', texto: 'Café a la malagueña, como en el Café Central: mantén pulsado para echar la leche y suelta justo en la raya.' },
+  despensa: { nombre: 'la despensa', who: 'manolo', emocion: 'Worried', texto: 'Se oye masticar en la despensa… Arrastra la linterna y deja la luz encima de los ojos que brillan hasta pillarlo.' },
+  planta: { nombre: 'la planta', who: 'manolo', emocion: 'Worried', texto: 'Riego la planta, pero con disimulo. Como pase la agente Mara y nos pille regando, Bulbasaur duerme en el calabozo.' },
+  maletas: { nombre: 'las maletas', who: 'manolo', emocion: 'Sigh', texto: 'Cuántas maletas… Charizard las sube colgadas de la cola. Toca para soltar cada una encima de la pila.' },
+  camino: { nombre: 'el camino', who: 'charizard', emocion: 'Happy', texto: 'Charizard mira el camino cortado, se crece y enciende la cola. Mantén pulsado y arrastra el fuego por la nieve, sin tocar el muñeco ni el cartel.' },
+  termal: { nombre: 'el termal', who: 'manolo', emocion: 'Happy', texto: 'Al termal. Charizard, tú calientas: mantén pulsado para más fuego y suelta para que se enfríe. Cada uno lo quiere a su punto.' },
 };
-async function minijuego(juego) {
+// opts: texto, who y emocion (para cambiar la frase de entrada), datos (lo que necesita el minijuego),
+// nivel (0-1, lo difícil que es según los días) y moral (la de Charizard)
+async function minijuego(juego, { texto, who, emocion, datos = {}, nivel = 0.3, moral = 6, volver = true } = {}) {
   const j = SUCESO_JUEGO[juego];
   go('cocina');
   setMood('cocina');
-  say(j.who, j.emocion, j.texto);
-  const res = await kitchen.cook({ id: juego, nombre: j.nombre, juego, pasos: [{ texto: j.texto }] }, { moral: 6, nivel: 0.3, onStep: () => {} });
-  go('posada');
+  const entrada = texto || j.texto;
+  say(who || j.who, emocion || j.emocion, entrada);
+  const res = await kitchen.cook({ id: juego, nombre: j.nombre, juego, pasos: [{ texto: entrada }], datos },
+    { moral, nivel, onStep: p => say(p.who || 'manolo', p.emo || 'Normal', p.texto) });
+  if (volver) go('posada');   // (en las pruebas no: allí no se pasa por la posada)
   return res;
 }
 
@@ -375,7 +403,7 @@ function roomPrompt(id, trasCharla = false) {
   // decirle que no: se va de verdad, triste, y vuelve otro día
   const away = text => () => { counter.close(); go('posada'); say('manolo', 'Sad', text); inn.sendAway(id); };
   // el que no cabe por la puerta tampoco pide nada aquí: mira la puerta y se mira la barriga
-  const noCabe = whereFor(h) === 'fuera';
+  const noCabe = whereFor(h) === 'fuera' && !inn.freeRooms(id).length;
   const text = noCabe ? `(${h.nombre} mira la puerta. Luego se mira la barriga. Luego la puerta otra vez.)`
     : trasCharla ? 'Bueno… ¿y qué habitación me das?'
     : h.preguntado ? '¿Hay ya habitación para mí?'
@@ -422,7 +450,8 @@ async function startTalk(id, after = null, done = null) {
   const resto = (talk.entry.subtitulo || '').replace(/^\S+ visita · /, '');
   const sub = h.cameo ? talk.entry.subtitulo || '' : `${ORD[talk.visita - 1] || `Visita ${talk.visita}`} visita${resto ? ` · ${resto}` : ''}`;
   charla(h, talk.entry, sub, {
-    mejoras: inn.mejoras(),
+    // (las frases que cambian si alguien trabaja ya en la posada: «plantilla:<id>»)
+    mejoras: [...inn.mejoras(), ...inn.bookView().plantilla.map(x => `plantilla:${x}`)],
     applyEffects: ef => inn.applyEffects(id, ef),
     async onEnd() {
       // si la charla acaba con el huésped yéndose, no se sigue a la recepción
@@ -437,7 +466,10 @@ async function startTalk(id, after = null, done = null) {
 }
 
 // Recorre una charla en el mostrador: quién habla, su cara, su animación y las respuestas
+// en los grupos, los pequeños (los hijos junto a sus padres) salen un poco más chicos
+const PEQUENOS = new Set(['ponyta', 'rattata', 'tentacool', 'horsea', 'krabby', 'seel', 'goldeen', 'poliwhirl', 'sandshrew', 'venonat', 'grimer', 'ekans', 'mankey', 'magnemite', 'omanyte', 'kabuto', 'abra']);
 let musicaEvento = false;   // mientras suena el tema de un evento, la hora no cambia la música
+let enPlano = false;        // y mientras dura un plano corto con su música
 function charla(h, entry, sub, { mejoras = [], applyEffects = () => {}, onEnd }) {
   // cada evento (las excursiones) con su música: la feria, el Oeste, el dojo…
   if (h.cameo) { musicaEvento = true; setMood(h.id); }
@@ -445,7 +477,7 @@ function charla(h, entry, sub, { mejoras = [], applyEffects = () => {}, onEnd })
     mejoras,
     applyEffects,
     onEnd() {
-      if (musicaEvento) { musicaEvento = false; setMood(last?.fase || 'manana'); }
+      if (musicaEvento || enPlano) { musicaEvento = false; enPlano = false; setMood(last?.fase || 'manana'); }
       return onEnd();
     },
     onNode(node) {
@@ -456,9 +488,15 @@ function charla(h, entry, sub, { mejoras = [], applyEffects = () => {}, onEnd })
         : node.quien === 'huesped' ? { sprite: h.sprite, nombre: h.hablante || h.nombre }
         : node.quien === 'pareja' && h.acompanante ? { sprite: h.acompanante, nombre: h.acompananteNombre || h.nombre } : CREW[node.quien];
       // en los grupos sale delante el que habla; «anim» hace su animación (se duerme, baila…)
-      if (miembro) counter.setGuest(miembro.sprite);
+      if (miembro) counter.setGuest(miembro.sprite, null, {
+        pequeno: PEQUENOS.has(miembro.id), lado: ['0138', '0139'].includes(miembro.sprite) });
       counter.sombrero(!/quita el sombrero|vuela el sombrero/i.test(node.texto));
-      counter.silueta(node.silueta);
+      // los planos cortos (el toro, el tejado, la hoguera…), cada uno con su música mientras dura
+      const plano = node.plano || (node.silueta ? 'toro' : null);
+      counter.plano(plano);
+      if (plano && plano !== 'toro') { enPlano = true; musicaEvento = true; setMood(`plano_${plano}`); }
+      else if (enPlano) { enPlano = false; musicaEvento = !!h.cameo; setMood(h.cameo ? h.id : last?.fase || 'manana'); }
+      if (node.cielo) counter.cielo(node.cielo);
       if (node.anim) setTimeout(() => sfxAnim(node.anim), 250);   // y la animación suena
       counter.speak(node.quien, node.emocion, node.anim, node.anim_quien && node.anim_quien !== node.quien ? quienSprite(node.anim_quien) : null);
       const options = node.opciones
@@ -497,7 +535,7 @@ function render(v) {
   if (state !== 'cocina' && !musicaEvento) setMood(v.fase);
   rainSound(!!v.lluvia);
   $('#day').textContent = `Día ${v.dia} · ${FASE_NOMBRE[v.fase]}`;
-  $('#stats').innerHTML = `${starsHtml(v.estrellas)} ${v.monedas} monedas · ${v.chistorra} chistorra${v.chistorra === 1 ? '' : 's'} · Charizard ${esc(v.charizard)}`;
+  $('#stats').innerHTML = `${starsHtml(v.estrellas)} ${v.monedas} monedas · ${v.chistorra} chistorra${v.chistorra === 1 ? '' : 's'} · <img class="mini-cara" src="${portraitUrl('0006', v.charizard === 'de buen humor' ? 'Happy' : v.charizard === 'tranquilo' ? 'Normal' : 'Angry')}" alt="Charizard" title="Charizard"><span class="largo">Charizard </span>${esc(v.charizard)}`;
   $('#advance').textContent = v.advance;
 }
 
@@ -559,7 +597,7 @@ function shop() {
   // las obras, una por noche (lo demás se compra mientras haya dinero)
   const yaHoy = shopTab === 'Obras' && list.some(u => u.bloqueada && !u.tiene && !u.falta);
   const v = last;
-  let html = `<div class="shop-head">${starsHtml(v.estrellas)}<span>${v.monedas} monedas</span></div>`
+  let html = `<div class="shop-head">${starsHtml(v.estrellas)}<span>${v.monedas} monedas</span><button class="secondary volver-arriba" id="shop-back">Volver</button></div>`
     + (yaHoy ? '<p class="muted small">Una obra por noche: mañana, otra.</p>' : '')
     + `<nav class="shop-tabs">${grupos.map(g => `<button class="secondary${g === shopTab ? ' active' : ''}" data-tab="${esc(g)}">${esc(g)}</button>`).join('')}</nav><ul class="shop">`;
   for (const u of list.filter(x => x.grupo === shopTab)) {
@@ -568,7 +606,8 @@ function shop() {
       : u.tiene ? '<span class="owned">Hecha</span>'
       : `<button data-buy="${u.id}" ${u.puede ? '' : 'disabled'}>${u.precio} monedas</button>`;
     const pts = u.puntos && !u.tiene ? `<i class="fama-chip">${starsHtml(1).replace('class="stars"', 'class="stars one"')}+${u.puntos}</i>` : '';
-    html += `<li class="${u.tiene ? 'done' : ''}"><div><strong>${esc(u.nombre)} ${pts}</strong><span>${esc(u.falta ? `Antes hay que hacer: ${u.falta}` : u.efecto)}</span></div>${right}</li>`;
+    const nota = u.falta ? `Antes hay que hacer: ${u.falta}` : u.faltanEstrellas ? `Solo para una posada de ${u.faltanEstrellas} estrellas.` : u.efecto;
+    html += `<li class="${u.tiene ? 'done' : ''}"><div><strong>${esc(u.nombre)} ${pts}</strong><span>${esc(nota)}</span></div>${right}</li>`;
   }
   html += '</ul>';
   card('noche', { title: 'Mejoras', html, button: last?.fase === 'noche' ? 'Ver la posada de noche' : 'Volver a la posada' });
@@ -577,6 +616,7 @@ function shop() {
   }
   for (const b of document.querySelectorAll('.shop-tabs [data-tab]')) b.addEventListener('click', () => { shopTab = b.dataset.tab; shop(); });
   for (const b of document.querySelectorAll('[data-fondo]')) b.addEventListener('click', () => descargarFondo(b.dataset.fondo));
+  $('#shop-back').addEventListener('click', () => $('#stub-back').click());
 }
 
 // ---------- libro de visitas (estilo Pokédex) y recetario ----------
@@ -601,7 +641,7 @@ async function libro() {
         return `<img src="${portraitUrl(g.sprite, 'Happy')}" alt="${esc(g.especie)}" title="${esc(g.especie)}" width="40" height="40">`;
       }).join('');
       return `<li><strong>${esc(r.nombre[0].toUpperCase() + r.nombre.slice(1))}</strong>`
-        + (e ? `<span>Cocinada ${e.veces} ${e.veces === 1 ? 'vez' : 'veces'} · ${e.perfectos} perfecta${e.perfectos === 1 ? '' : 's'}</span>` : '<span>Aún no se ha cocinado.</span>')
+        + (e ? `<span>${r.genero === 'f' ? 'Cocinada' : 'Cocinado'} ${e.veces || 0} ${e.veces === 1 ? 'vez' : 'veces'} · ${e.perfectos || 0} ${r.genero === 'f' ? 'perfecta' : 'perfecto'}${e.perfectos === 1 ? '' : 's'}</span>` : '<span>Aún no se ha cocinado.</span>')
         + `<span>${r.juego && r.juego !== 'llama' ? JUEGO[r.juego] : `Fuego: ${r.pasos.map(p => p.zona).join(' → ')}`}</span>`
         + (caras ? `<div class="faces">Les gusta: ${caras}</div>` : '') + '</li>';
     }).join('') + '</ul>';
@@ -652,7 +692,7 @@ async function libro() {
       ${e.felicidad != null && !g.cameo ? `<p>Última estancia ${heartsHtml(e.felicidad)}</p>` : ''}</div></div>
       <p class="reason">${esc(g.razon)}</p>
       ${book.plantilla.includes(g.id) ? `<p class="reason">Trabaja en la posada: ${esc(g.empleo?.puesto || '')}.</p>` : ''}
-      <h4>Su historia</h4>${g.aparece?.no_si && book.flags[g.aparece.no_si] ? '<p class="muted">Se ha quedado a vivir en la posada.</p>' : book.terminados?.has(g.id) ? '<p class="muted">Historia completa: se despidió de la posada.</p>' : ''}${capitulos.length ? `<ol class="chapters">${capitulos.map(c => `<li>${esc(c)}</li>`).join('')}</ol>` : '<p class="muted">Aún no habéis charlado.</p>'}
+      <h4>Su historia</h4>${g.aparece?.no_si && book.flags[g.aparece.no_si] ? '<p class="muted">Se ha quedado a vivir en la posada.</p>' : book.plantilla.includes(g.id) ? '<p class="muted">Historia completa: se quedó a trabajar en la posada.</p>' : book.terminados?.has(g.id) ? '<p class="muted">Historia completa: se despidió de la posada.</p>' : ''}${capitulos.length ? `<ol class="chapters">${capitulos.map(c => `<li>${esc(c)}</li>`).join('')}</ol>` : '<p class="muted">Aún no habéis charlado.</p>'}
       ${g.cameo ? '' : `<h4>Le gusta</h4><p>${gusta.length ? gusta.map(id => esc(recipes.find(r => r.id === id).nombre)).join(', ') : '<span class="muted">Todavía no lo sabes: cocínale algo rico.</span>'}</p>`}`;
   }
   go('libro');
@@ -663,15 +703,67 @@ $('#book-close').addEventListener('click', () => go('posada'));
 
 // ---------- exportar e importar la partida ----------
 
-$('#start-export').addEventListener('click', () => {
+// ---------- tu partida: copias automáticas, código para otro aparato y archivo ----------
+let confirmCopia = null;
+async function panelPartida() {
+  const lista = copias();
+  const fecha = ms => new Date(ms).toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+  const html = `<p class="muted small">La partida se guarda sola al acabar cada parte del día, y también la del final de los días anteriores.</p>
+    <h4>Copias de días anteriores</h4>`
+    + (lista.length ? `<ul class="copias">${lista.map((c, i) => `<li><span>Día ${c.dia} <small class="muted">· ${esc(fecha(c.fecha))}</small></span>
+        <button class="secondary" data-copia="${i}">${confirmCopia === i ? '¿Seguro? Vuelves a ese día' : 'Volver a este día'}</button></li>`).join('')}</ul>`
+      : '<p class="muted small">Aún no hay copias de otros días: se hacen solas al ir jugando.</p>')
+    + `<h4>Pasar la partida a otro aparato</h4>
+    <p class="muted small">Copia el código y pégalo aquí mismo en el otro aparato (móvil u ordenador).</p>
+    <p class="demo"><button id="cod-copiar" ${hasSave() ? '' : 'disabled'}>Copiar código</button>${navigator.share ? `<button id="cod-compartir" class="secondary" ${hasSave() ? '' : 'disabled'}>Compartir</button>` : ''}</p>
+    <textarea id="cod-texto" rows="3" placeholder="Pega aquí el código de la partida"></textarea>
+    <p class="demo"><button id="cod-cargar" class="secondary">Cargar este código</button></p>
+    <h4>En un archivo</h4>
+    <p class="demo"><button id="start-export" class="secondary" ${hasSave() ? '' : 'disabled'}>Exportar partida</button><button id="start-import" class="secondary">Importar partida</button></p>`;
+  card('partida', { title: 'Tu partida', html, button: 'Volver' });
+  for (const b of document.querySelectorAll('[data-copia]')) b.addEventListener('click', async () => {
+    const i = +b.dataset.copia;
+    if (confirmCopia !== i) { confirmCopia = i; return panelPartida(); }
+    confirmCopia = null;
+    await inn.importState(JSON.stringify(lista[i].datos));
+    refreshStart();
+    go('inicio');
+    toast(`Has vuelto al día ${lista[i].dia}.`);
+  });
+  const codigo = () => codigoDe(inn.exportState());
+  $('#cod-copiar').addEventListener('click', async () => {
+    const c = await codigo();
+    try { await navigator.clipboard.writeText(c); toast('Código copiado. Pégalo en el otro aparato, en «Tu partida».'); }
+    catch { $('#cod-texto').value = c; $('#cod-texto').select(); toast('Copia el código del recuadro.'); }
+  });
+  $('#cod-compartir')?.addEventListener('click', async () => {
+    try { await navigator.share({ title: 'Mi partida de El Pino Calcinado', text: await codigo() }); } catch { /* cancelado */ }
+  });
+  $('#cod-cargar').addEventListener('click', async () => {
+    const t = $('#cod-texto').value.trim();
+    if (!t) return toast('Pega primero el código en el recuadro.');
+    try {
+      await inn.importState(await textoDe(t));
+      refreshStart();
+      go('inicio');
+      toast(`Partida cargada: día ${last.dia}.`);
+    } catch {
+      toast('Ese código no es una partida de El Pino Calcinado (o le falta un trozo).');
+    }
+  });
+  $('#start-export').addEventListener('click', exportarArchivo);
+  $('#start-import').addEventListener('click', () => $('#import-file').click());
+}
+$('#start-partida').addEventListener('click', () => { confirmCopia = null; panelPartida(); });
+
+function exportarArchivo() {
   const blob = new Blob([inn.exportState()], { type: 'application/json' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
   a.download = `el-pino-calcinado-dia-${last?.dia ?? 1}.json`;
   a.click();
   setTimeout(() => URL.revokeObjectURL(a.href), 1000);
-});
-$('#start-import').addEventListener('click', () => $('#import-file').click());
+}
 $('#import-file').addEventListener('change', async ev => {
   const file = ev.target.files[0];
   ev.target.value = '';
@@ -679,9 +771,10 @@ $('#import-file').addEventListener('change', async ev => {
   try {
     await inn.importState(await file.text());
     refreshStart();
+    go('inicio');
     toast(`Partida importada: día ${last.dia}.`);
   } catch (err) {
-    toast(`No se ha podido importar: ${err.message}`);
+    toast(err instanceof SyntaxError ? 'No se ha podido importar: ese archivo no es una partida de El Pino Calcinado.' : `No se ha podido importar: ${err.message}`);
   }
 });
 
@@ -694,7 +787,6 @@ function refreshStart() {
   confirmReset = false;
   $('#start-open').textContent = saved && last ? `Continuar · día ${last.dia}` : saved ? 'Continuar' : 'Abrir la posada';
   $('#start-new').classList.toggle('hidden', !saved);
-  $('#start-export').classList.toggle('hidden', !saved);
   $('#start-new').textContent = 'Nueva partida';
   $('#start-final').classList.toggle('hidden', !inn?.finalVisto());
 }
@@ -736,6 +828,9 @@ $('#opt-sfx').checked = getPrefs().sfx;
 $('#opt-music').addEventListener('change', e => setMusic(e.target.checked));
 $('#opt-sfx').addEventListener('change', e => setSfx(e.target.checked));
 
+// que el navegador no borre la partida cuando le falte sitio
+pedirPersistencia();
+
 // Se puede instalar como app (PWA) y jugar sin conexión
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
   navigator.serviceWorker.register('sw.js').catch(() => {});
@@ -756,10 +851,10 @@ $('#start-new').addEventListener('click', async () => {
 // ---------- eventos ----------
 
 $('#hud-menu').addEventListener('click', () => go('inicio'));
-$('#stub-back').addEventListener('click', () => { if (state === 'demo') location.href = location.pathname; else go('posada'); });
+$('#stub-back').addEventListener('click', () => { if (state === 'demo') location.href = location.pathname; else if (state === 'partida') go('inicio'); else go('posada'); });
 $('[data-action="libro"]').addEventListener('click', libro);
 // la tienda de mejoras, a mano a cualquier hora (si se pasó comprar algo por la noche)
-$('[data-action="tienda"]').addEventListener('click', () => { closeChoice(); inn.focus(null); shop(); });
+$('[data-action="tienda"]').addEventListener('click', () => shop());
 $('#advance').addEventListener('click', () => { closeChoice(); inn.advance(); });
 
 scene.onHover((thing, ev) => {
@@ -800,14 +895,25 @@ async function demo() {
   const grupos = data.guests.filter(g => g.cameo);
   const html = '<p class="muted small">Lo nuevo, para verlo suelto. Aquí no se guarda nada en tu partida.</p>'
     + '<h4>Cocina</h4><p class="demo">' + [['kebab', 'Kebab de chistorra'], ['pescado', 'Sopa de pescado']].map(([id, n]) => `<button class="secondary" data-demo-cocina="${id}">${n}</button>`).join('') + '</p>'
+    + '<h4>Minijuegos nuevos</h4><p class="demo">' + MJ_DEMO.map(([id, n], i) => `<button class="secondary" data-demo-mj="${i}">${n}</button>`).join('') + '</p>'
     + '<h4>Eventos (por la mañana, cada uno con su decorado)</h4><p class="demo">' + grupos.map(g => `<button class="secondary" data-demo-evento="${g.id}">${esc(g.especie)}</button>`).join('') + '</p>'
+    + '<h4>Planos cortos de las historias</h4><p class="demo">' + PLANOS_DEMO.map(([id, , , n], i) => `<button class="secondary" data-demo-plano="${i}">${n}</button>`).join('') + '</p>'
+    + '<details class="demo"><summary>Escenas de los encargos (una por huésped)</summary><p class="demo">'
+    + encargosDemo(data).map(([f, p], i) => `<button class="secondary" data-demo-encargo="${i}">${esc(f.especie)}: ${esc(p.objeto)}</button>`).join('') + '</p></details>'
     + '<h4>Animaciones</h4><p class="demo"><button class="secondary" data-demo-anims>Verlas todas</button></p>'
-    + '<h4>Sonidos (cada uno: normal, contento y triste)</h4><p class="demo"><button class="secondary" data-demo-nana>La nana de Jigglypuff</button>'
-    + voces(data).map(v => `<button class="secondary" data-demo-grito="${v.sprite}">${esc(v.nombre)}</button>`).join('') + '</p>';
+    + '<details class="demo"><summary>Sonidos (cada uno: normal, contento y triste)</summary><p class="demo"><button class="secondary" data-demo-nana>La nana de Jigglypuff</button>'
+    + voces(data).map(v => `<button class="secondary" data-demo-grito="${v.sprite}">${esc(v.nombre)}</button>`).join('') + '</p></details>';
   card('demo', { title: 'Pruebas', html, button: 'Salir de las pruebas' });
   for (const b of document.querySelectorAll('[data-demo-cocina]')) b.addEventListener('click', () => demoCocina(b.dataset.demoCocina));
+  for (const b of document.querySelectorAll('[data-demo-mj]')) b.addEventListener('click', () => demoMinijuego(MJ_DEMO[b.dataset.demoMj]));
   for (const b of document.querySelectorAll('[data-demo-evento]')) b.addEventListener('click', () => demoEvento(grupos.find(g => g.id === b.dataset.demoEvento)));
   $('[data-demo-anims]').addEventListener('click', demoAnims);
+  for (const b of document.querySelectorAll('[data-demo-encargo]')) b.addEventListener('click', () => {
+    const [guest, pide] = encargosDemo(data)[b.dataset.demoEncargo];
+    go('posada');
+    showScene({ guest, pide, helper: pide.quien || 'manolo', fase: 'dia', atendido: true }, () => demo());
+  });
+  for (const b of document.querySelectorAll('[data-demo-plano]')) b.addEventListener('click', () => demoPlano(PLANOS_DEMO[b.dataset.demoPlano], data));
   $('[data-demo-nana]').addEventListener('click', () => cancion());
   for (const b of document.querySelectorAll('[data-demo-grito]')) b.addEventListener('click', () => {
     ['Normal', 'Happy', 'Sad'].forEach((e, i) => setTimeout(() => cry(b.dataset.demoGrito, e), i * 900));
@@ -824,13 +930,24 @@ function voces(data) {
   }
   return [...out].map(([sprite, nombre]) => ({ sprite, nombre })).sort((a, b) => a.sprite.localeCompare(b.sprite));
 }
+// Los minijuegos de los sucesos y encargos, sueltos (con unos datos de ejemplo: el café de Mr. Mime, el termal de Geodude…)
+const MJ_DEMO = [['lena', 'Leña para la nevada'], ['velas', 'Las velas del apagón', { n: 5 }], ['estrellas', 'Deseos en la lluvia de estrellas'],
+  ['cafe', 'El café a la malagueña', { tipo: 'sombra', especie: 'Mr. Mime', sprite: '0122' }], ['despensa', '¿Quién se come la chistorra?', { culpable: '0006' }],
+  ['planta', 'La planta del Bulbasaur', { modo: 'regadera', sprite: '0001' }], ['maletas', 'El Tetris de maletas'], ['camino', 'Abrir el camino'],
+  ['termal', 'El punto del termal', { punto: 'hirviendo', sprite: '0074', especie: 'Geodude', psyduck: true }]];
+async function demoMinijuego([juego, , datos = {}]) {
+  const r = await minijuego(juego, { datos, nivel: 0.3, volver: false });
+  say('manolo', r.resultado === 'perfecto' ? 'Happy' : r.resultado === 'bien' ? 'Normal' : 'Sad',
+    r.resultado === 'perfecto' ? '¡Perfecto!' : r.resultado === 'bien' ? `Bien${r.crudo ? ', por los pelos' : ''}.` : 'Mal: eso no ha salido.');
+  demo();
+}
 async function demoCocina(id) {
   const recipe = (await loadRecipes()).recipes.find(r => r.id === id);
   go('cocina');
   setMood('cocina');
   say('manolo', 'Happy', `¡Vamos allá, Charizard! Una de ${recipe.nombre}.`);
   const { resultado, crudo } = await kitchen.cook(recipe, { moral: 6, nivel: 0.2, onStep: p => say('manolo', 'Normal', p.texto) });
-  say('manolo', resultado === 'quemado' ? 'Sad' : 'Happy', resultado === 'perfecto' ? '¡Perfecto!' : resultado === 'quemado' ? 'Se ha quemado…' : crudo ? 'Bien, aunque algo crudo.' : 'Bien hecho.');
+  say('manolo', resultado === 'quemado' ? 'Sad' : 'Happy', resultado === 'perfecto' ? '¡Perfecto!' : resultado === 'quemado' ? 'Se ha quemado (o echado a perder)…' : resultado === 'crudo' ? 'Sin hacer: así no se puede servir.' : crudo ? 'Bien, aunque algo crudo.' : 'Bien hecho.');
   demo();
 }
 async function demoEvento(g) {
@@ -840,8 +957,29 @@ async function demoEvento(g) {
   await counter.open({ sprite: g.miembros[0].sprite, fase: 'manana', lugar: 'fuera', escenario: g.id });
   charla(h, dlg.entradas[0], dlg.entradas[0].subtitulo || '', { onEnd() { counter.close(); demo(); } });
 }
+// Los planos cortos: el momento suelto de su historia, con el huésped en la forma que tiene en ese capítulo
+// todos los encargos de servicio, de cada huésped y de cada una de sus formas
+function encargosDemo(data) {
+  const out = [];
+  for (const g of data.guests) for (const f of [g, ...(g.evoluciones || []).map(e => ({ ...g, ...e, base: g }))])
+    for (const p of f.pide || []) if (p.tipo !== 'comida') out.push([f, p]);
+  return out;
+}
+const PLANOS_DEMO = [['charmander', 'v2', 'fin', 'El tejado (Charmeleon)'], ['jigglypuff', 'v3', 'canta', 'La canción de Jigglypuff'],
+  ['psyduck', 'v3', 'hoguera', 'La hoguera de Psyduck'], ['gengar', 'v2', 'cante', 'El cante de Gengar'], ['jynx', 'v2', 'canta', 'La copla de Jynx'],
+  ['magmar', 'v2', 'resultado', 'El duelo de Magmar'], ['machoke', 'v1', 'ventana', 'El posado de Machoke'], ['nidoran', 'v5', 'brindis', 'La boda de los Nidoran']];
+async function demoPlano([id, entrada, nodo], data) {
+  const dlg = await loadDialogue(id);
+  const e = dlg.entradas.find(x => x.id === entrada);
+  const g = formaDe(data.guests.find(x => x.id === id), e.cuando?.visita_min || 1);
+  const h = { id, sprite: g.sprite, nombre: g.especie, hablante: g.hablante, acompanante: g.acompanante, acompananteNombre: g.acompanante_especie };
+  const { sigue, opciones, ...n } = e.nodos[nodo];
+  go('mostrador');
+  await counter.open({ sprite: g.sprite, buddy: g.acompanante, fase: 'tarde', lugar: 'dentro' });
+  charla(h, { nodos: { inicio: n } }, `Pruebas · ${e.subtitulo || ''}`, { onEnd() { counter.close(); demo(); } });
+}
 function demoAnims() {
-  const ANIMS = ['baila', 'duerme', 'gira', 'salta', 'tiembla', 'corazones', 'chispas', 'fuego', 'agua', 'humo', 'estrellas', 'notas', 'sudor', 'enfado', 'flash', 'confeti'];
+  const ANIMS = ['baila', 'duerme', 'gira', 'salta', 'vuela', 'tiembla', 'corazones', 'chispas', 'fuego', 'agua', 'humo', 'estrellas', 'notas', 'sudor', 'enfado', 'flash', 'confeti'];
   const nodos = Object.fromEntries(ANIMS.map((a, i) => [i ? a : 'inicio', { quien: 'huesped', emocion: 'Happy', texto: `Animación: ${a}.`, anim: a, ...(ANIMS[i + 1] ? { sigue: ANIMS[i + 1] } : {}) }]));
   const h = { id: 'pikachu', sprite: '0025', nombre: 'Pikachu' };
   go('mostrador');
@@ -875,7 +1013,7 @@ window.addEventListener('keydown', ev => {
   if (ev.key === 'Enter' && state === 'inicio') go('posada');
   else if (ev.key === 'Escape') {
     if (state === 'mostrador' || state === 'cocina') return;
-    if (state === 'posada' && $('#dialog-options').querySelector('button:not(#advance)')) { closeChoice(); inn.focus(null); }
+    if (state === 'posada' && $('#dialog-options').querySelector('button:not(#advance):not([aria-label])')) { closeChoice(); inn.focus(null); }
     else go(state === 'posada' ? 'inicio' : state === 'inicio' ? 'inicio' : 'posada');
   }
 });

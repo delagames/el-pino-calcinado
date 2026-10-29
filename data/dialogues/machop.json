@@ -8,9 +8,9 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Buenas! Mañana bajo a Ciudad Celeste. Voy a retar a Misty.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Llevo un mes rompiendo rocas. ¡Unas rocas enormes!", "opciones": [
-          { "texto": "¡Así se hace! A por ella", "efectos": { "afinidad": 1 }, "sigue": "animar" },
-          { "texto": "Misty usa tipo agua, ¿eh?", "sigue": "agua" },
-          { "texto": "Tú verás, chaval", "efectos": { "afinidad": -1 }, "sigue": "pasar" }
+          { "texto": "«¡Así se hace! A por ella»", "efectos": { "afinidad": 1 }, "sigue": "animar" },
+          { "texto": "«Misty usa tipo agua, ¿eh?»", "sigue": "agua" },
+          { "texto": "«Tú verás, chaval»", "efectos": { "afinidad": -1 }, "sigue": "pasar" }
         ] },
         "animar": { "quien": "manolo", "emocion": "Happy", "texto": "¡Esa es la actitud! Mañana desayunas fuerte, que corre de mi cuenta.", "sigue": "fin1" },
         "agua": { "quien": "manolo", "emocion": "Pain", "texto": "Agua… Mucha agua. Muchísima agua. (A Manolo se le cierra un ojo y le cae una gota.)", "sigue": "agua2" },
@@ -26,9 +26,9 @@
       "subtitulo": "Segunda visita · vuelve del gimnasio",
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Sad", "texto": "He perdido. Misty sacó a Starmie y me dejó empapado en diez segundos.", "opciones": [
-          { "texto": "Perder también es entrenar", "efectos": { "afinidad": 1 }, "sigue": "consuelo" },
-          { "texto": "Habrá que romper más rocas", "sigue": "rocas" },
-          { "texto": "¿Seguro que esto es lo tuyo?", "efectos": { "afinidad": -1 }, "sigue": "duda" }
+          { "texto": "«Perder también es entrenar»", "efectos": { "afinidad": 1 }, "sigue": "consuelo" },
+          { "texto": "«Habrá que romper más rocas»", "sigue": "rocas" },
+          { "texto": "«¿Seguro que esto es lo tuyo?»", "efectos": { "afinidad": -1 }, "sigue": "duda" }
         ] },
         "consuelo": { "quien": "manolo", "emocion": "Normal", "texto": "La primera vez que perdí me pasé tres días sin salir de casa. Al cuarto volví a la carga.", "sigue": "consuelo2" },
         "consuelo2": { "quien": "huesped", "emocion": "Happy", "texto": "¿De verdad? Entonces me quedan dos días de pena y uno de descanso.", "sigue": "fin" },
@@ -44,13 +44,13 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Angry", "texto": "¡Otra vez! Esta vez aguanté un minuto entero antes de salir volando por la ventana.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Worried", "texto": "Señor, usted fue líder de gimnasio, ¿verdad? Lo pone en el cuadro del comedor.", "opciones": [
-          { "texto": "Sí. Hace mucho", "efectos": { "afinidad": 1 }, "sigue": "si" },
-          { "texto": "Eso es solo un cuadro", "sigue": "no" }
+          { "texto": "«Sí. Hace mucho»", "efectos": { "afinidad": 1 }, "sigue": "si" },
+          { "texto": "«Eso es solo un cuadro»", "sigue": "no" }
         ] },
         "si": { "quien": "manolo", "emocion": "Sigh", "texto": "Gimnasio de tipo fuego, en un pueblo pequeño. Ya no existe. Otro día te lo cuento.", "sigue": "fin" },
         "no": { "quien": "huesped", "emocion": "Normal", "texto": "Ya… Pues tiene usted una medalla de fuego en un cuadro y una calva de líder retirado.", "sigue": "no2" },
         "no2": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Calva de qué?", "sigue": "fin" },
-        "fin": { "quien": "huesped", "emocion": "Sad", "texto": "Voy a dormir. Mañana más rocas." }
+        "fin": { "quien": "huesped", "emocion": "Sad", "texto": "Subo a soltar la mochila. Y luego, más rocas." }
       }
     },
     {
@@ -77,11 +77,11 @@
       "subtitulo": "Quinta visita · tiene un plan",
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Tengo un plan! Si los tipo agua me empapan, entreno bajo la cascada del monte.", "opciones": [
-          { "texto": "Eso es pensar", "efectos": { "afinidad": 1 }, "sigue": "bien" },
-          { "texto": "Te vas a resfriar", "sigue": "frio" }
+          { "texto": "«Eso es pensar»", "efectos": { "afinidad": 1 }, "sigue": "bien" },
+          { "texto": "«Te vas a resfriar»", "sigue": "frio" }
         ] },
         "bien": { "quien": "manolo", "emocion": "Happy", "texto": "Si te acostumbras al agua, el agua ya no asusta. Ojalá se me hubiera ocurrido a mí.", "sigue": "fin" },
-        "frio": { "quien": "huesped", "emocion": "Normal", "texto": "Para eso está la chimenea de la posada, ¿no?", "sigue": "fin" },
+        "frio": { "quien": "huesped", "emocion": "Normal", "texto": "Para eso está la lumbre de la posada, ¿no?", "sigue": "fin" },
         "fin": { "quien": "charizard", "emocion": "Angry", "texto": "Charizard se aparta del Machop mojado. Por si acaso." }
       }
     },

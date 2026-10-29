@@ -4,29 +4,112 @@
   "entradas": [
     {
       "id": "v1",
-      "cuando": { "visita_min": 1 },
+      "cuando": {
+        "visita_min": 1
+      },
       "subtitulo": "Una mañana · la cuadrilla de la vendimia",
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "manolo", "emocion": "Surprised", "texto": "(Por la mañana llega un autobús que huele a uva. Bajan tres con las manos moradas. Y se oye un silbato de afilador: fiu-fiu-fiuuu, de abajo arriba.)", "sigue": "scyther" },
-        "scyther": { "quien": "scyther", "emocion": "Happy", "anim": "notas", "texto": "¡El afiladooor! Scyther, afilador de Ourense. Venimos de vendimiar. ¿Tiene cuchillos? (Le afila a Manolo el de la chistorra: chis, chis.) Ahora sí corta.", "sigue": "pinsir" },
-        "pinsir": { "quien": "pinsir", "emocion": "Normal", "texto": "(Detrás, Pinsir, con dos cuernos como tijeras de podar y el ceño fruncido.) Fanfarrón. Yo podo viñas y él afila. La diferencia es que lo mío sirve.", "sigue": "scyther2" },
-        "scyther2": { "quien": "scyther", "emocion": "Angry", "anim": "enfado", "texto": "¡Siempre igual! Es mi rival de toda la vida. En los primeros juegos, a mí solo me cogías en el Rojo y a él en el Azul. Así no hay quien se haga amigo.", "sigue": "pinsir2" },
-        "pinsir2": { "quien": "pinsir", "emocion": "Normal", "anim": "tiembla", "texto": "Y aquí arriba hay escarcha. No soporto el frío. Esta cara no es de enfado. Bueno, sí. Pero es del frío.", "sigue": "charizard" },
-        "charizard": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard se sienta al lado de Pinsir y le echa aire calentito por la nariz. Pinsir no dice nada. Se arrima un poco más.", "sigue": "tangela" },
-        "tangela": { "quien": "tangela", "emocion": "Happy", "texto": "(Baja rodando una maraña de lianas con dos pies.) ¡Heeey! ¡Tangela! ¡Rock and roll! ¡Me he enredado en las viñas, tío!", "sigue": "tangela2" },
-        "tangela2": { "quien": "tangela", "emocion": "Normal", "texto": "Llevo la melena de lianas hasta el suelo desde los ochenta. Se me rompe y me vuelve a crecer. ¿Cortármela? Jamás. Es una forma de vida.", "sigue": "manolo2" },
-        "manolo2": { "quien": "manolo", "emocion": "Sigh", "texto": "(Manolo se pasa la mano por la calva. Mira la melena. Se mira la calva en el cuchillo recién afilado. El suspiro se oye en todo el prado.)", "opciones": [
-          { "texto": "«Hija, qué envidia. Disfrútala por los dos»", "efectos": { "afinidad": 1 }, "sigue": "envidia" },
-          { "texto": "«Ven, que te quito las hojas de parra»", "sigue": "pampanos" }
-        ] },
-        "envidia": { "quien": "tangela", "emocion": "Happy", "texto": "¡Gracias, tío! Pues luego hago headbanging en su honor. Por los pelos que se le fueron. ¡Va por usted!", "sigue": "afilar" },
-        "pampanos": { "quien": "tangela", "emocion": "Surprised", "texto": "¡Ojo, que alguna es mía! (Manolo tira de una hoja y sale media melena detrás.) ¡Ay! Nada, nada, que me crece. ¡Me crece!", "sigue": "afilar" },
-        "afilar": { "quien": "pinsir", "emocion": "Normal", "texto": "(Después del almuerzo, Pinsir se acerca a Scyther. Tarda mucho en hablar.) …Oye. Tengo los cuernos romos. De tanta viña.", "sigue": "scyther3" },
-        "scyther3": { "quien": "scyther", "emocion": "Surprised", "anim": "chispas", "texto": "¿Me pides a mí que te los afile? (Disimula la ilusión. Chis, chis: saltan chispas.) Listo. Como nuevos. Gratis, anda. Por esta vez.", "sigue": "pinsir3" },
-        "pinsir3": { "quien": "pinsir", "emocion": "Normal", "texto": "…Gracias. El año que viene vendimiamos juntos otra vez. (Lo dice con el mismo ceño. Pero es otro ceño.)", "sigue": "tangela3" },
-        "tangela3": { "quien": "tangela", "emocion": "Happy", "anim": "baila", "texto": "(Scyther toca el silbato y Tangela sacude la melena arriba y abajo. Vuelan hojas de parra por todo el prado.) ¡Fiu-fiu-fiuuu! ¡Eso es heavy, tío!", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Suben al autobús con la garrafa de mosto vacía. Charizard se pasa la tarde barriendo hojas. Del pino cuelga el silbato del afilador: «Para que nos llamen»." }
+        "inicio": {
+          "quien": "manolo",
+          "emocion": "Surprised",
+          "texto": "(Llega un autobús que huele a uva moscatel. Bajan tres con las manos moradas, y se oye un silbato de afilador: fiu-fiu-fiuuu.)",
+          "sigue": "scyther"
+        },
+        "scyther": {
+          "quien": "scyther",
+          "emocion": "Happy",
+          "anim": "notas",
+          "texto": "¡El afiladooor! Scyther, afilador de Ourense. Venimos de vendimiar la moscatel de la Axarquía. (Le afila a Manolo el cuchillo de la chistorra: chis, chis.) Ahora sí corta.",
+          "sigue": "pinsir"
+        },
+        "pinsir": {
+          "quien": "pinsir",
+          "emocion": "Normal",
+          "texto": "(Dos cuernos como tijeras de podar y el ceño fruncido.) Fanfarrón. Yo podo viñas en Cómpeta y él afila. La diferencia es que lo mío sirve.",
+          "sigue": "scyther2"
+        },
+        "scyther2": {
+          "quien": "scyther",
+          "emocion": "Angry",
+          "anim": "enfado",
+          "texto": "¡Siempre igual! Rivales de toda la vida: en los primeros juegos, a mí solo me cogías en el Rojo y a él en el Azul.",
+          "sigue": "pinsir2"
+        },
+        "pinsir2": {
+          "quien": "pinsir",
+          "emocion": "Normal",
+          "anim": "tiembla",
+          "texto": "Y aquí arriba hay escarcha. No soporto el frío. (Charizard le echa aire calentito por la nariz. Pinsir se arrima un poco más.)",
+          "sigue": "tangela"
+        },
+        "tangela": {
+          "quien": "tangela",
+          "emocion": "Happy",
+          "texto": "(Baja rodando una maraña de lianas con dos pies.) ¡Heeey! ¡Tangela! ¡Melena hasta el suelo desde los ochenta! ¿Cortármela? Jamás. ¡Rock and roll!",
+          "sigue": "manolo2"
+        },
+        "manolo2": {
+          "quien": "manolo",
+          "emocion": "Sigh",
+          "texto": "(Mira la melena. Se mira la calva en el cuchillo recién afilado. El suspiro se oye en todo el prado.)",
+          "opciones": [
+            {
+              "texto": "«Hija, qué envidia. Disfrútala por los dos»",
+              "efectos": {
+                "afinidad": 1
+              },
+              "sigue": "envidia"
+            },
+            {
+              "texto": "«Ven, que te quito las hojas de parra»",
+              "sigue": "pampanos"
+            }
+          ]
+        },
+        "envidia": {
+          "quien": "tangela",
+          "emocion": "Happy",
+          "texto": "¡Gracias, tío! Luego hago headbanging en su honor. ¡Por los pelos que se le fueron!",
+          "sigue": "afilar"
+        },
+        "pampanos": {
+          "quien": "tangela",
+          "emocion": "Surprised",
+          "texto": "(Manolo tira de una hoja y sale media melena detrás.) ¡Ay! Nada, nada, que me crece. ¡Me crece!",
+          "sigue": "afilar"
+        },
+        "afilar": {
+          "quien": "pinsir",
+          "emocion": "Normal",
+          "texto": "(Después del almuerzo se acerca a Scyther. Tarda mucho en hablar.) …Oye. Tengo los cuernos romos. De tanta viña.",
+          "sigue": "scyther3"
+        },
+        "scyther3": {
+          "quien": "scyther",
+          "emocion": "Surprised",
+          "anim": "chispas",
+          "texto": "¿Me pides a mí que te los afile? (Disimula la ilusión. Chis, chis: saltan chispas.) Listo. Gratis, anda. Por esta vez.",
+          "sigue": "pinsir3"
+        },
+        "pinsir3": {
+          "quien": "pinsir",
+          "emocion": "Normal",
+          "texto": "…Gracias. El año que viene vendimiamos juntos. (Lo dice con el mismo ceño. Pero es otro ceño.)",
+          "sigue": "tangela3"
+        },
+        "tangela3": {
+          "quien": "tangela",
+          "emocion": "Happy",
+          "anim": "baila",
+          "texto": "(Scyther toca el silbato y Tangela sacude la melena arriba y abajo. Vuelan hojas de parra por todo el prado.) ¡Eso es heavy, tío!",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "charizard",
+          "emocion": "Happy",
+          "texto": "Suben al autobús con la garrafa de mosto vacía. Del pino cuelga el silbato del afilador: «Para que nos llamen»."
+        }
       }
     }
   ]

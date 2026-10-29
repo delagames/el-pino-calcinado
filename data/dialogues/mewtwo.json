@@ -13,13 +13,13 @@
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Tranquilo, dragón. No vengo a pelear: ya peleé bastante. Vengo con una pregunta. ¿Quién soy? ¿Para qué me hicieron?", "sigue": "n3" },
         "n3": { "quien": "manolo", "emocion": "Worried", "texto": "¿Para qué te… hicieron?", "sigue": "n4" },
         "n4": { "quien": "huesped", "emocion": "Sad", "texto": "Unos científicos, en una isla. De una pestaña de Mew de hace siglos. Me hicieron para ser el más fuerte. Para nada más. Y yo quiero saber si hay algo más.", "opciones": [
-          { "texto": "«De momento, para cenar.» (Le ofrece una chistorra)", "efectos": { "afinidad": 1 }, "sigue": "chistorra" },
+          { "texto": "«De momento, para almorzar» (Le ofrece una chistorra)", "efectos": { "afinidad": 1 }, "sigue": "chistorra" },
           { "texto": "«Eso no lo sé. Pero la cueva está libre»", "sigue": "cueva" }
         ] },
         "chistorra": { "quien": "huesped", "emocion": "Surprised", "texto": "Pregunto por el sentido de mi existencia y me da una chistorra. (La sostiene en el aire con la mente. La mira mucho rato. Se la come.)", "anim": "estrellas", "sigue": "respuesta" },
         "respuesta": { "quien": "huesped", "emocion": "Happy", "texto": "…Es una respuesta. No sé a qué pregunta. Pero es una respuesta.", "sigue": "fin" },
         "cueva": { "quien": "huesped", "emocion": "Normal", "texto": "Una cueva. Como la mía, en Celeste. Allí nadie me pregunta nada. Aquí tampoco, por lo visto. Me vale.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Mewtwo se mete en la cueva de la ladera; solo asoma la punta de la cola por la boca. Charizard pasa la noche fuera, sentado, mirándola. Sin pestañear." }
+        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Mewtwo se mete en la cueva de la ladera; solo asoma la punta de la cola por la boca. Charizard se sienta fuera a mirarla. Sin pestañear. Cuando cae la noche, sigue ahí." }
       }
     },
     {
@@ -27,7 +27,7 @@
       "cuando": { "visita_min": 2 },
       "subtitulo": "Segunda visita · tres que se preguntan lo mismo",
       "nodos": {
-        "inicio": { "quien": "charizard", "emocion": "Surprised", "texto": "Mewtwo acaba de instalarse en la cueva cuando sube la furgoneta de Famadesa, la de la chistorra. Charizard olisquea las ruedas: debajo hay algo rosa. En el asiento, un saco… morado.", "sigue": "manolo" },
+        "inicio": { "quien": "charizard", "emocion": "Surprised", "texto": "Mewtwo acaba de llegar a la cueva cuando sube la furgoneta de la chistorra. Charizard olisquea las ruedas: debajo hay algo rosa. En el asiento, un saco… morado.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¡Mew! ¡Y ese saco es Ditto, que nos conocemos! ¿Qué hacéis aquí los dos?", "sigue": "n1" },
         "n1": { "quien": "manolo", "emocion": "Normal", "texto": "(Mewtwo sale de la cueva. Mew le mira desde debajo de la furgoneta y, por una vez, no se vuelve invisible.)", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Sad", "texto": "Tú eres del que me sacaron. Pensaba que serías más grande. Pensaba que me odiarías.", "sigue": "n3" },

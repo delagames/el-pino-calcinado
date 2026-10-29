@@ -334,8 +334,12 @@ export async function playScenes(SCENES, actors, { lastLabel = 'Seguir ▸', eac
     box.querySelector('.intro-skip').addEventListener('click', finish);
     // para las pruebas: saltar a una frase concreta
     window.__intro = { ir(e, f) { i = e; k = f; t0 = k0 = performance.now(); typed = 999; onLine(); }, get pos() { return [i, k]; } };
+    let antes = 0, escrito = null;
     function frame(now) {
       if (done) return;
+      requestAnimationFrame(frame);
+      if (now - antes < 30) return;   // ~30 fps bastan (como en la posada)
+      antes = now;
       const t = now - t0, ks = now - k0;
       const sc = SCENES[i];
       c.imageSmoothingEnabled = false;
@@ -347,11 +351,16 @@ export async function playScenes(SCENES, actors, { lastLabel = 'Seguir ▸', eac
       if (t < 400) { c.globalAlpha = 1 - t / 400; rect(c, 0, 0, W, H, '#100C14'); c.globalAlpha = 1; }
       const l = line();
       typed = Math.min(l.text.length, Math.max(typed, Math.floor(ks / 26)));
-      whoEl.textContent = l.who || '';
-      whoEl.classList.toggle('hidden', !l.who);
-      textEl.textContent = l.text.slice(0, typed);
-      moreEl.style.visibility = typed >= l.text.length && Math.floor(now / 400) % 2 ? 'visible' : 'hidden';
-      requestAnimationFrame(frame);
+      // el cuadro de texto solo se toca cuando cambia algo
+      const vis = typed >= l.text.length && Math.floor(now / 400) % 2 ? 'visible' : 'hidden';
+      const clave = `${l.who}|${typed}|${l.text.length}|${vis}|${i}|${k}`;
+      if (clave !== escrito) {
+        escrito = clave;
+        whoEl.textContent = l.who || '';
+        whoEl.classList.toggle('hidden', !l.who);
+        textEl.textContent = l.text.slice(0, typed);
+        moreEl.style.visibility = vis;
+      }
     }
     onLine();
     requestAnimationFrame(frame);

@@ -15,7 +15,7 @@
         ] },
         "trato": { "quien": "huesped", "emocion": "Happy", "texto": "Usted y yo nos vamos a entender, jefe. Un hombre que no hace preguntas vale más que una lancha nueva.", "sigue": "fin" },
         "ensena": { "quien": "huesped", "emocion": "Normal", "texto": "(Bulbasaur se da la vuelta despacio y señala el bulbo que lleva a la espalda.) Esta es la planta. La llevo desde que nací. ¿Contento?", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Charizard pasa la noche de guardia en el pasillo, con la llama de la cola muy bajita, como en las películas." }
+        "fin": { "quien": "charizard", "emocion": "Worried", "texto": "Desde ese momento, Charizard monta guardia en el pasillo, con la llama de la cola muy bajita, como en las películas." }
       }
     },
     {
@@ -45,7 +45,7 @@
         ] },
         "pino": { "quien": "huesped", "emocion": "Happy", "texto": "¿Junto al pino quemado? La ceniza es buen abono. Mi abuela diría que ahí crece hasta lo que no debe. Hecho, jefe.", "sigue": "fin" },
         "abuela": { "quien": "huesped", "emocion": "Happy", "texto": "Usted es un señor. Pero le dejo una. Una sola. Si algún día le crece algo raro en el huerto… aquí no ha pasado nada.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le choca el bulbo con la garra. Al alba, Bulbasaur baja hacia la ría. Dice que no volverá. Lo dice mirando a otro lado, como lo dice todo." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le choca el bulbo con la garra. Bulbasaur dice que mañana baja a la ría y que no volverá. Lo dice mirando a otro lado, como lo dice todo." }
       }
     },
     {
@@ -61,7 +61,7 @@
         "n4": { "quien": "huesped", "emocion": "Angry", "texto": "¡Quieto ahí! Ese capullo está bajo secreto profesional. Jefe, dígale al dragón que mi cliente no tiene nada que declarar.", "opciones": [ { "texto": "«¿Y quién es tu cliente?»", "sigue": "cliente", "efectos": { "afinidad": 1, "flags": { "bulbasaur_abogado": "cliente" } } }, { "texto": "«Ese capullo huele a que va a dar guerra»", "sigue": "guerra", "efectos": { "flags": { "bulbasaur_abogado": "guerra" } } } ] },
         "cliente": { "quien": "huesped", "emocion": "Happy", "texto": "Mi cliente soy yo, jefe. Y mi abuela, y los primos de la ría. Si alguien pregunta por nosotros, ya sabe: mejor llame a Ivysaur.", "sigue": "fin" },
         "guerra": { "quien": "huesped", "emocion": "Sad", "texto": "Guerra no, jefe. Lo que da es miedo. Mi abuela decía: lo que florece, se ve. Y yo llevo toda la vida haciendo que no se vea nada.", "sigue": "fin" },
-        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Esa noche, Ivysaur estudia en el comedor con el código abierto por el capítulo de las semillas. Charizard le guarda el sitio y le roba un caramelo.)" }
+        "fin": { "quien": "manolo", "emocion": "Sigh", "texto": "(Ivysaur abre el código en el mostrador por el capítulo de las semillas y se pone a estudiar allí mismo. Charizard le roba un caramelo.)" }
       }
     },
     {
@@ -72,7 +72,7 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "(Un Venusaur enorme se para junto al pino quemado. En el lomo lleva una flor abierta como un paraguas.) Jefe. Ya está. Ha florecido.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Ahí, donde plantamos las semillas de mi abuela, hay un bayal que da gloria verlo. La ceniza, jefe. Ya se lo dije: aquí crece hasta lo que no debe.", "sigue": "humo" },
-        "humo": { "quien": "charizard", "emocion": "Angry", "texto": "Pero Charizard no está para flores: echa humo por la nariz desde la mañana. Se ha acabado la chistorra y la furgoneta no llega.", "anim": "humo", "sigue": "flor" },
+        "humo": { "quien": "charizard", "emocion": "Angry", "texto": "Pero Charizard no está para flores: echa humo por la nariz desde que se ha levantado. Se ha acabado la chistorra y la furgoneta no llega.", "anim": "humo", "sigue": "flor" },
         "flor": { "quien": "huesped", "emocion": "Normal", "texto": "(Venusaur abre la flor despacio y un olor dulce llena el porche.) Tranquilo, grandullón. Respira. La flor está para esto.", "sigue": "calma" },
         "calma": { "quien": "charizard", "emocion": "Happy", "texto": "A Charizard se le va apagando el humo. Se sienta junto a Venusaur, apoya la cabeza en la flor y se queda dormido como un cachorro.", "anim": "duerme", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Happy", "texto": "¿Lo ve, jefe? Toda la vida escondiendo la planta, y resulta que lo mejor que tenía era enseñarla.", "sigue": "n4" },
@@ -80,7 +80,7 @@
         "tomates": { "quien": "huesped", "emocion": "Happy", "texto": "¿Usted de socio? Con factura, ¿eh?, que ahora soy legal. La primera caja se la mando en la furgoneta de la chistorra. Que no pregunten.", "sigue": "semilla" },
         "retiro": { "quien": "huesped", "emocion": "Happy", "texto": "Me lo he ganado, sí. Y sin abogado. Bueno, con uno: yo. Que es el único que me ha creído siempre.", "sigue": "semilla" },
         "semilla": { "quien": "huesped", "emocion": "Normal", "texto": "(Le pone en la mano una semilla y un papelito.) Una semilla. Legal. Con factura. Por si un día quiere que en esta casa florezca algo.", "sigue": "fin" },
-        "fin": { "quien": "manolo", "emocion": "Happy", "texto": "(Al alba, Venusaur baja hacia la ría despacio, oliendo a flor. Charizard lo despide desde el pino. Aquí ha pasado de todo, y todo bueno.)" }
+        "fin": { "quien": "manolo", "emocion": "Happy", "texto": "(Mañana Venusaur bajará a la ría despacio, oliendo a flor. Hoy se queda junto al pino, con Charizard dormido en la flor. Aquí ha pasado de todo, y todo bueno.)" }
       }
     },
     {
@@ -91,7 +91,7 @@
       "nodos": {
         "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "(Un Venusaur enorme se para junto al pino quemado. En el lomo lleva una flor abierta como un paraguas.) Jefe. Ya está. Ha florecido.", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "¿Y la semilla de mi abuela, la que le dejé? (Mira el huerto.) Ahí está, hecha un bayal. Ya le dije que algún día le crecería algo raro.", "sigue": "humo" },
-        "humo": { "quien": "charizard", "emocion": "Angry", "texto": "Pero Charizard no está para flores: echa humo por la nariz desde la mañana. Se ha acabado la chistorra y la furgoneta no llega.", "anim": "humo", "sigue": "flor" },
+        "humo": { "quien": "charizard", "emocion": "Angry", "texto": "Pero Charizard no está para flores: echa humo por la nariz desde que se ha levantado. Se ha acabado la chistorra y la furgoneta no llega.", "anim": "humo", "sigue": "flor" },
         "flor": { "quien": "huesped", "emocion": "Normal", "texto": "(Venusaur abre la flor despacio y un olor dulce llena el porche.) Tranquilo, grandullón. Respira. La flor está para esto.", "sigue": "calma" },
         "calma": { "quien": "charizard", "emocion": "Happy", "texto": "A Charizard se le va apagando el humo. Se sienta junto a Venusaur, apoya la cabeza en la flor y se queda dormido como un cachorro.", "anim": "duerme", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Happy", "texto": "¿Lo ve, jefe? Toda la vida escondiendo la planta, y resulta que lo mejor que tenía era enseñarla.", "sigue": "n4" },
@@ -99,7 +99,7 @@
         "tomates": { "quien": "huesped", "emocion": "Happy", "texto": "¿Usted de socio? Con factura, ¿eh?, que ahora soy legal. La primera caja se la mando en la furgoneta de la chistorra. Que no pregunten.", "sigue": "semilla" },
         "retiro": { "quien": "huesped", "emocion": "Happy", "texto": "Me lo he ganado, sí. Y sin abogado. Bueno, con uno: yo. Que es el único que me ha creído siempre.", "sigue": "semilla" },
         "semilla": { "quien": "huesped", "emocion": "Normal", "texto": "(Le pone en la mano una semilla y un papelito.) Una semilla. Legal. Con factura. Por si un día quiere que en esta casa florezca algo.", "sigue": "fin" },
-        "fin": { "quien": "manolo", "emocion": "Happy", "texto": "(Al alba, Venusaur baja hacia la ría despacio, oliendo a flor. Charizard lo despide desde el pino. Aquí ha pasado de todo, y todo bueno.)" }
+        "fin": { "quien": "manolo", "emocion": "Happy", "texto": "(Mañana Venusaur bajará a la ría despacio, oliendo a flor. Hoy se queda junto al pino, con Charizard dormido en la flor. Aquí ha pasado de todo, y todo bueno.)" }
       }
     }
   ]

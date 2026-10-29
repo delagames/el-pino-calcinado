@@ -4,53 +4,193 @@
   "entradas": [
     {
       "id": "v1",
-      "cuando": { "visita_min": 1 },
+      "cuando": {
+        "visita_min": 1
+      },
       "subtitulo": "Primera visita · ¿cuánto levantas?",
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Happy", "texto": "¡Buenas, jefe! ¿Cuánto levantas? No, en serio. Tienes hombros de press de banca. Desaprovechados, pero los tienes.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "(Manolo, que lo más pesado que levanta es la olla del potaje, se pone derecho por si acaso.)", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Machoke, encantado. Seis comidas al día, batido cada tres horas y espejo en el cuarto. ¿Hay espejo? Me vale una cuchara.", "opciones": [
-          { "texto": "«Tienes la ventana, que de noche refleja»", "efectos": { "afinidad": 1 }, "sigue": "ventana" },
-          { "texto": "«Aquí se viene a descansar, no a mirarse»", "sigue": "descansar" }
-        ] },
-        "ventana": { "quien": "huesped", "emocion": "Happy", "texto": "¡Perfecto! Con luz de luna se marca más el bíceps. Me pongo de lado, que es mi lado bueno. Los dos son mi lado bueno.", "sigue": "fin" },
-        "descansar": { "quien": "huesped", "emocion": "Normal", "texto": "Descansar también es entrenar, jefe. El músculo crece durmiendo. Por eso duermo en posición de bíceps.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard saca pecho a su lado, por no ser menos. Machoke le palpa el brazo: «Volumen limpio, hermano». Charizard no sabe qué es, pero le gusta." }
+        "inicio": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "¡Buenas, jefe! ¿Cuánto levantas? No, en serio. Tienes hombros de press de banca. Desaprovechados, pero los tienes.",
+          "sigue": "manolo"
+        },
+        "manolo": {
+          "quien": "manolo",
+          "emocion": "Surprised",
+          "texto": "(Manolo, que lo más pesado que levanta es la olla del potaje, se pone muy derecho.)",
+          "sigue": "n2"
+        },
+        "n2": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Machoke, encantado. Seis comidas al día, batido cada tres horas y espejo en el cuarto. ¿Hay espejo? Me vale una cuchara.",
+          "opciones": [
+            {
+              "texto": "«Tienes la ventana, que de noche refleja»",
+              "efectos": {
+                "afinidad": 1
+              },
+              "sigue": "ventana"
+            },
+            {
+              "texto": "«Aquí se viene a descansar, no a mirarse»",
+              "sigue": "descansar"
+            }
+          ]
+        },
+        "ventana": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "¡Perfecto! Con luz de luna se marca más el bíceps. Me pongo de lado, que es mi lado bueno. Los dos son mi lado bueno.",
+          "sigue": "fin",
+          "plano": "posado"
+        },
+        "descansar": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Descansar también es entrenar, jefe. El músculo crece durmiendo. Por eso duermo en posición de bíceps.",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "charizard",
+          "emocion": "Happy",
+          "texto": "Charizard saca pecho a su lado, por no ser menos. Machoke le palpa el brazo: «Volumen limpio, hermano». Charizard no lo entiende, pero se viene arriba."
+        }
       }
     },
     {
       "id": "v2",
-      "cuando": { "visita_min": 2 },
+      "cuando": {
+        "visita_min": 2
+      },
       "subtitulo": "Segunda visita · el día de pierna",
       "nodos": {
-        "inicio": { "quien": "manolo", "emocion": "Normal", "texto": "Oye, ¿tú no tendrías que estar haciendo sentadillas? Te he visto la libreta: hoy pone «PIERNA» en rojo y subrayado.", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Worried", "texto": "Eh… sí. Pero hay humedad. Y la pierna con humedad no rinde. Lo dicen los estudios. Un estudio. Un Primeape en un foro.", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Sad", "texto": "Vale, lo confieso: llevo tres años saltándome la pierna. Arriba soy un armario y abajo, dos palillos. Me sostengo por fe.", "opciones": [
-          { "texto": "«Diez sentadillas conmigo. Ahora»", "efectos": { "afinidad": 1 }, "sigue": "sentadillas" },
-          { "texto": "«Con ese cinturón disimulas mucho»", "sigue": "cinturon" }
-        ] },
-        "sentadillas": { "quien": "huesped", "emocion": "Pain", "texto": "¿Ahora? ¿Con usted? …Vale. Una. Dos. Ay. Tres. Jefe, me tiemblan cosas que no sabía que tenía.", "sigue": "diez" },
-        "diez": { "quien": "manolo", "emocion": "Happy", "texto": "¡Y diez! Mañana no vas a poder bajar la escalera. Eso es que funciona.", "sigue": "fin" },
-        "cinturon": { "quien": "huesped", "emocion": "Happy", "texto": "¿A que sí? Viene de serie. Parece de campeón, pero es de powerlifting. Campeón no he sido nunca. El cinturón no lo sabe.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Normal", "texto": "Charizard intenta una sentadilla por solidaridad. Se sienta encima de su propia cola y se queda así un rato, muy digno." }
+        "inicio": {
+          "quien": "manolo",
+          "emocion": "Normal",
+          "texto": "Oye, ¿tú no tendrías que estar haciendo sentadillas? Te he visto la libreta: hoy pone «PIERNA» en rojo y subrayado.",
+          "sigue": "n2"
+        },
+        "n2": {
+          "quien": "huesped",
+          "emocion": "Worried",
+          "texto": "Eh… sí. Pero hay humedad. Y la pierna con humedad no rinde. Lo dicen los estudios. Un estudio. Un Primeape en un foro.",
+          "sigue": "n3"
+        },
+        "n3": {
+          "quien": "huesped",
+          "emocion": "Sad",
+          "texto": "Vale, lo confieso: llevo tres años saltándome la pierna. Arriba soy un armario y abajo, dos palillos. Me sostengo por fe.",
+          "opciones": [
+            {
+              "texto": "«Diez sentadillas conmigo. Ahora»",
+              "efectos": {
+                "afinidad": 1
+              },
+              "sigue": "sentadillas"
+            },
+            {
+              "texto": "«Con ese cinturón disimulas mucho»",
+              "sigue": "cinturon"
+            }
+          ]
+        },
+        "sentadillas": {
+          "quien": "huesped",
+          "emocion": "Pain",
+          "texto": "¿Ahora? ¿Con usted? …Vale. Una. Dos. Ay. Tres. Jefe, me tiemblan cosas que no sabía que tenía.",
+          "sigue": "diez"
+        },
+        "diez": {
+          "quien": "manolo",
+          "emocion": "Happy",
+          "texto": "¡Y diez! Mañana no vas a poder bajar la escalera. Eso es que funciona.",
+          "sigue": "fin"
+        },
+        "cinturon": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "¿A que sí? Viene de serie. Parece de campeón, pero es de powerlifting. Campeón no he sido nunca. El cinturón no lo sabe.",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "charizard",
+          "emocion": "Normal",
+          "texto": "Charizard intenta una sentadilla por solidaridad. Se sienta encima de su propia cola y se queda así un rato, muy digno."
+        }
       }
     },
     {
       "id": "v3",
-      "cuando": { "visita_min": 3, "afinidad_min": 1 },
+      "cuando": {
+        "visita_min": 3,
+        "afinidad_min": 1
+      },
       "subtitulo": "Tercera visita · el hermano pequeño",
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Worried", "texto": "Jefe, ¿ha pasado por aquí mi hermano pequeño? Machop. Bajito, cejas de luchador. Va a retar a Misty.", "sigue": "manolo" },
-        "manolo": { "quien": "manolo", "emocion": "Happy", "texto": "¿Bajito y con cejas de luchador? Por aquí pasa mucho chaval camino de Celeste. Si es el tuyo, aquí tiene su casa.", "sigue": "n2" },
-        "n2": { "quien": "huesped", "emocion": "Sad", "texto": "Yo le decía que con el agua no hay nada que hacer. Que se dedicara a las pesas, como yo. Y él, erre que erre.", "sigue": "n3" },
-        "n3": { "quien": "huesped", "emocion": "Normal", "texto": "Lo de presumir es por él, ¿sabe? Para que me viera fuerte. Pero el valiente de la familia es el enano. No yo.", "opciones": [
-          { "texto": "«Pues díselo. Que te lo oiga»", "efectos": { "afinidad": 1, "flags": { "machoke_hermano": "decirselo" } }, "sigue": "decir" },
-          { "texto": "«Y entrena pierna, que él te mira los pies»", "efectos": { "flags": { "machoke_hermano": "pierna" } }, "sigue": "pierna" }
-        ] },
-        "decir": { "quien": "huesped", "emocion": "Happy", "texto": "Se lo voy a decir. Mañana bajo a buscarlo, gane o pierda. Con pancarta. Y sin camiseta, que es como mejor animo.", "sigue": "fin" },
-        "pierna": { "quien": "huesped", "emocion": "Happy", "texto": "¡Eso! Gane o no gane, lo saco a hombros. Y para sacar a alguien a hombros hacen falta piernas. Mañana, sentadillas.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Charizard le prepara un batido de despedida: bayas, avena y algo chamuscado. Machoke se lo bebe de un trago y dice que sabe a familia." }
+        "inicio": {
+          "quien": "huesped",
+          "emocion": "Worried",
+          "texto": "Jefe, ¿ha pasado por aquí mi hermano pequeño? Machop. Bajito, cejas de luchador. El de lo de Misty.",
+          "sigue": "manolo"
+        },
+        "manolo": {
+          "quien": "manolo",
+          "emocion": "Happy",
+          "texto": "¿Machop? ¡Pues claro! Ese chaval es de la casa. Ahora no está, pero aquí ha dejado medio corazón y todas las toallas mojadas.",
+          "sigue": "n2"
+        },
+        "n2": {
+          "quien": "huesped",
+          "emocion": "Sad",
+          "texto": "Yo le decía que con el agua no hay nada que hacer. Que se dedicara a las pesas, como yo. Y él, erre que erre.",
+          "sigue": "n3"
+        },
+        "n3": {
+          "quien": "huesped",
+          "emocion": "Normal",
+          "texto": "Lo de presumir es por él, ¿sabe? Para que me viera fuerte. Pero el valiente de la familia es el enano. No yo.",
+          "opciones": [
+            {
+              "texto": "«Pues díselo. Que te lo oiga»",
+              "efectos": {
+                "afinidad": 1,
+                "flags": {
+                  "machoke_hermano": "decirselo"
+                }
+              },
+              "sigue": "decir"
+            },
+            {
+              "texto": "«Y entrena pierna, que él te mira los pies»",
+              "efectos": {
+                "flags": {
+                  "machoke_hermano": "pierna"
+                }
+              },
+              "sigue": "pierna"
+            }
+          ]
+        },
+        "decir": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "Se lo voy a decir. Mañana bajo a buscarlo, esté donde esté. Con pancarta. Y sin camiseta, que es como mejor animo.",
+          "sigue": "fin"
+        },
+        "pierna": {
+          "quien": "huesped",
+          "emocion": "Happy",
+          "texto": "¡Eso! Haga lo que haga, lo saco a hombros. Y para sacar a alguien a hombros hacen falta piernas. Mañana, sentadillas.",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "charizard",
+          "emocion": "Happy",
+          "texto": "Charizard le prepara un batido de despedida: bayas, avena y algo chamuscado. Machoke se lo bebe de un trago y dice que sabe a familia."
+        }
       }
     }
   ]

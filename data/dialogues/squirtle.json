@@ -50,14 +50,14 @@
           "texto": "¡Perdón, perdón! Ya me voy, si molesto…",
           "opciones": [
             {
-              "texto": "¡No, no! Pasa, por favor",
+              "texto": "«¡No, no! Pasa, por favor»",
               "efectos": {
                 "afinidad": 1
               },
               "sigue": "pregunta"
             },
             {
-              "texto": "Es que aquí somos de fuego",
+              "texto": "«Es que aquí somos de fuego»",
               "efectos": {
                 "afinidad": -1,
                 "se_va": true
@@ -77,14 +77,14 @@
           "texto": "¿Tienen una habitación con estanque? Es que me da miedo dormir sin agua cerca.",
           "opciones": [
             {
-              "texto": "No hay estanque, pero algo se nos ocurrirá",
+              "texto": "«No hay estanque, pero algo se nos ocurrirá»",
               "efectos": {
                 "afinidad": 1
               },
               "sigue": "barreño"
             },
             {
-              "texto": "¿Miedo? ¿Tú? Pero si eres de agua",
+              "texto": "«¿Miedo? ¿Tú? Pero si eres de agua»",
               "sigue": "miedo"
             }
           ],
@@ -220,7 +220,7 @@
       "subtitulo": "Cuarta visita · inspección",
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Un Blastoise con casco y carpeta se planta en la recepción.) Buenas tardes. Inspección de incendios. ¿Esto es El Pino Calcinado?", "sigue": "manolo" },
+        "inicio": { "quien": "huesped", "emocion": "Normal", "texto": "(Un Blastoise con casco y carpeta se planta en la recepción.) Buenos días. Inspección de incendios. ¿Esto es El Pino Calcinado?", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Squirtle? ¡Pero si no cabes por la puerta! ¿Y esos cañones?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Normal", "texto": "Jefe de bomberos del distrito. Vengo solo a la inspección. Tengo un parte raro: pino quemado en la puerta, dragón suelto y cocina de leña.", "sigue": "pino" },
         "pino": { "quien": "huesped", "emocion": "Worried", "texto": "Empecemos por el pino. (Saca el bolígrafo.) Origen del incendio.", "sigue": "manolo2" },

@@ -13,7 +13,7 @@ export function humor(moral) {
 const LINES = {
   mal: [
     ['Angry', 'Charizard resopla humo por la nariz y no te mira. Hoy está de morros.'],
-    ['Sad', 'Charizard mira la despensa vacía con cara larga. Trabaja, pero a regañadientes.'],
+    ['Sad', 'Charizard mira la ristra de chistorra con cara larga. Trabaja, pero a regañadientes.'],
     ['Angry', 'Grrr… Charizard enciende el fogón con desgana. La llama le sale temblona.'],
   ],
   normal: [
@@ -40,14 +40,31 @@ export function feedLine(moral) {
 
 // Lo que pasa por la noche: baja un poco la moral y a veces desaparece una chistorra.
 // Devuelve las líneas para el resumen del día.
-export function nightEvents(st, rnd) {
+// Sin cerrojo, si alguien va a por la chistorra lo decide la posada antes de cerrar («ladron»): o se
+// juega a pillarlo con la linterna ({ quien, res }) o se la lleva sin más ({ auto: true }).
+const PILLADO = {
+  charizard: 'Pillado en la despensa: Charizard, con los carrillos llenos. Devolvió la chistorra (algo mordida) y se fue a dormir avergonzado.',
+  snorlax: 'Pillado en la despensa: Snorlax, sonámbulo, abrazado a la chistorra. La devolvió sin llegar a despertarse.',
+  meowth: 'Pillado en la despensa: Meowth, que estaba «afiliando a la despensa». La chistorra vuelve a su sitio; el carné del sindicato, no.',
+};
+const ESCAPA = {
+  charizard: 'Esta noche ha desaparecido una chistorra de la despensa. Charizard jura que no ha sido él. La puerta tiene una quemadura nueva.',
+  snorlax: 'Algo se llevó una chistorra a oscuras. Solo se oyó un ronquido camino del pino.',
+  meowth: 'Una chistorra desapareció a oscuras. En su sitio, una hoja de afiliación sin firmar.',
+};
+export function nightEvents(st, rnd, ladron = null) {
   const lines = [];
   st.moral = Math.max(0, st.moral - 1);
   const cerrojo = (st.mejoras || []).includes('cerrojo');
-  if (st.chistorra > 0 && rnd() < (cerrojo ? 0.05 : 0.35)) {
+  const roll = rnd();
+  const quien = ladron?.quien || 'charizard';
+  if (ladron?.res && ladron.res !== 'mal') {
+    lines.push(PILLADO[quien]);
+    if (quien === 'charizard') st.moral = Math.max(0, st.moral - 2);   // le han pillado: se va de morros
+  } else if (st.chistorra > 0 && (ladron?.res === 'mal' || ladron?.auto || (cerrojo && roll < 0.05))) {
     st.chistorra -= 1;
-    st.moral = Math.min(10, st.moral + 1);
-    lines.push('Esta noche ha desaparecido una chistorra de la despensa. Charizard jura que no ha sido él. La puerta tiene una quemadura nueva.');
+    if (quien === 'charizard') st.moral = Math.min(10, st.moral + 1);
+    lines.push(ESCAPA[quien]);
   }
   if (humor(st.moral) === 'mal') lines.push('Charizard se ha ido a dormir de morros. Le vendría bien una chistorra.');
   return lines;

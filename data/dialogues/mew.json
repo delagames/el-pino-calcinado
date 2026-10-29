@@ -1,13 +1,13 @@
 {
   "id": "mew",
-  "_nota": "Mew, la leyenda del patio de colegio («Mew está debajo del camión»), llega escondido debajo de la furgoneta de Famadesa. Tímido, se vuelve invisible si le miran mucho. Arco en tres visitas: debajo de la furgoneta, ahora me ves y ahora no, y del que vienen todos (bandera mew_existe).",
+  "_nota": "Mew, la leyenda del patio de colegio («Mew está debajo del camión»), llega escondido debajo de la furgoneta de la chistorra. Tímido, se vuelve invisible si le miran mucho. Arco en tres visitas: debajo de la furgoneta, ahora me ves y ahora no, y del que vienen todos (bandera mew_existe).",
   "entradas": [
     {
       "id": "v1",
       "cuando": { "visita_min": 1 },
       "subtitulo": "Primera visita · Mew está debajo de la furgoneta",
       "nodos": {
-        "inicio": { "quien": "charizard", "emocion": "Surprised", "texto": "La furgoneta de Famadesa descarga la chistorra. Charizard olisquea las ruedas y se queda muy quieto: debajo hay algo rosa que le mira.", "sigue": "manolo" },
+        "inicio": { "quien": "charizard", "emocion": "Surprised", "texto": "La furgoneta de la chistorra descarga el reparto. Charizard olisquea las ruedas y se queda muy quieto: debajo hay algo rosa que le mira.", "sigue": "manolo" },
         "manolo": { "quien": "manolo", "emocion": "Surprised", "texto": "¿Qué has encontrado, Charizard? …¿Eso es un gato rosa?", "sigue": "n2" },
         "n2": { "quien": "huesped", "emocion": "Worried", "texto": "Aquí debajo no hay nadie. Váyanse. …Bueno, hay alguien. Pero muy poquito.", "sigue": "n3" },
         "n3": { "quien": "huesped", "emocion": "Sad", "texto": "Soy Mew. Ya sé que no se lo cree. Nadie se lo cree. En los patios de colegio dicen que vivo debajo de un camión, al lado de un barco en Ciudad Carmín.", "sigue": "n4" },
@@ -34,7 +34,7 @@
         ] },
         "sobra": { "quien": "huesped", "emocion": "Happy", "texto": "¿Ni siquiera uno que solo existe en los rumores? …Me lo apunto. Por dentro, que papel no tengo.", "sigue": "fin" },
         "esconde": { "quien": "huesped", "emocion": "Sad", "texto": "Porque cuando me encuentran me quieren meter en una Ball, en un laboratorio o en una película. Debajo de la furgoneta solo me quiere la chistorra.", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Esa noche Mew duerme en el pasillo, envuelto en la manta y a la vista. Charizard monta guardia para que nadie le haga fotos." }
+        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Mew se envuelve en la manta, a la vista de todos, y no se esconde. Charizard se pone delante de guardia, para que nadie le haga fotos." }
       }
     },
     {
@@ -52,7 +52,7 @@
         ] },
         "cama": { "quien": "huesped", "emocion": "Happy", "texto": "Con la manta que huele a chistorra. Sí. Así es como dormir debajo de la furgoneta, pero con almohada.", "sigue": "fin" },
         "furgoneta": { "quien": "huesped", "emocion": "Happy", "texto": "Gracias por no obligarme. Hoy pruebo la cama, y si me asusto, bajo a la furgoneta. Saber que puedo ya es la mitad.", "sigue": "fin" },
-        "fin": { "quien": "manolo", "emocion": "Happy", "texto": "(A la mañana siguiente, en el libro de visitas, hay una firma rosa que antes no estaba: «Mew. Existo. Estuve aquí».)" }
+        "fin": { "quien": "manolo", "emocion": "Happy", "texto": "(Mew firma en rosa en el libro de visitas, que hasta ahora no se atrevía: «Mew. Existo. Estoy aquí».)" }
       }
     }
   ]

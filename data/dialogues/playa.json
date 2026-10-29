@@ -1,33 +1,117 @@
 {
   "id": "playa",
-  "_nota": "Grupo de excursión (una mañana, no duermen): el autobús que va a la Malagueta, la playa de Málaga, para a desayunar delante de la posada. Tentacool, la medusa veraneante (donde se mete, ponen la bandera roja); su madre Tentacruel, activista contra los hoteles que tapan el arrecife, que revisa si el sitio tiene «ecosistema» (solo retrato Normal); Horsea, rotulista, que escribe la pizarra con su tinta, y su padre Seadra, que cría solo (en los Seadra crían los padres) y tiene ojeras de serie (un retrato); Krabby, el sastre, que toma medidas con las pinzas, y su padre Kingler, que abre todos los tarros con su pinza y no sabe cerrarlos. Remate: a Kingler se le cae la miel, Horsea escribe «Hoy: pan tostado con miel. Mucha miel», Tentacruel aprueba la posada porque se hizo junto al pino sin talarlo y Seadra por fin se duerme. Anim: sudor, agua, humo (rama), estrellas, duerme.",
+  "_nota": "Grupo de excursión (una mañana, no duermen): guiris camino de la Malagueta, la playa de Málaga, que paran a desayunar. Kingler y su hijo Krabby, de Manchester (spanglish, pintas y English breakfast a las nueve; Krabby se quema en el autobús); Tentacruel y su hija Tentacool, de Düsseldorf (toalla reservando la sombra del pino; bandera roja en la Malagueta cuando llegan); Horsea con su librito de español para la playa y su padre Seadra, calcetines con chanclas y fotos a todo. Elección: espetos de chistorra o paella a las nueve. Remate: Seadra le pone crema a Charizard y se van cantando «¡Y viva España!». Anim: agua, fuego, sudor, notas.",
   "entradas": [
     {
       "id": "v1",
-      "cuando": { "visita_min": 1 },
+      "cuando": {
+        "visita_min": 1
+      },
       "subtitulo": "Una mañana · el autobús de la Malagueta",
       "fin_arco": true,
       "nodos": {
-        "inicio": { "quien": "manolo", "emocion": "Pain", "anim": "sudor", "texto": "(Por la mañana para un autobús que huele a crema solar: va a la Malagueta y para a desayunar. Bajan seis tipo agua, y a Manolo le caen seis gotas por la calva.)", "sigue": "tentacool" },
-        "tentacool": { "quien": "tentacool", "emocion": "Happy", "anim": "agua", "texto": "¡Hola! ¡Soy Tentacool, medusa veraneante! Donde me meto, ponen la bandera roja. ¡Es mi firma!", "sigue": "tentacruel" },
-        "tentacruel": { "quien": "tentacruel", "emocion": "Normal", "texto": "(Su madre, Tentacruel, mira el prado de arriba abajo.) ¿Aquí no hay ni un estanque? Mejor. Lo que no se construye, no se estropea.", "si_mejora": { "estanque": "tentacruel_e" }, "sigue": "tentacruel2" },
-        "tentacruel_e": { "quien": "tentacruel", "emocion": "Normal", "texto": "(Su madre, Tentacruel, ya ha metido un tentáculo en el estanque.) Antes de nada: ¿esto tiene ecosistema? Ya lo diré yo.", "sigue": "tentacruel2" },
-        "tentacruel2": { "quien": "tentacruel", "emocion": "Normal", "texto": "Soy activista. Ayer me planté delante de un hotel que tapaba el arrecife. Me hice enorme y se lo pensaron. No ponga esa cara: es la única que tengo yo.", "sigue": "horsea" },
-        "horsea": { "quien": "horsea", "emocion": "Happy", "texto": "(Horsea coge la pizarra de la puerta y escribe con su tinta. Letra preciosa.) ¡Soy Horsea, rotulista! Cuando me asusto echo tinta, así que la aprovecho.", "sigue": "seadra" },
-        "seadra": { "quien": "seadra", "emocion": "Normal", "texto": "(Su padre, Seadra, tiene ojeras hasta las aletas.) Crío solo: en los Seadra crían los padres. No duermo desde que nació. Esta es mi cara de siempre.", "sigue": "krabby" },
-        "krabby": { "quien": "krabby", "emocion": "Happy", "texto": "¡Y yo, Krabby, sastre! ¡Le hago un bañador a medida al dragón! (Le mide con las pinzas. Charizard mete tripa. Krabby apunta «XXL» sin decir nada.)", "sigue": "kingler" },
-        "kingler": { "quien": "kingler", "emocion": "Happy", "texto": "(En la mesa del desayuno: ¡POP! ¡POP! ¡POP!) ¡Soy Kingler, el padre de Krabby! Les he abierto todos los tarros con mi pinza. Diez mil caballos de fuerza.", "sigue": "kingler2" },
-        "kingler2": { "quien": "kingler", "emocion": "Worried", "texto": "¿Que quién los cierra ahora? Eso… cerrar no sé. La pinza pesa demasiado para dar vueltecitas. Abrir, de maravilla.", "opciones": [
-          { "texto": "«Pues se desayuna de lo que esté abierto»", "efectos": { "afinidad": 1 }, "sigue": "abierto" },
-          { "texto": "«Charizard, ciérralos tú, anda»", "sigue": "cerrar" }
-        ] },
-        "abierto": { "quien": "manolo", "emocion": "Happy", "texto": "(Aceitunas, pimientos, mermelada, guindillas… Media despensa abierta bajo el pino. El desayuno más raro del año, y nadie se queja.)", "sigue": "miel" },
-        "cerrar": { "quien": "charizard", "emocion": "Worried", "anim": "humo", "texto": "Charizard intenta enroscar una tapa con la garra. La tapa se funde y el tarro queda con forma de pato. Lo esconde detrás del pan.", "sigue": "miel" },
-        "miel": { "quien": "kingler", "emocion": "Pain", "texto": "(Kingler coge el tarro de miel para presumir de fuerza. Se le escurre. Cae. La miel llega hasta la puerta.) …Ay. Este no lo cierra nadie.", "sigue": "pizarra" },
-        "pizarra": { "quien": "horsea", "emocion": "Happy", "texto": "(Horsea borra la pizarra y escribe con su mejor letra: «Hoy: pan tostado con miel. Mucha miel».)", "sigue": "pino" },
-        "pino": { "quien": "tentacruel", "emocion": "Normal", "anim": "estrellas", "texto": "(Tentacruel mira el pino negro.) Hicieron la casa al lado del árbol quemado, sin talarlo. Aprobado. Lo firmo con los ochenta tentáculos.", "sigue": "seadra2" },
-        "seadra2": { "quien": "seadra", "emocion": "Normal", "anim": "duerme", "texto": "(Mientras todos mojan pan, Seadra se queda dormido de pie, por primera vez en meses. Horsea lo tapa con una toalla.)", "sigue": "fin" },
-        "fin": { "quien": "charizard", "emocion": "Happy", "texto": "Suena el claxon y suben todos, camino de la Malagueta. Kingler lleva en brazos a Seadra, que no se despierta. Charizard se pasa la mañana despegándose miel de las garras." }
+        "inicio": {
+          "quien": "manolo",
+          "emocion": "Surprised",
+          "texto": "(Para un autobús con una pegatina: «MALAGUETA BEACH TOUR». Bajan seis tipo agua con chanclas, riñonera y cara de no haber visto el sol en su vida.)",
+          "sigue": "kingler"
+        },
+        "kingler": {
+          "quien": "kingler",
+          "emocion": "Happy",
+          "texto": "¡Hola, mister! ¡Yo ser Kingler, from Manchester! ¿Esto ser el Malaguetta? ¿No? ¡No problemo! ¡Dos pintas y un English breakfast, por favour!",
+          "sigue": "manolo"
+        },
+        "manolo": {
+          "quien": "manolo",
+          "emocion": "Worried",
+          "texto": "Son las nueve de la mañana, hombre.",
+          "sigue": "krabby"
+        },
+        "krabby": {
+          "quien": "krabby",
+          "emocion": "Pain",
+          "texto": "¡Daddy, yo quemado en el autobús! ¡Por el ventanilla! ¡Muy rojo, very mucho! (Es un Krabby: siempre está rojo. Pero dice que más.)",
+          "sigue": "tentacruel"
+        },
+        "tentacruel": {
+          "quien": "tentacruel",
+          "emocion": "Normal",
+          "texto": "(Planta una toalla en la mejor sombra del pino. Son las nueve y cinco.) Ja. Reservado. Familie Tentacruel, aus Düsseldorf. Nosotras volver a las doce. Pünktlich.",
+          "sigue": "tentacool",
+          "si_mejora": {
+            "estanque": "tentacruel_e"
+          }
+        },
+        "tentacruel_e": {
+          "quien": "tentacruel",
+          "emocion": "Normal",
+          "texto": "(Planta la toalla junto al estanque.) Ja. Reservado. ¿Esto ser la playa? Klein. Muy klein. Pero reservado.",
+          "sigue": "tentacool"
+        },
+        "tentacool": {
+          "quien": "tentacool",
+          "emocion": "Happy",
+          "anim": "agua",
+          "texto": "¡Mama, Mama! ¡En la Malaguetta ponen bandera rojo cuando nosotras llegar! ¡Wir sind famosas!",
+          "sigue": "horsea"
+        },
+        "horsea": {
+          "quien": "horsea",
+          "emocion": "Happy",
+          "texto": "(Saca un librito: «Español para la playa».) ¡Bue-nos dí-as, se-ñor! ¿Dón-de es-tá el chi-rin-gui-to? ¡Yo que-rer un es-pe-to y un he-la-do, gra-cias!",
+          "sigue": "seadra"
+        },
+        "seadra": {
+          "quien": "seadra",
+          "emocion": "Normal",
+          "texto": "(Calcetines con chanclas y cámara al cuello. Le hace una foto al pino. Otra. Otra.) Oh, lovely. Very típico. ¿Dónde estar los toros? ¿No toros? Okay. Foto al pino.",
+          "sigue": "paella"
+        },
+        "paella": {
+          "quien": "kingler",
+          "emocion": "Happy",
+          "texto": "¿Y aquí haber paella? ¡Paella y sangría! ¡A las nine! ¡Ser el plan, amigou!",
+          "opciones": [
+            {
+              "texto": "«Paella no, pero espetos de chistorra, sí»",
+              "efectos": {
+                "afinidad": 1
+              },
+              "sigue": "espeto"
+            },
+            {
+              "texto": "«Paella a las nueve de la mañana no se come, hombre»",
+              "sigue": "cafe"
+            }
+          ]
+        },
+        "espeto": {
+          "quien": "charizard",
+          "emocion": "Happy",
+          "anim": "fuego",
+          "texto": "Ensarta las chistorras en una caña y las asa con la cola, como un espeto de playa. Kingler llora. Horsea: «¡Es-pe-to! ¡Mu-cho bue-no!».",
+          "sigue": "crema"
+        },
+        "cafe": {
+          "quien": "kingler",
+          "emocion": "Surprised",
+          "texto": "¿No paella? ¿No sangría? (Silencio.) …Okay. Un coffee. Con leche. Mucho leche. (Le hace una foto al café.)",
+          "sigue": "crema"
+        },
+        "crema": {
+          "quien": "charizard",
+          "emocion": "Surprised",
+          "anim": "sudor",
+          "texto": "Seadra le unta a Charizard crema de factor cincuenta por toda la cola: «For el fire, my friend. Muy importante». Charizard no sabe dónde meterse.",
+          "sigue": "fin"
+        },
+        "fin": {
+          "quien": "charizard",
+          "emocion": "Happy",
+          "anim": "notas",
+          "texto": "Suena el claxon y suben todos cantando «¡Y viva España!» con acento de Manchester. En la sombra del pino queda la toalla de Tentacruel. Reservada. Hasta el verano que viene."
+        }
       }
     }
   ]

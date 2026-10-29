@@ -96,7 +96,7 @@
       ],
       "gesto": "(Squirtle sorbe agua de un vaso muy despacio, sin quitarle ojo a Charizard.)",
       "paseo": "(Squirtle pasea despacito, sin alejarse mucho del agua. Por si acaso.)",
-      "cuarto": "(Squirtle se ha quedado en su cuarto, al lado del barreño. Por si acaso.)"
+      "cuarto": "(Squirtle se ha quedado en su cuarto, al lado del barreño.)"
     },
     "lapras": {
       "lineas": [
@@ -155,11 +155,11 @@
         },
         {
           "emocion": "Normal",
-          "texto": "Le digo yo que Sánchez y Maduro se ven a escondidas. ¿Pruebas? Ninguna. ¿Pero a que no me lo puede negar?"
+          "texto": "Le digo yo que el alcalde de Azulona y el de Ciudad Plateada se ven a escondidas. ¿Pruebas? Ninguna. ¿Pero a que no me lo puede negar?"
         },
         {
           "emocion": "Normal",
-          "texto": "Esta posada es de lo poco que queda del Kanto de verdad. Chistorra, chimenea y nadie vendiéndome criptomonedas."
+          "texto": "Esta posada es de lo poco que queda del Kanto de verdad. Chistorra, lumbre y nadie vendiéndome criptomonedas."
         },
         {
           "emocion": "Normal",
@@ -489,7 +489,7 @@
         }
       ],
       "gesto": "(Kadabra echa las cartas sobre el mantel. A su alrededor, los cubiertos se van doblando uno a uno.)",
-      "paseo": "(Kadabra pasea por el camino leyéndole el futuro a las piedras. A todas les sale lo mismo: seguir siendo piedra.)",
+      "paseo": "(Kadabra pasea por el camino leyéndoles el futuro a las piedras. A todas les sale lo mismo: seguir siendo piedra.)",
       "cuarto": "(Kadabra ha montado en su cuarto una mesita con un pañuelo y una vela. Se le oye decir «llámame, cariño» al espejo.)"
     },
     "clefairy": {
@@ -550,7 +550,7 @@
         },
         {
           "emocion": "Happy",
-          "texto": "La furgoneta de Famadesa es muy cómoda por debajo. Huele a chistorra y el motor da calorcito. Cinco estrellas."
+          "texto": "La furgoneta de la chistorra es muy cómoda por debajo. Huele a chistorra y el motor da calorcito. Cinco estrellas."
         },
         {
           "emocion": "Normal",
@@ -558,7 +558,7 @@
         }
       ],
       "gesto": "(Mew flota sobre la mesa, nota que le miran y desaparece. Solo queda la cucharilla, dando vueltas en la taza.)",
-      "paseo": "(Mew da una vuelta alrededor de la furgoneta de Famadesa y mira debajo, por si sigue ahí su sitio. Sigue.)",
+      "paseo": "(Mew da una vuelta alrededor de la furgoneta de la chistorra y mira debajo, por si sigue ahí su sitio. Sigue.)",
       "cuarto": "(Mew no ha bajado. O sí, pero invisible: hay una silla del comedor que se mueve sola de vez en cuando.)"
     },
     "ditto": {
@@ -573,7 +573,7 @@
         },
         {
           "emocion": "Sad",
-          "texto": "Lo malo de imitar es que nadie te aplaude a ti: aplauden al que haces. Yo saludo igual, por si acaso."
+          "texto": "Lo malo de imitar es que nadie te aplaude a ti: aplauden al que haces. Yo saludo igual."
         },
         {
           "emocion": "Normal",
@@ -596,7 +596,7 @@
         },
         {
           "emocion": "Happy",
-          "texto": "Charizard me ha arrimado a la chimenea. Dice que los huesos se enfrían. Lo dice con gruñidos, pero se le entiende."
+          "texto": "Charizard me ha arrimado a la estufa. Dice que los huesos se enfrían. Lo dice con gruñidos, pero se le entiende."
         },
         {
           "emocion": "Normal",
@@ -707,7 +707,7 @@
         },
         {
           "emocion": "Angry",
-          "texto": "¿Habéis visto a Charizard? Cocina, calienta la casa y enciende la chimenea. Y sin plus de peligrosidad."
+          "texto": "¿Habéis visto a Charizard? Cocina, calienta la casa y enciende la estufa. Y sin plus de peligrosidad."
         },
         {
           "emocion": "Normal",
@@ -856,7 +856,7 @@
           "texto": "(Misma cara de siempre.) Estoy contentísimo. Se me nota, ¿verdad? No. No se me nota nunca. Es por el audio."
         }
       ],
-      "gesto": "(Lickitung acerca el micrófono a la taza de Manolo para grabar cómo sopla. Manolo sopla bajito, por si acaso.)",
+      "gesto": "(Lickitung acerca el micrófono a la taza de Manolo para grabar cómo sopla. Manolo sopla bajito, muy cortado.)",
       "paseo": "(Lickitung pasea por el prado grabando el viento en los pinos. Les pide a los Pidgey que vuelen más bajito.)",
       "cuarto": "(Lickitung está en su cuarto, muy quieto, grabando el silencio. Ha colgado un cartel en la puerta: «Shhh».)"
     },
@@ -881,7 +881,7 @@
       ],
       "gesto": "(Las tres cabezas de Dodrio comentan la cena a tres voces. La del medio levanta el ala para pedir turno.)",
       "paseo": "(Dodrio da vueltas al prado corriendo a toda velocidad. Las tres cabezas discuten hacia dónde ir. Van hacia las tres.)",
-      "cuarto": "(Dodrio está en su cuarto. Se oyen tres ronquidos distintos, y de vez en cuando, uno que le lleva la contraria a los otros.)"
+      "cuarto": "(Dodrio está en su cuarto. Se oyen tres ronquidos distintos, y de vez en cuando, uno que les lleva la contraria a los otros.)"
     },
     "charmander": {
       "lineas": [
@@ -903,8 +903,8 @@
         }
       ],
       "gesto": "(Charmander remueve la sartén con mucho cuidado. Cada vez que Charizard asoma por la cocina, la llama de la cola le sube un poquito.)",
-      "paseo": "(Charmander pasea por el prado mirando al cielo, con el paraguas cerrado bajo el brazo. Por si acaso.)",
-      "cuarto": "(Charmander está en el cuarto rojo. Por debajo de la puerta se ve el brillo de la cola: hoy está tranquilo.)"
+      "paseo": "(Charmander pasea por el prado mirando al cielo, con el paraguas cerrado bajo el brazo.)",
+      "cuarto": "(Charmander está en su cuarto. Por debajo de la puerta se ve el brillo de la cola: hoy está tranquilo.)"
     },
     "caterpie": {
       "lineas": [
@@ -927,7 +927,7 @@
       ],
       "gesto": "(Caterpie escribe una carta en la mesa del comedor. Tacha una palabra, la vuelve a escribir, y dibuja un corazón al lado.)",
       "paseo": "(Caterpie pasea despacio por el prado, mordisqueando hojas y mirando hacia Ciudad Celeste.)",
-      "cuarto": "(Caterpie está en el cuarto verde. Por debajo de la puerta asoma un papel a medio escribir.)"
+      "cuarto": "(Caterpie está en su cuarto. Por debajo de la puerta asoma un papel a medio escribir.)"
     },
     "weedle": {
       "lineas": [
@@ -950,7 +950,7 @@
       ],
       "gesto": "(Weedle revisa el talonario en la mesa del comedor. Escribe una multa, la mira, la arruga y escribe «perdone».)",
       "paseo": "(Weedle recorre el camino de la posada mirando las rayas azules del suelo, una por una.)",
-      "cuarto": "(Weedle está en el cuarto amarillo. Por debajo de la puerta asoma un impreso, sellado.)"
+      "cuarto": "(Weedle está en su cuarto. Por debajo de la puerta asoma un impreso, sellado.)"
     },
     "pidgey": {
       "lineas": [
@@ -997,6 +997,29 @@
       "gesto": "(Spearow se repeina la cresta con un peine diminuto, mirándose en la cuchara, y le guiña un ojo a su reflejo.)",
       "paseo": "(Spearow pasea por el camino con andares de matón, y saluda muy educado a todo el que se cruza.)",
       "cuarto": "(Spearow está en su cuarto. Se oye una radio con rumba de los ochenta, muy bajita, para no molestar.)"
+    },
+    "spearow:22": {
+      "lineas": [
+        {
+          "emocion": "Normal",
+          "texto": "El frac me queda corto de mangas, caballero. Y de faldón. Y de todo. Es lo que tiene dar el estirón a mi edad."
+        },
+        {
+          "emocion": "Surprised",
+          "texto": "¿Sabe que puedo volar un día entero sin posarme? Antes lo usaba para perseguir morosos. Ahora, para ver el valle."
+        },
+        {
+          "emocion": "Angry",
+          "texto": "La banda dice que me he ablandado. La banda no ha venido nunca. Así que la banda, que opine desde casa."
+        },
+        {
+          "emocion": "Normal",
+          "texto": "Ya no persigo a nadie. Ahora, si veo a la bandada de Pidgey, me pongo detrás y les dejo ir delante. Muy educadamente."
+        }
+      ],
+      "gesto": "(Fearow intenta repeinarse la cresta mirándose en la cuchara, pero el pico no le cabe en el reflejo. Se conforma con media cara.)",
+      "paseo": "(Fearow da vueltas muy alto sobre el valle, sin posarse, con el frac ondeando como una bandera negra.)",
+      "cuarto": "(Fearow está en el nido del pino, con el frac colgado de una rama. Se oye la radio: rumba de los ochenta, bajita.)"
     },
     "staryu": {
       "lineas": [
@@ -1088,7 +1111,7 @@
       ],
       "gesto": "(Slowbro se lleva la cuchara a la boca muy despacio. Shellder, desde la cola, se lleva otra. Lo hacen a la vez.)",
       "paseo": "(Slowbro pasea hasta el pino. Shellder va enganchada detrás, saludando a todo el que pasa. Slowbro no sabe por qué la gente le saluda tanto.)",
-      "cuarto": "(Slowbro duerme con la cola fuera de la cama. Shellder también duerme: con la boca cerrada, por si acaso.)"
+      "cuarto": "(Slowbro duerme con la cola fuera de la cama. Shellder también duerme: con la boca bien cerrada.)"
     },
     "zubat": {
       "lineas": [
@@ -1111,7 +1134,7 @@
       ],
       "gesto": "(Zubat mueve la cabeza al ritmo de un bombo que solo oye él. Las cucharas de la mesa vibran un poco.)",
       "paseo": "(Zubat da vueltas alrededor del pino quemado, en círculos, chillando bajito para no chocar con nada.)",
-      "cuarto": "(Zubat está colgado cabeza abajo de la lámpara del cuarto morado, con la barrita luminosa encendida.)"
+      "cuarto": "(Zubat está colgado cabeza abajo de la lámpara de su cuarto, con la barrita luminosa encendida.)"
     },
     "zubat:42": {
       "lineas": [
@@ -1134,7 +1157,7 @@
       ],
       "gesto": "(Golbat sonríe con su boca enorme y le revisa los dientes a todo el que se ríe cerca.)",
       "paseo": "(Golbat sobrevuela el prado de vuelta de la guardia, despacio, sin prisa por llegar a ningún sitio.)",
-      "cuarto": "(Golbat duerme de día, colgado en el cuarto morado. En la puerta ha puesto un cartel: «Urgencias dentales: llamar fuerte».)"
+      "cuarto": "(Golbat duerme de día, colgado en su cuarto. En la puerta ha puesto un cartel: «Urgencias dentales: llamar fuerte».)"
     },
     "paras": {
       "lineas": [
@@ -1157,7 +1180,7 @@
       ],
       "gesto": "(Paras limpia un níscalo con un pincel, muy despacio, como quien restaura un cuadro.)",
       "paseo": "(Paras pasea por el borde del bosque con la cesta, agachándose cada dos pasos a oler la tierra.)",
-      "cuarto": "(Paras está en el cuarto verde, con la cesta en la mesilla. Huele a monte desde el pasillo.)"
+      "cuarto": "(Paras está en su cuarto, con la cesta en la mesilla. Huele a monte desde el pasillo.)"
     },
     "paras:47": {
       "lineas": [
@@ -1180,7 +1203,7 @@
       ],
       "gesto": "(Parasect come con la cucharilla de Charizard. La seta se inclina hacia el plato; el bicho, hacia Manolo.)",
       "paseo": "(Parasect pasea por el prado. Va donde quiere la seta. Pero de vez en cuando el bicho tuerce un poco hacia las flores.)",
-      "cuarto": "(Parasect está en el cuarto verde, quieto, con cara de muñeco. Solo la seta se mueve un poco, como si respirara.)"
+      "cuarto": "(Parasect está en su cuarto, quieto, con cara de muñeco. Solo la seta se mueve un poco, como si respirara.)"
     },
     "diglett": {
       "lineas": [
@@ -1203,7 +1226,7 @@
       ],
       "gesto": "(Diglett asoma del suelo junto a la mesa, agita la hucha una vez, clin, y se vuelve a hundir, muy educado.)",
       "paseo": "(Por el prado va avanzando un montoncito de tierra. De vez en cuando asoma el casco de Diglett, mira, y sigue.)",
-      "cuarto": "(Diglett está en el cuarto marrón. Bueno, debajo. Se oye cavar bajito, como quien hace punto.)"
+      "cuarto": "(Diglett está en su cuarto. Bueno, debajo. Se oye cavar bajito, como quien hace punto.)"
     },
     "diglett:51": {
       "lineas": [
@@ -1226,7 +1249,7 @@
       ],
       "gesto": "(Las tres cabezas de Dugtrio se turnan la cuchara del potaje: una cucharada cada una, en orden, sin discutir.)",
       "paseo": "(Por el prado avanzan tres montoncitos de tierra a la vez, muy juntos. Se oye un bolero debajo.)",
-      "cuarto": "(Dugtrio está en el cuarto marrón. Desde el pasillo se oye ensayar a tres voces, cada una por su lado.)"
+      "cuarto": "(Dugtrio está en su cuarto. Desde el pasillo se oye ensayar a tres voces, cada una por su lado.)"
     },
     "gastly": {
       "lineas": [
@@ -1249,7 +1272,7 @@
       ],
       "gesto": "(Gastly se deshace un poco cuando se ríe y tiene que volver a juntarse. Charizard le sopla para ayudarle.)",
       "paseo": "(Gastly no pasea: el viento lo pasea a él. Charizard va detrás, por si hay que recogerlo.)",
-      "cuarto": "(Gastly está en el cuarto morado, con la ventana bien cerrada y el pestillo echado. Dos veces.)"
+      "cuarto": "(Gastly está en su cuarto, con la ventana bien cerrada y el pestillo echado. Dos veces.)"
     },
     "gastly:93": {
       "lineas": [
@@ -1272,7 +1295,7 @@
       ],
       "gesto": "(Haunter ensaya caras con las manos delante del vaso, que le hace de espejo. Charizard le mira de reojo, muy serio.)",
       "paseo": "(Haunter pasea por el prado agarrándose a las vallas, de una en una, ensayando un chiste en voz alta.)",
-      "cuarto": "(Haunter está en el cuarto morado, ensayando delante del espejo. Se le oye: «…y entonces el dragón dice… no, no, otra vez».)"
+      "cuarto": "(Haunter está en su cuarto, ensayando delante del espejo. Se le oye: «…y entonces el dragón dice… no, no, otra vez».)"
     },
     "drowzee": {
       "lineas": [
@@ -1295,7 +1318,7 @@
       ],
       "gesto": "(Drowzee repasa su libreta de sueños y tacha una estrella, pensativo. Luego la vuelve a poner.)",
       "paseo": "(Drowzee pasea por el porche con las manos a la espalda, mirando las ventanas de los cuartos, como quien lee una carta de restaurante.)",
-      "cuarto": "(Drowzee está en el cuarto amarillo, con la servilleta al cuello, esperando a que se duerma la casa.)"
+      "cuarto": "(Drowzee está en su cuarto, con la servilleta al cuello, esperando a que se duerma la casa.)"
     },
     "drowzee:97": {
       "lineas": [
@@ -1316,9 +1339,9 @@
           "texto": "Antes me comía los sueños de los demás. Ahora prefiero que me los cuenten. Saben distinto, pero no se acaban."
         }
       ],
-      "gesto": "(Hypno balancea el péndulo debajo de la mesa, donde nadie lo vea. Charizard mira para otro lado, por si acaso.)",
+      "gesto": "(Hypno balancea el péndulo debajo de la mesa, donde nadie lo vea. Charizard mira para otro lado.)",
       "paseo": "(Hypno pasea por el prado al atardecer, con el péndulo quieto en el bolsillo y la mirada perdida en el monte.)",
-      "cuarto": "(Hypno está en el cuarto amarillo. Por debajo de la puerta se oye un tic-tac que no es de ningún reloj.)"
+      "cuarto": "(Hypno está en su cuarto. Por debajo de la puerta se oye un tic-tac que no es de ningún reloj.)"
     },
     "cubone:105": {
       "lineas": [
@@ -1382,7 +1405,7 @@
         },
         {
           "emocion": "Normal",
-          "texto": "He echado el humo por la chimenea, como me enseñó Charizard. Ni un solo huésped tosiendo. Es mi récord."
+          "texto": "He echado el humo por el tiro del fogón, como me enseñó Charizard. Ni un solo huésped tosiendo. Es mi récord."
         }
       ],
       "gesto": "(Weezing come potaje con dos cucharas a la vez, una por cabeza. La cara no cambia, pero las dos cucharas van muy rápido.)",
@@ -1456,7 +1479,7 @@
       ],
       "gesto": "(Bellsprout desfila por el comedor con un plato de pizza en cada hoja. Llega al final del pasillo con los dos platos vacíos.)",
       "paseo": "(Bellsprout pasea por el prado moviendo el tallo como en la pasarela. Una Pidgey le pica en la cabeza, creyendo que es un gusano.)",
-      "cuarto": "(Bellsprout está en el cuarto verde. Se le oye contar en voz alta: «uno, dos, giro, posa, uno, dos, giro, ¿hay pizza?».)"
+      "cuarto": "(Bellsprout está en su cuarto. Se le oye contar en voz alta: «uno, dos, giro, posa, uno, dos, giro, ¿hay pizza?».)"
     },
     "bellsprout:70": {
       "lineas": [
@@ -1466,7 +1489,7 @@
         },
         {
           "emocion": "Normal",
-          "texto": "En el pueblo ya no saben si toco a misa o a comer. Van a la iglesia con la servilleta puesta, por si acaso."
+          "texto": "En el pueblo ya no saben si toco a misa o a comer. Van a la iglesia con la servilleta puesta."
         },
         {
           "emocion": "Pain",
@@ -1502,7 +1525,7 @@
       ],
       "gesto": "(Victreebel se come una pizza familiar de un bocado. Todo el comedor aplaude. Charizard, desde la otra punta, aplaude más fuerte.)",
       "paseo": "(Victreebel pasea por el prado tocando su campanilla. Los Pidgey se apartan del camino con mucha educación.)",
-      "cuarto": "(Victreebel está en el cuarto verde, con la boca abierta hacia la ventana. Dice que así le entra la luna.)"
+      "cuarto": "(Victreebel está en su cuarto, con la boca abierta hacia la ventana. Dice que así le entra la luna.)"
     },
     "nidoran:33": {
       "lineas": [
@@ -1662,7 +1685,7 @@
         }
       ],
       "gesto": "(Vaporeon hace la vertical dentro del vaso de agua de la cena. Solo se le ve la cola. Los demás aplauden sin saber muy bien por qué.)",
-      "paseo": "(Vaporeon nada en el estanque haciendo figuras. Charizard le saca un ocho de diez, por no meterse en líos.)",
+      "paseo": "(Vaporeon nada en el arroyo de abajo haciendo figuras. Charizard le saca un ocho de diez, por no meterse en líos.)",
       "cuarto": "(Vaporeon está en su cuarto, en la bañera. Por debajo de la puerta sale un hilito de agua y una canción de natación sincronizada.)"
     },
     "hermanoseevee:135": {
@@ -1707,7 +1730,7 @@
           "texto": "¿Le importa que me siente aquí, al lado? Es que en casa siempre me sentaban en la otra punta de la mesa."
         }
       ],
-      "gesto": "(Flareon se ha acurrucado junto a la chimenea al lado de Charizard. Los dos echan un humillo calentito. Nadie dice nada. No hace falta.)",
+      "gesto": "(Flareon se ha acurrucado junto a la estufa al lado de Charizard. Los dos echan un humillo calentito. Nadie dice nada. No hace falta.)",
       "paseo": "(Flareon pasea por el prado y se para a oler todas las flores. Las que huele se quedan un poco tostadas, pero contentas.)",
       "cuarto": "(Flareon está en su cuarto, hecho una bola de pelo naranja encima de la almohada. Se le oye ronronear desde el pasillo.)"
     },
@@ -1756,29 +1779,6 @@
       "gesto": "(Dragonair cierra los ojos y le brillan las perlas. Por la ventana del comedor, la luna sale un poco antes de lo que tocaba.)",
       "paseo": "(Dragonair se desliza por el prado, serena. Por donde pasa, el cielo se despeja un trocito, del tamaño de un pañuelo.)",
       "cuarto": "(Dragonair duerme en el estanque, quietísima. «Está haciendo el tiempo de mañana», dice Manolo, y nadie se atreve a despertarla.)"
-    },
-    "moltres": {
-      "lineas": [
-        {
-          "emocion": "Normal",
-          "texto": "En la Liga encienden la antorcha conmigo y luego se olvidan de que estoy. Aquí me han preguntado si quería postre. Dos veces."
-        },
-        {
-          "emocion": "Normal",
-          "texto": "Su Charizard me mira mucho. No me molesta. Hace siglos que nadie me miraba sin pedirme nada."
-        },
-        {
-          "emocion": "Normal",
-          "texto": "Ese pino arde por dentro desde hace años. Alguien lo cuida sin saberlo. Usted, creo."
-        },
-        {
-          "emocion": "Normal",
-          "texto": "Dicen que no cambio nunca la cara. Es verdad. Lo que me cambia es la llama. Ahora mismo está tranquila."
-        }
-      ],
-      "gesto": "(Moltres está quieta en lo alto del pino, con las alas plegadas y la llama bajita. Desde el comedor parece una vela.)",
-      "paseo": "(Moltres da una vuelta lenta sobre el valle. Por donde pasa se encienden las farolas del pueblo, una a una, sin querer.)",
-      "cuarto": "(Moltres duerme en el nido del pino. Ha bajado tanto la llama que casi parece de noche. Charizard la mira desde la ventana.)"
     },
     "mewtwo": {
       "lineas": [
@@ -1845,7 +1845,7 @@
           "texto": "¡FORTALEZA! (Alguien ha intentado cambiarlo de silla. Metapod se endurece y la silla cruje. Nadie lo vuelve a intentar.)"
         }
       ],
-      "gesto": "(Metapod está de pie en una silla del comedor, sin moverse. Alguien le ha puesto una servilleta delante. Por si acaso.)",
+      "gesto": "(Metapod está de pie en una silla del comedor, sin moverse. Alguien le ha puesto una servilleta delante.)",
       "paseo": "(Charizard ha sacado a Metapod al prado en brazos y lo ha dejado de pie al sol. De vez en cuando, muy bajito, se oye: «Fortaleza».)",
       "cuarto": "(Metapod está en su cuarto con la puerta cerrada. Dentro se oye papel, y muy de vez en cuando: «Fortaleza».)"
     },
@@ -1938,7 +1938,7 @@
         }
       ],
       "gesto": "(Pidgeotto come de pie junto a la puerta del comedor, con las alas cruzadas. Entre bocado y bocado, vigila la despensa.)",
-      "paseo": "(Pidgeotto patrulla en círculos por encima del valle. En cada vuelta pasa por la ventana de la despensa. Por si acaso.)",
+      "paseo": "(Pidgeotto patrulla en círculos por encima del valle. En cada vuelta pasa por la ventana de la despensa.)",
       "cuarto": "(Pidgeotto está en su cuarto con la puerta entornada y un ojo en el pasillo. Dice que no duerme: vigila con los ojos cerrados.)"
     },
     "pidgey:18": {
@@ -2064,7 +2064,7 @@
         },
         {
           "emocion": "Normal",
-          "texto": "Me he traído la carpeta a la cena. Lo anoto todo. «Chimenea: humea. Dragón: también»."
+          "texto": "Me he traído la carpeta a la cena. Lo anoto todo. «Fogón: humea. Dragón: también»."
         },
         {
           "emocion": "Surprised",
@@ -2075,7 +2075,7 @@
           "texto": "Mi trabajo es que no arda nada. En esta casa es imposible. Por eso me gusta tanto venir."
         }
       ],
-      "gesto": "(Blastoise apunta algo en la carpeta entre cucharada y cucharada. Si salta una chispa de la chimenea, la apaga con un dedo sin mirar.)",
+      "gesto": "(Blastoise apunta algo en la carpeta entre cucharada y cucharada. Si salta una chispa del fogón, la apaga con un dedo sin mirar.)",
       "paseo": "(Blastoise da una vuelta alrededor del pino quemado con la carpeta en la mano. Lo mira mucho rato. No apunta nada.)",
       "cuarto": "(Blastoise duerme con el casco puesto, por si hay aviso. Si alguien estornuda en el pasillo, se mete entero en el caparazón.)"
     },
@@ -2187,7 +2187,7 @@
         },
         {
           "emocion": "Happy",
-          "texto": "Si se calla un momento… ¿lo oye? La chimenea. El pino. Alguien roncando al fondo. La mejor canción del mundo, y no es mía."
+          "texto": "Si se calla un momento… ¿lo oye? La lumbre. El pino. Alguien roncando al fondo. La mejor canción del mundo, y no es mía."
         }
       ],
       "gesto": "(Clefable come muy despacio y se tapa las orejas entre bocado y bocado. Si a alguien se le cae un tenedor, da un respingo y se ríe bajito.)",
@@ -2557,7 +2557,7 @@
         [
           "manolo",
           "Sigh",
-          "(Mr. Mime le trae un vaso invisible. Jynx se lo bebe entero. Manolo, por si acaso, trae uno de verdad.)"
+          "(Mr. Mime le trae un vaso invisible. Jynx se lo bebe entero. Manolo le trae otro de verdad.)"
         ]
       ]
     },
@@ -2955,7 +2955,7 @@
         [
           "eevee",
           "Happy",
-          "Hola, guapo. ¿Me echas las cartas? Quiero saber de quién me voy a enamorar. Esta semana."
+          "Hola, guapa. ¿Me echas las cartas? Quiero saber de quién me voy a enamorar. Esta semana."
         ],
         [
           "kadabra",
@@ -2980,7 +2980,7 @@
         [
           "manolo",
           "Sigh",
-          "(Kadabra se pone colorado y se le doblan a la vez todas las cucharas del comedor.)"
+          "(Kadabra se pone colorada y se le doblan a la vez todas las cucharas del comedor.)"
         ]
       ]
     },
@@ -3191,7 +3191,7 @@
         [
           "manolo",
           "Happy",
-          "(Larvitar apunta «buhardilla» en una servilleta. Por si acaso.)"
+          "(Larvitar apunta «buhardilla» en una servilleta.)"
         ]
       ]
     },
@@ -4258,7 +4258,7 @@
         [
           "manolo",
           "Happy",
-          "(Esa noche, los dos se van a dormir a la vez, a las ocho de la mañana, dándose las buenas noches con los pájaros cantando.)"
+          "(Al amanecer, los dos se van a dormir a la vez, dándose las buenas noches con los pájaros cantando.)"
         ]
       ]
     },
@@ -4423,17 +4423,17 @@
         [
           "geodude",
           "Normal",
-          "No, no, si está bien hecho. Torcido, pero bien hecho. ¿Tú no llevas casco? Ven, que te enseño a ponértelo como Dios manda."
+          "No, no, si está bien hecho. Torcido, pero bien hecho. Ese casco lo llevas del revés. Ven, que te enseño a ponértelo como Dios manda."
         ],
         [
           "diglett",
           "Happy",
-          "¡Por eso hacemos huelga! ¡Para que nos den casco!"
+          "¡Es nuevo! Lo ganamos con la huelga. Bueno, el casco lo ganamos; la huelga sigue."
         ],
         [
           "geodude",
           "Normal",
-          "Pues el mío te lo dejo. Yo tengo la cabeza de piedra: no me hace falta. En una semana te traigo otro."
+          "Visera para delante, así. Y si se te rompe, te dejo el mío: yo tengo la cabeza de piedra, no me hace falta."
         ],
         [
           "manolo",
@@ -4989,7 +4989,7 @@
         [
           "manolo",
           "Normal",
-          "(Esa noche, Vulpix se echa la siesta encima de la cabeza de Onix, en la boca de la cueva. Él no se mueve en toda la noche, para no despertarla.)"
+          "(Esa noche, Vulpix duerme encima de la cabeza de Onix, en la boca de la cueva. Él no se mueve hasta el amanecer, para no despertarla.)"
         ]
       ]
     },
@@ -5010,7 +5010,7 @@
         [
           "chansey",
           "Happy",
-          "Tres veces. Y las tres le dijo que tenía el corazón muy grande. Las tres, la misma frase."
+          "Tres veces. Y las tres, la Joy le dijo a Brock que tenía el corazón muy grande. La misma frase."
         ],
         [
           "onix",
@@ -5051,7 +5051,7 @@
         [
           "snorlax",
           "Happy",
-          "(Se lo piensa mucho rato.) …No. (Y se echa a dormir en mitad del pasillo.)"
+          "(Se lo piensa mucho rato.) …No. (Y se echa a dormir junto al pino de la entrada.)"
         ],
         [
           "onix",
@@ -5097,7 +5097,7 @@
         [
           "manolo",
           "Worried",
-          "(Charizard se lo ha visto desde la cocina. Esa noche le hace a Charmander una chistorra dorada, por si acaso le estaban convenciendo.)"
+          "(Charizard se lo ha visto desde la cocina. Esa noche le hace a Charmander una chistorra dorada, no vaya a ser que le estuvieran convenciendo.)"
         ]
       ]
     },

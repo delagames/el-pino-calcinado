@@ -222,7 +222,8 @@
       "tam": "grande",
       "tipos": [
         "normal"
-      ]
+      ],
+      "equipaje": true
     },
     {
       "id": "growlithe",
@@ -273,6 +274,18 @@
           "dice": "¿Me tiras la pelota? Una vez. Bueno, cien veces. ¡Guau!",
           "hecho": "Charizard le lanza el balón por el prado. Growlithe lo trae cuarenta veces. A la cuarenta y una, Charizard se hace el dormido.",
           "recuerda": "¿Y la pelota? ¡Tírala! ¡Una más!"
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un rato en el termal, calentito",
+          "objeto": "pano",
+          "quien": "charizard",
+          "gesto": "Happy",
+          "termal": "caliente",
+          "solo_si_mejora": "termal",
+          "dice": "¿Me dejáis un rato en el termal? Calentito, no hirviendo, que luego huelo a perro mojado y no hay quien me aguante.",
+          "hecho": "Charizard calienta el termal. Growlithe se mete, se sacude encima de todos y sale oliendo a perro mojado, pero feliz.",
+          "recuerda": "¿Y el termal? Calentito, ¿eh? No a hervir."
         }
       ],
       "tipos": [
@@ -315,7 +328,8 @@
               "gesto": "Happy",
               "dice": "Señor Manolo, un café. Solo, en vaso. Así lo toman los policías de las películas. ¡Guau! Digo… gracias.",
               "hecho": "Manolo le pone el café en vaso. Arcanine lo sopla muy serio, se quema el hocico y dice que eso también forma parte del servicio.",
-              "recuerda": "El café, señor Manolo. Un agente sin café es un perro con placa."
+              "recuerda": "El café, señor Manolo. Un agente sin café es un perro con placa.",
+              "cafe": "solo"
             }
           ]
         }
@@ -703,7 +717,8 @@
           "gesto": "Sigh",
           "dice": "¿Me pone un café? Pero en la barra, ¿eh? El café se toma discutiendo, y en el cuarto discuto solo.",
           "hecho": "Manolo le pone el café en la barra. Mr. Mime tarda dos horas en tomárselo, opinando de todo. Manolo asiente cada diez minutos.",
-          "recuerda": "¿Y mi café? Tengo tres opiniones esperando."
+          "recuerda": "¿Y mi café? Tengo tres opiniones esperando.",
+          "cafe": "sombra"
         },
         {
           "tipo": "comida",
@@ -951,7 +966,8 @@
           "dice": "Una sopa de pescado, por favor. Calentita, que la voz se me ha quedado en el autobús y a la voz hay que mimarla.",
           "recuerda": "¿La sopa de pescado, mi arma? La garganta me la pide."
         }
-      ]
+      ],
+      "equipaje": true
     },
     {
       "id": "bulbasaur",
@@ -1412,7 +1428,8 @@
           "gesto": "Normal",
           "dice": "Campeón, un café con aceite MCT. Sin azúcar. El azúcar es para los que no tienen visión.",
           "hecho": "Manolo no sabe qué es el MCT y le echa un chorrito del aceite de la chistorra. Magikarp lo prueba: «Esto es… disruptivo».",
-          "recuerda": "¿Y mi café con MCT? Se me está desenfocando el foco."
+          "recuerda": "¿Y mi café con MCT? Se me está desenfocando el foco.",
+          "cafe": "nube"
         },
         {
           "tipo": "comida",
@@ -1487,7 +1504,8 @@
               "gesto": "Happy",
               "dice": "Campeón, un café. Normal. Sin aceite ni nada. Lo he descubierto hace poco: el café normal está buenísimo.",
               "hecho": "Manolo le pone un café de los de siempre. Gyarados lo prueba, cierra los ojos y dice que es lo más auténtico que ha bebido nunca.",
-              "recuerda": "Campeón, ¿y el café normal? Me he aficionado."
+              "recuerda": "Campeón, ¿y el café normal? Me he aficionado.",
+              "cafe": "corto"
             }
           ]
         },
@@ -2583,7 +2601,8 @@
             }
           ]
         }
-      ]
+      ],
+      "equipaje": true
     },
     {
       "id": "geodude",
@@ -2642,6 +2661,18 @@
           "objeto": "plato",
           "dice": "Jefe, ¿un kebab? En la obra, los viernes, kebab. Es tradición. Como el bocadillo de las diez, pero a las dos.",
           "recuerda": "Jefe, el kebab, que en algún sitio es viernes."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un baño hirviendo en el termal",
+          "objeto": "pano",
+          "quien": "charizard",
+          "gesto": "Happy",
+          "termal": "hirviendo",
+          "solo_si_mejora": "termal",
+          "dice": "Jefe, ¿está el termal? Póngamelo hirviendo, que el agua templada me ablanda la roca.",
+          "hecho": "Charizard calienta el termal hasta que borbotea. Geodude se mete hasta las cejas y suelta un suspiro de piedra pómez.",
+          "recuerda": "El baño, jefe. Hirviendo, que se me enfrían las piedras."
         }
       ],
       "empleo": {
@@ -2697,7 +2728,8 @@
               "gesto": "Surprised",
               "dice": "Jefe, un café, que mañana salgo a las siete con la grupeta y sin café la bici no arranca.",
               "hecho": "Manolo le pone un café cargado. Graveler se lo toma de un trago, se pone el culotte y sale a dar una vuelta a la posada. Son las once de la noche.",
-              "recuerda": "El café, jefe, que sin café la grupeta me deja atrás."
+              "recuerda": "El café, jefe, que sin café la grupeta me deja atrás.",
+              "cafe": "solo"
             }
           ]
         },
@@ -2885,7 +2917,8 @@
           "Turnos de seis horas, siesta y café. Aquí, por una vez, me cuidan a mí.",
           "Manolo, esa cachimbita… Bueno, nada. Pero que sepas que te estoy mirando."
         ]
-      }
+      },
+      "equipaje": true
     },
     {
       "id": "dragonite",
@@ -3075,7 +3108,8 @@
           "hecho": "Manolo les da una campanilla. Las seis cabecitas la tocan por turnos hasta las tres. Charizard acaba bailando la jota.",
           "recuerda": "¡Lo que suena! —Sin música no hay peña. —Hay peña, pero triste."
         }
-      ]
+      ],
+      "equipaje": true
     },
     {
       "id": "kangaskhan",
@@ -3134,7 +3168,8 @@
           "dice": "¿Hay sopa de pescado? Para la niña, que tiene que empezar a probar cosas. Yo me como lo que me deje, que suele ser poco.",
           "recuerda": "¿La sopa? Que la niña ya está mordiendo la cuchara."
         }
-      ]
+      ],
+      "equipaje": true
     },
     {
       "id": "lickitung",
@@ -3263,7 +3298,8 @@
           "hecho": "Manolo les da el periódico. Cada cabeza lee una página y no se ponen de acuerdo ni en qué día es. Dicen que ha sido el mejor programa.",
           "recuerda": "(Izquierda) ¡El periódico! (Medio) Sin papel no hay tertulia."
         }
-      ]
+      ],
+      "equipaje": true
     },
     {
       "id": "charmander",
@@ -3755,7 +3791,8 @@
               "gesto": "Normal",
               "dice": "Un café. Para la guardia. Que nadie me vea tomarlo: los vigilantes no nos dormimos, ni siquiera un poco.",
               "hecho": "Manolo le deja el café en la ventana. Pidgeotto se lo toma de un sorbo, sin quitarle ojo al camino. No pasa nadie. Él vigila igual.",
-              "recuerda": "El café, por favor. La noche es larga."
+              "recuerda": "El café, por favor. La noche es larga.",
+              "cafe": "mitad"
             }
           ]
         },
@@ -4150,7 +4187,7 @@
           "sprite": "0099"
         }
       ],
-      "razon": "El autobús de la Malagueta paró a desayunar: Tentacool y su madre Tentacruel, la activista; Horsea, que escribió el menú con su tinta, y su padre Seadra; Krabby, el sastre, y su padre Kingler, que abrió todos los tarros y no cerró ninguno.",
+      "razon": "Guiris camino de la Malagueta que pararon a desayunar: Kingler y Krabby, de Manchester, pidiendo pintas a las nueve; Tentacruel y Tentacool, de Düsseldorf, reservando la sombra del pino con una toalla; y Horsea y Seadra, con su librito de español y sus calcetines con chanclas.",
       "aparece": {
         "dia_min": 12,
         "estrellas": 2
@@ -4167,7 +4204,7 @@
     {
       "id": "acuatico",
       "cameo": true,
-      "especie": "El espectáculo acuático de Celeste",
+      "especie": "El espectáculo de Selwo Marina",
       "dex": 86,
       "sprite": "0086",
       "miembros": [
@@ -4208,7 +4245,7 @@
           "sprite": "0062"
         }
       ],
-      "razon": "El ballet acuático del gimnasio de Ciudad Celeste, de gira de otoño, ensayó una mañana en el estanque. A Manolo le dio el tic seis veces seguidas, y Charizard aplaudió con Seel.",
+      "razon": "El espectáculo de Selwo Marina Ciudad Celeste, de gira de otoño, ensayó una mañana en el estanque: Seel trabajó por una chistorra, a Manolo le dio el tic seis veces seguidas y la ola del abuelo Poliwrath empapó a Charizard, que aplaudió con Seel.",
       "aparece": {
         "mejora": "estanque",
         "dia_min": 14,
@@ -4763,7 +4800,10 @@
       "razon": "Padre e hijo, fans de las películas del desierto de Tabernas, con sombrero de vaquero. A Sandslash se le caían las púas y vino a hablar de calvas con Manolo. Perdieron el duelo de aguantar serios.",
       "aparece": {
         "dia_min": 9,
-        "estrellas": 1
+        "estrellas": 1,
+        "tras": [
+          "oddish"
+        ]
       },
       "arco": 1,
       "tipos": [
@@ -5188,7 +5228,7 @@
           "sprite": "0089"
         }
       ],
-      "razon": "Grimer, de Limasa, la de la limpieza de Málaga, separó la basura de la posada en cinco cubos y pilló a Charizard tirando las pieles de chistorra al amarillo. Su padre Muk lo abraza todo; solo Charizard se dejó.",
+      "razon": "Grimer, de Limasa, la de la limpieza de Málaga, separó la basura de la posada en tres cubos (amarillo, azul y verde) y pilló a Charizard tirando las pieles de chistorra al amarillo. Su padre Muk lo abraza todo; solo Charizard se dejó.",
       "aparece": {
         "dia_min": 15,
         "estrellas": 2
@@ -5225,7 +5265,11 @@
       "razon": "Vinieron preguntando por Arbok y Meowth. Ekans, la sobrina de Arbok, quería aprender a cotillear y le salían buenas noticias; Persian, el gato del jefe, secó platos con Charizard y descubrió que trabajar le gusta.",
       "aparece": {
         "dia_min": 24,
-        "estrellas": 3
+        "estrellas": 3,
+        "tras": [
+          "arbok",
+          "meowth"
+        ]
       },
       "arco": 1,
       "tipos": [
@@ -5292,6 +5336,18 @@
           "objeto": "plato",
           "dice": "¿Hay pan tostado con miel? La miel es buena para el pelo. Por dentro, ¿eh? Aunque por fuera tampoco está mal.",
           "recuerda": "¿El pan con miel? Es por el brillo."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un baño templadito en el termal",
+          "objeto": "pano",
+          "quien": "charizard",
+          "gesto": "Happy",
+          "termal": "templado",
+          "solo_si_mejora": "termal",
+          "dice": "¿Me preparáis un baño en el termal? Templadito, por favor: con el agua muy caliente se me encrespan las seis colas.",
+          "hecho": "Charizard templa el agua con mucho tiento. Vulpix se mete de puntillas y sale con las seis colas como recién peinadas.",
+          "recuerda": "¿Y el baño templadito? Mis colas lo están esperando."
         }
       ],
       "evoluciones": [
@@ -5395,6 +5451,18 @@
           "objeto": "plato",
           "dice": "¿Hay estofado de setas? Perdón por pedir. Un poquito. En la olla grande, si no es molestia. Perdón.",
           "recuerda": "Perdón, ¿y el estofado? No quería molestar."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un baño calentito en el termal",
+          "objeto": "pano",
+          "quien": "charizard",
+          "gesto": "Happy",
+          "termal": "caliente",
+          "solo_si_mejora": "termal",
+          "dice": "¿Cabría en el termal? Aunque sea la cabeza. Calentito, que llevo tres días bajo tierra y tengo la roca tiesa.",
+          "hecho": "Charizard calienta el termal. Onix mete la cabeza, luego un trozo, luego otro. Al final no queda agua, pero está muy a gusto.",
+          "recuerda": "El termal… aunque sea la cabeza. Calentito, por favor."
         }
       ]
     },
@@ -5453,6 +5521,18 @@
           "dice": "¿Tiene hielo? Es para meter las manos antes de tocar la parrilla. Blaine dice que soy muy caliente de carácter.",
           "hecho": "Manolo le da un cubo de hielo. Magmar mete las manos y sale vapor por toda la cocina. Charizard se ríe tanto que se le escapa una llamarada.",
           "recuerda": "¿El hielo? Que me hierven las manos."
+        },
+        {
+          "tipo": "servicio",
+          "texto": "Un baño a hervir en el termal",
+          "objeto": "pano",
+          "quien": "charizard",
+          "gesto": "Happy",
+          "termal": "hirviendo",
+          "solo_si_mejora": "termal",
+          "dice": "¿Eso de ahí fuera es un termal? Ponlo a hervir. Si no sale humo, no es un baño: es un charco.",
+          "hecho": "Charizard sopla hasta que el termal humea. Magmar se mete, suspira y el agua sube dos grados más solo de tenerlo dentro.",
+          "recuerda": "El termal, hirviendo. ¿O es que ahí fuera hay un charco?"
         }
       ]
     },
@@ -5525,7 +5605,11 @@
       "razon": "Iban a la convención de Azafrán. Abra, hijo de Kadabra, se teletransportaba dormido cada vez que le mandaban algo y aguantó una hora despierto para despedirse. Exeggutor, de cuya copa cayeron los de la peña, entendió que no quisieran la Piedra Hoja.",
       "aparece": {
         "dia_min": 18,
-        "estrellas": 2
+        "estrellas": 2,
+        "tras": [
+          "exeggcute",
+          "kadabra"
+        ]
       },
       "arco": 1,
       "tipos": [
@@ -5563,7 +5647,7 @@
           "sprite": "0114"
         }
       ],
-      "razon": "Volvían de vendimiar. Scyther, afilador de Ourense, le afiló los cuchillos a Manolo y los cuernos a su rival Pinsir, que no soporta el frío. Tangela, heavy de melena hasta el suelo, hizo headbanging al ritmo del chiflo.",
+      "razon": "Volvían de vendimiar la moscatel de la Axarquía. Scyther, afilador de Ourense, le afiló los cuchillos a Manolo y los cuernos a su rival Pinsir, de Cómpeta, que no soporta el frío. Tangela, heavy de melena hasta el suelo, hizo headbanging al ritmo del silbato.",
       "aparece": {
         "dia_min": 20,
         "estrellas": 2
@@ -5613,7 +5697,11 @@
       "razon": "La cuadrilla de la Sevillana, la compañía de la luz, paró a desayunar y se fue la luz sin tormenta: había sido Electabuzz, que se comió los fusibles. Magnemite sintonizó a Dodrio, Magneton llamó desde la mesa de al lado y Raichu, el primo de Pikachu, se fue orgulloso de ser Raichu.",
       "aparece": {
         "dia_min": 22,
-        "estrellas": 3
+        "estrellas": 3,
+        "tras": [
+          "pikachu",
+          "dodrio"
+        ]
       },
       "arco": 1,
       "tipos": [
@@ -5870,67 +5958,6 @@
       ]
     },
     {
-      "id": "moltres",
-      "especie": "Moltres",
-      "dex": 146,
-      "sprite": "0146",
-      "razon": "La llama de la Liga Añil: todo el mundo le pide fuego y ella solo buscaba un rato a oscuras. Al irse dejó una brasa en la chimenea, por si alguna noche hace falta.",
-      "gustos": [
-        "chistorra a la brasa"
-      ],
-      "aparece": {
-        "mejora": "nido",
-        "dia_min": 38,
-        "estrellas": 5
-      },
-      "arco": 3,
-      "tipos": [
-        "fuego",
-        "volador"
-      ],
-      "duerme": "nido",
-      "pide": [
-        {
-          "tipo": "servicio",
-          "texto": "Una antorcha apagada",
-          "objeto": "antorcha",
-          "quien": "manolo",
-          "gesto": "Normal",
-          "dice": "¿Me trae una antorcha? Apagada. Quiero sostener algo que no tenga que encender. Para variar.",
-          "hecho": "Manolo le sube una antorcha vieja, apagada. Moltres la sujeta toda la tarde sin encenderla. No cambia la cara, pero parece que descansa.",
-          "recuerda": "La antorcha, Manolo. Apagada, por favor. Que no se le olvide la parte de apagada."
-        },
-        {
-          "tipo": "comida",
-          "texto": "Chistorra hecha por otro",
-          "plato": "chistorra a la brasa",
-          "receta": "chistorra",
-          "objeto": "chistorra",
-          "dice": "Una chistorra a la brasa, por favor. Hecha por otro. Llevo siglos poniendo yo el fuego para todo el mundo.",
-          "recuerda": "La chistorra. Sin prisa. Pero hecha por usted: con la suya no me vale."
-        },
-        {
-          "tipo": "servicio",
-          "texto": "Una manta, para estar a oscuras",
-          "objeto": "manta",
-          "quien": "manolo",
-          "gesto": "Worried",
-          "dice": "¿Me trae una manta oscura? Para taparme la llama y estar a oscuras un rato. Nadie me ha visto nunca a oscuras. Ni yo.",
-          "hecho": "Manolo le echa una manta por encima. Moltres se queda a oscuras, muy quieta. La manta humea un poco, pero aguanta.",
-          "recuerda": "¿La manta? Quiero probar lo de estar a oscuras."
-        },
-        {
-          "tipo": "comida",
-          "texto": "Una sopa fría, antes de calentarla",
-          "plato": "sopa de bayas",
-          "receta": "sopa",
-          "objeto": "plato",
-          "dice": "¿Hay sopa de bayas? Fría, si puede ser, como un gazpacho. Es que todo lo que como lo caliento sin querer.",
-          "recuerda": "¿La sopa fría? Antes de que la mire y se caliente."
-        }
-      ]
-    },
-    {
       "id": "mewtwo",
       "especie": "Mewtwo",
       "dex": 150,
@@ -5998,7 +6025,7 @@
     {
       "id": "fosiles",
       "cameo": true,
-      "especie": "La excursión de Isla Canela",
+      "especie": "Los veteranos de La Legión",
       "dex": 138,
       "sprite": "0138",
       "miembros": [
@@ -6033,7 +6060,7 @@
           "sprite": "0142"
         }
       ],
-      "razon": "Fósiles revividos en el laboratorio de Isla Canela, de excursión con Kabutops, guía del museo de Plateada. Omanyte no sabe qué hacer con sus ofrendas, Omastar no tira nada y Aerodactyl le gruñe a la furgoneta. Kabuto cambió de opinión por primera vez en trescientos millones de años: por la chistorra.",
+      "razon": "El III Encuentro de Veteranos de La Legión, promoción del Cámbrico: el brigada Kabutops, el sargento Omastar, el cabo Kabuto, Omanyte («Lord Helix») y Aerodactyl, que le grita al autobús. Cantaron El novio de la muerte antes del desayuno y Kabuto cambió de opinión por primera vez desde el Cámbrico.",
       "aparece": {
         "dia_min": 30,
         "estrellas": 3
@@ -6051,7 +6078,7 @@
     {
       "id": "pajaros",
       "cameo": true,
-      "especie": "Los pájaros de la tormenta",
+      "especie": "La guerra de los pájaros",
       "dex": 144,
       "sprite": "0144",
       "miembros": [
@@ -6066,9 +6093,15 @@
           "especie": "Zapdos",
           "dex": 145,
           "sprite": "0145"
+        },
+        {
+          "id": "moltres",
+          "especie": "Moltres",
+          "sprite": "0146",
+          "dex": 146
         }
       ],
-      "razon": "Al amanecer, entre nieve y truenos, trajeron hasta la posada un autobús perdido. Articuno, con fama de gafe, lleva años guiando a los perdidos hasta aquí; Zapdos, del equipo de menos gente, alumbró el camino. Discutieron de equipos hasta que se fueron volando.",
+      "razon": "Articuno, Zapdos y Moltres se pelearon en el cielo de la posada por quién se quedaba el valle: nieve, rayos y fuego a la vez. Charizard voló entre la tormenta con tres chistorras hechas a su gusto, una para cada una, y se acabó la guerra. Por ahora.",
       "aparece": {
         "mejora": "nido",
         "dia_min": 40,
